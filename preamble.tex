@@ -1,0 +1,87 @@
+%%% PDF settings
+\pdfvariable minorversion 7 % Set PDF version to 1.7.
+
+%%% Fonts and language setup.
+% Setup fonts.
+\usepackage{fontspec}
+\setmainfont{CMU Serif}
+% TODO: Find a sans-serif font.
+\setmonofont[Contextuals={Alternate}]{Fira Code Regular}
+
+\usepackage[english,russian]{babel} % Enable russian language.
+
+% Enable ligatures to work in verbatim environment.
+\usepackage{verbatim}
+\makeatletter
+\def\verbatim@nolig@list{}
+\makeatother
+
+\usepackage{hologo} % Add fancy logos like \LuaLaTeX.
+
+\usepackage{csquotes} % Quotes based on babel settings
+
+\usepackage{indentfirst} % Indent first paragraph after heading.
+
+
+%%% Page settings.
+% Fancy page geometry.
+\usepackage{geometry}
+\geometry{
+    margin=2cm,
+    % headheight=15pt,
+    % includefoot=true,
+}
+
+\usepackage{multicol} % Multicols environment.
+
+\usepackage{lastpage} % Shows last page number.
+
+\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor} % Enable color support.
+
+
+%%% Particular subjects helper tools.
+%% Math
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools} % Advanced math tools.
+\usepackage{unicode-math} % Allow TTF and OTF fonts in math and allow direct typing unicode math characters
+\unimathsetup{
+    warnings-off={
+            mathtools-colon,
+            mathtools-overbracket
+        }
+}
+% \setmathfont{CMU Math}
+% \setmathfont{XITS Math}
+
+%% Physics
+\usepackage{siunitx} % Fancy method to write physic formulas.
+
+%% Chemistry
+% Fix babel and chemformula confusion
+\let\Ch\ch % save the command for the hyperbolic cosine
+\let\ch\relax % undefine \ch
+\usepackage{chemmacros} % Chemistry signs and other.
+\usepackage{chemformula} % Write down chemical formulas.
+\usepackage{chemfig} % Draw structural formulas.
+
+
+%%% Tables
+\usepackage{array, tabularx, tabulary, booktabs, longtable} % Cool tables.
+\usepackage{multirow} % Combine rows in table.
+
+
+%%% Images
+% Support for images.
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{wrapfig} % Floating images.
+
+
+
+% Please add everything above.
+
+%%% HyperRef
+% Add hyperlinks to PDF and make them invisible.
+\usepackage{hyperref}
+\hypersetup{
+    hidelinks
+}
