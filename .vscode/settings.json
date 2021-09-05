@@ -1,0 +1,33 @@
+{
+  "latex-workshop.latex.tools": [
+    {
+      "name": "lualatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-lualatex",
+        "-shell-escape",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    }
+  ],
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (lualatex)",
+      "tools": ["lualatexmk"]
+    }
+  ],
+  "files.exclude": {
+    "**/**.aux": true,
+    "**/**.fdb_latexmk": true,
+    "**/**.fls": true,
+    "**/**.log": true,
+    "**/**.out": true,
+    "**/**.synctex.gz": true
+  }
+}
