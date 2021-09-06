@@ -1,7 +1,7 @@
 # File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
 
-# Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,latex
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,latex
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,latex,osx,windows
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,linux,latex,osx,windows
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
@@ -126,6 +126,7 @@ acs-*.bib
 
 # gregoriotex
 *.gaux
+*.glog
 *.gtex
 
 # htlatex
@@ -141,8 +142,8 @@ acs-*.bib
 
 # knitr
 *-concordance.tex
-# TODO Comment the next line if you want to keep your tikz graphics files
-*.tikz
+# TODO Uncomment the next line if you use knitr and want to ignore its generated tikz files
+# *.tikz
 *-tikzDictionary
 
 # listings
@@ -171,6 +172,9 @@ _minted*
 
 # morewrites
 *.mw
+
+# newpax
+*.newpax
 
 # nomencl
 *.nlg
@@ -281,6 +285,9 @@ TSWLatexianTemp*
 # Makeindex log files
 *.lpz
 
+# xwatermark package
+*.xwm
+
 # REVTeX puts footnotes in the bibliography by default, unless the nofootinbib
 # option is specified. Footnotes are the stored in a file with suffix Notes.bib.
 # Uncomment the next line to have this generated file ignored.
@@ -293,6 +300,50 @@ TSWLatexianTemp*
 # glossaries
 *.glstex
 
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### OSX ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -301,9 +352,13 @@ TSWLatexianTemp*
 !.vscode/extensions.json
 *.code-workspace
 
+# Local History for Visual Studio Code
+.history/
+
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+.ionide
 
 ### Windows ###
 # Windows thumbnail cache files
@@ -331,6 +386,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,latex
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,latex,osx,windows
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
+
+!main.pdf
