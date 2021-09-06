@@ -2,13 +2,13 @@
 \pdfvariable minorversion 7 % Set PDF version to 1.7.
 
 %%% Fonts and language setup.
+\usepackage{polyglossia}
 % Setup fonts.
 \usepackage{fontspec}
 \setmainfont{CMU Serif}
 % TODO: Find a sans-serif font.
 \setmonofont[Contextuals={Alternate}]{Fira Code Regular}
 
-\usepackage[english,russian]{babel} % Enable russian language.
 
 % Enable ligatures to work in verbatim environment.
 \usepackage{verbatim}
@@ -76,9 +76,10 @@
 \graphicspath{{images/}}
 \usepackage{wrapfig} % Floating images.
 
-%%% Commands
-\newcommand{\textib}[1]{\textit{\textbf{#1}}} % Bold italic font.
-\newcommand{\case}[1]{{\small \textit{#1}}} % Make font one step smaller and adds italicizes content.
+
+%%% Polyglossia setup after (nearly) everything as described in documentation.
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
 
 % Please add everything above.
 
