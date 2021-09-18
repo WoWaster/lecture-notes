@@ -1,0 +1,25 @@
+\documentclass[12pt, a4paper]{memoir}
+\input{../../../preamble.tex}
+\usepackage{subfiles}
+
+\title{Дискретная математика}
+\author{Пономарев Николай, Бабин Руслан\\
+    Курс Григорьевой Н.С.}
+\date{Осень 2021 г.}
+
+\begin{document}
+\frontmatter
+
+\begin{titlingpage}
+    \maketitle
+\end{titlingpage}
+
+\microtypesetup{protrusion=false}
+\tableofcontents
+\microtypesetup{protrusion=true}
+
+
+\mainmatter
+\subfile{01_combinatorics.tex}
+\subfile{02_vectors.tex}
+\end{document}
