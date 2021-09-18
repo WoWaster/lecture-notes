@@ -6,46 +6,11 @@
 % Setup fonts.
 \usepackage{fontspec}
 \setmainfont{CMU Serif}
-% TODO: Find a sans-serif font.
-\setmonofont[Contextuals={Alternate}]{Fira Code Regular}
-
-
-% Enable ligatures to work in verbatim environment.
-\usepackage{verbatim}
-\makeatletter
-\def\verbatim@nolig@list{}
-\makeatother
-
-\usepackage{hologo} % Add fancy logos like \LuaLaTeX.
-
-\usepackage{csquotes} % Quotes based on babel settings.
-
-\usepackage{indentfirst} % Indent first paragraph after heading.
-
-% Eliminate space between items in lists.
-\usepackage{enumitem}
-\setlist{noitemsep}
 
 \usepackage{microtype} % Add fancy-schmancy font tricks.
-
-%%% Page settings.
-% Fancy page geometry.
-\usepackage{geometry}
-\geometry{
-    a4paper,
-    margin=2cm,
-    % headheight=15pt,
-    % includefoot=true,
-}
-
-\usepackage{multicol} % Multicols environment.
-
-\usepackage{lastpage} % Shows last page number.
-
-\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor} % Enable color support.
+\usepackage{multicol}
 
 
-%%% Particular subjects helper tools.
 %% Math
 \usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools} % Advanced math tools.
 \usepackage{unicode-math} % Allow TTF and OTF fonts in math and allow direct typing unicode math characters.
@@ -55,37 +20,50 @@
             mathtools-overbracket
         }
 }
-
-%% Physics
-\usepackage{siunitx} % Fancy method to write physic formulas.
-
-
-%%% Tables
-\usepackage{array} % Improved column definition.
-\usepackage{tabularx} % Adds X columns that are stretched to have equal width.
-\usepackage{tabulary} % Makes rows equal height by adjusting column width.
-\usepackage{booktabs} % Adds fancy rules to use with tables.
-\usepackage{longtable} % Table that spans across multiple pages.
-\usepackage{tabu} % Adds 'longtabu' that identical to longtable, but with X column support.
-\usepackage{multirow} % Combine rows in table.
-
+\setmathfont{Latin Modern Math} % default
+\setmathfont[range={\setminus,\varnothing}]{Asana Math}
 
 %%% Images
-% Support for images.
 \usepackage{graphicx}
 \graphicspath{{images/}}
 \usepackage{wrapfig} % Floating images.
 
+%%% Bibtex
+% \usepackage[style=gost-inline,
+%     language=auto]{biblatex}
 
 %%% Polyglossia setup after (nearly) everything as described in documentation.
 \setdefaultlanguage{russian}
 \setotherlanguage{english}
 
-% Please add everything above.
+
+%%% Custom commands
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\zv}{\mathbf{0}}
+\newcommand{\LNZ}{\mathop{\mathrm{ЛНЗ}}}
+\newcommand{\LZ}{\mathop{\mathrm{ЛЗ}}}
+\newcommand{\LK}{\mathop{\mathrm{ЛК}}}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+
+%%% amsthm envs
+\theoremstyle{plain}
+\newtheorem{assertion}{Утверждение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{lemma}{Лемма}
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\newtheorem{prop}{Свойство}
+\theoremstyle{remark}
+\newtheorem*{case}{Пример}
+\renewcommand{\qedsymbol}{\blacksquare}
+%%% Memoir settings
+\chapterstyle{veelo}
 
 %%% HyperRef
-% Add hyperlinks to PDF and make them invisible.
 \usepackage{hyperref}
-\hypersetup{
-    hidelinks
-}
