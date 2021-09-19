@@ -51,6 +51,14 @@
 \newcommand{\LK}{\mathop{\mathrm{ЛК}}}
 \renewcommand{\le}{\leqslant}
 \renewcommand{\ge}{\geqslant}
+\renewcommand*{\&}{%
+    \relax
+    \ifmmode
+        \mathbin{\char`\&}%
+    \else
+        \char`\&\relax
+    \fi
+}
 
 %%% amsthm envs
 \theoremstyle{plain}
@@ -61,6 +69,7 @@
 \newtheorem{definition}{Определение}
 \newtheorem{term}{Термин}
 \newtheorem{prop}{Свойство}
+\newtheorem{axiom}{Аксиома}
 \theoremstyle{remark}
 \newtheorem*{case}{Пример}
 \renewcommand{\qedsymbol}{\blacksquare}
