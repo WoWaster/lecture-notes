@@ -1,0 +1,193 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Группы}
+\section{Введение}
+\begin{definition}
+    Бинарная операция на множестве $M$ -- отображение из $M \times M \to M$
+\end{definition}
+
+\subsection{Примеры}
+\begin{enumerate}
+    \item $+, -, \cdot$ на \Z
+    \item $+$ на векторном пространстве
+    \item $M= X^X = \{f: X \to X\}$\\
+          $(f,g) \mapsto f\circ g$\\
+          $M \times M \mapsto M$
+\end{enumerate}
+
+\subsection{Свойства}
+Есть операция $M \times M \to M$, обозначим ее $(a,b) \mapsto a*b$
+\begin{enumerate}
+    \item Если $\forall a,b \in M: a*b = b*a$, то $*$ коммутативна
+    \item $*$ ассоциативна, если  $\forall a,b,c \in M: (a*b)*c = a*(b*c)$
+    \item $e\in M$ называется левым нейтральным, если $\forall a \in M: e*a=a$
+          \marginpar{В вычитании целых чисел ноль нейтрален справа}\\
+          $e\in M$ называется правым нейтральным, если $\forall a \in M: a*e=a$\\
+          $e\in M$ называется нейтральный, если он и левый, и правый нейтральный
+          \begin{lemma}
+              Пусть $*$ -- операция, $e_L, e_R$ -- нейтральные слева
+              и справа относительно $*$, тогда $e_L = e_R$.
+          \end{lemma}
+          \begin{proof}
+              \[e_R = e_L \cdot e_R = e_L\]
+          \end{proof}
+    \item \marginpar{Обратное к $a$ обозначается $a^{-1}$}
+          Пусть $e$ нейтральный относительно $*$, $a\in M$. Элемент $b \in M$
+          называется обратным к $a$, если $b*a = a*b = e$\\
+          Если $b*a = e \Rightarrow b$ обратный слева\\
+          Если $a*b = e \Rightarrow b$ обратный справа
+          \begin{lemma}
+              Если $*$ ассоциативна и у $a$ если левый и правый обратный,
+              тогда они равны. $b*a=e, a*c=e$
+          \end{lemma}
+          \begin{proof}
+              \begin{gather*}
+                  (b*a)*c=b*(c*a)\\
+                  e*c =b*e\\
+                  c=b
+              \end{gather*}
+          \end{proof}
+\end{enumerate}
+
+Если $*$ -- ассоциативная операция, $m \in \Z$:
+\begin{equation*}
+    a^m =
+    \begin{cases}
+        a_1 * a_2 * \ldots * a_m                  & m > 0 \\
+        e                                         & m = 0 \\
+        a_1^{-1}* a_2^{-1} * \ldots * a_{-m}^{-1} & m < 0
+    \end{cases}
+\end{equation*}
+
+\[a^m * a^n = a^{m+n} \qquad (a^m)^n = a^ {mn}\]
+
+\section{Определение группы}
+
+\begin{definition}
+    Группой называется множества $G$ с операцией $*$, такие что:
+    \begin{enumerate}
+        \item $*$ ассоциативна
+        \item У $*$ есть нейтральный элемент
+        \item У любого $g\in G$ есть обратный
+    \end{enumerate}
+    Группа $G$ называется абелевой (коммутативной), если $*$ коммутативна
+\end{definition}
+
+\subsection{Примеры}
+\begin{enumerate}
+    \marginpar{1--4 абелевы группы}
+    \item $(\Z, +)$
+    \item $(\Q, +), (\R, +)$
+    \item $(\Q \setminus \{0\}, \cdot), (\R \setminus \{0\}, \cdot)$
+    \item $(\{1, -1\}, \cdot)$
+    \item $(X^X, \cdot)$ -- не группа, при $|X| > 1$
+    \item $(S(X), \cdot)$, что
+          $S(x)=\{f:x\to x : x \text{ - биекция}\}$ -- группа,
+          не абелева при $|X| = 2$
+\end{enumerate}
+
+\section{Подгруппы}
+
+\begin{case}
+    $(\Z, +)$ -- группа, $2\Z = \{2n: n \in \Z\}$ -- подгруппа
+\end{case}
+
+\begin{definition}
+    $G$ -- группа, $H \subset G$ называется подгруппой, если:
+    \begin{enumerate}
+        \item $H$ замкнуто относительно умножения, т.е. $\forall h_1, h_2 \in H: h_1 h_2 \in H$
+        \item $e \in H$
+        \item $H$ замкнуто относительно обратного, т.е. $\forall h \in H: h^{-1} \in H$
+    \end{enumerate}
+\end{definition}
+
+\subsection{Примеры} \marginpar{$\subset \Leftrightarrow <$}
+\begin{itemize}
+    \item  $2\Z < \Z$
+    \item $\{0\}< \Z$
+    \item $\Z \in \Q$
+    \item $(\{-1, 1\}, \cdot) < \Q^*$
+    \item  $\{2^n: n \in \Z\} < \Q^*$
+    \item Группы самосовмещений (симметрий) фигур, $\Pi$ - плоскость,
+          $S(\Pi)$, $T(\Pi) < S(\Pi)$ -- перемещения плоскости (движения)
+\end{itemize}
+
+\subsection{Законы сокращения}
+\begin{lemma}
+    Пусть $G$ - группа, $g, h_1, h_2 \in G$
+
+    \begin{enumerate}
+        \item $gh_1 = gh_2 \Rightarrow h_1 = h_2$
+        \item $h_1 g = h_2 g \Rightarrow h_1 = h_2$
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    \begin{gather*}
+        g^{-1}gh_1 = g^{-1}gh_2 \Rightarrow h_1 = h_2
+    \end{gather*}
+\end{proof}
+
+\section{Таблицы Кэли}
+Дана группа $G = \{g_1, g_2, \ldots g_n\}$:
+
+\begin{center}
+    $\begin{array}{c|cccc}
+                   & g_1     & g_2     & \cdots & g_n     \\
+            \hline
+            g_1    & g_1 g_1 & g_1 g_2 & \cdots & g_1 g_n \\
+            g_2    & g_2 g_1 & g_2 g_2 & \cdots & g_2 g_n \\
+            \vdots & \cdots  & \cdots  & \cdots & \cdots  \\
+            g_n    & \cdots  & \cdots  & \cdots & \cdots
+        \end{array}$
+\end{center}
+
+Дана группа $\Z^* = (\{ \pm 1\}, \cdot)$:
+
+\begin{center}
+    $\begin{array}{c|cc}
+               & 1  & -1 \\
+            \hline
+            1  & 1  & -1 \\
+            -1 & -1 & 1
+        \end{array}$
+\end{center}
+
+Дана группа самосовмещений правильного прямоугольника:
+\marginpar{Таблица Кэли является латинским квадратом}
+\begin{center}
+    $\begin{array}{c|cccc}
+            \square & e     & S_1   & S_2   & R_\pi \\
+            \hline
+            e       & e     & S_1   & S_2   & R_\pi \\
+            S_1     & S_1   & e     & R_\pi & S_2   \\
+            S_2     & S_2   & R_\pi & e     & S_1   \\
+            R_\pi   & R_\pi & S_2   & S_1   & e     \\
+        \end{array}$
+\end{center}
+Группа абелева, т.к. симметрична относительно диагонали
+
+Рассмотрим $\Z^* \times \Z^* = \{(1,1), (1, -1), (-1,1), (-1,-1)\}$.
+Операции будем производить покомпонентно: $(a,b)(a', b')= (aa', bb')$.
+\begin{center}
+    $\begin{array}{c|cccc}
+                    & e       & (1, -1) & (-1,1)  & (-1,-1) \\
+            \hline
+            e       & e       & (1, -1) & (-1,1)  & (-1,-1) \\
+            (1,-1)  & (1, -1) & e       & (-1,-1) & (-1,1)  \\
+            (-1,1)  & (-1,1)  & (-1,-1) & e       & (1, -1) \\
+            (-1,-1) & (-1,-1) & (-1,1)  & (1, -1) & e       \\
+        \end{array}$
+\end{center}
+
+Последние 2 группы изоморфны (если заменить все элементы, например, буквами,
+то они и их таблицы Кэли будут идентичны)
+
+Теория групп изучает группы с точностью до изомфорфизма
+
+\begin{axiom}
+    Любые группы третьего порядка изоморфны.
+\end{axiom}
+
+С группами порядка 4 это уже не выполняется
+\end{document}
