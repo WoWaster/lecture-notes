@@ -1,0 +1,61 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Простые числа}
+\begin{definition}
+    $p \in \Z$ называется простым, если $p \neq 0, \pm 1$ и $\{a: a\mid p\} =
+        \{\pm 1, \pm p\}$. Простые числа могут быть отрицательными.
+\end{definition}
+
+\[\Z = \{0, \pm 1\} \cup \{\text{простые}\} \cup \{\text{составные}\}\]
+
+\begin{assertion}
+    Пусть $a > 1$, тогда наименьший натуральный делитель $a$, отличный от $1$
+    -- простое число.
+\end{assertion}
+\begin{proof}
+    $p$ -- наименьший натуральный делитель $n$. Если $p$ составное, то
+    $\exists q: 1< q<p, q \mid p$
+    \begin{equation*}
+        \begin{rcases}
+            q \mid p \\
+            p \mid n
+        \end{rcases}
+        \implies q \mid n, q < p \qquad \bot
+    \end{equation*}
+\end{proof}
+
+\begin{corollary}
+    Любое целое число, кроме $\pm 1$ делится на простое
+\end{corollary}
+\begin{corollary}
+    Наименьший натуральный делитель, $\neq 1$, составного числа $n$ не больше $\sqrt{n}$.
+\end{corollary}
+\begin{proof}
+    $p$ -- наименьший натуральный делитель $n$, $\neq 1$.
+    \[
+        n = pb\\
+    \]
+    Предположим, что $p > \sqrt{n}$, $n$ -- составное $\implies b \neq 1 \implies b
+        \ge p > \sqrt{n}$
+    \[n=pb>\sqrt{n} \sqrt{n} = n \qquad\bot\]
+\end{proof}
+
+\begin{theorem}[Эвклида]
+    Простых бесконечно много.
+\end{theorem}
+\begin{proof}
+    Пусть это не так, $p_1, p_2, ..., p_k$ -- все положительные простые.
+    \begin{gather*}
+        n = p_1 p_2 ... p_k +1 \\
+        n > 1 \implies  \text{ составное}\\
+        \implies \exists\text{ простое } p \mid n, p > 0\\
+        \implies p \in \{p_1, ..., p_k\} \implies p \mid  (n-1)\\
+        \begin{rcases}
+            p\mid n \\
+            p\mid (n-1)
+        \end{rcases}
+        \implies p \mid 1 \implies p = \pm 1 \qquad \bot
+    \end{gather*}
+\end{proof}
+\end{document}

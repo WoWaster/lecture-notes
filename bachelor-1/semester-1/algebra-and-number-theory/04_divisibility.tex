@@ -1,0 +1,57 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\part{Основы теории чисел}
+\chapter{Делимость}
+
+$a \mid b$ или $b\vdots a$ читается как $a$ делит $b$ или $b$ делится на $a$,
+если $\exists q \in \Z:b=aq$
+
+\begin{example}
+    Делители $4: -4, -2, -1, 1,2,4$
+
+    Делители 0: все элементы \Z
+\end{example}
+
+\section{Свойства}
+\begin{enumerate}
+    \item Рефлексивность
+    \item $\begin{rcases}
+                  a \mid b \\
+                  b \mid a
+              \end{rcases} \implies a = \pm b$
+    \item Транзитивность
+    \item $a \mid b \implies \forall c \in Z: a \mid bc$
+    \item $a \mid b, a\mid c \implies a\mid (b \pm c)$
+    \item $a \mid  b \implies \forall k\in \Z: ka \mid kb \qquad b = aq \implies
+              kb = kaq \implies ka \mid kb$
+    \item $ka \mid kb, k \neq 0 \implies a \mid b \qquad kb = kaq \Leftrightarrow
+              k(b-aq)=0 \implies b-aq=0 \implies b=aq$
+\end{enumerate}
+
+\begin{theorem}[О делении с остатком]
+    $\forall a \in \Z \forall b \in \N \exists! q,r \in \Z$
+    \begin{enumerate}
+        \item $a=bq +r$
+        \item $0 \le r < b$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Выберем  $q$, т.ч. $a-bq\ge 0$ наименьшая возможная разность
+    \begin{gather*}
+        r = a-bq\\
+        r = a -bq \implies a = bq+r\\
+        r \ge 0\\
+        \text{предположим, что } r \ge b\\
+        a-bq-b=r-b \ge 0 \implies a - b(q+1) < a -bq\\
+        \text{противоречие с выбором } q
+    \end{gather*}
+    Пусть $a = bq_1 + r_1 = bq_2+r_2$
+    \begin{gather*}
+        0 \le r_1, r_2 <b \\
+        b(q_1-q_2) = r_2-r_1\\
+        -(b-1)\le r_2 - r_1 \le 0-1\\
+        b \mid b(q_1-q_2) \implies q_1-q_2 = 0 \implies r_2-r_1=0
+    \end{gather*}
+\end{proof}
+\end{document}

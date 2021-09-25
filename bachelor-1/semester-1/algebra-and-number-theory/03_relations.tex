@@ -1,0 +1,84 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Отношения на множестве}
+\begin{definition}
+    Отношения на множестве $M$ -- это подмножество в $M\times M$
+\end{definition}
+\begin{example}
+    $\le$ на $\{1,2,3\}$  -- $\{(1,1), (1,2), (1,3), (2,2),(2,3),(3,3)\}$
+\end{example}
+
+\begin{definition}
+    $R$ на $M$ называется рефлексивным, если \[\forall m \in M: (m,n) \in R\]
+\end{definition}
+\begin{definition}
+    $R$ на $M$ называется симметричным, если
+    \[\forall m,n \in M: (m,n) \in R \implies (n,m) \in R\]
+\end{definition}
+\begin{definition}
+    $R$ на $M$ называется антисимметричным, если
+    \[\forall m,n \in M:  (m,n)\in R, (n,m) \in R \implies m = n\]
+\end{definition}
+\begin{definition}
+    $R$ на $M$ называется транзитивным, если
+    \[\forall a,b \in M: (a,b) \in R, (b,c) \in R \implies (a,c) \in R\]
+\end{definition}
+
+\begin{definition}
+    $R$ называется отношением эквивалентности, если оно рефлексивно,
+    симметрично и транзитивно.
+\end{definition}
+
+\marginpar{Будем использовать запись $(a,b)\in R = aRb$}
+Пусть $R$ -- отношения эквивалентности на $M$, $a \in M$.
+Класс $[a] = \{b\in M: bRa\}$
+
+\begin{lemma}
+    \[\forall m,n \in M: [m] = [n] \text{ или } [m]\cap[n] = \emptyset\]
+\end{lemma}
+\begin{proof}
+    \begin{gather*}
+        [m] \cap [n] \neq \emptyset\\
+        \exists l \in [m] \cap [n]\\
+        \implies lRm, lRn \implies mRl \implies mRn\\
+        a\in [m] \implies aRm \implies aRn \implies a \in [n]\\
+        \text{Таким образом } [m]\subset [n]. \text{ Аналогично } [n]\subset[m]
+        \implies [m]=[m]
+    \end{gather*}
+\end{proof}
+
+\begin{theorem}
+    Пусть $R$ отношение эквивалентности на множестве $M$, тогда
+    $M = \bigcup_{i \in I} C_i$, т.ч.  $C_i \cap C_j = \emptyset (i\neq j)$
+    и $mRn \Leftrightarrow m,n \in C_i$ для некоторого $i$.
+\end{theorem}
+\begin{proof}
+    \begin{gather*}
+        C_i \text{-- всевозможные } [m] \in R\\
+        M = \bigcup_{m\in M}[m] \text{ т.к. } m \in [m]\\
+        a,b \in [m] \implies \begin{cases}
+            aRm \\
+            bRm
+        \end{cases}
+        \implies aRb\\
+        \begin{rcases}
+            a \in [m] \\
+            b \in [n] \\
+            aRb
+        \end{rcases}
+        \implies [m] = [n]\\
+        \begin{rcases}
+            bRn \\
+            aRb \\
+        \end{rcases}
+        \implies aRn \implies a \in [m] \cap [n] \implies [m] \cap [n] \neq \emptyset
+        \implies [m] = [n]
+    \end{gather*}
+\end{proof}
+
+\begin{definition}
+    Если $\sim$  -- отношение эквивалентности на $M$, то множество
+    классов эквивалентности: $M/\sim$ -- фактормножество $M$ относительно $\sim$
+\end{definition}
+\end{document}

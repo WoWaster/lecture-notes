@@ -1,0 +1,34 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter[НОД]{Наибольший общий делитель}
+
+$a_1, ..., a_n \in \Z$ не все $0$, $d\ge 0$ называется наибольшим
+общим делителем $a_1, ..., a_n$ если:
+\begin{enumerate}
+    \item $d \mid a_1, ...,  d\mid  a_n$
+    \item $\forall d' \ge 0: d'\mid a_1, ..., d' \mid a_n \implies d'\mid d$
+\end{enumerate}
+
+\begin{definition}
+    НОД существует и единственный
+\end{definition}
+\begin{proof}
+    \[I = \{a_1 c_1+ ... + a_n c_n: c_1, ..., c_n \in \Z\}\]
+    $d$ -- наименьший положительный элемент $I$
+    \[c_i \neq 0 \implies c_i \cdot 1 >0 \text{ или } c_i\cdot(-1)>0\]
+    Доказать: $d$ -- НОД $a_1, ..., a_n$
+
+    Предположим, что $d \not\mid a_j$
+    \begin{gather*}
+        a_j = dq+r, 0 < r < d\\
+        r = a_j -dq = a_j - (a_1 c_1 + ... + a_n c_n)q=\\
+        = a_1 (-c_1)q + ... + a_j(1-c_1q ) + a_n (-c_nq) \in I \qquad \bot
+    \end{gather*}
+    Пусть $d' \mid a_1, ..., d'\mid a_n \implies d'\mid a_1 c_1, ...,
+        d'\mid a_n c_n \implies d' \mid (a_1 c_1 + ... + a_n c_n) \implies d'\mid d$
+
+    Единственность. Пусть $d_1, d_2$ -- НОД $a_1, ..., a_n \implies d_2 \mid d_1$,
+    аналогично $d_1\mid d_2 \implies d_1 = d_2$
+\end{proof}
+\end{document}
