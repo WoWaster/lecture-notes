@@ -15,19 +15,19 @@
   </tr>
   <tr>
     <td>Алгебра и теория чисел</td>
-    <td>[link](bachelor-1/semester-1/algebra-and-number-theory/main.pdf)</td>
+    <td><a href="bachelor-1/semester-1/algebra-and-number-theory/main.pdf">link</a></td>
   </tr>
   <tr>
     <td>Геометрия и топология</td>
-    <td>[link](bachelor-1/semester-1/geometry-and-topology/main.pdf)</td>
+    <td><a href="bachelor-1/semester-1/geometry-and-topology/main.pdf">link</a></td>
   </tr>
   <tr>
     <td>Дискретная математика</td>
-    <td>[link](bachelor-1/semester-1/discrete-mathematics/main.pdf)</td>
+    <td><a href="bachelor-1/semester-1/discrete-mathematics/main.pdf">link</a></td>
   </tr>
   <tr>
     <td>Математический анализ</td>
-    <td>[link](bachelor-1/semester-1/mathematical_analysis/main.pdf)/td>
+    <td><a href="bachelor-1/semester-1/mathematical_analysis/main.pdf">link</a>/td>
   </tr>
 </table>
 
