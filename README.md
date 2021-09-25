@@ -2,6 +2,35 @@
 
 Репозиторий для конспектов, написанных в LaTeX, с использованием LuaLaTeX.
 
+## Файлы
+
+<table>
+  <tr>
+    <td></td>
+    <td>bachelor-1</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>semester-1</td>
+  </tr>
+  <tr>
+    <td>Алгебра и теория чисел</td>
+    <td>[link](bachelor-1/semester-1/algebra-and-number-theory/main.pdf)</td>
+  </tr>
+  <tr>
+    <td>Геометрия и топология</td>
+    <td>[link](bachelor-1/semester-1/geometry-and-topology/main.pdf)</td>
+  </tr>
+  <tr>
+    <td>Дискретная математика</td>
+    <td>[link](bachelor-1/semester-1/discrete-mathematics/main.pdf)</td>
+  </tr>
+  <tr>
+    <td>Математический анализ</td>
+    <td>[link](bachelor-1/semester-1/mathematical_analysis/main.pdf)/td>
+  </tr>
+</table>
+
 ## Редактор
 
 Конспекты пишутся в VS Code с использованием расширения LaTeX Workshop.

@@ -36,5 +36,8 @@
     "**/**.synctex(busy)": true,
     "**/**.toc": true
   },
-  "editor.rulers": [80, 120]
+  "editor.rulers": [80, 120],
+  "markdownlint.config": {
+    "MD033": false
+  }
 }
