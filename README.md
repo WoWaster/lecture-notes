@@ -27,7 +27,7 @@
   </tr>
   <tr>
     <td>Математический анализ</td>
-    <td><a href="bachelor-1/semester-1/mathematical_analysis/main.pdf">link</a>/td>
+    <td><a href="bachelor-1/semester-1/mathematical_analysis/main.pdf">link</a></td>
   </tr>
 </table>
 
