@@ -1,0 +1,122 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\part{Аналитическая геометрия}
+\chapter{Введение}
+\section{Множества}
+\begin{definition}
+    Множество --- неопределяемое понятие.
+\end{definition}
+
+A, B --- множества
+
+$A \cup B = \{x:x \in A \text{ или } x \in B\}$ --- объединение
+
+$A \cap B = \{x:x \in A \text{ и } x \in B\}$ --- пересечение
+
+$A\setminus B = \{x:x \in A \text{ or } x \not\in B\}$ --- разность
+
+$A \bigtriangleup B = (A \setminus B) \cup (B \setminus A)$ --- симметрическая разность
+
+$A \times B = \{(x,y):x \in A; y \in B\}$ --- декартово произведение множеств
+
+\subsection{Примеры декартового произведения множеств}
+
+\begin{enumerate}
+    \item Координатная плоскость $\R \times \R$
+    \item Множество полей шахматной доски $\{A,B,C,D,E,F,G,H\}\times \{1,2,3,4,5,6,7,8\}$
+    \item Колода карт $\{\text{масти}\} \times \{\text{достоинства}\}$
+    \item Нумерация мест в театре
+    \item Нумерация аудиторий на ММ
+\end{enumerate}
+
+\section{Отображения}
+\begin{definition}
+    Пусть A, B --- множества.
+    Говорим, что задано отображение $f: A \to B$,
+    если задано правило, сопоставляющее каждому $x \in A$ ровно один $y \in B$.\\
+    Пишем: $y = f(x)$.
+\end{definition}
+
+\begin{example}
+    $f(x) = \frac{1}{x}$ --- не отображение, т.к. $f(0) \not\exists$.\\
+    Однако при $\R \setminus \{0\} \to \R$ такое отображение существует.
+\end{example}
+\begin{example}
+    \begin{gather*}
+        +:\R \times \R  \to \R \\
+        (x,y)           \mapsto x+ y
+    \end{gather*}
+    Любая операция является отображением
+\end{example}
+\begin{example}
+    $A \subset B \quad i:A\to B \quad i(a)=a$\\
+    $ A \hookrightarrow B$ --- отображение включения\\
+    $\id:A \to A \quad  \id(x)=A$ --- тождественное отображение
+\end{example}
+
+
+\section{Отношения эквивалентности}
+\begin{definition}
+    $M$ -- множество, $\mu \subset M \times M \Rightarrow \mu$ называется
+    отношением над $M$.
+
+    $\forall a,b \in M$ два случая
+    \begin{enumerate}
+        \item $(a,b) \in \mu$ пишем $a \mu b$
+        \item $(a,b) \not\in \mu$ пишем $a \not\mu b$
+    \end{enumerate}
+\end{definition}
+\begin{example}
+    $=, <,\le , >, \ge, \vdots$
+
+    $\subset$ тоже отношение, но только на множестве некоторых множеств.
+
+    Если $M$ -- множество людей, то слова <<отец>>, <<мать>>, <<муж>>, <<жена>> и т.д.
+\end{example}
+
+\begin{definition}
+    Отношение $\mu$ называется рефлексивным, если $\forall a: a\mu a$
+\end{definition}
+\begin{definition}
+    Отношение $\mu$ называется симметричным, если $a \mu b \implies b \mu a$
+\end{definition}
+\begin{definition}
+    Отношение $\mu$ называется транзитивным, если \[\begin{rcases}
+            a \mu b \\
+            b \mu c
+        \end{rcases}\implies a\mu c\]
+\end{definition}
+
+\begin{definition}
+    Отношение называется отношением эквивалентности, если оно рефлексивно,
+    симметрично и транзитивно. Обозначение:$\sim$.
+\end{definition}
+
+\begin{definition}
+    Если $a \in M, K_a = \{b: a \sim b\}$ -- класс эквивалентности.
+\end{definition}
+
+\begin{theorem}
+    $K_a = K_b$ либо $K_a \cap K_b = \emptyset$
+\end{theorem}
+\begin{proof}
+    Допустим противоречие, тогда $\exists c \in K_a \cap K_b,
+        \exists d \in K_a \setminus K_b$ (или $\in K_b \setminus K_a$)
+    \begin{gather*}
+        a\sim c; b\sim c \qquad a \sim d; b \not\sim d\\
+        \begin{rcases}
+            a\sim c \\
+            c\sim b
+        \end{rcases} \implies a\sim b \qquad
+        \begin{rcases}
+            d \sim a \\
+            a \sim b
+        \end{rcases} \implies d \sim b \qquad\bot
+    \end{gather*}
+\end{proof}
+
+\begin{definition}
+    Множество классов эквивалентности называется фактор-множество. Обозначается $M/\sim$
+\end{definition}
+\end{document}

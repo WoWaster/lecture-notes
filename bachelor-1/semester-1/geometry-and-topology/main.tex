@@ -1,0 +1,27 @@
+\documentclass[12pt, a4paper]{memoir}
+\input{../../../preamble.tex}
+\usepackage{subfiles}
+
+\title{Геометрия и топология}
+\author{Курс Солынина А.~А.}
+\date{Осень 2021 г.}
+
+\begin{document}
+\frontmatter
+
+\begin{titlingpage}
+    \maketitle
+\end{titlingpage}
+
+\microtypesetup{protrusion=false}
+\tableofcontents
+\microtypesetup{protrusion=true}
+
+
+\mainmatter
+
+\subfile{00_introduction.tex}
+\subfile{01_vector_spaces.tex}
+\subfile{02_basis.tex}
+\subfile{03_dot_product.tex}
+\end{document}

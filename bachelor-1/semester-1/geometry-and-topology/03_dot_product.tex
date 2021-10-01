@@ -1,0 +1,189 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Скалярное произведение}
+Обозначение скалярного произведения векторов: $\vv \cdot \vw$ или $(\vv, \vw)$
+
+\begin{definition}
+    Если $V$ - векторное пространство, в котором есть операция $\cdot : V \times V
+        \rightarrow \R$, со свойствами:
+    \begin{enumerate}
+        \item $(\vv, \vv) \ge0; (\vv, \vv) = 0 \Leftrightarrow \vv = \zv$
+        \item $(\vu, \vv+ \vw) = (\vu,\vv)+ (\vu,\vw)$
+        \item $(\alpha\vu, \vw) = \alpha(\vu, \vw) = (\vu, \alpha \vw)$
+        \item $(\vu,\vv) = (\vv,\vu)$
+    \end{enumerate}
+    то такая операция называется скалярным произведением, а $V$ вместе
+    со скалярным произведением называется евклидовым пространством
+\end{definition}
+
+\begin{example}
+    $V$ -- множество некоторых функций, $\phi(x)$ - одна функция, которая
+    называется весом, важно, что $\phi >0$, тогда $(f,g) = \int_a^b f(x)g(x)\phi(x)dx$
+\end{example}
+
+\begin{definition}
+    $|\vv| = \sqrt{(\vv, \vv)}, |\vv| \ge 0, |\vv| = 0 \Leftrightarrow \vv = \zv$
+\end{definition}
+\begin{definition}
+    $\vu, \vv \in V$, тогда
+    $\displaystyle \cos \angle (\vu, \vv) = \frac{(\vu,\vv)}{|\vu||\vv|}$
+    \[\angle(\vu, \vv) = \arccos \frac{(\vu,\vv)}{|\vu||\vv|} \in [0; 2\pi]\]
+\end{definition}
+
+\begin{theorem}[Неравенство Коши-Буняковского-Шварца]
+    $|(\vu,\vv)| \le |\vu| \cdot |\vv|$
+\end{theorem}
+\begin{proof}
+    \begin{gather*}
+        (\vu + t \vv, \vu+t \vv) \ge 0 \quad \forall t\\
+        (\vu, \vu) + (\vu,t \vv)+(t \vv, \vu) + (t \vv, t \vv) \ge 0\\
+        |\vu|^2 + 2t(\vu,\vv) + t^2 |\vv|^2 \ge 0 \quad \forall t\\
+        \frac{D}{4} \le 0 \quad (\vu,\vv)^2 - |\vu|^2 |\vv|^2 \le 0\\
+        |(\vu,\vv)| \le |\vu| |\vv|
+    \end{gather*}
+\end{proof}
+
+\begin{remark}
+    2 и 3 аксиомы можно заменить одной:
+    $(\vu, \alpha \vv + \beta \vw) = \alpha(\vu,\vv) + \beta(\vu,\vw)$
+\end{remark}
+
+\begin{example}
+    \[V = \R^n = \{(a_1, a_2, ..., a_n): a_i\in \R\}\]
+    <<стандартное>> скалярное произведение:
+    \begin{gather*}
+        \vu = (a_1, a_2, ..., a_n) \qquad \vv = (b_1, b_2, ..., b_n)\\
+        (a_1, a_2, ..., a_n)(b_1, b_2, ..., b_n)=a_1 b_1 + a_2 b_2 + ... + a_n b_n
+    \end{gather*}
+    Аксиомы 1--4 выполняются
+    \[|(a_1,..., a_n)| = \sqrt{a_1^2 + a_2^2 + ... + a_n^2}\]
+    КБШ: $(a_1 b_1 + a_2 b_2 + ... + a_n b_n)^2 \le (a_1^2 + a_2^2 + ... +
+        a_n^2)(b_1^2 + b_2^2 + ... + b_n^2)$
+\end{example}
+
+\begin{theorem}[Неравенство треугольника]
+    $|\vu+\vv| \le |\vu| + |\vv|$
+\end{theorem}
+\begin{proof}
+    \begin{gather*}
+        (\vu+\vv;\vu+\vv) \overset{?}{\le} (|\vu|+|\vv|)^2\\
+        (\vu,\vu)+2(\vu,\vv)+(\vv,\vv) \overset{?}{\le} (\vu,\vu)+(\vv,\vv)+2|\vu||\vv| \\
+        (\vu,\vv) \overset{?}{\le} |\vu||\vv| \text{ -- верно по неравенству КБШ}
+    \end{gather*}
+\end{proof}
+
+\begin{definition}
+    $\vu, \vv \in V; \vu \perp \vv$ (ортогональные векторы), если $(\vu,\vv)=\zv$.
+    Для $\vu_1, \vu_2, ..., \vu_n \in V$, $\{\vu_1, \vu_2, ..., \vu_n\}$
+    называется ортогональной системой, если $\forall i\neq j, \vu_i \perp \vu_j$.
+\end{definition}
+\begin{definition}
+    $\{\vu_1, \vu_2,..., \vu_n\}$ называется ортонормированной системой, если
+    $\vu_i \perp \vu_j (i \neq j)$ и $|\vu_i| =1 $
+\end{definition}
+\begin{definition}
+    Если $\{\vu_1, \vu_2,..., \vu_n\}$ -- ортонормированная система и базис, то это
+    ортонормированный базис (ОНБ).
+\end{definition}
+\begin{assertion}
+    $\{\vu_1, \vu_2,..., \vu_n\}$ -- ортогональная система и $\vu_i \neq \zv$, то она ЛНЗ.
+\end{assertion}
+\begin{proof}
+    \begin{gather*}
+        \alpha_1 \vu_1 + \alpha \vu_2 + ... + \alpha_n \vu_n = \zv \quad |\cdot \vu_i\\
+        \alpha_1 (\vu_1, \vu_i) + \alpha_2 (\vu_2, \vu_i) +  ... + \alpha_n(\vu_n, \vu_i) = 0\\
+        \alpha_i (\vu_i, \vu_i) = 0 \Rightarrow \alpha_i = 0 \forall i
+    \end{gather*}
+\end{proof}
+
+\begin{assertion}
+    $\{\vu_1, ..., \vu_n\}$ -- ортогональная система и
+    $\vv = \alpha_1 \vu_1 + \alpha_2 \vu_2 + ... + \alpha_n \vu_n
+        \implies \alpha_i = \frac{(\vu_i, \vv)}{|\vu_i|^2}$
+\end{assertion}
+\begin{proof}
+    \begin{gather*}
+        \alpha_1 \vu_1 + \alpha \vu_2 + ... + \alpha_n \vu_n = \vv \quad |\cdot \vu_i\\
+        \alpha_i(\vu_i, \vu_i) = (\vv, vu_i)
+    \end{gather*}
+\end{proof}
+\begin{example}
+    $V$ -- множество $2\pi$-периодических функций.
+    \[(f,g) = \int_0^{2\pi} f(x)g(x)dx\]
+    (можем ограничиться кусочно-непрерывными функциями)
+    \[\left(
+        \begin{aligned}
+                \cos0x, & \cos x, \cos 2x, \cos 3x, ... \\
+                        & \sin x, \sin 2x, \sin 3x, ...
+            \end{aligned}
+        \right)\]
+    -- ортогональная система.
+
+    Для проверки достаточно взять
+    \[\int_0^{2\pi} \sin kx \cos nx dx = 0 \text{ и }
+        \int_0^{2\pi} \cos kx \cos nx dx =0 \quad (k\neq n)\]
+    Аналогично с $\sin$
+
+    Любая $2\pi$-периодическая функция раскладывается по этой системе.
+    \[f(x) = a_0 + a_1 \cos x + b_1 \sin x + a_2 \cos 2x + b_2 \sin 2x + ...\]
+    \[a_i = \frac{\int_0^{2\pi} f(x) \cos ix dx}{\int_0^{2\pi} \cos^2 ix dx} \qquad b_i=...\]
+\end{example}
+
+
+\section{Построение ортонормированного базиса}
+\subsection{Ортогонализация Грама-Шмидта}
+Есть $\vv_1, \vv_2, ..., \vv_n$ -- ЛНЗ
+\begin{gather*}
+    \vu_1 = \frac{\vv_1}{|\vv_1|} \qquad |\vu_1| = 1\\
+    \vw_2 = \vv_2 - \alpha \vu_1 \qquad \vw_2 \perp \vu_1 \qquad \vu_2 = \frac{\vw_2}{|\vw_2|}\\
+    |\vu_2|=1 \qquad \vu_2 \perp \vu_1\\
+    (\vu_1, \vw_2) = 0\\
+    (\vu_1, \vv_2 - \alpha \vu_ 1) = 0\\
+    (\vu_1, \vv_2) - \alpha (\vu_1, \vu_1)=0\\
+    \alpha = (\vu_1, \vv-2)
+\end{gather*}
+Пусть $\vu_1, \vu_2, ..., \vu_{k-1}$ построены (ОНС)
+
+Построим $\vu_k$
+\begin{gather*}
+    \vw_k = \vv_k - \alpha_1 \vu_1 - \alpha_2 \vu_2 - ... - \alpha_{k-1} \vu_{k-1}\\
+    \vw_k \perp \vu_i \qquad (i \le k-1)\\
+    0 = (\vw_k, \vu_i) = (\vv_k, \vu_i) = \alpha (\vu_i, \vu_i)\\
+    \alpha_i = (\vv_k, \vu_i)\\
+    \vu_k = \frac{\vw_k}{|\vw_k|}
+\end{gather*}
+Строим $\vu_1, \vu_2, ..., \vu_n$ с помощью данного алгоритма.
+\begin{remark}
+    $\vu_i$ -- ЛК $\vv_1, \vv_2, ..., \vv_i$
+\end{remark}
+
+\begin{corollary}
+    Если $\vv_1, \vv_2, ..., \vv_n$ -- базис $\implies \vu_1, \vu_2, ..., \vu_n$ --- ОНБ,
+    т.е. если $\dim V = n$, то  $\exists$ ОНБ
+\end{corollary}
+
+Пусть $V$ - евклидово пространство, $\dim V =n$, $\vu_1, \vu_2, ..., \vu_n$ -- ОНБ,
+$\vw = a_1 \vu_1 +a_2 \vu_2 + ... + a_n \vu_n$, то можем записать $\vw = (a_1, ..., a_n)$,
+соответственно $\vv = b_1 \vu_1 + b_2 \vu_2 + ... + b_n \vu_n$, тогда
+\begin{multline*}
+    (\vw, \vv) = (a_1 \vu_1 + a_2 \vu_2 + ... + a_n \vu_n, b_1 \vu_1 + b_2 \vu_2 + ... + b_n \vu_n) = \\
+    = a_1 b_1 (\vu_1, \vu_2) + a_1 b_2 (\vu_1, \vu_2) + ... + a_1 b_n (\vu_1, \vu_n)+\\
+    + a_2 b_1 (\vu_2, \vu_2) + a_2 b_2 (\vu_2, \vu_2) + ... + a_2 b_n (\vu_2, \vu_n)+\\
+    + a_n b_1 (\vu_n, \vu_2) + a_n b_2 (\vu_n, \vu_2) + ... + a_n b_n (\vu_n, \vu_n)=\\
+    = a_1 b_1 + a_2 b_2 + ... + a_n b_n
+\end{multline*}
+
+\section{Геометрический подход}
+Есть $\R^n$ (например $\R^2$ или $\R^3$), так же есть расстояния и углы.
+
+\begin{definition}
+    Связанный вектор --- направленный отрезок.
+\end{definition}
+\begin{definition}
+    Свободный вектор --- класс эквивалентности связанных векторов.
+    $\overrightarrow{AB} \sim \overrightarrow{CD}$, если $ABDC$ -- параллелограмм
+    (возможно вырожденный)
+\end{definition}
+
+\end{document}
