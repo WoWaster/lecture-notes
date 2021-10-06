@@ -3,9 +3,9 @@
 \begin{document}
 \chapter[Базис \texorpdfstring{$V$}{V}]{Базис векторного пространства}
 \begin{definition}
-    Набор $v_1, v_2, ..., v_n$ называется порождающим для $V$,
-    если $\forall w \in V \exists \alpha_1,..., \alpha_n : w =
-        \alpha_1 v_1 + \alpha_2 v_2 + ... + \alpha_n v_n$
+    Набор $\vv_1, \vv_2, ..., \vv_n$ называется порождающим для $V$,
+    если $\forall \vw \in V \exists \alpha_1,..., \alpha_n : \vw =
+        \alpha_1 \vv_1 + \alpha_2 \vv_2 + ... + \alpha_n \vv_n$
 \end{definition}
 \begin{prop}
     Если к порождающему набору прибавить вектор, то он останется порождающим.
@@ -13,7 +13,7 @@
 \end{prop}
 
 \begin{definition}
-    $v_1, v_2, ..., v_n$ называется базисом $V$, если этот набор ЛНЗ и порождающий.
+    $\vv_1, \vv_2, ..., \vv_n$ называется базисом $V$, если этот набор ЛНЗ и порождающий.
 \end{definition}
 \begin{theorem}[О базисе]
     Следующие определения базиса равносильны:
@@ -21,55 +21,67 @@
         \item ЛНЗ и  порождающий набор
         \item Минимальный порождающий набор (минимальный по включениям)
         \item Максимальный ЛНЗ набор (максимальный по включениям)
-        \item Набор $\forall w \in V \exists! \alpha_1, ..., \alpha_2:
-                  w = \alpha_1 v_1 + \alpha_2 v_2 + ... + \alpha_n v_n$
+        \item Набор $\forall \vw \in V \exists! \alpha_1, ..., \alpha_2:
+                  \vw = \alpha_1 \vv_1 + \alpha_2 \vv_2 + ... + \alpha_n \vv_n$
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-    Цепочка доказательств: $1 \to 2 \to 4 \to 3 \to 1$ (цикл)
+    Цепочка доказательств:
 
-    $1 \to 2$. Дан $v_1, ..., v_n$ -- ЛНЗ и порождающий набор.
+    \begin{center}
+        \begin{tikzpicture}
+            \node[draw, circle](first) at (0.5,0.5) {$1$};
+            \node[draw, circle](second) at (2,1) {$2$};
+            \node[draw, circle](fourth) at (3.5,0.5)  {$4$};
+            \node[draw, circle](third) at  (2,0) {$3$};
+            \draw[-Latex] (first) -- (second);
+            \draw[-Latex] (second) -- (fourth);
+            \draw[-Latex] (fourth) -- (third);
+            \draw[-Latex] (third) -- (first);
+        \end{tikzpicture}
+    \end{center}
+
+    $1 \to 2$. Дан $\vv_1, ..., \vv_n$ -- ЛНЗ и порождающий набор.
     Доказать, что он минимальный порождающий.
 
-    Допустим, что $v_i$ выкинули, оставшийся набор остался порождающим
-    $\Rightarrow v_i$ -- ЛК остальных $\Rightarrow$ ЛЗ $\qquad \bot$.
+    Допустим, что $\vv_i$ выкинули, оставшийся набор остался порождающим
+    $\Rightarrow \vv_i$ -- ЛК остальных $\Rightarrow$ ЛЗ $\qquad \bot$.
 
-    $2 \to 4$. Дан $v_1, ..., v_n$ -- минимальный порождающий набор.
-    Доказать $v_1, ..., v_n$ -- порождающий с единственностью коэффициентов.
+    $2 \to 4$. Дан $\vv_1, ..., \vv_n$ -- минимальный порождающий набор.
+    Доказать $\vv_1, ..., \vv_n$ -- порождающий с единственностью коэффициентов.
 
-    Допустим противное: $\alpha_1 v_1 + \alpha_2 v_2 + ... + \alpha_n v_n =
-        \beta_1 v_1 + ... + \beta_n v_n$
+    Допустим противное: $\alpha_1 \vv_1 + \alpha_2 \vv_2 + ... + \alpha_n \vv_n =
+        \beta_1 \vv_1 + ... + \beta_n \vv_n$
     \begin{gather*}
         \alpha_1 \neq \beta_1\\
-        (\alpha_i - \beta_i)v_i = (\beta_1 - \alpha_1) v_1 + ...\text{ (без $i$-ого)}
-        + (\beta_n - \alpha_n)v_n\\
-        v_i = \frac{\beta_1 - \alpha_1}{\alpha_i - \beta_i} + ...\text{ (без $i$-ого)}
+        (\alpha_i - \beta_i)\vv_i = (\beta_1 - \alpha_1) \vv_1 + ...\text{ (без $i$-ого)}
+        + (\beta_n - \alpha_n)\vv_n\\
+        \vv_i = \frac{\beta_1 - \alpha_1}{\alpha_i - \beta_i} + ...\text{ (без $i$-ого)}
         + \frac{\beta_n - \alpha_n}{\alpha_i - \beta_i}
     \end{gather*}
-    $v_i$ -- выкинем. В любой ЛК с $v_i$ заменим $v_i$ на выражение выше $\implies$
+    $\vv_i$ -- выкинем. В любой ЛК с $\vv_i$ заменим $\vv_i$ на выражение выше $\implies$
     набор порождающий
 
-    $4 \to 3$. Дан $v_1, ..., v_n$ -- порождающий набор с единственностью коэффициентов.
-    Доказать: $v_1, ..., v_n$ -- минимальный ЛНЗ (ЛНЗ уже доказана)
+    $4 \to 3$. Дан $\vv_1, ..., \vv_n$ -- порождающий набор с единственностью коэффициентов.
+    Доказать: $\vv_1, ..., \vv_n$ -- минимальный ЛНЗ (ЛНЗ уже доказана)
 
-    Допустим противное: $v_1, v_2, ..., v_n; u$ --  ЛНЗ набор
+    Допустим противное: $\vv_1, \vv_2, ..., \vv_n; \vu$ --  ЛНЗ набор
     \begin{gather*}
-        u= \alpha_1 v_1 + ... + \alpha_n v_n (\alpha_1, ... \alpha_n \exists!)\\
-        \implies v_1, ..., v_n, u \text{ -- ЛЗ } \qquad \bot
+        \vu= \alpha_1 \vv_1 + ... + \alpha_n \vv_n (\alpha_1, ... \alpha_n \exists!)\\
+        \implies \vv_1, ..., \vv_n, \vu \text{ -- ЛЗ } \qquad \bot
     \end{gather*}
 
-    $3 \to 1$. Дан $v_1, ..., v_n$ -- минимальный ЛНЗ.
-    Доказать $v_1, ..., v_n$ -- ЛНЗ и порождающий набор.
-
+    $3 \to 1$. Дан $\vv_1, ..., \vv_n$ -- минимальный ЛНЗ.
+    Доказать $\vv_1, ..., \vv_n$ -- ЛНЗ и порождающий набор.
     \begin{align*}
-        \forall w \in V    &                 &  & v_1, v_2, ..., v_n, w \text{ -- ЛЗ набор}         \\
-                           &                 &  & \alpha_1 v_1 + \alpha_2 v_2 + ...
-        + \alpha_n v_n +\beta w = \zv                                                               \\
-        \text{Если } \beta & = 0 \implies    &  & \alpha_1 v_1 + ... + \alpha_n v_n =\zv            \\
+        \forall \vw \in V  &                 &  & \vv_1, \vv_2, ..., \vv_n, \vw \text{ -- ЛЗ набор} \\
+                           &                 &  & \alpha_1 \vv_1 + \alpha_2 \vv_2 + ...
+        + \alpha_n \vv_n +\beta \vw = \zv                                                           \\
+        \text{Если } \beta & = 0 \implies    &  & \alpha_1 \vv_1 + ... + \alpha_n \vv_n =\zv        \\
                            &                 &  & \text{не все коэффициенты } = 0 (\alpha_i \neq 0) \\
-                           &                 &  & \implies v_1,..., v_n \text{ -- ЛЗ}               \\
-        \beta              & \neq 0 \implies &  & w = - \frac{\alpha_1}{\beta} v_1
-        - \frac{\alpha_2}{\beta} v_2 - ...  - \frac{\alpha_n}{\beta} v_n
+                           &                 &  & \implies \vv_1,..., \vv_n \text{ -- ЛЗ}           \\
+        \beta              & \neq 0 \implies &  & \vw = - \frac{\alpha_1}{\beta} \vv_1
+        - \frac{\alpha_2}{\beta} \vv_2 - ...  - \frac{\alpha_n}{\beta} \vv_n
     \end{align*}
 \end{proof}
 
@@ -130,33 +142,33 @@
 \end{example}
 
 \begin{theorem}
-    Если $v_1, ..., v_k$ и $w_1, ...,w_n$ базисы $\in V$, то $k=n$.
+    Если $\vv_1, ..., \vv_k$ и $\vw_1, ...,\vw_n$ базисы $\in V$, то $k=n$.
 \end{theorem}
 \begin{proof}
-    $v_1, ..., v_n$ -- порождающая система.
+    $\vv_1, ..., \vv_n$ -- порождающая система.
     \begin{gather*}
-        w_1 = a_{11} v_1 + a_{21} v_2  + a_{31} v_3 + ... + a_{k1} v_k \\
-        w_2 = a_{12} v_1 + a_{22} v_2  + a_{32} v_3 + ... + a_{k2} v_k \\
+        \vw_1 = a_{11} \vv_1 + a_{21} \vv_2  + a_{31} \vv_3 + ... + a_{k1} \vv_k \\
+        \vw_2 = a_{12} \vv_1 + a_{22} \vv_2  + a_{32} \vv_3 + ... + a_{k2} \vv_k \\
         ...                                                            \\
-        w_n = a_{1n} v_1 + a_{2n} v_2  + a_{3n} v_3 + ... + a_{kn} v_k \\
+        \vw_n = a_{1n} \vv_1 + a_{2n} \vv_2  + a_{3n} \vv_3 + ... + a_{kn} \vv_k \\
     \end{gather*}
     \begin{equation}\tag{\star}\label{eq:star}
-        x_1 w_1 + x_2 w_2 + ... + x_n w_n = \zv, x_i \in \R
+        x_1 \vw_1 + x_2 \vw_2 + ... + x_n \vw_n = \zv, x_i \in \R
     \end{equation}
-    т.к. $w_1, ..., w_n$ -- ЛНЗ $\implies$ все $x_i=0$
+    т.к. $\vw_1, ..., \vw_n$ -- ЛНЗ $\implies$ все $x_i=0$
     \begin{multline*}
-        x_1 (a_{11} v_1 + a_{21} v_2 + ... + a_{k1} v_k) +
-        x_2 (a_{12} v_1 + a_{22} v_2 + ... + a_{k2} v_k) \\
+        x_1 (a_{11} \vv_1 + a_{21} \vv_2 + ... + a_{k1} \vv_k) +
+        x_2 (a_{12} \vv_1 + a_{22} \vv_2 + ... + a_{k2} \vv_k) \\
         + ... +
-        x_n (a_{1n} v_1 + a_{2n} v_2 + ... + a_{kn} v_k) = \zv
+        x_n (a_{1n} \vv_1 + a_{2n} \vv_2 + ... + a_{kn} \vv_k) = \zv
     \end{multline*}
     \begin{multline*}
-        v_1 (a_{11} x_1 + a_{12} x_2 + ... + a_{1n} x_n ) +
-        v_2 (a_{21} x_1 + a_{22} x_2 + ... + a_{2n} x_n ) \\
+        \vv_1 (a_{11} x_1 + a_{12} x_2 + ... + a_{1n} x_n ) +
+        \vv_2 (a_{21} x_1 + a_{22} x_2 + ... + a_{2n} x_n ) \\
         + ... +
-        v_k (a_{k1} x_1 + a_{k2} x_2 + ... + a_{kn} x_n ) = \zv
+        \vv_k (a_{k1} x_1 + a_{k2} x_2 + ... + a_{kn} x_n ) = \zv
     \end{multline*}
-    $v_1, v_2, ..., v_k$ -- ЛНЗ $\implies$ все коэффициенты равны 0.
+    $\vv_1, \vv_2, ..., \vv_k$ -- ЛНЗ $\implies$ все коэффициенты равны 0.
     \begin{equation*}
         \begin{cases}
             a_{11} x_1 + a_{12} x_2 + ... + a_{1n}x_n = 0 \\
@@ -166,21 +178,21 @@
         \end{cases}
     \end{equation*}
     Если $n>k \implies \exists$ ненулевые решения $\implies$ противоречие
-    с \eqref{eq:star} и ЛНЗ $w_i \implies n \le k$. Аналогично $k \le n \implies
+    с \eqref{eq:star} и ЛНЗ $\vw_i \implies n \le k$. Аналогично $k \le n \implies
         n=k$.
 \end{proof}
 
 Если $\exists$ хотя бы один конечный базис, то все базисы будут равномощными.
 
 \section{Координаты вектора в базисе}
-Пусть $v_1, v_2, ..., v_n$ -- базис.
-\[\forall w \in V \implies \exists ! \alpha_1, \alpha_2, ..., \alpha_n:
-    w = \alpha_1 v_1 + ... + \alpha_n v_n\]
-$w = (\alpha_1, \alpha_2, ..., \alpha_n)$ -- координаты $w$ в базисе $\{v_i\}_{i=1}^n$
+Пусть $\vv_1, \vv_2, ..., \vv_n$ -- базис.
+\[\forall \vw \in V \implies \exists ! \alpha_1, \alpha_2, ..., \alpha_n:
+    \vw = \alpha_1 \vv_1 + ... + \alpha_n \vv_n\]
+$\vw = (\alpha_1, \alpha_2, ..., \alpha_n)$ -- координаты $\vw$ в базисе $\{\vv_i\}_{i=1}^n$
 \begin{gather*}
-    v_1 = (1, 0, ..., 0)\\
-    v_2 = (0, 1, ..., 0)\\
+    \vv_1 = (1, 0, ..., 0)\\
+    \vv_2 = (0, 1, ..., 0)\\
     ...\\
-    v_n = (0, 0, ..., 1)
+    \vv_n = (0, 0, ..., 1)
 \end{gather*}
 \end{document}

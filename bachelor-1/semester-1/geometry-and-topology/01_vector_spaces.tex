@@ -1,140 +1,132 @@
 % !TeX root = ./main.tex
 \documentclass[main]{subfiles}
 \begin{document}
-\chapter{Векторные пространства}
-\section{Понятие векторного пространства}
+\chapter{Понятие векторного пространства}
 \begin{definition}
     Множество $V$ с двумя операциями:
-    \marginpar{\raggedright Элементы $a,b,c$ -- векторы (иногда $\overrightarrow{a}$ или $\overline{a}$). \\ Элементы $\alpha, \beta$ -- скаляры.}
     $+:V\times V \to V; \quad (a,b) \mapsto a+b$ и
     $\cdot : \R \times V \to V$ называется векторным пространством (над $\R$),
-    если при условии $\forall a,b,c \in V; \forall \alpha, \beta \in \R$, выполнены следующие свойства:
+    если при условии $\forall \va, \vb, \vc \in V; \forall \alpha, \beta \in \R$, выполнены следующие свойства:
 
     \begin{enumerate}
-        \item $a+(b+c) = (a+b)+c$ --- ассоциативность
-        \item $a+b=b+a$ --- коммутативность
-        \item $\exists \zv:\forall a \quad \zv+a=a+\zv=a$
-        \item $\forall a \exists (-a): a+(-a)=\zv$
-              \marginpar{\raggedright Если выполнены свойства 1--4, то $V$ называется коммутативной (абелевой) группой.}
-        \item $\alpha(a+b)=\alpha a + \alpha b$ ---дистрибутивность \begin{proof}
+        \item $\va+(\vb+\vc) = (\va+\vb)+\vc$ --- ассоциативность
+        \item $\va+\vb=\vb+\va$ --- коммутативность
+        \item $\exists \zv:\forall \va \quad \zv+\va=\va+\zv=\va$
+        \item $\forall \va \exists (-\va): \va+(-\va)=\zv$%
+              \footnote{Если выполнены свойства 1--4, то $V$ называется коммутативной (абелевой) группой.}
+        \item $\alpha(\va+\vb)=\alpha \va + \alpha \vb$ --- дистрибутивность \begin{proof}
                   \begin{gather*}
-                      \alpha (a+b) = \alpha a + \alpha b \\
-                      a = (x_1, y_1) \quad b = (x_2, y_2)
+                      \alpha (\va+\vb) = \alpha \va + \alpha \vb \\
+                      \va = (x_1, y_1) \quad \vb = (x_2, y_2)
                   \end{gather*}
                   \begin{multline*}
-                      \alpha(a+b)=\alpha((x_1, y_1)+(x_2, y_2)) = \alpha (x_1+x_2, y_1+y_2)=\\
+                      \alpha(\va+\vb)=\alpha((x_1, y_1)+(x_2, y_2)) = \alpha (x_1+x_2, y_1+y_2)=\\
                       (\alpha(x_1+x_2), \alpha(y_1+y_2))=(\alpha x_1 + \alpha x_2, \alpha y_1 + \alpha y_2)=\\
                       (\alpha x_1, \alpha y_1)+(\alpha x_2, \alpha y_2) = \alpha (x_1, y_1) + \alpha (x_2, y_2)= \\
-                      \alpha a + \alpha b
+                      \alpha \va + \alpha \vb
                   \end{multline*}
               \end{proof}
-        \item $(\alpha+\beta)a = \alpha a + \beta a$ --- дистрибутивность
-        \item $(\alpha \cdot \beta)a = \alpha(\beta a)$ --- ассоциативность
-        \item $1\cdot a = a, \forall a \in \R$
+        \item $(\alpha+\beta)\va = \alpha \va + \beta \va$ --- дистрибутивность
+        \item $(\alpha \cdot \beta)\va = \alpha(\beta \va)$ --- ассоциативность
+        \item $1\cdot \va = \va$
     \end{enumerate}
 \end{definition}
 
 \subsection{Свойства векторного пространства}
 
 \begin{enumerate}
-    \marginpar{$\zv$ --- векторный ноль}
     \item $\zv$ --- единственный \begin{proof}
               $\zv_1 = \zv_1 + \zv_2 = \zv_2$
           \end{proof}
-    \item $-a$ --- единственный \begin{proof}
-              Пусть $b_1, b_2$ -- противоположные к $a$
+    \item $-\va$ --- единственный \begin{proof}
+              Пусть $\vb_1, \vb_2$ -- противоположные к $\va$
 
-              $b_1 + a = \zv \quad b_2 + a = \zv$
+              $\vb_1 + \va = \zv \quad \vb_2 + \va = \zv$
 
-              $b_1 = b_1 + \zv = b_1 + (a + b_2) = (b_1+a)+b_2 = \zv +b_2 = b_2$
+              $\vb_1 = \vb_1 + \zv = \vb_1 + (\va + \vb_2) = (\vb_1+\va)+\vb_2 = \zv +\vb_2 = \vb_2$
           \end{proof}
-    \item $\zv\cdot a = \zv$ \begin{proof}
+    \item $\zv\cdot \va = \zv$ \begin{proof}
               !!!
           \end{proof}
-    \item $-1\cdot a = -a$ \begin{proof}
+    \item $-1\cdot \va = -\va$ \begin{proof}
               !!!
           \end{proof}
 \end{enumerate}
 
 \subsection{Примеры векторных пространств}
 \begin{enumerate}
-    \item Координатная плоскость $\{(x,y)|x,y\in \R\}$
-    \item Координатное трехмерное пространство $\{(x,y,z)|x,y,z\in \R\}$
+    \item Координатная плоскость $\{(x,y): x,y\in \R\}$
+    \item Координатное трехмерное пространство $\{(x,y,z): x,y,z\in \R\}$
     \item Строки длины $n$ из вещественных чисел \\
-          $V = \{(x_1, x_2, ..., x_n)|x_i \in \R\}$ или матрицы (2d массивы)
+          $V = \{(x_1, x_2, ..., x_n): x_i \in \R\}$ или матрицы (2d массивы)
 \end{enumerate}
 
 \section{Операции над векторами}
 \begin{equation*}
-    a = (x_1, y_1) \quad b = (x_2, y_2)
+    \va = (x_1, y_1) \quad \vb = (x_2, y_2)
 \end{equation*}
 \subsection{Сложение}
 \begin{equation*}
-    a + b = (x_1+x_2, y_1+y_2)
+    \va + \vb = (x_1+x_2, y_1+y_2)
 \end{equation*}
 
 \subsection{Умножение вектора на число}
-\marginpar{\raggedright Свойства 1--8, очевидно выполняются}
 \begin{equation*}
-    \alpha a = (\alpha\cdot x_1, \alpha\cdot y_1)
+    \alpha \va = (\alpha\cdot x_1, \alpha\cdot y_1)
 \end{equation*}
 
 \section[ЛК, ЛЗ и ЛНЗ]{Линейные комбинация, зависимость и независимость}
 \begin{definition}
-    $V$ - векторное пространство и векторы \\ $v_1,v_2,v_3,..., v_n \in V$.
-    Система $v_1,...,v_n$ называется линейно независимой (ЛНЗ), если из
-    $\alpha_1 v_1 + \alpha_2 v_2 + ... + \alpha_n v_n = 0 \implies \alpha_1=\alpha_2=...=\alpha_n =0$.
+    $V$ - векторное пространство и векторы \\ $\vv_1,\vv_2,\vv_3,..., \vv_n \in V$.
+    Система $\vv_1,...,\vv_n$ называется линейно независимой (ЛНЗ), если из
+    $\alpha_1 \vv_1 + \alpha_2 \vv_2 + ... + \alpha_n \vv_n = 0 \implies \alpha_1=\alpha_2=...=\alpha_n =0$.
 \end{definition}
 
 \begin{definition}
-    Если $\alpha_1,..., \alpha_n \in \R$, $v_1,...,v_n \in V$.
-    То $\alpha_1 v_1 + \alpha_2 v_2 + ... + \alpha_n v_n$ -- линейная комбинация (ЛК)
-    векторов $v_1,...,v_n$.
+    Если $\alpha_1,..., \alpha_n \in \R$, $\vv_1,...,\vv_n \in V$.
+    То $\alpha_1 \vv_1 + \alpha_2 \vv_2 + ... + \alpha_n \vv_n$ -- линейная комбинация (ЛК)
+    векторов $\vv_1,...,\vv_n$.
 \end{definition}
 
 \begin{definition}
-    Если $\exists \alpha_1,..., \alpha_n$, не все $=0$, но $\alpha_1 v_1 + \alpha_2 v_2 + ... + \alpha_n v_n = 0$,
-    то система $v_1,...,v_n$ называется линейно зависимой (ЛЗ).
+    Если $\exists \alpha_1,..., \alpha_n$, не все $=0$, но $\alpha_1 \vv_1 + \alpha_2 \vv_2 + ... + \alpha_n \vv_n = 0$,
+    то система $\vv_1,...,\vv_n$ называется линейно зависимой (ЛЗ).
 \end{definition}
 
 \begin{assertion}
-    \marginpar{$\Leftrightarrow$ -- тогда и только тогда}
-    $v_1,...,v_n$ -- ЛЗ $\Leftrightarrow$ один из этих векторов можно представить как ЛК остальных.
-    $\exists i: v_i= \alpha_1 v_1 +\alpha_2 v_2 + ... + \alpha_{i-1} v_{i-1} + \alpha_{i+1} v_{i+1} + ... +\alpha_n v_n$
-    \begin{proof}
-        $\Rightarrow : \exists \alpha_1,...,\alpha_n (\exists i: \alpha_i \neq 0)$
-        \begin{gather*}
-            \alpha_1 v_1 + \alpha_2 v_2 + ... + \alpha_n v_n = 0\\
-            \alpha_i v_i = - \alpha_1 v_1 - \alpha_2 v_2 - ... - \alpha_{i-1} v_{i-1} - \alpha_{i+1} v_{i+1} - ... -\alpha_n v_n\\
-            \alpha_i \neq 0 \quad v_i = -\frac{\alpha_1}{\alpha_i}v_1 -... - \frac{\alpha_n}{\alpha_i}v_n
-        \end{gather*}
-
-        \begin{gather*}
-            \Leftarrow: v_i = \alpha_1 v_1 + ... + \alpha_n v_n \text{ без } i\text{-ого слагаемого}\\
-            \alpha_1 v_1 + \alpha_2 v_2 + ... + \mathbf{(-1)}v_i + ... + \alpha_n v_n =0\\
-            \text{ЛК } = 0 \text{ не все коэффициенты} = 0
-        \end{gather*}
-    \end{proof}
+    $\vv_1,...,\vv_n$ -- ЛЗ $\Leftrightarrow$ один из этих векторов можно представить как ЛК остальных.
+    $\exists i: \vv_i= \alpha_1 \vv_1 +\alpha_2 \vv_2 + ... + \alpha_{i-1} \vv_{i-1} + \alpha_{i+1} \vv_{i+1} + ... +\alpha_n \vv_n$
 \end{assertion}
+\begin{proof}
+    $\Rightarrow : \exists \alpha_1,...,\alpha_n (\exists i: \alpha_i \neq 0)$
+    \begin{gather*}
+        \alpha_1 \vv_1 + \alpha_2 \vv_2 + ... + \alpha_n \vv_n = 0\\
+        \alpha_i \vv_i = - \alpha_1 \vv_1 - \alpha_2 \vv_2 - ... - \alpha_{i-1} \vv_{i-1} - \alpha_{i+1} \vv_{i+1} - ... -\alpha_n \vv_n\\
+        \alpha_i \neq 0 \quad \vv_i = -\frac{\alpha_1}{\alpha_i}\vv_1 -... - \frac{\alpha_n}{\alpha_i}\vv_n\\
+        \Leftarrow: \vv_i = \alpha_1 \vv_1 + ... + \alpha_n \vv_n \text{ без } i\text{-ого слагаемого}\\
+        \alpha_1 \vv_1 + \alpha_2 \vv_2 + ... + \mathbf{(-1)}\vv_i + ... + \alpha_n \vv_n =0\\
+        \text{ЛК } = 0 \text{ не все коэффициенты} = 0
+    \end{gather*}
+\end{proof}
 
 \begin{prop}
-    $v_1,...,v_n $ -- ЛНЗ, то любой его поднабор тоже ЛНЗ.\\
-    $v_1,...,v_n $ -- ЛЗ, то при добавлении векторов, набор останется ЛЗ.
+    $\vv_1,...,\vv_n $ -- ЛНЗ, то любой его поднабор тоже ЛНЗ.\\
+    $\vv_1,...,\vv_n $ -- ЛЗ, то при добавлении векторов, набор останется ЛЗ.
 \end{prop}
 
 
 \begin{assertion}
-    $v_1,..., v_n$ -- ЛНЗ $\Leftrightarrow$ если
+    $\vv_1,..., \vv_n$ -- ЛНЗ $\Leftrightarrow$ если
     \begin{gather*}
-        \alpha_1 v_1 + ... + \alpha_n v_n = \beta_1 v_1 + ... + \beta_n v_n\\
+        \alpha_1 \vv_1 + ... + \alpha_n \vv_n = \beta_1 \vv_1 + ... + \beta_n \vv_n\\
         \Rightarrow \alpha_1 = \beta_1; \alpha_2 = \beta_2; ... ; \alpha_n = \beta_n
     \end{gather*}
 \end{assertion}
 \begin{proof}
     \begin{gather*}
-        (\alpha_1 - \beta_1)v_1 + (\alpha_2 - \beta_2)v_2 + ...
-        + (\alpha_n - \beta_n)v_n = \zv\\
-        \alpha_i - \beta_i = 0 \Leftrightarrow v_1, ..., v_n\text{-- ЛНЗ}
+        (\alpha_1 - \beta_1)\vv_1 + (\alpha_2 - \beta_2)\vv_2 + ...
+        + (\alpha_n - \beta_n)\vv_n = \zv\\
+        \alpha_i - \beta_i = 0 \Leftrightarrow \vv_1, ..., \vv_n\text{-- ЛНЗ}
     \end{gather*}
 \end{proof}
 \end{document}
