@@ -1,0 +1,117 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+
+\chapter{Прямые на плоскости}
+
+Есть пространство $V; \dim V =2$, и ассоциированное с ним точечное пространство $E$,
+т.е. $E$ -- плоскость
+\begin{definition}
+    Есть $e_0 \in V$ и $\vn \in V$. Тогда прямая в $E$ -- геометрическое место точек $e$,
+    таких что  $\overrightarrow{e_0 e} \perp \vn$
+\end{definition}
+
+\begin{theorem}
+    В стандартных координатах прямая задается стандартным линейным уравнением:
+    $ax+by+c =0$, где координаты $e = (x,y)$, а координаты $(a,b) = \vn$.
+
+    Или $\vn \cdot \overrightarrow{0e} = -c$ ($c$ -- константа).
+
+    Точка $0$ имеет координаты $(0,0)$, а $e_0 = (x_0, y_0); e = (x,y)$
+    \begin{gather*}
+        \overrightarrow{e_0 e} \perp \vn \qquad ((x-x_0); (y-y_0)) \cdot (a,b)=0\\
+        (x-x_0)a + (y-y_0)b=0\\
+        ax + by - ax_0 -by_0 = 0\text{, где } -ax_0 - by_0 = c
+    \end{gather*}
+
+    Наоборот: любое уравнение $ax+by+c = 0$ (если $a^2 + b^2 \neq 0$)
+    задает прямую
+\end{theorem}
+
+\begin{definition}
+    $(a,b) = \vn$ называется вектором нормали к прямой
+    \begin{gather*}
+        ax+by+c=0 \qquad |:\sqrt{a^2 + b^2}\\
+        a'x+b'y +c' = 0 \text{ -- Нормальное уравнение прямой}\\
+        a'^2 + b'^2 = 1 \qquad a' = \frac{a}{\sqrt{a^2 + b^2}} \qquad b' = \frac{b}{\sqrt{a^2 + b^2}}\\
+        (a', b')\text{ -- единичный вектор }
+    \end{gather*}
+\end{definition}
+
+\begin{theorem}
+    \begin{enumerate}
+        \item $|c'|$ -- расстояние от начала координат до прямой.
+        \item Расстояние от точки $(x_1, y_1)$ до прямой $ax+by+c=0$ -- это
+              \[d = \frac{|ax_1 + by_1 +c|}{\sqrt{a^2 + b^2}}\]
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    1 -- частный случай 2, но докажем сперва 1.
+
+    \begin{tikzpicture}[scale=3]
+        \draw[very thick, -Latex] (-0.3, 0) -- (1.5, 0) node(xline) [right] {$x$};
+        \draw[very thick, -Latex] (0, -0.3) -- (0, 1.3) node(yline) [above] {$y$};
+        \draw[blue] (-0.3, 1)node[above] {$l$} -- (1.3, -0.3);
+        \draw[Latex-] ($(-0.3, 1)!(0,0)!(1.3, -0.3)$) node[above, left] {$\alpha \vn$} -- (0,0);
+        \draw[shorten <=0.5cm, red, Latex-] ($(-0.3, 1)!(0,0)!(1.3, -0.3)$) --
+        node[right] {$\vn$} (0,0);
+    \end{tikzpicture}
+
+    Если $|\vn| = 1 \implies |\alpha|$ -- искомое расстояние.
+    \begin{gather*}
+        \vn = (a', b') \qquad \alpha\vn = (\alpha a', \alpha b')\\
+        a' \cdot \alpha a' + b' \cdot \alpha b' + c' = 0\\
+        \alpha (a'^2 +b'^2) + c' = 0\\
+        \alpha = - c' \qquad |\alpha| = |c'|
+    \end{gather*}
+
+    1,5. $ax + by +c =0$ -- такой вид прямой. Расстояние от 0 до $e$:
+    \begin{gather*}
+        |\vn| = 1 \qquad \vn = \left(\frac{a}{\sqrt{a^2 + b^2}};
+        \frac{b}{\sqrt{a^2 + b^2}}\right)\\
+        \alpha \vn \in e\\
+        a\cdot \frac{\alpha a}{\sqrt{a^2 + b^2}}+ b \cdot \frac{\alpha b}{\sqrt{a^2 + b^2}}+c =0\\
+        \alpha \frac{a^2 + b^2}{\sqrt{a^2 + b^2}} +c = 0\\
+        \alpha = \frac{-c}{\sqrt{a^2 + b^2}} \qquad |\alpha| = \frac{|c|}{\sqrt{a^2 + b^2}}
+    \end{gather*}
+
+    2. Расстояние от $(x_1, y_1)$ до $e$
+    \begin{gather*}
+        \tilde{x} = x-x_1 \qquad \tilde{y}= y-y_1
+        \intertext{В новых координатах точка $D$ -- начало координат}
+        x = \tilde{x} + x_1 \qquad y = \tilde{y} + y_1\\
+        ax+by+c =0\\
+        a \tilde{x} + b \tilde{y} + ax_1 + by_1 + c = 0
+    \end{gather*}
+    Воспользуемся 1,5.:
+    \[\text{dist}(D;e) = \frac{|\tilde{c}|}{\sqrt{a^2 +b^2}} = \frac{|ax_1 + by_1 +c|}{\sqrt{a^2 +b^2}}\]
+\end{proof}
+
+$(a', b')$ называют направляющими косинусами, т.к.
+\begin{center}
+    \begin{tikzpicture}[scale=3]
+        \draw[very thick, -Latex] (-0.3, 0) -- (0.7, 0) node(xline) [right] {$x$};
+        \draw[very thick, -Latex] (0, -0.3) -- (0, 0.7) node(yline) [above] {$y$};
+        \draw[-Latex] (0,0)--(0.5, 0.3) node[right] {$\vn = (a', b')$};
+        \draw (0.1, 0.2) node {$\beta$};
+        \draw (0.2, 0.05) node {$\alpha$};
+    \end{tikzpicture}
+\end{center}
+\begin{gather*}
+    |\vn| = 1 \qquad a'^2 + b'^2 = 1\\
+    a' = \cos \alpha\\
+    b' = \sin \alpha = \cos \beta
+\end{gather*}
+
+Даны прямые $l_1, l_2$:
+\begin{gather*}
+    l_1: a_1x +b_1y + c_1 = 0\\
+    l_2: a_2x +b_2y + c_2 = 0\\
+    \angle(l_1, l_2) = \angle (\vn_1, \vn_2)\\
+    \cos \angle(l_1, l_2) = \frac{a_1a_2+b_1b_2}{\sqrt{a_1^2 + b_1^2} + \sqrt{a_2^2 + b_2^2}}\\
+    l_1 \perp l_2 \Leftrightarrow a_1 a_2 + b_1 b_2 = 0\\
+    l_1 \parallel l_2 \Leftrightarrow \frac{a_1}{a_2} = \frac{b_1}{b_2}
+\end{gather*}
+
+
+\end{document}

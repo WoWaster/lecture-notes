@@ -186,4 +186,39 @@ $\vw = a_1 \vu_1 +a_2 \vu_2 + ... + a_n \vu_n$, то можем записать
     (возможно вырожденный)
 \end{definition}
 
+\begin{figure}[h]
+    \centering
+    Сложение связанных векторов
+
+    \begin{tikzpicture}
+        \draw [-Latex] (0,0) -- node[above,sloped] {$\va$}  (1,2) ;
+        \draw [-Latex] (1,2) -- (4,2);
+        \draw [-Latex] (0,0) -- node[below,sloped] {$\vb$} (3,0);
+        \draw [-Latex] (3,0) -- (4,2);
+        \draw [-Latex, red] (0,0) -- node[above,sloped] {$\va + \vb$} (4,2);
+    \end{tikzpicture}
+\end{figure}
+
+Нетривиальный момент: почему $(\va, \vb+\vc) = (\va, \vb) + (\va, \vc)$?
+\begin{definition}
+    \begin{tikzpicture}
+        \draw [opacity=0.5] (-2,0) -- node[near end, below] {$l$} (4,0);
+        \draw [-Latex] (0,0) -- node[near end, above] {$\va$} (2,1);
+        \draw [-Latex, red, very thick] (0,0) -- node[near end, below] {$\proj_\vb \va$} (2,0);
+        \draw [-Latex] (0,0) -- node[near end, below] {$\vb$} (1,0);
+        \draw [dashed, red] (2,1) -- (2,0);
+    \end{tikzpicture}
+    \[\proj_\vb \va = |\va| \cos\alpha \frac{\vb}{|\vb|} =
+        \frac{(\va, \vb)}{|\vb|} \cdot \frac{\vb}{|\vb|} =
+        \frac{(\va,\vb)}{|\vb|^2} \vb\]
+\end{definition}
+
+\begin{theorem}
+    \[\proj_\vb (\va_1 + \va_2) = \proj_\vb \va_1 + \proj_\vb \va_2\]
+\end{theorem}
+\begin{corollary}
+    \[\frac{(\va_1+\va_2, \vb)}{|\vb|^2} \vb =
+        \frac{(\va_1,\vb)}{|\vb|^2} \vb + \frac{(\va_2,\vb)}{|\vb|^2} \vb =
+        (\va_1 + \va_2, \vb) = (\va_1, \vb) + (\va_2, \vb)\]
+\end{corollary}
 \end{document}

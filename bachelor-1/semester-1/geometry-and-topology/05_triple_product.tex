@@ -1,0 +1,37 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Смешанное произведение}
+
+\begin{definition}
+    $\va, \vb, \vc$ -- векторы в $\R^3$
+    \[(\va, \vb,\vc) = (\va\times\vb; \vc)\text{ -- смешанное произведение}\]
+    Геометрический смысл: $\pm V_{\text{параллелограмма}}$
+\end{definition}
+\begin{proof}
+    \begin{gather*}
+        (\va, \vb, \vc ) = |\va \times \vb| |\vc|\cos\alpha = S_{\va,\vb}|\vc|\cos\alpha=\pm V_{\va, \vb, \vc}
+    \end{gather*}
+\end{proof}
+
+В координатах:
+\begin{multline*}
+    (\va \times \vb; \vc) = (a_2 b_3 - a_3 b_2; a_3 b_1 - a_1 b_3; a_1b_2 - a_2 b_1)(c_1, c_2, c_3)=\\
+    a_2 b_3 c_1 - a_3 b_2 c_1  + a_3 b_1 c_2 - a_1 b_3 c_2 + a_1 b_2 c_3 - a_2 b_1 c_3 =
+    \begin{vmatrix}
+        a_1 & a_2 & a_3 \\
+        b_1 & b_2 & b_3 \\
+        c_1 & c_2 & c_3
+    \end{vmatrix}
+\end{multline*}
+
+\section{Свойства}
+\begin{enumerate}
+    \item $(\ve+\vf, \vb, \vc) = (\ve, \vb, \vc) + (\vf, \vb, \vc)$ для каждого аргумента
+    \item $(\alpha \va, \vb, \vc) = (\va, \alpha \vb, \vc) =(\va, \vb, \alpha\vc) = \alpha (\va, \vb, \vc)$
+    \item $(\va, \vb, \vc) = 0 \Leftrightarrow \va, \vb, \vc$ -- ЛЗ
+    \item $(\va, \vb, \vc) = (\vb,\vc, \va) = (\vc, \va, \vb) = - (\vb, \va, \vc)=
+              -(\va, \vc, \vb) = - (\vc, \vb, \va)$
+    \item Знак смешанного произведения -- ориентация тройки.
+\end{enumerate}
+\end{document}

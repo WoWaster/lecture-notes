@@ -1,0 +1,29 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\part{Линейная геометрия}
+\chapter{Точечное пространство}
+\begin{definition}
+    $V$ -- векторное пространство, $E$ -- множество. Назовем $E$ точечным (афинным)
+    пространством , если определена операция $+: E\times V \to E$, т.е. $(e; \vv) \mapsto (e+\vv)$
+    со свойствами:
+    \begin{enumerate}
+        \item $(e+\vv_1) + \vv_2 = e + (\vv_1 + \vv_2)$
+        \item $e + \zv = e$
+        \item $\forall e_1, e_2 \in E \exists! \vv \in V: e_2 = e_1 + \vv$
+    \end{enumerate}
+    Такой вектор будем обозначать $\vv = \overrightarrow{e_1 e_2}$
+
+    Если в $V$ есть базис $(\vi, \vj, \vk)$ и мы зафиксируем
+    $e_0 \in E \implies \forall e \in E \exists! \vv:e_0 + \vv = e
+        \implies \vv = (v_1, v_2, v_3)$ -- координаты в базисе $\vi, \vj, \vk$.
+    Обозначим $e = (v_1, v_2, v_3); e_0 = (0,0,0)$
+\end{definition}
+
+\begin{remark}
+    \begin{gather*}
+        e = (e_1, e_2, e_3) \qquad f = (f_1, f_2, f_3)\\
+        \overrightarrow{ef} = (f_1 - e_1, f_2 - e_2, f_3 - e_3)
+    \end{gather*}
+\end{remark}
+\end{document}

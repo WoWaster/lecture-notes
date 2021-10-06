@@ -119,4 +119,98 @@ $A \times B = \{(x,y):x \in A; y \in B\}$ --- декартово произве�
 \begin{definition}
     Множество классов эквивалентности называется фактор-множество. Обозначается $M/\sim$
 \end{definition}
+
+\section[Определители]{Определители $2\times2$ и $3 \times 3$}\label{introduction:deteminants}
+\begin{definition}[Неформальное]
+    На плоскости: $\va = (a_1, a_2); \vb = (b_1, b_2)$
+    \[\begin{vmatrix}
+            a_1 & a_2 \\
+            b_1 & b_2
+        \end{vmatrix}
+        =S_{\va, \vb}\text{ (ориентированная площадь)}\]
+
+    В пространстве: $\va = (a_1, a_2, a_3); \vb = (b_1, b_2, b_3); \vc = (c_1, c_2, c_3)$
+    \[\begin{vmatrix}
+            a_1 & a_2 & a_3 \\
+            b_1 & b_2 & b_3 \\
+            c_1 & c_2 & c_3
+        \end{vmatrix}
+        = V_{\va, \vb, \vc}\text{ (ориентированный объем)}\]
+\end{definition}
+\begin{definition}[Формальное]
+    \[\begin{vmatrix}
+            a_1 & a_2 \\
+            b_1 & b_2
+        \end{vmatrix}
+        =a_1 b_2-a_2 b_1\]
+    \[\begin{vmatrix}
+            a_1 & a_2 & a_3 \\
+            b_1 & b_2 & b_3 \\
+            c_1 & c_2 & c_3
+        \end{vmatrix}
+        =a_1 b_2 c_3 + a_2 b_3 c_1 + a_3 b_1 c_2 - a_1 b_3 c_2 - a_2 b_1 c_3 - a_3 b_2 c_1\]
+\end{definition}
+
+Мнемоническое правило:
+
+\begin{tikzpicture}
+    \matrix (m) [matrix of math nodes,left delimiter={|},right delimiter={|}]{
+        a_1 & a_2 & a_3 & a_1 & a_2 \\
+        b_1 & b_2 & b_3 & b_1 & b_2 \\
+        c_1 & c_2 & c_3 & c_1 & c_2 \\
+    };
+    \draw [-,red] (m-1-3.north east) -- (m-3-3.south east);
+    \draw [-Latex,green] (m-1-5.north east) -- (m-3-3.south west);
+    \draw [-Latex,green] (m-1-4.north east) -- (m-3-2.south west);
+    \draw [-Latex,green] (m-1-3.north east) -- (m-3-1.south west);
+    \draw [-Latex,cyan] (m-1-1.north west) -- (m-3-3.south east);
+    \draw [-Latex,cyan] (m-1-2.north west) -- (m-3-4.south east);
+    \draw [-Latex,cyan] (m-1-3.north west) -- (m-3-5.south east);
+\end{tikzpicture}
+
+По бирюзовой стрелке сложение, по зеленой -- вычитание.
+
+\subsection{Свойства}
+\begin{remark}
+    Данные свойства справедливы для матриц любого порядка.
+\end{remark}
+\begin{enumerate}
+    \item Если  строку или столбец умножить на $\alpha$, то определитель тоже
+          умножится на $\alpha$.
+    \item Если меняем 2 строки или столбца, то знак определителя меняется.
+    \item Если есть 2 одинаковых строки, то определитель равен 0.
+    \item Если к одному из векторов прибавить вектор кратный другому,
+          то определитель не поменяется
+\end{enumerate}
+\begin{multline*}
+    \begin{vmatrix}
+        a_1 + \alpha b_1 & a_2+ \alpha b_2 & a_3 + \alpha b_3 \\
+        b_1              & b_2             & b_3              \\
+        c_1              & c_2             & c_3
+    \end{vmatrix}=\\
+    =\begin{vmatrix}
+        a_1 & a_2 & a_3 \\
+        b_1 & b_2 & b_3 \\
+        c_1 & c_2 & c_3
+    \end{vmatrix}+ \alpha
+    \begin{vmatrix}
+        b_1 & b_2 & b_3 \\
+        b_1 & b_2 & b_3 \\
+        c_1 & c_2 & c_3
+    \end{vmatrix}=
+    \begin{vmatrix}
+        a_1 & a_2 & a_3 \\
+        b_1 & b_2 & b_3 \\
+        c_1 & c_2 & c_3
+    \end{vmatrix}
+\end{multline*}
+\begin{assertion}
+    Эти свойства и $\left| \begin{smallmatrix}
+            1 & 0 &0\\
+            0& 1& 0\\
+            0&0&1
+        \end{smallmatrix} \right| = 1$
+    полностью определяют функцию объема
+\end{assertion}
+
 \end{document}
