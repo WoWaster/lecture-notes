@@ -1,0 +1,36 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{НОК}
+\begin{definition}
+    Пусть $a_1, ..., a_n \in \Z$, их наименьшее общее кратное -- наименьшее
+    натуральное $c$, т.ч. $a_1\mid c, ..., a_m \mid c$.
+\end{definition}
+
+Обозначение: $\NOK(a_1, ..., a_n)$.
+
+\begin{theorem}
+    Пусть $a, b \in \N$, тогда
+    \[\NOK(a,b)=\frac{ab}{(a,b)}\]
+\end{theorem}
+\begin{proof}
+    Пусть $(a,b) = d, a = da_1, b = db_1$
+    \[ \frac{ab}{d} = a_1 b = a b_1\]
+    то есть $\frac{ab}{d}$ -- общее кратное $a,b$
+
+    Пусть $M$ -- какое-либо общее кратное $a,b$
+    \begin{gather*}
+        M = d M_1\\
+        a\mid M \implies da_1 \mid dM1 \implies a_1 \mid M_1\\
+        \intertext{Аналогично $b_1 \mid M_1$}
+        M_1 = a_1 c\\
+        b_1 \mid M_1\\
+        (b_1, a_1) = 1 \implies b_1 \mid c \\
+        a_1 b_1 \mid M_1\\
+        a_1 b_1 d \mid M \text{, где } a_1 b_1 d = \frac{ab}{(a,b)}
+    \end{gather*}
+\end{proof}
+\begin{remark}
+    При этом проверили: любое общее кратное $a,b$, кратно $\NOK(a,b)$
+\end{remark}
+\end{document}

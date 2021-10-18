@@ -1,0 +1,227 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Кольцо классов вычетов}
+
+\begin{definition}
+    Класс эквивалентности относительно сравнимости по модулю $m$ называется
+    классом вычетов по модулю $m$.
+    Класс числа $a$ обозначается:
+    $[a]_m = \overline{a} = \{..., a-2m, a-m, a, a+m, a+2m, ...\}$
+\end{definition}
+
+\begin{example}
+    Разбиение на классы при $m=3$
+    \begin{gather*}
+        \begin{aligned}
+            M_0 & = \{..., -3, 0, 3, 6, 9, ...\}     \\
+            M_1 & = \{..., -5, -2, 1, 4, 7, 10,...\} \\
+            M_2 & = \{..., -4, -1, 2, 5, 8, 11,...\} \\
+        \end{aligned}\\
+        \Z = M_0 \cup M_1 \cup M_2
+    \end{gather*}
+\end{example}
+
+\begin{definition}
+    Фактор-множество относительно сравнимости по модулю обозначают $\Z/m\Z$,
+    читают как <<зет по эм зет>>, и называют множеством классов вычетов по модулю $m$
+\end{definition}
+
+\begin{proposition}
+    Пусть $m \in N$, тогда $|\Z/m\Z| = m$
+\end{proposition}
+\begin{proof}
+    Пусть $r$ -- остаток от $a$ при делении на $m$, тогда
+    \begin{gather*}
+        [a]_m = [r]_m \implies \Z/m\Z = \{[0]_m, [1]_m, ..., [m-1]_m\},
+        \text{ т.е. } |\Z/m\Z| \le m\\
+        \intertext{осталось проверить, что $[i]_m \neq [j]_m, 0 \le i < j \le m-1$}
+        i \nequiv j, \pmod{m} \text{ т.к. } 0< j-i<m
+    \end{gather*}
+\end{proof}
+
+
+\begin{definition}
+    Набор чисел $a_1, ..., a_m$ называется полной системой вычетов по модулю $m$,
+    если $\forall i \neq j: a_i \not\equiv a_j \pmod{m}$
+    (при этом: $\{[a_1],...,[a_m]\} = \Z/m\Z$)
+\end{definition}
+
+
+\begin{proposition}
+    Пусть $a_1, ..., a_m$ -- полная система вычетов по модулю $m$,
+    пусть $(c, m) =1, b \in \Z$, тогда $\{ca_j+b: j = 1, ..., m\}$ тоже ПСВ по модулю $m$
+\end{proposition}
+
+\begin{proof}
+    \begin{gather*}
+        ca_i + b  \equiv ca_j + b \pmod{m}\\
+        -b \equiv -b \pmod{m}\\
+        \implies ca_i \equiv ca_j \pmod{m}\\
+        \begin{rcases}
+            m \mid c(a_i - a_j) \\
+            (c, m) = 1
+        \end{rcases} \implies m \mid (a_i-a_j)\\
+        \implies a_j \equiv a_i \pmod{m} \implies i = j
+    \end{gather*}
+\end{proof}
+
+Введем операции на $\Z/m\Z$
+\begin{gather*}
+    \overline{a}+ \overline{b} := \overline{a+b}\\
+    \overline{a}\cdot \overline{b} := \overline{ab}
+\end{gather*}
+
+
+\begin{proposition}
+    Сложение и умножение на этом множестве корректно определены.
+\end{proposition}
+\begin{proof}
+    Нужно проверить: если $\overline{a} = \overline{a'}, \overline{b} = \overline{b'}$,
+    то $\overline{a'+b'} = \overline{a+b}$ и $\overline{a'b'} =\overline{ab}$
+
+    Имеем
+    \begin{gather*}
+        a \equiv a' \pmod{m} \qquad b \equiv b' \pmod{m}\\
+        \implies a' + b' \equiv a + b \pmod{m} \\
+        a'b' \equiv ab \pmod{m}\\
+        \implies \overline{a'+b'} = \overline{a+b} \qquad \overline{a'b'} =\overline{ab}
+    \end{gather*}
+\end{proof}
+
+\begin{theorem}
+    $(\Z/m\Z,+, *)$ -- коммутативное ассоциативное кольцо с единицей.
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item $\overline{a} + \overline{b} = \overline{a+b} = \overline{b+a} = \overline{b} + \overline{a}$
+        \item Ассоциативность аналогично.
+        \item $\overline{0}$ -- нейтральный
+        \item $\overline{-a}$ обратный к $\overline{a}$
+        \item Коммутативность и ассоциативность умножения аналогично сложению
+        \item $\overline{a}(\overline{b} + \overline{c}) =
+                  \overline{a}\cdot \overline{(b+c)} = \overline{a(b+c)} =
+                  \overline{ab+ac} = \overline{ab} + \overline{ac} =
+                  \overline{a} \cdot \overline{b} + \overline{a} \cdot \overline{c}$
+              -- дистрибутивность умножения
+        \item $\overline{1}$ -- нейтральный по умножению
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    Областью целостности называется коммутативное ассоциативное кольцо с $1\neq 0$,
+    т.ч. если $a, b \neq 0$, то $ab \neq 0$
+\end{definition}
+
+\begin{proposition}
+    $\Z/m\Z$ -- область целостности только если $m$ простое.
+\end{proposition}
+\begin{proof}
+    Пусть $m=1 \implies \Z/m\Z = \{\overline{0}\}; 1 = 0$ -- не ОЦ.
+
+    Пусть $m$ -- составное, тогда
+    \begin{gather*}
+        m=ab \qquad 1< a,b<m\\
+        \implies \overline{a} \cdot \overline{b} = \overline{ab} = \overline{m} = \overline{0}\\
+        \overline{a}, \overline{b} \neq \overline{0} \implies \text{ делители нуля}
+    \end{gather*}
+
+    Пусть $m$ -- простое, тогда $\overline{1} \neq \overline{0}$, т.к. $m>1$.
+    Предположим, что $\overline{a} \cdot \overline{b} = \overline{0}$, но, если
+    $\overline{ab} = \overline{0}$, то
+    \[\begin{rcases}
+            m\mid ab \\
+            m \text{ простое}
+        \end{rcases} \implies
+        \left[
+        \begin{array}{l}
+            m\mid a \\
+            m\mid b
+        \end{array}
+        \right. \implies
+        \left[
+        \begin{array}{l}
+            \overline{a} = \overline{0} \\
+            \overline{b} = \overline{0}
+        \end{array}
+        \right.\]
+\end{proof}
+
+\section{Обратимые классы}
+
+\begin{definition}
+    Если $A$ -- ассоциативное кольцо с 1, то $A^* = \{a \in A: \exists a^{-1}\}$
+    -- множество обратимых элементов $A$, а так же группа по умножению.
+\end{definition}
+\begin{example}
+    \[\Z^* = \{\pm 1\}, \Q^* = \Q \setminus \{0\}\]
+\end{example}
+
+\begin{theorem}
+    Пусть $m \in \N, a \in \Z$. Тогда $\overline{a} \in (\Z/m\Z)^* \Leftrightarrow (a,m)=1$
+\end{theorem}
+\begin{proof}
+    \begin{gather*}
+        \overline{a} \in (\Z/m\Z)^* \Leftrightarrow
+        \exists \overline{c} \in \Z/m\Z: \overline{a}\cdot\overline{c} = \overline{1}\\
+        \Leftrightarrow \exists c \in \Z: ac \equiv 1 \pmod{m}\\
+        \Leftrightarrow \exists c,t \in \Z: ac = 1+mt\\
+        \Leftrightarrow \exists c,t \in \Z: ac-mt = 1\\
+        \Leftrightarrow (a,m) = 1
+    \end{gather*}
+\end{proof}
+
+\begin{corollary}
+    $\Z/m\Z$ -- поле, только если $m$ -- простое.
+\end{corollary}
+\begin{proof}
+    Пусть $m$ -- составное $\implies \Z/m\Z$ -- не ОЦ $\implies$ не поле.
+
+    Пусть $p=m$ -- простое
+    \begin{gather*}
+        \implies (\Z/p\Z)^* = \{\overline{a}: 0 \le a < p-1, (a,p) = 1\}=\\
+        \{\overline{1},\overline{2},\overline{3},...,\overline{p-1}\} = (\Z/p\Z)\setminus \{\overline{0}\}
+    \end{gather*}
+    т.е. $\Z/p\Z$ -- конечное поле
+\end{proof}
+
+Мы обнаружили поля из конечного числа элементов. Что мы о них знаем:
+\begin{enumerate}
+    \item Поле вида $\Z/p\Z$ единственное вплоть до изоморфизма.
+    \item Если в поле $m=p^l$ количество элементов, то оно существует и единственно.
+    \item Если в поле $m\neq p^l$ элементов, то такое поле не существует.
+\end{enumerate}
+
+
+\begin{theorem}[Вильсона]
+    Пусть $p$ -- простое число, тогда \[(p-1)! \equiv -1 \pmod{p}\]
+\end{theorem}
+\begin{example}
+    \[4! = 1\cdot 2 \cdot 3 \cdot 4 = 24 \equiv -1 \pmod{5}\]
+\end{example}
+\begin{proof}
+    \begin{gather*}
+        \prod_{n=1}^{p-1}  \overline{n} = \overline{-1} \text{ в } \mathbb{F}_p = \Z/p\Z\\
+        \overline{a}, \overline{b}: \overline{a} \cdot \overline{b} = \overline{1}\\
+        \overline{a'}, \overline{b'}: \overline{a'} \cdot \overline{b'} = \overline{1}\\
+        ...\\
+        \intertext{В итоге весь класс разобьется на пары: $x, x^{-1}$,
+            но некоторые числа будут выписаны дважды, нужно выяснить когда}
+        x\cdot x = \overline{1} ?\\
+        \intertext{Для этого решим уравнение:}
+        x^2 = \overline{1}\\
+        x = \overline{c}\\
+        \overline{c} \cdot \overline{c} = \overline{1}\\
+        c^2 \equiv 1 \pmod{p}\\
+        (c-1)(c+1) \equiv 0 \pmod{p}\\
+        \left[
+        \begin{array}{l}
+            c \equiv 1 \pmod{p} \\
+            c \equiv -1 \pmod{p}
+        \end{array}
+        \right.\\
+        x = \overline{1} \qquad x = \overline{-1}\\
+        \prod_{n=1}^{p-1} \overline{n} = \overline{1}\cdot ... \cdot \overline{1} \cdot \overline{1} \cdot \overline{-1} = \overline{-1}
+    \end{gather*}
+\end{proof}
+\end{document}

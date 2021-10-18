@@ -1,0 +1,116 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Основная теорема арифметики}
+\begin{lemma}\label{ftoa:lemma1}
+    Пусть $p$ -- простое число $a\in\Z$, тогда либо $p \mid a$, либо $(p,a)=1$.
+\end{lemma}
+\begin{proof}
+    \begin{gather*}
+        (p,a) \mid p \implies
+        \left[
+        \begin{array}{l}
+            (p,a) =1 \\
+            (p,a) = p \implies p \mid a
+        \end{array}
+        \right.
+    \end{gather*}
+\end{proof}
+
+\begin{lemma}
+    Пусть $p$ -- простое и $p\mid (a_1\cdot ... \cdot a_n)
+        \implies \exists i: p \mid a_1$
+\end{lemma}
+\begin{proof}
+    Индукция по $n$. База: $n = 1$ -- тривиально.
+    \begin{gather*}
+        \intertext{Переход:}
+        p \mid (a_1...a_n)
+        \intertext{По лемме \ref{ftoa:lemma1}}
+        \left[
+        \begin{array}{l}
+            (p,a_n) =1 \implies p \mid (a_1... a_{n-1}) \\
+            p \mid a_n \implies \text{ок}
+        \end{array}
+        \right.
+        \intertext{По идукционному предположению}
+        p \mid a_i (1 \le i \le n-1)
+    \end{gather*}
+\end{proof}
+
+\begin{theorem}[Основная теорема арифметики]
+    Любое натуральное число раскладывается в произведение положительных простых чисел,
+    так что это разложение единственно с точностью до порядка множителей.
+\end{theorem}
+\begin{proof}
+    Докажем существование: для натурального числа $n\ge 2$ проведем индукцию по $n$.
+    \begin{gather*}
+        \intertext{База:}
+        2=2
+        \intertext{Переход:}
+        n \text{ -- простое, то доказывать нечего}\\
+        n \text{ --  составное, то } n =ab, 1<a,b<n
+        \intertext{Тогда $a,b$ раскладываются на простые множители и, соответсвенно,
+            их произведение тоже раскладывается}
+    \end{gather*}
+    Докажем единственность: проведем индукцию по $n$.
+    \begin{gather*}
+        n = p_1...p_r = q_1...q_s\\
+        q_s \mid n \implies \exists j: \underbrace{q_s \mid p_j}_{>0}
+        \implies q_s = p_j\\
+        \implies p_1...\hat{p_j}...p_r = \underbrace{q_1...q_{s-1}}_{<n}
+    \end{gather*}
+    $(q_1, ..., q_{s-1})$ отличается от $(p_1, ..., \hat{p_j},..., p_r)$
+    только порядком (т.к. $s=r$), это означает единственность для $n$.
+\end{proof}
+
+\begin{definition}
+    Представление числа $a>1$ в виде $p_1^{\alpha_1}...p_n^{\alpha_n}$, где
+    $p_i$ попарно различны, а $\alpha_i \in \N$ называется каноничным разложением
+    (или факторизацией) числа $a$.
+\end{definition}
+\begin{corollary}
+    Пусть $a = p_1^{\alpha_1}...p_n^{\alpha_n}$ -- каноническое разложение,
+    тогда множество положительных делителей$a$:
+    \[\{p_1^{\beta_1}... p_n^{\beta _n}: 0 \le \beta_i \le \alpha_i, i=1,...,n\}\]
+\end{corollary}
+\begin{proof}
+    Очевидно, что $p_1^{\beta_1}... p_n^{\beta_n} \mid a$.
+    Обратно: пусть $d\mid a, a=dc$. Из единственности разложения можно утверждать
+    в $d$ входят только $p_1, ..., p_n$ и показатель $p_i$ не больше $\alpha_i$.
+\end{proof}
+\begin{corollary}
+    Число натуральных делителей $a = p_1^{\alpha_1}...p_n^{\alpha_n}$ -- это
+    \[(\alpha_1 +1)... (\alpha_n+1)\]
+\end{corollary}
+
+
+\begin{proposition}
+    Пусть $m =\pm p_1^{l_1} ... p_s^{l_s}; n = \pm p_1^{r_1} ... p_s^{r_s}$, тогда
+    \[\NOD(m,n) = p_1^{\min(l_1, r_1)}... p_s^{\min(l_s, r_s)}\]
+    \[\NOK(m,n) = p_1^{\max(l_1, r_1)}... p_s^{\max(l_s, r_s)}\]
+\end{proposition}
+\begin{proof}
+    \begin{align*}
+        d \mid m    & \Leftrightarrow d = p_1^{\alpha_1} ... p_s^{\alpha_s} & \alpha_j & \le l_j            \\
+        d \mid n    & \Leftrightarrow ...                                   & \alpha_j & \le r_j            \\
+        \begin{cases}
+            d \mid m \\
+            d \mid n
+        \end{cases}
+                    & \Leftrightarrow ...                                   & \alpha_j & \le \min(l_j, r_j) \\
+        d=\NOD(n,m) & \Leftrightarrow ...                                   & \alpha_j & = \min(l_j, r_j)
+    \end{align*}
+    \begin{gather*}
+        m\mid c, n \mid c\\
+        \Leftrightarrow c = p_1^{\beta_1}... p_s^{\beta_s} q_1^{\gamma_1}...q_h^{\gamma_h}\\
+        l_j\le \beta_j, r_j \le \beta_j, j=1...s\\
+        \implies \beta_j \ge \max(l_j, r_j)\\
+        \NOK(m,n) = p_1^{\beta_1}... p_s^{\beta_s}, \beta_j = \max(l_j, r_j)
+    \end{gather*}
+\end{proof}
+
+\begin{corollary}
+    \[\NOD(m,n) \cdot \NOK(m,n) = mn\qquad m,n >0\]
+\end{corollary}
+\end{document}

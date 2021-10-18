@@ -1,0 +1,115 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Китайская теорема об остатках}
+\begin{theorem}
+    Пусть $m,n \in \N,(m,n)=1, a,b \in \Z$, тогда
+    \[\exists x \in \Z: \begin{cases}
+            x\equiv a \pmod{m} \\
+            x \equiv b \pmod{n}
+        \end{cases}\]
+    Далее, если
+    \[x' \in \Z, то \begin{cases}
+            x' \equiv a \pmod{m} \\
+            x' \equiv b \pmod{n}
+        \end{cases}
+        \Leftrightarrow x' \equiv x \pmod{mn}\]
+\end{theorem}
+\begin{proof}
+    \begin{gather*}
+        x' \equiv x \pmod{mn} \Leftrightarrow
+        \begin{cases}
+            x' \equiv x \pmod{m} \\
+            x' \equiv x \pmod{n}
+        \end{cases}\Leftrightarrow
+        \begin{cases}
+            x' \equiv a \pmod{m} \\
+            x' \equiv b \pmod{n}
+        \end{cases}\\
+        \begin{multlined}
+            (m,n) = 1 \implies \overline{m} \in (\Z/n\Z)^* \\
+            \implies \exists x_1 \in \Z : \overline{m} \overline{x_1}
+            = \overline{1} \in (\Z/m\Z)^* \implies mx_1 \equiv 1 \pmod{n}
+        \end{multlined}\\
+        \intertext{Аналогично}
+        \exists x_2 \in \Z: nx_2 \equiv 1 \pmod{m}\\
+        \begin{cases}
+            mx_1 \equiv 0 \pmod{m} \\
+            mx_1 \equiv 1 \pmod{n}
+        \end{cases} \qquad
+        \begin{cases}
+            nx_2 \equiv 1 \pmod{m} \\
+            nx_2 \equiv 0 \pmod{n}
+        \end{cases}\\
+        b(mx_1) + a(nx_2) \equiv b\cdot 0  + a \cdot 1\pmod{m}\\
+        b(mx_1) + a(nx_2) \equiv b\cdot 1  + a \cdot 0\pmod{n}
+        \implies \begin{cases}
+            x \equiv a \pmod{m} \\
+            x \equiv b \pmod{n}
+        \end{cases}
+    \end{gather*}
+\end{proof}
+\begin{proof}
+    \begin{gather*}
+        \Z/mn\Z \xrightarrow{\text{инъ.}} (\Z/m\Z) \times (\Z/n\Z)\\
+        [a]_{mn} \mapsto ([a]_m, [a]_n)\\
+        |\Z/mn\Z| = mn = |(\Z/m\Z) \times (\Z/n\Z)|\implies \text{отображение биекция}
+    \end{gather*}
+\end{proof}
+\begin{example}
+    Сколько решением имеет уравнение $x^2 \equiv 1 \pmod{77}$
+    \begin{gather*}
+        x^2 \equiv 1 \pmod{77} \Leftrightarrow
+        \begin{cases}
+            x^2 \equiv 1 \pmod{7} \\
+            x^2 \equiv 1 \pmod{11}
+        \end{cases}\\
+        \Leftrightarrow
+        \begin{cases}
+            \left[
+            \begin{array}{l}
+                x \equiv 1 \pmod{7} \\
+                x \equiv -1 \pmod{7}
+            \end{array}
+            \right. \\
+            \left[
+            \begin{array}{l}
+                x \equiv 1 \pmod{11} \\
+                x \equiv -1 \pmod{11}
+            \end{array}
+            \right.
+        \end{cases}
+        \Leftrightarrow
+        \left[
+        \begin{array}{l}
+            \begin{cases}
+                x \equiv 1 \pmod{7} \\
+                x \equiv 1 \pmod{11}
+            \end{cases} \\
+            \begin{cases}
+                x \equiv 1 \pmod{7} \\
+                x \equiv -1 \pmod{11}
+            \end{cases} \\
+            \begin{cases}
+                x \equiv -1 \pmod{7} \\
+                x \equiv 1 \pmod{11}
+            \end{cases} \\
+            \begin{cases}
+                x \equiv -1 \pmod{7} \\
+                x \equiv -1 \pmod{11}
+            \end{cases}
+        \end{array}
+        \right.\\
+        \Leftrightarrow
+        \left[
+        \begin{array}{l}
+            x \equiv 1 \pmod{77}   \\
+            x \equiv 43 \pmod{77}  \\
+            x \equiv -43 \pmod{77} \\
+            x \equiv -1 \pmod{77}  \\
+        \end{array}
+        \right.
+    \end{gather*}
+\end{example}
+
+\end{document}

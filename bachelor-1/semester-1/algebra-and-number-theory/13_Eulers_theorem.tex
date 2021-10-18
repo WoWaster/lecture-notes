@@ -1,0 +1,69 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Теорема Эйлера}
+\begin{theorem}
+    Пусть $n \in \N, a \in \Z, (a,n) = 1$, тогда
+    \[a^{\varphi(n)} \equiv 1 \pmod{n}\]
+\end{theorem}
+\begin{example}
+    \begin{align*}
+        5^{301} & \equiv ? \pmod{101} & 5^{100} & \equiv 1 \pmod{101} \\
+                &                     & 5^{300} & \equiv 1 \pmod{101} \\
+                &                     & 5^{301} & \equiv 5 \pmod{101} \\
+    \end{align*}
+\end{example}
+\begin{proof}
+    Рассмотрим все обратимые классы $X_1,..., X_{\varphi(n)}$
+    \begin{gather*}
+        (\Z/n\Z)^* = \{X_1,..., X_{\varphi(n)}\}\\
+        \overline{a} \in (\Z/n\Z)^*\\
+        \overline{a} X_1, ..., \overline{a} X_{\varphi(n)} \in (\Z/n\Z)^*
+        \qquad (\overline{a}X_i \neq \overline{a}X_j, i \neq j)\\
+        \implies (\Z/n\Z)^* = \{\overline{a} X_1, ..., \overline{a}X_{\varphi(n)}\}\\
+        \implies \prod_{i=1}^{\varphi(n)} (\overline{a}X_i)
+        = \prod_{X \in (\Z/n\Z)^*} X = \prod_{i=1}^{\varphi(a)} X_i \\
+        \prod_{i=1}^{\varphi(n)} (\overline{a}X_i) = (\overline{a})^{\varphi(n)} \prod_{i=1}^{\varphi(n)} X_i\\
+        (\overline{a})^{\varphi(n)} = \overline{1}\\
+        a^{\varphi(n)} \equiv 1 \pmod{n}
+    \end{gather*}
+\end{proof}
+
+\begin{corollary}[Малая теорема Ферма]
+    Пусть $p$ -- простое, $a\in \Z$, тогда
+    \[a^p \equiv a \pmod{p}\]
+\end{corollary}
+\begin{proof}
+    \begin{align*}
+        (a,p)    & =1 & a^{p-1}      & \equiv 1 \pmod{p} \\
+                 &    & a^p          & \equiv a \pmod{p} \\
+        p \mid a &    & a^p \equiv 0 & \equiv a \pmod{p}
+    \end{align*}
+\end{proof}
+
+\section{Алгоритм RSA}
+\begin{enumerate}
+    \item Создание пары ключей
+          \begin{enumerate}
+              \item Выберем $p \neq q$ -- большие числа простые числа
+              \item $n = pq \qquad \varphi(n) = (p-1)(q-1)$
+              \item Выбрать $1< e < \varphi(n) \qquad (e, \varphi(n))=1$
+              \item Вычислить $1< d < \varphi(n) \qquad ed \equiv 1 \pmod{\varphi(n)}$
+          \end{enumerate}
+          Теперь пара $(e,n)$ -- открытый ключ, а пара $(d,n)$ закрытый.
+    \item Шифрование
+          \begin{enumerate}
+              \item $0\le m < n$ -- сообщение
+              \item $m^e \equiv r \pmod{n}, r<n$
+          \end{enumerate}
+    \item Дешифрование
+          \begin{enumerate}
+              \item $r^d \equiv r' \pmod{n}, r' < n$
+              \item $r' \equiv r^d \equiv (m^e)^d \pmod{n} = m^{ed} \equiv m \pmod{n}$
+              \item $\begin{cases}
+                            0 \le r' < n \\
+                            0 \le m < n
+                        \end{cases} \implies r' = m$
+          \end{enumerate}
+\end{enumerate}
+\end{document}

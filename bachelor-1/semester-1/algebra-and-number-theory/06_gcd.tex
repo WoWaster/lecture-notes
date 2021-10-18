@@ -14,7 +14,7 @@ $a_1, ..., a_n \in \Z$ не все $0$, $d\ge 0$ называется наибо
     НОД существует и единственный
 \end{definition}
 \begin{proof}
-    \[I = \{a_1 c_1+ ... + a_n c_n: c_1, ..., c_n \in \Z\}\]
+    \[I = \{a_1 c_1+ ... + a_n c_n : c_1, ..., c_n \in \Z\}\]
     $d$ -- наименьший положительный элемент $I$
     \[c_i \neq 0 \implies c_i \cdot 1 >0 \text{ или } c_i\cdot(-1)>0\]
     Доказать: $d$ -- НОД $a_1, ..., a_n$
@@ -30,5 +30,136 @@ $a_1, ..., a_n \in \Z$ не все $0$, $d\ge 0$ называется наибо
 
     Единственность. Пусть $d_1, d_2$ -- НОД $a_1, ..., a_n \implies d_2 \mid d_1$,
     аналогично $d_1\mid d_2 \implies d_1 = d_2$
+\end{proof}
+
+\section{Свойства}
+Обозначения: $\NOD(a_1,..., a_n)$ или $\gcd(a_1, ..., a_n)$ или $(a_1, ..., a_n)$
+\begin{enumerate}
+    \item $b \mid a \implies (a,b) = b$
+    \item $a=bl + a' \implies (a,b) = (a', b)$
+          \begin{proof}
+              \begin{gather*}
+                  \{\text{делители } a \text{ и } b\} =  \{\text{делители } a' \text{ и } b\}\\
+                  \intertext{Включение левого множества в правое:}
+                  \begin{rcases}
+                      d\mid a \\
+                      d\mid b
+                  \end{rcases}
+                  \implies d\mid (a-bl)\implies d \mid a'
+              \end{gather*}
+              Включение правого в левое доказывается аналогично,
+              следовательно множества равны
+          \end{proof}
+    \item $\forall m>0: (am,bm) = m(a,b)$
+    \item $d\mid a, d\mid b \implies \left(\frac{a}{d}, \frac{b}{d}\right) = \frac{(a,b)}{d}$
+    \item Линейное представление НОД: $a,b \in \N \implies \exists
+              u,v \in \Z: au + bv=(a,b)$
+          \begin{proof}
+              \begin{align*}
+                  r_1 & = a- bq = a\cdot 1 + b \cdot (-q_1)                   \\
+                  r_2 & = b - r_1 q_2 = b - (a\cdot 1 + b \cdot (-q_1))q_2=
+                  a \cdot (-q_2) + b(1+q_1 q_2)                               \\
+                  r_3 & = r_1 - r_2q_3 = a\cdot(...) + b \cdot (...) \qedhere
+              \end{align*}
+          \end{proof}
+\end{enumerate}
+
+\section{Взаимно простые числа}
+\begin{definition}
+    $a, b \in \Z$ называются взаимно простыми, если $(a,b) =1$.
+\end{definition}
+\subsection{Свойства}
+\begin{enumerate}
+    \item $(a,b)= 1 \Leftrightarrow \exists u,v \in \Z: au + bv = 1$
+          \begin{proof}
+              \begin{gather*}
+                  \implies \text{ знаем}\\
+                  \Longleftarrow  \begin{rcases}
+                      d\mid a \\
+                      d\mid b
+                  \end{rcases} \implies d \mid (au+bv) \implies d = \pm 1
+              \end{gather*}
+          \end{proof}
+    \item $(a,b)=1 \implies \forall c \in \Z: (a,bc)=(a,c)$
+          \begin{proof}
+              \begin{gather*}
+                  \begin{rcases}
+                      (a,c)\mid a \\
+                      (a,c) \mid bc
+                  \end{rcases}
+                  \implies (a,c)\mid (a,bc)\\
+                  d=(a, bc)\\
+                  \begin{rcases}
+                      \begin{rcases}
+                          d \mid a \\
+                          (a,b) = 1
+                      \end{rcases} \implies (d, b)=1 \\
+                      \begin{rcases}
+                          d\mid bc \\
+                          (d,b) =1
+                      \end{rcases} \implies d \mid c
+                  \end{rcases} \implies d\mid (a,c) \implies (a,c) = (a, bc)
+              \end{gather*}
+          \end{proof}
+    \item $a\mid bc, (a,b) = 1 \implies a \mid c$
+          \begin{proof}
+              \begin{gather*}
+                  \exists u,v \in \Z: au+bv=1\qquad \mid \cdot c\\
+                  \underbrace{auc}_{a\mid ...} + \underbrace{bvc}_{a\mid ...}=c
+                  \implies c \mid a
+              \end{gather*}
+          \end{proof}
+    \item $(a, b_1)=(a, b_2)=1 \implies (a, b_1 b_2)=1$
+          \begin{proof}
+              \begin{gather*}
+                  au_1 + b_1 v_1 = 1\\
+                  au_2 + b_2 v_2 = 1\\
+                  \begin{multlined}
+                      1 = a^2 u_1 u_2 + a u_1 b v_2 + b_1 v_1 a u_2 + b_1 b_2 v_1 v_2=\\
+                      a\underbrace{(...)}_u + b_1 b_2 \underbrace{v_1 v_2}_v \implies (a, b_1 b_2) =1
+                  \end{multlined}
+              \end{gather*}
+          \end{proof}
+    \item \begin{gather*}
+              a_1, ..., a_m, b_1, ..., b_n \in \Z\\
+              (a_i, b_j) = 1 (1\le i\le m; 1\le j \le n)\\
+              \implies (a_1\cdot ...\cdot a_m, b_1 \cdot ...\cdot b_n) = 1
+          \end{gather*}
+          \begin{proof}
+              Возьмем $(a_i, b_1\cdot ... \cdot b_n) = 1$. Через индукцию по
+              $k$ докажем $(a_i, b_1\cdot ...\cdot b_k)=1$
+              \begin{gather*}
+                  \intertext{База:}
+                  (a_1, b_1) =1\\
+                  \intertext{Переход:}
+                  \begin{rcases}
+                      (a_i, b_1 \cdot ...\cdot b_k) =1 \\
+                      (a_i, b_{k+1})
+                  \end{rcases} \implies (a_i, b_1\cdot ...\cdot b_k b_{k+1})=1
+              \end{gather*}
+              Проведя аналогичную индукцию с $b_i$ получим:
+              \[(a_1 \cdot ... \cdot a_m, b_1 \cdot ... \cdot b_n) = 1\]
+          \end{proof}
+\end{enumerate}
+
+
+\section{Алгоритм Евклида}
+\begin{gather*}
+    \text{Даны } a,b \in \N, a>b\\
+    \begin{aligned}
+                &        & a       & = bq_1 + r_1                & 0 \le & r_1<b             \\
+        r_1     & \neq 0 & b       & = r_1 q_2 + r_2             & 0 \le & r_2 < r_1         \\
+        r_2     & \neq 0 & r_1     & = r_2 q_3 + r_3             & 0 \le & r_3 < r_2         \\
+                &        &         & \vdotswithin{=}             &       &                   \\
+        r_{n-2} & \neq 0 & r_{n-3} & = r_{n-2} q_{n-1} + r_{n-1} & 0 \le & r_{n-1} < r_{n-2} \\
+        r_{n-1} & \neq 0 & r_{n-2} & = r_{n-1} q_{n} + 0         &       &
+    \end{aligned}
+\end{gather*}
+
+\begin{theorem}
+    $r_{n-1} = (a,b)$
+\end{theorem}
+\begin{proof}
+    \[(a,b) = (b_1, r_1) = (r_1, r_2) = (r_2, r_3) = ... = (r_{n-2}, r_{n-1}) = r_{n-1} \]
 \end{proof}
 \end{document}

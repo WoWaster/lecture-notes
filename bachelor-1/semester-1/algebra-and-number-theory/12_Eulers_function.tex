@@ -1,0 +1,64 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Функция Эйлера}
+\begin{definition}
+    \begin{gather*}
+        n\in \N\\
+        \varphi = | (\Z/n\Z)^*| = \{a: 0\le a<n, (a,n) = 1\}\\
+        \varphi: \N \to \N
+    \end{gather*}
+\end{definition}
+\begin{example}
+    \begin{align*}
+        |(\Z/5\Z)^*| & = 4 & \varphi(5) & = 4 \\
+        |(\Z/6\Z)^*| & = 2 & \varphi(6) & = 2
+    \end{align*}
+\end{example}
+
+\begin{proposition}
+    Пусть $p$ -- простое, $n \in \N$, тогда
+    \[\varphi(p^n) = p^n - p^{n-1} = p^{n-1}(p-1)\]
+\end{proposition}
+\begin{proof}
+    \begin{gather*}
+        (a, p^n) = 1 \Leftrightarrow p \nmid a\\
+        |\{a: 0 \le a < p^{n}-1,(a, p) =1\}| = \\
+        = p^n - |\{a: 0 \le a \le p^n -1, p \mid a\}| = \\
+        = p^n - p^{n-1}
+    \end{gather*}
+\end{proof}
+
+\begin{proposition}
+    Пусть $m,n\in \N, (m,n) = 1$, тогда \[\varphi(mn) = \varphi(m) \varphi(n)\]
+\end{proposition}
+\begin{proof}
+    \begin{gather*}
+        \Z/mn\Z \xrightarrow{\lambda} (\Z/m\Z) \times (\Z/n\Z)\\
+        [a]_{mn} \mapsto ([a]_m, [a]_n)\\
+        \intertext{По КТО $\lambda$ -- биекция}
+        (a, mn) \Leftrightarrow
+        \begin{cases}
+            (a,m) = 1 \\
+            (a,n) = 1
+        \end{cases}\\
+        \lambda((\Z/mn\Z)^*) = (\Z/n\Z)^* \times (\Z/m\Z)^*\\
+        [a]_{mn} \in (\Z/mn\Z)^*\\
+        \Leftrightarrow (a, mn) = 1 \Leftrightarrow
+        \begin{cases}
+            (a,m) = 1 \\
+            (a,n) = 1
+        \end{cases}
+        \Leftrightarrow
+        \begin{cases}
+            [a]_m \in (\Z/m\Z)^* \\
+            [a]_n \in (\Z/n\Z)^*
+        \end{cases}\\
+        \Leftrightarrow \lambda ([a]_{mn}) \in (\Z/n\Z)^* \times (\Z/m\Z)^*\\
+        \implies \underbrace{|\Z/mn\Z|}_{\varphi(mn)} =  \underbrace{|(\Z/m\Z) \times (\Z/n\Z)|}_{\varphi(m)\varphi(n)}
+    \end{gather*}
+\end{proof}
+
+Таким образом $a = p_1^{r_1}...p_s^{r_s}$, где $p_1...p_s$ -- различные простые.
+\[\varphi(a) = \varphi(p_1^{r_1})... \varphi(p_s^{r_s}) = p_1^{r_1-1}(p_1 -1)...p_s^{r_s-1}(p_s -1)\]
+\end{document}

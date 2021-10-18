@@ -1,0 +1,74 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Сравнения по модулю}
+\begin{definition}
+    $a, b \in \Z$ сравнимы по модулю $m$, если $m\mid (a-b)$
+\end{definition}
+\begin{example}
+    Если $m=5$, то 13 и 28 сравнимы по модулю 5, а 17 и 26 не сравнимы по модулю 5.
+\end{example}
+
+Обозначение: \[13 \equiv 28 \pmod{5} \qquad -7 \equiv 3 \pmod{5}\]
+\section{Свойства}
+\begin{enumerate}
+    \item Рефлексивность: $a\equiv a \pmod{m}$
+    \item Симметричность: $a \equiv b \pmod{m} \implies b \equiv a \pmod{m}$
+          \begin{proof}
+              \[m\mid (b-a) = m \mid -(a-b)\]
+          \end{proof}
+    \item Транзитивность:
+          \[\begin{rcases}
+                  a \equiv b \pmod{m} \\
+                  b \equiv c \pmod{m}
+              \end{rcases} \implies a \equiv c \pmod{m}\]
+          \begin{proof}
+              \[m\mid (a-c) = m\mid(a-b) + m\mid(b-c)\]
+          \end{proof}
+    \item $\begin{rcases}
+                  a \equiv b \pmod{m} \\
+                  a' \equiv b' \pmod{m}
+              \end{rcases}\implies a+a' \equiv b+b' \pmod{m}$
+          \begin{proof}
+              \[m \mid ((a+a')-(b+b')) = m\mid (a-b) + m\mid (a'-b')\]
+          \end{proof}
+    \item $\begin{rcases}
+                  a \equiv b \pmod{m} \\
+                  d \in \ Z
+              \end{rcases}\implies da \equiv db \pmod{dm}$
+          \begin{proof}
+              \[m \mid (a-b) \implies dm \mid d(a-b)\]
+          \end{proof}
+    \item $\begin{rcases}
+                  a \equiv b \pmod{m} \\
+                  k \mid m
+              \end{rcases}\implies a \equiv b \pmod{k}$
+    \item $\begin{rcases}
+                  a \equiv b \pmod{m} \\
+                  a' \equiv b' \pmod{m}
+              \end{rcases}\implies aa' \equiv bb' \pmod{m}$
+          \begin{proof}
+              \begin{gather*}
+                  aa' \equiv ba' \pmod{m} \\
+                  (aa' \equiv ba' \pmod{ma'} \text{ по свойству 5}\\
+                  \implies aa' \equiv ba' \pmod{m} \text{ по свойству 6})\\
+                  ba' = bb' \pmod{m}\\
+                  \text{По транзитивности: } aa' \equiv bb' \pmod{m}
+              \end{gather*}
+          \end{proof}
+    \item $a\equiv b \pmod{m>0} \Leftrightarrow$ остатки $a$ и $b$ при делении на $m$ совпадают
+          \begin{proof}
+              \begin{gather*}
+                  \Leftarrow a = mq_1 + r\\
+                  b = mq_2+r\\
+                  a - b = m(q_1-q_2)\\
+                  m\mid m(q_1-q_2)\\
+                  \Rightarrow a = mq + r \qquad 0 \le r < m\\
+                  b = a = mt \qquad t \in \Z\\
+                  \implies b = mq + mt + r = m(q+t) + r\qquad 0 \le r < m\\
+                  \implies \text{ остаток при делении $b$ на $m$ равен $r$}
+              \end{gather*}
+          \end{proof}
+    \item $a \equiv b \pmod{m} \implies (a,m) = (b,m)$
+\end{enumerate}
+\end{document}
