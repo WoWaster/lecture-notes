@@ -4,49 +4,51 @@
 \part{Алгебраические структуры}
 \chapter{Множества}
 \section{Нотация}
+Стандартная запись:
+\begin{gather*}
+    A' = \{1,3,5,7\}\\
+    A=\{1,3,5, ..., 99\}
+\end{gather*}
 
-Стандартная запись
-\[A' = \{1,3,5,7\}\]
-\[A=\{1,3,5, ..., 99\}\]
+Общий вид:
+\[B = \{2,4,6,...\} = \{2n: n\in \N\}\]
 
-Общий вид
-\[B = \{2,4,6,...0\} = \{2n: n\in \N\}\]
+Стандартные числовые множества:
+\begin{gather*}
+    \N =\{1,2,3,...\} \qquad \Z =\{...,-1,0,1,2,...\}\\
+    \Q = \left\{ \frac{p}{q}: p,q \in \Z, q \neq 0 \right\} \qquad \R, \C
+\end{gather*}
 
-Стандартные числовые множества
-\[\N =\{1,2,3,...\} \]
-\[\Z =\{...,-1,0,1,2,...\} \]
-\[\Q = \left\{ \frac{p}{q}: p,q \in \Z, q \neq 0 \right\} \]
-\[\R, \C\]
-
-Подмножества
-\[A' \subset A \subset \N, A' \not\subset B\]
-
-\begin{align*}
-    C & = \{1,2,3\} & \emptyset, & \{1\},  \{2\}, \{3\}     \\
-      &             &            & \{1,2\},\{1,3\}, \{2,3\} \\
-      &             &            & \{1,2,3\} = C
-\end{align*}
+Подмножества:
+\begin{gather*}
+    A' \subset A \subset \N, A' \not\subset B\\
+    \begin{aligned}
+        C & = \{1,2,3\} & \emptyset, & \{1\},  \{2\}, \{3\}     \\
+          &             &            & \{1,2\},\{1,3\}, \{2,3\} \\
+          &             &            & \{1,2,3\} = C
+    \end{aligned}
+\end{gather*}
 
 Предикат для подмножеств: $\{n \in \N : n < 5\} = \{1,2,3,4\}$
 
 \section{Операции на множествах}
-Пусть A, B --- множества \marginpar{$\oplus \Leftrightarrow \bigtriangleup$}
-
-\[A \cap B = \{a \in A \land  a \in B\}\]
-\[A \cup B = \{a: a \in A \lor a \in B\}\]
-\[A \setminus B = \{a\in A \land a\not\in B\}\]
-\[A \bigtriangleup B = (A \setminus B) \cup (B \setminus A)\]
-\[A \times B = \{(a,b):a\in A, b \in B\}\]
-\begin{multline*}
-    A = \{1,2,3\} \quad
-    B = \{-1, 1\} \\
-    A \times B = \{ (1,-1), (1,1), (2, -1), (2,1), (3, -1), (3,1)\}
-\end{multline*}
-\[\bigcap_{i=1}^n A_i \quad \bigcup_{i=1}^n A_i\]
-
-\[A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\]
-\[A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\]
-
+Пусть A, B --- множества
+\begin{gather*}
+    A \cap B = \{a \in A \land  a \in B\}\\
+    A \cup B = \{a: a \in A \lor a \in B\}\\
+    A \setminus B = \{a\in A \land a\not\in B\}\\
+    A \bigtriangleup B = (A \setminus B) \cup (B \setminus A)\\
+    A \times B = \{(a,b):a\in A, b \in B\}\\
+    \bigcap_{i=1}^n A_i \quad \bigcup_{i=1}^n A_i\\
+    A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\\
+    A \cap (B \cup C) = (A \cap B) \cup (A \cap C)
+\end{gather*}
+\begin{example}
+    \begin{gather*}
+        A = \{1,2,3\} \quad B = \{-1, 1\} \\
+        A \times B = \{ (1,-1), (1,1), (2, -1), (2,1), (3, -1), (3,1)\}
+    \end{gather*}
+\end{example}
 \section{Отображение}
 $A, B$ --- множества
 
@@ -55,37 +57,46 @@ $A, B$ --- множества
     некоторый элемент $B$ (т.н. образ элемента $A$)
 \end{definition}
 
-\begin{center}
-    \[A = \{1,2,3,4\}\]
-    \[B = \R\]
+\noindent\begin{minipage}{0.45\textwidth}
+    \begin{gather*}
+        A = \{1,2,3,4\}\\
+        B = \R
+    \end{gather*}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+    \begin{center}
+        \begin{tabular}{c|c}
+            $a$ & $f(a)$     \\
+            \hline
+            1   & $\sqrt{2}$ \\
+            2   & 0          \\
+            3   & $7^5$      \\
+            4   & 0          \\
+        \end{tabular}
+    \end{center}
+\end{minipage}
 
-    \begin{tabular}{c|c}
-        $a$ & $f(a)$     \\
-        \hline
-        1   & $\sqrt{2}$ \\
-        2   & 0          \\
-        3   & $7^5$      \\
-        4   & 0          \\
-    \end{tabular}
-\end{center}
-
-
-\begin{center}
-    \begin{align*}
-         & f: \R \to \R &  & f: \R \to \R  \\
-         & f(a)=a-3     &  & a \mapsto a-3
-    \end{align*}
-
-    \begin{tabular}{c|c}
-        $a$ & $f(a)$ \\
-        \hline
-        1   & -2     \\
-        2   & -1     \\
-        3   & 0      \\
-        4   & 1
-    \end{tabular}
-\end{center}
-
+\noindent\begin{minipage}{0.45\textwidth}
+    \begin{gather*}
+        f: \R \to \R    \\
+        f(a)=a-3        \\
+        \Leftrightarrow \\
+        f: \R \to \R    \\
+        a \mapsto a-3
+    \end{gather*}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+    \begin{center}
+        \begin{tabular}{c|c}
+            $a$ & $f(a)$ \\
+            \hline
+            1   & -2     \\
+            2   & -1     \\
+            3   & 0      \\
+            4   & 1
+        \end{tabular}
+    \end{center}
+\end{minipage}
 
 \begin{gather*}
     f: \R \to \Z \\
@@ -93,110 +104,106 @@ $A, B$ --- множества
         1,  & a > 0 \\
         0,  & a =0  \\
         -1, & a < 0
-    \end{cases}
-\end{gather*}
-
-\begin{gather*}
+    \end{cases}\\
     \varphi: \N \to \N \\
     n \mapsto |\{m \in \N: m \le n \& (m,n) = 1\}|
 \end{gather*}
 
-$|M| = \#M = \text{Card } M$ --- мощность множества
-
-$2^M$ --- множество всех подмножеств M, его мощность $|2^M| = 2^{|M|}$
+\begin{definition}
+    $|M| = \#M = \text{Card } M$ --- мощность множества
+\end{definition}
+\begin{definition}
+    $2^M$ --- множество всех подмножеств M, его мощность $|2^M| = 2^{|M|}$
+\end{definition}
 
 \subsection{Свойства}
-$f: A \to B$ называется инъекцией, если $\forall a_1, a_2 \in A: a_1 \neq a_2 \Rightarrow f(a_1)\neq f(a_2)$
+\begin{prop}
+    $f: A \to B$ называется инъекцией, если
+    \[\forall a_1, a_2 \in A: a_1 \neq a_2 \implies f(a_1)\neq f(a_2)\]
+\end{prop}
+\begin{prop}
+    $f: A \to B$ называется сюръекцией, если \[\forall b \in B, \exists a \in A: f(a) = b\]
+\end{prop}
+\begin{prop}
+    $f: A \to B$ называется биекцией, если оно одновременно инъекция и сюръекция
+\end{prop}
+\begin{definition}
+    Пусть $f: A \to B$, тогда $b\in B$ -- полный прообраз $b$ относительно $f$, если
+    \[f^{-1}(b) = \{a \in A : f(a) = b\}\]
+\end{definition}
 
-отображение называется сюръекцией, если $\forall b \in B, \exists a \in A: f(a) = b$
+\begin{corollary}
+    \begin{itemize}
+        \item $f$ -- инъекция $\Leftrightarrow \forall b \in B: |f^{-1}(b)| \le 1$
+        \item $f$ -- сюръекция $\Leftrightarrow \forall b \in B:|f^{-1}(b)| \ge 1$
+        \item $f$ -- биекция $\Leftrightarrow \forall b \in B:|f^{-1}(b)| = 1$
+    \end{itemize}
+\end{corollary}
 
-отображение называется биекцией, если оно одновременно инъекция и сюръекция
+\begin{definition}[Сужение отображения]
+    Пусть $f: A \to B$ и $A' \subset A$, тогда
+    \begin{gather*}
+        f|_{A'} :  A' \to B    \\
+        a \mapsto f(a)
+    \end{gather*}
+\end{definition}
 
-\begin{gather*}
-    f: A \to B\\
-    b\in B \text{ полный прообраз } b \text{ относительно } f: \\
-    f^{-1}(b) = \{a \in A : f(a) = b\}
-\end{gather*}
-
-\begin{align*}
-       & \R \to \R     &            &             \\
-    f: & x \mapsto x^2 & f^{-1}(4)  & = \{-2,2\}  \\
-       &               & f^{-1}(0)  & = \{0\}     \\
-       &               & f^{-1}(-3) & = \emptyset \\
-\end{align*}
-
-$f$ -- инъекция $\Leftrightarrow \forall b \in B: |f^{-1}(b)| \le 1$
-
-$f$ -- сюръекция $\Leftrightarrow \forall b \in B:|f^{-1}(b)| \ge 1$
-
-$f$ -- биекция $\Leftrightarrow \forall b \in B:|f^{-1}(b)| = 1$
-
-\subsection{Сужение отображения}
-
-\begin{align*}
-    f:        & A \to B       &  & A' \subset A & f: \R \to \R                        \\
-    f|_{A'} : & A' \to B      &  &              & x \mapsto x^2                       \\
-              & a\mapsto f(a) &  &              & f|_{\R_{\ge 0}} : \R_{\ge 0} \to \R
-\end{align*}
-
-\subsection{Образ подмножества}
-\begin{align*}
-    f: & A \to B     &   &                          \\
-       & M \subset A & f & (M) = \{ f(m): m \in M\} \\
-       &             & f & (A) = \text{Im}A
-\end{align*}
+\begin{definition}[Образ подмножества]
+    Пусть $f: A \to B$ и $M \subset A$, тогда
+    \begin{gather*}
+        f (M) = \{ f(m): m \in M\}\\
+        f (A) = \Im A
+    \end{gather*}
+\end{definition}
 
 \section{Композиция}
-
-
-\begin{gather*}
-    f: A \to B \quad g: B \to C\\
-    g \circ  f:A \to C\\
-    a \mapsto g(f(a))
-\end{gather*} --- композиция $f$ и $g$
-
-\begin{gather*}
-    f, g: \R \to \R\\
-    f(x) = x+1\\
-    g(x) = 2x\\
-    \begin{aligned}
-        g \circ f : & \R \to \R      & f \circ g : & \R \to \R       \\
-                    & x \mapsto 2x+2 &             & x \mapsto 2x +1
-    \end{aligned}
-\end{gather*}
+\begin{definition}
+    Пусть $f: A \to B$ и  $g: B \to C$, тогда
+    \begin{gather*}
+        g \circ  f:A \to C\\
+        a \mapsto g(f(a))
+    \end{gather*} --- композиция $f$ и $g$
+\end{definition}
+\begin{example}
+    \begin{gather*}
+        f, g: \R \to \R\\
+        f(x) = x+1\\
+        g(x) = 2x\\
+        g \circ f :\R  \to \R \qquad f \circ g: \R \to \R        \\
+        x \mapsto 2x+2 \qquad x \mapsto 2x +1
+    \end{gather*}
+\end{example}
 
 \section{Тождественное отображение}
-Пусть $M$ -- множество
-\begin{gather*}
-    \id_M : M \to M \\
-    m \mapsto m
-\end{gather*}
+\begin{definition}[Тождественное отображение]
+    Пусть $M$ -- множество
+    \begin{gather*}
+        \id_M : M \to M \\
+        m \mapsto m
+    \end{gather*}
+\end{definition}
 
-Пусть $f: X \to Y$, тогда отображение $g: Y \to X$ называется обратным, если
-$g\circ f = \id_X, f \circ g = \id_Y$
+\begin{definition}[Обратное отображение]
+    Пусть $f: X \to Y$, тогда отображение $g: Y \to X$ называется обратным, если
+    $g\circ f = \id_X, f \circ g = \id_Y$
+\end{definition}
 
 \begin{theorem}
     У $f: X \to Y$ есть обратное $\Leftrightarrow f $ -- биекция
 \end{theorem}
-
 \begin{proof}
-    \begin{align*}
-        \Longrightarrow & g: Y \to X & g\circ f  & = \id_X \\
-                        &            & f\circ g  & = \id_Y \\
-                        & y \in Y    & f^{-1}(y) & = \{x\} \\
-                        & g(y) := x  &           &
-    \end{align*}
+    Прямое доказательство:
+    Зададим обратное отображение $g: Y \to X$, так что $g\circ f  = \id_X$ и $f\circ g  = \id_Y$.
+    Тогда $\forall y \in Y$ верно следующее:
     \begin{gather*}
-        (g \circ f) (x) = g(f(x)) = x \qquad f^{-1}(f(x)) = \{x\}\\
+        g(y) = x \qquad f^{-1}(y) = \{x\}\\
+        (g \circ f) (x) = g(f(x)) = x\\
         (f \circ g) (y) = f(g(y)) = y
     \end{gather*}
-    \begin{align*}
-        \Longleftarrow g\circ f & = \id_X             & f \circ g       & = \id_Y              \\
-        \Downarrow              & \Uparrow            & \Downarrow      & \Uparrow             \\
-        f                       & \text{ -- инъекция} & f               & \text{ -- сюръекция} \\
-        f(x_1)                  & = f(x_2)            & y               & \in Y \Rightarrow    \\
-        \Rightarrow g(f(x_1))   & = g(f(x_2))         & \exists x \in X & : f(x)=y             \\
-        \Rightarrow x_1         & = x_2               & f(g(y))         & =y                   \\
-    \end{align*}
+    Обратное доказательство:
+    Если $g\circ f = \id_X$ верно, то и $f$ -- инъекция
+    \[f(x_1) = f(x_2) \implies g(f(x_1)) = g(f(x_2)) \implies x_1 = x_2\]
+    Если $f \circ g  = \id_Y$ верно, то и $f$ -- сюръекция
+    \[y \in Y \implies \exists x \in X: f(x)=y \implies f(g(y)) =y \]
 \end{proof}
 \end{document}
