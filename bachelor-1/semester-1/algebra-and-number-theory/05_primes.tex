@@ -6,7 +6,6 @@
     $p \in \Z$ называется простым, если $p \neq 0, \pm 1$ и $\{a: a\mid p\} =
         \{\pm 1, \pm p\}$. Простые числа могут быть отрицательными.
 \end{definition}
-
 \[\Z = \{0, \pm 1\} \cup \{\text{простые}\} \cup \{\text{составные}\}\]
 
 \begin{assertion}
@@ -31,11 +30,9 @@
 \begin{corollary}
     Наименьший натуральный делитель, $\neq 1$, составного числа $n$ не больше $\sqrt{n}$.
 \end{corollary}
-\begin{proof}
-    $p$ -- наименьший натуральный делитель $n$, $\neq 1$.
-    \[
-        n = pb\\
-    \]
+\begin{proof}\footnote{Здесь и далее $\contradiction$ означает противоречие}
+    $p$ -- наименьший натуральный делитель $n$, $p \neq 1$, тогда
+    \[n = pb\\\]
     Предположим, что $p > \sqrt{n}$, $n$ -- составное $\implies b \neq 1 \implies b
         \ge p > \sqrt{n}$
     \[n=pb>\sqrt{n} \sqrt{n} = n \qquad\contradiction\]
@@ -48,8 +45,7 @@
     Пусть это не так, $p_1, p_2, ..., p_k$ -- все положительные простые.
     \begin{gather*}
         n = p_1 p_2 ... p_k +1 \\
-        n > 1 \implies  \text{ составное}\\
-        \implies \exists\text{ простое } p \mid n, p > 0\\
+        n > 1 \implies  \text{ составное} \implies \exists\text{ простое } p \mid n, p > 0\\
         \implies p \in \{p_1, ..., p_k\} \implies p \mid  (n-1)\\
         \begin{rcases}
             p\mid n \\

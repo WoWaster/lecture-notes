@@ -59,11 +59,11 @@
     \item $a\equiv b \pmod{m>0} \Leftrightarrow$ остатки $a$ и $b$ при делении на $m$ совпадают
           \begin{proof}
               \begin{gather*}
-                  \Leftarrow a = mq_1 + r\\
+                  \Longleftarrow a = mq_1 + r\\
                   b = mq_2+r\\
                   a - b = m(q_1-q_2)\\
                   m\mid m(q_1-q_2)\\
-                  \Rightarrow a = mq + r \qquad 0 \le r < m\\
+                  \implies a = mq + r \qquad 0 \le r < m\\
                   b = a = mt \qquad t \in \Z\\
                   \implies b = mq + mt + r = m(q+t) + r\qquad 0 \le r < m\\
                   \implies \text{ остаток при делении $b$ на $m$ равен $r$}

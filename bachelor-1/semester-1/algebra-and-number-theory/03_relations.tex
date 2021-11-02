@@ -30,9 +30,11 @@
     симметрично и транзитивно.
 \end{definition}
 
-\marginpar{Будем использовать запись $(a,b)\in R = aRb$}
-Пусть $R$ -- отношения эквивалентности на $M$, $a \in M$.
-Класс $[a] = \{b\in M: bRa\}$
+\begin{definition}[Класс эквивалентности]
+    Пусть $R$ -- отношения эквивалентности на $M$, $a \in M$.
+    Класс $[a] = \{b\in M: bRa\}$%
+    \footnote{Будем использовать запись $(a,b)\in R = aRb$}
+\end{definition}
 
 \begin{lemma}
     \[\forall m,n \in M: [m] = [n] \text{ или } [m]\cap[n] = \emptyset\]
@@ -40,8 +42,7 @@
 \begin{proof}
     \begin{gather*}
         [m] \cap [n] \neq \emptyset\\
-        \exists l \in [m] \cap [n]\\
-        \implies lRm, lRn \implies mRl \implies mRn\\
+        \exists l \in [m] \cap [n] \implies lRm, lRn \implies mRl \implies mRn\\
         a\in [m] \implies aRm \implies aRn \implies a \in [n]\\
         \text{Таким образом } [m]\subset [n]. \text{ Аналогично } [n]\subset[m]
         \implies [m]=[m]

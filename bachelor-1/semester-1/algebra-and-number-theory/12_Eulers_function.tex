@@ -3,6 +3,7 @@
 \begin{document}
 \chapter{Функция Эйлера}
 \begin{definition}
+    Функция Эйлера -- это количество обратимых классов по модулю $n$:
     \begin{gather*}
         n\in \N\\
         \varphi = | (\Z/n\Z)^*| = \{a: 0\le a<n, (a,n) = 1\}\\
@@ -23,9 +24,10 @@
 \begin{proof}
     \begin{gather*}
         (a, p^n) = 1 \Leftrightarrow p \nmid a\\
-        |\{a: 0 \le a < p^{n}-1,(a, p) =1\}| = \\
-        = p^n - |\{a: 0 \le a \le p^n -1, p \mid a\}| = \\
-        = p^n - p^{n-1}
+        \begin{multlined}
+            |\{a: 0 \le a < p^{n}-1,(a, p) =1\}|=\\
+            = p^n - |\{a: 0 \le a \le p^n -1, p \mid a\}|= p^n - p^{n-1}
+        \end{multlined}
     \end{gather*}
 \end{proof}
 
@@ -43,17 +45,16 @@
             (a,n) = 1
         \end{cases}\\
         \lambda((\Z/mn\Z)^*) = (\Z/n\Z)^* \times (\Z/m\Z)^*\\
-        [a]_{mn} \in (\Z/mn\Z)^*\\
-        \Leftrightarrow (a, mn) = 1 \Leftrightarrow
+        [a]_{mn} \in (\Z/mn\Z)^* \Leftrightarrow (a, mn) = 1 \Leftrightarrow
         \begin{cases}
             (a,m) = 1 \\
             (a,n) = 1
-        \end{cases}
+        \end{cases}\\
         \Leftrightarrow
         \begin{cases}
             [a]_m \in (\Z/m\Z)^* \\
             [a]_n \in (\Z/n\Z)^*
-        \end{cases}\\
+        \end{cases}
         \Leftrightarrow \lambda ([a]_{mn}) \in (\Z/n\Z)^* \times (\Z/m\Z)^*\\
         \implies \underbrace{|\Z/mn\Z|}_{\varphi(mn)} =  \underbrace{|(\Z/m\Z) \times (\Z/n\Z)|}_{\varphi(m)\varphi(n)}
     \end{gather*}

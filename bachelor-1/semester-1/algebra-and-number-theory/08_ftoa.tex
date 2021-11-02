@@ -19,12 +19,11 @@
 
 \begin{lemma}
     Пусть $p$ -- простое и $p\mid (a_1\cdot ... \cdot a_n)
-        \implies \exists i: p \mid a_1$
+        \implies \exists i: p \mid a_i$
 \end{lemma}
 \begin{proof}
-    Индукция по $n$. База: $n = 1$ -- тривиально.
+    Индукция по $n$. База: $n = 1$ -- тривиально. Переход:
     \begin{gather*}
-        \intertext{Переход:}
         p \mid (a_1...a_n)
         \intertext{По лемме \ref{ftoa:lemma1}}
         \left[
@@ -50,15 +49,15 @@
         \intertext{Переход:}
         n \text{ -- простое, то доказывать нечего}\\
         n \text{ --  составное, то } n =ab, 1<a,b<n
-        \intertext{Тогда $a,b$ раскладываются на простые множители и, соответсвенно,
-            их произведение тоже раскладывается}
     \end{gather*}
+    Тогда $a,b$ раскладываются на простые множители и, соответственно,
+    их произведение тоже раскладывается
+
     Докажем единственность: проведем индукцию по $n$.
     \begin{gather*}
         n = p_1...p_r = q_1...q_s\\
         q_s \mid n \implies \exists j: \underbrace{q_s \mid p_j}_{>0}
-        \implies q_s = p_j\\
-        \implies p_1...\hat{p_j}...p_r = \underbrace{q_1...q_{s-1}}_{<n}
+        \implies q_s = p_j \implies p_1...\hat{p_j}...p_r = \underbrace{q_1...q_{s-1}}_{<n}
     \end{gather*}
     $(q_1, ..., q_{s-1})$ отличается от $(p_1, ..., \hat{p_j},..., p_r)$
     только порядком (т.к. $s=r$), это означает единственность для $n$.
@@ -66,12 +65,12 @@
 
 \begin{definition}
     Представление числа $a>1$ в виде $p_1^{\alpha_1}...p_n^{\alpha_n}$, где
-    $p_i$ попарно различны, а $\alpha_i \in \N$ называется каноничным разложением
+    $p_i$ попарно различны, а $\alpha_i \in \N$ называется каноническим разложением
     (или факторизацией) числа $a$.
 \end{definition}
 \begin{corollary}
     Пусть $a = p_1^{\alpha_1}...p_n^{\alpha_n}$ -- каноническое разложение,
-    тогда множество положительных делителей$a$:
+    тогда множество положительных делителей $a$:
     \[\{p_1^{\beta_1}... p_n^{\beta _n}: 0 \le \beta_i \le \alpha_i, i=1,...,n\}\]
 \end{corollary}
 \begin{proof}
@@ -102,9 +101,9 @@
         d=\NOD(n,m) & \Leftrightarrow ...                                   & \alpha_j & = \min(l_j, r_j)
     \end{align*}
     \begin{gather*}
-        m\mid c, n \mid c\\
+        m\mid c, n \mid c
         \Leftrightarrow c = p_1^{\beta_1}... p_s^{\beta_s} q_1^{\gamma_1}...q_h^{\gamma_h}\\
-        l_j\le \beta_j, r_j \le \beta_j, j=1...s\\
+        l_j\le \beta_j, r_j \le \beta_j, j=1...s
         \implies \beta_j \ge \max(l_j, r_j)\\
         \NOK(m,n) = p_1^{\beta_1}... p_s^{\beta_s}, \beta_j = \max(l_j, r_j)
     \end{gather*}

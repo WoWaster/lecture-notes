@@ -2,17 +2,18 @@
 \documentclass[main]{subfiles}
 \begin{document}
 \chapter[НОД]{Наибольший общий делитель}
-
-$a_1, ..., a_n \in \Z$ не все $0$, $d\ge 0$ называется наибольшим
-общим делителем $a_1, ..., a_n$ если:
-\begin{enumerate}
-    \item $d \mid a_1, ...,  d\mid  a_n$
-    \item $\forall d' \ge 0: d'\mid a_1, ..., d' \mid a_n \implies d'\mid d$
-\end{enumerate}
-
 \begin{definition}
-    НОД существует и единственный
+    $a_1, ..., a_n \in \Z$ не все $0$, $d\ge 0$ называется наибольшим
+    общим делителем $a_1, ..., a_n$ если:
+    \begin{enumerate}
+        \item $d \mid a_1, ...,  d\mid  a_n$
+        \item $\forall d' \ge 0: d'\mid a_1, ..., d' \mid a_n \implies d'\mid d$
+    \end{enumerate}
 \end{definition}
+
+\begin{proposition}
+    НОД существует и единственный
+\end{proposition}
 \begin{proof}
     \[I = \{a_1 c_1+ ... + a_n c_n : c_1, ..., c_n \in \Z\}\]
     $d$ -- наименьший положительный элемент $I$
@@ -63,6 +64,26 @@ $a_1, ..., a_n \in \Z$ не все $0$, $d\ge 0$ называется наибо
               \end{align*}
           \end{proof}
 \end{enumerate}
+
+\section{Алгоритм Евклида}
+\begin{gather*}
+    \text{Даны } a,b \in \N, a>b\\
+    \begin{aligned}
+                &        & a       & = bq_1 + r_1                & 0 \le & r_1<b             \\
+        r_1     & \neq 0 & b       & = r_1 q_2 + r_2             & 0 \le & r_2 < r_1         \\
+        r_2     & \neq 0 & r_1     & = r_2 q_3 + r_3             & 0 \le & r_3 < r_2         \\
+                &        &         & \vdotswithin{=}             &       &                   \\
+        r_{n-2} & \neq 0 & r_{n-3} & = r_{n-2} q_{n-1} + r_{n-1} & 0 \le & r_{n-1} < r_{n-2} \\
+        r_{n-1} & \neq 0 & r_{n-2} & = r_{n-1} q_{n} + 0         &       &
+    \end{aligned}
+\end{gather*}
+
+\begin{theorem}
+    $r_{n-1} = (a,b)$
+\end{theorem}
+\begin{proof}
+    \[(a,b) = (b_1, r_1) = (r_1, r_2) = (r_2, r_3) = ... = (r_{n-2}, r_{n-1}) = r_{n-1} \]
+\end{proof}
 
 \section{Взаимно простые числа}
 \begin{definition}
@@ -120,16 +141,12 @@ $a_1, ..., a_n \in \Z$ не все $0$, $d\ge 0$ называется наибо
                   \end{multlined}
               \end{gather*}
           \end{proof}
-    \item \begin{gather*}
-              a_1, ..., a_m, b_1, ..., b_n \in \Z\\
-              (a_i, b_j) = 1 (1\le i\le m; 1\le j \le n)\\
-              \implies (a_1\cdot ...\cdot a_m, b_1 \cdot ...\cdot b_n) = 1
-          \end{gather*}
+    \item Пусть $a_1, ..., a_m, b_1, ..., b_n \in \Z$ и $(a_i, b_j) = 1 (1\le i\le m; 1\le j \le n)$
+          \[\implies (a_1\cdot ...\cdot a_m, b_1 \cdot ...\cdot b_n) = 1\]
           \begin{proof}
               Возьмем $(a_i, b_1\cdot ... \cdot b_n) = 1$. Через индукцию по
-              $k$ докажем $(a_i, b_1\cdot ...\cdot b_k)=1$
+              $k$ докажем $(a_i, b_1\cdot ...\cdot b_k)=1$. База:
               \begin{gather*}
-                  \intertext{База:}
                   (a_1, b_1) =1\\
                   \intertext{Переход:}
                   \begin{rcases}
@@ -141,25 +158,4 @@ $a_1, ..., a_n \in \Z$ не все $0$, $d\ge 0$ называется наибо
               \[(a_1 \cdot ... \cdot a_m, b_1 \cdot ... \cdot b_n) = 1\]
           \end{proof}
 \end{enumerate}
-
-
-\section{Алгоритм Евклида}
-\begin{gather*}
-    \text{Даны } a,b \in \N, a>b\\
-    \begin{aligned}
-                &        & a       & = bq_1 + r_1                & 0 \le & r_1<b             \\
-        r_1     & \neq 0 & b       & = r_1 q_2 + r_2             & 0 \le & r_2 < r_1         \\
-        r_2     & \neq 0 & r_1     & = r_2 q_3 + r_3             & 0 \le & r_3 < r_2         \\
-                &        &         & \vdotswithin{=}             &       &                   \\
-        r_{n-2} & \neq 0 & r_{n-3} & = r_{n-2} q_{n-1} + r_{n-1} & 0 \le & r_{n-1} < r_{n-2} \\
-        r_{n-1} & \neq 0 & r_{n-2} & = r_{n-1} q_{n} + 0         &       &
-    \end{aligned}
-\end{gather*}
-
-\begin{theorem}
-    $r_{n-1} = (a,b)$
-\end{theorem}
-\begin{proof}
-    \[(a,b) = (b_1, r_1) = (r_1, r_2) = (r_2, r_3) = ... = (r_{n-2}, r_{n-1}) = r_{n-1} \]
-\end{proof}
 \end{document}
