@@ -1,0 +1,157 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Комплексное сопряжение и модуль}
+Рассмотрим отображение:
+\begin{gather*}
+    \C \to \C\\
+    a+bi \mapsto a-bi\\
+    z \mapsto \overline{z}
+\end{gather*}
+Оно называется комплексным сопряжением
+
+\begin{proposition}
+    \begin{enumerate}
+        \item $\overline{z+w} = \overline{z} + \overline{w}$
+        \item $\overline{zw} = \overline{z} \cdot \overline{w}$
+        \item $\overline{\overline{z}} = z$
+        \item $z = \overline{z} \Leftrightarrow z \in \R$
+        \item $z \cdot \overline{z} \in \R_{\ge 0}; z \cdot \overline{z} = 0\Leftrightarrow z = 0$
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    \begin{gather*}
+        z = a+bi \qquad w = c+di
+        \intertext{Докажем 1:}
+        \begin{multlined}
+            \overline{(a+bi)+(c+di)} = \overline{(a+c) +(b+d)i} = (a+c) -(b+d)i =\\
+            (a-bi) + (c-di) = \overline{a+bi} + \overline{c+di}
+        \end{multlined}
+        \intertext{Докажем 2:}
+        \begin{multlined}
+            \overline{(a+bi)(c+di)} = \overline{(ac-bd) + (ad+bc)i} = (ac-bd) - (ad+bc)i =\\
+            (a-bi)(c-di) = \overline{a+bi} \cdot \overline{c+di}
+        \end{multlined}
+        \intertext{Доказательство 3 очевидно, докажем 4:}
+        z = \overline{z} \Leftrightarrow \Im z = 0 \Leftrightarrow z \in \R
+        \intertext{Докажем 5:}
+        z\cdot \overline{z} = (a+bi)(a-bi) = a^2 - (bi)^2 = a^2 +b^2 \in \R_{\ge0}\\
+        a^2 + b^2 =0 \Leftrightarrow a = b= 0
+    \end{gather*}
+\end{proof}
+
+\begin{definition}
+    Пусть $z \in \C$. Его модулем называется:
+    \[|z| = \sqrt{z\cdot \overline{z}} \qquad |a+bi| = \sqrt{a^2 +b^2}\]
+\end{definition}
+\begin{remark}
+    Для числа $a\in\R$ новый модуль совпадает со старым.
+\end{remark}
+
+\begin{proposition}
+    $\C$ -- поле
+\end{proposition}
+\begin{proof}
+    \begin{gather*}
+        z \in \C, z \neq 0\\
+        z\cdot \overline{z} = |z|^2 \neq 0 \implies z\cdot \frac{1}{|z|^2} \overline{z} =1
+    \end{gather*}
+\end{proof}
+
+Теперь мы можем использовать деление:
+\[\frac{z}{w}= z \cdot w^{-1} = w^{-1}z\]
+а также возведение в степень и соответствующие свойства:
+\begin{gather*}
+    z^m = \begin{cases}
+        \overbrace{z\cdot ... \cdot z}^m                & m > 0 \\
+        1                                               & m = 0 \\
+        \underbrace{z^{-1} \cdot ... \cdot z^{-1}}_{-m} & m < 0
+    \end{cases} \qquad m \in \Z\\
+    z^{m+n} = z^m + z^n\\
+    z^{mn} = (z^m)^n\\
+    (zw)^n = z^n w^n
+\end{gather*}
+
+\begin{proposition}[Свойства модуля]
+    \begin{enumerate}
+        \item $|zw|=|z||w|$
+        \item Если $w\neq 0$, то $\left|\frac{z}{w}\right| = \frac{|z|}{|w|}$
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    Докажем 1:
+    \begin{gather*}
+        |zw|^2 = (zw)\overline{(zw)} = zw \overline{z} \cdot \overline{w} =
+        z\overline{z} w \overline{w} = |z|^2 |w|^2
+        \intertext{Докажем 2:}
+        z = \frac{z}{w}w \implies |z| = \left| \frac{z}{w}\right| \cdot |w|
+    \end{gather*}
+\end{proof}
+
+\section{Геометрическое представление комплексного числа}
+\noindent\begin{minipage}{0.45\textwidth}
+    \begin{tikzpicture}
+        \draw[axis] (-0.5, 0) -- (2.5, 0);
+        \draw[axis] (0, -0.5) -- (0, 2.5);
+        \node[dot, label={left:$i$}] at (0,1) {};
+        \node[dot, label={below:$a$}] at (1.2, 0) {};
+        \node[dot, label={left:$b$}] at (0, 0.7) {};
+        \node[dot, label={right:$(a,b)$}] (z) at (1.2, 0.7) {};
+        \node[dot, label={above:$(a',b')$}] (z1) at (0.7, 1.2) {};
+        \draw[-Latex] (0,0) -- (z);
+        \draw[-Latex] (0,0) -- (z1);
+        \draw[-Latex] (z) -- (1.9, 1.9);
+        \draw[-Latex] (z1) -- (1.9, 1.9);
+        \draw[-Latex] (0,0) -- (1.9, 1.9);
+        \node[dot, label={above:$(a+a', b+b')$}] at (1.9, 1.9) {};
+    \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+    \begin{gather*}
+        z = a + bi\\
+        z'= a'+b'i\\
+        (a+bi) + (a'+b'i) = \\
+        (a+a')+(b+b')i
+    \end{gather*}
+\end{minipage}
+
+\noindent\begin{minipage}{0.45\textwidth}
+    \begin{tikzpicture}
+        \draw[axis] (-0.5, 0) -- (3, 0);
+        \draw[axis] (0, -0.5) -- (0, 2.5);
+        \node[label={below:$a$}] at (1.2, 0) {};
+        \node[label={right:$b$}] at (2.4, 0.6) {};
+        \node[dot, label={above:$z=(a,b)$}] (z) at (2.4, 1.4) {};
+        \draw[-Latex] (0,0) -- (z);
+        \draw[dashed] (2.4, 0) -- (2.4, 1.4) -- (0, 1.4);
+    \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+    \[\sqrt{a^2+b^2} = |z|\]
+    Таким образом $|z|$ -- расстояние от точки изображающей число $z$ до начала координат.
+\end{minipage}
+\begin{remark}
+    \[|\overline{z}| = |z|\]
+\end{remark}
+
+\begin{proposition}[Неравенство треугольника]
+    Для $z,w \in \C$:
+    \[||z| - |w|| \le |z+w| \le |z| + |w|\]
+\end{proposition}
+\begin{proof}
+    Докажем правое неравенство:
+    \begin{gather*}
+        z+w = 0 \implies |z+w| \le |z| + |w| \text{ очевидно верно}\\
+        z+w \neq 0 \qquad 1 = \frac{z}{z+w} + \frac{w}{z+w}\\
+        1 = \Re 1 = \Re\left(\frac{z}{z+w}\right) + \Re \left(\frac{w}{r+w}\right)\\
+        \sqrt{a^2 + b^2} \ge \sqrt{a^2} = |a| \ge a\\
+        \Re\left(\frac{z}{z+w}\right) + \Re \left(\frac{w}{r+w}\right) \le \left|\frac{z}{z+w}\right| + \left| \frac{w}{z+w}\right|\\
+        |z+w| \le |z| + |w|\\
+        \intertext{Докажем левое неравненство:}
+        z = (z+w) + (-w) \implies\\
+        |z| \le |z+w| + |-w| \implies |z+w| \ge |z| - |w|\\
+        \text{Аналогично } |z+w| \ge |w| - |z|\\
+        \implies |z+w| \ge ||z|-|w||
+    \end{gather*}
+\end{proof}
+\end{document}

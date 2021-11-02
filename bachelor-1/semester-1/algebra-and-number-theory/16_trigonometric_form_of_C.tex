@@ -1,0 +1,77 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Тригонометрическая форма комплексного числа}
+
+Дано $z = a + bi \in \C^* (\C^* = \C \setminus \{0\})$, тогда:
+\begin{gather*}
+    r = |z|\\
+    z = r \left(\frac{a}{r}+\frac{b}{r}i\right)\\
+    \left(\frac{a}{r}\right)^2 +  \left(\frac{b}{r}\right)^2 = \frac{a^2+b^2}{r^2}=1\\
+    \implies \exists \phi \in \R: \frac{a}{r} = \cos \phi, \frac{b}{r} = \sin \phi\\
+    \left[\frac{a}{r} = \cos \phi \implies \left(\frac{b}{r}\right)^2 = 1 - \cos^2 \phi
+        = \sin^2 \phi; \qquad \phi = \pm \phi \right]\\
+    z = |z| (\cos \phi + i \sin \phi)
+\end{gather*}
+-- тригонометрическая форма $z$
+\begin{gather*}
+    \Re z = |z|\cos\phi\\
+    \Im z = |z|\sin\phi
+\end{gather*}
+
+$\phi$ называется аргументом $z$, $\phi$ определено с точностью до кратных $2\pi$,
+т.е. $\phi$ -- аргумент $z$, то и $\phi+2\pi k$ -- аргумент $z \forall k \in \Z$.
+Если $\phi\in \left[0, 2\pi\right)$, то такой $\phi$ называется главное значение аргумента $z$.
+\begin{remark}
+    Верно и обратное:
+    \begin{gather*}
+        \cos \phi' = \cos \phi \qquad \sin \phi' = \sin \phi\\
+        \implies \phi' = \phi + 2 \pi k, k \in \Z
+    \end{gather*}
+\end{remark}
+
+\begin{theorem}
+    \begin{enumerate}
+        \item Пусть $z,w \in \C^*$, тогда
+              \[\arg(zw) = \arg z + \arg w\]
+        \item Пусть $z,w \in \C^*$, тогда
+              \[\arg \left(\frac{z}{w}\right) = \arg z - \arg w\]
+        \item Пусть $z \in \C^*$, тогда
+              \[\arg \overline{z} = - \arg z\]
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{gather*}
+        \phi = \arg z \qquad \psi = \arg w
+        \intertext{Докажем 1:}
+        \begin{multlined}
+            zw = |z| |w| (\cos \phi + i \sin \phi) (\cos \psi + i \sin \psi) =\\
+            = |zw| \left((\cos \phi \cos \psi - \sin \phi \sin \psi) + (\cos \phi \sin \psi + \sin \phi \cos \psi)i\right)=\\
+            = |zw| (\cos(\phi + \psi) + i \sin (\phi + \psi)) \\
+            \implies \phi + \psi = \arg |zw|
+        \end{multlined}
+        \intertext{Докажем 2:}
+        z = \frac{z}{w}w\\
+        \implies \arg z = \arg \frac{z}{w} + \arg w \implies \arg \frac{z}{w} = \arg z - \arg w
+        \intertext{Докажем 3:}
+        \arg z = \phi\\
+        z = |z| (\cos \phi + i \sin \phi)\\
+        \overline{z} = |z| (\cos \phi - i \sin \phi) = |z| (\cos (-\phi) + i \sin (-\phi))\\
+        \implies - \phi = \arg \overline{z}
+    \end{gather*}
+\end{proof}
+
+\begin{corollary}[Формула Муавра]
+    Пусть $z = r(\cos \phi + i \sin \phi), r = |z|$, тогда
+    \[\forall n \in \Z: z^n = r^n (\cos(n \phi) + i \sin (n\phi))\]
+\end{corollary}
+\begin{proof}
+    \begin{gather*}
+        \arg z = \phi\\
+        n > 0 \qquad z^n = r^n (\cos(n \phi) + i \sin (n\phi))\\
+        n = 0 \qquad 1=1\\
+        n < 0 \qquad n = -m, m \in \N\\
+        z^n = \frac{1}{z^m} =r^{-m} (\cos(0 - m \phi) + i \sin (0 - m \phi)) = r^n (\cos(n \phi) + i \sin (n\phi))
+    \end{gather*}
+\end{proof}
+\end{document}

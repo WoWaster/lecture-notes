@@ -1,0 +1,58 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\part{Комплексные числа}
+\chapter{Определение}
+Комплексные числа --- это числа вида $a+bi$, где $i^2 = -1$ и $a,b \in \R$.
+Тогда определим комплексные числа таким образом:
+\begin{gather*}
+    \C = \R \times\R \qquad (a,b)\\
+    (a,b) + (a',b') = (a+a', b+b')\\
+    (a,b) \cdot (a',b') = (aa'-bb',ab'+a'b)
+\end{gather*}
+
+\begin{theorem}
+    $(\C, +, \cdot)$ -- коммутативное ассоциативное кольцо с 1.
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Коммутативность сложения очевидна
+        \item Ассоциативность сложения очевидна
+        \item $(0,0)$ -- нейтральный по сложению
+        \item $(-a,-b) = -(a,b)$
+        \item Коммутативность умножения очевидна
+        \item Ассоциативность -- непосредственная проверка
+        \item Дистрибутивность -- непосредственная проверка
+        \item $(1,0)$ -- нейтральный элемент
+              \[(a,b) \cdot (1,0)=(a \cdot 1 - b \cdot 0, a \cdot 0 + 1 \cdot b) = (a,b)\]
+    \end{enumerate}
+\end{proof}
+Элементы $\C$ -- комплексные числа
+
+Если бы берем пару $(a,0)$:
+\begin{gather*}
+    (a,0) + (b,0) = (a+b,0)\\
+    (a,0) (b,0) = (ab-0c\cdot 0, a \cdot 0 + 0 \cdot b) = (ab,0)
+\end{gather*}
+Тогда $\{(a,0) : a \in \R\}$ -- подкольцо. Будем отождествлять $(a,0)$ с $a$.
+\begin{gather*}
+    (0,b) = (0,1)(b,0)\\
+    (a,b) = (a,0) + (0,b) = a (0,1)b
+    \intertext{Обозначим пару $(0,1)$ за $i$ и получим запись}
+    (a,b) = a + ib
+    \intertext{Теперь справедливо следующее}
+    i^2 = (0,1)(0,1) = (-1,0) = -1\\
+    (a+ib)+(a'+ib') = a + a' + i(b+b')
+\end{gather*}
+
+\section*{Обозначения}
+Задано \[z = a + ib, a,b \in \R \] тогда:
+\begin{itemize}
+    \item $a$ -- вещественная часть $z \Leftrightarrow \Re z =a$
+    \item $b$ -- мнимая часть $z \Leftrightarrow \Im z = b$
+    \item $i$ -- мнимая единица
+\end{itemize}
+Из такого отождествления следует, что $\R \subset \C$
+
+$\C \setminus \R$ -- мнимые числа, т.е. числа вида $ib (b\in \R)$
+\end{document}

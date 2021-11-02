@@ -1,0 +1,89 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Корни из комплексных чисел}
+\begin{theorem}
+    Пусть $w = r(\cos \varphi + i \sin \varphi), r>0, \varphi\in \R, n\in \N$.
+    Тогда существует ровно $n$ таких $z \in \C$, что $z^n =w$, а именно,
+    $z_0, z_1,..., z_{n-1}$, где
+    \[z_j = \sqrt[n]{r}\left(\cos \frac{\varphi+2\pi j}{n} + i\sin \frac{\varphi+2\pi j}{n}\right)\]
+\end{theorem}
+\begin{proof}
+    Решим уравнение $z^n = w, w\in \C, n\in \N$, относительно $z$.
+    Если  $w = 0 \implies z = 0$. Иначе пусть $r = |w|, \varphi = \arg w$.
+    Будем искать $z$ в тригонометрическом виде:
+    \begin{gather*}
+        \rho (\cos \psi + i \sin \psi), \rho >0, \psi \in \R\\
+        z^n = w \Leftrightarrow \rho^n(\cos n \psi + i \sin n \psi) = r(\cos \varphi + i \sin \varphi)\\
+        \Leftrightarrow
+        \begin{cases}
+            \rho^n = r \\
+            n \psi = \varphi + 2 \pi j, j \in \Z
+        \end{cases} \Leftrightarrow
+        \begin{cases}
+            \rho = \sqrt[n]{r} \\
+            \psi= \frac{\varphi + 2\pi j}{n}, j \in \Z
+        \end{cases}\\
+        \Leftrightarrow z = \sqrt[n]{r}\left(\cos \frac{\varphi + 2\pi j}{n} + i \sin \frac{\varphi + 2\pi j}{n}\right), j\in\Z\\
+        \{z: z^n =w\} = \{z_j: j \in \Z\}
+        \intertext{Выясним при каких $j,k: z_j = z_k$}
+        z_j = z_k \Leftrightarrow \frac{\varphi + 2\pi j}{n} = \frac{\varphi + 2\pi k}{n} +2 \pi t, t \in \Z\\
+        \Leftrightarrow \frac{2 \pi j}{n} = \frac{2 \pi k}{n} + 2 \pi t, t \in \Z
+        \Leftrightarrow j = k+tn, t\in\Z
+        \Leftrightarrow j \equiv k \pmod{n}\\
+        \implies \{z: z^n = w\} = \{z_j: j = 0,1,...,n-1\}\\
+        z_0, ..., z_{n-1} \text{ -- различны} \qedhere
+    \end{gather*}
+\end{proof}
+
+\begin{minipage}{0.45\textwidth}
+    \begin{tikzpicture}
+        \draw[axis] (-2.5, 0) -- (2.5, 0);
+        \draw[axis] (0, -2.5) -- (0, 2.5);
+        \draw (0,0) circle [radius=2];
+        \node[label={south east:$\sqrt[n]{r}$}] at (2, 0) {};
+        \draw (0,0) -- (30:2) node [right] {$z_0 = z_n$};
+        \draw (0,0) -- (102:2) node [above] {$z_1$};
+        \draw (0,0) -- (174:2);
+        \draw (0,0) -- (246:2);
+        \draw (0,0) -- (318:2) node [right] {$z_{n-1}$};
+        \node [label={$\phi/n$}] at (1.5,0){};
+        \node [label={$2\pi/n$}] at (0.5,0.1){};
+    \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+    \[z_n = z_0\]
+    Тогда $z_0, z_1, ..., z_{n-1}$ -- вершины правильного $n$-угольника
+\end{minipage}
+
+\begin{gather*}
+    z_j = z_0 \cdot \underbrace{\left(\cos \frac{2 \pi j}{n}+ i \sin \frac{2 \pi j}{n}\right)}_{\zeta_j}\\
+    \zeta_j = \zeta_1^j \qquad \zeta_1 = \cos \frac{2 \pi}{n}+ i \sin \frac{2 \pi}{n}\\
+    z_0, z_0 \zeta_1^1,  z_0 \zeta_1^2, ..., z_0 \zeta_1^{n-1}
+\end{gather*}
+
+\begin{corollary}
+    При $n>1$:
+    \[\sum_{z^n=w} z= \sum_{j=0}^{n-1} z_0\zeta_1^j = z_0 \zeta_1^n - z_0 = 0\]
+\end{corollary}
+
+\begin{proposition}
+    Пусть $n\in \N$, Тогда
+    \[\mu_n = \{\zeta \in \C: \zeta^n =1\}\]
+    -- подгруппа в $\C^*$
+\end{proposition}
+\begin{proof}
+    \begin{enumerate}
+        \item Множество не пустое ($1\in \mu_n, |\mu_n|=n$)
+        \item Замкнуто по умножению ($\zeta, \zeta' \in \mu_n \implies \zeta \zeta'\in \mu_n$)
+        \item Существует обратный по умножению ($\zeta \in \mu_n \implies \zeta^{-1} \in \mu_n$)
+    \end{enumerate}
+\end{proof}
+\begin{remark}
+    $\mu_n$ -- циклическая группа порожденная элементом $\zeta_1$
+    \begin{gather*}
+        \mu_n = \langle \zeta_1 \rangle = \langle \zeta_{-1} \rangle\\
+        g \in G \qquad \langle g \rangle = \{g^n:n \in \Z\}
+    \end{gather*}
+\end{remark}
+\end{document}
