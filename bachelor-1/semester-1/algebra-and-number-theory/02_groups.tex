@@ -21,22 +21,20 @@
 \begin{enumerate}
     \item Если $\forall a,b \in M: a*b = b*a$, то $*$ коммутативна
     \item $*$ ассоциативна, если  $\forall a,b,c \in M: (a*b)*c = a*(b*c)$
-    \item $e\in M$ называется левым нейтральным, если $\forall a \in M: e*a=a$
-          \marginpar{В вычитании целых чисел ноль нейтрален справа}\\
-          $e\in M$ называется правым нейтральным, если $\forall a \in M: a*e=a$\\
-          $e\in M$ называется нейтральный, если он и левый, и правый нейтральный
+    \item $e\in M$ называется левым нейтральным, если $\forall a \in M: e*a=a$\\
+          $e\in M$ называется правым\footnote{В вычитании целых чисел ноль нейтрален справа} нейтральным, если $\forall a \in M: a*e=a$\\
+          $e\in M$ называется нейтральным, если он и левый, и правый нейтральный
           \begin{lemma}
               Пусть $*$ -- операция, $e_L, e_R$ -- нейтральные слева
               и справа относительно $*$, тогда $e_L = e_R$.
           \end{lemma}
           \begin{proof}
-              \[e_R = e_L \cdot e_R = e_L\]
+              \[e_R = e_L * e_R = e_L\]
           \end{proof}
-    \item \marginpar{Обратное к $a$ обозначается $a^{-1}$}
-          Пусть $e$ нейтральный относительно $*$, $a\in M$. Элемент $b \in M$
-          называется обратным к $a$, если $b*a = a*b = e$\\
-          Если $b*a = e \Rightarrow b$ обратный слева\\
-          Если $a*b = e \Rightarrow b$ обратный справа
+    \item Пусть $e$ нейтральный относительно $*$, $a\in M$. Элемент $b \in M$
+          называется обратным к $a$\footnote{Обратное к $a$ обозначается $a^{-1}$}, если $b*a = a*b = e$\\
+          Если $b*a = e \implies b$ обратный слева\\
+          Если $a*b = e \implies b$ обратный справа
           \begin{lemma}
               Если $*$ ассоциативна и у $a$ если левый и правый обратный,
               тогда они равны. $b*a=e, a*c=e$
@@ -76,11 +74,10 @@
 
 \subsection{Примеры}
 \begin{enumerate}
-    \marginpar{1--4 абелевы группы}
     \item $(\Z, +)$
     \item $(\Q, +), (\R, +)$
     \item $(\Q \setminus \{0\}, \cdot), (\R \setminus \{0\}, \cdot)$
-    \item $(\{1, -1\}, \cdot)$
+    \item $(\{1, -1\}, \cdot)$\footnote{1--4 абелевы группы}
     \item $(X^X, \cdot)$ -- не группа, при $|X| > 1$
     \item $(S(X), \cdot)$, что
           $S(x)=\{f:x\to x : x \text{ - биекция}\}$ -- группа,
@@ -102,13 +99,13 @@
     \end{enumerate}
 \end{definition}
 
-\subsection{Примеры} \marginpar{$\subset \Leftrightarrow <$}
+\subsection{Примеры}
 \begin{itemize}
-    \item  $2\Z < \Z$
+    \item $2\Z < \Z$\footnote{В данном контексте $\subset$ и $<$ означают одно и то же}
     \item $\{0\}< \Z$
     \item $\Z \in \Q$
     \item $(\{-1, 1\}, \cdot) < \Q^*$
-    \item  $\{2^n: n \in \Z\} < \Q^*$
+    \item $\{2^n: n \in \Z\} < \Q^*$
     \item Группы самосовмещений (симметрий) фигур, $\Pi$ - плоскость,
           $S(\Pi)$, $T(\Pi) < S(\Pi)$ -- перемещения плоскости (движения)
 \end{itemize}
@@ -116,16 +113,13 @@
 \subsection{Законы сокращения}
 \begin{lemma}
     Пусть $G$ - группа, $g, h_1, h_2 \in G$
-
     \begin{enumerate}
-        \item $gh_1 = gh_2 \Rightarrow h_1 = h_2$
-        \item $h_1 g = h_2 g \Rightarrow h_1 = h_2$
+        \item $gh_1 = gh_2 \implies h_1 = h_2$
+        \item $h_1 g = h_2 g \implies h_1 = h_2$
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    \begin{gather*}
-        g^{-1}gh_1 = g^{-1}gh_2 \Rightarrow h_1 = h_2
-    \end{gather*}
+    \[g^{-1}gh_1 = g^{-1}gh_2 \implies h_1 = h_2\]
 \end{proof}
 
 \section{Таблицы Кэли}
@@ -153,8 +147,8 @@
         \end{array}$
 \end{center}
 
-Дана группа самосовмещений правильного прямоугольника:
-\marginpar{Таблица Кэли является латинским квадратом}
+Дана группа самосовмещений правильного прямоугольника%
+\footnote{Таблица Кэли является латинским квадратом}:
 \begin{center}
     $\begin{array}{c|cccc}
             \square & e     & S_1   & S_2   & R_\pi \\
