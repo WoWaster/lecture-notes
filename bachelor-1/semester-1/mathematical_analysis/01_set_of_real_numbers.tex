@@ -108,9 +108,9 @@ $(\forall a \in A) \Rightarrow (a \in B)$. Полагаем, что $\varnothing
 
 \section{Определение вещественных чисел по Р.Дедекинду}
 Далее будем считать известными натуральные числа, множество которых всегда
-обозначается через \N, множество целых чисел \Z, множество
-рациональных чисел \Q. Считаем, что свойства арифметических действий
-с числами из \Q и свойства, связанные с упорядочиванием рациональных
+обозначается через $\N$, множество целых чисел $\Z$, множество
+рациональных чисел $\Q$. Считаем, что свойства арифметических действий
+с числами из $\Q$ и свойства, связанные с упорядочиванием рациональных
 чисел по возрастанию, известны.
 
 \begin{definition}
@@ -134,8 +134,8 @@ $(\forall a \in A) \Rightarrow (a \in B)$. Полагаем, что $\varnothing
 \end{proof}
 
 \begin{term}
-    Пусть $\alpha$ -- сечение. Числа из \Q, принадлежащие $\alpha$, называются
-    нижними числами сечения $\alpha$, а числа из \Q, не принадлежащие $\alpha$,
+    Пусть $\alpha$ -- сечение. Числа из $\Q$, принадлежащие $\alpha$, называются
+    нижними числами сечения $\alpha$, а числа из $\Q$, не принадлежащие $\alpha$,
     называются верхними числами сечения $\alpha$.
 \end{term}
 
@@ -163,14 +163,14 @@ $(\forall a \in A) \Rightarrow (a \in B)$. Полагаем, что $\varnothing
 \begin{definition}
     Множество всех сечений будет называться множеством вещественных чисел, а любое
     конкретное сечение будем называть вещественным числом. Обозначаем множество
-    вещественных чисел \R.
+    вещественных чисел $\R$.
 \end{definition}
 
 Приведенный подход к определению вещественных чисел принадлежит немецкому
 математику Р. Дедекинду, поэтому сечения называются сечениями множества
 рациональных чисел по Дедекинду.
 
-\section{Упорядочивание по возрастанию и арифметические действия над \R числами}
+\section{Упорядочивание по возрастанию и арифметические действия над $\R$ числами}
 \begin{definition}
     Пишем $\alpha < \beta$, говорим, что $\alpha$ меньше $\beta$, если
     $\exists p \in \Q$, т.ч. $p \in \beta \wedge p \notin \alpha$.
@@ -424,6 +424,231 @@ $(\forall a \in A) \Rightarrow (a \in B)$. Полагаем, что $\varnothing
     Пусть $p \in \alpha; p \notin p^* \Rightarrow p^* < \alpha$. Пусть теперь
     $p^* < \alpha$, тогада $\exists q \in \Q | q \notin p^*$, т.е. $q \geq p$,
     и $q \in \alpha$. Тогда $p \in \alpha$. Теорема доказана.
+\end{proof}
+
+\section{Произведение вещественных чисел}
+\begin{theorem}
+    Пусть $\alpha$, $\alpha \geq 0^*$, и $\beta$, $\beta \geq 0^*$ - вещественные 
+    числа. Обозначим через $\gamma$ следующее множество рациональных чисел:
+    если $p \in \Q, p < 0$, то $p \in \gamma$; если $p = st, s \in \alpha, 
+    t \in \beta$ и $s \geq 0, t \geq 0$, то $p \in \gamma$. Другие рациональные
+    числа в множество $\gamma$ не входят. Если $\alpha = 0^* \vee \beta = 0^*$,
+    то $\gamma$ по определению состоит только из чисел $p \in \Q, p < 0$. 
+    Тогда $\gamma$ - сечение.  
+\end{theorem}
+\begin{proof}
+    Поскольку $(\forall p \in \Q, p < 0) \Rightarrow p \in \gamma$, то $\gamma$
+    непусто; если $\alpha = 0^* \vee \beta = 0^*$, то $(\forall q > 0) 
+    \Rightarrow q \notin \gamma$, в этом случае $\gamma \neq \Q$; если 
+    $\alpha > 0^* \wedge \beta > 0^*$, то пусть 
+    $u \notin \alpha, v \notin \beta$, тогда $u > 0 \wedge v > 0$ и 
+    $(\forall s \in \alpha, s \geq 0 \wedge \forall t \in \beta, t \geq 0) 
+    \Rightarrow (s < u \wedge t < v) \Rightarrow st < uv$, т.е. 
+    $uv \notin \gamma$, т.е. всегда $\gamma \neq \Q$.  
+    Если $\alpha = 0^* \vee \beta = 0^*$, то из определения $\gamma$ в этом
+    случае следуют условия 2 и 3; если $\alpha > 0^* \wedge \beta > 0^*$, то 
+    пусть $p \in \gamma, p > 0, 0 \leq q < p$; Пусть $p = st, s > 0, t > 0, 
+    s \in \alpha, t \in \beta$. Если $q = 0$, то $0 = 0 * t, 0 \in \alpha,
+    0 \in \gamma$; если $q > 0$, то $\frac{q}{p} \cdot t < t$, поэтому
+    $\frac{q}{p} \cdot t \in \beta$, тогда $s \cdot \frac{q}{p} \cdot t \in \gamma$,
+    но $s \cdot \frac{q}{p} \cdot t = \frac{q}{p}st = \frac{q}{p} \cdot p = q$, т.е.
+    $q \in \gamma$; если $p = st, s > 0, t > 0$, то возьмем $s_1 > s, s_1 \in 
+    \alpha$, тогда $s_1t \in \gamma и s_1t > p$. 
+\end{proof}
+
+\begin{definition}
+    Пусть $\alpha, \beta \in \R$. Полагаем
+    \begin{equation*}
+        \alpha\beta \stackrel{def}{=} 
+        \begin{cases}
+            -(|\alpha||\beta|) & \alpha < 0^*, \beta \geq 0^* \\
+            -(|\alpha||\beta|) & \alpha \geq 0^*, \beta < 0^* \\
+            (|\alpha||\beta|) & \alpha < 0^*, \beta < 0^*
+        \end{cases}
+    \end{equation*}
+\end{definition}
+\begin{theorem}
+    Справедливы следующие свойства: 
+    \begin{enumerate}
+        \item $\alpha\beta = \beta\alpha$; 
+        \item  $(\alpha\beta)\gamma = \alpha(\beta\gamma)$;
+        \item $\alpha(\beta + \gamma) = \alpha\beta + \alpha\gamma$;
+        \item $\alpha \cdot 0^* = 0^*$;
+        \item $\alpha\beta = 0^* \Leftrightarrow \alpha = 0^* \vee \beta = 0^*$;
+        \item $\alpha \cdot 1^* = \alpha$;
+        \item $\alpha < \beta, \gamma > 0^* \Rightarrow \alpha\gamma < \beta\gamma$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Следуем из определения суммы и произведения и из соотвествующих свойств
+    рациональных чисел.
+\end{proof}
+
+\begin{theorem}
+    Если $\alpha \neq 0^*$, то $\forall \beta \in \R \exists! : 
+    \alpha\gamma = \beta$.
+\end{theorem}
+\begin{proof}
+    Аналогично доказательству существования и единственности $-\alpha$ и 
+    $\beta - \alpha$; в данном случае вначале проверяем, что $\exists \delta :
+    \alpha\delta = 1^*$, затем полагают $\gamma = \beta\delta$.
+\end{proof}
+
+\begin{designation}
+    $\gamma = \frac{\beta}{\alpha}, \delta = \frac{1}{\alpha}, \gamma 
+    \text{ - частное вещественных чисел} \beta, \alpha$, $\delta$ - обратное к 
+    $\alpha$ число. Отметим также связь действий над сечениями и рациональными 
+    числами. 
+\end{designation}
+\begin{theorem}
+    Пусть $p, q \in \Q$. Тогда $p^* + q^* = (p + q)^*, (pq)^* = p^*q^*, 
+    p^* < q^* \Leftrightarrow p < q$.
+\end{theorem}
+\begin{proof}
+    Доказывается аналогично предыдущим теоремам.
+\end{proof}
+
+\begin{theorem}
+    О плотности рациональных сечений в $\R$.
+    Пусть $\alpha, \beta \in \R, \alpha < \beta$. Тогда $\exists r^*, r \in \Q :
+    \alpha < r^* < \beta$.
+\end{theorem}
+\begin{proof}
+    $(\alpha < \beta) \Rightarrow \exists p \in \Q : p \in \beta, 
+    p \notin \alpha$. Выберем $r > p, r \in \beta$. Тогда в силу $r \notin r^*$
+    имеем $r^* < \beta$; поскольку $p \notin \alpha, p < r$, то $p \in r^*$, 
+    поэтому $\alpha < r^*$.
+\end{proof}
+
+\section{Теоема Дедекинда, супремумы и инфимумы.}
+\begin{definition}
+    Будем говорить, что в множестве вещественных чисел $\R$ определено сечение,
+    если имеются множества $A \subset \R \wedge B \subset \R$ со следующими
+    свойствами.
+    \begin{enumerate}
+        \item $A \neq 0^*, B \neq 0^*, A \neq \R, B \neq \R$
+        \item $A \cup B = \R$
+        \item $A \cap B = \emptyset$
+        \item Если $\alpha \in A, \beta \in B$, то $\alpha < \beta$
+    \end{enumerate}
+
+    При этом множество $A$ называется нижним классом сечения, и числа 
+    $\alpha \in A$ называются нижними числами, а множество $B$ называется 
+    верхним классом сечения, и числа $\beta \in B$ называются верхними числами
+    сечения.
+\end{definition}
+\begin{theorem}
+    Теорема Дедекинда. Пусть имееется сечение $(A, B)$ множества $\R$. Тогда 
+    существует единственное число $\gamma : \alpha \leq \gamma \forall
+    \alpha \in A \wedge \gamma \leq \beta \forall \beta \in B$. При этом
+    реализуется только одна возможность: либо в $A$ и $\gamma \in A$ и является
+    максимальным числом, либо $\gamma \in B$ и $\gamma$ является минимальным
+    числом в $B$.   
+\end{theorem}
+\begin{proof}
+    Прежде всего проверим, что $(\gamma \in A) \Rightarrow \gamma$ -
+    максимальное число в $A$, в $B$ нет минимального или $(\gamma \in B)
+    \Rightarrow \gamma$ - минимальное в $B$, в $A$ нет максимального.
+    Проверим первое из этих утверждений, второе доказывается аналогично.
+    Мы пока предполагаем, что число (или числа) $\gamma$, удволетворяющие
+    заключению теоремы, существуют. Предположим, что, наряду с $\gamma \in A$,
+    $\gamma$ - максимальное в $A$, $\exists \gamma_1 \in \beta$, $\gamma_1$ - 
+    минимальное число в $B$. Тогда условие 4 $\Rightarrow$ $\gamma < \gamma_1$.
+    По теореме о плотности рациональных сечений $\exists r^* : \gamma < r^* <
+    \gamma_1$. Тогда по предположению о минимальности $\gamma_1$ в $B$ имеем
+    $r^* \notin B$, но в силу условий 2 и 3 тогда получаем, что $r^* \in
+    \R \setminus B = A$, т.к. $\R \setminus B = A$. В силу преположения о
+    максимальности $\gamma$ в $A$ из $r^* > \gamma \Rightarrow r^* \notin A$,
+    т.е. $r^* \in \R \setminus A = B$, т.е. $r^* \in A \cap B$, что 
+    противоречит условию 3 сечения. \\
+    Таким образом,  $\gamma_1$ не существует и в $B$ нет 
+    наименьшего числа. \\
+    Докажем теперь, что $\gamma$ существует. (Оперируем с сечениями 
+    рациональных чисел, другой трактовки у нас пока нет).
+    Полагаем $\gamma \overset{def}{=}$ \{множество всех рациональных чисел
+    $p$ т.ч. для какого-то $\alpha \in A, p \in \alpha$\}. По-другому это 
+    определение можно записать так: 
+    \begin{equation*}
+        \gamma = \bigcap_{\alpha \in A}\alpha
+    \end{equation*}
+    Поскольку $\alpha$ - множество, и мы рассматриваем объединение указанных
+    объектов. Проверим, что $\gamma$ - сечение $\Q$. 
+    Поскольку $A \neq \emptyset$, тогда $\exists p \in \alpha, p \in \gamma$,
+    т.е. $\gamma \neq \emptyset$. Далее $B \neq \emptyset$, поэтому 
+    $\exists \beta \in B, \beta \notin A \wedge \beta > \alpha \forall
+    \alpha \in A$ по условию 4 сечения $\R$. Возьмем $q \in \Q$, $q \notin 
+    \beta$, тогда $q \notin \alpha$, если $q \in A$, поскольку в противном 
+    случае, если бы $q \in \alpha$, то $q^* < \alpha, \alpha < \beta, 
+    q^* < \beta$, но $q \notin \beta \Rightarrow q^* \geq \beta$ - противоречие.
+    Таким образом, $q \notin \alpha \forall \alpha \in A$, т.е. $q \notin 
+    \gamma, \gamma \neq \Q$ - проверено условие 1 сечения $\Q$.
+    Если $p \in \gamma \wedge q < p$, то по определению $\gamma$ $\exists 
+    \alpha \in A : p \in \alpha$, но тогда и $q \in \alpha$, т.е. $q \in \gamma$ -
+    проверено условие 2 сечения $\Q$.
+    Если $p \in \gamma$, то $\exists \alpha \in A: p \in \alpha$, тогда 
+    $\exists q > p, q \in \alpha$, т.е. $q \in \gamma$ - проверено условие 3
+    сечения $\Q$.
+    Таким образом, $\gamma$ - сечение $\Q$.
+    Из определения $\gamma$ следует, что $\alpha \subset \gamma \forall
+    \alpha \in A$, т.е. $\alpha \leq \gamma \forall \alpha \in A$.
+    Докажем, что $\forall \beta \in B \beta \geq \gamma$.
+    Предположим, что это не так, тогда $\exists \beta_0 \in B : \beta_0 < 
+    \gamma$. Тогда $\exists p \in \Q : p \in \gamma$, но $p \notin \beta_0$.
+    Но если $p \in \gamma$, то $\exists \alpha_0 \in A : p \in \alpha_0$, что 
+    влечёт $\beta_0 < \alpha_0$, а это противоречит условию 4 сечения $\R$.
+\end{proof}
+
+\begin{definition}
+    Пусть $E \subset \R, E \neq \emptyset$. Множество $E$ называется 
+    ограниченным сверху, если $\exists b \in \R : \forall a \in E$ выполнено
+    $a \leq b$; число $b$ называют верхней границей множества $E$; множество
+    $E$ называют ограниченным снизу, если $\exists c \in \R : \forall 
+    a \in E$, выполнено $a \geq c$; число $c$ называют нижней границей 
+    множества $E$. \\
+    Множество $E$ называют ограниченным, если оно ограниченно 
+    и снизу, и сверху. \\
+    Число $b_0$ называют точной верхней границей $E$ или супремумом $E$,
+    обозначается $b = sup E$, если $b_0$ - верхняя граница $E$ и 
+    $\forall b_1 < b_0$ $b_1$ не является верхней границей $E$. \\
+    Число $c_0$ называется точной нижней границей $E$ или инфимумом $E$, 
+    обозначается $c_0 = inf E$, если $c_0$ - нижняя граница $E$ и 
+    $\forall c_1 > c_0$ $c_1$ не является нижней границей $E$. 
+\end{definition}
+
+\begin{theorem}
+    О существовании супремума и инфимума.
+    Пусть $E \subset \R, E \neq \emptyset$, $E$ - ограничено сверху.
+    Тогда $\exists sup E$.
+    Пусть $E \subset \R, E \neq \emptyset$, $E$ - ограничено снизу.
+    Тогда $\exists inf E$.
+\end{theorem}
+\begin{proof}
+    Докажем существование супремума, существование инфимума доказывается 
+    аналогично. Определим сечение $(A, B)$ в $\R$ следующим образом: 
+    множество $A$ состоит из всех $\alpha \in \R : \exists x \in E \wedge
+    x > \alpha$, $B = \R \setminus A$. 
+    Из определения $A$ следует, что $\forall \alpha \in A$ число $\alpha$
+    не является верхней границей $E$. Поскольку $A$ ограничено сверху, то 
+    $A \neq \R$, а $E \neq \emptyset \Rightarrow A \neq \emptyset$, т.к. 
+    если $x_0 \in E$, то $x_0 - 1^* < x_0, x_0 - 1^* \in A$. \\
+    Если $\beta \in B$, то, по определению $A$, $\nexists x \in E : x > \beta$,
+    ибо иначе было бы $\beta \in A$, т.е. $\forall x \in E$ имеем 
+    $x \leq \beta$, т.е. $\beta$ - верхняя граница $E$ для $\forall \beta \in B$.
+    Условия 1-3 сечения $\R$ для $(A, B)$ проверены. \\
+    Проверим условие 4. Пусть $\alpha \in A, \beta \in B$. Тогда 
+    $\exists x_0 \in E : x_0 > \alpha$, но $\beta \geq x_0$, т.е. 
+    $\beta > \alpha$ - условие 4 проверено. \\
+    Пусть $\gamma \in \R$ - число, определяемое сечением $(A, B)$ по теореме
+    Дедекинда. Проверим, что $\gamma \notin A$. Если бы $\gamma \in A$, то 
+    $\exists x_1 \in E : x_1 > \gamma$. Выберем $r^* : \gamma < r^* < x_1$,
+    тогда $r^* \in A$ по определению $A$, $r^* > \gamma$, т.е. $\gamma$ - 
+    не наибольшее число в $A$, что противоречит теореме Дедекинда. 
+    Следовательно, $\gamma \in B$, т.е. $\gamma$ - верхняя граница $E$ и 
+    $\gamma$ - наименьшее число в $B$ по теореме Дедекинда, т.е. 
+    $\forall \gamma_1 < \gamma$, $\gamma_1$ не является элементом $B$, т.е. 
+    $\gamma_1 \in A$, тогда $\exists x_2 \in E : x_2 > x_1$, т.е. $\gamma_1$ -
+    не верхняя граница $E$. \\
+    Таким образом $\gamma$ - точная верхняя граница $E$.
 \end{proof}
 
 \end{document}
