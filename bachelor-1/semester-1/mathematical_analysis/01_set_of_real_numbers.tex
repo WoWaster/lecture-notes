@@ -651,4 +651,312 @@ $(\forall a \in A) \Rightarrow (a \in B)$. Полагаем, что $\varnothing
     Таким образом $\gamma$ - точная верхняя граница $E$.
 \end{proof}
 
+
+\section{Десятичные дроби, определение корня, степени,
+экспонент и логарифма}
+\begin{definition}
+    Пусть $E \neq \emptyset, G \neq \emptyset$ - множества. Отображением
+    $F: E \rightarrow G$ будем называть правило, по котором $\forall x \in E$
+    сопоставляется $F(x) \in G$. Оторбражение задается набором $E, G, F$.
+    Далее в качестве синонима слова "отображение" будем использовать слово
+    "функция" или "$G$-значная функция, определенная на $E$".
+    Отображение $F$ называется инъективным или инъекцией, если из $x, y \in E,
+    x \neq y \Rightarrow F(x) \neq F(y)$;
+    отображение $F$ называется сюръективным или сюръекцией, если $\forall q 
+    \in G \exists x \in E : F(x) = q$;
+    отображение $F$ называется биективным или биекцией, если оно одновременно
+    инъективно и сюръективно. Мы будем обозначать биекцию так: 
+    $F: E \longleftrightarrow G$.
+\end{definition}
+\begin{definition}
+    Множество $X$ называется счетным, если существует биекция 
+    $F: \N \longleftrightarrow X$, $\N$ - множество натуральных чисел.
+    Исторически счетные множества обозначаются так: $F(n) = x_n, x_n \in X,
+    n \in \N$. Последовательностью будем называть любое отображение 
+    $f: \N \rightarrow Y$, при этом обычно ее обозначают $y_1, y_2, \ldots
+    y_n$, или $\{y_n\}_{n-1}^{\infty}$. Говорят при этом, что определена 
+    последовательность множества $Y$.
+\end{definition}
+
+\begin{theorem}
+    Объединение конечного или счетного множества попарно дизъюнктных 
+    счетных множеств счетно.
+\end{theorem}
+\begin{proof}
+    Пусть $X_k = \left\{a_{k1}, a_{k2}, \ldots\right\}$, где $k = 1,\ldots, n$
+    или $k = 1,2, \ldots$; укажем способ нумерации $\bigcup_{k=1}^nX_k$ или 
+    $\bigcup_{k \in \N}X_k$. Учтем, что если $k \neq 1$, то $a_{ki} \neq a_{kj}$,
+    а если $k = 1$, но $i \neq j$, то $a_{ki} \neq a_{kj}$. В случае
+    $k = 1,\ldots, n$ запишем элементы $a_{kj}$ в таблицу:
+    \begin{center}
+        \begin{tabular}{l l l l l}
+            $a_{11}$ & $a_{12}$ & $\ldots$ & $a_{1s}$ & $\ldots$ \\
+            $a_{21}$ & $a_{22}$ & $\ldots$ & $a_{2s}$ & $\ldots$ \\
+            $\ldots$ & $\ldots$ & $\ldots$ & $\ldots$ & $\ldots$ \\
+            $a_{n1}$ & $a_{n2}$ & $\ldots$ & $a_{ns}$ & $\ldots$ \\
+        \end{tabular}
+    \end{center}
+    и будем "перенумеровывать" получившееся объединение $\bigcup_{k=1}^nX_k$
+    змейкой: $a_{11} \rightarrow a_{21} \rightarrow \ldots
+    \rightarrow a_{n1} \rightarrow a_{n2} \rightarrow a_{n-1 2} 
+    \rightarrow \ldots$. \\
+    В случае $\bigcup_{k \in \N}X_k$ укажем перенумерацию: $a_{11} \rightarrow
+    a_{21} \rightarrow a_{12} \rightarrow a_{13} \rightarrow a_{22} 
+    \rightarrow a_{31} \rightarrow \ldots$. \\
+    При этом в каждом из двух случаев получаем перенумерацию всего объединения.
+\end{proof}
+
+\begin{assertion}
+    Пусть $X$ - счетное множество, $Y \subset X$, $Y$ - бесконечное множество
+    (т.е. в нем не конечное множество элементов). Тогда $Y$ - счетное.
+\end{assertion}
+\begin{proof}
+    Пусть $X = \left\{x_1, x_2, \ldots\right\} \forall y \in Y
+    \exists n: y = x_n$.
+    Пусть $k \overset{def}{=} \left\{n \in \N: \exists y \in Y: y = x_n\right\}$.
+    Пусть $n_1$ - минимальное число в множества $K$, тогда $\exists y \in Y:
+    y = x_{n_1}$, положим $1 \longleftrightarrow y$, т.е. присвоим $y$ номер $1$,
+    считаем его $y_1$. Пусть $K_1 = K \setminus {n_1}$, тогда $K \neq \emptyset$,
+    т.к. $K$ бесконечное множество, пусть $n_2 \in K_1$ - минимальное число;
+    $\exists y_2 \in Y : y_2 = x_{n_2}$, положим $K_2 = K_1 \setminus {n_2}$,
+    и т.д. Таким образом мы построим биекцию $\N \longleftrightarrow Y$.
+\end{proof}
+\begin{corollary}
+    Пусть $Y = \bigcup_{k = 1}^nX_k$ или $Y = \bigcup_{k \in \N}X_k$, где 
+    $X_k$ - счетны, но необязательно дизъюнктны. Тогда $Y$ счетно.
+\end{corollary}
+\begin{proof}
+    Слудует из теоремы и утверждения.
+\end{proof}
+
+\subsection{Сопоставление вещественным числам десятичных разложений}
+Будем рассматривать только $\alpha > 0^*$, случай $\alpha < 0^*$ получается
+добавлением знака "$-$". \\
+Прежде всего биективно сопоставляем любому натуральному числу $n$ сечения 
+$n^*$, для $n$ считаем известным его десятичное представление. Для 
+$n^* < x < (n+1)*, n \geq 0, n \in \Z$, положим $\alpha = x - n^*$, тогда
+$0^* < \alpha < 1^*$. Определим
+\begin{multline*}
+    E \overset{def}{=} 
+    \left\{ 
+        \left( 
+            \frac{a_1}{10} + \frac{a_2}{10^2} + \ldots + \frac{a_k}{10^k}
+            \right)^* : 0 \leq a_j \leq 9, 1 \leq j \leq k, k \geq 1, \right. \\
+        \left. \left(
+            \frac{a_1}{10} + \frac{a_2}{10^2} + \ldots + \frac{a_k}{10^k}
+        \right)^* \leq \alpha
+    \right\}
+\end{multline*}
+
+\begin{theorem}
+    $\alpha = supE$
+\end{theorem}
+\begin{proof}
+    Определение $E$ показывает, что множество $E \neq \emptyset$, т.к. 
+    $0^* \in E$, и ограничено сверху, поэтому $\exists supE \overset{def}{=} 
+    \beta, \beta \leq \alpha$, поскольку $\alpha$ - верхняя граница $E$.
+    Предположим, что $\alpha > \beta$. Тогда $\exists r_1 \in \Q : \beta <
+    r_1^* < \alpha \wedge \exists r_2 \in \Q : r_1^* < r_2^* < \alpha$.
+    Пусть $t = r_2^* - r_1^*$. Выберем $k_0 \in \N$ так, чтобы $k^* > \frac{1}{t}$,
+    тогда $\left((10^{k_0})^* > k_0^* > \frac{1}{t}\right) \Leftrightarrow 
+    \left(\frac{1}{10^{k_0}}\right)^* < \left(\frac{1}{k_0}\right)^* < t$.
+    По определению числа $\beta$ $\exists q = \frac{a_1}{10} + \frac{a_2}{10^2} +
+    \ldots + \frac{a_{k_1}}{10^{k_1}}$, т.ч. $q^* > \beta - \frac{1}{10^{k_0}}
+    \Leftrightarrow \beta < q^* + \frac{1}{10^{k_0}}$. Считаем, что $k_1 \geq k_0$,
+    если это не так, то полагаем $a_{k_1 + 1} = \ldots = a_{k_0} = 0$, что 
+    даёт возможность этому предположению. Считаем также, что $k_0$ выбрано так,
+    чтобы $\alpha + \left(\frac{1}{10^{k_0}}\right) < 1$. \\
+    Если бы выполнялось соотношение $q^* + \left(\frac{1}{10^{k_0}}\right)^* > 
+    \alpha, q^* \leq \beta$, что влечёт неравенство
+    \begin{equation*}
+        \left(q^* + \left(\frac{1}{10^{k_0}}\right)^*\right) - q^* > \alpha 
+        -\beta > r_2^* - r_1^* = t
+    \end{equation*}
+    т.е. $\left(\frac{1}{10^{k_0}}\right)^* > t$, что противоречит выбору $k_0$,
+    т.е. $\alpha = \beta$.
+\end{proof}
+
+Пользуясь теоремой, сопоставим $\alpha, 0 < \alpha < 1$, последовательность
+$\left\{a_k\right\}_{k = 1}^{\infty}, a_k \in \{0, 1, \ldots, 9\}$
+
+\begin{designation}
+    В дальнейшем полагаем 
+    \begin{gather*}
+        [a, b] \overset{def}{=} {x \in \R : a \leq x \leq b} \\
+        (a, b) \overset{def}{=} {x \in \R: a < x < b} \\
+        [a, b) \overset{def}{=} {x \in \R: a \leq x < b} \\
+        (a, b] \overset{def}{=} {x \in \R: a < x \leq b} 
+    \end{gather*}
+\end{designation}
+
+Новым по сравнению со школой является исопльзование построенных по Дедекинду
+вещественных чисел.
+
+Определим теперь числа $a_k(\alpha) \in \{0, 1, \ldots, 9\}$ и $P_k(\alpha) 
+\in \Q$. Из $0 < \alpha < 1$ следует, что $\exists$ единственный промежуток
+вида $\left[0, \frac{1}{10}\right)^*, \left[\frac{1}{10}, \frac{2}{10}\right)^*,
+\ldots \left[\frac{9}{10}, 1\right)^*$, которому принадлежит $\alpha$. 
+Пусть $\alpha \in \left[ \left(\frac{a_1(\alpha)}{10}\right)^*, 
+\left(\frac{a_1(\alpha) + 1}{10}\right)^* \right)$, что дает $a_1(\alpha)$ и
+пусть $P_1(\alpha) \overset{def}{=} \frac{a_1(\alpha)}{10}$. Далее $\exists$
+единственный промежуток $\left[ \frac{a_1(\alpha)}{10} + 
+\frac{a_2(\alpha)}{10^2}, \frac{a_1(\alpha)}{10} + \frac{a_2(\alpha) + 1}{10^2}
+\right)$, т.ч. $\alpha \in \left[ \left(\frac{a_1(\alpha)}{10}\right)^* + 
+\left(\frac{a_2(\alpha)}{10^2}\right)^*, \left(\frac{a_1(\alpha)}{10}\right)^* + 
+\left(\frac{a_2(\alpha) + 1}{10^2}\right)^*
+\right)$, что задает $a_2(\alpha)$, и полагаем $p_2(\alpha) = 
+\frac{a_1(\alpha)}{10} + \frac{a_2(\alpha)}{10^2}$. Если уже определили 
+$a_1(\alpha), \ldots, a_k(\alpha)$, и 
+$P_k(\alpha) = \frac{a_1(\alpha)}{10} + \frac{a_2(\alpha)}{10^2} + \ldots +
+\frac{a_k(\alpha)}{10^k}$, то существует единственный промежуток
+\begin{equation*}
+    \left[ 
+        P_k(\alpha) + \frac{a_{k+1}(\alpha)}{10^{k+1}},
+        P_k(\alpha) + \frac{a_{k+1}(\alpha) + 1}{10^{k+1}}
+    \right)
+\end{equation*}
+такой что 
+\begin{equation*}
+    \alpha \in 
+    \left[ 
+        P_k(\alpha) + \left(\frac{a_{k+1}(\alpha)}{10^{k+1}}\right)^*,
+        \left(P_k(\alpha)\right)^* 
+        + \left(\frac{a_{k+1}(\alpha) + 1}{10^{k+1}}\right)^*
+    \right)
+\end{equation*}
+тогда полагаем $P_{k + 1}(\alpha) = P_{k}(\alpha) + 
+\frac{a_{k+1}(\alpha) + 1}{10^{k+1}}$.
+
+Из построения следует, что $\forall k = 1,2, \ldots$ выполнено 
+$P_k^*(\alpha) \leq \alpha < P_k^*(\alpha) + \left(\frac{1}{10^k}\right)^*$.
+Положим $E_0 \overset{def}{=} \left\{r^* \in \Q : \exists
+k \in \N : r^* = \left(P_k^*(\alpha)\right)^* \right\}$
+
+\begin{assertion}
+    $\alpha = supE_0$
+\end{assertion}
+\begin{proof}
+    Из определений $E$ и $E_0$ следует, что $E_0 < E$, поэтому 
+    $\alpha_0 \overset{def}{=} supE_0 \leq supE = \alpha$. Тогда имеем 
+    неравенства, справедливые $\forall k \in \N$:
+    \begin{equation}\label{ae0}
+        P_k^*(\alpha) \leq \alpha_0 \leq \alpha < P_k^*(\alpha) + 
+        \left(\frac{1}{10^k}\right)^* \Rightarrow 
+        0 \leq \alpha - \alpha_0 \leq \left(\frac{1}{10^k}\right)^*
+    \end{equation}
+    Если бы $\alpha - \alpha_0 > 0$, то можно найти $k_0 : \alpha - \alpha_0 >
+    \left(\frac{1}{10^{k_0}}\right)^*$, что противоречит соотношению \ref{ae0} 
+    при $k \geq k_0$.
+\end{proof}
+
+В результате предыдущих рассуждений построено отображение $A(\alpha): \alpha 
+\rightarrow a_1(\alpha), a_2(\alpha), \ldots$ из промежутка $(0; 1)$ в 
+множество последовательностей, состоящих из элементов $0, 1, \ldots, 9$, 
+что можно трактовать, как бесконечную десятичную дробь.
+
+\begin{assertion}
+    Отображение $A(\alpha)$ инъективно.
+\end{assertion}
+\begin{proof}
+    Пусть $0 < \alpha_1 < \alpha_2 < 1, \alpha_1,\alpha_2 \in \R$. Выберем 
+    минимальное $k_0$ такое, что $\alpha_2 - \alpha_1 \geq 
+    \left(\frac{1}{10^{k_0}}\right)^*$. Если $k_0 = 1$, то $a_1(\alpha_1) <
+    a_1(\alpha_2)$, поэтому $A(\alpha_1) \neq A(\alpha_2)$.
+    Если $k_0 > 1$ и $\exists j, 1 \leq j \leq k_0 - 1 : a_j(\alpha_1) \neq 
+    a_j(\alpha_2)$, то $A(\alpha_1) \neq A(\alpha_2)$; если же 
+    $a_j(\alpha_1) = a_j(\alpha_2), 1 \leq j \leq k_0 - 1$, то 
+    $a_{k_0}(\alpha_1) < a_{k_0}(\alpha_2)$ и $A(\alpha_1) \neq A(\alpha_2)$.
+\end{proof}
+
+Начиная с этого момента будем трактовать вещественное число также как $\pm$ 
+(натуральное число + бесконечная десятичная дробь), поэтому не будем ставить 
+знак у рациональных чисел. Важно заметить все привычне свойства вещественных 
+чисел строго определены и обоснованы, если их определяют как сечения.
+Пока речь шла только об арифметических действиях и неравенствах, в которых 
+вещественные числа участвуют.
+
+\subsection{Существование корня из вещественного числа}
+\begin{theorem}
+    Пусть $x > 0, n \geq 2, n \in \N$. Тогда $\exists! a > 0 : a^n = x$.
+\end{theorem}
+\begin{proof}
+    Проверим единственность числа $a$, если оно существует. Пусть $a_0^n = x,
+    a_0 > 0$, тогда $0 = a^n - a_0^n = (a - a_0)*A$, где $A = (a^{n-1} + 
+    a^{n-2}a_0 + \ldots + a_0^n)$.
+    Поскольку $A > 0$, то $(a - a_0) = 0 * \frac{1}{A} = 0, a = a_0$.
+\end{proof}
+
+\begin{definition}
+    Полагаем $0! \overset{def}{=} 1, 1! \overset{def}{=} 1, n! \overset{def}{=}
+    1 \cdot 2 \cdot \ldots \cdot n$, $C_n^m \overset{def}{=} 
+    \frac{n!}{(n - m)!m!}, 0 \leq m \leq n$; или $C_n^m = C_n^{n - m}, C_n^0 = 1,
+    C_n^1 = n$. 
+    
+    Бином Ньютона: пусть $n \geq 2; a, b \in \R$, тогда $(a + b)^n = 
+    a^n + C_n^1a^{n-1}b + \ldots + C_n^{n-1}ab^{n-1} + b^n$.
+    
+    Пусть $E = \{t \in \R: t > 0, t^n \leq x\}$. Если $t_0 \overset{def}{=} 
+    \frac{x}{1 + x}$, то $t_0 > 0, t_0 < 1, t_0^n = t_0^{n-1} * t_0 < 1^{n-1}
+    \cdot t_0 < x$, т.е. $E \neq \emptyset$; если $t_1 = 1 + x$, то $t_1 > 1$,
+    $t_1^n = t_1^{n-1} * t_1 > 1^{n-1} \cdot t_1 > x$, поэтому $t_1 \notin E$
+    и является верхней границей $E$, т.е. $\exists supE$. Утверждаетсяя, что 
+    $a = supE$. Предположим, что $b \overset{def}{=} supE, b^n < x$. 
+    Выберем $0 < h < 1$ и также
+    \begin{equation} \label{h}
+        h < \frac{x - b^n}{(1 + b)^n - b^n}
+    \end{equation} 
+    Тогда 
+    \begin{multline*}
+        (b + h)^n = b^n + C_n^1b^{n-1}h + \ldots + C_n^{n-1}bh^{n-1} + h^n < \\
+        b^n + C_n^1b^{n-1}h + \ldots + C_n^{n-1}bh + h = 
+        b^n + h(C_n^1b^{n-1} + \ldots + C_n^{n-1}b + h) = \\
+        b^n + h\left((1 + b)^n - 1\right) \overset{\ref{h}}{<} 
+        b^n + x - b^n = x
+    \end{multline*}
+    т.е. $b + h \in E$, что противоречит тому, что $b - верхняя граница E$.
+    Предположим, что $b^n > x$. Выберем $0 < v < 1, v < b$ и 
+    \begin{equation}\label{v}
+        v < \frac{b^n - x}{(1 + b)^n - b^n}
+    \end{equation}
+    Тогда
+    \begin{multline*}
+        (b - v)^n = b^n - C_n^1b^{n-1}v + C_n^2b^{n-2}v^2 - \ldots + 
+        (-1)^{n-1}C_n^{n-1}bv^{n-1} + (-1)^{n}v^n = \\ b^n - 
+        v(C_n^1b^{n-1} + C_n^2b^{n-2}v^1 - \ldots + 
+        (-1)^{n-1}C_n^{n-1}bv^{n-1} + (-1)^{n}v^{n-1}) \geq \\
+        b^n - v(C_n^1b^{n-1} + C_n^2b^{n-2}v^1 + \ldots + 
+        C_n^{n-1}bv^{n-1} + v^{n-1}) > \\
+        b^n - v(C_n^1b^{n-1} + C_n^2b^{n-2} + \ldots + C_n^{n-1}b + 1) = 
+        b^n - v((1 + b)^n - b^n) \overset{\ref{v}}{>} b^n - (b^n - x) = x
+    \end{multline*}
+    т.е. $b - v$ - верхняя граница $E$, что противоречит тому, что $b = supE$.
+    Итак, $b^n = x, b = a$.
+\end{definition}
+
+Далее приводится определение степени и логарифма без доказательств.
+
+\begin{definition}
+    $a^r, a > 0, r \in \Q$: если $r = \frac{p}{q}, q \in \N, p \in \Z$, то 
+    полагаем $a^r \overset{def}{=} \left(a^{\frac{1}{q}}\right)^p$. При $r > 0$
+    полагаем $0^r = 0$.
+\end{definition}
+
+\begin{definition}
+    $a^\alpha, a > 1, \alpha \in \R : E = \left\{a^r : r \in \Q, r \leq \alpha
+    \right\}$, тогда $a^\alpha = supE$. $1^\alpha = 1 \forall \alpha \in \R$.
+    Если $0 < a < 1$, то $a^\alpha \overset{def}{=} 
+    \left(\frac{1}{a}\right)^{-\alpha}$
+\end{definition}
+
+\begin{definition}
+    $log_ab, a > 0, a \neq 1, b > 0$: если $a > 1$, то $E = \left\{
+        x \in \R: a^x \leq b \right\}$, тогда $log_ab = supE$; если 
+        $0 < a < 1$, то $log_ab \overset{def}{=} -log_{\frac{1}{a}}b$. 
+\end{definition}
+
+\begin{theorem}
+    Для выражений $a^\alpha, log_ab$ справедливы все равнее встречающиеся в 
+    школьном курсе утверждения.
+\end{theorem}
+
 \end{document}

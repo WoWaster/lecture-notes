@@ -1,0 +1,298 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Пределы}
+
+\section{Общее определение предела последовательности}
+\begin{definition}
+    Пусть $E \neq \emptyset, \exists$ по крайней мере 2 точки $x_1, x_2 \in E$.
+    Множество $E$ называется метрическим пространством, если $\forall x, y 
+    \in E$ определена функция $\rho(x, y)$, удовлетворяющая следующим 
+    свойствам:
+    \begin{enumerate}
+        \item $\rho(x, y) \geq 0; \rho(x, y) = 0 \Leftrightarrow x = y$
+        \item $\rho(x, y) = \rho(y, x)$
+        \item $\forall x, y, z \in E \rho(x, z) \leq \rho(x, y) + \rho(y, z)$
+    \end{enumerate}
+    Функцию $\rho$ называют метрикой, заданной на $E$, а $\rho(x, y)$ называют 
+    расстоянием в $E$ между $x, y$. Соотношение 3 называется неравенством
+    треугольника в $E$. Точка $a \in E$ называется точкой сгущения множества
+    $E$, если $\forall \epsilon > 0 \exists x_\epsilon \in E : x_\epsilon 
+    \neq a \wedge \rho(x_\epsilon, a) < \epsilon$. Точка $b \in E$ называется
+    изолированной точкой множества $E$, если $\exists \epsilon_0 > 0 : 
+    \forall x \in E, x \neq b$, выполнено $\rho(x, b) \geq \epsilon_0$.
+    Последовательностью $\left\{v_n\right\}_{n = 1}^{\infty}$ в $E$ 
+    называется отображение $F: \N \rightarrow E, F(n) = v_n$.
+\end{definition}
+
+\begin{definition}
+    Пусть $E$ - метрическое пространство с метрикой $\rho$, $a \in E$ - 
+    точка сгущения, $\left\{v_n\right\}_{n = 1}^{\infty}, v_n \in E$, - 
+    последовательность в $E$. Говорят, что $v_n$ стремится к $a$ при $n$, 
+    стремящимся к бесконечности, пишут $v_n 
+    \underset{n \rightarrow \infty}{\to} a$, или, что равносильно, что предел 
+    $v_n$ при $n$, стремящемся к бесконечности, равен $a$, пишут 
+    $\lim_{n\to\infty}v_n = a$, если 
+    \begin{equation}\label{limdef}
+        \forall \epsilon > 0 \exists N \in \N :
+        \forall n > N \rho(v_n, a) < \epsilon
+    \end{equation}
+\end{definition}
+
+\begin{theorem}
+    О единственности предела. Пусть $E$ - метрическое пространство с метрикой
+    $\rho$, $\left\{v_n\right\}_{n = 1}^{\infty}$ - последовательность 
+    элементов $E$ и предположим, что $v_n \underset{n\to\infty}{\to} a_1$ и 
+    $v_n \underset{n\to\infty}{\to} a_2$, $a_1, a_2 \in E$. Тогда $a_1 = a_2$
+\end{theorem}
+\begin{proof}
+    Предположим, что $a_1 \neq a_2$, тогда $\rho(a_1, a_2) \overset{def}{=} 
+    \delta > 0$. Положим $\epsilon = \frac{\delta}{4}$. Тогда
+    $\exists N_1 : \forall n > N_1 \rho(v_n, a_1) < \epsilon$ и
+    $\exists N_2 : \forall n > N_2 \rho(v_n, a_2) < \epsilon$.
+    Пусть $n_0 = N_1 + N_2 + 1$, тогда $n_0 > N_1, n_0 > N_2$, поэтому 
+    $\rho(v_{n_0}, a_1) < \epsilon \wedge \rho(v_{n_0}, a_2) < \epsilon$.
+    Тогда получаем
+    \begin{equation*}
+        \rho(a_1, a_2) \leq \rho(a_1, v_{n_0}) + \rho(v_{n_0}, a_2) < 
+        \epsilon + \epsilon = 2\epsilon = \delta / 2 < \delta
+    \end{equation*}
+    что противоречит выбору $\delta$.
+\end{proof}
+
+\begin{theorem}
+    Об ограниченности последовательности, имеющей предел.
+    Пусть $E$ - метрическое пространство с метрикой
+    $\rho$, $\left\{v_n\right\}_{n = 1}^{\infty}$ - последовательность 
+    элементов $E$ и $v_n \underset{n\to\infty}{\to} a$. Тогда 
+    $\exists M > 0 : \forall n \in N$ имеем соотношение
+    \begin{equation}\label{rvnaleqm}
+        \rho(v_n, a) \leq M
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Выберем $\epsilon = 1$, тогда $\exists N_0 : \forall n > N_0   
+    \rho(v_n, a) < 1$. Пусть $M_1 = max(\rho(v_1, a), \ldots, \rho(v_{N_0}, a))$.
+    Тогда для $M = max(M_1, 1)$ соотношение \ref{rvnaleqm} выполнено 
+    $\forall n \in \N$. 
+\end{proof}
+
+\section{Предел числовой последовательности}
+Множество вещественных чисел является метрическим пространством: для 
+$a, b \in \R$ положим $\rho(a, b) \overset{def}{=} |a - b|$, нужные свойства
+следуют из свойства модуля. Поэтому, если $\left\{x_n\right\}_{n = 1}^{\infty}$ -
+последовательность в $\R, a \in \R$, то общее определение предела переносится
+так:
+\begin{equation*}
+    x_n \underset{n\to\infty}{\to} a \text{, если} \forall \epsilon > 0
+    \exists N \in \N : \forall n > N \left|x_n - a\right| < \epsilon
+\end{equation*}
+Если $x_n \underset{n\to\infty}{\to} a, a \in \R$, то по теореме об 
+ограниченности последовательности, имеющей предел, $\exists M : |x_n - a| 
+\leq M \forall n$. Тогда
+\begin{equation}\label{xn}
+    |x_n| = |x_n - a + a| \leq |x_n - a| + |a| \leq M + |a| \forall n
+\end{equation}
+
+\section{Расширение множества вещественных чисел}
+Добавим к множеству $\R$ два элемента, $\{+\infty\}, \{-\infty\}$.
+Полагаем, что по определению, $a < +\infty \forall a \in \R, -\infty < a 
+\forall a \in \R, -\infty < +\infty$.
+
+\section{Определение бесконечных пределов}
+Пусть $\left\{y_n\right\}_{n = 1}^{\infty}$ - последовательность вещественных 
+чисел. Говорят, что $y_n$ стремится к $+\infty$, пишут 
+$y_n \underset{n\to\infty}{\to} +\infty$, или, что предел $y_n$ равен $+\infty$
+при $n$, стремящемся к бесконечности. Пишут $\lim_{n\to\infty}y_n = +\infty$, 
+если $\forall K > 0 \exists N : \forall n > N y_n > K$.
+
+Аналогично, для последовательности $\left\{t_n\right\}_{n = 1}^{\infty}$
+$t_n \underset{n\to\infty}{\to} -\infty$ или $\lim_{n\to\infty}t_n = -\infty$,
+если $\forall L < 0 \exists N_1 : \forall n > N_1 t_n < L$.
+
+Если предел некоторой последовательности вещественное число, то говорят, что
+её конечен, а если равен $\pm\infty$, то говорят, что предел бесконечен.
+
+\begin{theorem}
+    Критерий Коши существования конечного предела последовательности.
+    Пусть $\left\{x_n\right\}_{n = 1}^{\infty}$ - последовательность 
+    вещественных чисел. Для того, чтобы эта последовательность имела 
+    конечный предел, необходимо и достаточно, чтобы $\forall \epsilon > 0
+    \exists N \in \N : \forall n_1 > N, n_2 > N$ выполнялось соотношение
+    \begin{equation}\label{koshi}
+        |x_{n_2} - x_{n_1}| < \epsilon
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Достаточность. Построим сечение $\R$ с нижним классом $A$ и верхним классом
+    $A'$ следующим образом: $\alpha \in A \Leftrightarrow \exists N_\alpha$, 
+    зависящее от $\alpha$, т.ч. $\forall n > N_\alpha$ выполнено 
+    \begin{equation}\label{kek5}
+        x_n > \alpha
+    \end{equation}
+    $A' \overset{def}{=} R \setminus A$.
+
+    Проверим, что $A \neq \emptyset$: возьмем $\epsilon = 1$, тогда \ref{koshi}
+    $\Rightarrow \exists N_1 : \forall n_1, n_2 > N_1$ выполнено
+    $|x_{n_2} - x_{n_1}| < 1$, что эквивалентно соотношению 
+    \begin{equation}\label{kek6}
+        x_{n_1} - 1 < x_{n_2} < x_{n_1} + 1
+    \end{equation}
+    Положим $n_1 = N_1 + 1$, тогда \ref{kek6} выполнено при $n_2 \geq n_1$,
+    т.е. $x_{n_1} - 1 \in A$. Поскольку правое неравенство в \ref{kek6} 
+    тоже выполнено при $n_2 \geq N_1 + 1$, то определение \ref{kek5} 
+    $\Rightarrow x_{n_1} + 1 \notin A$, т.е. $x_{n_1} + 1 \in A'$, т.е. 
+    $A \neq \R$.
+
+    Определение $A, A' \Rightarrow A \cup A' = \R, A \cap A' = \emptyset$.
+
+    Возьмем $\forall \alpha \in A, \forall \beta \in A'$. Тогда \ref{kek5}
+    $\Rightarrow \exists N_\alpha : \forall n > N_\alpha$ выполнено \ref{kek5}.
+    Поскольку $\beta \notin A$, то $\exists n_0 > N_\alpha : x_{n_0} \leq \beta$,
+    поскольку в противоположном случае при отсутсвии такого $n_0$ из \ref{kek5}
+    $\Rightarrow \beta \in A$, что неверно. Таким образом 
+    \[\alpha < x_{n_0} \leq \beta \Rightarrow \alpha < \beta\]
+    Итак, $A, A'$ - сечения $\R$. По теореме Дедекинда $\exists \gamma:
+    \forall \alpha \in A \alpha \leq \gamma \wedge \forall \beta \in A' 
+    \gamma \leq \beta$. Возьмем $\forall \epsilon > 0$, тогда $\gamma - 
+    \frac{\epsilon}{2} \in A, \gamma + \frac{\epsilon}{2} \in A'$. 
+    Выберем $N_2$ так, чтобы при $\forall n_1, n_2 > N_2$ выполнялось
+    \begin{equation}\label{kek7}
+        |x_{n_1} - x_{n_2}| \leq \frac{\epsilon}{2}
+    \end{equation}
+    Поскольку $\gamma -  \frac{\epsilon}{2} \in A$, то $\exists N_3 : 
+    \forall n > N_3$ выполняется 
+    \begin{equation}\label{kek8}
+        x_n > \gamma - \frac{\epsilon}{2}
+    \end{equation}
+    Не уменьшая общности, считаем, что $N_3 \geq N_2$.
+
+    Поскольку $\gamma + \frac{\epsilon}{2} \in A'$, то 
+    \begin{equation}\label{kek9}
+        \exists n' > N_3 : x_{n'} \leq \gamma + \frac{\epsilon}{2}
+    \end{equation}
+    Положим теперь $N = n'$, тогда \ref{kek8}, \ref{kek9} $\Rightarrow$
+    \begin{equation}\label{kek10}
+        \left( 
+            \gamma - \frac{\epsilon}{2} < x_{n'} \leq \gamma + \frac{\epsilon}{2}
+        \right) \Rightarrow
+        |x_{n'} - \gamma| \leq \frac{\epsilon}{2}
+    \end{equation}
+    Теперь \ref{kek7} и \ref{kek10} при $n > N = n'$ влекут:
+    \begin{equation}
+        |x_{n} - \gamma| = |(x_{n} - x_{n'}) + (x_{n'} - \gamma)| \leq 
+        |x_{n} - x_{n'}| + |x_{n'} - \gamma| < \frac{\epsilon}{2} + 
+        \frac{\epsilon}{2} = \epsilon
+    \end{equation}
+    Т.е. из определения предела $x_n \underset{n\to\infty}{\to} \gamma$.
+    Достаточность доказана.
+
+    Доказательство необходимости. Пусть $x_n \underset{n\to\infty}{\to} a,
+    a \in \R$, тогда $\forall \epsilon > 0 \exists N : \forall n > N$
+    выполнено 
+    \begin{equation}\label{kek11}
+        |x_n - a| < \frac{\epsilon}{2}
+    \end{equation}
+    Возьмем $\forall n_1, n_2 > N$, тогда \ref{kek11} $\Rightarrow$
+    \begin{equation*}
+        |x_{n_2} - x_{n_1}| = |(x_{n_2} - a) - (x_{n_2} - a)| \leq 
+        |x_{n_2} - a| + |x_{n_2} - a| < \frac{\epsilon}{2} + \frac{\epsilon}{2} 
+        = \epsilon
+    \end{equation*}
+    Необходимость доказана.
+\end{proof}
+
+\section{Предельные переходы в арифметических действиях}
+Далее для сокращения вместо $x_n \underset{n\to\infty}{\to} a$ пишем
+$x_n \to a$. Далее $a, b, ... \in \R$.
+
+\begin{theorem}
+    \begin{enumerate}
+        \item Пусть $x_n = a, n \geq 1 \Rightarrow x_n \to a$
+        \item Пусть $x_n \to a, c \in \R \Rightarrow cx_n \to ca$
+        \item Пусть $x_n \to a, y_n \to b \Rightarrow x_n + y_n \to a + b$
+        \item Пусть $x_n \to a, y_n \to b \Rightarrow x_ny_n \to ab$
+        \item Пусть $x_n \to a, a \neq 0, x_n \neq 0 \forall n \Rightarrow
+\frac{1}{x_n} \to \frac{1}{a}$
+        \item Пусть $x_n \to a, a \neq 0, x_n \neq 0 \forall n, y_n \to b
+\Rightarrow \frac{y_n}{x_n} \to \frac{b}{a}$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    1) следует из определения. 
+    
+    Для 2): возьмем $\forall \epsilon > 0, \exists N
+    : \forall n > N, |x_n - a| < \epsilon$, что влечет  $|c||x_n - a| < 
+    (|c| + 1)\epsilon, |cx_n - ca| < (|c| + 1)\epsilon$.
+    Поскольку $\epsilon > 0$ произвольно, то и $(|c| + 1)\epsilon$ произвольно.
+
+    Для 3): возьмем $\forall \epsilon > 0, \exists N_1 : \forall n > N_1, 
+    |x_n - a| < \frac{\epsilon}{2}, \exists N_2 : \forall n > N_2 |y_n - b| < 
+    \frac{\epsilon}{2}$, пусть $N = max(N_1, N_2), \forall n > N$ имеем:
+    \begin{equation*}
+        |(x_n + y_n) - (a + b)| \leq |x_n - a| + |y_n - b| < 
+        \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+    \end{equation*}
+
+    Для 4): $x_ny_n - ab = (xn - a)yn + a(y_n - b)$. Поскольку $y_n \to b$, то
+    $\exists M > 0: |y_n| \leq M \forall n$. Возьмем $\forall \epsilon > 0,
+    \exists N_1 : \forall n > N_1 |x_n - a| < \epsilon \wedge \exists N_2 :
+    \forall n > N_2 |y_n - b| < \epsilon; N = \overset{def}{=} max(N_1, N_2)
+    \Rightarrow \forall n > N \Rightarrow$
+    \begin{equation*}
+        |x_ny_n - ab| \leq |x_n - a|y_n + |a||y_n - b| < \epsilon * M + 
+        |a| * \epsilon = (M + |a|)\epsilon
+    \end{equation*}
+    Выражение $(M + |a|)\epsilon$ может быть выбрано произвольным $> 0$ 
+    вместе с $\epsilon$.
+
+    Для 5): $\exists N_1 : \forall n > N_1 \; |x_n - a| < \frac{|a|}{2}$, 
+    тогда $\forall n > N_1$ имеем:
+    \begin{equation*}
+        |x_n| = |(x_n - a) + a| \geq |a| - |x_n - a| > |a| - \frac{|a|}{2} = 
+        \frac{|a|}{2}
+    \end{equation*}
+    т.е. при $n > N_1$ $\frac{1}{x_n} < \frac{2}{|a|}$, $\frac{1}{x_n} - 
+    \frac{1}{a} = \frac{a - x_n}{x_na}$. Возьмем $\forall \epsilon > 0, 
+    \exists N_2 : \forall n > N_2 \; |x_n - a| < \epsilon$, пусть 
+    $N = max(N_1, N_2)$. При $n > N$ имеем:
+    \begin{equation*}
+        |\frac{1}{x_n} - \frac{1}{a}| = \frac{|a - x_n|}{|x_n||a|} < 
+        \frac{2}{|a|} \cdot \frac{1}{|a|}\epsilon = \frac{2}{a^2}\epsilon
+    \end{equation*}
+    $\frac{2}{a^2}\epsilon$ может быть любым положительным числом.
+
+    Для 6) $\frac{y_n}{x_n} = \frac{1}{x_n} \cdot y_n$, тогда 4) и 5)
+    $\Rightarrow$ 6).
+\end{proof}
+
+\section{Переход к пределу в неравенствах}
+\begin{theorem} О двух миллиционерах??
+    \begin{enumerate}
+        \item Пусть $x_n \leq y_n \forall n, x_n \to a, y_n \to b; a, b \in \R
+    \Rightarrow a \leq b$
+        \item Пусть $x_n \leq y_n \leq z_n \forall n, x_n \to a, z_n \to a,
+    a \in \R \Rightarrow y_n \to a$
+    \end{enumerate} 
+\end{theorem}
+\begin{proof}
+    1. Пусть $a > b, a - b = \delta > 0 \Rightarrow \exists N_1 : \forall n > N_1
+    \; |x_n - a| \leq \frac{\delta}{4}, \exists N_2 : \forall n > N_2 \; 
+    |y_n - b| < \frac{\delta}{4}$, возьмем $n_0 = N_1 + N_2 + 1 \Rightarrow$
+    \begin{equation*}
+        x_{n_0} > a - \frac{\delta}{4} = b + \delta - \frac{\delta}{4} = 
+        b + \frac{3}{4}\delta = (b + \frac{\delta}{4}) + \frac{\delta}{2} >
+        y_{n_0} + \frac{\delta}{2} > x_{n_0}
+    \end{equation*}
+    что противоречит условию.
+
+    2. Возьмем $\forall \epsilon > 0, \exists N_1 : \forall n < N_1 \; 
+    |x_n - a| < \epsilon, \exists N_2 : \forall n > N_2 \; |z_n - a| < \epsilon$,
+    тогда для $N = max(N_1, N_2)$ имеем при $n > N$
+    \begin{equation*}
+        a - \epsilon < x_n \leq y_n \leq z_n < a + e \Rightarrow 
+        |y_n - a| < \epsilon 
+    \end{equation*}
+\end{proof}
+
+\end{document}
