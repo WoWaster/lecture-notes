@@ -295,4 +295,326 @@ $x_n \to a$. Далее $a, b, ... \in \R$.
     \end{equation*}
 \end{proof}
 
+\begin{term}
+    Если $x_n \underset{n\to\infty}{\to} 0$, то говорят, что 
+    $\{x_n\}_{n=1}^{+\infty}$ бесконечно малая; если $|y_n| \underset{n\to\infty}{\to}
+    +\infty$, то говорят, что последовательность $\{y_n\}_{n=1}^{+\infty}$ 
+    бесконечно большая.
+\end{term}
+
+\begin{assertion}
+    Пусть последовательность $\{y_n\}_{n=1}^{+\infty}$ бесконечно большая, 
+    $y_n \neq 0 \forall n, x_n = \frac{1}{y_n}$. Тогда 
+    $\{x_n\}_{n=1}^{+\infty}$ бесконечно малая последовательность.
+    Пусть $\{x_n\}_{n=1}^{+\infty}$ бесконечно малая последовательность, 
+    $x_n \neq 0 \forall n, y_n = \frac{1}{x_n}$. Тогда $\{y_n\}_{n=1}^{+\infty}$
+    бесконечно большая последовательность.
+\end{assertion}
+\begin{proof}
+    Докажем первое, второе доказывается аналогично. Возьмем $\forall \epsilon > 0$,
+    пусть $L = 1 / \epsilon$. Тогда $\exists N : \forall n > N \; |y_n| > L$, но
+    $|y_n| > L \Leftrightarrow \frac{1}{|y_n|} < \frac{1}{L} = \epsilon$, т.е.
+    $|x_n - 0| = |x_n| = \frac{1}{|y_n|} < \epsilon$
+\end{proof}
+
+\section{Предельные переходы и бесконечные пределы}
+\subsection{Дополнение к предельным переходам в арифметических действиях}
+\begin{theorem}
+    Справедливы следующие утвреждения:
+    \begin{enumerate}
+        \item $c > 0, x_n \to +\infty, y_n \to -\infty \Rightarrow
+    cx_n \to +\infty, cy_n \to -\infty; d < 0, dx_n \to -\infty 
+    dy_n \to +\infty$
+        \item $x_n \to +\infty, y_n \to a \in \R, z_n \to +\infty \Rightarrow
+    x_n + y_n \to +\infty, x_n + z_n \to +\infty$ 
+    $u_n \to -\infty, v_n \to b \in \R, w_n \to -\infty \Rightarrow
+    u_n + v_n \to -\infty, u_n + w_n \to -\infty$ 
+        \item $x_n \to +\infty, y_n \to a > 0, z_n \to b < 0 \Rightarrow 
+    x_ny_n \to +\infty, x_nz_n \to -\infty$
+    $u_n \to -\infty, v_n \to c > 0, w_n \to d < 0 \Rightarrow 
+    u_nv_n \to -\infty, u_nw_n \to +\infty$
+    $x_n \to +\infty, t_n \to +\infty, s_n \to -\infty \Rightarrow
+    x_nt_n \to +\infty, x_ns_n \to -\infty$
+    $u_n \to -\infty, v_n \to -\infty \Rightarrow u_nv_n \to +\infty$;
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Дополнение к предельным переходам в неравенствах}
+\begin{theorem}
+    Справедливы следующие утверждения:
+    \begin{enumerate}
+        \item Пусть $x_n \leq y_n \forall n, x_n \to a \in \overline{\R},
+        y_n \to b \in \overline{\R} \Rightarrow a \leq b$
+        \item Пусть $x_n \leq y_n \leq z_n \forall n, x_n \to a \in \overline{\R},
+        z_n \to a \in \overline{\R} \Rightarrow y_n \to a$ 
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Доказательство приведенных выше теорем проще доказательств соответсвующих
+    теорем для конечных пределов и в дальнейшем курсе не используются, 
+    поэтому будут приняты без доказательства.
+\end{proof}
+
+\begin{definition}
+    Последовательность $\{x_n\}_{n=1}^{+\infty}$ называется возрастающей, если
+    $x_n \leq x_{n+1} \forall n$; последовательность $\{y_n\}_{n=1}^{+\infty}$
+    называется строго возрастающей, если $y_n < y_{n+1} \forall n$.
+    Последовательность $\{u_n\}_{n=1}^{+\infty}$ называется убывающей, если
+    $u_n \geq u_{n+1} \forall n$; последовательность $\{v_n\}_{n=1}^{+\infty}$
+    называется строго убывающей, если $v_n > v_{n+1} \forall n$.
+    Последовательность $\{t_n\}_{n=1}^{+\infty}$ называется монотонной, если
+    она возрастающая или убывающая; последовательность $\{w_n\}_{n=1}^{+\infty}$
+    называется строго монотонной, если она строго возрастающая или строго 
+    убывающая.
+\end{definition}
+
+\begin{theorem}
+    \begin{enumerate}
+        \item Пусть $\{x_n\}_{n=1}^{+\infty}$ - монотонная последовательность.
+        Тогда $\exists \lim_{n\to\infty}x_n \in \overline{\R}$
+        \item Пусть $\{y_n\}_{n=1}^{+\infty}$ - возрастающая.
+        Тогда $\lim_{n\to\infty}y_n \in \R \Leftrightarrow \exists M \in \R :
+        y_n \leq M \forall n$
+        \item Пусть $\{u_n\}_{n=1}^{+\infty}$ - убывающая.
+        Тогда $\lim_{n\to\infty}u_n \in \R \Leftrightarrow \exists K \in \R :
+        u_n \geq K \forall n$
+        \item Пусть $\{v_n\}_{n=1}^{+\infty}$ - строго возрастающая и 
+        $\lim_{n\to\infty}v_n \in \R$. Тогда $v_n < \lim_{n\to\infty}v_n
+        \forall n$
+        \item Пусть $\{w_n\}_{n=1}^{+\infty}$ - строго убывающая и 
+        $\lim_{n\to\infty}w_n \in \R$. Тогда $w_n > \lim_{n\to\infty}w_n
+        \forall n$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Доказательство соотношений 1), 2), 4). Предположим, что последовательность
+    $\{y_n\}_{n=1}^{+\infty}$ неограничена сверху. Возьмем $\forall L > 0$,
+    тогда $\exists N : y_N > L \Rightarrow \forall n > N \; 
+    y_n \geq y_{n-1} \geq \ldots \geq y_N > L \Rightarrow y_n 
+    \underset{n\to\infty}{\to} +\infty$.
+    Предположим, что $\{y_n\}_{n=1}^{+\infty}$ ограничена сверху, т.е. 
+    $\exists M : y_n \leq M \forall n$. Пусть $E = \{y \in \R : \exists n :
+    y = y_n\}$. Тогда множество $E$ непусто и ограничено сверху, $M$ - его
+    верхняя граница. Пусть $a = supE$. Тогда $y_n \leq a \forall n$. Возьмем
+    $\epsilon > 0$, тогда $a - \epsilon$ - не верхняя граница $E$, тогда
+    $\exists N : y_N > a - \epsilon$. Тогда при $\forall n > N$ имеем
+    $y_n \geq y_{n-1} \geq \ldots \geq y_N > a - \epsilon, y_n \leq a$, т.е. 
+    $|y_n - a| < \epsilon$, т.е. $y_n \underset{n\to\infty}{\to} a$. 
+    Утверждение 1) для возрастающей последовательности и достаточность в
+    утверждении 2) доказаны. Необходимость в утверждении 2) следует из 
+    ограниченности последовательности, имеющей конечный предел.
+    Для доказательства 4) пишем $(y_n < y_{n+1} \leq \lim_{n\to\infty}y_n)$,
+    $(v_n < v_{n+1} \leq \lim_{n\to\infty}v_n)$.
+    Доказательство утверждений 1), 3), 5) следуют из того, что если $u_n$ - 
+    убывающая, то $y_n \overset{def}{=} -u_n$ - возрастающая, если $w_n$ - 
+    строго убывающая, то $v_n \overset{def}{=} -w_n$ - строго возрастающая, и 
+    далее применим утверждения 1), 2), 4).
+\end{proof}
+
+\begin{theorem}
+    Теорема о вложенных промежутках. Пусть $[a_{n+1}, b_{n+1}] \subset 
+    [a_n, b_n], n = 1, 2, \ldots, n; \; b_n - a_n \underset{n\to\infty}{\to} 0$.
+    Тогда $\exists! \; c \in \R : c \in [a_n, b_n] \forall n$. 
+\end{theorem}
+\begin{remark}
+    Условие замкнутости промежутков существенно: имеем 
+    $\left(0, \frac{1}{n + 1}\right] \subset \left(0, \frac{1}{n}\right], 
+    \frac{1}{n} - 0  = \frac{1}{n} \underset{n\to\infty}{\to} 0$, но 
+    $\bigcap_{n=1}^\infty\left(0, \frac{1}{n}\right] \neq \emptyset$.
+\end{remark}
+\begin{proof}
+    Имеем неравенство $a_n < b_n \leq b_{n-1} \leq \ldots \leq b_1, 
+    b_n > a_n \geq a_{n-1} \geq \ldots \geq a_1 \forall n$, т.е. 
+    $a_n \leq b_1 \forall n, b_n \geq a_1 \forall n$. Тогда в силу 
+    возрастания $\{a_n\}_{n=1}^{+\infty}$ и убывания $\{b_n\}_{n=1}^{+\infty}$
+    по предыдущей теореме $\exists c_1 = lim_{n\to\infty}a_n; \exists c_2 = 
+    lim_{n\to\infty}b_n; c_1, c_2 \in \R$. По свойству перехода к пределу 
+    в неравенстве имеем: 
+    \begin{equation*}
+        a_n < b_n \Rightarrow lim_{n\to\infty}a_n \leq lim_{n\to\infty}b_n
+        \Rightarrow c_1 \leq c_2
+    \end{equation*}
+    По доказательству предыдущей теоремы имеем $a_n \leq c_1 \forall n; 
+    b_n \geq c_2 \forall n$, поэтому $0 \leq c_2 - c_1 \leq b_n - a_n$,
+    тогда
+    \begin{equation*}
+        0 \leq c_2 - c_1 \leq lim_{n\to\infty}(b_n - a_n) = 0 \Rightarrow
+        c_1 = c_2 \overset{def}{=} c
+    \end{equation*}
+    Тогда имеем $a_n \leq c \leq b_n$, т.е. $c \in [a_n, b_n]$.
+    Если бы $\exists c_0 \in [a_n, b_n] \forall n$, то $|c_0 - c| \leq b_n - a_n,
+    |c_0 - c| \leq lim_{n\to\infty}(b_n - a_n) = 0$, т.е. $c$ - единственно.
+\end{proof}
+
+\section{Число $e$}
+\begin{theorem}
+    Пусть $x_n = \left(1 + \frac{1}{n}\right)^n, y_n = 
+    \left(1 + \frac{1}{n}\right)^{n+1}, n = 1,2, \ldots$. Тогда 
+    $\{x_n\}_{n=1}^{+\infty}$ строго возрастает, $y_n$ строго убывает,
+    $\exists lim_{n\to\infty}x_n = lim_{n\to\infty}y_n \overset{def}{=} e 
+    \wedge x_n < e < y_n \forall n$, в частности $2 < e < 3$.
+\end{theorem}
+\begin{remark}
+    Вычислено, что $e = 2,718\dots$
+\end{remark}
+\begin{proof}
+    Докажем строгое возрастание $\{x_n\}_{n=1}^{+\infty}$. Считаем $n\geq 3$,
+    при $n = 1, n = 2$ - явные вычисления. Применяя бином Ньютона, имеем:
+    \begin{multline}\label{1lol}
+        x_n = \left(1 + \frac{1}{n}\right)^n = 1^n + 
+        \sum_{k=1}^{n-1}C_n^k\cdot 1^{n-k}\cdot\frac{1}{n^k} + \frac{1}{n^n} =\\
+        1 + C_n^1\cdot\frac{1}{n} + \sum_{k=2}^{n-1}C_n^k\cdot\frac{1}{n^k} + 
+        \frac{1}{n^n} = 2 + \sum_{k=2}^{n-1}\frac{n!}{k!(n-k)!}\cdot\frac{1}{n^k} +
+        \frac{1}{n^n}
+    \end{multline}
+    Преобразуем отдельно:
+    \begin{multline}\label{2lol}
+        \frac{n!}{k!(n-k)!}\frac{1}{n^k} = 
+        \frac{n(n-1)\ldots(n-k+1)(n-k)!}{k!(n-k)!n^k} = \\
+        \frac{n(n-1)(n-k+1)}{k!n^k} = 
+        \frac{1}{k!}\left(1 - \frac{1}{n}\right)\left(1 - \frac{2}{n}\right)
+        \cdot\ldots\cdot\left(1 - \frac{k-1}{n}\right)
+    \end{multline}
+    \begin{multline}\label{3lol}
+        \frac{1}{n^n} = \frac{n!}{n^n}\cdot\frac{1}{n!} = 
+        \frac{(n-1)!}{n^{n-1}}\cdot\frac{1}{n!} = 
+        \frac{1}{n!}\left(1-\frac{1}{n}\right)\cdot\left(1-\frac{2}{n}\right)
+        \cdot\ldots\cdot\left(1-\frac{n-1}{n}\right)
+    \end{multline}
+    Тогда соотношения \ref{1lol}, \ref{2lol}, \ref{3lol} влекут 
+    \begin{equation}\label{4lol}
+        x_n = 2 + \sum_{k=2}^n\frac{1}{k!}\left(1 - \frac{1}{n}\right)\ldots
+        \left(1 - \frac{k-1}{n}\right)
+    \end{equation}
+    Тогда \ref{4lol} $\Rightarrow$
+    \begin{equation}\label{5lol}
+        x_{n+1} = 2 + \sum_{k=2}^{n+1}\frac{1}{k!}\left(1 - \frac{1}{n+1}\right)\ldots
+        \left(1 - \frac{k-1}{n+1}\right)
+    \end{equation}
+    Поскольку $1 - \frac{e}{n} < 1 - \frac{e}{n + 1}, 1 \leq e \leq n - 1$, и в
+    \ref{5lol} есть ещё одно слагаемое по сравнению с $x_n$, то 
+    $x_n < x_{n+1}$
+
+    Докажем строгое убывание $y_n$. Пусть $n \geq 0$.
+    \begin{multline}\label{6lol}
+        \frac{y_{n-1}}{y_n} = 
+        \frac{\left(1 + \frac{1}{n-1}\right)^n}{\left(1 + \frac{1}{n}\right)^{n+1}} =
+        \frac{\left(\frac{n}{n-1}\right)^n}{\left(\frac{n+1}{n}\right)^{n+1}} = 
+        \frac{n}{n+1}\cdot\frac{\left(\frac{n}{n-1}\right)^n}{\left(\frac{n+1}{n}\right)^{n}} = \\
+        \frac{n}{n+1}\left(\frac{n}{n-1}\right)^n\left(\frac{n+1}{n}\right)^n = 
+        \frac{n}{n+1}\frac{n^{2n}}{(n^2 - 1)^n} = \\
+        \frac{n}{n+1}\left(\frac{n^{2}}{n^2 - 1}\right)^n = 
+        \frac{n}{n+1}\left(1 + \frac{1}{n^2 - 1}\right)^n
+    \end{multline}
+    Применяя бином Ньютона к выражению $(1 + x)^n, x > 0, n \geq 2$, имеем
+    $(1 + x)^n = 1^n + C_n^11^{n-1}x + \ldots = 1 + nx + \ldots$,
+    где многоточие означает положительные слагаемые, поэтому получаем
+    неравенство Бернулли:
+    \begin{equation}\label{6dotlol}
+        (1 + x)^n > 1 + nx, n\geq 2, x > 0
+    \end{equation}
+    Применим \ref{6lol} к \ref{6dotlol} с $x = \frac{1}{n^2 - 1}$. Тогда
+    \ref{6lol}, \ref{6dotlol} $\Rightarrow$
+    \begin{equation*}
+        \frac{y_{n-1}}{y_n} > \frac{n}{n + 1}\left(1 + \frac{n}{n^2 - 1}\right) =
+        \frac{n(n^2+n-1)}{(n+1)(n^2-1)} = \frac{n^3 + n^2 - n}{n^3 + n^2 - n - 1} 
+        > 1
+    \end{equation*}
+    Строгое убывание $\{y_n\}_{n=1}^{+\infty}$ доказано.
+    
+    Далее,
+    \begin{equation}\label{7lol}
+        y_n = \left(1 + \frac{1}{n}\right)^{n+1} = \left(1 + \frac{1}{n}\right)
+        \left(1 + \frac{1}{n}\right)^n = \left(1 + \frac{1}{n}\right)x_n
+    \end{equation}
+    \ref{7lol} $\Rightarrow y_n > x_n, y_n - x_n = \frac{1}{n}x_n$. 
+    Теперь доказано, что
+    $x_n < x_{n+1} < y_{n+1} < y_n$, т.е. $[x_{n+1}, y_{n+1}] \subset [x_n, y_n],
+    0 < x_n < y_n < y_{n-1} < y_5 < 3, n \geq 5 \Rightarrow y_n - x_n < \frac{3}{n},
+    n \geq 5 \Rightarrow y_n - x_n \underset{n\to\infty}{\to} 0$
+
+    К мромежуткам $[x_n, y_n]$ применим теорему о вложенных промежутках, 
+    тогда $\exists! e \in [x_n, y_n] \forall n$, из доказательства теоремы 
+    о вложенных промежутках следует, что $e = \lim_{n\to\infty}x_n = 
+    \lim_{n\to\infty}y_n$. По утверждениям 4 и 5 теоремы о пределах 
+    монотонных последовательностей в силу строгого возрастания 
+    $\{x_n\}_{n=1}^{+\infty}$ и строгого убывания $\{y_n\}_{n=1}^{+\infty}$
+    имеем $x_n < e < y_n \forall n$
+\end{proof}
+
+\section{Подпоследовательности}
+\begin{definition}
+    Пусть $F: \N \to \R$ - последовательность, $\phi: \N \to \N$ - 
+    инъективное отображение и $\phi(n) < \phi(m), n < m$.
+    Подпоследовательностью последовательности $F$ называется 
+    $G \overset{def}{=} F(\phi): \N \to \R$. $G$ - тоже последовательность.
+
+    В приведенном определении фигурируют последовательности вещественных 
+    чисел, но определение сохраняется, если рассматривать любую последовательность
+    $F: \N \to E$ из элементов множества $E$, подпоследовательность будет 
+    определяяться как суперпозиция $F(\phi): \N \to E$.
+    
+    Исторически сложившееся обозначение подпоследовательности следующее.
+    Обозначают $\phi(k) = n_k$, тогдa, если $F(n) = x_n$, то $F(\phi(k)) = x_{n_k}$,
+    т.е. рассматриваются элементы с номерами $x_{n_1}, x_{n_2}, \ldots, x_{n_k},
+    \ldots$, стандартное обозначение $\{x_{n_k}\}_{k=1}^{+\infty}$ и
+    говорят, что подпоследовательность выбрана из последовательности, т.е. 
+    выбраны номера $n_1, n_2, \ldots; n_1 < n_2 < \ldots < n_k < \ldots$,
+    и рассматриваются элементы $x_{n_k}$ только с этими номерами.
+\end{definition}
+
+\begin{assertion}
+    Предположим, что $x_n \underset{n\to\infty}{\to} a, a \in \overline{\R},
+    \{x_{n_k}\}_{k=1}^{+\infty}$ - подпоследотвальность. Тогда
+    $x_{n_k} \underset{k\to\infty}{\to} a$.
+\end{assertion}
+\begin{proof}
+    Для $a \in \R$, для $a = \pm\infty$ аналогично. Поскольку $n_1 < n_2 <
+    \ldots < n_k < \ldots$, то $n_k \geq k$; возьмем $\epsilon > 0$ и пусть 
+    $N : \forall n > N \; |x_n - a| < \epsilon$. Тогда $\forall k > N$ имеем
+    $n_k \geq k > N$, поэтому $\forall k > N |x_{n_k} - a| < \epsilon$.
+\end{proof}
+
+\begin{theorem}
+    Принцип выбора Больцано — Вейерштрасса. Пусть $\{x_{n}\}_{n=1}^{+\infty}$
+    - последовательность $M > 0, |x_n| \leq M \forall n$. Тогда 
+    $\exists a, a \in [-M, M]$ и подпоследовательность 
+    $\{x_{n_k}\}_{k=1}^{+\infty} : x_{n_k} \underset{k\to\infty}{\to} a$.
+\end{theorem}
+\begin{proof}
+    Положим $a_1 = -M, b_1 = M, c_1 = 0 = \frac{a_1 + b_1}{2}$. Тогда либо для 
+    $[a_1, c_1]$, либо для $[c_1, b_1]$, либо для обоих, выполнено следующее 
+    утверждение 1: существует бесконечно много номеров $n$ таких, что 
+    $x_n$ принадлежит $x_n$ лежит на этом промежутке. Пусть $[a_2, b_2]$ - 
+    именно этот промежуток, $n_1 : x_{n_1} \in [a_2, b_2]$. Здесь либо
+    $a_2 = a_1$, $b_2 = c_1$, либо $a_2 = c_1$, $b_2 = b_1$. Пусть 
+    $c_2 = \frac{a_2 + b_2}{2}$. Тогда либо для $[a_2, c_2]$, либо для 
+    $[c_2, b_2]$, либо для обоих выполнено утверждение 2: существует
+    бесконечно много номеров $n > n_1 : x_n$ лежит на этом промежутке. 
+    Пусть $[a_3, b_3]$ именно этот промежуток, т.е. либо $a_3 = a_2$, 
+    $b_3 = c_2$, либо $a_3 = c_2$, $b_3 = b_2$, и пусть $x_{n_2} \in 
+    [a_3, b_3], n_2 > n_1$. Далее по индкуции пусть уже выбраны 
+    $[a_k, b_k], n_{k-1} > n_{k-2}$. Пусть $c_k = \frac{a_k + b_k}{2}$.
+    Для $[a_k, c_k]$ или для $[c_k, b_k]$, или для обоих выполнено утверждение
+    $k$: существует бесконечно много номеров $n > n_{k-1} : x_n$ лежит 
+    на этом промежутке. Пусть $[a_{k+1}, b_{k+1}]$ этот промежуток, т.е. 
+    либо $a_{k+1} = a_k, b_{k+1} = c_k$, либо $a_{k+1} = c_k, b__{k+1} = b_k$,
+    и пусть $x_{n_k} \in [a_{k+1}, b_{k+1}], n_k > n_{k - 1}$. 
+
+    Построена последовательность $\{x_{n_k}\}_{k=1}^{+\infty}$ и 
+    последовательность вложенных промежутков $\ldots [a_{k+1}, b_{k+1}] 
+    \subset [a_k, b_k] \subset \ldots \subset [a_1, b_1]$, при этом 
+    \begin{equation*}
+        b_k - a_k = \frac{2M}{2^{k-1}} = 2^{-k+1}M \underset{k\to\infty}{\to} 0
+    \end{equation*}
+
+    По теореме о вложенных промежутках $\exists a \in [a_k, b_k] \forall k,
+    a_k \underset{k\to\infty}{\to} a, b_k \underset{k\to\infty}{\to} a$, 
+    при этом $x_{n_k} \in [a_{k+1}, b_{k+1}]$, т.е. $a_{k+1} \leq x_{n_k} \leq 
+    b_{k+1}$.
+
+    По утверждению 2 теоремы о переходе к пределу в неравенстве $x_n 
+    \underset{k\to\infty}{\to} a$.
+\end{proof}
+
 \end{document}
