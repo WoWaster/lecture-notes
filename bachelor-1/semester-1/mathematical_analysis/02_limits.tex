@@ -617,4 +617,278 @@ $x_n \to a$. Далее $a, b, ... \in \R$.
     \underset{k\to\infty}{\to} a$.
 \end{proof}
 
+\section{Верхний и нижний пределы последовательности}
+\begin{definition}
+    Пусть $\{a_n\}_{n=1}^{+\infty}$, $a_n \in \R$ - произвольная 
+    последовательность. Если она не ограничена сверху, то полагаем
+    $\overline{lim_{n\to\infty}}a_n = +\infty$, читаем 
+    "врехний предел последовательности 
+    $\{a_n\}_{n=1}^{+\infty}$ равен $+\infty$". В этом случае $\forall
+    n \in \N \exists N_n > n : a_{N_n} > n$, при этом можно считать, что
+    $N_n > N_{n-1}, n \geq 2$. Таким образом, $a_{N_n} \underset{n\to\infty}{\to}
+    +\infty$.
+
+    Предположим, что $\exists M : a_n \leq M \forall n$. Положим
+    $E_n = \{a \in \R : a = a_m \text{ для какого-то m, } m \geq n\}$.
+    Множество $E_n$ непусто и ограниченно сверху. $E_{n+1} \subset E_n, 
+    n \geq 1$. Пусть $v_n \overset{def}{=} supE_n$, тогда $v_n \geq v_{n+1},
+    n \geq 1$, поэтому по теореме о пределе монотонной последовательности 
+    $\exists lim_{n\to\infty}v_n \in \overline{\R}$. Полагаем 
+    $\overline{lim_{n\to\infty}}a_n = lim_{n\to\infty}v_n$
+
+    Таким образом $\forall$ последовательности $\{a_n\}_{n=1}^{+\infty}
+    \exists \overline{lim_{n\to\infty}}a_n \in \overline{\R}$
+
+    Если последовательность $\{a_n\}_{n=1}^{+\infty}$ неограничена снизу, то 
+    полагаем $\underline{lim_{n\to\infty}}a_n = -\infty$, читаем "нижний предел
+    последовательности $\{a_n\}_{n=1}^{+\infty}$ равен $-\infty$". В этом 
+    случае $\forall n \in \N \exists N_n' > n : a_{N_n'} < -n$, можно 
+    считать, что $N_n' > N_{n-1}', n\geq 2$. Тогда $a_{N_n'} 
+    \underset{n\to\infty}{\to} -\infty$.
+
+    Если $\exists L : a_n \geq L \; \forall n$, рассматриваем уже определенное 
+    множество $E_n$ и полагаем $w_n \overset{def}{=} infE_n$. Тогда
+    $w_n \leq w_{n+1}$, по теореме о пределе монотонной последовательности
+    $\exists lim_{n\to\infty}w_n \in \overline{\R}$. Полагаем 
+    $\underline{lim_{n\to\infty}}a_n \overset{def}{=} lim_{n\to\infty}w_n$ 
+    для $\forall$ последовательности $\{a_n\}_{n=1}^{+\infty} \exists 
+    \underline{lim_{n\to\infty}}a_n$
+\end{definition}
+
+\subsection{Свойства верхних и нижних пределов}
+
+\begin{theorem}\label{updown1}
+    1. $\underline{lim_{n\to\infty}}a_n \leq \overline{lim_{n\to\infty}}a_n$
+\end{theorem}
+\begin{proof}
+    Это соотношение выполнено, если $\underline{lim_{n\to\infty}}a_n = 
+    -\infty \vee \overline{lim_{n\to\infty}}a_n = +\infty$. Если 
+    $\underline{lim_{n\to\infty}}a_n > -\infty \vee 
+    \overline{lim_{n\to\infty}}a_n < +\infty$, то определено множество 
+    $E_n$, $w_n = infE_n \leq supE_n = v_n$,
+    поэтому $lim_{n\to\infty}w_n \leq lim_{n\to\infty}v_n$
+\end{proof}
+
+\begin{theorem}\label{updown2}
+    2. Если $a^+ = \overline{lim_{n\to\infty}}a_n \in \R$, то $\forall \epsilon > 0
+    \exists N : \forall n > N \; a_n < a^+ + \epsilon$
+\end{theorem}
+\begin{proof}
+    $a^+ = \overline{lim_{n\to\infty}}v_n$, по теореме о пределе монотонной 
+    последовательности $v_n \geq a^+ \forall n \wedge \exists N : v_n <
+    a^+ + \epsilon \text{при} \forall n > N$. Тогда $\forall n > N \; a_n \in 
+    E_n \Rightarrow a_n \leq supE_n = v_n, a_n < a^+ + \epsilon \forall n > N$
+\end{proof}
+
+\begin{theorem}\label{updown3}
+    3. $\forall \epsilon > 0 \wedge \forall N \exists n > N : a_n > a^+ - \epsilon$
+\end{theorem}
+\begin{proof}
+    Имеем $v_{N+1} \geq a^+$, но $v_{N+1}=supE_{N+1}$, поэтому $\exists
+    a_n \in E_{N+1} : a_n > a^+ - \epsilon$. 
+\end{proof}
+
+\begin{theorem}\label{updown4}
+    4. $\exists \{a_{n_k}\}_{k=1}^{+\infty} : a_{n_k} \underset{k\to\infty}{\to}
+    \overline{lim_{n\to\infty}}a_n$
+\end{theorem}
+\begin{proof}
+    В случае $\overline{lim_{n\to\infty}}a_n = +\infty$ это доказано, аналогично
+    доказывается в случае $\overline{lim_{n\to\infty}}a_n = -\infty$. 
+    Пусть $\overline{lim_{n\to\infty}}a_n = a^+ \in \R$. Выберем $N_k$ так, чтобы
+    $\forall n > N_k \; a_n < a^+ + \frac{1}{k}$; выберем $n_k > N_k, n_k >
+    n_{k-1}$ так, что $a_{n_k} > a^+ - \frac{1}{k}$. Тогда 
+    $|a_{n_k} - a^+| < \frac{1}{k}, a_{n_k} \underset{n\to\infty}{\to} a^+$.
+\end{proof}
+
+\begin{theorem}\label{updown5}
+    5. Пусть последовательность $\{a_{n_l}\}_{l=1}^{+\infty}$ такая, что 
+    $\exists lim_{l\to\infty}a_{n_l} \in \overline{\R}$. Тогда 
+    \begin{equation*}
+        lim_{l\to\infty}a_{n_l} \leq \overline{lim_{n\to\infty}}a_n
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Если $\overline{lim_{n\to\infty}}a_n = +\infty$, то верно. 
+    Предположим, что $a^+ \overset{def}{=} \overline{lim_{n\to\infty}}a_n < 
+    +\infty$. Если $lim_{l\to\infty}a_{n_l} = -\infty$, то верно.
+    Предположим, что $lim_{l\to\infty}a_{n_l} > -\infty$, тогда можно
+    предполагать, что $\alpha \overset{def}{=} lim_{l\to\infty}a_{n_l} \in \R$.
+    Возьмем $\forall \epsilon > 0 \Rightarrow \exists L : \forall l > L \; 
+    \alpha - \epsilon < a_{n_l} < \alpha + \epsilon$. Имеем соотношение
+    $a_{n_l} \in E_{n_l} \Rightarrow a_{n_l} \leq v_{n_l}, \alpha < a_{n_l} +
+    \epsilon \leq v_{n_l} + \epsilon, l > L$. Тогда 
+    $\alpha \leq  lim_{l\to\infty}(v_{n_l} + \epsilon) =
+    lim_{n\to\infty}(v_{n} + \epsilon) = a^+ + \epsilon$.
+    В силу произвольности $\epsilon > 0 \; \alpha \leq a^+$.
+\end{proof}
+
+\begin{theorem}\label{updown6}
+    6. Пусть $c_n > 0 \exists lim_{n\to\infty}c_n = c > 0$. Тогда $\forall$
+    последовательности $\{a_n\}_{n=1}^{+\infty}$, имеем 
+    $\overline{lim_{n\to\infty}}c_na_n = c\overline{lim_{n\to\infty}}a_n$
+\end{theorem}
+\begin{proof}
+    Положим $\overline{lim_{n\to\infty}}a_n = a^+, 
+    \overline{lim_{n\to\infty}}c_na_n = d$. Пусть подпоследовательность 
+    $\{c_{n_l}, a_{n_l}\}_{l=1}^{+\infty} : c_{n_l}a_{n_l} \underset{l\to\infty}{\to} d$,
+    тогда $c_{n_l} \underset{l\to\infty}{\to} c, a_{n_l} \underset{l\to\infty}{\to} 
+    \frac{d}{c}$. Пусть $\widetilde{a} = lim_{l\to\infty}a_{n_l}$. 
+    Тогда по \ref{updown5}. $\widetilde{a} \leq a^+$, т.е. $\frac{d}{c} \leq
+    a^+ \Leftrightarrow d \leq ca^+$, т.к. $c > 0$.
+    Пусть последовательность $\{a_{n_k}\}_{k=1}^{+\infty}$ т.ч. $a_{n_k} 
+    \underset{k\to\infty}{\to} a^+$, что возможно по \ref{updown4}. Тогда 
+    $c_{n_k}a_{n_k} \underset{k\to\infty}{\to} ca^+$, но по \ref{updown5}
+    $lim_{k\to\infty}(c_{n_k}, a_{n_k}) \leq \overline{lim_{n\to\infty}}c_na_n = d$,
+    т.е. $ca^+ \leq d, ca^* = d$.
+\end{proof}
+
+Положим для $E \neq \emptyset, E \subset \R \;\; -E \overset{def}{=} \{
+x \in \R : \exists y \in E : y = -x\}$. Из определения $E$ получаем следующее.
+
+\begin{assertion}
+    $infE = -sup(-E)$
+\end{assertion}
+
+Применяя это утверждение к определению $\overline{lim_{n\to\infty}}a_n$ и
+$\underline{lim_{n\to\infty}}a_n$, из свойств 2-6 получаем следующие утверждения:
+\begin{assertion}
+    \item 2'. Если $\overline{a} \overset{def}{=} \underline{lim_{n\to\infty}}a_n
+\in \R$, то $\forall \epsilon > 0 \exists N : \forall n > N \; a_n > 
+\overline{a} - \epsilon$
+    \item 3'. $\forall \epsilon > 0 \wedge \forall N \exists n > N : a_n < 
+\overline{a} + \epsilon$
+    \item 4'. $\exists \{a_{n_l}\}_{l=1}^{+\infty} : a_{n_l} 
+\underset{l\to\infty}{\to} \underline{lim_{n\to\infty}}a_n$
+    \item 5'. Пусть $\{a_{n_m}\}_{m=1}^{+\infty} : \exists lim_{m\to\infty}a_{n_m}$.
+Тогда $lim_{m\to\infty}a_{n_m} \geq \underline{lim_{n\to\infty}}a_n$
+    \item 6'. Пусть $c_n > 0, \exists lim_{n\to\infty}c_n = c > 0$. Тогда 
+$\underline{lim_{n\to\infty}}c_na_n = c \cdot \underline{lim_{n\to\infty}}a_n$
+    \item Для того, чтобы $\exists lim_{n\to\infty}a_n \in \overline{\R}$
+необходимо и достаточно, чтобы $\underline{lim_{n\to\infty}}a_n =
+\overline{lim_{n\to\infty}}a_n$. Тогда $lim_{n\to\infty}a_n = 
+\underline{lim_{n\to\infty}}a_n = \overline{lim_{n\to\infty}}a_n$.
+\end{assertion}
+\begin{proof}
+    Рассмотрим случай $lim_{n\to\infty}a_n \in \R$ и 
+    $\overline{lim_{n\to\infty}}a_n \in \R$, случай бесконечных пределов 
+    рассматривается аналогично.
+
+    \emph{Необходимость}. Пусть $\exists lim_{n\to\infty}a_n$ и пусть 
+    $\{a_{n_k}\}_{k=1}^{+\infty}$ и $\{a_{n_l}\}_{l=1}^{+\infty}$ т.ч. 
+    $a_{n_k} \underset{k\to\infty}{\to} \overline{lim_{n\to\infty}}a_n, 
+    a_{n_l} \underset{l\to\infty}{\to} \underline{lim_{n\to\infty}}a_n$. Тогда
+    $a_{n_k} \underset{k\to\infty}{\to} {lim_{n\to\infty}}a_n, 
+    a_{n_l} \underset{l\to\infty}{\to} {lim_{n\to\infty}}a_n$, т.е. 
+    $\underline{lim_{n\to\infty}}a_n = \overline{lim_{n\to\infty}}a_n$.
+
+    \emph{Достаточность}. Пусть $\underline{lim_{n\to\infty}}a_n = 
+    \overline{lim_{n\to\infty}}a_n \overset{def}{=} \alpha \in \R$. 
+    Возьмем $\forall \epsilon > 0$ по 2 $\exists N_1 : \forall n > N_1 \;\;
+    a_n <  \overline{lim_{n\to\infty}}a_n + \epsilon = \alpha + \epsilon$, 
+    по 2' $\exists N_2 : \forall n > N_2 \;\; a_n > \underline{lim_{n\to\infty}}a_n -
+    \epsilon = \alpha - \epsilon$, т.е. $\forall n > max(N_1, N_2) \;\; 
+    \alpha - \epsilon < a_n < \alpha + \epsilon \Rightarrow \exists 
+    lim_{n\to\infty}a_n = \alpha$.
+\end{proof}
+
+\section{Предел функции}
+\begin{definition}
+    Пусть $X$ - метрическое пространство с метрикой $\rho, a \in X$ - точка 
+    сгущения. Окрестностью точки $a$ в $X$ будем называть множество 
+    $w \overset{def}{=} \{x \in X : \rho(x, a) < r\}$ при каком-нибудь 
+    $r > 0$. Для множества $\overline{\R}$ окрестностью $+\infty$ будем 
+    называть любой луч $(a, +\infty)$, а окрестностью $-\infty$ - 
+    любой луч $(-\infty, a)$. Для $x \in \R$ будем называть окрестностью 
+    любой промежуток $(x - \epsilon, x + \epsilon), \epsilon > 0$.
+\end{definition}
+
+\begin{definition}
+    Определение предела функции. Пусть $X$ - метрическое пространство с метрикой
+    $\rho, a \in X$ - точка сгущения, $f: X \to \R$ - функция, заданная на 
+    $X$, $A \in \overline{\R}$. Говорят, что $f(x) \underset{x \to a}{\to} A$,
+    или, что равносильно, $lim_{x \to a}f(x) = A$, если $\forall$ окрестности
+    $W$ элемента $A \;\; \exists$ окрестность $w$ точки $a : \forall x \in w 
+    \setminus \{a\}$ выполнено:
+    \begin{equation}\label{mem1}
+        f(x) \in W
+    \end{equation}
+    Если функция $f: (L, +\infty) \to \R \vee f: (-\infty, M) \to \R$, то 
+    говорят, что $f(x) \underset{x\to +\infty}{\to} A$, соответственно, 
+    $f(x) \underset{x\to +\infty}{\to} A$, если $\forall$ окрестности $W$ 
+    элемента $A$ $\exists$ окрестность $w$ элемента $+\infty$, соответственно,
+    элемента $-\infty$, т.ч. $\forall x \in w$ выполнено:
+    \begin{equation}\label{mem1dot}
+        f(x) \in W
+    \end{equation}
+\end{definition}
+
+\begin{assertion}
+    Пусть $X$ - метрическое пространство с метрикой $\rho, a \in X$ - точка
+    сгущения. Тогда $\exists \{x_n\}_{n=1}^{\infty}, x_n \underset{n\to\infty}{\to}
+    a, x_n \neq a \forall n, x_n \in X$.
+\end{assertion}
+\begin{proof}
+    Возьмем $x_1 \neq a$, пусть $\epsilon_1 = \rho(x_1, a)$, тогда $\epsilon_1 
+    > 0 \; \exists x_2 \neq a : \rho(x_2, a) < \frac{1}{2}\epsilon_1$.
+    Положим $\epsilon_2 = \rho(x_2, a)$. Предположим, что выбраны $x_1, \ldots, 
+    x_n : x_k \neq a, 1 \leq k \leq n, \epsilon_k = \rho(x_k, a) < \frac{1}{2}
+    \epsilon_{k-1}, k \geq 2$. Тогда $\exists x_{n+1} \neq a : \rho(x_{n+1}, a) <
+    \frac{1}{2}\epsilon_n$. Полагаем $\epsilon_{n+1} = \rho(x_{n+1}, a)$. 
+    Имеем: $\epsilon_n < \frac{1}{2}\epsilon_{n-1} < \frac{1}{2^2}\epsilon_{n-2} <
+    \ldots < \frac{1}{2^{n-1}\epsilon_1}$, т.е. 
+    $\rho(x_n , a) \underset{n\to\infty}{\to} 0$.
+\end{proof}
+
+\begin{theorem}
+    О пределе функции и пределах последовательности. 
+    Пусть $X$ - метрическое пространство с метрикой $\rho, f : X \to \R,
+    A \in \overline{\R}$. Для того чтобы $f(x) \underset{x\to a}{\to} A$, 
+    необходимо и достаточно, что для $\forall \{x_n\}_{n=1}^{\infty}, x_n \in X,
+    x_n \neq a \forall n, x_n \underset{n\to\infty}{\to} a$, выполнялось 
+    $f(x_n) \underset{n\to\infty}{\to} A$.
+\end{theorem}
+\begin{proof}
+    Необходимость. Пусть $f(x) \underset{x\to a}{\to} A, \{x_n\}_{n=1}^{\infty}$ -
+    любая упомянутая в условии последовательность. Возьмем $\forall$ окрестности
+    $W$ элемента $A$, т.е. либо промежуток $(A - \epsilon, A + \epsilon)$, если
+    $A \in \R$, либо луч $(L, +\infty)$, если $A = +\infty$, 
+    либо луч $(-\infty, M)$, если $A = -\infty$. Тогда $\exists$ окрестность
+    $w$ точки $a : \forall x \in w\setminus \{a\}$ выполнено $f(x) \in W$,
+    т.е. либо $|f(x) - A| < \epsilon$, либо $f(x) > L$, либо $f(x) < M$.
+    Пусть $w = \{x \in X: \rho(x, a) < r\}$. Поскольку $x_n 
+    \underset{n\to\infty}{\to} a$, то $\exists N : \forall n > N \; 
+    \rho(x_n, a) < r$, что влечет $f(x_n) \in W \Rightarrow f(x_n) 
+    \underset{n\to\infty}{\to} A$.
+    
+    Достаточность. Предположим, что $\forall \{x_n\}_{n=1}^{\infty}$ с 
+    требуемыми свойствами $f(x_n) \underset{n\to\infty}{\to} A$, но 
+    неверно, что $f(x) \underset{x\to a}{\to} A$. Тогда 
+    $\exists$ окрестность $W_0$ элемента $A : \forall$ окрестности $w$ точки
+    $a \; \exists x \in w \setminus \{a\} : f(x) \notin W_0$. Пусть 
+    $w_1 = \{x: \rho(x, a) < 1\}, x_1 \in w_1 \setminus \{a\}$, но 
+    $f(x_1) \notin W_0$. Положим $\epsilon_1 = \rho(x_1, a), \epsilon_1 < 1$.
+    $\exists x_2 \neq a, \rho(x_2, a) < \frac{1}{2}\epsilon_1 : f(x_2) \notin W_0$.
+    Пусть $\epsilon_2 = \rho(x_2, a), \epsilon_2 < \frac{1}{2}\epsilon_1$.
+    Пусть построены точки $x_1, \ldots, x_n : f(x_k) \notin W_0, x_k \neq a, 
+    1 \leq k \leq n, \epsilon_k = \rho(x_k, a) < \frac{1}{2}\epsilon_{k-1} <
+    \ldots < \frac{1}{2^{n-1}\epsilon_1}$, т.е. $x_n \underset{n\to\infty}{\to} a,
+    x_n \neq a \forall n \wedge f(x_n) \notin W_0$, т.е. $f(x_n)$ не стремится к 
+    $A$, что противоречит предположению достаточности, т.к. $f(x) 
+    \underset{x\to a}{\to} A$.
+\end{proof}
+\begin{addition}
+    Аналогичное утверждение справедливо, если $f: (a, +\infty) \to \R$ или
+    $f: (-\infty, b)$ и $x \to +\infty$ или $x \to -\infty$.
+\end{addition}
+
+% $f(x) \underset{x \to a}{\to} A$
+% $lim_{x \to a}f(x) = A$
+
+% $\{a_n\}_{n=1}^{+\infty}$
+% lim_{n\to\infty}a_n
+% \underline{lim_{n\to\infty}}a_n
+% \overline{lim_{n\to\infty}}a_n
+% \underset{n\to\infty}{\to}
+
 \end{document}
