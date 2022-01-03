@@ -1,7 +1,7 @@
 % !TeX root = ./main.tex
 \documentclass[main]{subfiles}
 \begin{document}
-\chapter[Базис \texorpdfstring{$V$}{V}]{Базис векторного пространства}
+\chapter{Базис векторного пространства}
 \begin{definition}
     Набор $\vv_1, \vv_2, ..., \vv_n$ называется порождающим для $V$,
     если $\forall \vw \in V \exists \alpha_1,..., \alpha_n : \vw =
@@ -45,7 +45,7 @@
     Доказать, что он минимальный порождающий.
 
     Допустим, что $\vv_i$ выкинули, оставшийся набор остался порождающим
-    $\Rightarrow \vv_i$ -- ЛК остальных $\Rightarrow$ ЛЗ $\qquad \contradiction$.
+    $\implies \vv_i$ -- ЛК остальных $\implies$ ЛЗ $\qquad \contradiction$.
 
     $2 \to 4$. Дан $\vv_1, ..., \vv_n$ -- минимальный порождающий набор.
     Доказать $\vv_1, ..., \vv_n$ -- порождающий с единственностью коэффициентов.
@@ -66,10 +66,8 @@
     Доказать: $\vv_1, ..., \vv_n$ -- минимальный ЛНЗ (ЛНЗ уже доказана)
 
     Допустим противное: $\vv_1, \vv_2, ..., \vv_n; \vu$ --  ЛНЗ набор
-    \begin{gather*}
-        \vu= \alpha_1 \vv_1 + ... + \alpha_n \vv_n (\alpha_1, ... \alpha_n \exists!)\\
-        \implies \vv_1, ..., \vv_n, \vu \text{ -- ЛЗ } \qquad \contradiction
-    \end{gather*}
+    \[\vu= \alpha_1 \vv_1 + ... + \alpha_n \vv_n (\alpha_1, ... \alpha_n \exists!)
+        \implies \vv_1, ..., \vv_n, \vu \text{ -- ЛЗ } \qquad \contradiction\]
 
     $3 \to 1$. Дан $\vv_1, ..., \vv_n$ -- минимальный ЛНЗ.
     Доказать $\vv_1, ..., \vv_n$ -- ЛНЗ и порождающий набор.
@@ -111,19 +109,14 @@
     Имеет ненулевые решения, если $n>k$.
 \end{lemma}
 \begin{proof}
-    Индукция по $k$.
-
-    База $k=1$:
+    Индукция по $k$. База $k=1$:
     \begin{gather*}
         a_{11} x_1 + a_{12}x_2 + ... + a_{1n} x_n = 0\\
         \text{Пусть } a_{11} \neq 0 \implies x_1 = -\frac{a_{12}}{a_{11}}x_2
         -\frac{a_{13}}{a_{11}}x_3 - ... - -\frac{a_{1n}}{a_{11}}x_n\\
         \forall x_2,...,x_n: x_1 \text{ выражается через них}\\
         a_{11} = 0 \implies x_1 = 1; x_2=x_3=...=x_n=0
-    \end{gather*}
-
-    Переход
-    \begin{gather*}
+        \intertext{Переход}
         a_{11} x_1 + a_{12}x_2 + ... + a_{1n} x_n = 0\\
         \exists i: a_{1i} \neq 0 \text{, иначе выкинем предыдущее уравнение}\\
         x_i = -\frac{a_{11}}{a_{1i}}x_1 - ...\text{ (без $i$-ого)} - -\frac{a_{1n}}{a_{1i}}x_n
@@ -135,7 +128,7 @@
     \begin{equation*}
         \begin{cases}
             x+y+z=0 \\
-            z+y-z=0
+            x+y-z=0
         \end{cases}
         \implies z=0 \qquad x+y=0
     \end{equation*}
@@ -152,34 +145,33 @@
         ...                                                            \\
         \vw_n = a_{1n} \vv_1 + a_{2n} \vv_2  + a_{3n} \vv_3 + ... + a_{kn} \vv_k \\
     \end{gather*}
-    \begin{equation}\tag{\star}\label{eq:star}
+    \begin{equation}\label{eq:star}
         x_1 \vw_1 + x_2 \vw_2 + ... + x_n \vw_n = \zv, x_i \in \R
     \end{equation}
     т.к. $\vw_1, ..., \vw_n$ -- ЛНЗ $\implies$ все $x_i=0$
-    \begin{multline*}
-        x_1 (a_{11} \vv_1 + a_{21} \vv_2 + ... + a_{k1} \vv_k) +
-        x_2 (a_{12} \vv_1 + a_{22} \vv_2 + ... + a_{k2} \vv_k) \\
-        + ... +
-        x_n (a_{1n} \vv_1 + a_{2n} \vv_2 + ... + a_{kn} \vv_k) = \zv
-    \end{multline*}
-    \begin{multline*}
-        \vv_1 (a_{11} x_1 + a_{12} x_2 + ... + a_{1n} x_n ) +
-        \vv_2 (a_{21} x_1 + a_{22} x_2 + ... + a_{2n} x_n ) \\
-        + ... +
-        \vv_k (a_{k1} x_1 + a_{k2} x_2 + ... + a_{kn} x_n ) = \zv
-    \end{multline*}
+    \begin{gather*}
+        \begin{multlined}
+            x_1 (a_{11} \vv_1 + a_{21} \vv_2 + ... + a_{k1} \vv_k) +
+            x_2 (a_{12} \vv_1 + a_{22} \vv_2 + ... + a_{k2} \vv_k) \\
+            + ... +
+            x_n (a_{1n} \vv_1 + a_{2n} \vv_2 + ... + a_{kn} \vv_k) = \zv
+        \end{multlined}\\
+        \begin{multlined}
+            \vv_1 (a_{11} x_1 + a_{12} x_2 + ... + a_{1n} x_n ) +
+            \vv_2 (a_{21} x_1 + a_{22} x_2 + ... + a_{2n} x_n ) \\
+            + ... +
+            \vv_k (a_{k1} x_1 + a_{k2} x_2 + ... + a_{kn} x_n ) = \zv
+        \end{multlined}
+    \end{gather*}
     $\vv_1, \vv_2, ..., \vv_k$ -- ЛНЗ $\implies$ все коэффициенты равны 0.
-    \begin{equation*}
-        \begin{cases}
+    \[\begin{cases}
             a_{11} x_1 + a_{12} x_2 + ... + a_{1n}x_n = 0 \\
             a_{21} x_1 + a_{22} x_2 + ... + a_{2n}x_n = 0 \\
             ...                                           \\
             a_{k1} x_1 + a_{k2} x_2 + ... + a_{kn}x_n = 0
-        \end{cases}
-    \end{equation*}
+        \end{cases}\]
     Если $n>k \implies \exists$ ненулевые решения $\implies$ противоречие
-    с \eqref{eq:star} и ЛНЗ $\vw_i \implies n \le k$. Аналогично $k \le n \implies
-        n=k$.
+    с \eqref{eq:star} и ЛНЗ $\vw_i \implies n \le k$. Аналогично $k \le n \implies n=k$.
 \end{proof}
 
 Если $\exists$ хотя бы один конечный базис, то все базисы будут равномощными.

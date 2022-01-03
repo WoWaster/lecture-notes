@@ -17,14 +17,14 @@
         \item $\alpha(\va+\vb)=\alpha \va + \alpha \vb$ --- дистрибутивность \begin{proof}
                   \begin{gather*}
                       \alpha (\va+\vb) = \alpha \va + \alpha \vb \\
-                      \va = (x_1, y_1) \quad \vb = (x_2, y_2)
+                      \va = (x_1, y_1) \quad \vb = (x_2, y_2)\\
+                      \begin{multlined}
+                          \alpha(\va+\vb)=\alpha((x_1, y_1)+(x_2, y_2)) = \alpha (x_1+x_2, y_1+y_2)=\\
+                          (\alpha(x_1+x_2), \alpha(y_1+y_2))=(\alpha x_1 + \alpha x_2, \alpha y_1 + \alpha y_2)=\\
+                          (\alpha x_1, \alpha y_1)+(\alpha x_2, \alpha y_2) = \alpha (x_1, y_1) + \alpha (x_2, y_2)= \\
+                          \alpha \va + \alpha \vb
+                      \end{multlined}
                   \end{gather*}
-                  \begin{multline*}
-                      \alpha(\va+\vb)=\alpha((x_1, y_1)+(x_2, y_2)) = \alpha (x_1+x_2, y_1+y_2)=\\
-                      (\alpha(x_1+x_2), \alpha(y_1+y_2))=(\alpha x_1 + \alpha x_2, \alpha y_1 + \alpha y_2)=\\
-                      (\alpha x_1, \alpha y_1)+(\alpha x_2, \alpha y_2) = \alpha (x_1, y_1) + \alpha (x_2, y_2)= \\
-                      \alpha \va + \alpha \vb
-                  \end{multline*}
               \end{proof}
         \item $(\alpha+\beta)\va = \alpha \va + \beta \va$ --- дистрибутивность
         \item $(\alpha \cdot \beta)\va = \alpha(\beta \va)$ --- ассоциативность
@@ -40,17 +40,13 @@
           \end{proof}
     \item $-\va$ --- единственный \begin{proof}
               Пусть $\vb_1, \vb_2$ -- противоположные к $\va$
-
-              $\vb_1 + \va = \zv \quad \vb_2 + \va = \zv$
-
-              $\vb_1 = \vb_1 + \zv = \vb_1 + (\va + \vb_2) = (\vb_1+\va)+\vb_2 = \zv +\vb_2 = \vb_2$
+              \begin{gather*}
+                  \vb_1 + \va = \zv \quad \vb_2 + \va = \zv\\
+                  \vb_1 = \vb_1 + \zv = \vb_1 + (\va + \vb_2) = (\vb_1+\va)+\vb_2 = \zv +\vb_2 = \vb_2
+              \end{gather*}
           \end{proof}
-    \item $\zv\cdot \va = \zv$ \begin{proof}
-              !!!
-          \end{proof}
-    \item $-1\cdot \va = -\va$ \begin{proof}
-              !!!
-          \end{proof}
+    \item $\zv\cdot \va = \zv$
+    \item $-1\cdot \va = -\va$
 \end{enumerate}
 
 \subsection{Примеры векторных пространств}
@@ -62,20 +58,13 @@
 \end{enumerate}
 
 \section{Операции над векторами}
-\begin{equation*}
-    \va = (x_1, y_1) \quad \vb = (x_2, y_2)
-\end{equation*}
-\subsection{Сложение}
-\begin{equation*}
-    \va + \vb = (x_1+x_2, y_1+y_2)
-\end{equation*}
-
-\subsection{Умножение вектора на число}
-\begin{equation*}
+\begin{gather*}
+    \va = (x_1, y_1) \quad \vb = (x_2, y_2)\\
+    \va + \vb = (x_1+x_2, y_1+y_2)\\
     \alpha \va = (\alpha\cdot x_1, \alpha\cdot y_1)
-\end{equation*}
+\end{gather*}
 
-\section[ЛК, ЛЗ и ЛНЗ]{Линейные комбинация, зависимость и независимость}
+\section{Линейная комбинация, линейная зависимость и  линейная независимость}
 \begin{definition}
     $V$ - векторное пространство и векторы \\ $\vv_1,\vv_2,\vv_3,..., \vv_n \in V$.
     Система $\vv_1,...,\vv_n$ называется линейно независимой (ЛНЗ), если из
@@ -98,7 +87,7 @@
     $\exists i: \vv_i= \alpha_1 \vv_1 +\alpha_2 \vv_2 + ... + \alpha_{i-1} \vv_{i-1} + \alpha_{i+1} \vv_{i+1} + ... +\alpha_n \vv_n$
 \end{assertion}
 \begin{proof}
-    $\Rightarrow : \exists \alpha_1,...,\alpha_n (\exists i: \alpha_i \neq 0)$
+    $\implies : \exists \alpha_1,...,\alpha_n (\exists i: \alpha_i \neq 0)$
     \begin{gather*}
         \alpha_1 \vv_1 + \alpha_2 \vv_2 + ... + \alpha_n \vv_n = 0\\
         \alpha_i \vv_i = - \alpha_1 \vv_1 - \alpha_2 \vv_2 - ... - \alpha_{i-1} \vv_{i-1} - \alpha_{i+1} \vv_{i+1} - ... -\alpha_n \vv_n\\
@@ -119,7 +108,7 @@
     $\vv_1,..., \vv_n$ -- ЛНЗ $\Leftrightarrow$ если
     \begin{gather*}
         \alpha_1 \vv_1 + ... + \alpha_n \vv_n = \beta_1 \vv_1 + ... + \beta_n \vv_n\\
-        \Rightarrow \alpha_1 = \beta_1; \alpha_2 = \beta_2; ... ; \alpha_n = \beta_n
+        \implies \alpha_1 = \beta_1; \alpha_2 = \beta_2; ... ; \alpha_n = \beta_n
     \end{gather*}
 \end{assertion}
 \begin{proof}

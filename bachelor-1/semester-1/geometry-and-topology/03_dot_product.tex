@@ -6,7 +6,7 @@
 
 \begin{definition}
     Если $V$ - векторное пространство, в котором есть операция $\cdot : V \times V
-        \rightarrow \R$, со свойствами:
+        \implies \R$, со свойствами:
     \begin{enumerate}
         \item $(\vv, \vv) \ge0; (\vv, \vv) = 0 \Leftrightarrow \vv = \zv$
         \item $(\vu, \vv+ \vw) = (\vu,\vv)+ (\vu,\vw)$
@@ -32,7 +32,7 @@
 \end{definition}
 
 \begin{theorem}[Неравенство Коши-Буняковского-Шварца]
-    $|(\vu,\vv)| \le |\vu| \cdot |\vv|$
+    \[|(\vu,\vv)| \le |\vu| \cdot |\vv|\]
 \end{theorem}
 \begin{proof}
     \begin{gather*}
@@ -67,9 +67,9 @@
 \end{theorem}
 \begin{proof}
     \begin{gather*}
-        (\vu+\vv;\vu+\vv) \overset{?}{\le} (|\vu|+|\vv|)^2\\
-        (\vu,\vu)+2(\vu,\vv)+(\vv,\vv) \overset{?}{\le} (\vu,\vu)+(\vv,\vv)+2|\vu||\vv| \\
-        (\vu,\vv) \overset{?}{\le} |\vu||\vv| \text{ -- верно по неравенству КБШ}
+        (\vu+\vv;\vu+\vv) \le (|\vu|+|\vv|)^2\\
+        (\vu,\vu)+2(\vu,\vv)+(\vv,\vv) \le (\vu,\vu)+(\vv,\vv)+2|\vu||\vv| \\
+        (\vu,\vv) \le |\vu||\vv| \text{ -- верно по неравенству КБШ}
     \end{gather*}
 \end{proof}
 
@@ -93,7 +93,7 @@
     \begin{gather*}
         \alpha_1 \vu_1 + \alpha \vu_2 + ... + \alpha_n \vu_n = \zv \quad |\cdot \vu_i\\
         \alpha_1 (\vu_1, \vu_i) + \alpha_2 (\vu_2, \vu_i) +  ... + \alpha_n(\vu_n, \vu_i) = 0\\
-        \alpha_i (\vu_i, \vu_i) = 0 \Rightarrow \alpha_i = 0 \forall i
+        \alpha_i (\vu_i, \vu_i) = 0 \implies \alpha_i = 0 \forall i
     \end{gather*}
 \end{proof}
 
@@ -105,7 +105,7 @@
 \begin{proof}
     \begin{gather*}
         \alpha_1 \vu_1 + \alpha \vu_2 + ... + \alpha_n \vu_n = \vv \quad |\cdot \vu_i\\
-        \alpha_i(\vu_i, \vu_i) = (\vv, vu_i)
+        \alpha_i(\vu_i, \vu_i) = (\vv, \vu_i)
     \end{gather*}
 \end{proof}
 \begin{example}
