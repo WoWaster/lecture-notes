@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20, custom)"
+   sodipodi:docname="complex_roots.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:object-nodes="true"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-nodes="true"
+     inkscape:snap-others="true"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="false"
+     inkscape:snap-global="true"
+     inkscape:snap-center="true"
+     inkscape:snap-grids="false"
+     inkscape:zoom="4.5469136"
+     inkscape:cx="84.782786"
+     inkscape:cy="99.408091"
+     inkscape:window-width="952"
+     inkscape:window-height="976"
+     inkscape:window-x="0"
+     inkscape:window-y="36"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid9"
+       units="mm"
+       spacingx="5"
+       spacingy="5" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path934" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstart"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) translate(12.5,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path931" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#0000ff;stroke:#0000ff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="M 30,55 V 5"
+       id="path48" />
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="M 5,30 H 55"
+       id="path1273" />
+    <path
+       id="path1480"
+       style="fill:none;stroke:#000000;stroke-width:0.999999;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 113.38672 113.38672 L 56.833984 109.76758 A 56.692913 56.692913 0 0 0 56.693359 113.38672 A 56.692913 56.692913 0 0 0 92.470703 166.05078 L 113.38672 113.38672 z "
+       transform="scale(0.26458333)" />
+    <path
+       id="path9234"
+       style="fill:none;stroke:#000000;stroke-width:0.999999;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 113.38672 113.38672 L 92.470703 166.05078 A 56.692913 56.692913 0 0 0 113.38672 170.07812 A 56.692913 56.692913 0 0 0 157.00977 149.55273 L 113.38672 113.38672 z "
+       transform="scale(0.26458333)" />
+    <path
+       id="path9232"
+       style="fill:none;stroke:#000000;stroke-width:0.999999;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 113.38672 113.38672 L 157.00977 149.55273 A 56.692913 56.692913 0 0 0 170.07812 113.38672 A 56.692913 56.692913 0 0 0 161.2832 83.060547 L 113.38672 113.38672 z "
+       transform="scale(0.26458333)" />
+    <path
+       id="path9230"
+       style="fill:none;stroke:#000000;stroke-width:0.999999;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 99.351562 58.484375 A 56.692913 56.692913 0 0 0 56.833984 109.76758 L 113.38672 113.38672 L 99.351562 58.484375 z "
+       transform="scale(0.26458333)" />
+    <path
+       id="path9228"
+       style="fill:none;stroke:#000000;stroke-width:0.999999;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 99.351562 58.484375 L 113.38672 113.38672 L 161.2832 83.060547 A 56.692913 56.692913 0 0 0 113.38672 56.693359 A 56.692913 56.692913 0 0 0 99.351562 58.484375 z "
+       transform="scale(0.26458333)" />
+    <circle
+       style="fill:#000000;stroke:#000000;stroke-width:0.529167"
+       id="path1385-5"
+       cx="45"
+       cy="30"
+       r="0.5" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Liberation Serif';-inkscape-font-specification:'Liberation Serif, Normal';font-variant-ligatures:none;letter-spacing:0px;stroke-width:0.264583"
+       x="45.529167"
+       y="34.233337"
+       id="text5535"><tspan
+         sodipodi:role="line"
+         id="tspan5533"
+         style="stroke-width:0.264583"
+         x="45.529167"
+         y="34.233337">$\sqrt[n]{r}$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Liberation Serif';-inkscape-font-specification:'Liberation Serif, Normal';font-variant-ligatures:none;stroke-width:0.264583"
+       x="42.255749"
+       y="41.649967"
+       id="text11717"><tspan
+         sodipodi:role="line"
+         id="tspan11715"
+         style="stroke-width:0.264583"
+         x="42.255749"
+         y="41.649967">$z_{n-1}$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Liberation Serif';-inkscape-font-specification:'Liberation Serif, Normal';font-variant-ligatures:none;stroke-width:0.264583"
+       x="43.731182"
+       y="21.976437"
+       id="text17211"><tspan
+         sodipodi:role="line"
+         id="tspan17209"
+         style="stroke-width:0.264583"
+         x="43.731182"
+         y="21.976437">$z_0 = z_n$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Liberation Serif';-inkscape-font-specification:'Liberation Serif, Normal';font-variant-ligatures:none;stroke-width:0.264583"
+       x="35.505947"
+       y="28.593187"
+       id="text22099"><tspan
+         sodipodi:role="line"
+         id="tspan22097"
+         style="stroke-width:0.264583"
+         x="35.505947"
+         y="28.593187">$\phi/n$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Liberation Serif';-inkscape-font-specification:'Liberation Serif, Normal';font-variant-ligatures:none;stroke-width:0.264583"
+       x="19.247694"
+       y="27.56975"
+       id="text30815"><tspan
+         sodipodi:role="line"
+         id="tspan30813"
+         style="stroke-width:0.264583"
+         x="19.247694"
+         y="27.56975">$2\pi/n$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Liberation Serif';-inkscape-font-specification:'Liberation Serif, Normal';font-variant-ligatures:none;stroke-width:0.264583"
+       x="23.965094"
+       y="13.919746"
+       id="text37960"><tspan
+         sodipodi:role="line"
+         id="tspan37958"
+         style="stroke-width:0.264583"
+         x="23.965094"
+         y="13.919746">$z_1$</tspan></text>
+  </g>
+</svg>

@@ -37,19 +37,7 @@
 \end{proof}
 
 \begin{minipage}{0.45\textwidth}
-    \begin{tikzpicture}
-        \draw[axis] (-2.5, 0) -- (2.5, 0);
-        \draw[axis] (0, -2.5) -- (0, 2.5);
-        \draw (0,0) circle [radius=2];
-        \node[label={south east:$\sqrt[n]{r}$}] at (2, 0) {};
-        \draw (0,0) -- (30:2) node [right] {$z_0 = z_n$};
-        \draw (0,0) -- (102:2) node [above] {$z_1$};
-        \draw (0,0) -- (174:2);
-        \draw (0,0) -- (246:2);
-        \draw (0,0) -- (318:2) node [right] {$z_{n-1}$};
-        \node [label={$\phi/n$}] at (1.5,0){};
-        \node [label={$2\pi/n$}] at (0.5,0.1){};
-    \end{tikzpicture}
+    \import{figures/}{complex_roots.pdf_tex}
 \end{minipage}
 \begin{minipage}{0.45\textwidth}
     \[z_n = z_0\]
