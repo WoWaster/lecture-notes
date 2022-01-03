@@ -28,6 +28,7 @@
 \usepackage{graphicx}
 \graphicspath{{images/}}
 \usepackage{wrapfig} % Floating images.
+\usepackage{import}
 
 %%% Bibtex
 \usepackage[style=gost-inline,
@@ -69,7 +70,11 @@
 \newcommand{\vw}{\mathbf{w}}
 \newcommand{\vu}{\mathbf{u}}
 \newcommand{\proj}{\operatorname{Пр}}
+\newcommand{\dist}{\operatorname{dist}}
 \newcommand{\contradiction}{\smashtimes}
+\AtBeginDocument{\renewcommand{\Re}{\operatorname{Re}}}
+\AtBeginDocument{\renewcommand{\Im}{\operatorname{Im}}}
+\AtBeginDocument{\renewcommand{\phi}{\varphi}}
 
 %%% amsthm envs
 \theoremstyle{plain}
@@ -89,6 +94,7 @@
 \renewcommand{\qedsymbol}{\blacksquare}
 %%% Memoir settings
 \chapterstyle{veelo}
+\setlength{\headheight}{2\baselineskip}
 
 %%% HyperRef
 \usepackage{hyperref}
