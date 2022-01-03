@@ -1,0 +1,894 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Пределы}
+
+\section{Общее определение предела последовательности}
+\begin{definition}
+    Пусть $E \neq \emptyset, \exists$ по крайней мере 2 точки $x_1, x_2 \in E$.
+    Множество $E$ называется метрическим пространством, если $\forall x, y 
+    \in E$ определена функция $\rho(x, y)$, удовлетворяющая следующим 
+    свойствам:
+    \begin{enumerate}
+        \item $\rho(x, y) \geq 0; \rho(x, y) = 0 \Leftrightarrow x = y$
+        \item $\rho(x, y) = \rho(y, x)$
+        \item $\forall x, y, z \in E \rho(x, z) \leq \rho(x, y) + \rho(y, z)$
+    \end{enumerate}
+    Функцию $\rho$ называют метрикой, заданной на $E$, а $\rho(x, y)$ называют 
+    расстоянием в $E$ между $x, y$. Соотношение 3 называется неравенством
+    треугольника в $E$. Точка $a \in E$ называется точкой сгущения множества
+    $E$, если $\forall \epsilon > 0 \exists x_\epsilon \in E : x_\epsilon 
+    \neq a \wedge \rho(x_\epsilon, a) < \epsilon$. Точка $b \in E$ называется
+    изолированной точкой множества $E$, если $\exists \epsilon_0 > 0 : 
+    \forall x \in E, x \neq b$, выполнено $\rho(x, b) \geq \epsilon_0$.
+    Последовательностью $\left\{v_n\right\}_{n = 1}^{\infty}$ в $E$ 
+    называется отображение $F: \N \rightarrow E, F(n) = v_n$.
+\end{definition}
+
+\begin{definition}
+    Пусть $E$ - метрическое пространство с метрикой $\rho$, $a \in E$ - 
+    точка сгущения, $\left\{v_n\right\}_{n = 1}^{\infty}, v_n \in E$, - 
+    последовательность в $E$. Говорят, что $v_n$ стремится к $a$ при $n$, 
+    стремящимся к бесконечности, пишут $v_n 
+    \underset{n \rightarrow \infty}{\to} a$, или, что равносильно, что предел 
+    $v_n$ при $n$, стремящемся к бесконечности, равен $a$, пишут 
+    $\lim_{n\to\infty}v_n = a$, если 
+    \begin{equation}\label{limdef}
+        \forall \epsilon > 0 \exists N \in \N :
+        \forall n > N \rho(v_n, a) < \epsilon
+    \end{equation}
+\end{definition}
+
+\begin{theorem}
+    О единственности предела. Пусть $E$ - метрическое пространство с метрикой
+    $\rho$, $\left\{v_n\right\}_{n = 1}^{\infty}$ - последовательность 
+    элементов $E$ и предположим, что $v_n \underset{n\to\infty}{\to} a_1$ и 
+    $v_n \underset{n\to\infty}{\to} a_2$, $a_1, a_2 \in E$. Тогда $a_1 = a_2$
+\end{theorem}
+\begin{proof}
+    Предположим, что $a_1 \neq a_2$, тогда $\rho(a_1, a_2) \overset{def}{=} 
+    \delta > 0$. Положим $\epsilon = \frac{\delta}{4}$. Тогда
+    $\exists N_1 : \forall n > N_1 \rho(v_n, a_1) < \epsilon$ и
+    $\exists N_2 : \forall n > N_2 \rho(v_n, a_2) < \epsilon$.
+    Пусть $n_0 = N_1 + N_2 + 1$, тогда $n_0 > N_1, n_0 > N_2$, поэтому 
+    $\rho(v_{n_0}, a_1) < \epsilon \wedge \rho(v_{n_0}, a_2) < \epsilon$.
+    Тогда получаем
+    \begin{equation*}
+        \rho(a_1, a_2) \leq \rho(a_1, v_{n_0}) + \rho(v_{n_0}, a_2) < 
+        \epsilon + \epsilon = 2\epsilon = \delta / 2 < \delta
+    \end{equation*}
+    что противоречит выбору $\delta$.
+\end{proof}
+
+\begin{theorem}
+    Об ограниченности последовательности, имеющей предел.
+    Пусть $E$ - метрическое пространство с метрикой
+    $\rho$, $\left\{v_n\right\}_{n = 1}^{\infty}$ - последовательность 
+    элементов $E$ и $v_n \underset{n\to\infty}{\to} a$. Тогда 
+    $\exists M > 0 : \forall n \in N$ имеем соотношение
+    \begin{equation}\label{rvnaleqm}
+        \rho(v_n, a) \leq M
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Выберем $\epsilon = 1$, тогда $\exists N_0 : \forall n > N_0   
+    \rho(v_n, a) < 1$. Пусть $M_1 = max(\rho(v_1, a), \ldots, \rho(v_{N_0}, a))$.
+    Тогда для $M = max(M_1, 1)$ соотношение \ref{rvnaleqm} выполнено 
+    $\forall n \in \N$. 
+\end{proof}
+
+\section{Предел числовой последовательности}
+Множество вещественных чисел является метрическим пространством: для 
+$a, b \in \R$ положим $\rho(a, b) \overset{def}{=} |a - b|$, нужные свойства
+следуют из свойства модуля. Поэтому, если $\left\{x_n\right\}_{n = 1}^{\infty}$ -
+последовательность в $\R, a \in \R$, то общее определение предела переносится
+так:
+\begin{equation*}
+    x_n \underset{n\to\infty}{\to} a \text{, если} \forall \epsilon > 0
+    \exists N \in \N : \forall n > N \left|x_n - a\right| < \epsilon
+\end{equation*}
+Если $x_n \underset{n\to\infty}{\to} a, a \in \R$, то по теореме об 
+ограниченности последовательности, имеющей предел, $\exists M : |x_n - a| 
+\leq M \forall n$. Тогда
+\begin{equation}\label{xn}
+    |x_n| = |x_n - a + a| \leq |x_n - a| + |a| \leq M + |a| \forall n
+\end{equation}
+
+\section{Расширение множества вещественных чисел}
+Добавим к множеству $\R$ два элемента, $\{+\infty\}, \{-\infty\}$.
+Полагаем, что по определению, $a < +\infty \forall a \in \R, -\infty < a 
+\forall a \in \R, -\infty < +\infty$.
+
+\section{Определение бесконечных пределов}
+Пусть $\left\{y_n\right\}_{n = 1}^{\infty}$ - последовательность вещественных 
+чисел. Говорят, что $y_n$ стремится к $+\infty$, пишут 
+$y_n \underset{n\to\infty}{\to} +\infty$, или, что предел $y_n$ равен $+\infty$
+при $n$, стремящемся к бесконечности. Пишут $\lim_{n\to\infty}y_n = +\infty$, 
+если $\forall K > 0 \exists N : \forall n > N y_n > K$.
+
+Аналогично, для последовательности $\left\{t_n\right\}_{n = 1}^{\infty}$
+$t_n \underset{n\to\infty}{\to} -\infty$ или $\lim_{n\to\infty}t_n = -\infty$,
+если $\forall L < 0 \exists N_1 : \forall n > N_1 t_n < L$.
+
+Если предел некоторой последовательности вещественное число, то говорят, что
+её конечен, а если равен $\pm\infty$, то говорят, что предел бесконечен.
+
+\begin{theorem}
+    Критерий Коши существования конечного предела последовательности.
+    Пусть $\left\{x_n\right\}_{n = 1}^{\infty}$ - последовательность 
+    вещественных чисел. Для того, чтобы эта последовательность имела 
+    конечный предел, необходимо и достаточно, чтобы $\forall \epsilon > 0
+    \exists N \in \N : \forall n_1 > N, n_2 > N$ выполнялось соотношение
+    \begin{equation}\label{koshi}
+        |x_{n_2} - x_{n_1}| < \epsilon
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Достаточность. Построим сечение $\R$ с нижним классом $A$ и верхним классом
+    $A'$ следующим образом: $\alpha \in A \Leftrightarrow \exists N_\alpha$, 
+    зависящее от $\alpha$, т.ч. $\forall n > N_\alpha$ выполнено 
+    \begin{equation}\label{kek5}
+        x_n > \alpha
+    \end{equation}
+    $A' \overset{def}{=} R \setminus A$.
+
+    Проверим, что $A \neq \emptyset$: возьмем $\epsilon = 1$, тогда \ref{koshi}
+    $\Rightarrow \exists N_1 : \forall n_1, n_2 > N_1$ выполнено
+    $|x_{n_2} - x_{n_1}| < 1$, что эквивалентно соотношению 
+    \begin{equation}\label{kek6}
+        x_{n_1} - 1 < x_{n_2} < x_{n_1} + 1
+    \end{equation}
+    Положим $n_1 = N_1 + 1$, тогда \ref{kek6} выполнено при $n_2 \geq n_1$,
+    т.е. $x_{n_1} - 1 \in A$. Поскольку правое неравенство в \ref{kek6} 
+    тоже выполнено при $n_2 \geq N_1 + 1$, то определение \ref{kek5} 
+    $\Rightarrow x_{n_1} + 1 \notin A$, т.е. $x_{n_1} + 1 \in A'$, т.е. 
+    $A \neq \R$.
+
+    Определение $A, A' \Rightarrow A \cup A' = \R, A \cap A' = \emptyset$.
+
+    Возьмем $\forall \alpha \in A, \forall \beta \in A'$. Тогда \ref{kek5}
+    $\Rightarrow \exists N_\alpha : \forall n > N_\alpha$ выполнено \ref{kek5}.
+    Поскольку $\beta \notin A$, то $\exists n_0 > N_\alpha : x_{n_0} \leq \beta$,
+    поскольку в противоположном случае при отсутсвии такого $n_0$ из \ref{kek5}
+    $\Rightarrow \beta \in A$, что неверно. Таким образом 
+    \[\alpha < x_{n_0} \leq \beta \Rightarrow \alpha < \beta\]
+    Итак, $A, A'$ - сечения $\R$. По теореме Дедекинда $\exists \gamma:
+    \forall \alpha \in A \alpha \leq \gamma \wedge \forall \beta \in A' 
+    \gamma \leq \beta$. Возьмем $\forall \epsilon > 0$, тогда $\gamma - 
+    \frac{\epsilon}{2} \in A, \gamma + \frac{\epsilon}{2} \in A'$. 
+    Выберем $N_2$ так, чтобы при $\forall n_1, n_2 > N_2$ выполнялось
+    \begin{equation}\label{kek7}
+        |x_{n_1} - x_{n_2}| \leq \frac{\epsilon}{2}
+    \end{equation}
+    Поскольку $\gamma -  \frac{\epsilon}{2} \in A$, то $\exists N_3 : 
+    \forall n > N_3$ выполняется 
+    \begin{equation}\label{kek8}
+        x_n > \gamma - \frac{\epsilon}{2}
+    \end{equation}
+    Не уменьшая общности, считаем, что $N_3 \geq N_2$.
+
+    Поскольку $\gamma + \frac{\epsilon}{2} \in A'$, то 
+    \begin{equation}\label{kek9}
+        \exists n' > N_3 : x_{n'} \leq \gamma + \frac{\epsilon}{2}
+    \end{equation}
+    Положим теперь $N = n'$, тогда \ref{kek8}, \ref{kek9} $\Rightarrow$
+    \begin{equation}\label{kek10}
+        \left( 
+            \gamma - \frac{\epsilon}{2} < x_{n'} \leq \gamma + \frac{\epsilon}{2}
+        \right) \Rightarrow
+        |x_{n'} - \gamma| \leq \frac{\epsilon}{2}
+    \end{equation}
+    Теперь \ref{kek7} и \ref{kek10} при $n > N = n'$ влекут:
+    \begin{equation}
+        |x_{n} - \gamma| = |(x_{n} - x_{n'}) + (x_{n'} - \gamma)| \leq 
+        |x_{n} - x_{n'}| + |x_{n'} - \gamma| < \frac{\epsilon}{2} + 
+        \frac{\epsilon}{2} = \epsilon
+    \end{equation}
+    Т.е. из определения предела $x_n \underset{n\to\infty}{\to} \gamma$.
+    Достаточность доказана.
+
+    Доказательство необходимости. Пусть $x_n \underset{n\to\infty}{\to} a,
+    a \in \R$, тогда $\forall \epsilon > 0 \exists N : \forall n > N$
+    выполнено 
+    \begin{equation}\label{kek11}
+        |x_n - a| < \frac{\epsilon}{2}
+    \end{equation}
+    Возьмем $\forall n_1, n_2 > N$, тогда \ref{kek11} $\Rightarrow$
+    \begin{equation*}
+        |x_{n_2} - x_{n_1}| = |(x_{n_2} - a) - (x_{n_2} - a)| \leq 
+        |x_{n_2} - a| + |x_{n_2} - a| < \frac{\epsilon}{2} + \frac{\epsilon}{2} 
+        = \epsilon
+    \end{equation*}
+    Необходимость доказана.
+\end{proof}
+
+\section{Предельные переходы в арифметических действиях}
+Далее для сокращения вместо $x_n \underset{n\to\infty}{\to} a$ пишем
+$x_n \to a$. Далее $a, b, ... \in \R$.
+
+\begin{theorem}
+    \begin{enumerate}
+        \item Пусть $x_n = a, n \geq 1 \Rightarrow x_n \to a$
+        \item Пусть $x_n \to a, c \in \R \Rightarrow cx_n \to ca$
+        \item Пусть $x_n \to a, y_n \to b \Rightarrow x_n + y_n \to a + b$
+        \item Пусть $x_n \to a, y_n \to b \Rightarrow x_ny_n \to ab$
+        \item Пусть $x_n \to a, a \neq 0, x_n \neq 0 \forall n \Rightarrow
+\frac{1}{x_n} \to \frac{1}{a}$
+        \item Пусть $x_n \to a, a \neq 0, x_n \neq 0 \forall n, y_n \to b
+\Rightarrow \frac{y_n}{x_n} \to \frac{b}{a}$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    1) следует из определения. 
+    
+    Для 2): возьмем $\forall \epsilon > 0, \exists N
+    : \forall n > N, |x_n - a| < \epsilon$, что влечет  $|c||x_n - a| < 
+    (|c| + 1)\epsilon, |cx_n - ca| < (|c| + 1)\epsilon$.
+    Поскольку $\epsilon > 0$ произвольно, то и $(|c| + 1)\epsilon$ произвольно.
+
+    Для 3): возьмем $\forall \epsilon > 0, \exists N_1 : \forall n > N_1, 
+    |x_n - a| < \frac{\epsilon}{2}, \exists N_2 : \forall n > N_2 |y_n - b| < 
+    \frac{\epsilon}{2}$, пусть $N = max(N_1, N_2), \forall n > N$ имеем:
+    \begin{equation*}
+        |(x_n + y_n) - (a + b)| \leq |x_n - a| + |y_n - b| < 
+        \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+    \end{equation*}
+
+    Для 4): $x_ny_n - ab = (xn - a)yn + a(y_n - b)$. Поскольку $y_n \to b$, то
+    $\exists M > 0: |y_n| \leq M \forall n$. Возьмем $\forall \epsilon > 0,
+    \exists N_1 : \forall n > N_1 |x_n - a| < \epsilon \wedge \exists N_2 :
+    \forall n > N_2 |y_n - b| < \epsilon; N = \overset{def}{=} max(N_1, N_2)
+    \Rightarrow \forall n > N \Rightarrow$
+    \begin{equation*}
+        |x_ny_n - ab| \leq |x_n - a|y_n + |a||y_n - b| < \epsilon * M + 
+        |a| * \epsilon = (M + |a|)\epsilon
+    \end{equation*}
+    Выражение $(M + |a|)\epsilon$ может быть выбрано произвольным $> 0$ 
+    вместе с $\epsilon$.
+
+    Для 5): $\exists N_1 : \forall n > N_1 \; |x_n - a| < \frac{|a|}{2}$, 
+    тогда $\forall n > N_1$ имеем:
+    \begin{equation*}
+        |x_n| = |(x_n - a) + a| \geq |a| - |x_n - a| > |a| - \frac{|a|}{2} = 
+        \frac{|a|}{2}
+    \end{equation*}
+    т.е. при $n > N_1$ $\frac{1}{x_n} < \frac{2}{|a|}$, $\frac{1}{x_n} - 
+    \frac{1}{a} = \frac{a - x_n}{x_na}$. Возьмем $\forall \epsilon > 0, 
+    \exists N_2 : \forall n > N_2 \; |x_n - a| < \epsilon$, пусть 
+    $N = max(N_1, N_2)$. При $n > N$ имеем:
+    \begin{equation*}
+        |\frac{1}{x_n} - \frac{1}{a}| = \frac{|a - x_n|}{|x_n||a|} < 
+        \frac{2}{|a|} \cdot \frac{1}{|a|}\epsilon = \frac{2}{a^2}\epsilon
+    \end{equation*}
+    $\frac{2}{a^2}\epsilon$ может быть любым положительным числом.
+
+    Для 6) $\frac{y_n}{x_n} = \frac{1}{x_n} \cdot y_n$, тогда 4) и 5)
+    $\Rightarrow$ 6).
+\end{proof}
+
+\section{Переход к пределу в неравенствах}
+\begin{theorem} О двух миллиционерах??
+    \begin{enumerate}
+        \item Пусть $x_n \leq y_n \forall n, x_n \to a, y_n \to b; a, b \in \R
+    \Rightarrow a \leq b$
+        \item Пусть $x_n \leq y_n \leq z_n \forall n, x_n \to a, z_n \to a,
+    a \in \R \Rightarrow y_n \to a$
+    \end{enumerate} 
+\end{theorem}
+\begin{proof}
+    1. Пусть $a > b, a - b = \delta > 0 \Rightarrow \exists N_1 : \forall n > N_1
+    \; |x_n - a| \leq \frac{\delta}{4}, \exists N_2 : \forall n > N_2 \; 
+    |y_n - b| < \frac{\delta}{4}$, возьмем $n_0 = N_1 + N_2 + 1 \Rightarrow$
+    \begin{equation*}
+        x_{n_0} > a - \frac{\delta}{4} = b + \delta - \frac{\delta}{4} = 
+        b + \frac{3}{4}\delta = (b + \frac{\delta}{4}) + \frac{\delta}{2} >
+        y_{n_0} + \frac{\delta}{2} > x_{n_0}
+    \end{equation*}
+    что противоречит условию.
+
+    2. Возьмем $\forall \epsilon > 0, \exists N_1 : \forall n < N_1 \; 
+    |x_n - a| < \epsilon, \exists N_2 : \forall n > N_2 \; |z_n - a| < \epsilon$,
+    тогда для $N = max(N_1, N_2)$ имеем при $n > N$
+    \begin{equation*}
+        a - \epsilon < x_n \leq y_n \leq z_n < a + e \Rightarrow 
+        |y_n - a| < \epsilon 
+    \end{equation*}
+\end{proof}
+
+\begin{term}
+    Если $x_n \underset{n\to\infty}{\to} 0$, то говорят, что 
+    $\{x_n\}_{n=1}^{+\infty}$ бесконечно малая; если $|y_n| \underset{n\to\infty}{\to}
+    +\infty$, то говорят, что последовательность $\{y_n\}_{n=1}^{+\infty}$ 
+    бесконечно большая.
+\end{term}
+
+\begin{assertion}
+    Пусть последовательность $\{y_n\}_{n=1}^{+\infty}$ бесконечно большая, 
+    $y_n \neq 0 \forall n, x_n = \frac{1}{y_n}$. Тогда 
+    $\{x_n\}_{n=1}^{+\infty}$ бесконечно малая последовательность.
+    Пусть $\{x_n\}_{n=1}^{+\infty}$ бесконечно малая последовательность, 
+    $x_n \neq 0 \forall n, y_n = \frac{1}{x_n}$. Тогда $\{y_n\}_{n=1}^{+\infty}$
+    бесконечно большая последовательность.
+\end{assertion}
+\begin{proof}
+    Докажем первое, второе доказывается аналогично. Возьмем $\forall \epsilon > 0$,
+    пусть $L = 1 / \epsilon$. Тогда $\exists N : \forall n > N \; |y_n| > L$, но
+    $|y_n| > L \Leftrightarrow \frac{1}{|y_n|} < \frac{1}{L} = \epsilon$, т.е.
+    $|x_n - 0| = |x_n| = \frac{1}{|y_n|} < \epsilon$
+\end{proof}
+
+\section{Предельные переходы и бесконечные пределы}
+\subsection{Дополнение к предельным переходам в арифметических действиях}
+\begin{theorem}
+    Справедливы следующие утвреждения:
+    \begin{enumerate}
+        \item $c > 0, x_n \to +\infty, y_n \to -\infty \Rightarrow
+    cx_n \to +\infty, cy_n \to -\infty; d < 0, dx_n \to -\infty 
+    dy_n \to +\infty$
+        \item $x_n \to +\infty, y_n \to a \in \R, z_n \to +\infty \Rightarrow
+    x_n + y_n \to +\infty, x_n + z_n \to +\infty$ 
+    $u_n \to -\infty, v_n \to b \in \R, w_n \to -\infty \Rightarrow
+    u_n + v_n \to -\infty, u_n + w_n \to -\infty$ 
+        \item $x_n \to +\infty, y_n \to a > 0, z_n \to b < 0 \Rightarrow 
+    x_ny_n \to +\infty, x_nz_n \to -\infty$
+    $u_n \to -\infty, v_n \to c > 0, w_n \to d < 0 \Rightarrow 
+    u_nv_n \to -\infty, u_nw_n \to +\infty$
+    $x_n \to +\infty, t_n \to +\infty, s_n \to -\infty \Rightarrow
+    x_nt_n \to +\infty, x_ns_n \to -\infty$
+    $u_n \to -\infty, v_n \to -\infty \Rightarrow u_nv_n \to +\infty$;
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Дополнение к предельным переходам в неравенствах}
+\begin{theorem}
+    Справедливы следующие утверждения:
+    \begin{enumerate}
+        \item Пусть $x_n \leq y_n \forall n, x_n \to a \in \overline{\R},
+        y_n \to b \in \overline{\R} \Rightarrow a \leq b$
+        \item Пусть $x_n \leq y_n \leq z_n \forall n, x_n \to a \in \overline{\R},
+        z_n \to a \in \overline{\R} \Rightarrow y_n \to a$ 
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Доказательство приведенных выше теорем проще доказательств соответсвующих
+    теорем для конечных пределов и в дальнейшем курсе не используются, 
+    поэтому будут приняты без доказательства.
+\end{proof}
+
+\begin{definition}
+    Последовательность $\{x_n\}_{n=1}^{+\infty}$ называется возрастающей, если
+    $x_n \leq x_{n+1} \forall n$; последовательность $\{y_n\}_{n=1}^{+\infty}$
+    называется строго возрастающей, если $y_n < y_{n+1} \forall n$.
+    Последовательность $\{u_n\}_{n=1}^{+\infty}$ называется убывающей, если
+    $u_n \geq u_{n+1} \forall n$; последовательность $\{v_n\}_{n=1}^{+\infty}$
+    называется строго убывающей, если $v_n > v_{n+1} \forall n$.
+    Последовательность $\{t_n\}_{n=1}^{+\infty}$ называется монотонной, если
+    она возрастающая или убывающая; последовательность $\{w_n\}_{n=1}^{+\infty}$
+    называется строго монотонной, если она строго возрастающая или строго 
+    убывающая.
+\end{definition}
+
+\begin{theorem}
+    \begin{enumerate}
+        \item Пусть $\{x_n\}_{n=1}^{+\infty}$ - монотонная последовательность.
+        Тогда $\exists \lim_{n\to\infty}x_n \in \overline{\R}$
+        \item Пусть $\{y_n\}_{n=1}^{+\infty}$ - возрастающая.
+        Тогда $\lim_{n\to\infty}y_n \in \R \Leftrightarrow \exists M \in \R :
+        y_n \leq M \forall n$
+        \item Пусть $\{u_n\}_{n=1}^{+\infty}$ - убывающая.
+        Тогда $\lim_{n\to\infty}u_n \in \R \Leftrightarrow \exists K \in \R :
+        u_n \geq K \forall n$
+        \item Пусть $\{v_n\}_{n=1}^{+\infty}$ - строго возрастающая и 
+        $\lim_{n\to\infty}v_n \in \R$. Тогда $v_n < \lim_{n\to\infty}v_n
+        \forall n$
+        \item Пусть $\{w_n\}_{n=1}^{+\infty}$ - строго убывающая и 
+        $\lim_{n\to\infty}w_n \in \R$. Тогда $w_n > \lim_{n\to\infty}w_n
+        \forall n$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Доказательство соотношений 1), 2), 4). Предположим, что последовательность
+    $\{y_n\}_{n=1}^{+\infty}$ неограничена сверху. Возьмем $\forall L > 0$,
+    тогда $\exists N : y_N > L \Rightarrow \forall n > N \; 
+    y_n \geq y_{n-1} \geq \ldots \geq y_N > L \Rightarrow y_n 
+    \underset{n\to\infty}{\to} +\infty$.
+    Предположим, что $\{y_n\}_{n=1}^{+\infty}$ ограничена сверху, т.е. 
+    $\exists M : y_n \leq M \forall n$. Пусть $E = \{y \in \R : \exists n :
+    y = y_n\}$. Тогда множество $E$ непусто и ограничено сверху, $M$ - его
+    верхняя граница. Пусть $a = supE$. Тогда $y_n \leq a \forall n$. Возьмем
+    $\epsilon > 0$, тогда $a - \epsilon$ - не верхняя граница $E$, тогда
+    $\exists N : y_N > a - \epsilon$. Тогда при $\forall n > N$ имеем
+    $y_n \geq y_{n-1} \geq \ldots \geq y_N > a - \epsilon, y_n \leq a$, т.е. 
+    $|y_n - a| < \epsilon$, т.е. $y_n \underset{n\to\infty}{\to} a$. 
+    Утверждение 1) для возрастающей последовательности и достаточность в
+    утверждении 2) доказаны. Необходимость в утверждении 2) следует из 
+    ограниченности последовательности, имеющей конечный предел.
+    Для доказательства 4) пишем $(y_n < y_{n+1} \leq \lim_{n\to\infty}y_n)$,
+    $(v_n < v_{n+1} \leq \lim_{n\to\infty}v_n)$.
+    Доказательство утверждений 1), 3), 5) следуют из того, что если $u_n$ - 
+    убывающая, то $y_n \overset{def}{=} -u_n$ - возрастающая, если $w_n$ - 
+    строго убывающая, то $v_n \overset{def}{=} -w_n$ - строго возрастающая, и 
+    далее применим утверждения 1), 2), 4).
+\end{proof}
+
+\begin{theorem}
+    Теорема о вложенных промежутках. Пусть $[a_{n+1}, b_{n+1}] \subset 
+    [a_n, b_n], n = 1, 2, \ldots, n; \; b_n - a_n \underset{n\to\infty}{\to} 0$.
+    Тогда $\exists! \; c \in \R : c \in [a_n, b_n] \forall n$. 
+\end{theorem}
+\begin{remark}
+    Условие замкнутости промежутков существенно: имеем 
+    $\left(0, \frac{1}{n + 1}\right] \subset \left(0, \frac{1}{n}\right], 
+    \frac{1}{n} - 0  = \frac{1}{n} \underset{n\to\infty}{\to} 0$, но 
+    $\bigcap_{n=1}^\infty\left(0, \frac{1}{n}\right] \neq \emptyset$.
+\end{remark}
+\begin{proof}
+    Имеем неравенство $a_n < b_n \leq b_{n-1} \leq \ldots \leq b_1, 
+    b_n > a_n \geq a_{n-1} \geq \ldots \geq a_1 \forall n$, т.е. 
+    $a_n \leq b_1 \forall n, b_n \geq a_1 \forall n$. Тогда в силу 
+    возрастания $\{a_n\}_{n=1}^{+\infty}$ и убывания $\{b_n\}_{n=1}^{+\infty}$
+    по предыдущей теореме $\exists c_1 = lim_{n\to\infty}a_n; \exists c_2 = 
+    lim_{n\to\infty}b_n; c_1, c_2 \in \R$. По свойству перехода к пределу 
+    в неравенстве имеем: 
+    \begin{equation*}
+        a_n < b_n \Rightarrow lim_{n\to\infty}a_n \leq lim_{n\to\infty}b_n
+        \Rightarrow c_1 \leq c_2
+    \end{equation*}
+    По доказательству предыдущей теоремы имеем $a_n \leq c_1 \forall n; 
+    b_n \geq c_2 \forall n$, поэтому $0 \leq c_2 - c_1 \leq b_n - a_n$,
+    тогда
+    \begin{equation*}
+        0 \leq c_2 - c_1 \leq lim_{n\to\infty}(b_n - a_n) = 0 \Rightarrow
+        c_1 = c_2 \overset{def}{=} c
+    \end{equation*}
+    Тогда имеем $a_n \leq c \leq b_n$, т.е. $c \in [a_n, b_n]$.
+    Если бы $\exists c_0 \in [a_n, b_n] \forall n$, то $|c_0 - c| \leq b_n - a_n,
+    |c_0 - c| \leq lim_{n\to\infty}(b_n - a_n) = 0$, т.е. $c$ - единственно.
+\end{proof}
+
+\section{Число $e$}
+\begin{theorem}
+    Пусть $x_n = \left(1 + \frac{1}{n}\right)^n, y_n = 
+    \left(1 + \frac{1}{n}\right)^{n+1}, n = 1,2, \ldots$. Тогда 
+    $\{x_n\}_{n=1}^{+\infty}$ строго возрастает, $y_n$ строго убывает,
+    $\exists lim_{n\to\infty}x_n = lim_{n\to\infty}y_n \overset{def}{=} e 
+    \wedge x_n < e < y_n \forall n$, в частности $2 < e < 3$.
+\end{theorem}
+\begin{remark}
+    Вычислено, что $e = 2,718\dots$
+\end{remark}
+\begin{proof}
+    Докажем строгое возрастание $\{x_n\}_{n=1}^{+\infty}$. Считаем $n\geq 3$,
+    при $n = 1, n = 2$ - явные вычисления. Применяя бином Ньютона, имеем:
+    \begin{multline}\label{1lol}
+        x_n = \left(1 + \frac{1}{n}\right)^n = 1^n + 
+        \sum_{k=1}^{n-1}C_n^k\cdot 1^{n-k}\cdot\frac{1}{n^k} + \frac{1}{n^n} =\\
+        1 + C_n^1\cdot\frac{1}{n} + \sum_{k=2}^{n-1}C_n^k\cdot\frac{1}{n^k} + 
+        \frac{1}{n^n} = 2 + \sum_{k=2}^{n-1}\frac{n!}{k!(n-k)!}\cdot\frac{1}{n^k} +
+        \frac{1}{n^n}
+    \end{multline}
+    Преобразуем отдельно:
+    \begin{multline}\label{2lol}
+        \frac{n!}{k!(n-k)!}\frac{1}{n^k} = 
+        \frac{n(n-1)\ldots(n-k+1)(n-k)!}{k!(n-k)!n^k} = \\
+        \frac{n(n-1)(n-k+1)}{k!n^k} = 
+        \frac{1}{k!}\left(1 - \frac{1}{n}\right)\left(1 - \frac{2}{n}\right)
+        \cdot\ldots\cdot\left(1 - \frac{k-1}{n}\right)
+    \end{multline}
+    \begin{multline}\label{3lol}
+        \frac{1}{n^n} = \frac{n!}{n^n}\cdot\frac{1}{n!} = 
+        \frac{(n-1)!}{n^{n-1}}\cdot\frac{1}{n!} = 
+        \frac{1}{n!}\left(1-\frac{1}{n}\right)\cdot\left(1-\frac{2}{n}\right)
+        \cdot\ldots\cdot\left(1-\frac{n-1}{n}\right)
+    \end{multline}
+    Тогда соотношения \ref{1lol}, \ref{2lol}, \ref{3lol} влекут 
+    \begin{equation}\label{4lol}
+        x_n = 2 + \sum_{k=2}^n\frac{1}{k!}\left(1 - \frac{1}{n}\right)\ldots
+        \left(1 - \frac{k-1}{n}\right)
+    \end{equation}
+    Тогда \ref{4lol} $\Rightarrow$
+    \begin{equation}\label{5lol}
+        x_{n+1} = 2 + \sum_{k=2}^{n+1}\frac{1}{k!}\left(1 - \frac{1}{n+1}\right)\ldots
+        \left(1 - \frac{k-1}{n+1}\right)
+    \end{equation}
+    Поскольку $1 - \frac{e}{n} < 1 - \frac{e}{n + 1}, 1 \leq e \leq n - 1$, и в
+    \ref{5lol} есть ещё одно слагаемое по сравнению с $x_n$, то 
+    $x_n < x_{n+1}$
+
+    Докажем строгое убывание $y_n$. Пусть $n \geq 0$.
+    \begin{multline}\label{6lol}
+        \frac{y_{n-1}}{y_n} = 
+        \frac{\left(1 + \frac{1}{n-1}\right)^n}{\left(1 + \frac{1}{n}\right)^{n+1}} =
+        \frac{\left(\frac{n}{n-1}\right)^n}{\left(\frac{n+1}{n}\right)^{n+1}} = 
+        \frac{n}{n+1}\cdot\frac{\left(\frac{n}{n-1}\right)^n}{\left(\frac{n+1}{n}\right)^{n}} = \\
+        \frac{n}{n+1}\left(\frac{n}{n-1}\right)^n\left(\frac{n+1}{n}\right)^n = 
+        \frac{n}{n+1}\frac{n^{2n}}{(n^2 - 1)^n} = \\
+        \frac{n}{n+1}\left(\frac{n^{2}}{n^2 - 1}\right)^n = 
+        \frac{n}{n+1}\left(1 + \frac{1}{n^2 - 1}\right)^n
+    \end{multline}
+    Применяя бином Ньютона к выражению $(1 + x)^n, x > 0, n \geq 2$, имеем
+    $(1 + x)^n = 1^n + C_n^11^{n-1}x + \ldots = 1 + nx + \ldots$,
+    где многоточие означает положительные слагаемые, поэтому получаем
+    неравенство Бернулли:
+    \begin{equation}\label{6dotlol}
+        (1 + x)^n > 1 + nx, n\geq 2, x > 0
+    \end{equation}
+    Применим \ref{6lol} к \ref{6dotlol} с $x = \frac{1}{n^2 - 1}$. Тогда
+    \ref{6lol}, \ref{6dotlol} $\Rightarrow$
+    \begin{equation*}
+        \frac{y_{n-1}}{y_n} > \frac{n}{n + 1}\left(1 + \frac{n}{n^2 - 1}\right) =
+        \frac{n(n^2+n-1)}{(n+1)(n^2-1)} = \frac{n^3 + n^2 - n}{n^3 + n^2 - n - 1} 
+        > 1
+    \end{equation*}
+    Строгое убывание $\{y_n\}_{n=1}^{+\infty}$ доказано.
+    
+    Далее,
+    \begin{equation}\label{7lol}
+        y_n = \left(1 + \frac{1}{n}\right)^{n+1} = \left(1 + \frac{1}{n}\right)
+        \left(1 + \frac{1}{n}\right)^n = \left(1 + \frac{1}{n}\right)x_n
+    \end{equation}
+    \ref{7lol} $\Rightarrow y_n > x_n, y_n - x_n = \frac{1}{n}x_n$. 
+    Теперь доказано, что
+    $x_n < x_{n+1} < y_{n+1} < y_n$, т.е. $[x_{n+1}, y_{n+1}] \subset [x_n, y_n],
+    0 < x_n < y_n < y_{n-1} < y_5 < 3, n \geq 5 \Rightarrow y_n - x_n < \frac{3}{n},
+    n \geq 5 \Rightarrow y_n - x_n \underset{n\to\infty}{\to} 0$
+
+    К мромежуткам $[x_n, y_n]$ применим теорему о вложенных промежутках, 
+    тогда $\exists! e \in [x_n, y_n] \forall n$, из доказательства теоремы 
+    о вложенных промежутках следует, что $e = \lim_{n\to\infty}x_n = 
+    \lim_{n\to\infty}y_n$. По утверждениям 4 и 5 теоремы о пределах 
+    монотонных последовательностей в силу строгого возрастания 
+    $\{x_n\}_{n=1}^{+\infty}$ и строгого убывания $\{y_n\}_{n=1}^{+\infty}$
+    имеем $x_n < e < y_n \forall n$
+\end{proof}
+
+\section{Подпоследовательности}
+\begin{definition}
+    Пусть $F: \N \to \R$ - последовательность, $\phi: \N \to \N$ - 
+    инъективное отображение и $\phi(n) < \phi(m), n < m$.
+    Подпоследовательностью последовательности $F$ называется 
+    $G \overset{def}{=} F(\phi): \N \to \R$. $G$ - тоже последовательность.
+
+    В приведенном определении фигурируют последовательности вещественных 
+    чисел, но определение сохраняется, если рассматривать любую последовательность
+    $F: \N \to E$ из элементов множества $E$, подпоследовательность будет 
+    определяяться как суперпозиция $F(\phi): \N \to E$.
+    
+    Исторически сложившееся обозначение подпоследовательности следующее.
+    Обозначают $\phi(k) = n_k$, тогдa, если $F(n) = x_n$, то $F(\phi(k)) = x_{n_k}$,
+    т.е. рассматриваются элементы с номерами $x_{n_1}, x_{n_2}, \ldots, x_{n_k},
+    \ldots$, стандартное обозначение $\{x_{n_k}\}_{k=1}^{+\infty}$ и
+    говорят, что подпоследовательность выбрана из последовательности, т.е. 
+    выбраны номера $n_1, n_2, \ldots; n_1 < n_2 < \ldots < n_k < \ldots$,
+    и рассматриваются элементы $x_{n_k}$ только с этими номерами.
+\end{definition}
+
+\begin{assertion}
+    Предположим, что $x_n \underset{n\to\infty}{\to} a, a \in \overline{\R},
+    \{x_{n_k}\}_{k=1}^{+\infty}$ - подпоследотвальность. Тогда
+    $x_{n_k} \underset{k\to\infty}{\to} a$.
+\end{assertion}
+\begin{proof}
+    Для $a \in \R$, для $a = \pm\infty$ аналогично. Поскольку $n_1 < n_2 <
+    \ldots < n_k < \ldots$, то $n_k \geq k$; возьмем $\epsilon > 0$ и пусть 
+    $N : \forall n > N \; |x_n - a| < \epsilon$. Тогда $\forall k > N$ имеем
+    $n_k \geq k > N$, поэтому $\forall k > N |x_{n_k} - a| < \epsilon$.
+\end{proof}
+
+\begin{theorem}
+    Принцип выбора Больцано — Вейерштрасса. Пусть $\{x_{n}\}_{n=1}^{+\infty}$
+    - последовательность $M > 0, |x_n| \leq M \forall n$. Тогда 
+    $\exists a, a \in [-M, M]$ и подпоследовательность 
+    $\{x_{n_k}\}_{k=1}^{+\infty} : x_{n_k} \underset{k\to\infty}{\to} a$.
+\end{theorem}
+\begin{proof}
+    Положим $a_1 = -M, b_1 = M, c_1 = 0 = \frac{a_1 + b_1}{2}$. Тогда либо для 
+    $[a_1, c_1]$, либо для $[c_1, b_1]$, либо для обоих, выполнено следующее 
+    утверждение 1: существует бесконечно много номеров $n$ таких, что 
+    $x_n$ принадлежит $x_n$ лежит на этом промежутке. Пусть $[a_2, b_2]$ - 
+    именно этот промежуток, $n_1 : x_{n_1} \in [a_2, b_2]$. Здесь либо
+    $a_2 = a_1$, $b_2 = c_1$, либо $a_2 = c_1$, $b_2 = b_1$. Пусть 
+    $c_2 = \frac{a_2 + b_2}{2}$. Тогда либо для $[a_2, c_2]$, либо для 
+    $[c_2, b_2]$, либо для обоих выполнено утверждение 2: существует
+    бесконечно много номеров $n > n_1 : x_n$ лежит на этом промежутке. 
+    Пусть $[a_3, b_3]$ именно этот промежуток, т.е. либо $a_3 = a_2$, 
+    $b_3 = c_2$, либо $a_3 = c_2$, $b_3 = b_2$, и пусть $x_{n_2} \in 
+    [a_3, b_3], n_2 > n_1$. Далее по индкуции пусть уже выбраны 
+    $[a_k, b_k], n_{k-1} > n_{k-2}$. Пусть $c_k = \frac{a_k + b_k}{2}$.
+    Для $[a_k, c_k]$ или для $[c_k, b_k]$, или для обоих выполнено утверждение
+    $k$: существует бесконечно много номеров $n > n_{k-1} : x_n$ лежит 
+    на этом промежутке. Пусть $[a_{k+1}, b_{k+1}]$ этот промежуток, т.е. 
+    либо $a_{k+1} = a_k, b_{k+1} = c_k$, либо $a_{k+1} = c_k, b_{k+1} = b_k$,
+    и пусть $x_{n_k} \in [a_{k+1}, b_{k+1}], n_k > n_{k - 1}$. 
+
+    Построена последовательность $\{x_{n_k}\}_{k=1}^{+\infty}$ и 
+    последовательность вложенных промежутков $\ldots [a_{k+1}, b_{k+1}] 
+    \subset [a_k, b_k] \subset \ldots \subset [a_1, b_1]$, при этом 
+    \begin{equation*}
+        b_k - a_k = \frac{2M}{2^{k-1}} = 2^{-k+1}M \underset{k\to\infty}{\to} 0
+    \end{equation*}
+
+    По теореме о вложенных промежутках $\exists a \in [a_k, b_k] \forall k,
+    a_k \underset{k\to\infty}{\to} a, b_k \underset{k\to\infty}{\to} a$, 
+    при этом $x_{n_k} \in [a_{k+1}, b_{k+1}]$, т.е. $a_{k+1} \leq x_{n_k} \leq 
+    b_{k+1}$.
+
+    По утверждению 2 теоремы о переходе к пределу в неравенстве $x_n 
+    \underset{k\to\infty}{\to} a$.
+\end{proof}
+
+\section{Верхний и нижний пределы последовательности}
+\begin{definition}
+    Пусть $\{a_n\}_{n=1}^{+\infty}$, $a_n \in \R$ - произвольная 
+    последовательность. Если она не ограничена сверху, то полагаем
+    $\overline{lim_{n\to\infty}}a_n = +\infty$, читаем 
+    "врехний предел последовательности 
+    $\{a_n\}_{n=1}^{+\infty}$ равен $+\infty$". В этом случае $\forall
+    n \in \N \exists N_n > n : a_{N_n} > n$, при этом можно считать, что
+    $N_n > N_{n-1}, n \geq 2$. Таким образом, $a_{N_n} \underset{n\to\infty}{\to}
+    +\infty$.
+
+    Предположим, что $\exists M : a_n \leq M \forall n$. Положим
+    $E_n = \{a \in \R : a = a_m \text{ для какого-то m, } m \geq n\}$.
+    Множество $E_n$ непусто и ограниченно сверху. $E_{n+1} \subset E_n, 
+    n \geq 1$. Пусть $v_n \overset{def}{=} supE_n$, тогда $v_n \geq v_{n+1},
+    n \geq 1$, поэтому по теореме о пределе монотонной последовательности 
+    $\exists lim_{n\to\infty}v_n \in \overline{\R}$. Полагаем 
+    $\overline{lim_{n\to\infty}}a_n = lim_{n\to\infty}v_n$
+
+    Таким образом $\forall$ последовательности $\{a_n\}_{n=1}^{+\infty}
+    \exists \overline{lim_{n\to\infty}}a_n \in \overline{\R}$
+
+    Если последовательность $\{a_n\}_{n=1}^{+\infty}$ неограничена снизу, то 
+    полагаем $\underline{lim_{n\to\infty}}a_n = -\infty$, читаем "нижний предел
+    последовательности $\{a_n\}_{n=1}^{+\infty}$ равен $-\infty$". В этом 
+    случае $\forall n \in \N \exists N_n' > n : a_{N_n'} < -n$, можно 
+    считать, что $N_n' > N_{n-1}', n\geq 2$. Тогда $a_{N_n'} 
+    \underset{n\to\infty}{\to} -\infty$.
+
+    Если $\exists L : a_n \geq L \; \forall n$, рассматриваем уже определенное 
+    множество $E_n$ и полагаем $w_n \overset{def}{=} infE_n$. Тогда
+    $w_n \leq w_{n+1}$, по теореме о пределе монотонной последовательности
+    $\exists lim_{n\to\infty}w_n \in \overline{\R}$. Полагаем 
+    $\underline{lim_{n\to\infty}}a_n \overset{def}{=} lim_{n\to\infty}w_n$ 
+    для $\forall$ последовательности $\{a_n\}_{n=1}^{+\infty} \exists 
+    \underline{lim_{n\to\infty}}a_n$
+\end{definition}
+
+\subsection{Свойства верхних и нижних пределов}
+
+\begin{theorem}\label{updown1}
+    1. $\underline{lim_{n\to\infty}}a_n \leq \overline{lim_{n\to\infty}}a_n$
+\end{theorem}
+\begin{proof}
+    Это соотношение выполнено, если $\underline{lim_{n\to\infty}}a_n = 
+    -\infty \vee \overline{lim_{n\to\infty}}a_n = +\infty$. Если 
+    $\underline{lim_{n\to\infty}}a_n > -\infty \vee 
+    \overline{lim_{n\to\infty}}a_n < +\infty$, то определено множество 
+    $E_n$, $w_n = infE_n \leq supE_n = v_n$,
+    поэтому $lim_{n\to\infty}w_n \leq lim_{n\to\infty}v_n$
+\end{proof}
+
+\begin{theorem}\label{updown2}
+    2. Если $a^+ = \overline{lim_{n\to\infty}}a_n \in \R$, то $\forall \epsilon > 0
+    \exists N : \forall n > N \; a_n < a^+ + \epsilon$
+\end{theorem}
+\begin{proof}
+    $a^+ = \overline{lim_{n\to\infty}}v_n$, по теореме о пределе монотонной 
+    последовательности $v_n \geq a^+ \forall n \wedge \exists N : v_n <
+    a^+ + \epsilon \text{при} \forall n > N$. Тогда $\forall n > N \; a_n \in 
+    E_n \Rightarrow a_n \leq supE_n = v_n, a_n < a^+ + \epsilon \forall n > N$
+\end{proof}
+
+\begin{theorem}\label{updown3}
+    3. $\forall \epsilon > 0 \wedge \forall N \exists n > N : a_n > a^+ - \epsilon$
+\end{theorem}
+\begin{proof}
+    Имеем $v_{N+1} \geq a^+$, но $v_{N+1}=supE_{N+1}$, поэтому $\exists
+    a_n \in E_{N+1} : a_n > a^+ - \epsilon$. 
+\end{proof}
+
+\begin{theorem}\label{updown4}
+    4. $\exists \{a_{n_k}\}_{k=1}^{+\infty} : a_{n_k} \underset{k\to\infty}{\to}
+    \overline{lim_{n\to\infty}}a_n$
+\end{theorem}
+\begin{proof}
+    В случае $\overline{lim_{n\to\infty}}a_n = +\infty$ это доказано, аналогично
+    доказывается в случае $\overline{lim_{n\to\infty}}a_n = -\infty$. 
+    Пусть $\overline{lim_{n\to\infty}}a_n = a^+ \in \R$. Выберем $N_k$ так, чтобы
+    $\forall n > N_k \; a_n < a^+ + \frac{1}{k}$; выберем $n_k > N_k, n_k >
+    n_{k-1}$ так, что $a_{n_k} > a^+ - \frac{1}{k}$. Тогда 
+    $|a_{n_k} - a^+| < \frac{1}{k}, a_{n_k} \underset{n\to\infty}{\to} a^+$.
+\end{proof}
+
+\begin{theorem}\label{updown5}
+    5. Пусть последовательность $\{a_{n_l}\}_{l=1}^{+\infty}$ такая, что 
+    $\exists lim_{l\to\infty}a_{n_l} \in \overline{\R}$. Тогда 
+    \begin{equation*}
+        lim_{l\to\infty}a_{n_l} \leq \overline{lim_{n\to\infty}}a_n
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Если $\overline{lim_{n\to\infty}}a_n = +\infty$, то верно. 
+    Предположим, что $a^+ \overset{def}{=} \overline{lim_{n\to\infty}}a_n < 
+    +\infty$. Если $lim_{l\to\infty}a_{n_l} = -\infty$, то верно.
+    Предположим, что $lim_{l\to\infty}a_{n_l} > -\infty$, тогда можно
+    предполагать, что $\alpha \overset{def}{=} lim_{l\to\infty}a_{n_l} \in \R$.
+    Возьмем $\forall \epsilon > 0 \Rightarrow \exists L : \forall l > L \; 
+    \alpha - \epsilon < a_{n_l} < \alpha + \epsilon$. Имеем соотношение
+    $a_{n_l} \in E_{n_l} \Rightarrow a_{n_l} \leq v_{n_l}, \alpha < a_{n_l} +
+    \epsilon \leq v_{n_l} + \epsilon, l > L$. Тогда 
+    $\alpha \leq  lim_{l\to\infty}(v_{n_l} + \epsilon) =
+    lim_{n\to\infty}(v_{n} + \epsilon) = a^+ + \epsilon$.
+    В силу произвольности $\epsilon > 0 \; \alpha \leq a^+$.
+\end{proof}
+
+\begin{theorem}\label{updown6}
+    6. Пусть $c_n > 0 \exists lim_{n\to\infty}c_n = c > 0$. Тогда $\forall$
+    последовательности $\{a_n\}_{n=1}^{+\infty}$, имеем 
+    $\overline{lim_{n\to\infty}}c_na_n = c\overline{lim_{n\to\infty}}a_n$
+\end{theorem}
+\begin{proof}
+    Положим $\overline{lim_{n\to\infty}}a_n = a^+, 
+    \overline{lim_{n\to\infty}}c_na_n = d$. Пусть подпоследовательность 
+    $\{c_{n_l}, a_{n_l}\}_{l=1}^{+\infty} : c_{n_l}a_{n_l} \underset{l\to\infty}{\to} d$,
+    тогда $c_{n_l} \underset{l\to\infty}{\to} c, a_{n_l} \underset{l\to\infty}{\to} 
+    \frac{d}{c}$. Пусть $\widetilde{a} = lim_{l\to\infty}a_{n_l}$. 
+    Тогда по \ref{updown5}. $\widetilde{a} \leq a^+$, т.е. $\frac{d}{c} \leq
+    a^+ \Leftrightarrow d \leq ca^+$, т.к. $c > 0$.
+    Пусть последовательность $\{a_{n_k}\}_{k=1}^{+\infty}$ т.ч. $a_{n_k} 
+    \underset{k\to\infty}{\to} a^+$, что возможно по \ref{updown4}. Тогда 
+    $c_{n_k}a_{n_k} \underset{k\to\infty}{\to} ca^+$, но по \ref{updown5}
+    $lim_{k\to\infty}(c_{n_k}, a_{n_k}) \leq \overline{lim_{n\to\infty}}c_na_n = d$,
+    т.е. $ca^+ \leq d, ca^* = d$.
+\end{proof}
+
+Положим для $E \neq \emptyset, E \subset \R \;\; -E \overset{def}{=} \{
+x \in \R : \exists y \in E : y = -x\}$. Из определения $E$ получаем следующее.
+
+\begin{assertion}
+    $infE = -sup(-E)$
+\end{assertion}
+
+Применяя это утверждение к определению $\overline{lim_{n\to\infty}}a_n$ и
+$\underline{lim_{n\to\infty}}a_n$, из свойств 2-6 получаем следующие утверждения:
+\begin{assertion}
+    \item 2'. Если $\overline{a} \overset{def}{=} \underline{lim_{n\to\infty}}a_n
+\in \R$, то $\forall \epsilon > 0 \exists N : \forall n > N \; a_n > 
+\overline{a} - \epsilon$
+    \item 3'. $\forall \epsilon > 0 \wedge \forall N \exists n > N : a_n < 
+\overline{a} + \epsilon$
+    \item 4'. $\exists \{a_{n_l}\}_{l=1}^{+\infty} : a_{n_l} 
+\underset{l\to\infty}{\to} \underline{lim_{n\to\infty}}a_n$
+    \item 5'. Пусть $\{a_{n_m}\}_{m=1}^{+\infty} : \exists lim_{m\to\infty}a_{n_m}$.
+Тогда $lim_{m\to\infty}a_{n_m} \geq \underline{lim_{n\to\infty}}a_n$
+    \item 6'. Пусть $c_n > 0, \exists lim_{n\to\infty}c_n = c > 0$. Тогда 
+$\underline{lim_{n\to\infty}}c_na_n = c \cdot \underline{lim_{n\to\infty}}a_n$
+    \item Для того, чтобы $\exists lim_{n\to\infty}a_n \in \overline{\R}$
+необходимо и достаточно, чтобы $\underline{lim_{n\to\infty}}a_n =
+\overline{lim_{n\to\infty}}a_n$. Тогда $lim_{n\to\infty}a_n = 
+\underline{lim_{n\to\infty}}a_n = \overline{lim_{n\to\infty}}a_n$.
+\end{assertion}
+\begin{proof}
+    Рассмотрим случай $lim_{n\to\infty}a_n \in \R$ и 
+    $\overline{lim_{n\to\infty}}a_n \in \R$, случай бесконечных пределов 
+    рассматривается аналогично.
+
+    \emph{Необходимость}. Пусть $\exists lim_{n\to\infty}a_n$ и пусть 
+    $\{a_{n_k}\}_{k=1}^{+\infty}$ и $\{a_{n_l}\}_{l=1}^{+\infty}$ т.ч. 
+    $a_{n_k} \underset{k\to\infty}{\to} \overline{lim_{n\to\infty}}a_n, 
+    a_{n_l} \underset{l\to\infty}{\to} \underline{lim_{n\to\infty}}a_n$. Тогда
+    $a_{n_k} \underset{k\to\infty}{\to} {lim_{n\to\infty}}a_n, 
+    a_{n_l} \underset{l\to\infty}{\to} {lim_{n\to\infty}}a_n$, т.е. 
+    $\underline{lim_{n\to\infty}}a_n = \overline{lim_{n\to\infty}}a_n$.
+
+    \emph{Достаточность}. Пусть $\underline{lim_{n\to\infty}}a_n = 
+    \overline{lim_{n\to\infty}}a_n \overset{def}{=} \alpha \in \R$. 
+    Возьмем $\forall \epsilon > 0$ по 2 $\exists N_1 : \forall n > N_1 \;\;
+    a_n <  \overline{lim_{n\to\infty}}a_n + \epsilon = \alpha + \epsilon$, 
+    по 2' $\exists N_2 : \forall n > N_2 \;\; a_n > \underline{lim_{n\to\infty}}a_n -
+    \epsilon = \alpha - \epsilon$, т.е. $\forall n > max(N_1, N_2) \;\; 
+    \alpha - \epsilon < a_n < \alpha + \epsilon \Rightarrow \exists 
+    lim_{n\to\infty}a_n = \alpha$.
+\end{proof}
+
+\section{Предел функции}
+\begin{definition}
+    Пусть $X$ - метрическое пространство с метрикой $\rho, a \in X$ - точка 
+    сгущения. Окрестностью точки $a$ в $X$ будем называть множество 
+    $w \overset{def}{=} \{x \in X : \rho(x, a) < r\}$ при каком-нибудь 
+    $r > 0$. Для множества $\overline{\R}$ окрестностью $+\infty$ будем 
+    называть любой луч $(a, +\infty)$, а окрестностью $-\infty$ - 
+    любой луч $(-\infty, a)$. Для $x \in \R$ будем называть окрестностью 
+    любой промежуток $(x - \epsilon, x + \epsilon), \epsilon > 0$.
+\end{definition}
+
+\begin{definition}
+    Определение предела функции. Пусть $X$ - метрическое пространство с метрикой
+    $\rho, a \in X$ - точка сгущения, $f: X \to \R$ - функция, заданная на 
+    $X$, $A \in \overline{\R}$. Говорят, что $f(x) \underset{x \to a}{\to} A$,
+    или, что равносильно, $lim_{x \to a}f(x) = A$, если $\forall$ окрестности
+    $W$ элемента $A \;\; \exists$ окрестность $w$ точки $a : \forall x \in w 
+    \setminus \{a\}$ выполнено:
+    \begin{equation}\label{mem1}
+        f(x) \in W
+    \end{equation}
+    Если функция $f: (L, +\infty) \to \R \vee f: (-\infty, M) \to \R$, то 
+    говорят, что $f(x) \underset{x\to +\infty}{\to} A$, соответственно, 
+    $f(x) \underset{x\to +\infty}{\to} A$, если $\forall$ окрестности $W$ 
+    элемента $A$ $\exists$ окрестность $w$ элемента $+\infty$, соответственно,
+    элемента $-\infty$, т.ч. $\forall x \in w$ выполнено:
+    \begin{equation}\label{mem1dot}
+        f(x) \in W
+    \end{equation}
+\end{definition}
+
+\begin{assertion}
+    Пусть $X$ - метрическое пространство с метрикой $\rho, a \in X$ - точка
+    сгущения. Тогда $\exists \{x_n\}_{n=1}^{\infty}, x_n \underset{n\to\infty}{\to}
+    a, x_n \neq a \forall n, x_n \in X$.
+\end{assertion}
+\begin{proof}
+    Возьмем $x_1 \neq a$, пусть $\epsilon_1 = \rho(x_1, a)$, тогда $\epsilon_1 
+    > 0 \; \exists x_2 \neq a : \rho(x_2, a) < \frac{1}{2}\epsilon_1$.
+    Положим $\epsilon_2 = \rho(x_2, a)$. Предположим, что выбраны $x_1, \ldots, 
+    x_n : x_k \neq a, 1 \leq k \leq n, \epsilon_k = \rho(x_k, a) < \frac{1}{2}
+    \epsilon_{k-1}, k \geq 2$. Тогда $\exists x_{n+1} \neq a : \rho(x_{n+1}, a) <
+    \frac{1}{2}\epsilon_n$. Полагаем $\epsilon_{n+1} = \rho(x_{n+1}, a)$. 
+    Имеем: $\epsilon_n < \frac{1}{2}\epsilon_{n-1} < \frac{1}{2^2}\epsilon_{n-2} <
+    \ldots < \frac{1}{2^{n-1}\epsilon_1}$, т.е. 
+    $\rho(x_n , a) \underset{n\to\infty}{\to} 0$.
+\end{proof}
+
+\begin{theorem}
+    О пределе функции и пределах последовательности. 
+    Пусть $X$ - метрическое пространство с метрикой $\rho, f : X \to \R,
+    A \in \overline{\R}$. Для того чтобы $f(x) \underset{x\to a}{\to} A$, 
+    необходимо и достаточно, что для $\forall \{x_n\}_{n=1}^{\infty}, x_n \in X,
+    x_n \neq a \forall n, x_n \underset{n\to\infty}{\to} a$, выполнялось 
+    $f(x_n) \underset{n\to\infty}{\to} A$.
+\end{theorem}
+\begin{proof}
+    Необходимость. Пусть $f(x) \underset{x\to a}{\to} A, \{x_n\}_{n=1}^{\infty}$ -
+    любая упомянутая в условии последовательность. Возьмем $\forall$ окрестности
+    $W$ элемента $A$, т.е. либо промежуток $(A - \epsilon, A + \epsilon)$, если
+    $A \in \R$, либо луч $(L, +\infty)$, если $A = +\infty$, 
+    либо луч $(-\infty, M)$, если $A = -\infty$. Тогда $\exists$ окрестность
+    $w$ точки $a : \forall x \in w\setminus \{a\}$ выполнено $f(x) \in W$,
+    т.е. либо $|f(x) - A| < \epsilon$, либо $f(x) > L$, либо $f(x) < M$.
+    Пусть $w = \{x \in X: \rho(x, a) < r\}$. Поскольку $x_n 
+    \underset{n\to\infty}{\to} a$, то $\exists N : \forall n > N \; 
+    \rho(x_n, a) < r$, что влечет $f(x_n) \in W \Rightarrow f(x_n) 
+    \underset{n\to\infty}{\to} A$.
+    
+    Достаточность. Предположим, что $\forall \{x_n\}_{n=1}^{\infty}$ с 
+    требуемыми свойствами $f(x_n) \underset{n\to\infty}{\to} A$, но 
+    неверно, что $f(x) \underset{x\to a}{\to} A$. Тогда 
+    $\exists$ окрестность $W_0$ элемента $A : \forall$ окрестности $w$ точки
+    $a \; \exists x \in w \setminus \{a\} : f(x) \notin W_0$. Пусть 
+    $w_1 = \{x: \rho(x, a) < 1\}, x_1 \in w_1 \setminus \{a\}$, но 
+    $f(x_1) \notin W_0$. Положим $\epsilon_1 = \rho(x_1, a), \epsilon_1 < 1$.
+    $\exists x_2 \neq a, \rho(x_2, a) < \frac{1}{2}\epsilon_1 : f(x_2) \notin W_0$.
+    Пусть $\epsilon_2 = \rho(x_2, a), \epsilon_2 < \frac{1}{2}\epsilon_1$.
+    Пусть построены точки $x_1, \ldots, x_n : f(x_k) \notin W_0, x_k \neq a, 
+    1 \leq k \leq n, \epsilon_k = \rho(x_k, a) < \frac{1}{2}\epsilon_{k-1} <
+    \ldots < \frac{1}{2^{n-1}\epsilon_1}$, т.е. $x_n \underset{n\to\infty}{\to} a,
+    x_n \neq a \forall n \wedge f(x_n) \notin W_0$, т.е. $f(x_n)$ не стремится к 
+    $A$, что противоречит предположению достаточности, т.к. $f(x) 
+    \underset{x\to a}{\to} A$.
+\end{proof}
+\begin{addition}
+    Аналогичное утверждение справедливо, если $f: (a, +\infty) \to \R$ или
+    $f: (-\infty, b)$ и $x \to +\infty$ или $x \to -\infty$.
+\end{addition}
+
+% $f(x) \underset{x \to a}{\to} A$
+% $lim_{x \to a}f(x) = A$
+
+% $\{a_n\}_{n=1}^{+\infty}$
+% lim_{n\to\infty}a_n
+% \underline{lim_{n\to\infty}}a_n
+% \overline{lim_{n\to\infty}}a_n
+% \underset{n\to\infty}{\to}
+
+\end{document}
