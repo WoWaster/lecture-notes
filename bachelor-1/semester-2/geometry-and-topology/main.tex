@@ -1,0 +1,23 @@
+\documentclass[12pt, a4paper, oneside]{memoir}
+\input{../../../preamble.tex}
+\usepackage{subfiles}
+\graphicspath{{figures/}}
+\title{Геометрия и топология}
+\author{Курс Солынина А.А.}
+\date{весна 2022 г.}
+
+\begin{document}
+\frontmatter
+
+\begin{titlingpage}
+    \maketitle
+\end{titlingpage}
+
+\microtypesetup{protrusion=false}
+\tableofcontents
+\microtypesetup{protrusion=true}
+
+
+\mainmatter
+\subfile{01_metric_spaces.tex}
+\end{document}
