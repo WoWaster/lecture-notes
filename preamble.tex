@@ -6,6 +6,7 @@
 % Setup fonts.
 \usepackage{fontspec}
 \setmainfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
 
 \usepackage{microtype} % Add fancy-schmancy font tricks.
 \usepackage{multicol}
@@ -14,6 +15,7 @@
 
 %% Math
 \usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools} % Advanced math tools.
+\usepackage{thmtools}
 \usepackage{unicode-math} % Allow TTF and OTF fonts in math and allow direct typing unicode math characters.
 \unimathsetup{
     warnings-off={
@@ -46,57 +48,57 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\id}{\mathrm{id}}
-\newcommand{\zv}{\mathbf{0}}
 \renewcommand{\le}{\leqslant}
 \renewcommand{\ge}{\geqslant}
-\renewcommand*{\&}{%
-    \relax
-    \ifmmode
-        \mathbin{\char`\&}%
-    \else
-        \char`\&\relax
-    \fi
-}
-\newcommand{\va}{\mathbf{a}}
-\newcommand{\vb}{\mathbf{b}}
-\newcommand{\vc}{\mathbf{c}}
-\newcommand{\ve}{\mathbf{e}}
-\newcommand{\vf}{\mathbf{f}}
-\newcommand{\vi}{\mathbf{i}}
-\newcommand{\vj}{\mathbf{j}}
-\newcommand{\vk}{\mathbf{k}}
-\newcommand{\vn}{\mathbf{n}}
-\newcommand{\vv}{\mathbf{v}}
-\newcommand{\vw}{\mathbf{w}}
-\newcommand{\vu}{\mathbf{u}}
-\newcommand{\proj}{\operatorname{Пр}}
-\newcommand{\dist}{\operatorname{dist}}
 \newcommand{\contradiction}{\smashtimes}
 \AtBeginDocument{\renewcommand{\Re}{\operatorname{Re}}}
 \AtBeginDocument{\renewcommand{\Im}{\operatorname{Im}}}
 \AtBeginDocument{\renewcommand{\phi}{\varphi}}
 \AtBeginDocument{\renewcommand{\epsilon}{\varepsilon}}
 
-%%% amsthm envs
-\theoremstyle{plain}
-\newtheorem{assertion}{Утверждение}[chapter]
-\newtheorem{theorem}{Теорема}[chapter]
-\newtheorem{lemma}{Лемма}[chapter]
-\newtheorem{corollary}{Следствие}[chapter]
-\newtheorem{proposition}{Предложение}[chapter]
+%%% theorem-like envs
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{skipabove=1em,skipbelow=0em, innertopmargin=5pt, innerbottommargin=6pt}
 \theoremstyle{definition}
-\newtheorem{definition}{Определение}[chapter]
-\newtheorem{term}{Термин}[chapter]
-\newtheorem{designation}{Обозначение}[chapter]
-\newtheorem{prop}{Свойство}[chapter]
-\newtheorem{axiom}{Аксиома}[chapter]
-\theoremstyle{remark}
-\newtheorem*{example}{Пример}
-\newtheorem*{remark}{Замечание}
-\newtheorem*{addition}{Дополнение}
-\renewcommand{\qedsymbol}{\blacksquare}
+
+\declaretheoremstyle[spaceabove=\topsep,
+    spacebelow=\topsep,
+    headfont=\bfseries\sffamily,
+    bodyfont=\normalfont,
+    headpunct=.,
+    postheadspace=5pt plus 1pt minus 1pt]{myStyle}
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily,
+    bodyfont=\normalfont,
+    headpunct=.,
+    postheadspace=5pt plus 1pt minus 1pt,
+    mdframed={ nobreak }]{myStyleWithFrame}
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily,
+    bodyfont=\normalfont,
+    headpunct=.,
+    postheadspace=5pt plus 1pt minus 1pt,
+    mdframed={  rightline=false, topline=false, bottomline=false, },
+    qed=\blacksquare]{myProofStyleWithFrame}
+
+\declaretheorem[name=Теорема, numberwithin=chapter, style=myStyleWithFrame]{theorem}
+\declaretheorem[name=Аксиома, sibling=theorem, style=myStyleWithFrame]{axiom}
+\declaretheorem[name=Предложение, sibling=theorem, style=myStyleWithFrame]{assertion}
+\declaretheorem[name=Лемма, sibling=theorem, style=myStyleWithFrame]{lemma}
+\declaretheorem[name=Предложение, sibling=theorem, style=myStyleWithFrame]{proposition}
+\declaretheorem[name=Следствие, numberwithin=theorem, style=myStyleWithFrame]{corollary}
+
+\declaretheorem[name=Определение, numberwithin=chapter, style=myStyleWithFrame]{definition}
+\declaretheorem[name=Свойство, numberwithin=chapter, style=myStyle]{property}
+
+\declaretheorem[name=Пример, numberwithin=chapter, style=myStyle]{example}
+\declaretheorem[name=Замечание, numbered=no, style=myStyle]{remark}
+
+\declaretheorem[name=Доказательство, numbered=no, style=myProofStyleWithFrame]{proofReplace}
+\renewenvironment{proof}[1][\proofname]{\begin{proofReplace}}{\end{proofReplace}}
+
 %%% Memoir settings
-\chapterstyle{veelo}
+\chapterstyle{ger}
 \setlength{\headheight}{2\baselineskip}
 
 %%% HyperRef
