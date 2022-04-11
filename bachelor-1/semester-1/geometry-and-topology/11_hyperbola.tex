@@ -1,0 +1,113 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Гипербола}
+\begin{definition}
+    Гипербола -- фигура, которая в подходящих координатах задается уравнением:
+    \[\frac{x^2}{a^2} - \frac{y^2}{b^2}=1\]
+\end{definition}
+\begin{definition}
+    Гипербола -- ГМТ $M:$
+    \begin{gather*}
+        |F_1 M - F_2M|=2a\\
+        F_1 F_2 = 2c > 2a\\
+        (|F_2 M - F_2 M| \le F_1 F_2)
+    \end{gather*}
+\end{definition}
+\begin{definition}
+    $F_1$ -- точка, $l_1$ -- прямая. Гипербола -- ГМТ $M$:
+    \[\frac{F_1 M}{\dist(M,l_1)} = e > 1\]
+\end{definition}
+
+\begin{theorem}
+    Определения равносильны
+\end{theorem}
+\begin{proof}
+    Доказательство аналогично эллипсу, например т.к.
+    \[\frac{x^2}{a^2} - \frac{y^2}{b^2} = \frac{x^2}{a^2} + \frac{y^2}{(ib)^2}\]
+\end{proof}
+
+\section*{Параметры гиперболы}
+\begin{center}
+    \import{figures}{hyperbola.pdf_tex}
+\end{center}
+\begin{enumerate}
+    \item $a$ -- вещественная полуось
+    \item $b$ -- мнимая полуось
+    \item $c$ -- фокальный параметр (по определению $c>a$)
+    \item $e = \frac{c}{a}>1$ -- эксцентриситет
+\end{enumerate}
+\[a^2+b^2=c^2\]
+
+\begin{definition}
+    Пусть $y=f(x)$ -- функция, $y=kx+b$ -- прямая. Говорим, что прямая $y=kx+b$ --
+    асимптота функции $y=f(x)$ при $x \to \pm \infty$, если
+    $\lim_{x \to \pm \infty} |f(x) - (kx+b)|=0$.
+\end{definition}
+\begin{proof}
+    \begin{gather*}
+        \lim_{x \to + \infty} \frac{f(x)}{kx+b} =  \lim_{x\to + \infty} \frac{kx+b+g(x)}{kx+b}= \text{ если } g(x) \to 0, x\to \infty\\
+        \lim_{x \to + \infty} \left(1 + \frac{g(x)}{kx+b}\right) = 1  \text{ если } k\neq 0 \text{ или } b \neq 0\\
+        1 = \lim_{x\to + \infty} \frac{f(x)}{kx+b} = \lim_{x\to + \infty} \frac{f(x)}{kx} \cdot \frac{kx}{kx+b} = \frac{1}{k} \lim_{x\to + \infty} \frac{f(x)}{x}\\
+        \lim_{x\to +\infty} \frac{f(x)}{x} = k \qquad b = \lim_{x\to + \infty} \left(f(x) - kx\right)
+    \end{gather*}
+\end{proof}
+
+\begin{theorem}
+    Асимптоты гиперболы:
+    \[y= \pm \frac{b}{a}x\]
+\end{theorem}
+
+\begin{proof}
+    \begin{gather*}
+        \frac{x^2}{a^2} - \frac{y^2}{b^2}=1 \Leftrightarrow y = \pm b \sqrt{\frac{x^2}{a^2}-1} (\implies x \ge a)\\
+        y = \pm \frac{b}{a} \sqrt{x^2 - a^2}\\
+        k = \lim_{x \to + \infty} \frac{\pm\frac{b}{a}\sqrt{x^2-a^2}}{x} =
+        \pm \frac{b}{a} \lim_{x \to + \infty} \sqrt{1 - \frac{a^2}{x^2}}\\
+        k = \pm \frac{b}{a}\\
+        \mathfrak{b}= \lim_{x \to + \infty} \left(\frac{b}{a} \sqrt{x^2 - a^2} - \frac{b}{a}x \right)=
+        \frac{b}{a} \lim_{x \to + \infty} \frac{x^2 - a^2 - x^2}{\sqrt{x^2-a^2}+\sqrt{x^2}} = \frac{b}{a}\cdot 0
+        \intertext{$\mathfrak{b}$ -- коэффициент прямой}
+        y= \pm \frac{b}{a}x
+    \end{gather*}
+
+\end{proof}
+
+\begin{definition}[Сопряженные гиперболы]
+    \[\frac{x^2}{a^2} - \frac{y^2}{b^2}=1 \qquad \frac{y^2}{a^2} - \frac{x^2}{b^2}=1\]
+\end{definition}
+
+\begin{theorem}
+    Прямая $Ax + By + C = 0$ касается гиперболы:
+    \[\frac{x^2}{a^2} - \frac{y^2}{b^2}=1 \Leftrightarrow a^2A^2-b^2B^2=C^2\]
+\end{theorem}
+\begin{proof}
+    Аналогично эллипсу
+\end{proof}
+\begin{theorem}
+    Если точка $(x_0, y_0)$ лежит на гиперболе $\frac{x^2}{a^2} - \frac{y^2}{b^2}=1$,
+    то касательная к этой точке:
+    \[\frac{x x_0}{a^2} - \frac{y y_0}{b^2}=1\]
+\end{theorem}
+\begin{theorem}[Оптическое свойство гиперболы]
+    \
+
+    \begin{center}
+        \import{figures}{hyperbola_optic_property.pdf_tex}
+    \end{center}
+\end{theorem}
+
+Вспомогательная задача:
+
+
+\begin{minipage}{0.45\textwidth}
+    \import{figures}{hyperbola_helper_1.pdf_tex}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+    \begin{gather*}
+        |AM-BM|\to \max\\
+        AM-BM \le AB \text{ по неравенству }\bigtriangleup
+    \end{gather*}
+\end{minipage}
+
+\end{document}

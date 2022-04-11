@@ -168,7 +168,7 @@ $\vw = a_1 \vu_1 +a_2 \vu_2 + ... + a_n \vu_n$, то можем записать
 соответственно $\vv = b_1 \vu_1 + b_2 \vu_2 + ... + b_n \vu_n$, тогда
 \begin{multline*}
     (\vw, \vv) = (a_1 \vu_1 + a_2 \vu_2 + ... + a_n \vu_n, b_1 \vu_1 + b_2 \vu_2 + ... + b_n \vu_n) = \\
-    = a_1 b_1 (\vu_1, \vu_2) + a_1 b_2 (\vu_1, \vu_2) + ... + a_1 b_n (\vu_1, \vu_n)+\\
+    = a_1 b_1 (\vu_1, \vu_1) + a_1 b_2 (\vu_1, \vu_2) + ... + a_1 b_n (\vu_1, \vu_n)+\\
     + a_2 b_1 (\vu_2, \vu_2) + a_2 b_2 (\vu_2, \vu_2) + ... + a_2 b_n (\vu_2, \vu_n)+\\
     + a_n b_1 (\vu_n, \vu_2) + a_n b_2 (\vu_n, \vu_2) + ... + a_n b_n (\vu_n, \vu_n)=\\
     = a_1 b_1 + a_2 b_2 + ... + a_n b_n
@@ -190,13 +190,7 @@ $\vw = a_1 \vu_1 +a_2 \vu_2 + ... + a_n \vu_n$, то можем записать
     \centering
     Сложение связанных векторов
 
-    \begin{tikzpicture}
-        \draw [-Latex] (0,0) -- node[above,sloped] {$\va$}  (1,2) ;
-        \draw [-Latex] (1,2) -- (4,2);
-        \draw [-Latex] (0,0) -- node[below,sloped] {$\vb$} (3,0);
-        \draw [-Latex] (3,0) -- (4,2);
-        \draw [-Latex, red] (0,0) -- node[above,sloped] {$\va + \vb$} (4,2);
-    \end{tikzpicture}
+    \import{figures/}{vector_addition.pdf_tex}
 \end{figure}
 
 Нетривиальный момент: почему $(\va, \vb+\vc) = (\va, \vb) + (\va, \vc)$?
@@ -218,7 +212,7 @@ $\vw = a_1 \vu_1 +a_2 \vu_2 + ... + a_n \vu_n$, то можем записать
 \end{theorem}
 \begin{corollary}
     \[\frac{(\va_1+\va_2, \vb)}{|\vb|^2} \vb =
-        \frac{(\va_1,\vb)}{|\vb|^2} \vb + \frac{(\va_2,\vb)}{|\vb|^2} \vb =
+        \frac{(\va_1,\vb)}{|\vb|^2} \vb + \frac{(\va_2,\vb)}{|\vb|^2} \vb \implies
         (\va_1 + \va_2, \vb) = (\va_1, \vb) + (\va_2, \vb)\]
 \end{corollary}
 \end{document}

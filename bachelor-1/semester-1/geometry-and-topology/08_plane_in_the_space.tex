@@ -20,7 +20,7 @@ $\dim V = 3$
 \end{theorem}
 \begin{proof}
     \begin{gather*}
-        e_0 = (x_0, y_0, z_0)\\
+        e_1 = (x_0, y_0, z_0)\\
         \vn \perp \vv_1 \qquad \vn \perp \vv_2 \qquad \vn = \vv_1 \times \vv_2 \qquad \vn = (A,B,C)\\
         \intertext{$D$ такое число, что}
         Ax_0 + By_0 + Cz_0 + D = 0 \qquad (D = -Ax_0 - By_0 - Cz_0)\\
@@ -51,7 +51,7 @@ $\dim V = 3$
 
 \begin{definition}[Уравнение плоскости в отрезках]
     \[\frac{x}{p} + \frac{y}{q} + \frac{z}{r} = 1\]
-    $p,q,z$ -- отрезки высекаемые плоскостью на $OX, OY, OZ$
+    $p,q,r$ -- отрезки высекаемые плоскостью на $OX, OY, OZ$
 \end{definition}
 
 
@@ -66,12 +66,18 @@ $\dim V = 3$
 \begin{definition}
     $A', B', C'$ -- направляющие косинусы
 
-    TODO: Сложный рисунок с углами
-    \begin{gather*}
-        A' = \cos \alpha\\
-        B' = \cos \beta\\
-        C' = \cos \gamma\\
-    \end{gather*}
+    \noindent\begin{minipage}{.45\textwidth}
+        \begin{center}
+            \includegraphics{figures/directional_cosines.pdf}
+        \end{center}
+    \end{minipage}
+    \begin{minipage}{.45\textwidth}
+        \begin{gather*}
+            A' = \cos \alpha\\
+            B' = \cos \beta\\
+            C' = \cos \gamma\\
+        \end{gather*}
+    \end{minipage}
 \end{definition}
 
 \begin{theorem}
@@ -79,7 +85,7 @@ $\dim V = 3$
         \item $|D'|$ -- расстояние от $(0,0,0)$ до $\alpha$.
         \item Пусть $Ax + By + Cz + D = 0$ -- плоскость, а $(x_0, y_0, z_0)$ -- точка,
               тогда расстояние от точки до плоскости:
-              \[d = \frac{Ax_0 + By_0 + Cz_0 + D}{\sqrt{A^2 + B^2 + C^2}}\]
+              \[d = \frac{|Ax_0 + By_0 + Cz_0 + D|}{\sqrt{A^2 + B^2 + C^2}}\]
     \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -97,7 +103,7 @@ $\dim V = 3$
         \intertext{2.}
         \tilde{x} = x - x_0 \qquad \tilde{y} = y - y_0 \qquad \tilde{z} = z - z_0\\
         \intertext{Для точки $(x_0, y_0, z_0)$}
-        \tilde{x} = 0 \qquad \tilde{y} = y_0 \qquad \tilde{z} =  z_0\\
+        \tilde{x} = x_0 \qquad \tilde{y} = y_0 \qquad \tilde{z} =  z_0\\
         A \tilde{x} + B\tilde{y} + C \tilde{z} + (Ax_0 + By_0 + Cz_0 + D) = 0\\
         d = \frac{|Ax_0 + By_0 + Cz_0 + D|}{\sqrt{A^2+B^2+C^2}}
     \end{gather*}

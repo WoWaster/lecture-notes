@@ -21,7 +21,7 @@
         \item ЛНЗ и  порождающий набор
         \item Минимальный порождающий набор (минимальный по включениям)
         \item Максимальный ЛНЗ набор (максимальный по включениям)
-        \item Набор $\forall \vw \in V \exists! \alpha_1, ..., \alpha_2:
+        \item Порождающий набор $\forall \vw \in V \exists! \alpha_1, ..., \alpha_2:
                   \vw = \alpha_1 \vv_1 + \alpha_2 \vv_2 + ... + \alpha_n \vv_n$
     \end{enumerate}
 \end{theorem}
@@ -53,23 +53,23 @@
     Допустим противное: $\alpha_1 \vv_1 + \alpha_2 \vv_2 + ... + \alpha_n \vv_n =
         \beta_1 \vv_1 + ... + \beta_n \vv_n$
     \begin{gather*}
-        \alpha_1 \neq \beta_1\\
+        \alpha_i \neq \beta_i\\
         (\alpha_i - \beta_i)\vv_i = (\beta_1 - \alpha_1) \vv_1 + ...\text{ (без $i$-ого)}
         + (\beta_n - \alpha_n)\vv_n\\
         \vv_i = \frac{\beta_1 - \alpha_1}{\alpha_i - \beta_i} + ...\text{ (без $i$-ого)}
         + \frac{\beta_n - \alpha_n}{\alpha_i - \beta_i}
     \end{gather*}
     $\vv_i$ -- выкинем. В любой ЛК с $\vv_i$ заменим $\vv_i$ на выражение выше $\implies$
-    набор порождающий
+    набор порождающий. Значит без единственности коэффициентов получаем противоречие с дано
 
     $4 \to 3$. Дан $\vv_1, ..., \vv_n$ -- порождающий набор с единственностью коэффициентов.
-    Доказать: $\vv_1, ..., \vv_n$ -- минимальный ЛНЗ (ЛНЗ уже доказана)
+    Доказать: $\vv_1, ..., \vv_n$ -- максимальный ЛНЗ (ЛНЗ уже доказана)
 
     Допустим противное: $\vv_1, \vv_2, ..., \vv_n; \vu$ --  ЛНЗ набор
     \[\vu= \alpha_1 \vv_1 + ... + \alpha_n \vv_n (\alpha_1, ... \alpha_n \exists!)
         \implies \vv_1, ..., \vv_n, \vu \text{ -- ЛЗ } \qquad \contradiction\]
 
-    $3 \to 1$. Дан $\vv_1, ..., \vv_n$ -- минимальный ЛНЗ.
+    $3 \to 1$. Дан $\vv_1, ..., \vv_n$ -- максимальный ЛНЗ.
     Доказать $\vv_1, ..., \vv_n$ -- ЛНЗ и порождающий набор.
     \begin{align*}
         \forall \vw \in V  &                 &  & \vv_1, \vv_2, ..., \vv_n, \vw \text{ -- ЛЗ набор} \\
