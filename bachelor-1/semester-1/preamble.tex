@@ -1,0 +1,106 @@
+%%% PDF settings
+\pdfvariable minorversion 7 % Set PDF version to 1.7.
+
+%%% Fonts and language setup.
+\usepackage{polyglossia}
+% Setup fonts.
+\usepackage{fontspec}
+\setmainfont{CMU Serif}
+
+\usepackage{microtype} % Add fancy-schmancy font tricks.
+\usepackage{multicol}
+
+\usepackage{xcolor} % Add colors support.
+
+%% Math
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools} % Advanced math tools.
+\usepackage{unicode-math} % Allow TTF and OTF fonts in math and allow direct typing unicode math characters.
+\unimathsetup{
+    warnings-off={
+            mathtools-colon,
+            mathtools-overbracket
+        }
+}
+\setmathfont{Latin Modern Math} % default
+\setmathfont[range={\setminus,\varnothing,\smashtimes}]{Asana Math}
+
+%%% Images
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{wrapfig} % Floating images.
+\usepackage{import}
+
+%%% Bibtex
+% \usepackage[style=gost-inline,
+%     language=auto]{biblatex}
+
+%%% Polyglossia setup after (nearly) everything as described in documentation.
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+
+
+%%% Custom commands
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\zv}{\mathbf{0}}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\renewcommand*{\&}{%
+    \relax
+    \ifmmode
+        \mathbin{\char`\&}%
+    \else
+        \char`\&\relax
+    \fi
+}
+\newcommand{\va}{\mathbf{a}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vc}{\mathbf{c}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vi}{\mathbf{i}}
+\newcommand{\vj}{\mathbf{j}}
+\newcommand{\vk}{\mathbf{k}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vw}{\mathbf{w}}
+\newcommand{\vu}{\mathbf{u}}
+\newcommand{\proj}{\operatorname{Пр}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\Int}{\operatorname{Int}}
+\newcommand{\Ex}{\operatorname{Ex}}
+\newcommand{\Cl}{\operatorname{Cl}}
+\newcommand{\contradiction}{\smashtimes}
+\AtBeginDocument{\renewcommand{\Re}{\operatorname{Re}}}
+\AtBeginDocument{\renewcommand{\Im}{\operatorname{Im}}}
+\AtBeginDocument{\renewcommand{\phi}{\varphi}}
+\AtBeginDocument{\renewcommand{\epsilon}{\varepsilon}}
+
+%%% amsthm envs
+\theoremstyle{plain}
+\newtheorem{assertion}{Утверждение}[chapter]
+\newtheorem{theorem}{Теорема}[chapter]
+\newtheorem{lemma}{Лемма}[chapter]
+\newtheorem{corollary}{Следствие}[chapter]
+\newtheorem{proposition}{Предложение}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[chapter]
+\newtheorem{term}{Термин}[chapter]
+\newtheorem{designation}{Обозначение}[chapter]
+\newtheorem{prop}{Свойство}[chapter]
+\newtheorem{axiom}{Аксиома}[chapter]
+\theoremstyle{remark}
+\newtheorem*{example}{Пример}
+\newtheorem*{remark}{Замечание}
+\newtheorem*{addition}{Дополнение}
+\renewcommand{\qedsymbol}{\blacksquare}
+%%% Memoir settings
+\chapterstyle{veelo}
+\setlength{\headheight}{2\baselineskip}
+
+%%% HyperRef
+\usepackage{hyperref}
