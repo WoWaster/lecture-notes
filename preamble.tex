@@ -50,40 +50,46 @@
 \newcommand{\id}{\mathrm{id}}
 \renewcommand{\le}{\leqslant}
 \renewcommand{\ge}{\geqslant}
-\newcommand{\contradiction}{\smashtimes}
 \AtBeginDocument{\renewcommand{\Re}{\operatorname{Re}}}
 \AtBeginDocument{\renewcommand{\Im}{\operatorname{Im}}}
 \AtBeginDocument{\renewcommand{\phi}{\varphi}}
 \AtBeginDocument{\renewcommand{\epsilon}{\varepsilon}}
 
 %%% theorem-like envs
-\usepackage[framemethod=TikZ]{mdframed}
-\mdfsetup{skipabove=1em,skipbelow=0em, innertopmargin=5pt, innerbottommargin=6pt}
 \theoremstyle{definition}
 
-\declaretheoremstyle[spaceabove=\topsep,
-    spacebelow=\topsep,
+\declaretheoremstyle[spaceabove=0.5\topsep,
+    spacebelow=0.5\topsep,
     headfont=\bfseries\sffamily,
     bodyfont=\normalfont,
     headpunct=.,
     postheadspace=5pt plus 1pt minus 1pt]{myStyle}
-\declaretheoremstyle[
+\declaretheoremstyle[spacebelow=\topsep,
+    headfont=\bfseries\sffamily,
+    bodyfont=\normalfont,
+    headpunct=.,
+    postheadspace=5pt plus 1pt minus 1pt,]{myStyleWithFrame}
+\declaretheoremstyle[spacebelow=\topsep,
     headfont=\bfseries\sffamily,
     bodyfont=\normalfont,
     headpunct=.,
     postheadspace=5pt plus 1pt minus 1pt,
-    mdframed={ nobreak }]{myStyleWithFrame}
-\declaretheoremstyle[
-    headfont=\bfseries\sffamily,
-    bodyfont=\normalfont,
-    headpunct=.,
-    postheadspace=5pt plus 1pt minus 1pt,
-    mdframed={  rightline=false, topline=false, bottomline=false, },
     qed=\blacksquare]{myProofStyleWithFrame}
+
+\usepackage[breakable]{tcolorbox}
+\tcolorboxenvironment{theorem}{}
+\tcolorboxenvironment{axiom}{}
+\tcolorboxenvironment{assertion}{}
+\tcolorboxenvironment{lemma}{}
+\tcolorboxenvironment{proposition}{}
+\tcolorboxenvironment{corollary}{}
+\tcolorboxenvironment{definition}{}
+\tcolorboxenvironment{proofReplace}{toprule=0mm,bottomrule=0mm,rightrule=0mm, colback=white, breakable }
+
 
 \declaretheorem[name=Теорема, numberwithin=chapter, style=myStyleWithFrame]{theorem}
 \declaretheorem[name=Аксиома, sibling=theorem, style=myStyleWithFrame]{axiom}
-\declaretheorem[name=Предложение, sibling=theorem, style=myStyleWithFrame]{assertion}
+\declaretheorem[name=Преположение, sibling=theorem, style=myStyleWithFrame]{assertion}
 \declaretheorem[name=Лемма, sibling=theorem, style=myStyleWithFrame]{lemma}
 \declaretheorem[name=Предложение, sibling=theorem, style=myStyleWithFrame]{proposition}
 \declaretheorem[name=Следствие, numberwithin=theorem, style=myStyleWithFrame]{corollary}
