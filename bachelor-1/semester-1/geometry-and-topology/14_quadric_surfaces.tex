@@ -1,0 +1,98 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Поверхности II порядка}
+\begin{multline*}
+    a_{11} x^2 + 2 a_{12} xy + 2 a_{13} xz + 2 a_{23} yz + a_{22} y^2 + a_{33}z^2 +\\
+    2b_1x +2 b_2y + 2b_3z + b_4 = 0
+\end{multline*}
+\begin{theorem}
+    С помощью вращений можно привести уравнение к виду.
+    \[a_{11} x'^2 + a_{22} y'^2 + a_{33}z'^2 + 2b_1'x +2 b_2'y + 2b_3'z + b_4' = 0\]
+    Штрихи снимаются для удобства
+\end{theorem}
+
+\section{Виды поверхностей}
+\subsection{Эллиптический тип}
+\[a_{11} > 0 \qquad a_{22} > 0 \qquad a_{33} > 0\]
+Если все $<0$, то умножим на -1
+
+\begin{lemma}
+    Если $a_{11} \neq 0$, то считаем $b_1 = 0$
+    \[a_{11} x^2 + 2b_1 x = a_{11} \left(x + \frac{b_1}{a_{11}}\right) - \frac{b_1^2}{a_{11}}\]
+\end{lemma}
+
+Получили уравнение:
+\[a_{11}x^2 + a_{22}y^2 + a_{33}z^2 + b_4 = 0\]
+\begin{enumerate}
+    \item Эллипсоид
+          \[\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1\]
+    \item Точка
+          \[\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 0\]
+    \item Мнимая эллипсоид
+          \[\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = -1\]
+\end{enumerate}
+
+\subsection{Гиперболический тип}
+\[a_{11} \neq 0 \qquad a_{22} \neq 0 \qquad a_{33} \neq 0\]
+Все НЕ одного знака, считаем, что $a_{11} >0$
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item Однополостный гиперболоид
+          \begin{gather*}
+              \frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = 1\\
+              z = const \implies \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 + \frac{z^2}{c^2}\\
+              y = const \implies \frac{x^2}{a^2} + \frac{z^2}{c^2} = 1 - \frac{y_2}{b_2}\\
+              |y|=b \implies \frac{x^2}{a^2} - \frac{z^2}{b^2} = 0 \text{ -- пара пересекающихся прямых}
+          \end{gather*}
+    \item Двуполостный гиперболоид
+          \begin{gather*}
+              \frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = -1\\
+              z = const \implies \frac{x^2}{a^2} + \frac{y^2}{b^2} = \frac{z^2}{c^2} -1\\
+              |z| < c \implies \emptyset\\
+              |z| = c \implies \text{ точка}\\
+              |z| > c \implies \text{ эллипс}\\
+              y = const \implies \frac{x^2}{a^2} - \frac{z^2}{c^2} = -1 - \frac{y^2}{b^2}\text{ -- гипербола}
+          \end{gather*}
+    \item Конус
+          \begin{gather*}
+              \frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = 0\\
+              (x,y,z) \in \text{ конусу, то}\\
+              (\alpha x, \alpha y, \alpha z) \in \text{ конусу}
+          \end{gather*}
+\end{enumerate}
+
+\subsection{Параболический случай}
+\[a_{33} = 0\]
+\begin{lemma}
+    Если $a_{33} = 0, b_3 \neq 0$,то считаем $b_4=0$
+\end{lemma}
+\[b_3 \neq 0 \quad a_{11} \neq 0 \quad a_{22} \neq 0\]
+\begin{enumerate}
+    \setcounter{enumi}{6}
+    \item Эллиптический параболоид
+          \b
+    \item Гиперболический параболоид (седло)
+          \[\frac{x^2}{a_2} - \frac{y^2}{b^2} = 2z\]
+    \item
+\end{enumerate}
+
+\section{}
+\begin{multline*}
+    a_{11} x^2 + a_{22} y^2 + a_{33} z^2 + 2 a_{12} xy + 2 a_{13} xz + 2 a_{23} yz = f(x,y,z)
+\end{multline*}
+
+Рассмотри значения $f(x)$ на $S^2 = \{x^2 + y^2 + z^2 =1\}$:
+\[f(\alpha x; \alpha y; \alpha z) = \alpha^2 f(x,y,z)\]
+Пусть $M \in S^2$ -- точка, в которой $f(x,y,z)$ принимает $\max$ значение (почему $\exists M$?)
+Через $M$ проведем OX $(x,y,z)$ новые координаты
+
+\begin{gather*}
+    f(x,y,z) = a_{11} x^2 + a_{22} y^2 + a_{33} z^2 + 2 a_{12} xy + 2 a_{13} xz + 2 a_{23} yz \\
+    M(1,0,0) \max
+    \intertext{В окрестности $M$ уравнение сферы}
+    x = \sqrt{1-y^2-z^2}\\
+    f(x,y,z) = a_{11} (1 - y^2 -z^2) + a_{22} y^2 + a_{33} z^2 \\+ 2 a_{12} y\sqrt{1-y^2-z^2} + 2 a_{13} z\sqrt{1-y^2-z^2} + 2 a_{23} yz\\
+\end{gather*}
+
+\end{document}

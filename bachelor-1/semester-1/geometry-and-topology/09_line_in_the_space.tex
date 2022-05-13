@@ -54,11 +54,19 @@
     \end{gather*}
 \end{definition}
 
-\begin{definition}[Угол между прямой и плоскостью]
+\begin{definition}[Угол между прямой и плоскостью]\ \\
+    \noindent\begin{minipage}{0.45\textwidth}
+        \begin{gather*}
+            l_1: \frac{x-x_0}{v_1} = \frac{y-y_0}{v_2} = \frac{z-z_0}{v_3}\\
+            \alpha: Ax+By+Cz+D=0\\
+        \end{gather*}
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        \begin{center}
+            \includegraphics{figures/angle_between_line_and_plane.pdf}
+        \end{center}
+    \end{minipage}
     \begin{gather*}
-        l_1: \frac{x-x_0}{v_1} = \frac{y-y_0}{v_2} = \frac{z-z_0}{v_3}\\
-        \alpha: Ax+By+Cz+D=0\\
-        \intertext{TODO: сделать рисунок}
         \sin\theta = \cos \angle (\vn, \vv) = \frac{Av_1 + Bv_2 + Cv_3}
         {\sqrt{A^2+B^2+C^2} \sqrt{v_1^2+v_2^2+v_3^2}}\\
         \alpha \parallel l_1: Av_1 + Bv_2 + Cv_3 = 0\\
@@ -96,4 +104,48 @@
         \end{cases}
     \end{gather*}
 \end{example}
+
+\begin{definition}[Уравнение плоскости через прямую пересечения]
+    TODO: Сделать рисунок
+    \begin{gather*}
+        \alpha_1: A_1x + B_1y +C_1z + D_1 = 0\\
+        \alpha_2: A_2x + B_2y +C_2z + D_2 = 0
+    \end{gather*}
+    Уравнение пучка плоскостей, проходящих через прямую
+    \begin{equation}\label{eq:two_lambdas}
+        \lambda_1 (A_1x + B_1y +C_1z + D_1) + \lambda_2 (A_2x + B_2y +C_2z + D_2) = 0
+    \end{equation}
+    \begin{equation}\label{eq:one_lambda}
+        \frac{\lambda_2}{\lambda_1} = \lambda \qquad
+        A_1x + B_1y +C_1z + D_1 + \lambda (A_2x + B_2y +C_2z + D_2) = 0
+    \end{equation}
+    \[\lambda_1 = 0 \implies \lambda_2 \neq 0 \text{ считаем, что } \lambda_2 = 1
+        \implies \text{уравнение } \alpha_2 \]
+    \eqref{eq:one_lambda} описывает все плоскости проходящие, через прямую кроме $\alpha_2$.
+\end{definition}
+
+
+\begin{proposition}
+    Любая плоскость через $l$ выражается через \eqref{eq:two_lambdas}.
+\end{proposition}
+\begin{proof}
+    Если это $\alpha_2$ -- ок ($\lambda_1 = 0; \lambda_2 =1$).
+
+    Если не $\alpha_2 \implies$ ищем \eqref{eq:one_lambda}:
+
+    Искомая плоскость проходит через $(x_1, y_1, z_1)$:
+    \begin{gather*}
+        A_1 x_1 + B_1 y_1 + C_1 z_1 + D_1 + \lambda(A_2 x_1 + B_2 y_1 + C_2 z_1 + D_2) = 0\\
+        \exists \lambda \text{ и находится через это уравнение }
+    \end{gather*}
+\end{proof}
+
+Если три плоскости: $\alpha_1, \alpha_2, \alpha_3$,
+хотим провести плоскость через общую точку пересечения
+
+\begin{multline*}
+    \lambda_1(A_1x + B_1y +C_1z + D_1) + \lambda_2 (A_2x + B_2y +C_2z + D_2)\\
+    + \lambda_3 (A_3x + B_3y +C_3z + D_3)  = 0
+\end{multline*}
+
 \end{document}

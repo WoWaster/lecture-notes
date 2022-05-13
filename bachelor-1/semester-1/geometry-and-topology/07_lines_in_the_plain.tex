@@ -7,7 +7,7 @@
 Есть пространство $V; \dim V =2$, и ассоциированное с ним точечное пространство $E$,
 т.е. $E$ -- плоскость
 \begin{definition}
-    Есть $e_0 \in V$ и $\vn \in V$. Тогда прямая в $E$ -- геометрическое место точек $e$,
+    Есть $e_0 \in E$ и $\vn \in V$. Тогда прямая в $E$ -- геометрическое место точек $e$,
     таких что  $\overrightarrow{e_0 e} \perp \vn$
 \end{definition}
 
@@ -15,9 +15,9 @@
     В стандартных координатах прямая задается стандартным линейным уравнением:
     $ax+by+c =0$, где координаты $e = (x,y)$, а координаты $(a,b) = \vn$.
 
-    Или $\vn \cdot \overrightarrow{0e} = -c$ ($c$ -- константа).
+    Или $\vn \cdot \overrightarrow{Oe} = -c$ ($c$ -- константа).
 
-    Точка $0$ имеет координаты $(0,0)$, а $e_0 = (x_0, y_0); e = (x,y)$
+    Точка $O$ имеет координаты $(0,0)$, а $e_0 = (x_0, y_0); e = (x,y)$
     \begin{gather*}
         \overrightarrow{e_0 e} \perp \vn \qquad ((x-x_0); (y-y_0)) \cdot (a,b)=0\\
         (x-x_0)a + (y-y_0)b=0\\
@@ -180,7 +180,7 @@ $(p,0)$ и $(0,q)$ -- подходят:
     \begin{gather*}
         l_1: \frac{x-x_0}{v_1}=\frac{y-y_0}{v_2} \qquad l_2: \frac{x-x_1}{w_1} = \frac{y-y_1}{w_2}\\
         \vv = (v_1, v_2) \qquad \vw = (w_1, w_2)\\
-        \cos \angle(l_1, l_2) = \frac{v_1 w_1 + v_2 w_2}{\sqrt{v_1^2 + v_2^2}\sqrt{w_1^2 w_2^2}}\\
+        \cos \angle(l_1, l_2) = \frac{v_1 w_1 + v_2 w_2}{\sqrt{v_1^2 + v_2^2}\sqrt{w_1^2 + w_2^2}}\\
         l_1 \perp l_2 \Leftrightarrow v_1 w_1 + v_2 w_2 = 0\\
         l_1 \parallel l_2 \Leftrightarrow \frac{v_1}{w_1} = \frac{v_2}{w_2}
     \end{gather*}

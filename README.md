@@ -21,10 +21,6 @@
     <td>Геометрия и топология</td>
     <td><a href="bachelor-1/semester-1/geometry-and-topology/main.pdf">link</a></td>
   </tr>
-  <tr>
-    <td>Математический анализ</td>
-    <td><a href="bachelor-1/semester-1/mathematical_analysis/main.pdf">link</a></td>
-  </tr>
 </table>
 
 ## Редактор
@@ -39,3 +35,4 @@
 ## Преамбула
 
 Преамбула лежит в корне в файле `preamble.tex`.
+Преамбула в корне претерпевает изменения, поэтому для возможности компиляции старых конспектов, преамбула дублируется в папку семестра.

@@ -1,0 +1,50 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Парабола}
+\begin{definition}
+    Парабола -- кривая, которая в подходящих координатах имеет уравнение:
+    \[y^2=2px\]
+    где $p$ -- параметр параболы
+\end{definition}
+\begin{definition}
+    Пусть $F$ -- точка, $l$ -- прямая, тогда парабола -- ГМТ $M$:
+    \[\frac{FM}{\dist(M;l)} = e = 1\]
+\end{definition}
+\begin{theorem}
+    Определения равносильны
+\end{theorem}
+\begin{proof}
+    \begin{gather*}
+        \left(x + \frac{p}{2}\right) = \sqrt{\left(x-\frac{p}{2}\right)^2 + y^2}\\
+        \left(x + \frac{p}{2}\right)^2 = \left(x-\frac{p}{2}\right)^2 + y^2\\
+        y^2 = 2px
+    \end{gather*}
+\end{proof}
+
+Характеристики параболы
+\begin{itemize}
+    \item $F$ -- фокус
+    \item $l$ -- директриса
+    \item $e=1$ -- эксцентриситет
+\end{itemize}
+
+\begin{theorem}
+    $(x_0, y_0)$ -- точка на параболе $y^2=2px$, тогда
+    \[yy_0 = p (x+x_0)\]
+    -- уравнение касательной в $(x_0, y_0)$
+\end{theorem}
+\begin{proof}
+    \begin{gather*}
+        px = yy_0 - px_0\\
+        y^2 = 2px = 2yy_0-2px_0\\
+        y^2 - 2yy_0 + 2px_0 = 0\\
+        \frac{D}{4} = y_0^2 - 2px_0 = 0
+    \end{gather*}
+    1 решение
+\end{proof}
+\begin{theorem}[Оптическое свойство параболы]
+
+\end{theorem}
+
+\end{document}

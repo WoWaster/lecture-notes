@@ -1,8 +1,11 @@
 \documentclass[12pt, a4paper, oneside]{memoir}
-\input{../../../preamble.tex}
+\input{../preamble.tex}
 \usepackage{subfiles}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,matrix,calc,intersections}
+\usetikzlibrary{arrows.meta,matrix,calc,intersections,external}
+\tikzset{axis/.style={color=blue!50, very thick, -Latex}}
+\tikzset{dot/.style={draw,fill,circle,inner sep=0.05},}
+\tikzexternalize[prefix=figures/]
 \title{Геометрия и топология}
 \author{Курс Солынина А.~А.}
 \date{Осень 2021 г.}
@@ -13,6 +16,10 @@
 \begin{titlingpage}
     \maketitle
 \end{titlingpage}
+
+\section*{Примечание}
+Конспекты написаны не полностью и (скорее всего) с большим числом опечаток!
+\pagebreak
 
 \microtypesetup{protrusion=false}
 \tableofcontents
@@ -32,4 +39,9 @@
 \subfile{07_lines_in_the_plain.tex}
 \subfile{08_plane_in_the_space.tex}
 \subfile{09_line_in_the_space.tex}
+\subfile{10_ellipse.tex}
+\subfile{11_hyperbola.tex}
+\subfile{12_parabola.tex}
+\subfile{13_canonical_form.tex}
+\subfile{14_quadric_surfaces.tex}
 \end{document}
