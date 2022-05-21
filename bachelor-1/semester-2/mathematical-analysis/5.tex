@@ -1,0 +1,158 @@
+\chapter{Лекции Широкова без нумерации парарафов}
+\section{Интегрирование по частям в определённом интеграле}
+$\\$ \begin{theorem} Пусть u,v $\in C([a,b]); \forall x\in[a,b] \ \exists u'(x),v'(x)$ и $u',v' \in C([a,b])$, тогда $uv',u'v \in C([a,b])$ и справедлива формула: $\int\limits_{a}^{b}{u(x)v'(x)}dx = u(b)v(b)-u(a)v(a)-\int\limits_{a}^{b}{u'(x)v(x)}dx \ \  \ \ (11)$
+\end{theorem}
+$\\$ \begin{proof} В формуле Ньютона- Лейбница(1) функцией F является любая первообразная функция f; Пусть $U \in C([a,b]), U'(x) = u(x)v'(x), x\in[a,b], V \in C([a,b]), V'(x)=u'(x)v(x), x \in [a,b]$ Существование функции U и V установлены в теореме из предыдущего пункта. По свойству интегрирование по частям в определенном интеграле существует постоянная $c_{0}$ т.ч. при $x \in [a,b]$ имеет U(x) = u(x)v(x) - V(x)+ $c_{0} \ \ \ (12)$
+$\\$ из (12) получаем U(b)-U(a) = (u(b)v(b)-V(b)+$c_{0}$) $-(u(a)v(a)-V(a)+c_{0}) = u(b)v(b)-u(a)v(a)-(V(b)-V(a))$ \ \  \ (13)
+$\\$ Но (1) влечёт U(b)-U(a) = $\int\limits_{a}^{b}{u(x)v'(x)}dx,V(b)-V(a)=\int\limits_{a}^{b}{u'(x)v(x)}dx$ \ \ (14)
+$\\$ Теперь (13),(14) $\Rightarrow (11)$
+\end{proof}
+\section{Замена переменной в определённом интеграле}
+$\\$ \begin{theorem} Пусть $f \in C([a,b]), \varphi \in  C([a,b]), \varphi$ строго возрастает, $\varphi(p)=q, \varphi(q) = b, $ и пусть $\varphi' \in C([p,q])$, тогда
+$\\$ $\int\limits_{a}^{b}{f(x)}dx =\int\limits_{p}^{q}{\varphi(t)\varphi'(t)}dt \ \ \ \ (15) $
+\end{theorem}
+$\\$ \begin{proof} По формуле замены переменной в неопредёленном интеграле справедлива формула $\int{f(x)}dx = \int{\varphi(t)\varphi'(t)}dt;$ Пусть F - какая-то первообразная функции f, тогда $F(\varphi(t))$- первообразная функции $f(\varphi(t))\varphi'(t)$.
+$\\$ По формуле (1) Ньютона-Лейбница имеем $\int\limits_{a}^{b}{f(x)}dx = F(b)-F(a)$, \ \ \ \ (16)
+$\\$ $\int\limits_{p}^{q}{f(\varphi(t))\varphi'(t)}dt = F(\varphi(q))-F(\varphi(p)) \ \ \ \ (17)$
+$\\$ Поскольку $\varphi(p)=a,\varphi(q)=b, \ (15)$ следует из (16) и (17) $\qed$
+\end{proof}
+\section{Первая теорема о среднем}
+$\\$ \begin{theorem} Пусть $f \in C([a,b]),\ g(x)\geq 0 \ g\in C([a,b])$ тогда существует $c \in (a,b) $ т.ч. $\int\limits_{a}^{b}{f(x)g(x)}dx = f(c)\int\limits_{a}^{b}{g(x)}dx \ \ \ (18)$
+\end{theorem}
+$\\$ \begin{proof} Пусть  M = $\underset{x \in [a,b]}{max}f(x), m = \underset{x\in[a,b]}{min}f(x),$ тогда $\forall x \in [a,b] $ имеем $mg(x) \leq f(x)g(x)\leq Mg(x)$, тогда $m\int\limits_{a}^{b}{g(x)}dx = \int\limits_{a}^{b}{mg(x)}dx\leq \int\limits_{a}^{b}{f(x)g(x)}dx \leq M\int\limits_{a}^{b}{g(x)}dx \ \ \ \ (19)$
+$\\$ Если $\int\limits_{a}^{b}{g(x)}dx = 0$, то (18) следует из (19) при $\forall c \in [a,b]$
+$\\$ Пусть $\int\limits_{a}^{b}{g(x)}dx > 0,$ тогда (19) $\Rightarrow m\leq  \frac{\int\limits_{a}^{b}{f(x)g(x)}dx}{\int\limits_{a}^{b}{g(x)}dx} \leq M \ \ \ (20)$
+$\\$ Из (20) следует по теореме о промежуточном значении, что $\exists c \in (a,b) $ т.ч. $\frac{\int\limits_{a}^{b}{f(x)g(x)}dx}{\int\limits_{a}^{b}{g(x)}dx} = f(c)$, что эквивалетно (18)
+\end{proof}
+$\\$ \begin{remark} Теорема остается справедливой при условии g(x) $\leq$ 0
+\end{remark}
+$\\$ \begin{corollary} Пусть $f \in C[a,b];$ полагая g(x)$\equiv$1, получим, что $\exists c \in [a,b]$ т.ч. $\int\limits_{a}^{b}{f(x)}dx = f(c)(b-a)$
+\end{corollary}
+\section{Вторая теорема о среднем}
+$\\$ \begin{theorem}Пусть функция f монотонна, $f' \in C([a,b]). g \in C([a,b])$, тогда $\exists c \in (a,b)$ т.ч. $\int\limits_{a}^{b}{f(x)g(x)}dx = f(a)\int\limits_{a}^{c}{g(x)}dx = f(b)\int\limits_{c}^{b}{g(x)}dx \ \ \ (21)$
+\end{theorem}
+$\\$ \begin{proof} Пусть G(x) = $\int\limits_{a}^{x}{g(y)}dy$, если x > a, и G(a) = 0. Тогда по теореме об интеграле с переменным верхним пределом G'(x) = g(x), $x\in[a,b]$ По теореме об интегрировании по частям имеем $\int\limits_{a}^{b}{f(x)g(x)}dx= \int\limits_{a}^{b}{f(x)G'(x)}dx = f(b)G(b)-f(a)G(a)-\int\limits_{a}^{b}{G(x)f'(x)}dx \ \ \  \ (22) \\$
+В силу монотоноости f выполнено $f'(x) \geq 0$ или f'(x)$\leq 0\ \forall x \in [a,b]$, поэтому по первой теореме о среднем $\exists c \in (a,b)$ т.ч. $\int\limits_{a}^{b}{G(x)f'(x)}dx = G(c)\int\limits_{a}^{b}{f'(a)}dx = G(c)(f(b)-f(a)) \ \ \ \ (23)$
+$\\$ Тогда (22) и (23) влекут $\int\limits_{a}^{b}{f(x)g(x)}dx =f(b)G(b)-f(a)G(a)-G(c)(f(b)-f(a))=f(b)(G(b)-G(c))+f(a)(G(c)-G(a)) \ \ \ \ (24)$
+$\\$ Поскольку G(b)-G(c)= $\int\limits_{c}^{b}{g(x)}dx, G(c)-G(a) = \int\limits_{a}^{c}{g(x)}dx \ \ \ (25)$. Тогда (24),(25) $\Rightarrow (21)$
+\end{proof}
+\section{Интеграл с переменным нижним пределом}
+$\\$ Пусть $f \in C([a,b]), \text{Ф}(b) = 0$ и Ф(x) = $\int\limits_{x}^{b}{f(y)}dy, a\leq x < b \ \ \ \ (26)$
+$\\$ Тогда Ф $\in C([a,b]),$ Ф'(x) = -f(x), x $\in [a,b]$
+$\\$ \begin{proof} Пусть a < x < b, F(x) = $\int\limits_{a}^{x}{f(y)}dy$. Тогда F(x) + Ф(x) = $\int\limits_{a}^{x}{f(y)}dy + \int\limits_{x}^{b}{f(y)}dy = \int\limits_{a}^{b}{f(y)}dy$, отсюда F'(x)+Ф'(x) = ($\int\limits_{a}^{b}{f(y)}dy$)' $\equiv 0$, тогда Ф'(x) = $-F'(x)=-f(x)$, что и требовалось.
+\end{proof}
+\section{Расширение применения символа определённого интеграла}
+$\\$ Пусть f $\in R([a,b])$ Тогда по определению полагаем $\int\limits_{b}^{a}{f(x)}dx = -\int\limits_{a}^{b}{f(x)}dx,\ \int\limits_{a}^{a}{f(x)}dx =\int\limits_{c}^{c}{f(x)}dx = 0 \ \forall c \in [a,b]$
+$\\$ При таком доопределении применения символа определённого интеграла формула Ньютона-Лейбница продолжает действовать: пусть F - первообразная для f, тогда $\int\limits_{b}^{a}{f(x)}dx = - \int\limits_{a}^{b}{f(x)}dx= -(F(b)-F(a))=F(a)-F(b) \ \ \int\limits_{c}^{c}{f(x)}dx = 0 = F(c)-F(c)$
+$\\$ Теперь можно сформулировать дополнение к утверждению о замене переменной в определенном интеграле.
+$\\$ \begin{theorem} Пусть $f\in R([a,b]), g:[-b,-a] \to R, g(x) = f(-x)$, тогда $g \in R([-b,-a])$ и $\int\limits_{a}^{b}{f(x)}dx=-\int\limits{-a}^{-b}{g(y)}dy = -\int\limits_{-a}^{-b}{f(-x)}dx \ \ \ \ (1)$
+\end{theorem}
+$\\$ \begin{proof} Пусmь $P = \{x_{k}\}_{k=0}^{n}$ - разбиение [a,b], положим $P^{-}= \{y_{l}\}_{l=0}^{n}$, где $y_{l}=-x_{n-l}$- разбиение [-b,-a]. Тогда, если $M_{l}^{-} = \underset{y \in [y_{l-1},y_{l}]}{sup}g(y), m^{-}_{l} = \underset{y \in [y_{l-1},y_{l}]}{inf}g(y)$, то тогда $M_{l}^{-} = \underset{x\in[-x_{n-l+1},x_{n-l}]}{sup}f(-x) = \underset{y\in[x_{n-l},x_{n-l+1}]}{sup}f(t) = M_{n-l+1}$ и аналогично $m_{l}^{-}=m_{n-l+1}, y_{l}-y_{l-1} =-x_{n-l}-(-x_{n-l+1})=x_{n-l+1}-x_{n-l},$ поэтому $U(g,P^{-})= \sum_{l =1}^{n}M_{l}^{-}(y_{l}-y_{l-1}) =\sum_{l = 1}^{n}M_{n-l+1}(x_{n-l+1}-x_{n-l})=\sum_{k=1}^{n}M_{k}(x_{k}-x_{k-1}) =U(f,P)$, аналогично $L(g,P^{-}) =L(f,P)$, поэтому $U(f,P^{-})-L(g,P^{-}) = U(f,P)-L(f,P) \ \ (2)$
+$\\$ Возьмем $\forall \epsilon > 0$, выьерем P так, чтобы $U(f,P)-L(f,P)<\epsilon$ Тогда (2) влечет, что $U(g,P^{-})-L(g,P^{-})<\epsilon,$ т.е. $g \in R([-b,-a])$. Положим I = $\int\limits_{a}^{b}{f(x)}dx$ Опять возьмем $\forall \epsilon > 0$, найдем $\delta_{0} > 0$ так, чтобы при $\delta(P) < \delta_{0}$ выполнялось соотношение $|S(f,P,T)-I|<\epsilon \ \ \ \  (3)$
+Выберем n так чтобы $\frac{l-a}{n} < \delta_{0},$ пусть $P = \{a=k\frac{b-a}{n}\}^{n}_{k=0}, T = \{a=k\frac{b-a}{n}\}^{n}_{k=1}$. Тогда S(f,P,T) = $\sum_{k=1}^{n}{f(a+k\frac{b-a}{n})}\cdot \frac{b-a}{n}$ Тогда $P^{-}=\{-b+l\frac{b-a}{n}\}_{l=0}^{n} $ и пусть $T^{-} = \{-b+l\frac{b-a}{n}\}_{l=0}^{n-1}$ \ $S(y,P^{-},T^{-})=  \sum_{l = 0}^{n-1}{g(-b+l\frac{b-a}{n})\frac{b-a}{n}} = \sum_{l=0}^{n-1}{f-(-b+l\frac{b-a}{n})\cdot \frac{b-a}{n}} = \sum_{l=0}^{n-1}{f(b-l\frac{b-a}{n})\cdot\frac{b-a}{n}}=\sum_{k=1}^{n}{f(a+k\frac{b-a}{n})\cdot\frac{b-a}{n}}=S(f,P,T),$ поэтому (3) $\Rightarrow |S(y,P^{-},T^{-})-I|<\epsilon $ \ \  \ \ \ (4)
+$\\$ Из (4) следует, что $\int\limits_{-a}^{-b}{g(y)}dy = -\int\limits_{-b}^{-a}{g(y)}dy = -I,$ что и доказывает (1)
+\end{proof}
+$\\$ \begin{corollary} Пусть $f \in C([a,b]), \varphi,\varphi' \in C([p,q]), \varphi $строго монотонно убывает, $\varphi(p) = b,\varphi(q) = a$ Тогда $\int\limits_{p}^{q}{f(\varphi(t))\varphi'(t)}dt = \int\limits_{\varphi(p)}^{\varphi(q)}{f(x)}dx = \int\limits_{b}^{a}{f(x)}dx$
+\end{corollary}
+$\\$ \begin{proof} Пусть $\psi$(y) = $\varphi(-y), y\in[-q,-p]$ Тогда $\psi'(y) - \varphi'(-y)\cdot(-1) \in C([-q,-p]),\psi$ строго возрастает, теореме о замене переменной в неопределенном интеграле имеем $\int\limits_{-q}^{-p}{f(\psi(y))\psi'(y)}dy = \int\limits_{b}^{a}{f(x)}dx \ \ \ (6) $
+$\\$ По уже доказанной теореме  $\int\limits_{-q}^{-p}{f(\psi(y))\cdot \psi'(y)}dy = \int\limits_{-q}^{-p}{f(\varphi(-y))\cdot \varphi'(-y)(-1)}dy=-\int\limits_{q}^{p}{f(\varphi(t))\varphi'(t)\cdot(-1)}dt = \int\limits_{q}^{p}{f(\varphi(t))\varphi'(t)}dt \ \ (7)$
+$\\$ (6),(7) $\Rightarrow$ $\int\limits_{p}^{q}{f(\varphi(t))\varphi'(t)}dt = - \int\limits_{p}^{q}{f(\varphi(t))\varphi'(t)}dt = -\int\limits_{a}^{b}{f(x)}dx = \int\limits_{b}^{a}{f(x)}dx \ \ \ \ \ $
+\end{proof}
+
+\section{Несобственные интегралы}
+$\\$  $\left.
+  \begin{array}{ccc}$
+  Пусть $f_{1} \in R([a,b])\ \forall \beta > a, \\
+  \ \ \ \ \ \ \ \ \  f_{2} \in R([\alpha,b])\ \forall \alpha < b \\
+  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f_{3} \in R([a,\beta])\ \forall \beta,\ a<\beta,b \\
+  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \   f_{4} \in R([\alpha,b])\ \forall \alpha,\ a<\alpha<b
+  \end{array}
+\right\}$ (8)
+$\\$ Предположения (8) влекут, что $\forall \beta$, где $\beta > a$ или a<$\beta < b$, определены функции $I_{j}(\beta) = \int\limits_{a}^{b}{f_{j}(x)}dx, j = 1,3 \ \ \ (9)$ и $\forall \alpha,$ где $\alpha<b$ или $a<\alpha < b$ определена функции $K_{j}(\alpha) = \int\limits_{a}^{b}{f_{j}(x)}dx, j = 2,4$ \ \ (10)
+$\\$ \begin{definition} Говорят, что несобственный интеграл $\int\limits_{a}^{\infty}{f_{1}(x)}dx$ или $\int\limits_{a}^{b}{f_{3}(x)}dx$ сходится, если $\exists \lim\limits_{\beta \to +\infty}{I_{1}(\beta))}\in \mathbb{R} \ \ \ \ (11)$
+$\\$ или, соответственно, $\exists \lim_{\beta \to b}{I_{3}(\beta)} \in \mathbb{R} \ \ \ (12)$ 
+$\\$ При этом по определению полаг $\int\limits_{a}^{\infty}{f_{1}(x)}dx = \lim\limits_{\beta \to + \infty}{F_{1}(\beta)}, \int\limits_{a}^{b}{f_{3}(x)}dx = \lim\limits_{\beta \to b-0}{I_{3}(\beta)}$
+$\\$ Говорят, что несобственный интеграл $\int\limits_{-\infty}^{b}{f_{2}(x)}dx$ или $\int\limits_{a}^{b}{f_{4}(x)}dx$ сходится, если $\exists \lim\limits_{\alpha \to -\infty}{K_{2}(\alpha)} \in \mathbb{R} \ \ \ (13)$
+$\\$ или, соответственно, $\exists \lim\limits_{\alpha \to a+0}{K_{4}(\alpha)} \in \mathbb{R} \ \ \ (14)$ При этом полагаем $\int\limits_{-\infty}^{b}{f_{2}(x)}dx = \lim\limits_{\alpha \to -\infty}{K_{2}(\alpha)}, \int\limits_{a}^{b}{f_{4}(x)}dx = \lim\limits_{\alpha \to a+0}{K_{4}(\alpha)} $
+$\\$ Если какое-то из условий (11)-(14) не выполняется, то говорят, что соответствующий несобственный интеграл расходиится и ему не приписываем числового значения.
+\end{definition}
+$\\$ Примеры несобственных интегралов:
+$\\$ $\int\limits_{1}^{\infty}{\frac{dx}{x^p}}, f_{1} = \frac{1}{x^p}; \int\limits_{1}^{2}{\frac{dx}{(2-x)^q}},f_{3} = \frac{1}{(2-x)^q}; \int\limits_{-\infty}^{0}{e^{-x^2}}, f_{2} = e^{-x^2}; \int\limits_{0}^{1}{\ln{x}}dx, f_{4} = \ln{x}$
+$\\$ Положим для сокращения вариантов формулировок $\beta_{0} = +\infty$ в (11), $\beta_{0}=b$ в (12), $\alpha_{0} = -\infty$ в (13),$ \alpha_{0}$ = a в (14) Соответственно $U(\beta_{0})$ - это окрестность $+\infty$ или b, $U(\alpha_{0})$ - окрестности $-\infty $ или a 
+\section{Критерий Коши сходимости несобственных интегралов}
+$\\$ \begin{theorem} Для того, чтобы несобственные интегралы в (11) или (12) сходимости, необходимо и достаточно, чтобы $\forall \epsilon > 0 \ \exists U(\beta_{0})$ т.ч. $\forall x_{1},x_{2} \in U(\beta_{0})$ выполено $|\int\limits_{x_{1}}^{x_{2}}{f_{j}(y)}dy| < \epsilon, j = 1,3 \ \ \ \ (15)$
+$\\$ Для того, чтобы несобственные интегралы в (13) и (14) сходились, необходимо и достаточно что $\forall \epsilon > 0 \ \exists U(\alpha_{0})$ т.ч. $\forall x_{1},x_{2} \in U(\alpha_{0})$ выполнено $|\int\limits_{x_{1}}^{x_{2}}{f_{j}(y)}dy|<\epsilon, j =2,4 \ \ \ \ \ (16)$
+\end{theorem}
+$\\$ \begin{proof} Проведем рассуждение для случаев j = 1,3 в (15), случаи j = 2,4 в (16) рассматриваются аналогично. По критерию Коши существования конечного предела функции $\exists \lim\limits_{x \to \beta_{0}}{f_{j}(x)} \in \mathbb{R} \Leftrightarrow \forall \epsilon > 0 \ \exists U_{\epsilon}(\beta_{0})$ т.ч. $\forall x_{1},x_{2} \in U_{\epsilon}(\beta_{0})$ имеет $|I_{j}(x_{2})-I_{j}(x_{1})| < \epsilon$. Пусть $a< x_{1}<x_{2} $ тогда $I_{j}(x_{2}) - I_{j}(x_{1})= \int\limits_{a}^{x_{2}}{f_{j}(y)}dy -\int\limits_{a}^{x_{1}}{f_{j}(y)}dy = \int\limits_{a}^{x_{1}}{f_{j}(y)}dy+\int\limits_{x_{1}}^{x_{2}}{f_{j}(y)}-\int\limits_{a}^{x}{f_{j}(y)}dy =\int\limits_{x-{1}}^{x_{2}}{f_{j}(y)}dy \Rightarrow(15) $
+\end{proof}
+\section{Несобственные интегралы от неотрицательных функций}
+$\\$ Предположим, что $f_{j}(x) \geq 0, j = 1,..4 $. Если $\beta_{0}>\beta_{2}>\beta_{1},$ то $I_{j}(\beta_{2})-I_{j}(\beta_{1})=\int\limits_{a}^{\beta_{2}}{f_{j}(x)}dx - \int\limits_{a}^{\beta_{1}}{f_{j}(x)}dx = \int\limits_{\beta_{1}}^{\beta_{2}}{f_{j}(x)}dx \geq 0 $ \ \ (1)
+$\\$ Если $\alpha_{0}<\alpha_{2}<\alpha_{1}$, то $K_{j}(\alpha_{2})-K_{j}(\alpha_{1}) = \int\limits_{\alpha_{2}}^{b}{f_{j}(x)}dx - \int\limits_{\alpha_{1}}^{b}{f_{j}(x)}dx = \int\limits_{\alpha_{2}}^{\alpha_{1}}{f_{j}(x)}dx \geq 0 \ \ (2)$
+$\\$ Из (1) и (2) следует, что при j = 1,3 функции $I_{j}(\beta)$ не убываают, а при j = 2,4 функции $K_{j}(\alpha)$ не возрастают. Это позволяет применить к функциям $I_{j}$ и $K_{j}$ критерий существования конечного предела, применение которого дает следующий результат
+$\\$ \begin{theorem} Пусть $f_{j}(x) \geq 0, x\in [a,\beta)$ или $x \in (\alpha,b]$ Для того, чтобы несобственный интеграл $\int\limits_{a}^{\beta_{0}}{f_{j}(x)}dx$ или $\int\limits_{\alpha_{0}}^{b}{f_{j}(x)}dx$ сходился, необходимо и достаточно, чтобы существоввали $M_{j} > 0$ такие, что $\int\limits_{a}^{\beta}{f_{j}(x)}dx \leq M_{j}, x\in[a,\beta_{0}),j = 1,3,$ или, соответсвенно, $\int\limits_{\alpha}^{b}{f_{j}(x)}dx \leq M_{j}, x\in(\alpha_{0},b], j = 2,4$ 
+\end{theorem}
+Доказательство было предпослано формулировке
+
+\section{Признаки сравнения несобственных интегралов от неотрицательных функций}
+$\\$ \begin{theorem} Пусть $f_{j}(x) \geq, x\in[a,\beta_{0})]$ или $x\in (\alpha_{0},b], c_{j} > 0$  и пусть $f_{j}(x)\leq c_{j}g_{j}(x) \forall x$ Тогда 
+$\\$ (A), если $\int\limits_{a}^{\beta_{0}}{g_{j}(x)}dx$ или $\int\limits_{\alpha_{0}}^{b}{g_{j}(x)}dx$ сходится, то и $\int\limits_{a}^{\beta_{0}}{f_{j}(x)}dx$ или $\int\limits_{\alpha_{0}}^{b}{f_{j}(x)}dx$ сходится, при этом $\int\limits_{a}^{\beta_{0}}{f_{j}(x)}dx \leq c_{j}\int\limits_{a}^{\beta_{0}}{g_{j}(x)}dx$ или $\int\limits_{\alpha_{0}}^{b}{f_{j}(x)}dx \leq c_{j}\int_{\alpha_{0}}^{b}{g_{j}(x)}dx \ \ \ (3)$
+$\\$ (B), если $\int\limits_{a}^{\beta_{0}}{f_{j}(x)}dx$ или $\int\limits_{\alpha_{0}}^{b}{f_{j}(x)}dx$ расходится, то и $\int\limits_{a}^{\beta_{0}}{g_{j}(x)}dx$ или $\int\limits_{\alpha_{0}}^{b}{g_{j}(x)}$ расходится
+\end{theorem}
+$\\$ \begin{proof} (А) По предыдущему критерию $\exists M_{j} > 0 $ т.ч. $\int\limits_{a}^{\beta}{g_{j}(x)}dx \leq M_{j}, \int\limits_{\alpha}^{b}{g_{j}(x)}dx \leq M; j = 1,...4 \ \ \ (4)$ Тогда условие и (4) влекут
+$\\$ $\int\limits_{a}^{\beta}{f_{j}(x)}dx \leq \int\limits_{a}^{\beta}{c_{j}g_{j}(x)}dx \leq cM_{j}, j = 1,3 \ \ (5)$
+$\\$ $\int\limits_{\alpha}^{b}{f_{j}(x)}dx \leq \int\limits_{\alpha}^{b}{c_{j}g_{j}}dx \leq cM_{j}, j =2,4 \ \ (6)$
+$\\$ (5) и (6) влекут, что $\int\limits_{a}^{\beta_{0}}{f_{j}(x)}dx, \int\limits_{\alpha_{0}}^{b}{f_{j}(x)}dx$ сходятся. Далее, условия влекут неравенства $\int\limits_{a}^{\beta}{f_{j}(x)}dx \leq \int\limits_{a}^{\beta}{c_{j}g_{j}(x)}dx = c_{j}\int\limits_{a}^{\beta}{g_{j}(x)}dx \ \ (7)$
+$\\$ $\int\limits_{\alpha}^{b}{f_{j}(x)}dx \leq \int\limits_{\alpha}^{b}{c_{j}g_{j}(x)}dx = c_{j}\int\limits_{\alpha}^{b}{g_{j}(x)}dx \ \ \ (8) $
+$\\$ Установлено, что пределы в левой части (7) или (8) конечно, пеоеходя в неравенствах (7) и (8) к пределу при $\beta \to \beta_{0}$ или $\alpha \to \alpha_{0}$ получаем (3). часть (A) доказана $\qed$
+$\\$ Доказательство (В) Если предположим, что $\int\limits_{a}^{\beta_{0}}{g_{j}(x)}dx$ или $\int\limits_{a}^{\beta_{0}}{g_{j}(x)}$ сходится, то применима часть (А) и тогда $\int\limits_{a}^{\beta_{0}}{f_{j}(x)}dx$ или $\int\limits_{\alpha_{0}}^{b}{f_{j}(x)}dx$ должны бы сходиться, что противоречит предположению. Часть (B) доказана
+\end{proof}
+
+\section{Важные примеры}
+$\\$ Пусть p>0, b > 0 Рассмотрим (1) $\int\limits_{0}^{b}{\frac{dx}{x^p}}; $ пусьб 0<p<1, \ 0<$\alpha$ < b Тогда $\int\limits_{\alpha}^{b}{\frac{dx}{x^p}} = \frac{1}{1-p}(b^{1-p}-\alpha^{1-p}) \underset{\alpha \to +0}{\to} \frac{1}{1-p}b^{1-p}, \ \ (9)$ т.е. при 0<p<1 $\int\limits_{0}^{b}{\frac{dx}{x^p}}$ сходится и (9) $\Rightarrow \int\limits_{0}^{b}{\frac{dx}{x^p}} = \frac{1}{1-p}b^{1-p}$
+$\\$ Пусть p = 1, тогда $\int\limits_{\alpha}^{b}{\frac{dx}{x}} = \ln{b} - \ln{\alpha} \underset{\alpha \to +0}{\to} +\infty, \ \ \ (11)$
+$\\$ Из (11) следует, что $\int\limits_{0}^{b}{\frac{dx}{x}}$ расходится
+$\\$ Пусть p>1, тогда $\int\limits_{\alpha}^{b}{\frac{dx}{x^p}}=\frac{1}{p-1}(\alpha^{1-p}-b^{1-p}) \underset{\alpha \to +0}{+\infty}, (12)$ и (12) $\Rightarrow \int\limits_{0}^{b}\frac{dx}{x^p}$ при p > 1 расходится
+$\\$ Пусть p > 0, a> 0 Рассмотрим $\int\limits_{a}^{\infty}{\frac{dx}{x^p}}$ Пусть p > 1, тогда $\int\limits_{a}^{\beta}{\frac{dx}{x^p}} = \frac{1}{1-p}(\beta^{1-p})-a^{1-p} = \frac{1}{p-1}(a^{1-p} - \beta^{1-p}) \underset{\beta \to +\infty}{\to}\frac{1}{p-1}a^{1-p} \ \ \ (13)$ т.е $\int\limits_{0}^{\infty}$ сходится и (13) $\Rightarrow$ $\int\limits_{a}^{\infty}{\frac{dx}{x^p}}=\frac{1}{p-1}a^{1-p}$
+$\\$ Пусть p = 1, тогда $\int\limits_{a}^{\beta}{\frac{dx}{x}} = \ln{\beta}-\ln{a} \underset{\beta \to +\infty}{\to} + \infty$, \ \ (14) т.е. $\int\limits_{a}^{\infty}{\frac{dx}{x}}$ расходится. Пусть 0<p<1, тогда $\int\limits_{a}^{\beta}{\frac{dx}{x^p}}=\frac{1}{1-p}(\beta^{1-p}-a^{1-p})$ + $\underset{\beta \to +\infty}{\to}$ + $\infty$ \ \ (15),
+$\\$ (15) $\Rightarrow$ $\int\limits_{a}^{\infty}{\frac{dx}{x^p}} $ расходится
+
+
+\section{Абсолютно сходящиеся интегралы}
+Пусть $f_j(x)$ могут иметь произвольный знак. Говорят, что $\int\limits_{a}^{\beta_0}{f_i(x)}dx $ или $\int\limits_{\alpha_0}^{b}{f_j(x)}dx $ абсолютно сходится, если сходятся несобственный интегралы $\int\limits_{a}^{\beta_0}{|f_j(x)|}dx$ или $\int\limits_{\alpha_0}^{b}{f_j(x)}dx $
+\begin{theorem}
+	Пусть $\int\limits_{a}^{\beta_0}{f_j(x)}dx$ или $\int\limits_{\alpha_0}^{b}{f_j(x)}dx$ абсолютно сходится. Тогда эти интегралы сходятся.
+\end{theorem}
+\begin{proof}
+	Докажем для случая $\int\limits_{a}^{\beta_0}{f_j(x)}dx$ для других случаев доказательство аналогично.
+	$\\$ Применим критерий Коши сходимости $\int\limits_{a}^{\beta_0}{|f_j(x)|}dx, j = 1,3 \\$
+	Пусть $\epsilon > 0$ - любое. Тогда $\exists$ окрестности $U_\epsilon(\beta_0)$ т.ч. $\forall \beta_1<\beta_2<\beta_0, \ \beta_1,\beta_2 \in U_\epsilon(\beta_0)$ выполнено $|\int\limits_{\beta_1}^{\beta_2}{f_j(x)}dx| < \epsilon$, при этом $|\int\limits_{\beta_1}^{\beta_2}{f_j(x)}|dx \geq 0 \\$
+	Тогда $|\int\limits_{\beta_1}^{\beta_2}{f_j(x)}dx|\leq \int\limits_{\beta_1}^{\beta_2}{|f_j(x)|}dx < \epsilon$ \ \ (16) \\
+	Из (16) следует, что $\int\limits_{a}^{\beta_0}{f_j(x)}dx$ сходится
+\end{proof}
+Признак Абеля и Дирихле сходимости несобственных интегралов
+\begin{theorem}[признак Абеля]
+	Пусть функция g(x) монотонна, $|g(x)| \leq M \ \forall x \in [a,\infty),$ и $\int\limits_{a}^{\infty}{f(x)}dx$ сходится. Тогда $\int\limits_{a}^{\infty}{f(x)g(x)}dx$ сходится
+\end{theorem}
+\begin{proof}
+	Пусть $\epsilon > 0$. Применяя условие, получаем, что $\exists$ окрстности $U_\epsilon(\infty)$ т.ч. $\forall \beta_2 > \beta_1, \beta_1,\beta_2 \in U_\epsilon(\infty)$ выполнено $|\int\limits_{\beta_1}^{\beta_2}{f(x)}dx| < \epsilon$  \ \ \ (17)
+Для дальнейшего проведения доказательства потребуется следующее утверждение, которое примет без доказательств
+\begin{assertion}
+	Вторая теорема о среднем справедлива при более слабых предположениях: достаточно предполагать f монотонная на $[a,b], g \in R[a,b] \\$
+\end{assertion}
+	Продолжим доказательство теоремы. 
+	По второй теореме о среднем с формулировке утверждения для $\beta_1.\beta_2 \ \exists \beta_3 \ \beta_1<\beta_3<\beta_2$
+ т.ч. $\int\limits_{\beta_1}^{\beta_2}{f(x)g(x)}dx = g(\beta_1)\int\limits_{\beta_1}^{\beta_2}{f(x)}dx +g(\beta_2)\int\limits_{\beta_3}^{\beta_2}{f(x)}dx \ \ (18) \\$
+ 	Из (17) и (18) $\Rightarrow$ $|\int\limits_{\beta_1}^{\beta_2}{f(x)g(x)}dx|\leq |g(\beta_1)|\cdot|\int\limits_{\beta_1}^{\beta_2}{f(x)}dx| + |g(\beta_2)||\int\limits_{\beta_3}^{\beta_2}{f(x)}dx| < M\epsilon + M\epsilon = 2M\epsilon$ \ \ (19) \\
+ 	Из (19) следует, что $\int\limits_{a}^{\infty}{f(x)g(x)}dx$ сходится 
+ \end{proof}
+
+\begin{theorem}[признак Дирихле]
+	Пусть функция g(x) монотонна, $g(x) \underset{\to}{x \to +\infty}0$, и $\exists M_1 > 0$ т.ч. $\forall a< \beta < \infty$ выполнено $|\int\limits_{a}^{\beta}{f(x)}dx|\leq M_1 \ \ \ (20)$ Тогда $\int\limits_{a}^{\infty}{f(x)g(x)}dx$ сходится
+\end{theorem}
+\begin{proof}
+	Выберем $\epsilon > 0$, тогда $\exists \beta_* > a$ т.ч. $\forall \beta > \beta_*$ выполнено $|g(\beta)|< \epsilon$ \ \ (21)
+	Из (20) и (21) следует, что $\forall \beta_1,\beta_2 > \beta_*$ выполнено $|\int\limits_{\beta_1}^{\beta_2}{f(x)}dx|=|\int\limits_{a}^{\beta_2}{f(x)}dx - \int\limits_{a}^{\beta_1}{f(x)}dx|\leq |\int\limits_{a}^{\beta_2}{f(x)}dx|+|\int\limits_{a}^{\beta_1}{f(x)}dx| \leq M_1+M_1 = 2M_1 \ \ (22) \\$
+	Выберем $\beta_2 > \beta_1 > \beta_*;$ по второй теореме о среднем в формулировке утверждения $\exists \beta_3 \ \beta_1<\beta_3<\beta_2$, т.ч. $\int\limits_{\beta_1}^{\beta_2}{f(x)g(x)}dx = g(\beta_1)\int\limits_{\beta_1}^{\beta_3}{f(x)}dx+g(\beta_2)\int\limits_{\beta_3}^{\beta_2}{f(x)}dx$ \ (23) \\
+	Из (21) - (23) $\Rightarrow$ $|\int\limits_{\beta_1}^{\beta_2}{f(x)g(x)}dx| \leq |g(\beta_1)||\int\limits_{\beta_1}^{\beta_3}{f(x)}dx|+|g(\beta_2)||\int\limits_{\beta_3}^{\beta_2}{f(x)}dx| < 2M_1\epsilon + 2M_1\epsilon = 4M_1\epsilon$ \ \ (24)
+	(24) доказывает теорему.
+\end{proof} 

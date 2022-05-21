@@ -1,0 +1,292 @@
+\chapter{Пространства $\mathbb{R}^n$}
+\section{простанства $\mathbb{R}^n$}
+\begin{definition}
+	Пространством $\mathbb{R}^n$ будем называть множество упорядоченных наборов из n вещественных чисел, $n \geq 2$ Упорядоченные наборы n вещественных чисел будем записывать в строку $(x_1,...x_n)$, в таком случае говорим, что $\mathbb{R}^n$ реализовано как множество вектор- строк $(x_1,...x_n)$ или же записываем в столбец $\begin{bmatrix} x_1 \\ .\\ .\\ x_n \end{bmatrix}$, тогда говорим, что $\mathbb{R}^{n}$ реализовано как множество вектор-столбцов. В каждом случае $x_k$ называем k-той координатой элемента из $\mathbb{R}^n$; по определению полагаем $\mathbb{R}^1 =\mathbb{R}$. Далее некоторое время будем считать, что $\mathbb{R}^n$ реализовано как множество вектор-строк. Через $\mathbb{O}_n$ обозначаем элемент $\mathbb{O}_n = (0,...,0)$. В $\mathbb{R}^n$ определены операции: если $c \in \mathbb{R}$, $X = (x_1,...x_n)$, то с $X \overset{по опр}{=} (сX_1,...cX_n);$ если $X = (x_1,...x_n), y = (y_1,...y_n),то X + Y = (x_1 + y_1,...,x_n +y_n), (X,Y) = x_1y_1+...x_ny_n \\$
+	Нормой $||X||$ назовем выражение $||X|| = \sqrt{x_1^2+..x_n^2},$ где $X =(x_1,...x_n) \\$ Отметим, что $(X,X) = ||X||^2$
+\end{definition}
+\section{Свойства нормы}
+\begin{property}
+	\begin{enumerate}
+		\item $||X|| \geq 0; \ ||X|| = 0 \Leftrightarrow X = \mathbb{O}_n$ - понятно
+		\item $c \in \mathbb{R},$ тогда $||cX|| = \sqrt{(cx_1)^2+..+(cx_n)^2} = |c|\sqrt{x_1^2+...x_n^2} = |c|\cdot||X||$
+		\item $||X+Y|| \leq ||X|| + ||Y|| \ \ \ (1)$
+	\end{enumerate}
+\end{property}
+\begin{proof}[3)]
+	Если $X +Y = \mathbb{O}_n$, то (1) следует из свойства 1. Пусть $Z = X + Y \neq \mathbb{O}_n, Z = (z_1,...z_n), ||z_n|| = t > 0$. Пусть $W = \frac{1}{t}\cdot z,$ тогда  2. $\Rightarrow$ $||W|| = \frac{1}{t}||Z|| = \frac{1}{t}\cdot t = 1$. Пусть $W = (w_1,...w_n),$ тогда $(Z,W) = z_1w_1+...z_nw_n = (x_1+y_1)w_1 + ...(x_n+y_n)w_n = (x_1w_1+...+x_nw_n) + (y_1w_1+...+y_nw_n) = (X,W)+ (Y,W)$ Неравенство Коши-Буняковского-Шварца (случай неравенства Гёльдера при p = q = 2) влечёт соотношения $|(X,W)| \leq ||X||\cdot||W||, \ |(Y,W)|\leq ||Y||\cdot ||W||, (2)$ при этом (2) $\Rightarrow |(Z,W)| \leq |(X,W)| + |(Y,W)| \leq ||X|| + ||Y||,  \ \ (3)$ поскольку $||W|| = 1$. Но $(Z,W) = z_1w_1+...z_nw_n = z_1\cdot\frac{1}{t}z_1 + ...+z_n\cdot \frac{1}{t}z_n = \frac{1}{t}||Z||^2 = ||Z|| \ \ (4) \\$
+	Теперь (2)-(4) $\Rightarrow$ (1).  
+ \end{proof}
+ При n = 1 свойства 1.-3. выполнены, при $x \in \mathbb{R} \ ||x|| = \sqrt{x_1^2}= |x|\ \\ $
+ Из свойств 1.-3. получаем, что $\mathbb{R}^n-$ метрическое пространство с метрикой d(X,Y) = ||X-Y|| \ (5) \\
+ \begin{proof}
+ Установим, что (5) - метрика
+ \begin{enumerate}
+ 	\item $d(X,Y) \geq 0$; если $d(X,Y) = 0 \Leftrightarrow ||X-Y|| = 0 \Leftrightarrow X - Y = \mathbb{0}_n \Leftrightarrow X = Y$
+ 	\item $d(Y,X) = ||Y-X|| = 1\cdot ||Y-X|| = ||(-1)\cdot (Y-X)|| = ||X-Y|| = d(X,Y)$
+ 	\item $d(X,Z) = ||X-Z|| = ||(X-Y) + (Y-Z)|| \leq d(X,Y) + d(Y,Z)$
+ \end{enumerate}
+\end{proof}
+\section{Применение общих соображений из 1 семестра}
+Применим определения, относящиеся к точкам сгущения, пределам последовательностей и пределам функции и их свйоствам, справедливым для любого метрического пространства. Запишем эти определения, используя конкретный вид метрики d(X,Y) из (5).
+\begin{definition}
+	Пусть $E \subset \mathbb{R}^n, A \in \mathbb{R}^n , n \geq 1$. Говорим, что А является точкой сгущения для множества E, если $\forall \epsilon > 0 \  \exists X \in E, X \neq A $ т.ч. $||X-A|| < \epsilon$
+\end{definition}
+\begin{assertion}
+	Пусть $E \subset \mathbb{R}^n, А \in \mathbb{R}^n, A $- точка сгущения множества Е. Тогда $\exists \{X_n\}_{n = 1}^{\infty}, X_n \in E, X_n \neq x_m$, если $n \neq m, X_n \neq A \ \forall n $ и $X_n \underset{n \to \infty}{\to} A. \\$
+	\end{assertion}
+Было дказано для любого метрического пространства. Напомню, что $X_n \underset{n \to \infty}{\to}A$ означает по определению $d(X_n,A) = ||X_n-A|| \underset{n \to \infty}{\to} 0 \\ $ 
+Пусть $E \subset \mathbb{R}^n, E \neq \emptyset, f: E \to \mathbb{R}$ - функция, заданная на E (т.е. $\forall X \in E$ сопоставляется f(x) $\in \mathbb{R})$. Далее, с учетом записи $X = (x_1,...x_n)$, в ряде случаев функцию f будем обозначать $f(x_1,...x_n). \\$
+Опредление предела функции записывается так:
+\begin{definition}
+	Пусть E $\subset \mathbb{R}^n, A$ -точка сгущения множества E, $f: E \to \mathbb{R}$ - функция, заданная на Е, $c \in \mathbb{R}$. Говорим, что $f(x) \underset{X \to A}{\to} 0$ или $\lim\limits_{X \to A}{f(x)}= c,$ если $\forall \epsilon > 0 \ \exists \delta > 0$ т.ч. $\forall X \in E, X \neq A, ||X-A|| < \delta$ выполнено $|f(X)-c|<\epsilon$ (6)
+\end{definition}
+
+\begin{theorem}
+	Пусть$ E \subset \mathbb{R}^n, A $ - точка сгущения множества $E, c \in \mathbb{R}$. Тогда для того, чтобы $f(x) \underset{X \to A}{\to} c, $ необходимо и достаточно, чтобы $\forall \{X_m\}_{m=1}^{\infty}$ т.ч.$ X_m \in E, X_m \neq A, X_m \underset{m \to \infty}{\to} A$, выполнялось $f(X_m) \underset{m \to \infty}{\to} c \\$
+\end{theorem}
+Было доказано для метрических пространств для пределорв функций, заданных на подмножествах пространства $\mathbb{R}^n$, в силу предыдущей теоремы выполнены все свойства, справедливые для пределов функций от одной переменной, за исключением свйоств пределов монотонных функций. В частности, справедлив критерий Коши.
+\begin{theorem}
+	Пусть $E \subset \mathbb{R}^n, n \geq 1, A \in \mathbb{R}^n$ - точка сгущения множества E, $f: E \to \mathbb{R}.$ Для того, чтобы $\exists c \in \mathbb{R}$ такое, что $f(x) \underset{X \to A}{\to} c$, необходимо и достаточно, чтобы $\forall \epsilon > 0 \  \exists \delta > 0$ т.ч. $\forall X_1,X_2 \in E, X_1 \neq A, X_2 \neq A $, $|X_1 - A| < \delta, |X_2-A| < \delta$ выполнялось соотношение $|f(X_2)-f(X_1)|<\epsilon$
+ \end{theorem}
+\section{Непрерывность функции в точке}
+\begin{definition} Пусть $A \in E, E \subset \mathbb{R}^n,A -$ точка сгущения множества E $f: E \to \mathbb{R}$. Будем говорить, что f непрерывна в А, если $\exists \lim\limits_{X \to A}{f(x)}$ и $\lim\limits_{X \to A}{f(x)} = f(A) \\$
+\end{definition}
+Из свойств пределов следуют следующие свойства непрерывных в точке функций
+
+\begin{property}
+	\begin{enumerate}
+		\item f непр в A $\Rightarrow$ cf непр в А
+		\item f,g непр в А $\Rightarrow$ f$\pm$g непр в А
+		\item f,g непр в А $\Rightarrow$ fg непр в А
+		\item f непр в А, $f(x) \neq 0, X \in E \Rightarrow \frac{1}{f}$ непр в А
+		\item f, как в 4., g - непр в $А \Rightarrow \frac{g}{f}$ непр в А
+	\end{enumerate}
+\end{property}
+Отметим, что в п.4 и п.5 из $A \in X$ следует $f(A) \neq 0$, пооэтому корректно применять свойства предела функции: если $f(X) \neq 0, X \in E,$ и $\exists \lim\limits_{X \to A}{f(X) \neq 0},$ то $\lim\limits_{X \to A}{\frac{1}{f(X)}} = \frac{1}{\lim\limits_{X \to A}{f(X)}} \\$
+
+В прошлом семестре определялся предел отображения $F : X \to Y$ из метрического пространства X в метрическое пространство Y Будем применять это определение в конкретном случае $X \subset \mathbb{R}^n, Y \subset \mathbb{R}^m, n,m \geq 1$, между собой они не связаны. Если $X \subset \mathbb{R}^n$ - непустое множество, то оно может быть поделено метрикой из $\mathbb{R}^n$, именно, $d_x(A,B) \overset{по опр}{=} ||A-B||_{\mathbb{R}^n},A,B \in X$, где индекс X означает множество X, а индекс $\mathbb{R}^n$ означает, что рассматривается метрика в $\mathbb{R}^n$. Применяя упомянутое определение, для $F: X \to Y, X \in \mathbb{R}^n, \ Y \in \mathbb{R}^n$, при $A_0 \in \mathbb{R}^n$ - точка сгущения $X, C_0 \in \mathbb{R}^m$, получаем следующе условие: $F(A) \underset{A \to A_0}{\to} C_0$ или $\lim\limits_{A \to A_0}{F(A)}= C_0$, если $\forall \epsilon > 0 \ \exists \delta > 0$ т.ч. $\forall A \in X \backslash\{A_0\}, ||A -A_0||_{\mathbb{R}^n} <\delta$ выполнено $||F(A)-C_0||_{\mathbb{R}^m} < \epsilon$ \ \ \ (1) \\
+Запишем F(A) как вектор-строку, $F(A) = (f_1(A),...f_m(A)). $ Получим набор m функций $f_1:X \to \mathbb{R},...m f_m: X \to \mathbb{R}$, заданных на множестве X. Эти функции будем называть координатными функциями отображения F \\
+Пусть $C_0 = (c_0,...,c_{0_m})$
+\begin{theorem}
+	Для того, чтобы $F(A) \underset{A \to A_0}{\to} C_0$, необходимо и достаточно, чтобы при j = 1,...m выполнялось соотношение $f_j(A) \to C_{0_j}$ 
+\end{theorem}
+\begin{proof}
+Пусть $ F(A) \to C_0,$ т.е. выполнено (1). Возьмем $\forall j, 1\leq j \leq m.$ Учтем, что $|f_j(A) - C_{0_j}| \leq \sqrt{\sum_{k = 1}^{m}{(f_k(A)-C_{0_k}^2}} = ||F(A) -C_0||_{\mathbb{R}^m}$, поэтому, если взято $\forall \epsilon > 0$ и выбрано $\delta > 0$ так, что при $A \in X \backslash {A_0}, ||A-A_0||_{\mathbb{R}^n} < \delta$ имеем $||F(A)-C_0||_{\mathbb{R}^m}<\epsilon$, то (2) $\Rightarrow |f_j(A)-C_{0_j}|<\epsilon$ т.е. $f_j(A) \underset{A \to A_0}{\to} C_{0_j} \ \ (3)$ при всех j, 1 $ \leq j\leq m$. Возьмем $\forall \epsilon > 0$, тогда (3) $\Rightarrow \exists \delta_j > 0$ т.ч. $\forall A \in X \backslash \{A_0\},||A-A_0||_{\mathbb{R}^n}<\delta$; выполнено $|f_j(A)-C_{0_j}| < \epsilon \ \  (4) \\ $
+Пусть $\delta = \underset{1 \leq j \leq m}{\delta_j}$ Тогда при $||A-A_0||_{\mathbb{R}^n} < \delta , A \in X \backslash A_0$ \ \ (4) $\Rightarrow ||F(A) -C_0||_{\mathbb{R}^m}=\sqrt{(f_1(A)-C_{0_1})^2+...+(f_m(A)-C_{0_m})^2} < \sqrt{m\epsilon^2} = \sqrt{m}\epsilon$, т.е. $F(A) \underset{A \to A_0}{\to } C_0$
+\end{proof}
+\section{Непрерывность отображения в точке}
+\begin{definition}
+	Пусть $X < \mathbb{R}^n, Y \subset \mathbb{R}^m, n,m \geq 1, A_0 \in X, A_0$ -точка сгущения X, $F: X \to Y$ Будем говорить, что F непрерывна в $A_0$, если $\exists \lim\limits_{A \to A_0}{F(A)}$ и $\lim\limits_{A \to A_0}{F(A)} = F(A_0)$
+\end{definition}
+\section{Непрерывность суперпозиции отображений}
+\begin{theorem}
+	Пусть $X \subset \mathbb{R}^n, Y \subset \mathbb{R}^n, W \subset \mathbb{R}^k, n,m,k \geq 1, A_0 \in X, A_0$ -точка сгущения X, $B_0 \in Y, B_0$ - точк сгущения Y, отображение $F: X \to Y$ и $G: Y \to W$, при этом $F(A_0) = B_0$, F непрерывно в $A_0, G непрерывно в B_0, \text{Ф}:X \to W, \text{Ф}(A) = G(F(A)).$ Тогда Ф непрерывно в $A_0$
+\end{theorem}
+\begin{proof}
+	Положим $G(B_0) = C_0,$ тогда Ф($A_0$)= G(F($A_0$)) = G($B_0$) = $C_0$. Выберем $\forall \epsilon > 0.$ В силу ннепрерывности отображения G в точке $B_0 \exists \sigma > 0$ т.ч. $\forall B \in Y, B \neq B_0, ||B - B_0||_{\mathbb{R}^m} < \sigma$ выполнено $||G(B)-G(B_0)||_{\mathbb{R}^k}< \epsilon \ \ (5) \\$
+	Соотношение (5) справедливо и при $B = B_0$, поэтому условие $B = B_0$ можно не учитывать. В силу непрерывности F в точке $A_0$ для $\sigma > 0 \ \exists \delta > 0$ т.ч. $\forall A \in X, A\neq A_0,||A-A_0||_{\mathbb{R}^n} < \sigma$ выполняется $||F(A)-F(A_0)||_{\mathbb{R}^m} < \sigma \ \ (6) \\$
+	Если положить B = F(A), $B_0 = F(A_0)$, то (5) и (6) при указаных условиях на А влекут ||Ф(А)-Ф($A_0)||_{\mathbb{R}^k} = ||G(F(A))-G(F(A_0))||_{\mathbb{R}^k} = ||G(B)-G(B_0)||_{\mathbb{R}^k}< \epsilon$
+\end{proof} 
+Пусть $F_0 \in X \subset \mathbb{R}^n,A_0$ - точка сгущения X, $F: X \to Y, Y \subset \mathbb{R}^m, F(A) = (f_1(A),...,f_m(A))$ Применяя теорему о пределе F и пределах $f_j$, получаем следующее увтерждение
+\begin{theorem}
+Для того, чтобы отображение F было непрерывно в точке $A_0$, необходимо и достаточно, чтобы при j = 1,...m были непрерывно в $A_0$ координатные функции $f_j$
+\end{theorem}
+\begin{definition}
+
+	Пусть $X \subset \mathbb{R}^n,n \geq 2, X \neq \emptyset.$ Множество X будем называть ограниченным, если $\exists R > 0$ т.ч.$\forall A \in X$ выполнено $||A||_{\mathbb{R}^n} \leq R \\$
+	Далее будут использоваться следующие геометрические объекты. Пусть $a_1<b_1... a_n < b_n$ открытым параллелепипедом П$(a_1,b_1;...;a_n,b_n)$ будем называть множество П($a_1,b_1;...;a_n,b_n$) = $\{A = (x_1,...x_n)\in \mathbb{R}^n: f_j < X_j < b_j , j =1...n\} \\ $
+
+
+	Замкнутым параллелепипедом $\overline{П}$($a_1,b_1;...;a_n,b_n$) назовем множество $\overline{П}(a_1b_1;...;a_nb_n) = \{ A = (x_1,...x_n)\in \mathbb{R}^n: a_j \leq x_j \leq b_j , j = 1...n \} \\$
+	Открытым шаром $B_{r(A)}$ с центром в A и радиусом r назовем множество $B_r(A)=\{C = (c_1,...c_n)\in \mathbb{R}^n:||C-A||_{\mathbb{R}^n} < r \} \\ $
+	Замкнутым щаром $\overline{B_r}(A)$ с центром в A и радиусом r назовем множество $\overline{B_r}(A) = \{ C = (c_1,...,c_n) \in \mathbb{R}^n : ||C-A||_{\mathbb{R}^n} \leq r\} $
+	Сферой $S_{r(A)}$ с центром в А и радиусом r назовем множество $S_{r(A)} = \{C = (c_1,...,c_n)\in \mathbb{R}^n : ||C - A||_{\mathbb{R}^n} = r\}$
+
+
+\end{definition}
+\section{Принцип выбора Больцано-Вейерштрасса.}
+\begin{theorem}
+	Пусть имеется ограниченная последовательность $\{A_m\}_{m=1}^{\infty}, A_m \in \mathbb{R}^n , n \geq 2$ т.е. $\exists R > 0$ т.ч. $\forall m$ выполнено $||A_m||_{\mathbb{R}^n} \leq R.$ Тогда $\exists$ Последовательность $\{A_{m_k}\}_{k=1}^{\infty}$ и $C \in \mathbb{R}^n$ такие, что $A_{m_k} \underset{k \to \infty}{\to} C$. 
+\end{theorem}
+\begin{proof}
+	В случае n = 1, т.е. при $A_m \in \mathbb{R}',$ это утверждение было доказано в первом семестре. Положим $A_m = (a_{1_m},a_{2_m},a_{n_m})$ Поскольку $|a_{j_m}| \leq ||A_m||_{\mathbb{R}^n} \leq \mathbb{R} \ \forall m, \forall j, 1 \leq j \leq n,$ то к числовой последовательности $\{a-{1_m}\}_{m = 1}^{\infty}$ можно применить принцип выбора Больцано Вейерштрасса и $\exists \{a_{1_{m_l}}\}_{l =1}^{\infty}$ и $c_1 \in \mathbb{R}$ т.ч. $a_{1_{m_l}} \underset{l \to \infty}{\to} c_1 \ \  (7) \\ $
+	Оставим в последовательности $\{A_m\}_{m=1}^{\infty}$ только элемент с номерами $m_{l}$ По-прежнему будет выполняться условие $||A_{m_l}||_{\mathbb{R}^n} \leq \mathbb{R} \ \forall l \\$
+	Пусть $A_l' = A_{m_l}, a_{j_l}'=a_{j_{m_l}},$ тогда (7) $\Rightarrow a_{1_l}' \underset{l \to \infty}{\to} c_1 \ \ (8) \\$
+	Применим приницип выбора Больцано-Вейерштрасса и последовательности $\{a_{2_l}'=a_{j_{m_l}}\}, $ тогда можно найти, подпоследовательности $\{a_{2_{l_k}}'\}_{k = 1}^{\infty}$ и число $c_2 \in \mathbb{R}$ т.ч. $a_{2_{l_k}}' \underset{k \to \infty}{\to} c_2$. Пусть $A_k''= A_{l_k}'$, тогда (8) $\Rightarrow$ $a_{1_{l_k}}' \underset{k \to \infty}{\to} c_1$, а также $a_{2_{l_k}}' \underset{k \to \infty}{\to} c_2 \ \ (9) \\$
+	Последовательность $\{A_k''\}_{k=1}^{\infty}$ - это подпоследовательности последовательности $\{A_l'\}_{l =1}^{\infty}$, которая является подпоследовательностью $\{A_m\}_{l = 1}^{\infty}$, т.е. $\{A_k''\}_{k =1}^{\infty}$ является подпоследовательность $\{A_m\}_{m = 1}^{\infty}$ Теперь рассматриваем последовательность $\{a_{3_k}''\}_{k=1}^{\infty} = \{a_{3_{l_k}}'\}_{k=1}^{\infty}$, применяем к ней предыдущее рассуждение, выделяем подпоследовательность $\{a_{3_{k_q}}''\}_{q = 1}^{\infty}$ т.ч. для некоторого $c_3 \in \mathbb{R}$ $a_{3_{k_q}}'' \underset{q \to \infty}{\to} c_3 \ \  \ (10) \\ $
+	Эту операцию проводим n раз, всякий раз прореживая предыдущую последовательность. В конце получим последовательность $\{A_s^{(n)}\}_{s = 1}^{\infty}$, являющийся подпоследовательностью $\{A_m\}_{m = 1}^{\infty}$, для которой выполнено $a_{ns}^{(n)} \underset{s \to \infty}{\to} c_n, (11)$  \ \ \ Тогда (8),(9),(10),(11) влекут, что $a_{js}^{(n)} \underset{s \to \infty}{\to} c_j , 1 \leq j \leq n \ \ (12)$. Пусть $C =(c_1,..c_n)$, тогда (12) $\Rightarrow$ $A_s^{(n)} \underset{s \to \infty}{\to} C \in \mathbb{R}^{n}$ Требуемая подпоследовательность построена.
+\end{proof}
+\begin{definition}
+	Пусть $E \subset \mathbb{R}^n,n \geq 1$. Множество E называестя открытым, если либо $E = \emptyset$, либо $\forall A \in E \ \exists r > 0$ т.ч. $B_r(A) \subset A$. Точка $A \in E$, т.ч. $\exists r > 0$ , для которого $B_r(A) \subset E$, называется внутренней. 
+\end{definition}
+\begin{example}
+	$B_r(A)$, П($a_1,b_1;...;a_n,b_n$)$\overline{b} \mathbb{R}^n$ - ЕСли поймете дайте знать  
+
+	Проверим, что $B_r(A)$ открыт. Пусть $C \in B_r(A)$ Тогда $||C-A||_{\mathbb{R}^n} < r$. Положим $\varrho = r - ||C - A||_{\mathbb{R}^n}$, и пусть $C_1 \in B_{\varrho}(C)$. Тогда $||C_1 -A||_{\mathbb{R}^n}=||(C_1-C)+(C-A)||_{\mathbb{R}^n} \leq ||C_1 - C||_{\mathbb{R}^n} + ||C - A||_{\mathbb{R}^n} < \varrho + ||C-A||_{\mathbb{R}^n} = r,$ т.е. $c_1 \in B_r(A)$ и $B_{\varrho}(C) \subset B_r(A)$
+\end{example}
+\begin{definition}
+	Пусть $F \subset \mathbb{R}^n$. Множество F называют замкнутым, если $\mathbb{R}^n \backslash F$ открыто
+\end{definition}
+\begin{example}
+	$\mathbb{R}^n = \mathbb{R}^n \backslash \emptyset$ - замкнуто; $\\$
+	$\emptyset = \mathbb{R}^n \ \mathbb{R}^n$ - замкнуто $\\$
+	$\overline{B}_r(A), \overline{П}(a_1,b_1;...;a_n,b_n)$ - замкнуто
+\end{example}
+\begin{assertion}
+	Одновременно открытым и замкнутыми подмножествами $\mathbb{R}^n$ являются только $\emptyset$ и $\mathbb{R}^n$ (без док-ва)
+\end{assertion}
+\begin{theorem}
+	Пусть $E \subset \mathbb{R}^n, E \neq \emptyset, E \neq \mathbb{R}^n$. Тогда E замкнуто тогда и только тогда, когда $\forall A \in \mathbb{R}^n$, которая является точкой сгущения для Е, выполнено$ A \in E$
+\end{theorem}
+\begin{proof}
+	Пусть E замкнуто, но $\exists A \in E$ т.ч. А - точка сгущения Е. Пусть $G = \mathbb{R}^n \backslash E,$ тогда по определению G открыто и $A \in G$. Тогда $\exists r > 0$ т.ч. $B_r(A) \subset G$ т.е. $B_r(A) \cap E = \emptyset,$ и А не может быть точкой сгущения Е. Пусть теперь $\forall A$, которая является точкой сгущения Е, принадлежит Е. Если Е - не замкнуто, то $G = \mathbb{R}^n \backslash E$ не открыто, т.е. $\exists A_0 \in G$ т.ч. $\forall r > 0 $ выполнено $B_r(A_0) \not\subset G$, т.е. $\forall r > 0 \ B_r(A_0) \cap \emptyset,$  т.е. $A_0$ - т.сг.Е, но $A_0 \notin E$ - противоречие 
+\end{proof}
+\begin{definition}
+	Пусть $E \neq \emptyset, Y \notin E, E \subset \mathbb{R}^n.$ Точка Y называется внешней по отношению к Е, если Y внутренняя для $\mathbb{R}^n \backslash E.$ Точка $Z \in \mathbb{R}^n$ называется граничной точкой Е, если она не внутренняя и не внешняя.
+\end{definition}
+\begin{definition}
+	Множество $E \subset \mathbb{R}^n, E \neq \emptyset, n \geq 1,$ называется компактом, если оно замкнуто и ограничено.
+\end{definition}
+\begin{theorem}[Первая теорема Вейерштрасса]
+	 Пусть $E \subset \mathbb{R}^n, E - $ компакт. функция f: $E \to \mathbb{R}$. Предположим, что для $\forall A \in E,$ A - точка сгущения Е, функция f непрерывна в А. Тогда f ограничена, т.е. $\exists M > 0$ т.ч. $\forall X \in E$ выполнено $|f(x)| \leq M$ 
+\end{theorem}
+\begin{proof}
+	Предположим, что утверждение неверно, т.е. $\forall m \in \mathbb{N} \ \exists X_m \in E$ т.ч. $|f(X_m)|>m$ Поскольку множество E ограничено, то ограничена и последовательность $\{X_m\}_{m=1}^{\infty}$, т.е. $\exists R > 0$ т.ч. $\forall m$ выполнено $||X_m||_{\mathbb{R}^n} \leq R.$ По принципу выбора Больцано-Вейерштрасса $\exists A \in \mathbb{R}^n$ и $\{x_{m_k}\}_{k = 1}^{\infty}$ т.ч. $X_{m_k} \underset{k \to \infty}{\to} A$. В силу предположения имеем $|f(X_{m_k})| > m_k \geq k$,поэтому среди точек $X_{m_k}$ имеется бесконечно много различных, что влечет, что А - точка сгущения для подпоследовательности $\{X_{m_k}\}_{k=1}^{\infty}$, и, посокльку $X_m \in E$, то А - точка сгущения для множества Е. Поскольку Е замкнуто, то $A \in E$. В силу непрерывности функции f в точке A $\in$ E, $\exists \delta > 0$ т.ч. $\forall x \in E$, $X \neq A$ выполнено $|f(X)-f(A)|<1$, \ \ $|f(X)| \leq |f(A)|+|f(X)-f(A)| < |f(A)| + 1 \ \ (1)$
+	Поскольку $X_{m_k} \underset{k \to \infty}{\to} A$, то $\exists K_0$ т.ч. $\forall k > K_0$ выполнено $||X_{m_k}-A||_{\mathbb{R}^n}<\delta,$ и тогда (1) влечёт при k > $K_0$ соотношение $|f(X_{m_k})| < |f(A)| +1 \ \ (2)$ Если взять, кроме того $k_1 > |f(A)| + 1,$то должно выполняться $|f(X_{m_{k_1}})| > m_{k_{1}}\geq k_1 > |f(A)| + 1 $ - противоречие с (2). 
+\end{proof}
+\begin{theorem}[Вторая теорема Вейерштрасса]
+	Пусть $E \subset \mathbb{R}^n$ - компакт, $f: E \to \mathbb{R}$, для любой точки сгущения $A \in E$ функция f непрерывна в А. Тогда существуют $X_{\textunderscore},X_{+} \in E$ такие, что для $\forall X \in E$ выполнено $f(X_{\textunderscore}) \leq f(X) \leq f(X_{+}) \ \ (3)$
+\end{theorem}
+\begin{proof}
+	Докажем правое неравенство. По первой теореме Вейерштрасса функция f ограничена, поэтому $M \underset{по опр}{=} \underset{x \in E}{sup}f(x) \in \mathbb{R}$. Если $\exists X_{+} \in E$, для которой $M = f(X_{+})$
+,то (3) выполнено. Предположим, что $\forall X \in E$ вполнено f(x) < M, усть $\varphi(X) = M - f(X)$. Тогда $\varphi(X) > 0 \ \forall X \in E, \varphi$ непрерывно в $\forall A \in E,$ являющейся точкой сгущения Е. Поэтому определена функция $g: E \to \mathbb{R}, g(x) = \frac{1}{\varphi(x)},$ и g непрерывна в $\forall A \in E$, А - точка сгущения. По первой теореме Вейерштрасса g ограничена, т.е. $\exists L > 0$ т.ч. $g(x) \leq L \forall X \in E$. Поскольку $\varphi(x) > 0, $то g(x)>0, и $g(x) \leq L \Leftrightarrow \varphi(x) \geq \frac{1}{L},$ что эквивалентно $M - f(X) \geq \frac{1}{L} \Leftrightarrow f(X) \leq M - \frac{1}{L} \ \ (4)$
+ (4) $\Rightarrow \underset{X \in E}{sup}f(x) \leq M - \frac{1}{L}$, что противоречит определнию М. Для доказательства левой части (3) положим h(x) = -g(x), тогда по первой части $\exists X_{\textunderscore}$ т.ч. $\forall X \in E$ выполнено $h(X) \leq h(X_{\textunderscore})$, это эквивалентно $g(X) \geq g(X_{\textunderscore}), X \in E$ Теорема доказана.
+\end{proof}
+\section{Частные производные и дифференцируемость функций и отображений.}
+\begin{definition}
+	Пусть $X_0 \in E, E \subset \mathbb{R}^n, n \geq 2, X_0$- внутренняя точка E, т.е. $\exists \delta > 0$ т.ч. $B_{\delta}(X_0)\subset E, f: E \to \mathbb{R}, 1\leq j \leq n$ Через $e_j$ обозначим элемент $e_j$ = (0,...1,...0), где 1 стоит на месте j,остальные нули. При |h| < $\delta$, h $\neq$ 0, $X_0 + he_j \in E$.Частной производной функции f по $ \overset{(переменной)}{аргументу} x_j$ в точке $X_0$ гахываеься выражение $\lim\limits_{h \to 0}{\frac{f(x_0 + he_j)-f(X_0)}{h}} = f_{x_j}'(X_0) \ \ (5) \\$
+	Выражение $f_{x_j}'(X_0)$ - обозначение частной производной. Применяется также обозначение $\frac{\delta f(X_0)}{\delta(x_j)}$ Существование предела в левой части (5) предполагается. Если $X_0 = (x_1^0,..,x_n^0)$, то (5) можно записать в виде $f_{x_j}'(X_0) = \lim\limits_{h \to 0}{\frac{f(x_1^0,...,x_j^0+h,..,x_n^0)}{h}} \ \ (6) \\$
+	Формула (6) показывает, что для нахождения частной производной $f_{x_j}'(X_0)$ следует фиксировать все переменные $x_k^0, k \neq i,$ рассматривать функцию $g_j(x_j) = f(x_1^0,...x_j,.x_n^0)$ от одного аргумента $x_j$ и находить производную от функции $g_i$ в точке $x_j^0$ Это показывает, что для частных производных справедливы свойства, выполняемые для обычные производные.$\\$ Именно, $(cf)_{x_j}'(X_0) = cf_{x_j}'(X_0) \\$
+	$(f+g)_{x_j}'(X_0) = f_{x_j}'(X_0) + g_{x_j}'(X_0), \\$
+	$(fg)_{x_j}'(X_0) = f_{x_j}'(X_0)g(X_0)+f(X_0)g_{x_j}'(X_0);$ если $f(x) \neq 0, X \in E,$ то $(\frac{1}{f})_{x_j}'(X_0) = - \frac{f_{x_j}'(X_0)}{f^2(X_0)};$ если b, как в предыдущем пункте, то $(\frac{g}{f})_{x_j}'(X_0) = \frac{g_{x_j}'(X_0)f(X_0) -g(X_0)f_{x_j}'(X_0)'}{f^2(X_0)} \\$
+	В правых частях приведенных равнств все соответствующие частные производные предплогают существующими. $\\$
+	Функция одной переменной, имеющая в какой-то точке производную, была непрерывна в этой точке. Для функций нескольких переменных данное свойство не выполняется.
+\end{definition}
+\begin{example}
+	Пусть $f(x_1,x_2) = $
+	$\begin{cases}
+	 \frac{x_1x_2}{x_1^2+x_2^2}, x_1^2+x_2^2 > 0 \\ 
+	 0, x_1 = x_2 = 0
+	\end{cases}$ (7)
+	Тогда $f_{x_1}'(0,0) = f_{x_2}'(0,0) = 0,$ но f разрывна в (0,0) 
+\end{example}
+\begin{proof}
+	(7) $\Rightarrow f(0,x_2) = f(x_1,0) = 0  \ \forall x_1,x_2,$ поэтому $f_{x_1}'(0,0) = \lim\limits_{h \to 0}{\frac{f(h,0)-f(0,0)}{h}} = \lim\limits_{h \to 0}0 = 0,$ аналогично $f_{x_2}'(0,0)  = 0$. C другой стороны, $f(\frac{1}{n},\frac{1}{n})=\frac{\frac{1}{n}\cdot \frac{1}{n}}{(\frac{1}{n})^2+(\frac{1}{n})^2} \ \ (8) \\$
+	$f(\frac{1}{n},\frac{1}{n}) = \frac{1}{2} \underset{n \to \infty}{\to} \frac{1}{2}, \frac{1}{2} \neq 0 = f(0,0), $т.е. f разрывна в тчоке (0,0)
+\end{proof}
+\begin{definition}
+	Пусть $X_0 \in E, E \subset \mathbb{R}^n, n\geq 2, X_0 - $ внутренняя точка E, $f : E \to \mathbb{R}$. Говорят, что f дифференцируема в $X_0$, сли существуют $a_1,..a_n$ т.ч. выполнено соотношение $f(x_1^0+ h_1,...,x_n^0+h_n)-f(x_1^0,...x_n^0) = a_1h_1+...+a_nh_n +r(h_1,...h_n)$ и справедливо соотношение $\frac{r(h_1,...h_n)}{\sqrt{h_1^2+...+h_n^2}} \underset{(h_1,...h_n) \to (0,...0)}{\to} 0 \ \ (10) \\$
+	В соотношения (9) и (10) можно записать в более коротком виде, если мы будем трактовать $\mathbb{R}^n$ как множество вектор-столбцов. Полагая
+	 $X_0 = 
+	 \begin{bmatrix}
+	  x_1^0 \\ . \\ x_n^0
+	   \end{bmatrix},
+	H = \begin{bmatrix} h_1 \\ . \\ h_n \end{bmatrix}$, тогда (9) и (10) запишем в таком виде: f дифференцируема в точке $X_0$, если $\exists$ вектор - строка А = ($a_1,...a_n$) т.ч. справедливо соотношение $f(X_0 + H) - f(X_0) = AH = r(H) \ \ (9')$ и $\frac{r(H)}{||H||_{\mathbb{R}^n}} \underset{H \to \mathbb{O}_n}{\to} 0 \ \ \ (10')$
+\end{definition}
+\begin{proof}
+	Неравенство Коши-Буняковского-Шварца влечёт $|a_1h_1+...+a_nh_n| \leq \sqrt{a_1^2+..+a_n^2}\sqrt{h_1^2+h_n^2} = ||A||_{\mathbb{R}^n} \cdot ||H||_{\mathbb{R}^n} \ (11) \\$
+	Из (10') следует, что $\exists 0 < \delta_1 < \delta$ т.ч. $\forall H \neq \mathbb{O}_n$, $||H||_{\mathbb{R}^{n}} < \delta_1$ выполнено $|\frac{r(H)}{||H||_{\mathbb{R}^n}}| < 1$, т.е. $|r(H)| < ||H|| \ \ (12)$ Тогда $||H||_{\mathbb{R}^n} < \delta_1$ имеем изи (11) и (12) соотношение $|f(X_0+H)-f(X_0)|\leq |AH|+|r(H)| < ||A||_{\mathbb{R}^n}||H||_{\mathbb{R}^n} + ||H||_{\mathbb{R}^n} = (||A||_{\mathbb{R}^n} + 1)||H||_{\mathbb{R}^n} \underset{H \to \mathbb{O}_n}{\to} 0$, что доказывает прерывность f в $X_0$. Далее, полагая $h_1 = ... = h_{j-1} = 0 = h_{j+1} = ... =h_n, h_j = h$, из (9) находим  $f(x_1^0,...x_j^0+h,..x_n^0) -f(x_1^0,..x_j^0,...x_n^0) = a_jh + r(0,...h,..0), \frac{f(x_1^0,...,x_j^0+h,...x_n^0)-f(x_1^0,...x_j^0,..x_n^0)}{h}= a_j + \frac{r(0,..h,..0)}{h} \ \ (13)$ Из (10) следует, что $\frac{r(0,..h,..0)}{|h|} \underset{h \to 0}{\to} 0$, откуда следует, что $\frac{r(0,..h,..0)}{h} \underset{h \to 0}{\to} 0 \ \ (14) \\$
+	Из (13) и (14) следует, что $\exists f_{x_j}'(X_0) = a;$
+\end{proof}
+Если f дифференцируема в $X_0$ то $f(X_0 + H) -f(X_0)=f_{x_1}'(x_0)h_1 + ...+f_{x_n}'(X_0)h_n+r(H),$ где для $r(H)$ имеем (10')
+\begin{definition}
+	Пусть f дифференцируема в $X_0$, Дифференциалом функции f в точке $X_0$ со значением H, обозначаем $df(X_0,H),$ называется выражение $df(X_0,H) = f_{x_1}'(X_0)h_1 + .. + f_{x_n}'(X_0)h_n$ Градиентом f в точке $X_0$ называется вектор-строка $(f_{x_1}'(x_0),...,f_{x_n}'(X_0))$, $grad f(X_0) = (f_{x_1}'(X_0),...,f_{x_n}'(X_0))$ Тогда $df(X_0,H) = grad f(X_0)H, f(X_0 + H) - f(X_0) = df(X_0,H) + r(H)$
+\end{definition}
+
+\begin{definition}
+Пусть A: $\mathbb{R}^n \to \mathbb{R}^m$ - отображение. Отображение А называется линейным, если $\forall c \in \mathbb{R}, \ \forall X \in \mathbb{R}^n$ выполнено A(cX) = c(AX) и $\forall X,Y \in \mathbb{R}^n$ имеем равенство $A(X+Y) = AX+ AY$
+\end{definition}
+\begin{assertion}
+	Пусть А - линейное отображение $\mathbb{R}^n \to \mathbb{R}^m$. Тогда, если записываем $\mathbb{R}^n$ и $\mathbb{R}^m$ как пространства вектор-столбцов, существует единственная матрица $\mathbb{A}$ т.ч. $А(X) = \mathbb{A}X$, где в правой части стоит произведение матрицы $\mathbb{A}$ а вектор-столбец X.
+\end{assertion}
+\begin{proof}
+Доказано в алгебре
+\end{proof}
+Далее будем обозначать отображение и соответствубщию ему матрицу одной буквой, записывая A(X) = AX. Все последующие пространства $\mathbb{R}^n, \mathbb{R}^m,..$ записываем как пространства вектор-столбцов
+\begin{definition}
+	 Пусть $E \subset \mathbb{R}^n, X_0 \in E, X_0$ - внутренняя точка Е, $F: E \to \mathbb{R}^m$, $m,n \geq 1.$ Будем говорить, что отображение F дифференцируемо в точке $X_0$, если $H \in \mathbb{R}^n,X_0 + H \in E$ справедливо соотношение $\frac{||R(H)||_{\mathbb{R}^m}}{||H||_{\mathbb{R}^n}} \underset{H \to \mathbb{O}_n}{\to} 0 \ \ (2)$
+\end{definition}
+\begin{assertion}
+	Пусть множество E, точка $X_0 \in E$  и отображение F удовлетворют предыдущему определению. Тогда, если F(X) = $\begin{bmatrix} f_1(x)\\ .\\ f_m(x) \end{bmatrix}$, то каждая координатная функция $f_j(x)$ дифференцируема в точке $X_0$ и обратно, если каждая функция $f_j(x)$, $1 \leq j \leq m$, дифференцируема в $X_0$, то и отображение F дифференцируема в точке $X_0$
+\end{assertion}
+\begin{proof}
+	Пусть $e_j = \underbrace{0,..1 - j..0}_{m}$, где 1 стоит на месте j, а на остальных местах стоит 0. Тогда (1) $\Rightarrow$ $e_j(F(X_0+H)-F(X_0)) = e_jA(H)+e_jR(H)=(e_jA)H + e_jR(H), \\$
+	$\underbrace{(0,...1,..0)}_{m}{\begin{bmatrix}  f_1(X_0+H) - f_1(X_0) \\ . . . .  \\ f_m(X_0+ H) - f_m(X_0) \end{bmatrix}} = (e_jA) \begin{bmatrix} h_1 \\ . \\ h_n \end{bmatrix}  + e_jR(H) \ \ (3) \\$
+	В соотношении (3) $e_jA$ - это произведение  m - вектор-строки на $m \times n$ матрицу А, поэтому $e_jA - $ это n - вектор строка $(b_1,...b_n),$ а H  =$\begin{bmatrix} h_1 \\ .\\ h_n \end{bmatrix}$ Вычисление произведений в (3) влечёт $f_j(X_0 + H)-f_0(X_0) = b_1h_1+...+b_nh_n + e_jR(H) \ \ (3) \\$
+	По неравенству Коши-Буняковского-Шварца имеем соотношение $|e_jR(H)| \leq ||e_j||_{\mathbb{R}^m} \cdot ||R(H)||_{\mathbb{R}^m}=||R(H)||_{\mathbb{R}^m}, \ \ (4)$ Тогда (2) и (4) влекут соотношение $\frac{e_jR(H)}{||H||_{\mathbb{R}^n}} \leq \frac{||R(H)||_{\mathbb{R}^m}}{||H||_{\mathbb{R}^n}} \underset{H \to \mathbb{O}_n}{\to} 0$, (5) и (5) $\Rightarrow$ $\frac{e_jR(H)}{||H||_{\mathbb{R}^n}} \underset{H \to \mathbb{O}_n}{\to} \ \ (6) \\ $
+	Из (3) и (6) следует, что $f_j$ дифференцируема в точке $X_0$. Обратно, пусть $f_j$ дифференцируема в $X_0$ при $ j = 1,..m$ Тогда $f_j(x_0+H)-f_j(X_0) = a_{j_1}h_1+...+a_{j_n}h_n +r_j(H) \ \ (7)$, и $\frac{r_j(H)}{||H||_{\mathbb{R}^n}} \underset{H \to \mathbb{O}_n}{\to} 0 \ \ (8) \\$
+	Пусть матрица A = $(a_{j_k})_{j =1 \ \ k = 1}^{m \ \ \ n}$. Тогда, если положим R(H) = 
+	$\begin{bmatrix}
+	r_1(H) \\
+	. \\
+	r_m(H)
+	\end{bmatrix}
+	$, то из (7) получаем равенство $F(X_0+H) - F(X_0) = \begin{bmatrix} f_1(X_0+H)-f_1(X_0) \\ . . . .  . \\ f_m(X_0 +H)- f_m(X_0)\end{bmatrix} = \begin{bmatrix} a_{11}h_1 +...+a_{1n}h_1+r_1(H) \\ . . . . . \\ a_{m1}h_1+...+a_{mn}h_n + r_m(H) \end{bmatrix} = \begin{bmatrix} a_{11}h_1 + ... + a_{1n}h_n \\ . . . .  . \\ a_{m1}h_1+..+a_{mn}h_n \end{bmatrix} + R(H) = AH + R(H) \ \  \ \ \ (9) \\$
+	Из (8) получаем $\frac{||R(H)||_{\mathbb{R}^m}}{den} = \sqrt{(\frac{r_1(H)}{||H||_{\mathbb{R}^n}})^2 +...+(\frac{r_m(H)}{||H||_{\mathbb{R}^n}})^2} \underset{H \to \mathbb{O}_n}{\to} 0 \ \ (10) \\$
+	Из (9) и (10) получаем, что F дифференцируемо в точке $X_0$ Утверждение доказано.  
+\end{proof}
+\begin{corollary}
+	Пусть множество E, $X_0 \in E, E \subset \mathbb{R}^n, F: E \to \mathbb{R}^m$ удовлетворяют условиям определения, $F = \begin{bmatrix} f_1 \\ .\\ f_m \end{bmatrix}$. Тогда для $\forall j, 1\leq j \leq m,$ и $\forall k,\ 1\leq k \leq n, \exists f_{x_k}'(X_0)$ и для коэффициентов $a_{j_k}$ из соотношения (7) справедливо равенство $a_{j_k}=f_{j_{x_k}}'(X_0)$ \ \ \ (11)
+\end{corollary}
+\begin{proof}
+	В силу утверждения, функция $f_j(X) $ дифференцируема в точке $X_0 \ \forall j$, тогда равенство (11) следует из теоремы о свойствах дифференцируемой в точке функции
+\end{proof}
+\begin{definition}
+	Пусть $E \subset \mathbb{R}^n, X_0 \in E$ - внутрення точка, отображение F: $E \to \mathbb{R}^m$ дифференцируемо в точке $X_0$. Матрице Якоби отображения F  точке $X_0$ будем называть матрицу $DF(X_0)$, $DF(X_0) \begin{bmatrix} f_{1x_1}'(X_0)... f_{1x_n}'(X_0) \\ . . . . . \\ f_{mx_1}'(X_0)...f_{mx_n}'(X_0) \end{bmatrix}$ \ \ (12) \\
+	Дифференицалом $dF(X_0,H)$ отображения F в точке $X_0$ при значении H будем называть значение линейного отображения $A: \mathbb{R}^n \to \mathbb{R}^m$ при значении H, задаваемого формулой $dF(X_0,H) = DF(X_0)H \ \  \ (13) \\$
+	Во введенных терминах соотношение (1) перепишеся в виде $F(X_0 + H) -F(X_0) = dF(X_0,H) + R(H), \ (14),$ где для отображения R выполнено соотношение (2) 
+\end{definition}
+\section{Производная функции по направлению}
+\begin{definition}
+	Пусть $E \subset \mathbb{R}^n, n \geq 2, X_0 \in E, X_0$ - внутренняя точка Е, $f : E \to \mathbb{R}, \overline{v} \in \mathbb{R}^n, ||\overline{v}||_{\mathbb{R}^n} = 1.$ Производной функции f в точке $x_0$ по направлению $\overline{v}$ называется конечный предел в том случае, елси он существует, $f_{\overline{v}}'(X_0) \overset{по опр}{=} \lim\limits_{h \to 0}{\frac{f(X_0 + h\overline{v})}{h}} \ \ (15)$ 
+\end{definition}
+\begin{theorem}
+	Пусть множество E, точка $X_0 \in E$ и функция f, как в определении. Предположим, что f дифференцируема в точке $X_0$. Тогда $\forall \overline{v} \in \mathbb{R}^n, ||\overline{v}||_{\mathbb{R}^n}=1,$ существует производная функции f в точке $X_0$ по направлению $\overline{v}$ и справедливо равенство $f_{\overline{v}}'(X_0)= grad f(X_0)\overline{v}, \ \ \ (16),\\ $
+	где в (16) вектор-строка grad$f(X_0)$ умножается на вектор-столбец $\overline{v}$
+\end{theorem}
+\begin{proof}
+	Положим H = h$\overline{v}$,тогда $||H||_{\mathbb{R}^n} = |h|\cdot||\overline{v}||_{\mathbb{R}^n} = |h|$, и из дифференцируемости функции f в точке $X_0$ находим, что $f(X_0+h\overline{v})-f(X_0) = f(X_0 + H) - f(X_0) = frad f(X_0)H + r(H) = gradd f(X_0)\cdot (h\overline{v}) + r(h\overline{v}) = h grad f(X_0)\overline{v} + r(h\overline{v})$, что влечет $\frac{f(X_0 + h\overline{v})-f(X-0)}{h} = grad f(X_0) \overline{v} + \frac{r(h\overline{v})}{h} \ \ (17)$ По определению дифференцируемости функции f имеем $\frac{r(h\overline{v})}{h} =  \frac{|r(H)|}{||H||} \underset{H \to \mathbb{O}}{\to} 0 \ \ \ (18)$ поэтому (17) и (18) влекут $\lim\limits_{h \to 0}{\frac{f(X_0+h\overline{v})-f(X_0)}{h}} + grad f(X_0)\overline{v} + \lim\limits_{h \to 0}{\frac{r(h\overline{v})}{h}} = grad f(X_0)\overline{v}$, что и доказывает теорему. 
+\end{proof}
+\begin{definition}
+	Пусть функция f дифференцируема в точке $X_0,X_0 \in E$, все объекты всякие из предыдущей теоремы. Предположим, что $grad f(X_0) \neq \mathbb{O}_n^T,$ где $\mathbb{O}_n^T$ - вектор-строка (0,..0). Направлением градиента функции f называется такое $\overline{v_0}$, что $f_{\overline{v_0}}'(X_0) \geq f_{\overline{v}}'(X_0) \ \  \ (19)$ для любого $\overline{v} \in \mathbb{R}^n, ||\overline{v}||_{\mathbb{R}^n}=1$
+\end{definition}
+\begin{assertion}
+Предположим, что $grad f(X_0) \neq \mathbb{O}_n^T$ Тогда направление градиента задается равенством $\overline{v_0} \frac{1}{||grad f(X_0)||_{\mathbb{R}^n}}(grad f(X_0))^T, \ \ (20) $, где в (20) знак $(...)^T$ означает транспонирование вектор-строки в вектор-столбец.
+\end{assertion}
+\begin{proof}
+Неравенство Коши-Буняковского-Шварца и соотношение (16) влекут $f_{\overline{v}}(X_0) = grad f(X_0)\overline{v} \leq |grad f(X_0)\overline{v}| \leq ||grad f(X_0)||_{\mathbb{R}^n}||\overline{v}||_{\mathbb{R}^n} = ||grad f(X_0)||_{\mathbb{R}^n},$ при этом получаем из (20) и (16): $f_{\overline{v_0}}(X_0)= grad f(X_0)\overline{v_0} = grad f(X_0)\cdot \frac{1}{||grad f(X_0)||_{\mathbb{R}^n}}\cdot (grad f(X_0))^T = \frac{1}{||grad f(X_0)||_{\mathbb{R}^n}}\cdot grad f(X_0)(grad f(X_0))^T = \frac{1}{||grad f(X_0)||_{\mathbb{R}^n}}\cdot ||grad f(X_0)||^2_{\mathbb{R}^n} = ||grad f(X_0)||_{\mathbb{R}^n} \\$
+Соотношения (21) и (22) влекут $f_{\overline{v}}'(X_0) \leq f_{\overline{v_0}}'(X_0),$ т.е. $\overline{v_0}$ в (20) - направление градиента
+\end{proof}
+\begin{remark}
+	Справедливо уточнение утверждения: если $grad f(X_0) \neq \mathbb{O}_n^T, \overline{v_0}$ задано а (20), $\overline{v} \neq \overline{v_0}, ||\overline{v}|| = 1, то f_{\overline{v}}'(X_0) < f_{\overline{v_0}}'(X_0)$
+\end{remark}
+\begin{proof} Примем без доказательство \end{proof}
+\section{Достаточное условие дифференцируемости функции}
+\begin{theorem}
+Пусть $E \subset \mathbb{R}^n, n \geq 2, X_0 \in E, X_0 - $ внутрення точка Е, $f: E \to \mathbb{R}$. Пусть $B_{\delta}(X_0) \subset E$ и пусть $\forall j,j =1,...n$ и $\forall x \in B_{\delta}(X) \exists f_{x_j}'(X)$. Предположим, что функции $f_x'(X) : B_{\delta}(X_0) \to \mathbb{R}$ непрерывны в $X_0, 1\leq j \leq n$. Тогда f дифференцирума в $X_0$
+\end{theorem}
+\begin{proof}
+	Пусть $X_0 = (x_1^0,...x_n^0)^T$(знак T означает, что мы по-прежнему рассматриваем $\mathbb{R}^n$ как множество вектор-столбцов) Тогда $\text{П}_0 = \text{П}(x_1^0 - \frac{\delta}{\sqrt{n}},x_1^0+\frac{\delta}{\sqrt{n}};...;x_n^0 - \frac{\delta}{\sqrt{n}};x_n^0 + \frac{\delta}{\sqrt{n}}) \subset B_{\delta}(X_0) \\$
+	Обозначим $\delta_1 = \frac{\delta}{\sqrt{n}}$ Пусть H = $(h_1,..h_m)^T, H \neq \mathbb{O}_n, |h_j| \leq \delta_1, 1\leq j \leq n$. Положим $H_0 = H, H_1 = (0,h_2,...h_n)^T, H_2 = (0,0,h_3...h_n)^T... H_{n-1} = (0,0...,h_n)^T, H_n = \mathbb{O}_n$ Тогда $f(X_0 + H) - f(X_0) = f(X_0 + H_0) - f(X_0 +H_n) = \sum_{k = 0}^{n-1}{f(X_0+H_k)-f(X_0+H_{k+1})} \ \ (23)$ Рассмотрим выражение $f(X_0 + H_k)-f(X_0 + H_{k+1})$ Имеем: $X_0 +H_k = (x_1^0,...x_k^0,x_{k+1}^0+h_{k+1},..x_n^0 + h_n)^T \ \ (24) \\$
+	$X_0 + H_{k+1} = (x_1^0,...x_k^0,x_{k+1}^0,x_{k+2}^0 +h_{k+2},..x_n^0+h_n)^T  \ \ (25) \\$
+	Из (24) и (25 следует), что разность $f(X_0 + H_k)- f(X_0 + H_{k+1})$ можно рассматривать как функцию $g_k$ от аргумента $x_{k+1} = x_{k+1}^0 + h_{k+1}$ при $x_{k+1}^0 - \delta_1 < x_{k+1} < x_{k+1}^0 + \delta_1$. По определению частной производной, данная функция $g_k(x_{k+1})$ имеем производную, именно, при указанных значениях $x_{k+1}$ имеем $g_k'(x_{k+1})=(f(X_0 + H_k)-f(X_0 + H_{k+1})'_{x_{k+1}} \ \ (26) $ Поэтому к функции $g_k$ применим теорему Лагранжа, поэтому найдется $c_{k+1}\cdot h_{k+1} > 0$ т.ч. $g_k(x_{k+1}^0 + h_{k+1})- g_k(x_{k+1}^0)=g_k'(x_{k+1}^0 + c_{k+1}) \cdot h_{k+1} \ \  \ (27) \\$
+	Функция $f(X_0 + H_{k+1})$ в силу (25) не зависит от аргумента $x_{k+1},$ поэтому $f_{x_{k+1}}'(X_0 + H_{k+1}) = 0$, и тогда (26) влечет $g_k'(x_{k+1}^0 + c_{k+1})=f_{x_{k+1}}'(x_1^0,...,x_k^0,x_{k+1}^0 + c_{k+1},...x_n^0+h_n)^T \\$
+	Теперь соотношения (23),(26),(27),(28) влекут $f(X_0+ H) - f(X_0) = \sum_{k =0}^{n-1}{f_{x_{k+1}}'(x_1^0,..x_{k+1}^0+c_{k+1},...x_n^0+h_n)^T \cdot h_{k+1}} = \sum_{j =1}^{n}{f_{x_j}}'(x_1^0,..,x_j^0+c_j,...x_n^0,...x_n^0+h_n)^T - f_{x_j}'(x_1^0,...x_j^0,...x_n^0)^T)h_j \ \ (29) \\ $
+	Поскольку $|c_j| < |h_j|$, если $h_j \neq 0$, то $(c_1,...c_n)^T \underset{H \to \mathbb{O}}{\to} \mathbb{O}$.Непрерывность функций $f_{x_j}'(x)$ в точке $X_0$ влечет $0 \leq \frac{|f_{x_j}'(x_1^0,...x_j^0+c_j,..x_n^0+h_n)-f_{x_j}'(X_0)||h_j|}{||H||_{\mathbb{R}^n}}\leq |f_{x_j}'(x_1^0,..,x_j^0+c_j,..,x_n^0+h_n)| \underset{H \to \mathbb{O}_n}{\to}0$, (30) тогда (29) и (30) влекут, что f дифференцируема в точке $X_0$. Теорема доказана
+\end{proof}
+Конец второго семестра.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\linewidth]{end.png}
+\label{fig:mpr}
+\end{figure}
