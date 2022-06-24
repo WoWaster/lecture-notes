@@ -1,0 +1,15 @@
+button#openFile {
+    display: none;
+}
+button#presentationMode {
+    display: none;
+}
+a#viewBookmark {
+    display: none;
+}
+button#viewAttachments {
+    display: none;
+}
+button#viewLayers {
+    display: none;
+}
