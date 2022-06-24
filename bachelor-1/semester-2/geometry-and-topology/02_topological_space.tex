@@ -278,7 +278,9 @@
     \begin{enumerate}
         \item $U_i = \bigcup_{j \in J_i} B_{ij}$, ($B_{ij} \in \mathfrak{B}$), тогда
               \[\bigcup_{i \in I} U_i = \bigcup_{i \in I} \bigcup_{j \in J} B_{ij} \in \Omega\]
-        \item $U_1 = \bigcup_{i \in I} B_i$, $U_2 = \bigcup_{j \in J} C_j$, $B_i, C_j \in \mathfrak{B}$, $B_i \cap C_j = \bigcup_{x_0 \in B_i \cap C_j} B_3 (x_0)$
+        \item $U_1 = \bigcup_{i \in I} B_i$, $U_2 = \bigcup_{j \in J} C_j$, $B_i, C_j \in \mathfrak{B}$,
+              \[B_i \cap C_j = \bigcup_{x_0 \in B_i \cap C_j} B_3 (x_0, B_i \cap C_j),\]
+              где $B_3(x_0, B_i \cap C_j): x_0 \in B_3(x_0, B_i \cap C_j) \subset B_i \cap C_j$.
 
               Почему $U_1 \cap U_2 \in \Omega$?
               \begin{multline*}
