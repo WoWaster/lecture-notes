@@ -2,7 +2,7 @@
 \documentclass[main]{subfiles}
 \begin{document}
 \chapter{Топологические пространства}
-\section{Топологические пространства}
+\section{Топологические пространства}\marginpar{14.02.22}
 \begin{example}
     В $\R^2$
     \begin{gather*}
@@ -55,12 +55,12 @@
 
 Таким образом топологическое пространство можно задавать при помощи замкнутых множеств.
 
-\begin{example}
+\begin{example}\label{top:metric}
     Метрическая топология:  $(X, \rho)$ -- метрическое пространство, $\Omega$ -- множество всех открытых подмножеств.
     $U$ называет открытым, если $\forall x_0 \in U\ \exists \epsilon > 0: B(x_0, \epsilon) \coloneqq \{x \in X : \rho(x, x_0) < \epsilon\} \subset U$.
 \end{example}
 
-\begin{example}
+\begin{example}\label{top:discr}
     Дискретная топология: $X$ -- множество, $\Omega= 2^X$ (любое подмножество открыто).
 \end{example}
 
@@ -69,7 +69,7 @@
 \end{example}
 
 \begin{remark}
-    2 пример -- частный случай 1-ого.
+    Пример \ref{top:discr} -- частный случай \ref{top:metric}.
     \begin{gather*}
         \rho(x,y)  = \begin{cases}
             0 & x = y    \\
@@ -216,7 +216,7 @@
     \end{multline*}
 \end{proof}
 
-\section{Базы и предбазы}
+\section{Базы и предбазы}\marginpar{28.02.22}
 \begin{definition}
     $(X, \Omega)$ -- топологическое пространство. $\mathfrak{B} \subset 2^X$ (Точнее $\mathfrak{B}\subset \Omega$).
     $\mathfrak{B}$ называется базой топологии $\Omega$, если

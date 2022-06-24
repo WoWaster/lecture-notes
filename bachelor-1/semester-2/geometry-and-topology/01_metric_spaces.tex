@@ -3,10 +3,10 @@
 \begin{document}
 \part*{Общая топология}
 \chapter{Метрические пространства}
-\section{Метрические пространства}
+\section{Метрические пространства}\marginpar{29.11.21}
 \begin{definition}
     $M$ -- множество. $M$ вместе с $\rho: M \times M \to \R$ называется
-    метрическим пространством, если:
+    метрическим пространством, если выполнены:
     \begin{enumerate}
         \item $\forall x,y \ \rho(x,y) \ge 0$ и $\rho(x,y) = 0 \Leftrightarrow x=y$
         \item $\forall x,y \ \rho(x,y) = \rho(y,x)$
@@ -134,7 +134,7 @@
     \end{gather*}
 \end{example}
 
-\section{Расположение точки относительно множества}
+\section{Расположение точки относительно множества}\marginpar{06.12.21}
 \begin{center}
     \includegraphics[width=0.5\textwidth]{dot_placement.pdf}
 \end{center}
@@ -304,8 +304,7 @@ $k$ достаточно большое число
 
 \begin{theorem}
     $M$ -- метрическое пространство; $A \subset M$; Тогда
-    \[\Int A = \bigcup_{\substack{U_i \text{ открыто}\\ U_i \subset A}} U_i, \]
-    где $U_i$ открыты и $U_i \subset A$
+    \[\Int A = \bigcup_{\substack{U_i \text{ открыто}\\ U_i \subset A}} U_i \]
 \end{theorem}
 \begin{proof}
     $\displaystyle \bigcup_{\substack{U_i \text{ открыто}\\ U_i \subset A}} U_i$ открыто.
@@ -352,6 +351,7 @@ $k$ достаточно большое число
     тогда $x_0 \in \partial \Q \implies \partial \Q = \R$.
 \end{example}
 
+\marginpar{13.12.21}
 \begin{proposition}
     $(M, \rho)$ -- метрическое пространство. $A \subset M \implies \Cl A$ -- это:
     \begin{enumerate}
@@ -364,12 +364,12 @@ $k$ достаточно большое число
     $(2) \Leftrightarrow (3)$: наименьшее замкнутое множество, содержащее $A$ входит в пересечение, т.е. пересечение заведомо не больше.
     Пересечение замкнуто как пересечение замкнутых множеств, и оно содержит $A$, значит оно не меньше, чем наименьшее.
 
-    $(1) \Leftrightarrow (2)$: $x_0 \in \Ex A \implies \exists \epsilon >0: B(x_0, \epsilon) \in \Ex A$ ($B$ открыт).
+    $(1) \Leftrightarrow (2)$: $x_0 \in \Ex A \implies \exists \epsilon >0: B(x_0, \epsilon) \subset \Ex A$ ($B$ открыт).
     $M \setminus B(x_0, \epsilon) \supset A$ -- замкнуто.
     Если $\displaystyle x_0 \in \Ex A \implies x_0 \not\in \bigcap_{\substack{Z \text{ замкнуто}\\ Z \supset A}} Z$.
     Если $x_0 \not\in \Ex A$, допустим, что $\displaystyle x_0 \not\in \bigcap_{\substack{Z \text{ замкнуто}\\ Z \supset A}} Z$.
     Значит существует замкнутое $Z_i: x_0 \notin Z_i$, тогда $x_0$ лежит в открытом $M \setminus Z_i$.
-    Но $\exists \epsilon>0: B(x_0, \epsilon) \in M \setminus Z \subset M \setminus A \implies x_0 \in \Ex A$.
+    Но $\exists \epsilon>0: B(x_0, \epsilon) \subset M \setminus Z \subset M \setminus A \implies x_0 \in \Ex A$.
 \end{proof}
 
 \begin{proposition}
@@ -422,8 +422,8 @@ $k$ достаточно большое число
     то $U$ открыто и в $(M, \rho_2)$.
 \end{theorem}
 \begin{proof}
-    $U$ открыто в $(M, \rho_1)$.
-    $\forall x_0 \in U \implies \exists \epsilon > 0: B_{\rho_1} (x_0, \epsilon) \subset U$,
+    $U$ открыто в $(M, \rho_1) \implies$
+    $\forall x_0 \in U \ \exists \epsilon > 0: B_{\rho_1} (x_0, \epsilon) \subset U$,
     то есть, если $\rho_1 (x_0, x_1) < \epsilon \implies x_1 \in U$.
 
     Пусть $\delta = \frac{\epsilon}{C}$ и $x_1$ -- точка, такая что $\rho_2 (x_1, x_0) < \delta$.
@@ -445,7 +445,8 @@ $k$ достаточно большое число
         \intertext{Докажем 1:}
         \left(\sum |x_i - y_i|\right)^2 \ge \sum (x_i - y_i)^2
         \intertext{Докажем 2:}
-        \sum (x_i - y_i)^2 \ge \max |x_i- y_i|^2\\
+        \sum (x_i - y_i)^2 \ge \max |x_i- y_i|^2
+        \intertext{Свяжем $\rho_1$ и $\rho_\infty$:}
         \rho_1 (x, y) \le n \rho_\infty (x,y), \text{ где $n$ -- размерность пространства}\\
         \sum_{i=1}^n |x_i - y_i| \overset{?}{\le} n \cdot \max(x_i - y_i)
     \end{gather*}
