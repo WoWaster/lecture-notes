@@ -356,7 +356,7 @@ $k$ достаточно большое число
     $(M, \rho)$ -- метрическое пространство. $A \subset M \implies \Cl A$ -- это:
     \begin{enumerate}
         \item $\Int A  \cup \partial A = M \setminus \Ex A = M \setminus \Int (M \setminus A)$
-        \item $\displaystyle \bigcap_{\substack{Z \text{ замкнуто}\\ Z \supset A}} Z$
+        \item $\displaystyle \bigcap_{\substack{F \text{ замкнуто}\\ F \supset A}} F$
         \item Наименьшее замкнутое множество, которое содержит $A$.
     \end{enumerate}
 \end{proposition}
@@ -366,24 +366,24 @@ $k$ достаточно большое число
 
     $(1) \Leftrightarrow (2)$: $x_0 \in \Ex A \implies \exists \epsilon >0: B(x_0, \epsilon) \subset \Ex A$ ($B$ открыт).
     $M \setminus B(x_0, \epsilon) \supset A$ -- замкнуто.
-    Если $\displaystyle x_0 \in \Ex A \implies x_0 \not\in \bigcap_{\substack{Z \text{ замкнуто}\\ Z \supset A}} Z$.
-    Если $x_0 \not\in \Ex A$, допустим, что $\displaystyle x_0 \not\in \bigcap_{\substack{Z \text{ замкнуто}\\ Z \supset A}} Z$.
-    Значит существует замкнутое $Z_i: x_0 \notin Z_i$, тогда $x_0$ лежит в открытом $M \setminus Z_i$.
-    Но $\exists \epsilon>0: B(x_0, \epsilon) \subset M \setminus Z \subset M \setminus A \implies x_0 \in \Ex A$.
+    Если $\displaystyle x_0 \in \Ex A \implies x_0 \not\in \bigcap_{\substack{F \text{ замкнуто}\\ F \supset A}} F$.
+    Если $x_0 \not\in \Ex A$, допустим, что $\displaystyle x_0 \not\in \bigcap_{\substack{F \text{ замкнуто}\\ F \supset A}} F$.
+    Значит существует замкнутое $F_i: x_0 \notin F_i$, тогда $x_0$ лежит в открытом $M \setminus F_i$.
+    Но $\exists \epsilon>0: B(x_0, \epsilon) \subset M \setminus F \subset M \setminus A \implies x_0 \in \Ex A$.
 \end{proof}
 
 \begin{proposition}
-    $U$ -- открытое, $Z$ -- замкнутое.
+    $U$ -- открытое, $F$ -- замкнутое.
     \begin{gather*}
-        U \setminus Z \text{ -- открытое}\\
-        Z \setminus U \text{ -- замкнутое}
+        U \setminus F \text{ -- открытое}\\
+        F \setminus U \text{ -- замкнутое}
     \end{gather*}
 \end{proposition}
 \begin{proof}
-    \[U \setminus Z = U \cap (M \setminus Z),\]
-    где $U$ и $M \setminus Z$ открытые, значит их пересечение открыто.
-    \[Z \setminus U = Z \cap (M \setminus U),\]
-    где $Z$ и $M \setminus U$ замкнутые, значит их пересечение замкнуто.
+    \[U \setminus F = U \cap (M \setminus F),\]
+    где $U$ и $M \setminus F$ открытые, значит их пересечение открыто.
+    \[F \setminus U = F \cap (M \setminus U),\]
+    где $F$ и $M \setminus U$ замкнутые, значит их пересечение замкнуто.
 \end{proof}
 \begin{corollary}
     $\Cl A$ замкнуто, $\Cl A = M \setminus \Ex A$.
