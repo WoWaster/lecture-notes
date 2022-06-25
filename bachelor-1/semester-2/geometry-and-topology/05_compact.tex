@@ -2,7 +2,7 @@
 \documentclass[main]{subfiles}
 \begin{document}
 \chapter{Компактность}
-\section{Компактность}\marginpar{11.04.22}
+\section{Компактность}
 \begin{definition}
     $(X, \Omega)$ -- топологическое пространство,
     \[\{U_i\}_{i \in I} \subset \Omega: \bigcup_i U_i = X.\]
@@ -76,6 +76,7 @@
     Какие подмножества $\R^n$ компактны? Читайте далее!
 \end{example}
 
+\marginpar{11.04.22}
 \begin{theorem}\label{compact:1}
     $X$ -- компактное пространство. $A$ -- замкнутое подмножество в $X$, тогда $A$ компактно.
 \end{theorem}
@@ -105,13 +106,13 @@
 \end{proof}
 
 \begin{theorem}\label{compact:3}
-    $X$ и $Y$ компактны $\Leftrightarrow X \times Y$ компактно
+    $X$ и $Y$ компактны $\Leftrightarrow X \times Y$ компактно.
 \end{theorem}
 \begin{proof}
     В обратную сторону: $p: X\times Y \to X$ -- проекция, она непрерывна.
     $X\times Y$ компактно, значит по теореме \ref{compact:2} $p(X \times Y) = X$ тоже компактно.
 
-    Прямо. рассмотрим любое открытое покрытие $X \times Y$:
+    Прямо. Рассмотрим любое открытое покрытие $X \times Y$:
     \begin{enumerate}
         \begin{minipage}{0.45\textwidth}
             \item Считаем, что это покрытие прямоугольными множествами, т.е. $\{U_i \times V_i\}_{i \in I}$,
@@ -129,14 +130,14 @@
               $x_0 \in W_{x_0}$, тогда $\{W_{x_0}\}_{x_0 \in X}$ -- покрытие $X$, следовательно существует $W_{x_1}, ..., W_{x_k}$ -- конечное подпокрытие.
               \[W_{x_j} \leftrightarrow \{U_{j_1} \times V_{j_1}, ..., U_{j_{n_j}} \times V_{j_{n_j}}\}\]
               Возьмем все множества, соответствующие $W_j$. Это конечный набор. Почему покрытие?
-              $\forall (x,y) \in X \times Y,\ x\in W_{x_l},\ (x_l, y) \in U_i \in V_i$
-              ($U_i \times V_i$ из нашего набора). $x \in U_i$ и $y \in V_i$, $(x,y) \in U_i \times V_i$
+              $\forall (x,y) \in X \times Y,\ x\in W_{x_l},\ (x_l, y) \in U_i \times V_i$
+              ($U_i \times V_i$ из нашего набора). $x \in U_i$ и $y \in V_i$, $(x,y) \in U_i \times V_i$. \qedhere
     \end{enumerate}
 \end{proof}
 
 \section{Компактность и хаусдорфовость}
 \begin{axiom}[Хаусдорфа]
-    $X$ называется хаусдорфовым, если $\forall x_0 \neq x_1 \in X\ \exists U_{x_0}, U_{x_1} : U_{x_0} \cap U_{x_1} = \varnothing$
+    $X$ называется хаусдорфовым, если $\forall x_0 \neq x_1 \in X\ \exists U_{x_0}, U_{x_1} : U_{x_0} \cap U_{x_1} = \varnothing$.
 \end{axiom}
 \begin{example}
     Любое метрическое пространство хаусдорфово.
@@ -155,7 +156,7 @@
 \begin{remark}
     Докажем, что $X \setminus A$ открыто.
     Для этого возьмем любой $x_0 \in X \setminus A$. Найдем $U_{x_0} \cap A = \varnothing$
-    \[\bigcup_{x_0} = X \setminus A \text{ - открыто}\]
+    \[\bigcup_{x_0} U_{x_0}= X \setminus A \text{ - открыто}\]
     Это базовая схема как доказать замкнутость подмножеств.
 \end{remark}
 \begin{proof}
@@ -183,7 +184,7 @@
 \end{corollary}
 \begin{proof}
     $A$ открытое, значит $X \setminus A$ замкнутое, значит $f(X \setminus A)$ замкнут, значит $f(A)$ открыт.
-    \[f(X \setminus A) = Y \setminus f(A),\text{ если $f$ биективно}\]
+    \[f(X \setminus A) = Y \setminus f(A),\text{ если $f$ биективно}\qedhere\]
 \end{proof}
 \begin{corollary}
     $f: X \to Y$ непрерывная биекция, $X$ компактно, $Y$ хаусдорфово, тогда $f$ гомеоморфизм.
@@ -221,7 +222,7 @@
 \end{proof}
 
 \begin{theorem}\label{compact:7}
-    $[0,1]$ компактен
+    $[0,1]$ компактен.
 \end{theorem}
 \begin{proof}
     $\{U_i\}$ покрывает $I = [0,1]$, тогда по теореме \ref{compact:6} $\exists \epsilon$ -- число Лебега.
@@ -231,15 +232,15 @@
 \end{proof}
 
 \begin{remark}
-    $(0,1)$ не компактно. $U_k = (1/k, 1)$. Нельзя выбрать конечное подпокрытие
+    $(0,1)$ не компактно. $U_k = (1/k, 1)$. Нельзя выбрать конечное подпокрытие.
 \end{remark}
 \begin{corollary}\label{compact:7:1}
-    $[a_1, b_1] \times ... \times [a_n, b_n]$ компактно в $\R^n$
+    $[a_1, b_1] \times ... \times [a_n, b_n]$ компактно в $\R^n$.
 \end{corollary}
 
 \begin{definition}
     $A \subset \R^n$, $A$ называется ограниченным, если $A \subset B(0, N)$, такое $N$ существует.
-    Или $A \subset [a_1, b_1] \times ... \times [a_n, b_n]$
+    Или $A \subset [a_1, b_1] \times ... \times [a_n, b_n]$.
 \end{definition}
 
 \begin{theorem}[Компактность подмножества в $\R^n$]

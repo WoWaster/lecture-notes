@@ -312,14 +312,14 @@
     \[U = \bigcup_{x_0 \in U} B(x_0, U)\]
 \end{remark}
 \begin{example}
-    $(M, \rho)$ -- метрическое пространство, тогда $\mathfrak{B}_{x_0} = \{B(x_0, \epsilon) : \epsilon > 0\}$.
+    $(M, \rho)$ -- метрическое пространство, тогда \[\mathfrak{B}_{x_0} = \{B(x_0, \epsilon) : \epsilon > 0.\]
 \end{example}
 
 \begin{theorem}
     $X$ -- множество. $\forall x_0 \in X\ \exists \mathfrak{B}_{x_0} \subset 2^X$: ($\mathfrak{B}_{x_0} \neq \varnothing$)
     \begin{enumerate}
         \item $\forall B \in \mathfrak{B}_{x_0}\ x_0 \in B$
-        \item $\forall B_1, B_2 \in \mathfrak{B}_{x_0} \implies \exists B_3 \in \mathfrak{B}_{x_0}: B_3 \in B_1 \cap B_2$
+        \item $\forall B_1, B_2 \in \mathfrak{B}_{x_0}\ \exists B_3 \in \mathfrak{B}_{x_0}: B_3 \subset B_1 \cap B_2$
         \item $\forall B_1 \in \mathfrak{B}_{x_0}, \forall x_1 \in B_1\ \exists B_2 \in \mathfrak{B}_{x_1}: x_1 \in B_2 \subset B_1$
     \end{enumerate}
     Если все это выполнено, то $\bigcup_{x_0 \in X} \mathfrak{B}_{x_0}$ -- база некоторой топологии.
