@@ -19,7 +19,7 @@
 \begin{definition}
     $(X, \Omega_X)$ и $(Y, \Omega_Y)$ -- топологические пространства.
     $f: X \to Y$ -- отображение.
-    $f$ называется непрерывным в точке $x_0 \in X$, если $\forall U \in \Omega_Y : f(x_0) \in U\ \exists V \in \Omega_X: x_0 \in V: f(V) \subset U $
+    $f$ называется непрерывным в точке $x_0 \in X$, если $\forall U \in \Omega_Y : f(x_0) \in U\ \exists V \in \Omega_X: x_0 \in V: f(V) \subset U$.
 \end{definition}
 
 \marginpar{07.03.22}
@@ -133,7 +133,7 @@ $f^{-1} (U)$ и $f^{-1}(Y \setminus U )$ не пересекаются и в о�
 
 \begin{proof}
     Докажем 1: будем означать гомеоморфность символом эквивалентности: $\sim$.
-    Пусть $X \sim X, id: x \mapsto x$. $id(X) = X$.
+    Пусть $X \sim X, \id: x \mapsto x$. $\id(X) = X$.
     Пусть $X \sim Y \implies \exists f: X \to Y$ -- гомеоморфизм, тогда $f^{-1}: Y \to X$ -- гомеоморфизм.
     Пусть $X \sim Y, Y \sim Z \implies X \sim Z$. $f: X \to Y, g: Y \to Z, g \circ f: X \to Z$ -- гомеоморфизм.
 
@@ -143,8 +143,8 @@ $f^{-1} (U)$ и $f^{-1}(Y \setminus U )$ не пересекаются и в о�
 \begin{example}
     $(0,1) \overset{f}{\sim} (a,b) \overset{g}{\sim} \R \overset{\text{упр}}{\sim} (0, +\infty)$
     \begin{gather*}
-        g: \left(- \frac{\pi}{2};\frac{\pi}{2}\right) \to \R; g(x) = \tg x\\
-        f(0,1) \to (a,b); f(x) = (b-a)x + a
+        g: \left(- \frac{\pi}{2};\frac{\pi}{2}\right) \to \R\quad  g(x) = \tg x\\
+        f(0,1): \to (a,b)\quad f(x) = (b-a)x + a
     \end{gather*}
 
     Но $(0,1) \not\sim [0,1]$. Почему? Нужно искать инварианты.
