@@ -6,7 +6,7 @@
 \begin{theorem}[$T_0$, акcиома Колмогорова]
     $\forall x, y \in X\ \exists U$ -- открытое, которое  содержит ровно одну из этих точек.
 \end{theorem}
-\begin{theorem}[$T_1$]
+\begin{theorem}[$T_1$, аксиома Тихонова]
     $\forall x, y \in X\ \exists U_x$ -- открытое, т.ч. $x\in U_x, y \not\in U_x$.
 \end{theorem}
 \begin{theorem}[$T_2$, аксиома Хаусдорфа]
@@ -63,7 +63,7 @@
     $x_0 \in F_y, y \not\in F_y$, значит раз $F_y$ лежит в пересечении, то $y \not\in \Cl\{x_0\} \implies \Cl\{x_0\} = \{x_0\}$
 
     Обратное доказательство:
-    $\{x_0\}$ -- замкнуто, значит $U_y \coloneqq X \setminus \{x_0\} \forall y$.
+    $\{x_0\}$ -- замкнуто, значит $U_y \coloneqq X \setminus \{x_0\}\ \forall y$.
 \end{proof}
 
 \begin{definition}
@@ -203,7 +203,7 @@ $\{(x,y,z): x^2 + y^2 +z^2 =1\}$ -- замкнутое и т.д.
 
     $\{W_y\}_{y \in F_2}$ -- покрытие $F_2$.
     Существуют $y_1, ..., y_m: W_{y_1},..., W_{y_m}$ -- покрытие $F_2$
-    \[U_{F_1} \coloneqq \bigcap_{i=1}^m U_y\quad U_{F_2} \coloneqq \bigcup_{i=1}^m W_{y_i}\]
+    \[U_{F_1} \coloneqq \bigcap_{i=1}^m U_{y_i}\quad U_{F_2} \coloneqq \bigcup_{i=1}^m W_{y_i}\]
     Допустим $z \in U_{F_1} \cap U_{F_2}$
     $\exists i: z \in W_{y_i}$, $z \in U_{y_i}$,
     но $W_{y_i} \cap U_{y_i} = \varnothing$ по построению -- противоречие.
