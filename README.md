@@ -1,32 +1,7 @@
-## Временная [ссылка](https://wowaster.github.io/lecture-notes/web/viewer.html) с нормальным отображенением пдфника по топологии
-
 # Конспекты
 
 Репозиторий конспектов программы Технологии Программирования СПбГУ 2021 года поступления.
-
-## Файлы
-
-<table>
-  <tr>
-    <td></td>
-    <td colspan=2 align=center>bachelor-1</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>semester-1</td>
-    <td>semester-2</td>
-  </tr>
-  <tr>
-    <td>Алгебра и теория чисел</td>
-    <td><a href="bachelor-1/semester-1/algebra-and-number-theory/main.pdf">link</a></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Геометрия и топология</td>
-    <td><a href="bachelor-1/semester-1/geometry-and-topology/main.pdf">link</a></td>
-    <td><a href="bachelor-1/semester-2/geometry-and-topology/main.pdf">link</a></td>
-  </tr>
-</table>
+Сайтик с ссылками на pdf: [link](https://wowaster.github.io/lecture-notes/)
 
 ## Редактирование
 

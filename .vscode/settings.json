@@ -37,7 +37,8 @@
     "**/**.toc": true
   },
   "editor.rulers": [80, 120],
-  "markdownlint.config": {
-    "MD033": false
-  }
+  "cSpell.words": [
+    "Перепараметризация",
+    "самопересекаются"
+  ]
 }
