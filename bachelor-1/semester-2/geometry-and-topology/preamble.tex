@@ -9,6 +9,7 @@
 \setsansfont{CMU Sans Serif}
 
 \usepackage{microtype} % Add fancy-schmancy font tricks.
+\usepackage{multicol}
 
 \usepackage{xcolor} % Add colors support.
 
@@ -27,7 +28,8 @@
 
 %%% Images
 \usepackage{graphicx}
-\graphicspath{{figures/}}
+\graphicspath{{images/}}
+\usepackage{wrapfig} % Floating images.
 
 %%% Polyglossia setup after (nearly) everything as described in documentation.
 \setdefaultlanguage{russian}
@@ -70,9 +72,7 @@
     qed=\blacksquare]{myProofStyleWithFrame}
 
 \usepackage[breakable]{tcolorbox}
-\tcbset{sharp corners=all, colback=white}
 \tcolorboxenvironment{theorem}{}
-\tcolorboxenvironment{theorem*}{}
 \tcolorboxenvironment{axiom}{}
 \tcolorboxenvironment{assertion}{}
 \tcolorboxenvironment{lemma}{}
@@ -83,7 +83,6 @@
 
 
 \declaretheorem[name=Теорема, numberwithin=chapter, style=myStyleWithFrame]{theorem}
-\declaretheorem[name=Теорема, numbered=no, style=myStyleWithFrame]{theorem*}
 \declaretheorem[name=Аксиома, sibling=theorem, style=myStyleWithFrame]{axiom}
 \declaretheorem[name=Преположение, sibling=theorem, style=myStyleWithFrame]{assertion}
 \declaretheorem[name=Лемма, sibling=theorem, style=myStyleWithFrame]{lemma}
@@ -92,7 +91,6 @@
 
 \declaretheorem[name=Определение, numberwithin=chapter, style=myStyleWithFrame]{definition}
 \declaretheorem[name=Свойство, numberwithin=chapter, style=myStyle]{property}
-\declaretheorem[name=Свойства, numbered=no, style=myStyle]{propertylist}
 
 \declaretheorem[name=Пример, numberwithin=chapter, style=myStyle]{example}
 \declaretheorem[name=Замечание, numbered=no, style=myStyle]{remark}

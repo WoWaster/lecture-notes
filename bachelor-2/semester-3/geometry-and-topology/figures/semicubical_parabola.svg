@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   id="svg5"
+   version="1.1"
+   viewBox="0 0 210 297"
+   height="297mm"
+   width="210mm"
+   sodipodi:docname="semicubical_parabola.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.77593294"
+     inkscape:cx="311.88262"
+     inkscape:cy="442.04851"
+     inkscape:window-width="1920"
+     inkscape:window-height="1007"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow5"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow5"
+       markerWidth="5.8874264"
+       markerHeight="6.6094756"
+       viewBox="0 0 5.8874262 6.6094758"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="m 6,0 c -3,1 -7,3 -9,5 0,0 0,-4 2,-5 -2,-1 -2,-5 -2,-5 2,2 6,4 9,5 z"
+         id="path8893" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583;marker-mid:url(#Arrow5)"
+       d="M 28.9839 110.48 l 134.349 0 M 96.1584 179.359 l 0 -137.759 M 163.333 179.359 C 160.245 174.609 157.263 170.187 154.387 166.069 C 151.511 161.951 148.743 158.139 146.08 154.608 C 143.417 151.078 140.862 147.83 138.412 144.842 C 135.962 141.854 133.62 139.126 131.383 136.635 C 129.147 134.144 127.017 131.89 124.993 129.851 C 122.97 127.812 121.053 125.988 119.242 124.355 C 117.432 122.723 115.728 121.283 114.13 120.012 C 112.533 118.741 111.042 117.639 109.657 116.685 C 108.273 115.73 106.995 114.923 105.823 114.239 C 104.652 113.555 103.587 112.996 102.628 112.539 C 101.67 112.081 100.818 111.725 100.072 111.449 C 99.3267 111.172 98.6879 110.974 98.1553 110.833 C 97.6227 110.692 97.1969 110.607 96.8773 110.556 C 96.5577 110.505 96.3449 110.488 96.2383 110.483 C 96.1317 110.477 96.1319 110.483 96.2383 110.477 C 96.3447 110.471 96.5579 110.454 96.8773 110.404 C 97.1967 110.353 97.6229 110.268 98.1553 110.127 C 98.6877 109.986 99.3269 109.788 100.072 109.511 C 100.818 109.235 101.67 108.878 102.628 108.421 C 103.587 107.964 104.652 107.404 105.823 106.721 C 106.995 106.038 108.273 105.23 109.657 104.275 C 111.042 103.321 112.533 102.219 114.13 100.948 C 115.728 99.6775 117.432 98.2368 119.242 96.6046 C 121.053 94.9724 122.97 93.1476 124.993 91.1087 C 127.017 89.0699 129.147 86.8157 131.383 84.325 C 133.62 81.8343 135.963 79.1056 138.412 76.1179 C 140.861 73.1301 143.418 69.8817 146.08 66.3518 C 148.742 62.8218 151.512 59.0085 154.387 54.8912 C 157.262 50.7738 160.245 46.3504 163.333 41.6005"
+       title="t**2 t**3"
+       id="path313" />
+  </g>
+</svg>

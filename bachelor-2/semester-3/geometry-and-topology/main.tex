@@ -1,0 +1,29 @@
+\documentclass[12pt, a4paper, oneside]{memoir}
+\input{../../../preamble.tex}
+\usepackage{subfiles}
+\title{Геометрия и топология}
+\author{Курс Солынина А.А.}
+\date{Осень 2022 г.}
+
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vg}{\mathbf{g}}
+\newcommand{\vh}{\mathbf{h}}
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vzero}{\mathbf{0}}
+
+\begin{document}
+\frontmatter
+
+\begin{titlingpage}
+    \maketitle
+\end{titlingpage}
+
+\microtypesetup{protrusion=false}
+\tableofcontents
+\microtypesetup{protrusion=true}
+
+
+\mainmatter
+\subfile{01_differential_geometry_of_curves.tex}
+\end{document}
