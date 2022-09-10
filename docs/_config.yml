@@ -22,7 +22,7 @@ title: Конспекты
 description: Конспекты программы Технологии Программирования СПбГУ 2021 года поступления.
 
 domain: wowaster.github.io
-baseurl: "/docs" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://wowaster.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: wowaster
 show_downloads: false
