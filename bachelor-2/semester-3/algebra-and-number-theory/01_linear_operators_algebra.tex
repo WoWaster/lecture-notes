@@ -1,0 +1,215 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+
+\chapter{Алгебра линейных операторов}
+\begin{definition} 
+$V$ - линейное пространство над полем $K$. 
+Линейный оператор на $V$ — линейное отображение $V \to V$ (эндоморфизм линейного пространства $V$)
+\end{definition}
+\begin{definition} 
+$\End V = \Hom(V, V)$ - множество линейных операторов.
+\end{definition}
+
+$$\mca \in \Hom (V, W) \quad [\mca]_{E,F}$$
+
+Имея два пространства $V$ и $W$, базисы $E$ и $F$ можно выбрать так, что матрица получится окаймленной единичной.
+
+Теперь же мы имеем одно пространство, соответственно, и один базис и все еще хотим, чтобы матрица была наиболее простой. 
+
+\begin{definition} 
+    Говорят, что задана алгебра над полем $K$, если задано множество $A$, бинарные операции +, $\times$ на нем и отбражение $K \cdot A \to A$, т.ч.:
+    \begin{enumerate}
+        \item $(A,+, \times)$ - кольцо 
+        \item $(A,+, \cdot)$ - линейное пространство над полем $K$
+        \item $\forall \alpha \in K \  \forall a, b \in A : \alpha \cdot (a \times b) = (\alpha \cdot a) \times b = a \times (\alpha \cdot b)$
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    $A = M_n(K)$, 
+    $A_0 = \{ \alpha E_n | \alpha \in K\}$ - подкольцо скалярных матриц, изоморфное полю $K$.
+\end{example}
+
+\begin{example}
+    $A = K[x]$
+\end{example}   
+\begin{example}
+    Любая ситуация, где поле $K \subset R$ ($R$ - кольцо) $\implies R$ - $K$-алгебра. В обратную сторону тоже верно, если алгебра содержит единицу. Тогда там найдется подкольцо, которое можно отожествить с полем К.
+    
+    Почему алгебра с единицей: 
+
+    Пусть $A$ - алгебра c $1(\neq0)$ над полем $K$.
+    Рассмотрим множество $A_0 = \{\alpha \cdot 1| \alpha \in K\}$. 
+    $$K \xrightarrow{\varphi} A_0 \quad \alpha \mapsto \alpha_1$$
+    Идеал в поле либо нулевой, либо все поле. 
+    $\varphi(1) \neq 0 \Rightarrow Ker(\varphi)\neq K$. 
+    Значит,  $\varphi$ - изоморфизм. $A_0$ - подкольцо, изоморфное полю $K$.
+\end{example}
+
+
+Линейные операторы тоже образуют алгебру. Заметим, что в $\End \ V$ есть сложение и композиция операторов, а также умножение на скаляр. 
+$(\End \ V, $+$)$ - абелева группа. Проверка дистрибутивности операторов:
+\begin{gather*}
+    \mca\circ(\mcb_1+\mcb_2) = \mca\circ\mcb_1 + \mca\circ\mcb_2 \\
+    (\mca_1 + \mca_2)\circ\mcb = \mca_1\circ\mcb+\mca_2\circ\mcb
+\end{gather*}
+$(\End \ V, +, \circ)$ - линейное пространство над полем $K$. Наконец,
+$(\alpha\cdot\mca)\circ\mcb=\mca\circ(\alpha\cdot\mcb)=\alpha\cdot(\mca\circ\mcb)$.
+ 
+Таким образом, $(\End \ V, +, \circ, \cdot)$ - алгебра над полем $K$.
+
+
+
+
+\begin{proposition}
+Пусть $\dim V = n$. $E$ - базис $V$. 
+Тогда отображение $\End \ V \xrightarrow{\lambda_E} M_n(K), \mca \mapsto [\mca]_E$ - изоморфизм алгебр над полем $K$ (т.е. биекция сохраняет все операции)
+\end{proposition}
+
+\begin{proof}
+    Знаем: $\lambda_E$ - изоморфизм линейных пространств. $\lambda_E(\mcb\circ\mca)=[\mcb\mca]_E=[\mcb]_E\cdot[\mca]_E = \lambda_E(\mcb)\lambda_E(\mca)$  
+\end{proof}
+
+\begin{corollary}
+$\dim \End\ V = (\dim \ V)^2 $
+\end{corollary}
+
+lil friendly reminder: $U_E \xrightarrow{\mca} V_F \xrightarrow{\mcb} W_G \quad 
+    [\mcb\mca]_{EG} = [\mcb]_{FG}[\mca]_{EF}
+    $
+\begin{gather*}
+    U_{EE'} \xrightarrow{\mca} V_{FF'} \\
+    [\mca]_{EF}=A \quad [\mca]_{EF}=? \\
+    M_{E\rightarrow E'} = C \ \ M_{F\rightarrow F'} = D \\
+    E' = EC \quad E=(e_1, \ldots ,e_n) \quad C=c_{ij} \\
+    EC=(c_{11}e_1+\ldots+c_{m1}e_n, c_{12}e_1+\ldots +c_{n2}e_n, \ldots) \\
+\end{gather*}  
+
+\begin{proposition} 
+    Пусть $\mca \in \End V, E$ и $E'$ - базисы, $[\mca]_{E}=A; \ M_{E\rightarrow E'}=C$, тогда $[\mca]_{E'}=C^{-1}AC$
+\end{proposition}
+
+\begin{proof}
+    \begin{gather*} % TODO: try TiKZ
+        U_E \xrightarrow{\mca} V_F \xrightarrow{\epsilon_V=\id_V} V_F' \xleftarrow{\mca} U_E'\xrightarrow{\epsilon_U} U_E \\
+        [\mca]_{E'F'}=\underbrace{[\epsilon_V]_{FF'}}_{D^{-1}}\underbrace{[\mca]_{EF}}_{A}\underbrace{[\epsilon_U]_{E'E}}_{C} \\
+    \end{gather*}
+    В нашем случае $(U=V, E=F, E'=F')$
+\end{proof}
+
+\begin{definition}
+    Пусть $A'$ эквивалентно $A$, если $\exists C \in \GL_n(K)$: $A'=C^{-1}AC$. 
+    Проверка симметричности и транзитивности:
+    \begin{gather*} 
+        A= (C^{-1})^{-1}A'C^{-1} симметричность \\
+        A'' = D^{-1}A'D=D^{-1}C^{-1}A'CD=(DC)^{-1}A'(CD)  \\
+    \end{gather*}
+\end{definition}
+
+
+
+
+\chapter{Инвариантные подпространства}
+
+\begin{definition}
+   $V$ - линейное конечномерное пространство, $A\in \End \ V$. Пусть $W\subset \ V$ - линейное подпространство. 
+   $W$ - называется инвариантным относительно $A$, если $\forall w\in W : \mca(w) \in W$
+\end{definition}
+
+\begin{propertylist} 
+    \
+    \begin{enumerate}
+        \item $0, W$ - $A$-инвариантны
+        \item $\Ker \ \mca$ - $A$-инвариантно
+        \item $\Im \ \mca$ - $A$-инвариантен
+    \end{enumerate}
+\end{propertylist}
+    
+
+
+Пусть $W$ - $A$-инвариант. Следовательно, $A|_W$ можно рассматривать как элемент $\End \ W$. 
+Более формально, $\exists\  \mca_1 \in \End \ W \ \forall w \in W : \mca_1 w=\mca w$
+$$W\xrightarrow{\mca} W \quad w\mapsto \mca w$$
+
+$\mca_1$  -  оператор индуцированный оператором $\mca$ на инвариантном подпространстве $W$.
+
+$Пусть W\subset V, V/W = \{ v+w |v \in V\}$ - фактор-пространство.  $W$ - $A$-инвариант.
+Определим $\mca_2$.
+
+$$\mca_2: V/W \rightarrow V/W \quad v+W \mapsto \mca v+W$$
+
+Проверка корректности: пусть $v_1+W = v_2+W$, нужно проверить, что $\mca v_1+W=\mca v_2 + W$. Так, $\mca v_2= \mca(v_1+(v_2-v_1))=\mca v_1+ \mca\underbrace{(v_2-v_1)}_{\in W} \Rightarrow
+ \mca v_2 + W= \mca v_1+W$
+
+\begin{proposition} {}
+$\mca_2 \in \End \ V/W$
+\end{proposition}
+
+\begin{proof}
+    Проверка линейности: 
+
+    $\mca_2((v_1+W)+(v_2+W))= 
+     \mca_2((v_1+v_2)+W)= \mca(v_1+v_2)+W= 
+    \mca v_1+\mca v_2+W=(\mca v_1+W)+(\mca v_2+W)$
+
+    $\mca_2(\alpha(v+w))= \mca_2(\alpha v+W)=
+     \mca(\alpha v)+W= \alpha \mca v +W= \alpha(\mca v +W) =
+    \alpha \mca_2(v+W)$  
+\end{proof}
+
+$\mca_2$ - тоже индуцированный оператор
+
+\begin{proposition} {}
+Пусть $\mca \in \End \ V, W \subset V, e_1, \ldots ,e_m$ - базис $W$, $e_{m+1}, \ldots ,e_n$ - дополнение до базиса $V$. Тогда эквивалентны 2 утверждения:
+
+\begin{enumerate}
+    \item $W$ - $A$-инвариант
+    \item $[\mca]_{e_1, \ldots ,e_n}$ = $\left(
+        \begin{tabular}{c|c}
+            $A_1$ & $B$     \\
+            \hline
+            0   & $A_2$          \\         
+        \end{tabular}
+    \right), \ A_1 \in M_m(K)$
+\end{enumerate}
+
+При этом $A_1=[\mca_1]_{e_1, \ldots ,e_m}, \ A_2=[\mca_2]_{e_{m+1}+W,\ldots ,e_n+W }$, где $\mca_1$ и $\mca_2$ соответствуют индуцированные операторы
+\end{proposition}
+
+\begin{proof}
+$1 \Rightarrow 2:$ векторы $e_1, \ldots ,e_n \in W \Rightarrow \ \mca e_1, \ldots ,\mca e_m \in W = \Lin(e_1, \ldots ,e_m) \Rightarrow [\mca]_{e_1, \ldots ,e_n} = \left(
+\begin{tabular}{c|c}
+            $A_1$ & $B$     \\
+            \hline
+            0   & $A_2$          \\         
+        \end{tabular}
+\right)$
+
+Очевидно, $[\mca_1]_{e_1, \ldots e_m} =A_1$. 
+
+Пусть $[\mca]_{e_1, \ldots ,e_n} = (a_{ij})$.
+
+$\mca e_j = \underbrace{a_{1j}e_1+\ldots + a_{mj}e_m}_{\in W}+a_{m+1j}e_{m+1}+\ldots + a_{nj}e_n$, $j \geqslant m+1$
+
+$\underbrace{\mca e_j + W}_{=\mca_2(e_j+W)} = \underbrace{a_{m+1j}e_{m+1}+\ldots+a_{nj}e_n+W}_{=a_{m+1j}(e_{m+1}+W)+\ldots+a_{nj}(e_n+W)}$ (первые $m$ элементов станут нулевым классом) 
+Таким образом, $[\mca_2]_{e_{m+1}+W, \ldots, e_n+W} = \left(
+\begin{array}{cccc}
+a_{m+1m+1} & \ldots & a_{m+1n}\\
+\vdots & \ddots & \vdots\\
+a_{nm+1} & \ldots & a_{nn}\\
+\end{array}
+\right) = A_2$
+
+
+$2 \Rightarrow 1$: 
+     $[\mca_1]_{e_1, \ldots ,e_n} = $ $\left(\begin{array}{c|c}
+        A_1 &   B   \\
+       \hline
+    0   &  A_2         \\         
+    \end{array}\right) $
+        $\Rightarrow \mca e_1,\ldots  ,\mca e_m \in \Lin(e_1,\ldots ,e_m) \in W$
+        
+         Пусть $w\in W \Rightarrow w=\beta_1e_1+\ldots+\beta_me_m \Rightarrow \mca w= \beta_1\underbrace{\mca_1e_1}_{\in W}+\ldots+\beta_m\underbrace{\mca_me_m}_{\in W}\in W$
+\end{proof} {}
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass[12pt, a4paper, oneside]{memoir}
+\input{../../../preamble.tex}
+\usepackage{subfiles}
+\title{Алгебра и теория чисел}
+\author{Курс Жукова И.Б.}
+\date{Осень 2022 г.}
+
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Hom}{\operatorname{Hom}} 
+\newcommand{\Lin}{\operatorname{Lin}} 
+\newcommand{\GL}{\operatorname{GL}} 
+\newcommand{\Ker}{\operatorname{Ker}} 
+
+
+\newcommand{\mca}{\mathcal{A}}
+\newcommand{\mcb}{\mathcal{B}}
+
+
+\begin{document}
+\frontmatter
+
+\begin{titlingpage}
+    \maketitle
+\end{titlingpage}
+
+\microtypesetup{protrusion=false}
+\tableofcontents
+\microtypesetup{protrusion=true}
+
+
+\mainmatter
+\subfile{01_linear_operators_algebra.tex}
+\end{document}
