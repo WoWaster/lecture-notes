@@ -185,4 +185,211 @@ $\vf: [c,d] \to \R^3$, тогда $\vg \coloneqq \vf \circ \phi: [a,b] \to \R^3$
         \le \sum \int_{t_{i-1}}^{t_i} \epsilon dt = \epsilon (b-a) \to 0
     \end{multline*}
 \end{proof}
+
+\newpage % It's a curse! Remove if something moves before this!
+\marginpar{12.09.22}
+Попытаемся понять как вычислять длину прямой в некоторых случаях:
+\begin{itemize}
+    \item в случае явного задания:
+          \begin{gather*}
+              \displaystyle \begin{cases}
+                  x = t \\
+                  y = f(t)
+              \end{cases} \Leftrightarrow y = f(t) \\
+              |(x',y')|  = \sqrt{1 + \vf'^2(t)} \implies
+              L = \int_a^b\sqrt{1 + \vf'^2(t)} dt
+          \end{gather*}
+          К сожалению, такая формула мало применима, так как интегралы берутся редко.
+    \item в случае параметрического задания:
+          \begin{gather*}\begin{cases}
+                  x = x(t) \\
+                  y = y(t) \\
+                  z = z(t)
+              \end{cases} \implies
+              L = \int_a^b \sqrt{x'^2 + y'^2 +z'^2} dt
+          \end{gather*}
+    \item в случае полярных координат:
+          \begin{gather*}
+              r = r(\phi) \Leftrightarrow \begin{cases}
+                  x = r(\phi) \cos \phi \\
+                  y = r(\phi) \sin \phi
+              \end{cases} \implies
+              \begin{cases}
+                  x' = r' \cos \phi -r \sin \phi \\
+                  y' = r' \sin \phi + r \cos \phi
+              \end{cases} \\
+              \begin{multlined}
+                  x'^2 + y'^2 = (r' \cos \phi -r \sin \phi)^2 + (r' \sin \phi + r \cos \phi)^2 = \\
+                  r'^2\cos^2 \phi - 2rr'\sin \phi \cos \phi + r^2 \sin^2 \phi +\\
+                  r'^2 \sin^2\phi + 2rr' \sin \phi \cos \phi + r^2 \cos^2 \phi = \\
+                  r'^2 + r^2
+              \end{multlined}\\
+              L = \int_a^b \sqrt{x'^2 + y'^2} d\phi  = \int_a^b \sqrt{r'^2 + r^2}d \phi
+          \end{gather*}
+\end{itemize}
+
+\section{Касательный вектор}
+\begin{lemma}\label{dfoc:very_important_lemma}
+    Если $|\vf(t)| = const$, то $\vf'(t) \perp \vf(t)$.
+\end{lemma}
+\begin{proof}
+    Из $\vf'(t) \perp \vf(t)$ получаем: $ (\vf'(t), \vf(t)) = 0\ \forall t$.
+    Возьмем производную скалярного квадрата и получим:
+    \[(\vf(t), \vf(t))' = 2(\vf'(t), \vf(t)) = 0 = |\vf(t)|^{2'}\]
+    Тогда, $|\vf(t)| = const$.
+\end{proof}
+\begin{definition}[Касательный вектор]
+    $\vf'(t_0)$ называется касательным вектором к кривой в точке $t_0$.
+    Прямая, на которой лежит $\vf'(t)$ -- касательная прямая.
+\end{definition}
+\begin{theorem}
+    Касательная прямая не зависит от параметризации, если она регулярна.
+\end{theorem}
+\begin{proof}
+    $\phi$ -- скалярная функция, $\vf(t)$ -- вектор-функция.
+    Также $\vf(\phi(t)) = \vg(t)$.
+    $\vf'(t)$, $\vg'(t) = \vf'(\phi(t)) \phi'(t)$ -- касательные векторы $\vf$ и $\vg$ соответственно.
+    Обозначим $\tau = \phi(t)$.
+    $\vf'(t)$ и $\vg'(t)$ отличаются друг от друга на скаляр,
+    тогда $\vf'(\tau) \parallel \vg'(t)$.
+    Следовательно, при перепараметризации касательный вектор будет параллелен предыдущему, значит касательная прямая инвариантно определена.
+\end{proof}
+\begin{remark}
+    Регулярная параметризация -- это параметризации для которой в любой точке существует касательная прямая.
+\end{remark}
+\begin{definition}[Натуральная параметризация]
+    Параметризация $\vf(t)$ называется натуральной, если $|\vf'(t)| \equiv 1\ \forall t$.
+\end{definition}
+По сути, мы идем по кривой с единичной скоростью.
+Но пока не ясно существует и единственна ли натуральная параметризация.
+\begin{proof}
+    Проверить единственность достаточно просто: $\vg(t) = \vf(\phi(t))$, $\phi(t) = \tau$
+    \[|\vg'(t)| = |\vf'(\tau)| |\phi(t)| \implies |\phi'(t)| = 1\]
+    тогда $\phi = t + t_0$ (с точностью до выбора начального момента времени).
+\end{proof}
+
+\begin{theorem}
+    Натуральная параметризация существует.
+\end{theorem}
+\begin{proof}
+    Вспомним про длину кривой.
+    Глобальная идея: параметризация говорит сколько мы проходим по кривой за данное время;
+    чтобы перейти к натуральной параметризации мы откажемся от стандартного времени,
+    и скажем, что новое время это тот участок кривой, за которое мы его проходим, или
+    единичное расстояние мы проходим за единичное время, значит параметр времени -- это участок дуги.
+
+    Реализуем эту идею:
+    \[s = \int_{t_0}^t |\vf'(\tau)| d\tau\]
+    $s$ -- искомый натуральный параметр.
+    Будем считать $t - t_0$ временем.
+    Обозначим $s = \phi(t)$:
+    \[\phi(t) = \int_{t_0}^t |\vf'(\tau)| d\tau\]
+    Заметим, что $\phi(t)$ возрастает и непрерывна.
+    Значит существует $t = \phi^{-1}(s)  = \psi(s)$.
+    Тогда $\vf(t) = \vf(\psi(s))$ должна быть натуральной параметризацией.
+
+    Теперь докажем, что $\vf(\psi(s))$ есть натуральная параметризация.
+    Хотим убедиться, что
+    \[\left| \frac{d \vf(\psi(s))}{ds}\right| = 1.\]
+    Для этого
+    \begin{gather*}
+        \psi'(s) = \frac{1}{\phi'(t(s))} = \frac{1}{|\vf'(t)|}\\
+        \frac{d}{ds}\vf(\psi(s)) = \vf'(\psi(s)) \psi'(s) = \frac{\vf'(t)}{|\vf'(t)|}\\
+        \left| \frac{\vf'(t)}{|\vf'(t)|} \right| = 1
+    \end{gather*}
+\end{proof}
+
+\section{Реп\'ер Френ\'е}
+
+Есть кривая и $\vf(s)$ -- ее натуральная параметризация, тогда $\vv(s)$ -- ее касательный вектор.
+$|\vv(s)| = 1$.
+Тогда $\vv'(s) \perp \vv(s)$ по лемме \ref{dfoc:very_important_lemma}.
+\begin{definition}[Кривизна кривой]
+    Определим $\vn(s)$: $\vn(s) \upuparrows \vv'(s)$, $|\vn(s)| = 1$,
+    такой $\vn$ -- вектор главной нормали.
+    \[k = \frac{\vv ' (s)}{\vn} \Leftrightarrow \vv' = k \vn\]
+    Такая $k$ -- кривизна кривой.
+    А выражение $\vv' = k \vn$ называется первой формулой Френе.
+\end{definition}
+\begin{remark}
+    $k \ge 0$.
+\end{remark}
+\begin{remark}
+    $\vn$ -- не везде определен, необходима бирегулярность.
+\end{remark}
+
+\begin{definition}
+    Кривая называется бирегулярной, если $\vf''(t) \not\parallel \vf'(t)$ для любой параметризации.
+    Или, если $\vv'(s) \neq 0$ для натуральной параметризации.
+    Или $\vn$ корректно определен.
+    (почему они эквивалентны -- вопрос будущего)
+\end{definition}
+
+По умолчанию считаем, что все кривые бирегулярны.
+
+У нас есть вектор $\vv$ и перпендикулярный ему $\vn$.
+Они единичные, хотим превратить их в базис пространства.
+Для этого построим вектор $\vb$ перпендикулярный им обоим и тоже единичный.
+\begin{center}
+    \import{figures/}{binormal_vector.pdf_tex}
+\end{center}
+
+\begin{definition}[Вектор бинормали]
+    \[\vb \coloneqq \vv \times \vn\]
+    Правая тройка $(\vv,\vn, \vb$) -- репер Френе.
+\end{definition}
+
+Изучим $\vb'$:
+$\vb'(s) \perp \vb(s)$ из леммы \ref{dfoc:very_important_lemma},
+также $\vb' \perp \vv$. Почему?
+\[\vb' = (\vv \times \vn)' = \vv' \times \vn + \vv\times \vn' = 0 + \vv\times \vn' \perp \vv\]
+Таким образом, $\vb' \parallel \vn$ и $\vb' = -\kappa \vn$ -- вторая формула Френе.
+\begin{definition}[Кручение кривой]
+    $\kappa$, определенная выше -- кручение кривой.
+\end{definition}
+
+Изучим $\vn$:
+\[\vn' = (\vb \times \vv)' = \vb' \times \vv + \vb \times \vv' = -\kappa \vn \times \vv + \vb \times k\vn = \kappa\vb - k\vv\]
+получили третью формулу Френе.
+\begin{definition}[Формулы Френе]
+    \[
+        \begin{array}{cccc}
+            \toprule
+                 & \vv & \vn     & \vb    \\ \midrule
+            \vv' & 0   & k       & 0      \\ \midrule
+            \vn' & -k  & 0       & \kappa \\ \midrule
+            \vb' & 0   & -\kappa & 0      \\
+            \bottomrule
+        \end{array}
+    \]
+    Производная везде берется по натуральному параметру.
+\end{definition}
+\begin{definition}
+    Плоскость $(\vn, \vb)$ -- нормальная плоскость кривой.
+    Плоскость $(\vv, \vn)$ -- соприкасающаяся плоскость кривой.
+    Плоскость $(\vv, \vb)$ -- спрямляющая плоскость кривой.
+\end{definition}
+
+Вопрос: а как это посчитать?
+\begin{example}
+    Есть окружность:
+    \[\begin{cases}
+            x = R \cos t \\
+            y = R \sin t \\
+            z = 0
+        \end{cases}\]
+    Хотим найти натуральную параметризацию:
+    сейчас мы проходим окружность за время $2\pi$, наверное нужно проходить окружность за время $2\pi R$.
+    Тогда получим:
+    \[\begin{cases}
+            x = R\cos (t/R)  \\
+            y = R \sin (t/R) \\
+            z = 0
+        \end{cases}
+        \implies
+        \begin{cases}
+            x' = - \sin (t/R) \\
+            y' = \cos (t/R)
+        \end{cases}\]
+\end{example}
 \end{document}
