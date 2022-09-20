@@ -1,6 +1,9 @@
 \documentclass[12pt, a4paper, oneside]{memoir}
 \input{../../../preamble.tex}
 \usepackage{subfiles}
+\usepackage{quiver}
+\usetikzlibrary{babel}
+
 \title{Алгебра и теория чисел}
 \author{Курс Жукова И.Б.}
 \date{Осень 2022 г.}
@@ -10,11 +13,13 @@
 \newcommand{\Lin}{\operatorname{Lin}} 
 \newcommand{\GL}{\operatorname{GL}} 
 \newcommand{\Ker}{\operatorname{Ker}} 
-
+\newcommand{\Tr}{\operatorname{Tr}} 
 
 \newcommand{\mca}{\mathcal{A}}
 \newcommand{\mcb}{\mathcal{B}}
-
+\newcommand{\V}{V}
+\newcommand{\E}{E}
+\newcommand{\A}{A}
 
 \begin{document}
 \frontmatter
@@ -30,4 +35,7 @@
 
 \mainmatter
 \subfile{01_linear_operators_algebra.tex}
+\subfile{02_invariant_subspaces.tex}
+\subfile{03__еigenvalues_and_eigenvectors.tex}
+\subfile{04_characteristic_polynomial_of_operator.tex}
 \end{document}
