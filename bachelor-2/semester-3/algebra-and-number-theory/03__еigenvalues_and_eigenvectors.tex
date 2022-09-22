@@ -14,19 +14,19 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
 \begin{definition}
     Таким образом, $\lambda$  —  собственное значение $\mca 
     \Leftrightarrow  \Ker(\mca -\lambda\epsilon) \neq 0$. 
-    Если $K$ — числовое поле, то "собственное число = собственное значение".
+    Если $K$ — числовое поле, то <<собственное число = собственное значение>>.
 \end{definition}
 
 \begin{definition}
     Пусть $v \in V$, $\lambda$ — собственное значение $\mca$. 
     Говорят, что $v$ — собственный вектор $\mca$, принадлежащий собственному значению
-    $\lambda$, если $v \neq 0$ и $\mca v = \lambda м$,
+    $\lambda$, если $v \neq 0$ и $\mca v = \lambda v$,
     т.е. $v \in \Ker (\mca - \lambda \epsilon) \backslash  \{0\}$.
 \end{definition}
 
 \begin{definition}
     $V_\lambda = \Ker(\mca - \lambda \epsilon)$ —  
-    собственное подпространство, пренадлежащее собственному значению $\lambda$.    
+    собственное подпространство, принадлежащее собственному значению $\lambda$.    
 \end{definition}
 
 \begin{definition}
@@ -36,16 +36,17 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
  
 \begin{proposition}
     Пусть $\mca \in \End V$. Тогда: $\mca$ диагонализируем 
-    $\Leftrightarrow в V$ существует из собственных векторов $\mca$.
+    $\Leftrightarrow$ в $V$ существует базис из собственных векторов $\mca$.
 \end{proposition}
  
 \begin{proof}
-    $\Rightarrow: [\mca]_E = diag(\lambda_1, \ldots, \lambda_n) = \begin{pmatrix}
-        \lambda_1 & \ldots & 0\\
-        \vdots     & \ddots & \vdots   \\
-        0  & \ldots & \lambda_n  \\
-    \end{pmatrix},\ E = (e_1, \ldots, e_n),\ 
-    \mca e_i = \lambda_i e_i,\ i = 1, \ldots, n,\ e_i \neq 0 $,
+    $\Rightarrow:$
+    \[ [\mca]_E = diag(\lambda_1, \ldots, \lambda_n) = \begin{pmatrix}
+            \lambda_1 & \ldots & 0         \\
+            \vdots    & \ddots & \vdots    \\
+            0         & \ldots & \lambda_n \\
+        \end{pmatrix}\]
+    $ E = (e_1, \ldots, e_n), \mca e_i = \lambda_i e_i,\ i = 1, \ldots, n,\ e_i \neq 0 $,
     так как входит в базис $\Rightarrow e_i$ — собственный.
 
     $\Leftarrow$: Пусть  $E = (e_1, \ldots, e_n)$ — базис из собственных векторов.
@@ -132,7 +133,7 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
 \begin{proposition}
     Критерий диагональности оператора в терминах геометрических кратностей.
 
-    Пусть $\mca \in \End V,\ \lambda_1, \ldots, \lambda_m$ - все его собственные значения, 
+    Пусть $\mca \in \End V,\ \lambda_1, \ldots, \lambda_m$  — все его собственные значения, 
     $\dim V = n$. Тогда $\mca$  диагонализируем $\Leftrightarrow
     g_{\lambda_1} + \ldots +  g_{\lambda_m} = n$.
 \end{proposition}
@@ -142,7 +143,7 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
     $[\mca]_\E = diag(\underbrace{\lambda_1, \ldots, \lambda_1}_{c_1},
     \underbrace{\lambda_2, \ldots, \lambda_2}_{c_2}, \ldots,
     \underbrace{\lambda_m, \ldots, \lambda_m}_{c_m}), \  c_1, \ldots, c_m \geq 0$.
-    Первые $c_1$  векторов - собственные, принадлежащие собственным значениям 
+    Первые $c_1$  векторов  — собственные, принадлежащие собственным значениям 
     $\lambda_1$. Они ЛНЗ $\Rightarrow c_1 \leq g_{\lambda_1}$.
     Аналогично, $c_i \leq g_{\lambda_i},\ m \leq i \leq 2$.
     $n = c_1 + \ldots + c_m \leq g_{\lambda_1} + \ldots + g_{\lambda_m} = n
@@ -152,16 +153,17 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
     g_{\lambda_1} + \ldots + g_{\lambda_m} = n \Rightarrow
     \V = \V_{\lambda_1} \oplus \ldots \oplus  \V_{\lambda_m}$.
 
-    $\E_1$ - любой базис $\V_{\lambda_1}$,  
-    $\E_m$ - любой базис $\V_{\lambda_m}$. 
-    $\E$ - диагонализирующий базис для $\mca$.
+    $\E_1$  — любой базис $\V_{\lambda_1}$,  
+    $\E_m$  — любой базис $\V_{\lambda_m}$. 
+    $\E$  — диагонализирующий базис для $\mca$.
 \end{proof}
 
 \begin{remark}
-    При этом получили, если $[\mca]_E = diag(\underbrace{\lambda_1, \ldots, \lambda_1}_{c_1},
-    \underbrace{\lambda_2, \ldots, \lambda_2}_{c_2}, \ldots,
-    \underbrace{\lambda_m, \ldots, \lambda_m}_{c_m})$,
-    $c_1 = g_{\lambda_1}, \ldots,c_m = g_{\lambda_m}$.
+    При этом получили, если
+    \[[\mca]_E = diag(\underbrace{\lambda_1, \ldots, \lambda_1}_{c_1},
+        \underbrace{\lambda_2, \ldots, \lambda_2}_{c_2}, \ldots,
+        \underbrace{\lambda_m, \ldots, \lambda_m}_{c_m}),\]
+    то $c_1 = g_{\lambda_1}, \ldots,c_m = g_{\lambda_m}$.
 \end{remark}
 
 \end{document}
