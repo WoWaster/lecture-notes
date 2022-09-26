@@ -392,4 +392,201 @@ $\vb'(s) \perp \vb(s)$ из леммы \ref{dfoc:very_important_lemma},
             y' = \cos (t/R)
         \end{cases}\]
 \end{example}
+
+\section{Соприкасающаяся плоскость}\marginpar{19.09.22}
+В натуральной параметризации $\vv = \vf'$ и $\vn = \vf''/k$.
+Тогда плоскость $\langle \vf', \vf''\rangle$ -- соприкасающаяся плоскость для натуральной параметризации.
+
+А что будет в случае не натуральной параметризации?
+Посмотрим, что в таком случае происходит с вектором $\vf''$, будет ли он перпендикулярен $\vf'$?
+Нет, не будет, потому что, если вектор $\vf'' \perp \vf'$, то $|\vf'| = const$
+и параметризация почти натуральная, в том смысле, что наша скорость постоянная, но возможно не единичная.
+Вывод: в обычной ситуации $\vf''$ не перпендикулярен $\vf'$, однако плоскость в которой он лежит не меняется.
+
+% TODO: Выяснить понадобится ли часть про центростремительное и тангенциальное ускорения.
+\begin{theorem}
+    Плоскость $\langle \vf', \vf''\rangle$ не зависит от параметризации.
+\end{theorem}
+\begin{proof}
+    Пусть $\vf(t) = \vg(s)$, где $s$ не обязательно натуральный параметр и $s = \phi(t)$, тогда $\vg(\phi(t)) = \vf(t)$.
+    Уже доказано, что $\vf' \parallel \vg'$.
+    Теперь выясним, что
+    \begin{multline*}
+        \vf''(t) = (\vg(\phi(t)))'' = (\vg'(\phi(t)) \phi'(t))' = \\
+        \vg''(\phi(t)) \phi'^2(t) + \vg'(\phi(t)) \phi''(t) \in \langle \vg', \vg''\rangle
+    \end{multline*}
+\end{proof}
+
+\begin{theorem}
+    Есть регулярная параметризация $\vf(t)$,
+    $\delta(t)$ -- расстояние от $\vf(t)$ до касательной в точке $\vf(t_0)$.
+    \begin{center}
+        \import{figures/}{approximation1.pdf_tex}
+    \end{center}
+    \[\lim_{t \to t_0} \frac{\delta}{|\vf(t) - \vf(t_0)|} = 0.\]
+    Такой $\lim = 0$ тогда и только тогда, когда касательная прямая.
+\end{theorem}
+\begin{proof}
+    Выберем удобную для нас координатную систему:
+    \begin{itemize}
+        \item $\vf(t_0) = (0,0,0)$
+        \item $t_0 = 0$
+        \item Касательная прямая -- прямая $OX$.
+              Тогда $\vf(0) = (a,0,0)$.
+    \end{itemize}
+    Пусть $\vf(t) = (f_1(t), f_2(t), f_3(t))$, выясним что такое $\delta$.
+    \[\delta = \sqrt{f_2^2(t) + f_3^2(t)}\]
+    Разложим $f_1$ по Тейлору:
+    \begin{gather*}
+        f_1(t) = f_1(0) + f_1'(0)t + o(|\vf(t) - \vf(t_0)|) = at + o(t)
+        \intertext{На малом промежутке $|\vf(t) - \vf(t_0)| \approx t$. Аналогично с $f_2, f_3$:}
+        f_2 (t) = f_2(0) + f_2'(0)t+o(t) = o(t)\\
+        f_3 (t) = o(t)
+    \end{gather*}
+    Отсюда, $\delta(t) = o(t)$ и
+    \[\lim_{t \to 0} \frac{\delta(t)}{t} = 0\]
+    А так же
+    \[\lim_{t \to 0} \frac{|\vf(t) - \vf(0)|}{t} = |\vf'(0)|\]
+
+    Обратное доказательство -- упражнение.
+    (Hint: если $\delta$ -- расстояние от данной точки до любой прямой, кроме $OX$,
+    то в формуле для $\delta$ появится слагаемое $f_1^2(t)$)
+\end{proof}
+
+% Здесь умирает звук в записи => снижается качество пояснений.
+\begin{theorem}
+    Пусть $\vf(t)$ -- бирегулярная параметризация.
+    $\delta$ -- расстояние от $\vf(t)$ до плоскости $\alpha$.
+    \begin{center}
+        \import{figures/}{approximation2.pdf_tex}
+    \end{center}
+    \[\lim_{t \to t_0} \frac{\delta}{t^2} = 0 \left( \lim_{t \to t_0} \frac{\delta}{|\vf(t) - \vf(t_0)|^2} = 0 \right)\]
+    Такой $\lim = 0 \Leftrightarrow \alpha$ -- соприкасающаяся плоскость.
+\end{theorem}
+\begin{proof}
+    Введем удобную систему координат:
+    \begin{enumerate}
+        \item $t_0 = 0$
+        \item $\vf(0) = (0,0,0)$
+        \item $\vf'(0) = (a,0,0)$ и $\vf''(0) = (b,c,0)$
+    \end{enumerate}
+    Тогда соприкасающаяся плоскость, должна быть плоскостью $z=0$. Докажем это.
+
+    Запишем вектор-функцию в координатах: $\vf(t) = (f_1(t), f_2(t), f_3(t))$.
+    Пусть плоскость $\alpha$ задана уравнением $Ax+By+Cz+D = 0$ и $A^2 + B^2 + C^2 = 1$.
+    Подсчитаем $\delta$ используя разложение по Тейлору:
+    \begin{multline*}
+        \delta = |Af_1(t) + Bf_2(t) + Cf_3(t) + D| =\\
+        \left| A \left(f_1(0) + f_1'(0)t + \frac{f_1''(0)}{2}t^2 + o(t^2)\right) + \right.\\
+        B \left(f_2(0) + f_2'(0)t + \frac{f_2''(0)}{2}t^2 + o(t^2)\right) + \\
+        \left. C \left(f_3(0) + f_3'(0)t + \frac{f_3''(0)}{2}t^2 + o(t^2)\right) + D \right| = \\
+        \left| Aat + \frac{Ab}{2} t^2 + \frac{Bc}{2}t^2 + D + o(t^2) \right|
+    \end{multline*}
+    Теперь хотим выяснить чему равносильно $\delta = o(t^2)$.
+    \[\begin{cases}
+            Aa = 0 \\
+            Bc = 0 \\
+            D = 0  \\
+        \end{cases}\]
+    При этом $a \neq 0$, т.к. это единственная ненулевая координата касательного вектора, она не может быть нулем.
+    И $c \neq 0$, иначе $\vf''$ коллинеарно $\vf'$. Тогда
+    \[\begin{cases}
+            A = 0 \\
+            B = 0 \\
+            D = 0
+        \end{cases}\]
+    и $\alpha$ имеет единственно возможное уравнение $z = 0$.
+\end{proof}
+
+Посмотрим как задаются все эти плоскости в координатах.
+Пусть
+\[\vf(t) = (f_1(t), f_2(t), f_3(t))\]
+и $\vf$ не натуральная параметризация (т.к. к натуральной параметризации тяжело перейти).
+\[\vf'(t) = (f_1',f_2',f_3')\]
+
+Построим нормальную плоскость:
+\[f_1'(t_0)(x - f_1(t_0)) + f_2'(t_0)(y - f_2(t_0)) + f_3(t_0)(z - f_3(t_0)) = 0\]
+
+Построим соприкасающуюся плоскость:
+для этого найдем вектор главной нормали
+\[\vn = \vf' \times \vf'' = (f_2'f_3'' - f_3'f_2'',f_3'f_1'' - f_1'f_3'', f_1'f_2'' - f_2'f_1'')\]
+\begin{center}
+    \import{figures/}{main_normal_vector.pdf_tex}
+\end{center}
+и уравнение плоскости
+\[(f_2'f_3'' - f_3'f_2'')(x - f_1) + (f_3'f_1'' - f_1'f_3'')(y - f_2) + (f_1'f_2'' - f_2'f_1'')(z - f_3) = 0\]
+
+Построение спрямляющей плоскости опущено в виду громоздкости выкладок.
+
+\section{Вычисление кривизны}
+
+В натуральной параметризации $\vf(s_0) = |\vf''(s_0)|$.
+\begin{theorem}
+    $k \equiv 0 \Leftrightarrow$ кривая является частью прямой.
+\end{theorem}
+\begin{proof}
+    В натуральной параметризации $k=0$ равносильно $\vf''(t) = 0$,
+    а это равносильно тому, что $\vf(t) = \vu t + \vv$, где $\vu$ и $\vv = const$.
+\end{proof}
+\begin{theorem}
+    Для любой регулярной параметризации
+    \[k = \frac{|\vf'(t) \times \vf''(t)|}{|\vf'(t)|^3}.\]
+\end{theorem}
+\begin{proof}
+    Пусть $\vg(s)$ -- натуральная параметризация, а $\vf(t)$ любая другая параметризация.
+    \[s = \phi(t) = \int_{t_0}^t |\vf'(\tau)| d\tau\]
+    Тогда связь между ними: $\vf(t) = \vg(\phi(t))$.
+    И существует $\psi(s) = t$ -- обратная функция и $\vg(s) = \vf(\psi(s))$.
+
+    Пусть $\vu \in \langle \vf', \vf'' \rangle$
+    \begin{center}
+        \import{figures/}{proj_n-u.pdf_tex}
+    \end{center}
+    \[|\proj_\vn u| = \frac{|\vf' \times \vu|}{|\vf'|}\]
+
+    Вычислим $k$:
+    \begin{multline*}
+        k = |\vg''(s)| = |(\vf(\psi(s)))''| = \\
+        | \vf''(\psi(s)) \psi'^2(s) + \vf'(\psi(s)) \psi''(s)| = \\
+        \proj_\vn (\vf''(\psi(s)) \psi'^2(s) + \vf'(\psi(s)) \psi''(s))
+    \end{multline*}
+    Пусть
+    \begin{gather*}
+        \vu = \vf''(\psi(s)) \psi'^2(s) + \vf'(\psi(s)) \psi''(s)\\
+        \vf' \times \vu = \vf' \times \vf'' \psi'^2 + 0\\
+        \psi'(s) = \frac{1}{\phi'(t)} = \frac{1}{|\vf'(t)|}
+        \intertext{тогда}
+        \frac{|\vf' \times \vu|}{|\vf'|} = \frac{|\vf' \times \vf''|}{|\vf'|}\psi'^2(s) = \frac{|\vf' \times \vf''|}{|\vf'|^3}
+    \end{gather*}
+\end{proof}
+
+Если $\vf = (f_1, f_2, f_3)$, то
+\[k = \frac{\sqrt{(f_2'f_3'' - f_3' f_2'')^2 + (f_3'f_1'' - f_1' f_3'')^2 + (f_1'f_2'' - f_2' f_1'')^2}}{(f_1^2 + f_2^2 + f_3^2)^{3/2}}\]
+В случае плоских кривых ($f_3 = 0$):
+\[k = \frac{|f_1'f_2'' - f_2' f_1''|}{(f_1^2 + f_2^2)^{3/2}}\]
+При явном задании
+\begin{gather*}
+    y = f(x) \quad \begin{cases}
+        x = f_1 = t \\
+        y = f_2 = f(t)
+    \end{cases}\\
+    k = \frac{|f''|}{(1+ f'^2)^{3/2}}
+\end{gather*}
+В полярных координатах
+\begin{gather*}
+    r = r(\phi) \quad \begin{cases}
+        f_1 = x = r \cos \phi \\
+        f_2 = y = r \sin \phi
+    \end{cases}\\
+    |f'| = \sqrt{r^2 + r'^2} = \sqrt{f_1'^2 + f_2'^2}\\
+    \begin{cases}
+        f_1' = r' \cos \phi - r \sin \phi \\
+        f_2' = r' \sin \phi + r \cos \phi
+    \end{cases}\\
+    \begin{cases}
+        f_1'' = r'' \cos \phi - 2 r' \sin \phi - r \cos \phi \\
+        f_2'' = r'' \sin \phi + 2 r' \cos \phi - r \sin \phi
+    \end{cases}
+\end{gather*}
+Чему равно $|f_1'f_2'' - f_2' f_1''|$ -- упражнение.
 \end{document}
