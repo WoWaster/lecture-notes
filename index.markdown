@@ -6,11 +6,14 @@ layout: default
 title: Конспекты
 ---
 
+Все ошибки и предложения писать в [GitHub Issues](https://github.com/WoWaster/lecture-notes/issues) в соответствующие ветки.
+
 # 2 курс
 
 ## 3 семестр
 
-- [Геометрия и топология](bachelor-2/semester-3/geometry-and-topology/main.pdf)
+- [Алгебра и теория чисел](bachelor-2/semester-3/algebra-and-number-theory/main.pdf) (Автор [@chilison](https://github.com/chilison), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/9))
+- [Геометрия и топология](bachelor-2/semester-3/geometry-and-topology/main.pdf)(Автор [@WoWaster](https://github.com/WoWaster), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/8))
 
 # 1 курс
 
