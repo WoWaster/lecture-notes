@@ -1,0 +1,168 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+
+
+\chapter{Собственные значения и собственные векторы}
+
+Пусть $\mca \in \End V$. Скаляр $\lambda \in K$ называется собственным значением оператора
+$\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
+Можно написать иначе: $\mca v = \lambda v \Leftrightarrow \mca v - (\lambda \epsilon) v = 0
+    \Leftrightarrow (\mca -\lambda\epsilon)v = 0
+    \Leftrightarrow v \in \Ker(\mca -\lambda\epsilon)$, $\epsilon = \id$.
+
+\begin{definition}
+    Таким образом, $\lambda$  —  собственное значение $\mca
+        \Leftrightarrow  \Ker(\mca -\lambda\epsilon) \neq 0$.
+    Если $K$ — числовое поле, то <<собственное число = собственное значение>>.
+\end{definition}
+
+\begin{definition}
+    Пусть $v \in V$, $\lambda$ — собственное значение $\mca$.
+    Говорят, что $v$ — собственный вектор $\mca$, принадлежащий собственному значению
+    $\lambda$, если $v \neq 0$ и $\mca v = \lambda v$,
+    т.е. $v \in \Ker (\mca - \lambda \epsilon) \backslash  \{0\}$.
+\end{definition}
+
+\begin{definition}
+    $V_\lambda = \Ker(\mca - \lambda \epsilon)$ —
+    собственное подпространство, принадлежащее собственному значению $\lambda$.
+\end{definition}
+
+\begin{definition}
+    $\mca  \in \End V$ называется диагонализируемым, если в $V$ существует
+    базис $E$, такой что $[\mca]_E$ диагональна.
+\end{definition}
+
+\begin{proposition}
+    Пусть $\mca \in \End V$. Тогда: $\mca$ диагонализируем
+    $\Leftrightarrow$ в $V$ существует базис из собственных векторов $\mca$.
+\end{proposition}
+
+\begin{proof}
+    \[ [\mca]_E = diag(\lambda_1, \ldots, \lambda_n) = \begin{pmatrix}
+            \lambda_1 & \ldots & 0         \\
+            \vdots    & \ddots & \vdots    \\
+            0         & \ldots & \lambda_n \\
+        \end{pmatrix}\]
+    $ E = (e_1, \ldots, e_n),\ \mca e_i = \lambda_i e_i,\ i = 1, \ldots, n,\ e_i \neq 0 $,
+    так как входит в базис $\Rightarrow e_i$ — собственный.
+
+    $\Leftarrow$: Пусть  $E = (e_1, \ldots, e_n)$ — базис из собственных векторов.
+    $\mca e_i = \lambda_i e_i$ для некоторых $\lambda_i \in K, \ i = 1, \ldots, n
+        \Rightarrow [\mca]_E
+        = diag(\lambda_1, \ldots, \lambda_n)$.
+\end{proof}
+
+\begin{lemma}
+    Пусть $\mca \in \End V$. Тогда: 0 — собственное значение $\mca
+        \Leftrightarrow \mca \not\in \GL(V)$.
+\end{lemma}
+
+\begin{proof}
+    0 — собственное значение оператора $\mca \Leftrightarrow
+        \Ker (\mca - 0\epsilon) \neq 0 \Leftrightarrow
+        \Ker \mca \neq 0 \Leftrightarrow \mca \not\in \GL(V)$.
+\end{proof}
+
+\begin{definition}
+    Пусть $\lambda$ — собственное значение $\mca$.
+    Его геометрической кратностью называется
+    $g_\lambda = \dim \Ker (\mca -\lambda\epsilon),\ \lambda \leqslant g_\lambda \leqslant n = \dim V$.
+\end{definition}
+
+\begin{proposition}
+    Пусть $\lambda_1, \ldots, \lambda_k$, где $k$ — конечное число, — различные собственные значения $\mca$.
+    $v_1, \ldots, v_k$ — принадлежащие им собственные векторы.
+    Тогда  $v_1, \ldots, v_k$ — ЛНЗ.
+\end{proposition}
+
+\begin{proof}
+    Индукция по k.
+
+    База: $k = 1$.  По определению $v_1 \neq 0 \Rightarrow v_1$ — ЛНЗ.
+
+    Переход: $k-1 \rightarrow k$. Пусть $v_1, \ldots, v_k$  — собственные
+    векторы, принадлежащие $\lambda_1, \ldots, \lambda_k$.
+    Предположим, $\alpha_1 v_1 + \ldots + \alpha_k v_k = 0 (*).\
+        \mca(\lambda_1 v_1 + \ldots + \lambda_k v_k) =
+        \alpha_1 \lambda_1 v_1 + \ldots + \alpha_k \lambda_k v_k = 0$.  Домножим $(*)$ на $\lambda_k$:
+    $\alpha_1 \lambda_k v_1 + \ldots + \alpha_k \lambda_k v_k = 0$.
+    Вычтем: $\alpha_1(\lambda_1 - \lambda_k)v_1 + \ldots + \alpha_{k-1}(\lambda_{k-1} - \lambda_k)v_{k-1} = 0$
+
+    По индукционному предположению: $v_1, \ldots, v_{k-1}$ — ЛНC
+    $\Rightarrow \alpha_1\underbrace{(\lambda_1 - \lambda_k)}_{\neq 0} = \ldots =
+        \alpha_{k-1}\underbrace{(\lambda_{k-1} - \lambda_k)}_{\neq 0} = 0 \Rightarrow
+        \alpha_1 = \ldots = \alpha_{k-1} = 0 \Rightarrow \alpha_k v_k = 0\ (v_k \neq 0$, т.к. собственный вектор) $\Rightarrow \alpha_k = 0 \Rightarrow
+        v_1, \ldots, v_k$ — ЛНЗ.
+\end{proof}
+
+\begin{corollary}
+    Пусть $\lambda_1, \ldots, \lambda_k$ — различные собственные значения $\mca$.
+    Тогда   $\V_{\lambda_1} + \ldots + \V_{\lambda_k} =
+        \V_{\lambda_1} \oplus \ldots \oplus  \V_{\lambda_k}$.
+\end{corollary}
+
+\begin{proof}
+    Нужно доказать: если $v_1 + \ldots + v_k = v_1' + \ldots + v_k'$
+    (где $v_1,\ v_1' \in V_{\lambda_i}, i = 1, \ldots, k$).
+    Таким образом, $v_1 = v_1', \ldots, v_k = v_k'$.
+
+    \[(v_1 - v_1') + \ldots + (v_k - v_k') = 0 \quad \quad \quad (**)\]
+
+    Предположим, $\exists i : v_i \neq v_i'$. Тогда в $(**)$  есть ненулевое слагаемое:
+    $v_i - v_i' \in V_{\lambda_i}$. Оставим в $(**)$ только ненулевые
+    слагаемые, получится, что сумма собственных векторов из разных собственных подпространств будет равна нулю - противоречие с линейной независимостью.
+\end{proof}
+
+\begin{corollary}
+    Пусть $\dim V = n,\ \mca \in \End V$. Тогда у  $\mca$ есть $\le n$ собственных значений (для каждого собственного значению по собственному вектору, прямо следует из предложения).
+\end{corollary}
+
+\begin{corollary}
+    Пусть $\lambda_1, \ldots, \lambda_m$ — все собственные значение $\mca$.
+    Тогда $g_{\lambda_1} + \ldots + g_{\lambda_m} \le n = \dim V$.
+\end{corollary}
+
+\begin{proof}
+    $\V_{\lambda_1} + \ldots + \V_{\lambda_m} < V
+        \Rightarrow \dim (\underbrace{\V_{\lambda_1} + \ldots + \V_{\lambda_k}}_{g_{\lambda_1} + \ldots + g_{\lambda_m}}) \leq n$ (по следствию 3.3.1).
+\end{proof}
+
+\begin{proposition}
+    Критерий диагонализируемости оператора в терминах геометрических кратностей.
+
+    Пусть $\mca \in \End V,\ \lambda_1, \ldots, \lambda_m$  — все его собственные значения,
+    $\dim V = n$. Тогда $\mca$  диагонализируем $\Leftrightarrow
+        g_{\lambda_1} + \ldots +  g_{\lambda_m} = n$.
+\end{proposition}
+
+\begin{proof}
+    $\Rightarrow$: найдется базис $\E$, такой что:
+    $[\mca]_\E = diag(\underbrace{\lambda_1, \ldots, \lambda_1}_{c_1},
+        \underbrace{\lambda_2, \ldots, \lambda_2}_{c_2}, \ldots,
+        \underbrace{\lambda_m, \ldots, \lambda_m}_{c_m}), \  c_1, \ldots, c_m \geq 0$.
+    Первые $c_1$  векторов  — собственные, принадлежащие собственным значениям
+    $\lambda_1$. Они ЛНЗ, так как являются часть базиса $\Rightarrow c_1 \leq g_{\lambda_1}$.
+    Аналогично, $c_i \leq g_{\lambda_i},\ m \leq i \leq 2$.
+    $n = c_1 + \ldots + c_m \leq g_{\lambda_1} + \ldots + g_{\lambda_m} = n
+        \Rightarrow g_{\lambda_1} + \ldots + g_{\lambda_m} = n$
+
+    $\Leftarrow$: $\dim (\V_{\lambda_1} + \ldots + \V_{\lambda_m}) =
+        g_{\lambda_1} + \ldots + g_{\lambda_m} = n \Rightarrow
+        \V = \V_{\lambda_1} \oplus \ldots \oplus  \V_{\lambda_m}$.
+
+    $\E_1$  — любой базис $\V_{\lambda_1}$, $\ldots$,
+    $\E_m$  — любой базис $\V_{\lambda_m}$.
+    $\E$  — диагонализирующий базис для $\mca$.
+\end{proof}
+
+\begin{remark}
+    При этом получили, если
+    \[[\mca]_E = diag(\underbrace{\lambda_1, \ldots, \lambda_1}_{c_1},
+        \underbrace{\lambda_2, \ldots, \lambda_2}_{c_2}, \ldots,
+        \underbrace{\lambda_m, \ldots, \lambda_m}_{c_m}),\]
+    то $c_1 = g_{\lambda_1}, \ldots,c_m = g_{\lambda_m}$.
+\end{remark}
+
+\end{document}
