@@ -45,7 +45,7 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
             \vdots    & \ddots & \vdots    \\
             0         & \ldots & \lambda_n \\
         \end{pmatrix}\]
-    $ E = (e_1, \ldots, e_n), \mca e_i = \lambda_i e_i,\ i = 1, \ldots, n,\ e_i \neq 0 $,
+    $ E = (e_1, \ldots, e_n),\ \mca e_i = \lambda_i e_i,\ i = 1, \ldots, n,\ e_i \neq 0 $,
     так как входит в базис $\Rightarrow e_i$ — собственный.
 
     $\Leftarrow$: Пусть  $E = (e_1, \ldots, e_n)$ — базис из собственных векторов.
@@ -80,20 +80,20 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
 \begin{proof}
     Индукция по k.
 
-    База: $k = 1$.  по определению $v_1 \neq 0 \Rightarrow v_1$ — ЛНЗ.
+    База: $k = 1$.  По определению $v_1 \neq 0 \Rightarrow v_1$ — ЛНЗ.
 
     Переход: $k-1 \rightarrow k$. Пусть $v_1, \ldots, v_k$  — собственные
     векторы, принадлежащие $\lambda_1, \ldots, \lambda_k$.
-    Предположим, $\lambda_1 v_1 + \ldots + \lambda_k v_k = 0 (*).\
+    Предположим, $\alpha_1 v_1 + \ldots + \alpha_k v_k = 0 (*).\
         \mca(\lambda_1 v_1 + \ldots + \lambda_k v_k) =
-        \alpha_1 \lambda_1 v_1 + \ldots + \alpha_k \lambda_k v_k = 0$. Из $(*)$ следует, что
+        \alpha_1 \lambda_1 v_1 + \ldots + \alpha_k \lambda_k v_k = 0$.  Домножим $(*)$ на $\lambda_k$:
     $\alpha_1 \lambda_k v_1 + \ldots + \alpha_k \lambda_k v_k = 0$.
     Вычтем: $\alpha_1(\lambda_1 - \lambda_k)v_1 + \ldots + \alpha_{k-1}(\lambda_{k-1} - \lambda_k)v_{k-1} = 0$
 
     По индукционному предположению: $v_1, \ldots, v_{k-1}$ — ЛНC
     $\Rightarrow \alpha_1\underbrace{(\lambda_1 - \lambda_k)}_{\neq 0} = \ldots =
         \alpha_{k-1}\underbrace{(\lambda_{k-1} - \lambda_k)}_{\neq 0} = 0 \Rightarrow
-        \alpha_1 = \ldots = \alpha_{k-1} = 0 \Rightarrow \alpha_k = 0 \Rightarrow
+        \alpha_1 = \ldots = \alpha_{k-1} = 0 \Rightarrow \alpha_k v_k = 0\ (v_k \neq 0$, т.к. собственный вектор) $\Rightarrow \alpha_k = 0 \Rightarrow
         v_1, \ldots, v_k$ — ЛНЗ.
 \end{proof}
 
@@ -105,18 +105,18 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
 
 \begin{proof}
     Нужно доказать: если $v_1 + \ldots + v_k = v_1' + \ldots + v_k'$
-    (где $v_1, v_1' \in V_{\lambda_i}, i = 1, \ldots, k$).
+    (где $v_1,\ v_1' \in V_{\lambda_i}, i = 1, \ldots, k$).
     Таким образом, $v_1 = v_1', \ldots, v_k = v_k'$.
 
     \[(v_1 - v_1') + \ldots + (v_k - v_k') = 0 \quad \quad \quad (**)\]
 
-    Предположим, $\exists i : v_i = v_i'$. Тогда в $(**)$  есть ненулевое слагаемое:
+    Предположим, $\exists i : v_i \neq v_i'$. Тогда в $(**)$  есть ненулевое слагаемое:
     $v_i - v_i' \in V_{\lambda_i}$. Оставим в $(**)$ только ненулевые
-    слагаемые  - противоречие с линейной независимостью.
+    слагаемые, получится, что сумма собственных векторов из разных собственных подпространств будет равна нулю - противоречие с линейной независимостью.
 \end{proof}
 
 \begin{corollary}
-    Пусть $\dim V = n,\ \mca \in \End V$. Тогда у  $\mca \le n$ собственных значений.
+    Пусть $\dim V = n,\ \mca \in \End V$. Тогда у  $\mca$ есть $\le n$ собственных значений (для каждого собственного значению по собственному вектору, прямо следует из предложения).
 \end{corollary}
 
 \begin{corollary}
@@ -126,11 +126,11 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
 
 \begin{proof}
     $\V_{\lambda_1} + \ldots + \V_{\lambda_m} < V
-        \Rightarrow \dim (\underbrace{\V_{\lambda_1} + \ldots + \V_{\lambda_k}}_{g_{\lambda_1} + \ldots + g_{\lambda_m}}) \leq n$.
+        \Rightarrow \dim (\underbrace{\V_{\lambda_1} + \ldots + \V_{\lambda_k}}_{g_{\lambda_1} + \ldots + g_{\lambda_m}}) \leq n$ (по следствию 3.3.1).
 \end{proof}
 
 \begin{proposition}
-    Критерий диагональности оператора в терминах геометрических кратностей.
+    Критерий диагонализируемости оператора в терминах геометрических кратностей.
 
     Пусть $\mca \in \End V,\ \lambda_1, \ldots, \lambda_m$  — все его собственные значения,
     $\dim V = n$. Тогда $\mca$  диагонализируем $\Leftrightarrow
@@ -138,12 +138,12 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
 \end{proposition}
 
 \begin{proof}
-    $\Rightarrow$: найдется базис $\E$ такой что:
+    $\Rightarrow$: найдется базис $\E$, такой что:
     $[\mca]_\E = diag(\underbrace{\lambda_1, \ldots, \lambda_1}_{c_1},
         \underbrace{\lambda_2, \ldots, \lambda_2}_{c_2}, \ldots,
         \underbrace{\lambda_m, \ldots, \lambda_m}_{c_m}), \  c_1, \ldots, c_m \geq 0$.
     Первые $c_1$  векторов  — собственные, принадлежащие собственным значениям
-    $\lambda_1$. Они ЛНЗ $\Rightarrow c_1 \leq g_{\lambda_1}$.
+    $\lambda_1$. Они ЛНЗ, так как являются часть базиса $\Rightarrow c_1 \leq g_{\lambda_1}$.
     Аналогично, $c_i \leq g_{\lambda_i},\ m \leq i \leq 2$.
     $n = c_1 + \ldots + c_m \leq g_{\lambda_1} + \ldots + g_{\lambda_m} = n
         \Rightarrow g_{\lambda_1} + \ldots + g_{\lambda_m} = n$
@@ -152,7 +152,7 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
         g_{\lambda_1} + \ldots + g_{\lambda_m} = n \Rightarrow
         \V = \V_{\lambda_1} \oplus \ldots \oplus  \V_{\lambda_m}$.
 
-    $\E_1$  — любой базис $\V_{\lambda_1}$,
+    $\E_1$  — любой базис $\V_{\lambda_1}$, $\ldots$,
     $\E_m$  — любой базис $\V_{\lambda_m}$.
     $\E$  — диагонализирующий базис для $\mca$.
 \end{proof}
