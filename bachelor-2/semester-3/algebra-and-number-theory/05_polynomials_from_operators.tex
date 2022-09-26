@@ -1,0 +1,125 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+
+
+\chapter{Многочлены от операторов}
+
+Пусть $\mca \in \End V$ ($V$ над $K$), $f \in K[x]$. $f = \alpha_n x^n + \ldots + \alpha_1 x + \alpha_0$.
+$f(\mca) = \alpha_n {\mca}^n + \alpha_{n-1} {\mca}^{n-1} + \ldots + \alpha_1 \mca + \alpha_0 \epsilon_V \in \End V$.
+
+\begin{proposition}
+    $f, g \in K[x]$
+    \begin{enumerate}
+        \item $(f+g)(\mca) = f(\mca) + g(\mca)$.
+        \item $(fg)(\mca) = f(\mca)g(\mca) =g(\mca)f(\mca)=gf(\mca)$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Непосредственная проверка.
+\end{proof}
+
+\begin{corollary}
+    Пусть $\mca \in \End V$, $f \in K[x]$, тогда $\Ker f(\mca), \Im f(\mca)$ -- $\mca$-инвариантные подпространства.
+\end{corollary}
+
+\begin{proof}
+    $v = \Ker f(\mca)$, т.e. $f(\mca) (v) = 0.\ f(\mca)(\mca v) =
+        (f(\mca)\mca)(v) = (\mca f(\mca))(v) = \mca(v) = 0$.
+    Таком образом, $\mca v \in \Ker f(\mca)$. $\Im f(\mca)$ -- $\mca$-инвариантное подпространство.
+    Пусть $v \in \Im f(\mca) \Rightarrow \exists w$: $v = f(\mca)(w)$.
+    $\mca v = (\mca f(\mca))(w) = (f(\mca)\mca)(w) = f(\mca)(\mca w) \in \Im f(\mca)$.
+\end{proof}
+
+$R$ -- коммутативноe ассоциативное кольцо с 1. Подмножество $I\subset R$ называется идеалом, если
+\begin{enumerate}
+    \item $I$ -- подгруппа по сложению
+    \item $\forall a \in I \ \forall r \in \R : ra \in I$.
+\end{enumerate}
+
+Пусть $c \subset R$, $(c) = \{cx | x \in K\}$ -- идеал в $R$, главный идеал, порожденный $c$.
+
+\begin{corollary}
+    В $K[x]$, где $K$ -- поле, все идеалы главные.
+\end{corollary}
+
+\begin{proof}
+    Пусть $I \subset K[x],\ I = 0 \Rightarrow I = (0)$. $I \neq 0 $, $h$ - многочлен наименьшей степени, входящий в $I\setminus \{0\}$.
+    Докажем: $I = (h)$. $h \in I \Rightarrow (h) \subset I$.
+    Осталось: $I \subset (h)$. $f \in I \Rightarrow f=hq+r$, где $\deg r < \deg h
+        \Rightarrow r = \underbrace{f}_{\in I} - \underbrace{h}_{\in I} q \in I \Rightarrow r = 0 \Rightarrow f = hq \in (h)$.
+\end{proof}
+
+\begin{remark}
+    Аналогично доказывается, что любая евклидова область - ОГЦ (область главных идеалов).
+\end{remark}
+
+\begin{remark}
+    $\Z[x]$ - не ОГЦ. Например, $I = \{f|f(0) \vdots 2\} \neq (2),\ \neq (x),\ \neq (1)$.
+\end{remark}
+
+\begin{definition}
+    Пусть $\mca \in \End V : v\in V$. $f \in K[x]$ называется аннулятором $v$ по отношению к оператору $\mca$, если $f(\mca)(v) = 0$.
+\end{definition}
+
+\begin{lemma}
+    $I = \{f | f$ -- аннулятор $v \}$ -- идеал в $K[x]$.
+\end{lemma}
+
+\begin{proof}
+    $f, g \in I,\ (f-g)(\mca)(v) = (f(\mca)-g(\mca))(v) = f(\mca)(v) - g(\mca)(v) = 0$.
+    $f \in I,\ h \in K[x]$.
+
+    $(hf)(\mca)(v) = h(\mca)(\underbrace{f(\mca)(v)}_{0}) = 0 \Rightarrow hf \in I$.
+\end{proof}
+
+Пусть $dim V = n$. $v, \mca v, {\mca}^2 v, \ldots, {\mca}^n v$ - ЛЗС.
+$f(\mca)(v) = \alpha_1v + \ldots + \lambda_n {\mca}^n v = 0$, не все $\alpha_i =0$.
+$f = \alpha_0 + \alpha_1 x + \ldots + \alpha_n x^n \neq 0 \Rightarrow f$ -- аннулятор $v$.
+
+$I$ -- главный идеал $\Rightarrow I=(f_0), f_0 \neq 0$. $f_0$ - минимальный аннулятор $v$ (минимальный аннулирующий многочлен).
+
+$v \in V$, $v\in W$ -- инвариант $\Rightarrow \mca v \in W \Rightarrow {\mca}^2 v \in W \Rightarrow \ldots \Rightarrow \forall {\mca}^k v \in W$.
+
+\begin{definition}
+    Циклическим подпространством, порожденным $V$, называется $C_v = Lin(v, \mca v, {\mca}^2 v, \ldots)$.
+\end{definition}
+
+\begin{proposition}
+    Пусть $f_0$ -- минимальный аннулятор $v$, $d = deg f_0$. Тогда $C_v$ -- $\mca$-инвартное подпространство с базисом
+    $v, \mca v, {\mca}^2 v, \ldots, {\mca}^{d-1} v$.
+\end{proposition}
+
+\begin{proof}
+    $w \in C_v \Rightarrow w = \alpha_0 v + \alpha_1 \mca v + \ldots + \alpha_m {\mca}^{m} v \Rightarrow
+        \mca w = \alpha_0 \mca v + \alpha_1 {\mca}^2 v + \ldots + \alpha_m {\mca}^{m+1} v \in C_v$.
+
+    Предположим, $v, \mca v, {\mca}^2 v, \ldots, {\mca}^{d-1} v$ -- ЛЗС. $g(\mca)(v) = \beta_0 v + \beta_1 \mca v + \ldots + \beta_{d-1} {\mca}^{d-1} = 0$, не все $\beta = 0$.
+
+    $g = \beta_0 + \beta_1 v + \ldots + \beta_{d-1} v^{d-1} \neq 0 \Rightarrow
+        g$ -- аннулятор $v \Rightarrow g \in (f_0) \Rightarrow f_0|g \Rightarrow deg g < deg f_0$, пришли к противоречию.
+    Таким образом, $v, \mca v, {\mca}^2 v, \ldots, {\mca}^{d-1} v$ -- ЛНC.
+
+    Осталось проверить $C_v = \underbrace{Lin(v, \mca v, {\mca}^2 v, \ldots, {\mca}^{d-1} v)}_{W}$.
+
+    Докажем индукцией по $k$: ${\mca}^{k} v \in W$.
+
+    База: $k = 0, 1, \ldots, d-1 \Rightarrow {\mca}^k \in W$ по определению.
+
+    Переход: $k\geq d$.
+
+    По индукционному предположению: ${\mca}^{k-1} v \in W$,
+    т.е. ${\mca}^{k-1}v = \gamma_0 v + \gamma_1 \mca v + \ldots + \gamma_{d-1} \mca v \Rightarrow
+        {\mca}^k v = \underbrace{\gamma_0 \mca v + \gamma_1 {\mca}^2 v + \ldots + \gamma_{d-2} {\mca}^{d-1} v}_{W} + \gamma_{d-1} {\mca}^d v$.
+
+    ${\mca}^d v \in W$?
+
+    $f_0 = \beta_0 + \beta_1 x + \ldots \beta_{d-1} x^{d-1} + \beta_d x^d$ - минимальный аннулятор, $B_d \neq 0$.
+
+    $f_0(\mca) v = \underbrace{\beta_0 v +\beta_1 \mca v + \ldots + \beta_{d-1} {\mca}^{d-1} v}_{\in W} + \beta_d {\mca}^d v \Rightarrow {\mca}^d v \in W \Rightarrow
+        {\mca}^k v \in W \ \forall k \in \N$.
+
+\end{proof}
+
+\end{document}
