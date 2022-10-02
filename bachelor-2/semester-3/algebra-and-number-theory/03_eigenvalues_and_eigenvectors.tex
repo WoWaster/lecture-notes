@@ -11,25 +11,25 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
     \Leftrightarrow (\mca -\lambda\epsilon)v = 0
     \Leftrightarrow v \in \Ker(\mca -\lambda\epsilon)$, $\epsilon = \id$.
 
-\begin{definition}
+\begin{definition} [Собственное значение]
     Таким образом, $\lambda$  —  собственное значение $\mca
         \Leftrightarrow  \Ker(\mca -\lambda\epsilon) \neq 0$.
     Если $K$ — числовое поле, то <<собственное число = собственное значение>>.
 \end{definition}
 
-\begin{definition}
+\begin{definition} [Собственный вектор]
     Пусть $v \in V$, $\lambda$ — собственное значение $\mca$.
     Говорят, что $v$ — собственный вектор $\mca$, принадлежащий собственному значению
     $\lambda$, если $v \neq 0$ и $\mca v = \lambda v$,
     т.е. $v \in \Ker (\mca - \lambda \epsilon) \backslash  \{0\}$.
 \end{definition}
 
-\begin{definition}
+\begin{definition} [Собственной подпространства]
     $V_\lambda = \Ker(\mca - \lambda \epsilon)$ —
     собственное подпространство, принадлежащее собственному значению $\lambda$.
 \end{definition}
 
-\begin{definition}
+\begin{definition} [Диагонализируемость оператора]
     $\mca  \in \End V$ называется диагонализируемым, если в $V$ существует
     базис $E$, такой что $[\mca]_E$ диагональна.
 \end{definition}
@@ -65,7 +65,7 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
         \Ker \mca \neq 0 \Leftrightarrow \mca \not\in \GL(V)$.
 \end{proof}
 
-\begin{definition}
+\begin{definition} [Геометрическая кратность]
     Пусть $\lambda$ — собственное значение $\mca$.
     Его геометрической кратностью называется
     $g_\lambda = \dim \Ker (\mca -\lambda\epsilon),\ \lambda \leqslant g_\lambda \leqslant n = \dim V$.

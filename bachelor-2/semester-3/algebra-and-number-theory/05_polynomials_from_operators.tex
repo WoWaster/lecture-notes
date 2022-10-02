@@ -5,14 +5,14 @@
 
 \chapter{Многочлены от операторов}
 
-Пусть $\mca \in \End V$ ($V$ над $K$), $f \in K[x]$. $f = \alpha_n x^n + \ldots + \alpha_1 x + \alpha_0$.
+Пусть $\mca \in \End V$ ($V$ над $K$), $f \in K[X]$. $f = \alpha_n x^n + \ldots + \alpha_1 x + \alpha_0$.
 $f(\mca) = \alpha_n {\mca}^n + \alpha_{n-1} {\mca}^{n-1} + \ldots + \alpha_1 \mca + \alpha_0 \epsilon_V \in \End V$.
 
 \begin{proposition}
-    $f, g \in K[x]$
+    $f, g \in K[X]$
     \begin{enumerate}
         \item $(f+g)(\mca) = f(\mca) + g(\mca)$.
-        \item $(fg)(\mca) = f(\mca)g(\mca) =g(\mca)f(\mca)=gf(\mca)$.
+        \item $(fg)(\mca) = f(\mca)g(\mca) =g(\mca)f(\mca)=gf(\mca)$ (т.к. многочлены коммутируют).
     \end{enumerate}
 \end{proposition}
 
@@ -21,69 +21,75 @@ $f(\mca) = \alpha_n {\mca}^n + \alpha_{n-1} {\mca}^{n-1} + \ldots + \alpha_1 \mc
 \end{proof}
 
 \begin{corollary}
-    Пусть $\mca \in \End V$, $f \in K[x]$, тогда $\Ker f(\mca), \Im f(\mca)$ -- $\mca$-инвариантные подпространства.
+    Пусть $\mca \in \End V$, $f \in K[X]$, тогда $\Ker f(\mca), \Im f(\mca)$ -- $\mca$-инвариантные подпространства.
 \end{corollary}
 
 \begin{proof}
-    $v = \Ker f(\mca)$, т.e. $f(\mca) (v) = 0.\ f(\mca)(\mca v) =
-        (f(\mca)\mca)(v) = (\mca f(\mca))(v) = \mca(v) = 0$.
-    Таком образом, $\mca v \in \Ker f(\mca)$. $\Im f(\mca)$ -- $\mca$-инвариантное подпространство.
-    Пусть $v \in \Im f(\mca) \Rightarrow \exists w$: $v = f(\mca)(w)$.
-    $\mca v = (\mca f(\mca))(w) = (f(\mca)\mca)(w) = f(\mca)(\mca w) \in \Im f(\mca)$.
+    $v \in \Ker f(\mca)$, т.e. $f(\mca) (v) = 0$. Действуем на $v$ оператором $\mca$: $f(\mca)(\mca v) =
+        (f(\mca)\mca)(v) = (\mca f(\mca))(v) = \mca(0) = 0$.
+    Таким образом, $\mca v \in \Ker f(\mca)$.
+
+    $\Im f(\mca)$ -- $\mca$-инвариантное подпространство.
+    Пусть $v \in \Im f(\mca)$. Это означает, что $\exists \ w$: $v = f(\mca)(w) \Rightarrow
+        \mca v = (\mca f(\mca))(w) = (f(\mca)\mca)(w) = f(\mca)(\mca w) \in \Im f(\mca)$.
 \end{proof}
 
-$R$ -- коммутативноe ассоциативное кольцо с 1. Подмножество $I\subset R$ называется идеалом, если
+$R$ -- коммутативноe ассоциативное кольцо с 1. Подмножество $I\subset R$ называется идеалом, если:
 \begin{enumerate}
-    \item $I$ -- подгруппа по сложению
+    \item $I$ -- подгруппа по сложению.
     \item $\forall a \in I \ \forall r \in \R : ra \in I$.
 \end{enumerate}
 
 Пусть $c \subset R$, $(c) = \{cx | x \in K\}$ -- идеал в $R$, главный идеал, порожденный $c$.
 
 \begin{corollary}
-    В $K[x]$, где $K$ -- поле, все идеалы главные.
+    В $K[X]$, где $K$ -- поле, все идеалы главные.
 \end{corollary}
 
 \begin{proof}
-    Пусть $I \subset K[x],\ I = 0 \Rightarrow I = (0)$. $I \neq 0 $, $h$ - многочлен наименьшей степени, входящий в $I\setminus \{0\}$.
+    Пусть $I \subset K[X]$.
+
+    $I = 0$. $I = (0)$.
+
+    $I \neq 0 $, $h$ - многочлен наименьшей степени, входящий в $I\setminus \{0\}$.
     Докажем: $I = (h)$. $h \in I \Rightarrow (h) \subset I$.
     Осталось: $I \subset (h)$. $f \in I \Rightarrow f=hq+r$, где $\deg r < \deg h
         \Rightarrow r = \underbrace{f}_{\in I} - \underbrace{h}_{\in I} q \in I \Rightarrow r = 0 \Rightarrow f = hq \in (h)$.
 \end{proof}
 
 \begin{remark}
-    Аналогично доказывается, что любая евклидова область - ОГЦ (область главных идеалов).
+    Аналогично доказывается, что любая евклидова область -- ОГИ (область главных идеалов).
 \end{remark}
 
 \begin{remark}
-    $\Z[x]$ - не ОГЦ. Например, $I = \{f|f(0) \vdots 2\} \neq (2),\ \neq (x),\ \neq (1)$.
+    $\Z[x]$ - не ОГИ. Например, $I = \{f|f(0) \vdots 2\} \neq (2),\ \neq (x),\ \neq (\pm 1)$.
 \end{remark}
 
-\begin{definition}
-    Пусть $\mca \in \End V : v\in V$. $f \in K[x]$ называется аннулятором $v$ по отношению к оператору $\mca$, если $f(\mca)(v) = 0$.
+\begin{definition} [Аннулятор]
+    Пусть $\mca \in \End V : v\in V$. $f \in K[X]$ называется аннулятором $v$ по отношению к оператору $\mca$, если $f(\mca)(v) = 0$.
 \end{definition}
 
 \begin{lemma}
-    $I = \{f | f$ -- аннулятор $v \}$ -- идеал в $K[x]$.
+    $I = \{f \ | \ f$ -- аннулятор $v \}$ -- идеал в $K[X]$.
 \end{lemma}
 
 \begin{proof}
     $f, g \in I,\ (f-g)(\mca)(v) = (f(\mca)-g(\mca))(v) = f(\mca)(v) - g(\mca)(v) = 0$.
-    $f \in I,\ h \in K[x]$.
 
-    $(hf)(\mca)(v) = h(\mca)(\underbrace{f(\mca)(v)}_{0}) = 0 \Rightarrow hf \in I$.
+    $f \in I,\ h \in K[X]$. $(hf)(\mca)(v) = h(\mca)(\underbrace{f(\mca)(v)}_{0}) = 0 \Rightarrow hf \in I$.
 \end{proof}
 
-Пусть $dim V = n$. $v, \mca v, {\mca}^2 v, \ldots, {\mca}^n v$ - ЛЗС.
-$f(\mca)(v) = \alpha_1v + \ldots + \lambda_n {\mca}^n v = 0$, не все $\alpha_i =0$.
+Пусть $\dim V = n$. $v, \mca v, {\mca}^2 v, \ldots, {\mca}^n v$ - ЛЗС.
+$f(\mca)(v) = \alpha_0 v + \alpha_1 \mca v + \ldots + \alpha_n {\mca}^n v = 0$, не все $\alpha_i =0$.
 $f = \alpha_0 + \alpha_1 x + \ldots + \alpha_n x^n \neq 0 \Rightarrow f$ -- аннулятор $v$.
 
-$I$ -- главный идеал $\Rightarrow I=(f_0), f_0 \neq 0$. $f_0$ - минимальный аннулятор $v$ (минимальный аннулирующий многочлен).
+$I$ -- главный идеал $\Rightarrow I=(f_0), f_0 \neq 0$. $f_0$ -- минимальный аннулятор $v$ (минимальный аннулирующий многочлен).
 
-$v \in V$, $v\in W$ -- инвариант $\Rightarrow \mca v \in W \Rightarrow {\mca}^2 v \in W \Rightarrow \ldots \Rightarrow \forall {\mca}^k v \in W$.
+Есть вектор $v \in V$, можно ли найти минимальное подпространство, содержащее этот вектор? $v\in W$, $W$ -- инвариант $\Rightarrow \mca v \in W \Rightarrow {\mca}^2 v \in W \Rightarrow \ldots \Rightarrow  {\mca}^k v \in W, \ \forall k \in \N$.
+Отсюда понятно, как построить искомое подпрострнство: нужно «натянуть» пространство на все векторы вида ${\mca}^k v \in W$. Тогда пространство представляет собой линейную оболочку и как раз является инвариантным.
 
-\begin{definition}
-    Циклическим подпространством, порожденным $V$, называется $C_v = Lin(v, \mca v, {\mca}^2 v, \ldots)$.
+\begin{definition} [Циклическое подпространствo]
+    Циклическим подпространством, порожденным $v$, называется $C_v = Lin(v, \mca v, {\mca}^2 v, \ldots)$.
 \end{definition}
 
 \begin{proposition}
@@ -92,13 +98,15 @@ $v \in V$, $v\in W$ -- инвариант $\Rightarrow \mca v \in W \Rightarrow 
 \end{proposition}
 
 \begin{proof}
-    $w \in C_v \Rightarrow w = \alpha_0 v + \alpha_1 \mca v + \ldots + \alpha_m {\mca}^{m} v \Rightarrow
+    Всякое подпространство -- линейная оболочка, это проверять не нужно.
+
+    Проверим $\mca$-инвариантность: $w \in C_v \Rightarrow w = \alpha_0 v + \alpha_1 \mca v + \ldots + \alpha_m {\mca}^{m} v \Rightarrow
         \mca w = \alpha_0 \mca v + \alpha_1 {\mca}^2 v + \ldots + \alpha_m {\mca}^{m+1} v \in C_v$.
 
-    Предположим, $v, \mca v, {\mca}^2 v, \ldots, {\mca}^{d-1} v$ -- ЛЗС. $g(\mca)(v) = \beta_0 v + \beta_1 \mca v + \ldots + \beta_{d-1} {\mca}^{d-1} = 0$, не все $\beta = 0$.
+    Проверим базис. Предположим, $v, \mca v, {\mca}^2 v, \ldots, {\mca}^{d-1} v$ -- ЛЗС. $g(\mca)(v) = \beta_0 v + \beta_1 \mca v + \ldots + \beta_{d-1} {\mca}^{d-1} = 0$, не все $\beta = 0$.
 
-    $g = \beta_0 + \beta_1 v + \ldots + \beta_{d-1} v^{d-1} \neq 0 \Rightarrow
-        g$ -- аннулятор $v \Rightarrow g \in (f_0) \Rightarrow f_0|g \Rightarrow deg g < deg f_0$, пришли к противоречию.
+    $g = \beta_0 + \beta_1 x + \ldots + \beta_{d-1} x^{d-1} \neq 0 \Rightarrow
+        g$ -- аннулятор $v \Rightarrow g \in (f_0) \Rightarrow f_0|g \Rightarrow deg g \leq d-1$, пришли к противоречию.
     Таким образом, $v, \mca v, {\mca}^2 v, \ldots, {\mca}^{d-1} v$ -- ЛНC.
 
     Осталось проверить $C_v = \underbrace{Lin(v, \mca v, {\mca}^2 v, \ldots, {\mca}^{d-1} v)}_{W}$.
@@ -110,16 +118,88 @@ $v \in V$, $v\in W$ -- инвариант $\Rightarrow \mca v \in W \Rightarrow 
     Переход: $k\geq d$.
 
     По индукционному предположению: ${\mca}^{k-1} v \in W$,
-    т.е. ${\mca}^{k-1}v = \gamma_0 v + \gamma_1 \mca v + \ldots + \gamma_{d-1} \mca v \Rightarrow
+    т.е. ${\mca}^{k-1}v = \gamma_0 v + \gamma_1 \mca v + \ldots + \gamma_{d-1} {\mca}^{d-1} v \Rightarrow
         {\mca}^k v = \underbrace{\gamma_0 \mca v + \gamma_1 {\mca}^2 v + \ldots + \gamma_{d-2} {\mca}^{d-1} v}_{W} + \gamma_{d-1} {\mca}^d v$.
 
     ${\mca}^d v \in W$?
 
-    $f_0 = \beta_0 + \beta_1 x + \ldots \beta_{d-1} x^{d-1} + \beta_d x^d$ - минимальный аннулятор, $B_d \neq 0$.
+    $f_0 = \beta_0 + \beta_1 x + \ldots + \beta_{d-1} x^{d-1} + \beta_d x^d$ -- минимальный аннулятор, $B_d \neq 0$.
 
-    $f_0(\mca) v = \underbrace{\beta_0 v +\beta_1 \mca v + \ldots + \beta_{d-1} {\mca}^{d-1} v}_{\in W} + \beta_d {\mca}^d v \Rightarrow {\mca}^d v \in W \Rightarrow
-        {\mca}^k v \in W \ \forall k \in \N$.
+    $0 = f_0(\mca) v = \underbrace{\beta_0 v +\beta_1 \mca v + \ldots + \beta_{d-1} {\mca}^{d-1} v}_{\in W} + \beta_d {\mca}^d v \Rightarrow {\mca}^d v \in W \Rightarrow
+        {\mca}^k v \in W, \  \forall \ k \in \N$.
 
 \end{proof}
+
+\marginpar{28.09.22}
+
+Пусть $v \in V$, $\mca \in \End V$.
+
+$C_v = Lin(v, \mca v, {\mca}^2 v, \ldots) = Lin(v, \mca v, {\mca}^2 v, \ldots, {\mca}^{d-1} v)$, где $d = deg f_0$, $f_0$ -- минимальный аннулятор $v$.
+
+Итак, что представляет собой $\chi_{\mca |_{C_v}} = ?$
+
+$f_0 = \beta_0 + \beta_1 x + \ldots + \beta_{d-1} x^{d-1} + \beta_{d} x^{d}$, $\beta_d \neq 0$.
+
+Домножив $f_0$ на ненулевую константу, мы можем считать $\beta_d = 1$.
+
+$E = (v, \mca v, {\mca}^2 v, \ldots, {\mca}^{d-1} v)$ -- базис $C_v$.
+
+Легко видеть:
+
+\[[\mca |_{C_v}]_E = \begin{pmatrix}
+        0      & 0      & 0      & \ldots & 0      & -\beta_0     \\
+        1      & 0      & 0      & \ldots & 0      & -\beta_1     \\
+        0      & 1      & 0      & \ldots & 0      & -\beta_2     \\
+        0      & 0      & 1      & \ldots & 0      & -\beta_3     \\
+        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots       \\
+        0      & 0      & 0      & \ldots & 0      & -\beta_{d-2} \\
+        0      & 0      & 0      & \ldots & 1      & -\beta_{d-1} \\
+    \end{pmatrix} = L_{f_0}\]
+
+$L_{f_0}$ -- сопровождающая матрица многочлена $f_0$.
+
+*получаем последний столбец*
+
+$f_0(\mca) v = 0 = \beta_0 v = \beta_1 \mca v + \ldots + \beta_{d-1} \alpha_{d-1} v + \alpha_d v$.
+
+${\mca_v}^d = -\beta_0 v - \beta_1 \mca v - \ldots - \beta_{d-1} {\mca}^{d-1} v$ -- разложение по базису $E$
+
+*получаем последний столбец*
+
+
+
+\begin{align*}
+    \chi_{\mca |_{C_v}} & = \begin{vmatrix}
+                                -x     & 0      & 0      & \ldots & 0      & -\beta_0         \\
+                                1      & -x     & 0      & \ldots & 0      & -\beta_1         \\
+                                0      & 1      & -x     & \ldots & 0      & -\beta_2         \\
+                                \vdots & \vdots & \vdots & \ddots & \vdots & \vdots           \\
+                                0      & 0      & 0      & \ldots & -x     & -\beta_{d-2}     \\
+                                0      & 0      & 0      & \ldots & 1      & -\beta_{d-1} - x \\
+                            \end{vmatrix} =                        \\
+                        & = (-1)^{d+1} (-\beta_0) +                                                              \\
+                        & + (-1)^{d+2} (-\beta_1) \underbrace{\begin{vmatrix}
+                                                                      -x     & 0      & 0      & \ldots & 0      \\
+                                                                      0      & 1      & -x     & \ldots & 0      \\
+                                                                      0      & 0      & 1      & \ldots & 0      \\
+                                                                      \vdots & \vdots & \vdots & \ddots & \vdots \\
+                                                                      0      & 0      & 0      & \ldots & 1      \\
+                                                                  \end{vmatrix}}_{-x} +         \\
+                        & + (-1)^{d+3}(-\beta_2) \underbrace{\begin{vmatrix}
+                                                                     -x     & 0      & 0      & 0      & \ldots & 0      \\
+                                                                     1      & -x     & 0      & 0      & \ldots & 0      \\
+                                                                     0      & 0      & 1      & -x     & \ldots & 0      \\
+                                                                     0      & 0      & 0      & 1      & \ldots & 0      \\
+                                                                     \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                                                                     0      & 0      & 0      & 0      & \ldots & 1      \\
+                                                                 \end{vmatrix}}_{x^2} + \ldots + \\
+                        & + (-1)^{2d-1}(-\beta_{d-1})(-x)^{d-2} +                                                \\
+                        & + (-1)^{2d}(-\beta_{d-1}-x)(-x)^{d-1} =                                                \\
+                        & = (-1)^{d+1} \sum_{i=0}^{d-1} (-1)^i (-\beta_i)(-x)^i + (-x)^d =                       \\
+                        & = (-1)^{d+1}(\sum_{i=1}^{d-1} \beta_i)x^i + x^d) =                                     \\
+                        & = (-1)^d f_0
+\end{align*}
+
+Короче, $\chi_{\mca |_{c_v}} = (-1)^d f_0$.
 
 \end{document}

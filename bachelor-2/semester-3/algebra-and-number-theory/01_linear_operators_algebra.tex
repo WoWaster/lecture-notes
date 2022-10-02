@@ -3,58 +3,55 @@
 \begin{document}
 
 \chapter{Алгебра линейных операторов} \marginpar{07.09.22}
-\begin{definition} [Алгебра]
-$V$ — линейное пространство над полем $K$. 
-Линейный оператор на $V$ — линейное отображение $V \to V$ (эндоморфизм линейного пространства $V$).
-\end{definition} 
-\begin{definition} 
-$\End V = \Hom(V, V)$ —  множество линейных операторов.
+
+\begin{definition} [Линейный оператор]
+    $V$ — линейное пространство над полем $K$.
+    Линейный оператор на $V$ — линейное отображение $V \to V$ (эндоморфизм линейного пространства $V$).
+\end{definition}
+\begin{definition} [Множество линейных операторов]
+    $\End V = \Hom(V, V)$ —  множество линейных операторов.
 \end{definition}
 
 \[\mca \in \Hom (V, W) \quad [\mca]_{E,F}\]
 
 Имея два пространства $V$ и $W$, базисы $E$ и $F$ можно выбрать так, что матрица получится окаймленной единичной.
 
-Теперь же мы имеем одно пространство, соответственно, и один базис и все еще хотим, чтобы матрица была наиболее простой. 
+Теперь же мы имеем одно пространство, соответственно, и один базис и все еще хотим, чтобы матрица была наиболее простой.
 
-\begin{definition}
+\begin{definition} [Алгебра]
     Говорят, что задана алгебра над полем $K$, если задано множество $A$, бинарные операции +, $\times$ на нем и отбражение $K \cdot A \to A$, т.ч.:
     \begin{enumerate}
-        \item $(A,+, \times)$ - кольцо 
+        \item $(A,+, \times)$ - кольцо
         \item $(A,+, \cdot)$ - линейное пространство над полем $K$
         \item $\forall \alpha \in K \  \forall a, b \in A : \alpha \cdot (a \times b) = (\alpha \cdot a) \times b = a \times (\alpha \cdot b)$
     \end{enumerate}
 \end{definition}
 
 \begin{example}
-    $A = M_n(K)$, 
+    $A = M_n(K)$,
     $A_0 = \{ \alpha E_n | \alpha \in K\}$ —  подкольцо скалярных матриц, изоморфное полю $K$.
 \end{example}
 
 \begin{example}
     $A = K[x]$
-\end{example}   
+\end{example}
 \begin{example}
-    Любая ситуация, где поле $K \subset R$ ($R$ —  кольцо) $\implies R$ — $K$-алгебра. 
-    
+    Любая ситуация, где поле $K \subset R$ ($R$ —  кольцо) $\implies R$ — $K$-алгебра.
+
     В обратную сторону тоже верно, если алгебра содержит единицу. Тогда там найдется подкольцо, которое можно отожествить с полем К.
 
-    Любая ситуация, где поле $K \subset R$ ($R$ -- кольцо) $\implies R$ -- $K$-алгебра. 
-    В обратную сторону тоже верно, если алгебра содержит единицу. Тогда там найдется подкольцо, которое можно отожествить с полем $К$.
-
-    
-    Почему алгебра с единицей: 
+    Почему алгебра с единицей:
 
     Пусть $A$ —  алгебра c $1(\neq0)$ над полем $K$.
-    Рассмотрим множество $A_0 = \{\alpha \cdot 1| \alpha \in K\}$. 
+    Рассмотрим множество $A_0 = \{\alpha \cdot 1| \alpha \in K\}$.
     \[K \xrightarrow{\varphi} A_0 \quad \alpha \mapsto \alpha_1\]
-    Идеал в поле либо нулевой, либо все поле. 
-    $\varphi(1) \neq 0 \Rightarrow Ker(\varphi)\neq K$. 
+    Идеал в поле либо нулевой, либо все поле.
+    $\varphi(1) \neq 0 \Rightarrow Ker(\varphi)\neq K$.
     Значит,  $\varphi$ — изоморфизм. $A_0$ — подкольцо, изоморфное полю $K$.
 \end{example}
 
 
-Линейные операторы тоже образуют алгебру. Заметим, что в $\End \ V$ есть сложение и композиция операторов, а также умножение на скаляр. 
+Линейные операторы тоже образуют алгебру. Заметим, что в $\End \ V$ есть сложение и композиция операторов, а также умножение на скаляр.
 $(\End \ V, +)$ — абелева группа. Проверка дистрибутивности операторов:
 \begin{gather*}
     \mca\circ(\mcb_1+\mcb_2) = \mca\circ\mcb_1 + \mca\circ\mcb_2 \\
@@ -62,15 +59,15 @@ $(\End \ V, +)$ — абелева группа. Проверка дистриб
 \end{gather*}
 $(\End \ V, +, \circ)$ — линейное пространство над полем $K$. Наконец,
 $(\alpha\cdot\mca)\circ\mcb=\mca\circ(\alpha\cdot\mcb)=\alpha\cdot(\mca\circ\mcb)$.
- 
+
 Таким образом, $(\End \ V, +, \circ, \cdot)$ — алгебра над полем $K$.
 
 
 
 
 \begin{proposition}
-Пусть $\dim V = n$. $E$ — базис $V$. 
-Тогда отображение $\lambda_E : \End V \rightarrow M_n(K), \ \mca \mapsto [\mca]_E$ — изоморфизм алгебр над полем $K$ (т.е. биекция, сохраняющая все операции).
+    Пусть $\dim V = n$. $E$ — базис $V$.
+    Тогда отображение $\lambda_E : \End V \rightarrow M_n(K), \ \mca \mapsto [\mca]_E$ — изоморфизм алгебр над полем $K$ (т.е. биекция, сохраняющая все операции).
 \end{proposition}
 
 \begin{proof}
@@ -78,26 +75,26 @@ $(\alpha\cdot\mca)\circ\mcb=\mca\circ(\alpha\cdot\mcb)=\alpha\cdot(\mca\circ\mcb
 \end{proof}
 
 \begin{corollary}
-$\dim \End\ V = (\dim \ V)^2 $
+    $\dim \End\ V = (\dim \ V)^2 $
 \end{corollary}
 
-lil friendly reminder: $U_E \xrightarrow{\mca} V_F \xrightarrow{\mcb} W_G,\  
-[\mcb\mca]_{EG} = [\mcb]_{FG}[\mca]_{EF}
-$ - стандартный случай. 
-    
+lil friendly reminder: $U_E \xrightarrow{\mca} V_F \xrightarrow{\mcb} W_G,\
+    [\mcb\mca]_{EG} = [\mcb]_{FG}[\mca]_{EF}
+$ - стандартный случай.
+
 $\mca: U_{EE'} \rightarrow V_{FF'}$. Как связаны матрицы этого линейного отображения в двух базисах?
-$[\mca]_{EF}=A$ - знаем,  $[\mca]_{E'F'}=?$ Нужны матрицы перехода:
+$[\mca]_{EF}=A$ -- знаем,  $[\mca]_{E'F'}=?$ Нужны матрицы перехода:
 $M_{E\rightarrow E'} = C,\ M_{F\rightarrow F'} = D$. Можем записать:
 $E' = EC,\ E=(e_1, \ldots ,e_n),\ C=c_{ij}$ ($E$ - вектор, $C$ - квадратная матрица). Тогда
 $EC=(c_{11}e_1+\ldots+c_{m1}e_n, c_{12}e_1 +\ldots +c_{n2}e_n, \ldots)$. Что происходит с матрицей при такой замене базиса?
 
-\begin{proposition} 
+\begin{proposition}
     Пусть $\mca \in \End V, E$ и $E'$ — базисы, $[\mca]_{E}=A,\ M_{E\rightarrow E'}=C$, тогда $[\mca]_{E'}=C^{-1}AC$.
 \end{proposition}
 
 \begin{proof}
-        % https://q.uiver.app/?q=WzAsNCxbMCwxLCJVX0YnIl0sWzEsMCwiVl9GIl0sWzEsMSwiVl9GJyJdLFswLDAsIlVfRSJdLFsxLDIsIlxccXVhZCBcXHF1YWQgXFxxdWFkXFxlcHNpbG9uX1Y9aWRfViJdLFsyLDAsIlxcbWF0aGNhbHtBfSJdLFswLDMsIlxcZXBzaWxvbl9VIl0sWzMsMSwiXFxtYXRoY2Fse0F9Il1d
-        \[\begin{tikzcd}[ampersand replacement=\&]
+    % https://q.uiver.app/?q=WzAsNCxbMCwxLCJVX0YnIl0sWzEsMCwiVl9GIl0sWzEsMSwiVl9GJyJdLFswLDAsIlVfRSJdLFsxLDIsIlxccXVhZCBcXHF1YWQgXFxxdWFkXFxlcHNpbG9uX1Y9aWRfViJdLFsyLDAsIlxcbWF0aGNhbHtBfSJdLFswLDMsIlxcZXBzaWxvbl9VIl0sWzMsMSwiXFxtYXRoY2Fse0F9Il1d
+    \[\begin{tikzcd}[ampersand replacement=\&]
             {U_E} \& {V_F} \\
             {U_{E'}} \& {V_{F'}}
             \arrow["{\epsilon_V=id_V}", from=1-2, to=2-2]
@@ -105,18 +102,18 @@ $EC=(c_{11}e_1+\ldots+c_{m1}e_n, c_{12}e_1 +\ldots +c_{n2}e_n, \ldots)$. Что 
             \arrow["{\epsilon_U}", from=2-1, to=1-1]
             \arrow["{\mca}", from=1-1, to=1-2]
         \end{tikzcd}\]
-        \[[\mca]_{E'F'}=\underbrace{[\epsilon_V]_{FF'}}_{D^{-1}}\underbrace{[\mca]_{EF}}_{A}\underbrace{[\epsilon_U]_{E'E}}_{C}\]
-    
+    \[[\mca]_{E'F'}=\underbrace{[\epsilon_V]_{FF'}}_{D^{-1}}\underbrace{[\mca]_{EF}}_{A}\underbrace{[\epsilon_U]_{E'E}}_{C}\]
+
     В нашем случае $(U=V, E=F, E'=F')$.
 \end{proof}
 
-\begin{definition} [Алгебра]
-    Пусть $A'$ эквивалентно $A$, если $\exists C \in \GL_n(K)$: $A'=C^{-1}AC$. 
+\begin{definition} [Эквивалентность матриц оператора в разных базисах]
+    Пусть $A'$ эквивалентно $A$, если $\exists C \in \GL_n(K)$: $A'=C^{-1}AC$.
     Проверка симметричности и транзитивности:
-    \begin{gather*} 
+    \begin{gather*}
         A= (C^{-1})^{-1}A'C^{-1} симметричность \\
-        A'' = D^{-1}A'D=D^{-1}C^{-1}A'CD=(DC)^{-1}A'(CD)  \\
+        A'' = D^{-1}A'D=D^{-1}C^{-1}ACD=(DC)^{-1}A(CD)  \\
     \end{gather*}
 \end{definition}
 
- \end{document}
+\end{document}
