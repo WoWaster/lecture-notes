@@ -518,7 +518,7 @@ $\vb'(s) \perp \vb(s)$ из леммы \ref{dfoc:very_important_lemma},
 
 Построение спрямляющей плоскости опущено в виду громоздкости выкладок.
 
-\section{Вычисление кривизны}
+\section{Вычисление кривизны и кручения}
 
 В натуральной параметризации $\vf(s_0) = |\vf''(s_0)|$.
 \begin{theorem}
@@ -589,4 +589,163 @@ $\vb'(s) \perp \vb(s)$ из леммы \ref{dfoc:very_important_lemma},
     \end{cases}
 \end{gather*}
 Чему равно $|f_1'f_2'' - f_2' f_1''|$ -- упражнение.
+
+\begin{theorem}
+    Кривая плоская тогда и только тогда, когда ее $\kappa = 0$.
+\end{theorem}\marginpar{26.09.22}
+\begin{proof}
+    Вспомним, что $\vb' = - \kappa \vn$ в натуральной параметризации.
+    Тогда $\kappa = 0 \Leftrightarrow \vb' = 0 \Leftrightarrow \vb = const \Leftrightarrow$ соприкасающаяся плоскость $= const$.
+
+    Если соприкасающаяся плоскость постоянная, то кривая лежит в ней.
+    Докажем это.
+
+    Ориентируем систему так, чтобы $\vb = (0,0,1)$.
+    Кривая в натуральной параметризации имеет уравнение $\vg(s) = (g_1(s), g_2(s), g_3(s))$.
+    И мы хотим доказать, что $g_3(s) = 0$.
+    Рассмотрим вектор $\vb$:
+    \[\vb = \frac{\vg' \times \vg''}{k}\]
+    (Напоминание: в натуральной параметризации $\vv = \vg'$, $k\vn = \vv' = \vg''$, $\vb = \vv \times \vn$)
+    \begin{gather*}
+        \vg' \times \vg'' = (\underbrace{g_2' g_3'' - g_3'g_2''}_{=0}, \underbrace{g_3'g_1'' - g_1' g_3''}_{=0}, \underbrace{g_1'g_2'' - g_2' g_1''}_{\neq 0})
+        \intertext{Получим систему:}
+        \begin{cases}
+            g_2' g_3'' - g_3'  g_2'' = 0              \\
+            g_1' g_3'' - g_1'' g_3' = 0 & |\cdot g_2'
+        \end{cases} \implies\\
+        g_1'g_3' g_2'' - g_1'' g_3' g_2' = 0 \\
+        g_3' (g_1' g_2'' - g_1'' g_2') = 0 \implies g_3' = 0\ \forall s \implies g_3 = const
+    \end{gather*}
+    значит третья координата кривой всегда одна и та же, а значит кривая лежит в плоскости $z = g_3 = const$.
+\end{proof}
+
+\begin{theorem}
+    В натуральной параметризации
+    \[\kappa = \frac{(\vg', \vg'', \vg''')}{k^2}.\]
+\end{theorem}
+\begin{proof}
+    По формулам Френе
+    \[\vb' = - \kappa \vn = - \kappa \frac{\vg'' }{k}\]
+    при этом
+    \[\vb = \frac{\vg' \times \vg''}{k}\]
+    тогда
+    \begin{align*}
+        \vb' & = \left(\frac{\vg' \times \vg''}{k}\right)' =                                          \\
+             & = \frac{(\vg'' \times \vg'') k + (\vg' \times \vg''')k - k'(\vg' \times \vg'')}{k^2} = \\
+             & = -\kappa \frac{\vg''}{k}
+    \end{align*}
+    Посмотрим, чем являются производные $\vg$:
+    \begin{gather*}
+        \vg' = \vv\\
+        \vg'' = \vv' = k \vn\\
+        \vg''' = k'\vn + k\vn' = k'\vn + k(-k\vv + \kappa \vb) = k' \vn - k^2 \vv + k \kappa \vb\\
+        \vg' \times \vg'' = \vv \times k \vn = k \vb
+    \end{gather*}
+    теперь посчитаем такое выражение:
+    \begin{gather*}
+        (\vg' \times \vg'') \cdot \vg''' = k \cdot k \kappa
+        \intertext{итого получаем}
+        \kappa = \frac{(\vg',\vg'' \vg''')}{k^2}
+    \end{gather*}
+\end{proof}
+\begin{theorem}
+    Для любой параметризации:
+    \[\kappa = \frac{(\vf',\vf'', \vf''')}{|\vf' \times \vf''|^2}.\]
+\end{theorem}
+\begin{proof}
+    Введем
+    \[s = \int_{t_0}^t  |\vf'(\tau)| d\tau = \phi(t)\]
+    -- натуральный параметр.
+
+    Пусть $t = \psi(s)$, тогда $\vg(s) = \vf(t) = \vf(\psi(s))$ и
+    $\psi'(s) = 1/\phi'(t) = 1/|\vf'(t)|$.
+    Рассмотрим производные $\vg$:
+    \begin{gather*}
+        \vg'(t) = \vf'(t) \psi'(s) = \frac{\vf'}{|\vf'|}\\
+        \vg'' = \vf'' \psi'^2 + \vf' \psi''\\
+        \vg''' = \vf''' \psi'^3 + 3\vf''\psi'\psi'' + \vf' \psi'''
+        \intertext{по свойствам смешаного произведения, все коллинеарные слагаемые можно записать один раз}
+        (\vg', \vg'', \vg''') = (\vf'\psi', \vf'' \psi'^2, \vf''' \psi'^3 )
+        = \psi'^6 (\vf', \vf'', \vf''')\\
+        \kappa = \frac{(\vg', \vg'', \vg'')}{k^2} = \frac{(\vf', \vf'', \vf''')}{|\vf'|^6} \cdot \frac{|\vf'|^6}{|\vf' \times \vf''|^2}
+    \end{gather*}
+\end{proof}
+
+\section{Натуральные уравнения кривой}
+
+Есть кривая в натуральной параметризации.
+Знаем $k(s)$ и $\kappa(s)$.
+Верно ли, что существует ровно одна кривая, что эти функции являются ее кривизной и кручением?
+Единственность точно верно, с существованием -- не всегда, $k$ должно быть положительно.
+
+\begin{theorem}
+    Если $\vg_1(s)$ и $\vg_2(s)$ -- кривые с одинаковыми $k$ и $\kappa$, тогда они отличаются друг от друга движением.
+\end{theorem}
+\begin{proof}
+    В точке $s_0$ состыкуем реперы Френе.
+    $(\vv_1(s), \vn_1(s), \vb_1(s))$ -- репер Френе для $\vg_1$.
+    Аналогично, $(\vv_2(s), \vn_2(s), \vb_2(s))$ -- репер Френе для $\vg_2$.
+
+    Что означает <<состыкуем>>?
+    \begin{gather*}
+        \vv_1 (s_0) = \vv_2(s_0)\\
+        \vn_1 (s_0) = \vn_2(s_0)\\
+        \vb_1 (s_0) = \vv_2(s_0)
+    \end{gather*}
+
+    Заведем скалярную функцию
+    \[h(s) = \vv_1(s) \vv_2(s) + \vn_1(s) \vn_2(s) + \vb_1(s) \vb_2(s)\]
+    заметим, что
+    \begin{itemize}
+        \item $h(s_0) = 3$
+        \item $h(s) \le 3$ и $h(s) = 3 \Leftrightarrow \vv_1 = \vv_2, \vn_1 = \vn_2, \vb_1 = \vb_2$
+    \end{itemize}
+    Как доказать, что скалярная функция равна константе во всех точках, если мы знаем, что она равна константе в одной точке?
+    Достаточно взять производную и показать, что она ноль.
+    Возьмем производную $h$:
+    \begin{multline*}
+        h'(s) = \vv_1' \vv_2 + \vv_1 \vv_2' + \vn_1' \vn_2 + \vn_1 \vn_2' + \vb_1' \vb_2 + \vb_1 \vb_2' = \\
+        = k \vn_1 \vv_2 + k \vv_1 \vn_2  + \kappa \vb_1 \vn_2 + \kappa \vn_1 \vb_2\\
+        - k \vn_1 \vv_2 - k \vv_1 \vn_2  - \kappa \vb_1 \vn_2 - \kappa \vn_1 \vb_2 = 0
+    \end{multline*}
+    тогда $h(s) = 3 \ \forall s$.
+\end{proof}
+\begin{definition}[Натуральные уравнения кривой]
+    $(k(s), \kappa(s))$ -- натуральные уравнения кривой.
+\end{definition}
+
+Практический вывод:
+хотим спроектировать резьбу.
+Что такое резьба -- кривая.
+Нам известна такая резьба -- винтовая линия:
+\[\begin{cases}
+        x = R \cos t \\
+        y = R \sin t \\
+        z = at
+    \end{cases}\]
+Меняем $R$ -- меняем радиус резьбы, меняем $a$ -- меняем шаг резьба.
+Вопрос: есть ли другая кривая, подходящая для нарезки резьбы?
+Ответ: нет, нельзя.
+Выясним почему:
+когда мы завинчиваем
+(то есть делаем движение одной кривой, относительно другой кривой)
+болт в гайку, кривые болта и гайки должны самосовместиться, то есть кривизна и кручение у кривой в во всех точках одинаковые.
+То есть наша кривая должна удовлетворять условию, что $k = const, \kappa = const$.
+Подсчитаем их для винтовой кривой:
+\begin{gather*}
+    \vf = (R\cos t, R \sin t, at)\\
+    \vf' = (-R \sin t, R \cos t, a) \\
+    \vf'' = (-R \cos t, - R \sin t, 0)\\
+    \vf''' = (R \sin t, -R \cos t, 0) \\
+    \vf' \times \vf'' = (aR \sin t, - aR \cos t, R^2)\\
+    |\vf' \times \vf''| = \sqrt{a^2 R^2 + R^4} = R \sqrt{R^2 + a^2}\\
+    |\vf'| = \sqrt{R^2 + a^2}\\
+    k = \frac{|\vf' \times \vf''|}{|\vf'|^3} = \frac{R \sqrt{R^2 + a^2}}{(R^2 + a^2) \sqrt{R^2 + a^2}} = \frac{R}{R^2 + a^2}\\
+    (\vf', \vf'', \vf''') = \begin{vmatrix}
+        -R \sin t & R \cos t   & a \\
+        -R \cos t & - R \sin t & 0 \\
+        R \sin t  & - R \cos t & 0
+    \end{vmatrix} = aR^2\\
+    \kappa =\frac{(\vf', \vf'', \vf''')}{|\vf' \times \vf''|^2} = \frac{aR^2}{R^2 (R^2+ a^2)} = \frac{a}{R^2 + a^2}.
+\end{gather*}
 \end{document}
