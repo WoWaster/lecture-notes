@@ -1,0 +1,223 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Частные производные}
+\subsection*{Теорема об обратном отображении}
+    $E \subset {\vR}^n, n \geq 2$, $x_0 \in E$, $x_0 $ -- внутренняя точка
+    $F: E \rightarrow {\vR}^n$
+    \[F \in C^{1}(w) \eqno\mathrm{(1)}\]
+    \[\det DF(x_0) \ne 0 \eqno\mathrm{(2)}\]
+    Соотношения (1) и (2) влекут:
+        $F(x_0) = Y_0, \exists x_0 \in v$ и $\exists y_0 \in V:$
+        $$F|_v - \text{гомеоморфизм на } V  \eqno\mathrm{(3)}$$
+        $$ \Phi = F^{-1}, \Phi \in C^1(V) \eqno\mathrm{(4)}$$
+
+        \begin{definition}[Якобиан]
+        $I(x_0) \stackrel{def}{=} det DF(x_0)$ -- Якобиан отображения $F$ в точке $x_0$
+        \end{definition}
+
+        \begin{gather*}
+        \Phi(F(X)) \equiv X \implies D\Phi(Y)DF(X) = DI(X) \implies \\
+        Y = F(X), I(X) \equiv X \\
+        I_n - \text{ единичная матрица в } {\vR}^n \\
+       \implies detD(\Phi(Y_0)) \cdot detDF(X_0) = det I_n = 1
+        \end{gather*}
+        \begin{proof}
+         \begin{enumerate}
+            \item Будем пользоваться определителем матрицы Якоби. Будем обозначать дальше
+            $DF(x_0) = A$. Условие (2) влечёт $\exists A^{-1}$
+            \[ \text{Будем обозначать }||A^{-1}||  = \frac{1}{4 \lambda}, \lambda> 0
+             \eqno\mathrm{(5)} \]
+             Раассмотрим такое линейное отображение
+             $x \in w, ||DF(x) - DF(x_0)|| < ||DF(x) - DF(x_0)||_2$
+             \[(\ldots |f^\prime_{ix_j}(x) - f^\prime_{ix_j}(x_0)|^2 + \ldots)^{\frac{1}{2}} \]
+             \[(1) \implies |f^\prime_{ix_j} - f^\prime_{ix_j}(x_0)|^2 
+             \underset{x \to x_0}{\longrightarrow} 0 \eqno\mathrm{(6)} \]
+             \[(6) \implies ||DF(X) - DF(X_0)||_2 \underset{x \to x_0}{\longrightarrow} 0
+             \eqno\mathrm{(7)}\]
+             \[(7) \implies ||DF(X - DF(X_0)|| \underset{x \to x_0}{\longrightarrow} 0
+             \eqno\mathrm{(8)} \]
+             \[(8) \implies \exists r > 0: \forall x, ||X-X_0||_{{\vR}^n} < r
+             \text{ имеем } \]
+             \[DF(X) - DF(X_0)|| < 2\lambda \eqno\mathrm{(9)} \]
+
+             \[U = B_r(X_0) = \{ x \in {\vR}^n: ||x-x_0|_{{\vR}^n} < \lambda
+             \eqno\mathrm{(10)}\]
+             \[DF(X) - A|| < 2 \lambda \eqno\mathrm{(9^\prime)} \]
+             \begin{remark}[О внутренности шара]
+                \[X_1, X_2 \in B_r(X_0), 0 < t < 1 \implies tX_1 + (1-t)x_2 \in B_r(x_0)\]
+                \begin{gather*}
+                  |(tX_1 + (1-t)X_2)-X_0||_{{\vR}^n} = ||t(X_1-X_0)+ \\
+                +(1-t)(X_2-X_0)||_{{\vR}^n} 
+                \leq ||t(X_1 - X_0)||_{{\vR}^n} + \\
+                + ||(1-t)(X_2-X_0)||_{{\vR}^n} < \\
+               < tr + (1-t)r = r
+                \end{gather*}
+
+             \end{remark}
+             \item Биективность отображения $F$ на $U$
+              \[ 0 < t < 1 \]
+             \begin{gather*}
+            X \in B_r(x_0), H \in {\vR}^n, X + H \in B_r(X_0) \\
+             t(X+H) + (1-t)X = X+tH \in B_r(X_0) \\
+            g:[0,1] \rightarrow {\vR}^n
+             \end{gather*}
+            \[g(t) = F(X+tH) - tAH \eqno\mathrm{(11)} \]
+            По достаточному условию дифференцируемости все матрицы Якоби существуют
+            \begin{align*}
+            (11) \implies Dg(t) = g^\prime(t) = D(F(X+tH)) - D(tAH) =\\
+            =DF(X+tH)D(t + tH) - AH = \\  
+            = DF(x+tH)H-DF(x_0)H =
+            \end{align*} 
+            \[ = (DF(x+tH)-DF(x_0))H \eqno\mathrm{(12)}\]
+            \begin{gather*}
+            \text{Правая часть} (12) \leq ||DF(X+tH)-DF(x_0)|| \cdot ||H||_{{\vR}^n} \\
+            <2 \lambda ||H||_{{\vR}^n} 
+            \end{gather*}
+            \[\underset{13^\prime}{\leq} \frac{1}{2} ||AH||_{{\vR}^n} \eqno\mathrm{(14)}\]
+      
+
+            \[||A^{-1}|| = \frac{1}{4\lambda} \implies \forall X \in {\vR}^n 
+            ||A^{-1}X||_{{\vR}^n} \leq \frac{1}{4\lambda}||X||_{{\vR}^n} 
+            \Leftrightarrow \]
+            \[||X||_{{\vR}^n}
+             \geq 4\lambda||A^{-1}X||_{{\vR}^n} 
+            \Leftrightarrow ||AY||_{{\vR}^n} \geq 4\lambda ||Y||_{{\vR}^n} \eqno\mathrm{(13)} \]
+            
+            \[  (13) \Leftrightarrow 2\lambda||Y||_{{\vR}^n} \leq 
+            \frac{1}{2}||AY||_{{\vR}^n} \eqno\mathrm{(13^\prime} \]
+            По теореме Лагранжа  ..
+
+            \[(12), (14) \implies ||g^\prime(t)||_{{\vR}^n} < 
+            \frac{1}{2}||AH||_{{\vR}^n} \eqno\mathrm{(15)} \]
+            \[\exists t_o \in (0,1): ||g(1)-g(0)||_{{\vR}^n} \leq 
+            ||g^\prime(t_0)||_{{\vR}^n} \cdot (1-0) = ||g^\prime(t_0)||_{{\vR}^n}
+            \eqno\mathrm{(16)}\]
+            \[ g(1)-g(0) = F(X+H)-AH - F(X) = (F(X+H)-F(X)) - AH \eqno\mathrm{(17)}\]
+
+            \[ (15), (16), (17) \implies ||(F(X+H)-F(X))-AH||_{{\vR}^n}
+            <  \frac{1}{2}||AH||_{{\vR}^n} \eqno\mathrm{(18)}\]
+            \begin{gather*}
+             (18) \implies ||F(X+H)-F(X)||_{{\vR}^n} \geq ||AH||_{{\vR}^b} -\\
+            -||F(X+H)-F(X)-AH||_{{\vR}^n} > ||AH||_{{\vR}^n} 
+            - \frac{1}{2}||AH||_{{\vR}^b} = 
+            \end{gather*}
+           \[ = \frac{1}{2}||AH||_{{\vR}^n} > 0 \eqno\mathrm{(19)}\]
+
+             \[AH = (AH-F(X+H))-F(X) + (F(X_H)-F(X))\]
+
+               \[||F(X+H)-F(X)||_{{\vR}^n} > \frac{1}{2}||AH||_{{\vR}^n} \eqno\mathrm{(20)} \] 
+               \[\text{ при } 
+            X \in B_r(X_0), 
+             X+H \in B_r(x_0), H \ne \mathbb{0}_n \]
+            \[(20) \implies F(X+H) \ne F(X) \text{ при } H \ne \mathbb{0}_n\]
+            \[V \stackrel{def}{=} F(U) \eqno\mathrm{(21)} \]
+            \[\exists \Phi: V \rightarrow U  
+             \eqno\mathrm{(22)}\]
+             \[ \text{ т.ч. } \Phi = F^{-1} \]
+             \item Открытость отображения
+             \[(20), (13^\prime) \implies ||F(X+H) - F(X)||_{{\vR}^n} 
+             >2\lambda||H||_{{\vR}^n} \eqno{\mathrm{(23)}}  \]
+             \begin{lemma}[]
+                $X_1 \in U, Y_1 = F(X_1) $, 
+                $0 < \rho < \rho - ||X_1-X_0||_{{\vR}^n} $ 
+                Такой выбор влечёт 
+                \[\overline{B}_\rho(X_1) \in U Y \in B_{\lambda\rho}(Y_1), Y \neq Y_1 
+                \eqno\mathrm{(24)}\]
+                \[\implies \exists X \in B_\rho(X_1) : F(X) = Y \eqno\mathrm{(25)} \]
+             \end{lemma}
+             \begin{proof} От редактора: если поместить доказательство внутри доказательства, будет стрёмно,
+               поэтому я просто напишу, где закончится доказательство леммы :(
+             \end{proof}
+                Давайте рассмотрим функцию
+                \[ P(X): \overline B_\rho(X_1) \rightarrow {\vR}\]
+                \[ P(X) = ||F(X) - Y||_{{\vR}^n}  \eqno\mathrm{(26)}\]
+                Видно, что функция непрерывная,  класса $C^1$, норма это непрерывная 
+                функция на замкнутом шаре. Так как замкнутый шар это компакт:
+                \[  \exists X_1 \in \overline{B}_\rho : P(X_) \leq P(X) \forall x \in \overline{B}_\rho(X_1)  
+                \eqno\mathrm{(27)}\]
+
+                \[X_2 \text{ т.ч. } ||X_2-X_1||_{{\vR}^n} = \rho, H = X_2-X_1\]
+
+                \begin{gather*}
+                 (23) \implies ||F(X_2) - F(X_1)||_{{\vR}^n} = ||F(x_1+H)
+                 - F(X_1)||_{{\vR}^n} > \\
+                 > 2 \lambda ||H||_{{\vR}^n} =
+                  = 2\lambda||X_2-X_1||_{{\vR}^n} \end{gather*}
+                  \[= 2\lambda\rho \eqno\mathrm{(28)}\]
+
+                 \begin{gather*}
+                  (28), (24) \implies ||F(X_2) -Y||_{{\vR}^n} \geq ||F(X_2) -\\
+                 -\underbrace{F(X_1)}_{Y_1}||_{{\vR}^n} - ||\underbrace{F(X_1)}_{Y_1} -
+                  Y||_{{\vR}^b} > 
+                 2\lambda\rho - \lambda\rho > 2\lambda\rho-\lambda\rho \end{gather*}
+                \[ = \lambda\rho \eqno\mathrm{(29)} \]
+                 \[ (29): P(X_2) > \lambda\rho \eqno\mathrm{(30)} \]
+
+                 \[ P(X_1) = ||F(X_1)-Y||_{{\vR}^n} = ||Y_1-Y||_{|{\vR}^n} < \lambda\rho \eqno\mathrm{(31)} \]
+                 \[(30), (31) \implies P(X_1) < P(X_2) \eqno\mathrm{(32)} \]
+                 \[ (32) \implies X_- \in B_{\rho}(X_1) \eqno\mathrm{(33)} \] 
+                 Теперь хотим ввести функцию 
+                 \[ f(X) = P^2(X) \] и получаем, что
+                 \[ f(X_-) \leq f(X) \forall X \in \overline{B}\rho(X_1) \eqno\mathrm{(34)} \]
+
+                 \begin{align*}Y = \begin{pmatrix}
+                    Y_1 \\
+                    \vdots \\
+                    Y_n \\
+                 \end{pmatrix} &&
+               F(X) = 
+                 \begin{pmatrix}
+                    F_1(X) \\
+                    \vdots \\
+                    F_n(X) \\
+                 \end{pmatrix} \end{align*}
+                 $f(X) \geq 0 $
+                 ~ обозначили координатные функции ~
+                 \[ f(X) = \sum_{k=1}^n(F_k(X)-Y_k)^2 \eqno\mathrm{(35)} \] 
+                 \[ (35) \implies C^1(U)  \eqno\mathrm{(36)}\]
+                 \[ (34), (35) \implies f^\prime_{xj} = 0, 1 \leq j \leq n  \eqno\mathrm{(37)}\]
+                 (необходимое условие экстремума, согласны ?)
+                 \[ (35) \implies f^\prime_{x_j}(X) = 2 \sum_{k=1}^n(F_k(X)-Y_k)F^\prime_{kx_j}(X)
+                 \eqno\mathrm{(38)} \]
+                 \[f_k = F_k(X_-) -Y_k\]
+                 \[ (37), (38) \implies \sum_{k=1}^n F^\prime_{kx_j}(X_-)l_k = 0, 1 \leq j \leq n \eqno\mathrm{(39)} \]
+                 $L = (e_1, \ldots, e_n)$
+                 \[(39) \implies LDF(X_-) = \mathbb{0}^T_n \eqno\mathrm{(40)} \]
+                 Будем для краткости записи пользоваться обозначеними  из Якобиана
+                 \[ \forall X \in U J_F(X) \neq 0 \eqno\mathrm{(41)}\]
+                 \[||A^{-1}|| = \frac{1}{4\lambda}\]
+                 Хотим обозначить теперь
+                 \begin{gather*}
+                 B = DF(X)  \\
+                  \beta = || A - B|| < 2 \lambda
+                 \end{gather*}
+                по  теореме из предыдущей лекции 22.09.22
+                \[||B^{-1}|| \leq \frac{1}{4\lambda - \beta} < \frac{1}{2\lambda} \eqno\mathrm{(42)} \]
+                матрица якоби из (40) обратима, сейчас обратим её
+                \begin{gather*}
+                 (40), (41) \implies (LDF(X_-))(DF(X_-))^{-1} = \mathbb{0}^T_n(DF(X_-))^{-1} = 
+                \mathbb{0}_n \end{gather*}
+                \[\implies L = \mathbb{0}_n^T \eqno\mathrm{(43)} \]
+                Здесь закончилось доказательство леммы \newline
+                $G \subset U$, $G$ -- открытое $\implies F(G)$ открытое.
+                 $ \forall Y_1 \in F(G)$, пусть $X_1 \in G, F(X_1) = Y_1$.
+                 $ \exists \rho > 0$ т.ч. $B_\rho(X_1) \in G$ и 
+                 $\overline{B_\rho(X_1)} \in U$ 
+                 по предыдущей лемме получаем соотношение
+                 \[ B_{\lambda\rho}(Y_1) \subset F(B_\rho(X_1)) \subset F(G) \]
+                 Отображение $F$ действительно является открытым отображением.
+                 \[ V =F(U), V - \text{ открытое } , G \subset U, G - \text{ открытое }\]
+                 хотим рассмотреть отображение
+                 \[ \Phi = F^{-1}; V \rightarrow U \]
+                 посмотрим на прообразы открытых множеств $V$.
+                 Пусть $\Omega \in V - $ открытое.
+                 \[ \Phi^{-1}(G) = F(G) - \text{ открытое}\]
+                 Применяем топологическое определение непрерывности
+                 \[ \implies \Phi \text{ непрерывна на } V \]
+               \end{enumerate}
+        \end{proof}
+        Мы выяснили что $F$ биективно, $V$ - открыто, а обратное отображение непрерывно
+        на $V$. Теперь надо проверять что $\Phi$ такой же гладкости как и ...
+
+\end{document}
