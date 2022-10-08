@@ -6,55 +6,57 @@
     $E \subset {\vR}^n, n \geq 2$, $x_0 \in E$, $x_0 $ -- внутренняя точка
     $F: E \rightarrow {\vR}^n$
     \[F \in C^{1}(w) \eqno\mathrm{(1)}\]
-    \[\det DF(x_0) \ne 0 \eqno\mathrm{(2)}\]
+    \[ \det DF(x_0) \ne 0 \eqno\mathrm{(2)}\]
     Соотношения (1) и (2) влекут:
-        $F(x_0) = Y_0, \exists x_0 \in v$ и $\exists y_0 \in V:$
-        $$F|_v - \text{гомеоморфизм на } V  \eqno\mathrm{(3)}$$
-        $$ \Phi = F^{-1}, \Phi \in C^1(V) \eqno\mathrm{(4)}$$
+        \[F(x_0) = Y_0, \exists x_0 \in v \text{ и }\exists y_0 \in V:
+        F|_v - \text{гомеоморфизм на } V  \eqno\mathrm{(3)} \]
+        \[ \Phi = F^{-1}, \Phi \in C^1(V) \eqno\mathrm{(4)}\]
 
         \begin{definition}[Якобиан]
-        $I(x_0) \stackrel{def}{=} det DF(x_0)$ -- Якобиан отображения $F$ в точке $x_0$
+        $I(x_0) \stackrel{def}{=} \det DF(x_0)$ -- Якобиан отображения $F$ в точке $x_0$
         \end{definition}
 
         \begin{gather*}
         \Phi(F(X)) \equiv X \implies D\Phi(Y)DF(X) = DI(X) \implies \\
         Y = F(X), I(X) \equiv X \\
         I_n - \text{ единичная матрица в } {\vR}^n \\
-       \implies detD(\Phi(Y_0)) \cdot detDF(X_0) = det I_n = 1
+       \implies \det D(\Phi(Y_0)) \cdot \det DF(X_0) = \det I_n = 1
         \end{gather*}
-        \begin{proof}
+        \begin{longProof}
          \begin{enumerate}
             \item Будем пользоваться определителем матрицы Якоби. Будем обозначать дальше
             $DF(x_0) = A$. Условие (2) влечёт $\exists A^{-1}$
             \[ \text{Будем обозначать }||A^{-1}||  = \frac{1}{4 \lambda}, \lambda> 0
-             \eqno\mathrm{(5)} \]
+             \tag{5} \]
              Раассмотрим такое линейное отображение
              $x \in w, ||DF(x) - DF(x_0)|| < ||DF(x) - DF(x_0)||_2$
-             \[(\ldots |f^\prime_{ix_j}(x) - f^\prime_{ix_j}(x_0)|^2 + \ldots)^{\frac{1}{2}} \]
-             \[(1) \implies |f^\prime_{ix_j} - f^\prime_{ix_j}(x_0)|^2 
-             \underset{x \to x_0}{\longrightarrow} 0 \eqno\mathrm{(6)} \]
-             \[(6) \implies ||DF(X) - DF(X_0)||_2 \underset{x \to x_0}{\longrightarrow} 0
-             \eqno\mathrm{(7)}\]
-             \[(7) \implies ||DF(X - DF(X_0)|| \underset{x \to x_0}{\longrightarrow} 0
-             \eqno\mathrm{(8)} \]
-             \[(8) \implies \exists r > 0: \forall x, ||X-X_0||_{{\vR}^n} < r
-             \text{ имеем } \]
-             \[DF(X) - DF(X_0)|| < 2\lambda \eqno\mathrm{(9)} \]
+             \begin{gather*}
+             (\ldots |f^\prime_{ix_j}(x) - f^\prime_{ix_j}(x_0)|^2 + \ldots)^{\frac{1}{2}} \\
+             (1) \implies |f^\prime_{ix_j} - f^\prime_{ix_j}(x_0)|^2 
+             \underset{x \to x_0}{\longrightarrow} 0 \tag{6} \\
+             (6) \implies ||DF(X) - DF(X_0)||_2 \underset{x \to x_0}{\longrightarrow} 0
+             \tag{7} \\
+             (7) \implies ||DF(X - DF(X_0)|| \underset{x \to x_0}{\longrightarrow} 0 \tag{8} \\
+             (8) \implies \exists r > 0: \forall x, ||X-X_0||_{{\vR}^n} < r
+             \text{ имеем } \\
+             DF(X) - DF(X_0)|| < 2\lambda \tag{9} 
+            \end{gather*}
 
              \[U = B_r(X_0) = \{ x \in {\vR}^n: ||x-x_0|_{{\vR}^n} < \lambda
              \eqno\mathrm{(10)}\]
              \[DF(X) - A|| < 2 \lambda \eqno\mathrm{(9^\prime)} \]
              \begin{remark}[О внутренности шара]
-                \[X_1, X_2 \in B_r(X_0), 0 < t < 1 \implies tX_1 + (1-t)x_2 \in B_r(x_0)\]
-                \begin{gather*}
-                  |(tX_1 + (1-t)X_2)-X_0||_{{\vR}^n} = ||t(X_1-X_0)+ \\
-                +(1-t)(X_2-X_0)||_{{\vR}^n} 
+               \[X_1, X_2 \in B_r(X_0), 0 < t < 1 \implies tX_1 + (1-t)x_2 \in B_r(x_0) \]
+               \begin{multline*}
+                X_1, X_2 \in B_r(X_0), 0 < t < 1 \implies tX_1 + (1-t)x_2 \in B_r(x_0) \\
+                  ||(tX_1 + (1-t)X_2)-X_0||_{{\vR}^n} = \\ 
+                  = ||t(X_1-X_0)+ (1-t)(X_2-X_0)||_{{\vR}^n} 
                 \leq ||t(X_1 - X_0)||_{{\vR}^n} + \\
-                + ||(1-t)(X_2-X_0)||_{{\vR}^n} < \\
+                + ||(1-t)(X_2-X_0)||_{{\vR}^n} < 
                < tr + (1-t)r = r
-                \end{gather*}
+                \end{multline*}
+               \end{remark}
 
-             \end{remark}
              \item Биективность отображения $F$ на $U$
               \[ 0 < t < 1 \]
              \begin{gather*}
@@ -67,57 +69,43 @@
             \begin{align*}
             (11) \implies Dg(t) = g^\prime(t) = D(F(X+tH)) - D(tAH) =\\
             =DF(X+tH)D(t + tH) - AH = \\  
-            = DF(x+tH)H-DF(x_0)H =
+            = DF(x+tH)H-DF(x_0)H = \\
+            = (DF(x+tH)-DF(x_0))H \tag{12}
             \end{align*} 
-            \[ = (DF(x+tH)-DF(x_0))H \eqno\mathrm{(12)}\]
             \begin{gather*}
             \text{Правая часть} (12) \leq ||DF(X+tH)-DF(x_0)|| \cdot ||H||_{{\vR}^n} \\
-            <2 \lambda ||H||_{{\vR}^n} 
-            \end{gather*}
-            \[\underset{13^\prime}{\leq} \frac{1}{2} ||AH||_{{\vR}^n} \eqno\mathrm{(14)}\]
-      
-
-            \[||A^{-1}|| = \frac{1}{4\lambda} \implies \forall X \in {\vR}^n 
+            \underset{13^\prime}{\leq} \frac{1}{2} ||AH||_{{\vR}^n} \tag{14} \\
+            ||A^{-1}|| = \frac{1}{4\lambda} \implies \forall X \in {\vR}^n 
             ||A^{-1}X||_{{\vR}^n} \leq \frac{1}{4\lambda}||X||_{{\vR}^n} 
-            \Leftrightarrow \]
-            \[||X||_{{\vR}^n}
-             \geq 4\lambda||A^{-1}X||_{{\vR}^n} 
-            \Leftrightarrow ||AY||_{{\vR}^n} \geq 4\lambda ||Y||_{{\vR}^n} \eqno\mathrm{(13)} \]
-            
-            \[  (13) \Leftrightarrow 2\lambda||Y||_{{\vR}^n} \leq 
-            \frac{1}{2}||AY||_{{\vR}^n} \eqno\mathrm{(13^\prime} \]
-            По теореме Лагранжа  ..
-
-            \[(12), (14) \implies ||g^\prime(t)||_{{\vR}^n} < 
-            \frac{1}{2}||AH||_{{\vR}^n} \eqno\mathrm{(15)} \]
-            \[\exists t_o \in (0,1): ||g(1)-g(0)||_{{\vR}^n} \leq 
-            ||g^\prime(t_0)||_{{\vR}^n} \cdot (1-0) = ||g^\prime(t_0)||_{{\vR}^n}
-            \eqno\mathrm{(16)}\]
-            \[ g(1)-g(0) = F(X+H)-AH - F(X) = (F(X+H)-F(X)) - AH \eqno\mathrm{(17)}\]
-
-            \[ (15), (16), (17) \implies ||(F(X+H)-F(X))-AH||_{{\vR}^n}
-            <  \frac{1}{2}||AH||_{{\vR}^n} \eqno\mathrm{(18)}\]
-            \begin{gather*}
+            \Leftrightarrow \\
+            ||X||_{{\vR}^n} \geq 4\lambda||A^{-1}X||_{{\vR}^n} 
+            \Leftrightarrow ||AY||_{{\vR}^n} \geq 4\lambda ||Y||_{{\vR}^n} \tag{13} \\
+            (13) \Leftrightarrow 2\lambda||Y||_{{\vR}^n} \leq 
+            \frac{1}{2}||AY||_{{\vR}^n} \tag{13'} \\
+            \intertext{По теореме Лагранжа  ..} \\
+            (12), (14) \implies ||g^\prime(t)||_{{\vR}^n} < 
+            \frac{1}{2}||AH||_{{\vR}^n} \tag{15} \\
+            \exists t_o \in (0,1): ||g(1)-g(0)||_{{\vR}^n} \leq 
+            ||g^\prime(t_0)||_{{\vR}^n} \cdot (1-0) = ||g^\prime(t_0)||_{{\vR}^n}\tag{16}\\
+             g(1)-g(0) = F(X+H)-AH - F(X) = (F(X+H)-F(X)) - AH \tag{17} \\
+            (15), (16), (17) \implies ||(F(X+H)-F(X))-AH||_{{\vR}^n}
+            <  \frac{1}{2}||AH||_{{\vR}^n} \tag{18} \\
              (18) \implies ||F(X+H)-F(X)||_{{\vR}^n} \geq ||AH||_{{\vR}^b} -\\
-            -||F(X+H)-F(X)-AH||_{{\vR}^n} > ||AH||_{{\vR}^n} 
-            - \frac{1}{2}||AH||_{{\vR}^b} = 
+            -||F(X+H)-F(X)-AH||_{{\vR}^n} > ||AH||_{{\vR}^n} -
+            \frac{1}{2}||AH||_{{\vR}^n} =  \\
+           = \frac{1}{2}||AH||_{{\vR}^n} > 0 \tag{19} \\
+            AH = (AH-F(X+H))-F(X) + (F(X_H)-F(X)) \\
+            ||F(X+H)-F(X)||_{{\vR}^n} > \frac{1}{2}||AH||_{{\vR}^n} \tag{20} \\
+            \intertext{при} 
+            X \in B_r(X_0), X+H \in B_r(x_0), H \ne \mathbb{0}_n \\
+            (20) \implies F(X+H) \ne F(X) \text{ при } H \ne \mathbb{0}_n \\
+            V \stackrel{def}{=} F(U) \tag{21} \\
+            \exists \Phi: V \rightarrow U  \tag{22} \\
+             \intertext{т.ч.} \Phi = F^{-1} \\
             \end{gather*}
-           \[ = \frac{1}{2}||AH||_{{\vR}^n} > 0 \eqno\mathrm{(19)}\]
-
-             \[AH = (AH-F(X+H))-F(X) + (F(X_H)-F(X))\]
-
-               \[||F(X+H)-F(X)||_{{\vR}^n} > \frac{1}{2}||AH||_{{\vR}^n} \eqno\mathrm{(20)} \] 
-               \[\text{ при } 
-            X \in B_r(X_0), 
-             X+H \in B_r(x_0), H \ne \mathbb{0}_n \]
-            \[(20) \implies F(X+H) \ne F(X) \text{ при } H \ne \mathbb{0}_n\]
-            \[V \stackrel{def}{=} F(U) \eqno\mathrm{(21)} \]
-            \[\exists \Phi: V \rightarrow U  
-             \eqno\mathrm{(22)}\]
-             \[ \text{ т.ч. } \Phi = F^{-1} \]
              \item Открытость отображения
              \[(20), (13^\prime) \implies ||F(X+H) - F(X)||_{{\vR}^n} 
-             >2\lambda||H||_{{\vR}^n} \eqno{\mathrm{(23)}}  \]
+             >2\lambda||H||_{{\vR}^n} \tag{23} \]
              \begin{lemma}[]
                 $X_1 \in U, Y_1 = F(X_1) $, 
                 $0 < \rho < \rho - ||X_1-X_0||_{{\vR}^n} $ 
@@ -126,41 +114,31 @@
                 \eqno\mathrm{(24)}\]
                 \[\implies \exists X \in B_\rho(X_1) : F(X) = Y \eqno\mathrm{(25)} \]
              \end{lemma}
-             \begin{proof} От редактора: если поместить доказательство внутри доказательства, будет стрёмно,
-               поэтому я просто напишу, где закончится доказательство леммы :(
-             \end{proof}
+             \begin{longProof} 
                 Давайте рассмотрим функцию
                 \[ P(X): \overline B_\rho(X_1) \rightarrow {\vR}\]
-                \[ P(X) = ||F(X) - Y||_{{\vR}^n}  \eqno\mathrm{(26)}\]
+                \[ P(X) = ||F(X) - Y||_{{\vR}^n}  \tag{26}\]
                 Видно, что функция непрерывная,  класса $C^1$, норма это непрерывная 
                 функция на замкнутом шаре. Так как замкнутый шар это компакт:
-                \[  \exists X_1 \in \overline{B}_\rho : P(X_) \leq P(X) \forall x \in \overline{B}_\rho(X_1)  
-                \eqno\mathrm{(27)}\]
-
-                \[X_2 \text{ т.ч. } ||X_2-X_1||_{{\vR}^n} = \rho, H = X_2-X_1\]
-
                 \begin{gather*}
+                \exists X_1 \in \overline{B}_\rho : P(X_) \leq P(X) \forall x \in \overline{B}_\rho(X_1)  
+                \tag{27} \\
+                X_2 \text{ т.ч. } ||X_2-X_1||_{{\vR}^n} = \rho, H = X_2-X_1 \\
                  (23) \implies ||F(X_2) - F(X_1)||_{{\vR}^n} = ||F(x_1+H)
                  - F(X_1)||_{{\vR}^n} > \\
-                 > 2 \lambda ||H||_{{\vR}^n} =
-                  = 2\lambda||X_2-X_1||_{{\vR}^n} \end{gather*}
-                  \[= 2\lambda\rho \eqno\mathrm{(28)}\]
-
-                 \begin{gather*}
+                 > 2 \lambda ||H||_{{\vR}^n} =2\lambda||X_2-X_1||_{{\vR}^n}  = 2\lambda\rho \tag{28} \\
                   (28), (24) \implies ||F(X_2) -Y||_{{\vR}^n} \geq ||F(X_2) -\\
                  -\underbrace{F(X_1)}_{Y_1}||_{{\vR}^n} - ||\underbrace{F(X_1)}_{Y_1} -
-                  Y||_{{\vR}^b} > 
-                 2\lambda\rho - \lambda\rho > 2\lambda\rho-\lambda\rho \end{gather*}
-                \[ = \lambda\rho \eqno\mathrm{(29)} \]
-                 \[ (29): P(X_2) > \lambda\rho \eqno\mathrm{(30)} \]
-
-                 \[ P(X_1) = ||F(X_1)-Y||_{{\vR}^n} = ||Y_1-Y||_{|{\vR}^n} < \lambda\rho \eqno\mathrm{(31)} \]
-                 \[(30), (31) \implies P(X_1) < P(X_2) \eqno\mathrm{(32)} \]
-                 \[ (32) \implies X_- \in B_{\rho}(X_1) \eqno\mathrm{(33)} \] 
-                 Теперь хотим ввести функцию 
-                 \[ f(X) = P^2(X) \] и получаем, что
-                 \[ f(X_-) \leq f(X) \forall X \in \overline{B}\rho(X_1) \eqno\mathrm{(34)} \]
-
+                  Y||_{{\vR}^n} > 2\lambda\rho - \lambda\rho > 2\lambda\rho-\lambda\rho 
+                = \lambda\rho \tag{29} \\
+                 (29): P(X_2) > \lambda\rho \tag{30} \\
+                  P(X_1) = ||F(X_1)-Y||_{{\vR}^n} = ||Y_1-Y||_{|{\vR}^n} < \lambda\rho \tag{31} \\
+                 (30), (31) \implies P(X_1) < P(X_2) \tag{32} \\
+                 (32) \implies X_- \in B_{\rho}(X_1) \tag{33} \\
+                 \intertext{Теперь хотим ввести функцию}  
+                 f(X) = P^2(X)  \text{ и получаем, что }
+               f(X_-) \leq f(X) \forall X \in \overline{B}\rho(X_1) \tag{34} 
+                \end{gather*}
                  \begin{align*}Y = \begin{bmatrix}
                     Y_1 \\
                     \vdots \\
@@ -174,32 +152,30 @@
                  \end{bmatrix} \end{align*}
                  $f(X) \geq 0 $
                  ~ обозначили координатные функции ~
-                 \[ f(X) = \sum_{k=1}^n(F_k(X)-Y_k)^2 \eqno\mathrm{(35)} \] 
-                 \[ (35) \implies C^1(U)  \eqno\mathrm{(36)}\]
-                 \[ (34), (35) \implies f^\prime_{xj} = 0, 1 \leq j \leq n  \eqno\mathrm{(37)}\]
-                 (необходимое условие экстремума, согласны ?)
-                 \[ (35) \implies f^\prime_{x_j}(X) = 2 \sum_{k=1}^n(F_k(X)-Y_k)F^\prime_{kx_j}(X)
-                 \eqno\mathrm{(38)} \]
-                 \[f_k = F_k(X_-) -Y_k\]
-                 \[ (37), (38) \implies \sum_{k=1}^n F^\prime_{kx_j}(X_-)l_k = 0, 1 \leq j \leq n \eqno\mathrm{(39)} \]
-                 $L = (e_1, \ldots, e_n)$
-                 \[(39) \implies LDF(X_-) = \mathbb{0}^T_n \eqno\mathrm{(40)} \]
-                 Будем для краткости записи пользоваться обозначеними  из Якобиана
-                 \[ \forall X \in U J_F(X) \neq 0 \eqno\mathrm{(41)}\]
-                 \[||A^{-1}|| = \frac{1}{4\lambda}\]
-                 Хотим обозначить теперь
                  \begin{gather*}
+                 f(X) = \sum_{k=1}^n(F_k(X)-Y_k)^2 \tag{35} \\
+               (35) \implies C^1(U)  \tag{36} \\
+               (34), (35) \implies f^\prime_{xj} = 0, 1 \leq j \leq n  \tag{37} \\
+                 \intertext{(необходимое условие экстремума, согласны ?)}
+               (35) \implies f^\prime_{x_j}(X) = 2 \sum_{k=1}^n(F_k(X)-Y_k)F^\prime_{kx_j}(X)
+                 \tag{38} \\
+                 f_k = F_k(X_-) -Y_k \\
+                 (37), (38) \implies \sum_{k=1}^n F^\prime_{kx_j}(X_-)l_k = 0, 1 \leq j \leq n \tag{39} \\
+                 L = (e_1, \ldots, e_n) \\
+                 (39) \implies LDF(X_-) = \mathbb{0}^T_n \tag{40} \\
+                 \intertext{Будем для краткости записи пользоваться обозначеними  из Якобиана}
+                 \forall X \in U J_F(X) \neq 0 \tag{41} \\
+                 ||A^{-1}|| = \frac{1}{4\lambda} \\
+                 \intertext{Хотим обозначить теперь}
                  B = DF(X)  \\
                   \beta = || A - B|| < 2 \lambda
-                 \end{gather*}
-                по  теореме из предыдущей лекции 22.09.22
-                \[||B^{-1}|| \leq \frac{1}{4\lambda - \beta} < \frac{1}{2\lambda} \eqno\mathrm{(42)} \]
-                матрица якоби из (40) обратима, сейчас обратим её
-                \begin{gather*}
+                \intertext{по  теореме из предыдущей лекции 22.09.22 (туть появится ссылка когда лекция от 22 числа появится)}
+                ||B^{-1}|| \leq \frac{1}{4\lambda - \beta} < \frac{1}{2\lambda} \tag{42} \\
+                \intertext{матрица якоби из (40) обратима, сейчас обратим её}
                  (40), (41) \implies (LDF(X_-))(DF(X_-))^{-1} = \mathbb{0}^T_n(DF(X_-))^{-1} = 
-                \mathbb{0}_n \end{gather*}
-                \[\implies L = \mathbb{0}_n^T \eqno\mathrm{(43)} \]
-                Здесь закончилось доказательство леммы \newline
+                \mathbb{0}_n \\
+                \implies L = \mathbb{0}_n^T \tag{43} \end{gather*}
+                \end{longProof}
                 $G \subset U$, $G$ -- открытое $\implies F(G)$ открытое.
                  $ \forall Y_1 \in F(G)$, пусть $X_1 \in G, F(X_1) = Y_1$.
                  $ \exists \rho > 0$ т.ч. $B_\rho(X_1) \in G$ и 
@@ -261,15 +237,15 @@
                   \end{multline*}
 
                   \[ < \frac{1}{4\lambda^2} \frac{||t(H)||_{{\vR}^n}}{||H||_{{\vR}^n}}
-                  \underset{K \to \mathbb{0}_n}{\longrightarrow} 0 \eqno\mathrm{(8)} \] 
+                  \underset{K \to \mathbb{0}_n}{\longrightarrow} 0 \tag{8} \] 
                   \[ (6), (8) \implies \Phi \text{ дифференцируема в } Y \] 
                   Получаем следующие равенства:
 
-                  \[ D\Phi(Y) = (DF(X))^{-1} \eqno\mathrm{(9)} \] 
+                  \[ D\Phi(Y) = (DF(X))^{-1} \tag{9} \] 
                   \[ \text{ где } Y = F(X) \Leftrightarrow X = \Phi(Y) \] 
                   то, что мы доказали, влечёт следующее: если мы рассмотрим координатные функции $F$,
                   то получится, что существуют все частные производные. осталось проверить их непрерывность
-                  \item . 
+                  \item 
                   \begin{align*}
                      F(X) =
                   \begin{bmatrix*}
@@ -283,7 +259,7 @@
                      \phi_n(Y)                     
                   \end{bmatrix*} 
                \end{align*}
-               \[
+               \begin{gather*}
                \begin{bmatrix*}
                   \phi^\prime_{1y_1}(Y) & \ldots & \phi^\prime_{1y_n}(Y) \\
                   \ldots & \ddots & \ldots \\
@@ -293,20 +269,19 @@
                   F^\prime_{1x_1}(X) & \ldots & F^\prime_{1x_n} \\
                   \ldots & \ddots & \ldots \\
                   F^\prime_{1x_1}(X) & \ldots & F^\prime_{nx_n}(X)
-               \end{bmatrix*} \right)^{-1} \] 
-               \[ (9) \implies \phi^\prime_{ky_l}(Y) = \frac{\sum \pm F^\prime_{ix_i}(x)
+               \end{bmatrix*} \right)^{-1} \\
+               (9) \implies \phi^\prime_{ky_l}(Y) = \frac{\sum \pm F^\prime_{ix_i}(x)
                \cdots F^\prime_{sx_t}(X)}{\underbrace{\sum + \cdots F^\prime_{px_q}(X) \cdots F^\prime{ux_v}(X)}_{\ne 0}}
-               \eqno\mathrm{(10)} \]
-
-               \[ F^\prime_{ix_j}(X) = F^\prime_{ix_j}(\Phi(Y)) \in C(V) \eqno\mathrm{(11)} \]
-               \[ (10), (11) \implies \phi^\prime_{ky_l} \in C(V) \forall k, l \eqno\mathrm {(12)} \]
-               По определению класса $C^r$ получаем
-               \[ (12) \implies \Phi \in C^1(V) \]
+               \tag{10}\\
+                F^\prime_{ix_j}(X) = F^\prime_{ix_j}(\Phi(Y)) \in C(V) \tag{11} \\
+               (10), (11) \implies \phi^\prime_{ky_l} \in C(V) \forall k, l \tag{12} \\
+               \text{По определению класса } C^r \text{ получаем } 
+               (12) \implies \Phi \in C^1(V) \end{gather*}
                \end{enumerate}
-        \end{proof}
+        \end{longProof}
 
-        \begin{corollary}
-            \begin{gather*}
+        \begin{corollary} %мне кажется, что лучше так, чем с gather
+            \begin{align*}
                r \geq 1, F \in C^r(E)\\
                 E \in {\vR}^n, n \geq 2, E - \text { открытое множество } \\
                 X_0 \in E,  F (X_0) = Y_0,  d_F(X_0) \ne 0 \\
@@ -314,7 +289,7 @@
                F|_{U} - \text{ гомеоморфизм } \\
                \Phi =F^{-1} \\
                 \Phi \in C^r(E)
-            \end{gather*}
+            \end{align*}
         \end{corollary}
         \begin{proof}
             % Доказывать будем по индукции. База верна.
@@ -330,13 +305,15 @@
             \[d_F(X) \ne 0 \forall x \in E \implies F - \text{ открытое отображение} \]
         \end{corollary}
         \begin{proof}
-            \[ w \in E, w - \text{ открытое }, F(w) = G, Y_0 \in G\] 
-            \[ \exists x_o \in w \text{ т.ч. } F(X_0) = Y_0 \exists r > 0 \text{ т.ч. }
-            B_r(X_0) \subset w, d_F(x_0) \ne 0 \text{ т.е. } \] 
-            \[ \exists (DF(X_0))^{-1} \] 
-            \[ \lambda > 0, ||(DF(X_0)^{-1})|| = \frac{1}{4\lambda} \] 
-            \[\implies B_{\lambda r}(Y_0) \subset F(B_r(X_0)) \eqno\mathrm{\text{(шаг 3})} \]
-            \[ F(B_r(X_0)) \subset F(w) \]
+         \begin{gather*}
+             w \in E, w - \text{ открытое }, F(w) = G, Y_0 \in G \\
+             \exists x_o \in w \text{ т.ч. } F(X_0) = Y_0 \exists r > 0 \text{ т.ч. }
+            B_r(X_0) \subset w, d_F(x_0) \ne 0 \text{ т.е. } \\
+            \exists (DF(X_0))^{-1} \\
+             \lambda > 0, ||(DF(X_0)^{-1})|| = \frac{1}{4\lambda} \\
+            \implies B_{\lambda r}(Y_0) \subset F(B_r(X_0)) \tag{шаг 3} \\
+             F(B_r(X_0)) \subset F(w)  \end{gather*}
+
         \end{proof}
       \begin{theorem}[О неявном отображении]
          \begin{align*}
@@ -369,50 +346,46 @@
          \end{bmatrix*} 
       \end{align*}
       $A$ - обратима
-      \[
+      \begin{gather*}
           C= [AB]  = \begin{bmatrix*}
             a_{11} & \ldots & a_{1n} & b_{11} & \ldots & b_{1m} \\
             \ldots & \ddots & \ldots & \ddots & \ldots \\
             a_{n1} & \ldots & a_{nn} & b_{n1} & \ldots & b_{nm}
-         \end{bmatrix*}
-      \]
-
-      \[ CZ_0 = \mathbb{0}_n \] 
-      \[CZ = \mathbb{0}_n\] 
-      \[ [AB] \cdot \begin{bmatrix*}
+         \end{bmatrix*} \\
+       CZ_0 = \mathbb{0}_n \\
+       CZ = \mathbb{0}_n \\
+       [AB] \cdot \begin{bmatrix*}
          X \\
          Y
-      \end{bmatrix*} = \mathbb{0}_n \eqno\mathrm{(1)} \]
-
-      \[ (1) \Leftrightarrow AX + BY = \mathbb{0}_n \Leftrightarrow AX = -BY \Leftrightarrow X
-      = -(A^{-1}B)Y \eqno\mathrm{(2)}  \] 
-      \[ X_0 = -(A^{-1}B)Y_0 \eqno\mathrm{(2^\prime)} \]
-         
+      \end{bmatrix*} = \mathbb{0}_n \tag{1} \\
+      (1) \Leftrightarrow AX + BY = \mathbb{0}_n \Leftrightarrow AX = -BY \Leftrightarrow X
+      = -(A^{-1}B)Y \tag{2}  \\
+       X_0 = -(A^{-1}B)Y_0 \tag{2'} 
+      \end{gather*}
       \end{theorem}
 
       \begin{theorem}[О неявном отображении в общем случае]
-         \[ E \subset {\vR}^{n+m}, Z \in E, Z = \begin{bmatrix*}
+         \begin{gather*}
+         E \subset {\vR}^{n+m}, Z \in E, Z = \begin{bmatrix*}
             X \\
             Y
          \end{bmatrix*},
          X \in {\vR}^n, Y \in {\vR}^m, Z_0 = \begin{bmatrix*}
             X_0 \\
             Y_0
-         \end{bmatrix*} \]
-
-         \[ F: E \rightarrow {\vR}^n, F \in C^1(E) \] 
-         \[F(Z) = \begin{bmatrix*}
+         \end{bmatrix*} \\
+          F: E \rightarrow {\vR}^n, F \in C^1(E) \\
+         F(Z) = \begin{bmatrix*}
             f_1(Z) \\
             \vdots \\
             f_n(Z)
-         \end{bmatrix*}\] 
-         \[ DF(Z_0) = \begin{bmatrix*}
+         \end{bmatrix*} \\
+         DF(Z_0) = \begin{bmatrix*}
             f^\prime_{1x_1}(Z_0) & \ldots & f^\prime_{1x_n}(Z_0) & f^\prime_{1y_1}(Z_0) & \ldots & f^\prime_{1y_m}(Z_0) \\
             \ldots & \ddots & \ldots & \ldots \ddots & \ldots \\
             f^\prime_{nx_1}(Z_0) & \ldots & f^\prime_{nx_n}(Z_0) & f^\prime_{ny_1}(Z_0) & \ldots & f^\prime_{ny_m}(Z_0) 
-            
-         \end{bmatrix*} \]
-
+         \end{bmatrix*} 
+      \end{gather*}
          \begin{align*}
             A = \begin{bmatrix*}
                f^\prime_{1x_1}(Z_0) & \ldots & f^\prime_{1x_n}(Z_0) \\
@@ -426,30 +399,29 @@
             \end{bmatrix*}
          \end{align*}
 
-         \[ DF(Z_0) = [AB] \]
-         \[A \text{ обратима } \eqno\mathrm{(1)} \]
-         \[ F(Z_0) = \mathbb{0}_n \eqno\mathrm{(2)} \]
          \begin{gather*}
-            \exists Y_0 \in W \\
-            g: W \rightarrow {\vR}^n, g \in C^1(W) \\
-         \end{gather*}
-         \[ g(Y_0) = X_0 \text{  } \forall Y \in W \eqno\mathrm{(3)} \]
-
-         \[ F\left(\begin{bmatrix*}
+          DF(Z_0) = [AB] \\
+         A \text{ обратима } \tag{1} \\
+          F(Z_0) = \mathbb{0}_n \tag{2} \\
+         \exists Y_0 \in W \\
+         g: W \rightarrow {\vR}^n, g \in C^1(W) \\
+          g(Y_0) = X_0 \text{  } \forall Y \in W \tag{3} \\
+         F\left(\begin{bmatrix*}
             g(y) \\
             Y
          \end{bmatrix*}\right)
-          = \mathbb{0}_n  \eqno\mathrm{(4 )}\] 
-
-          \[F(\begin{bmatrix*}
+          = \mathbb{0}_n  \tag{4} \\ 
+          F\left(\begin{bmatrix*}
             X \\
             Y
-          \end{bmatrix*}) = \mathbb{0}_n \eqno\mathrm{(2^\prime)} \]
+          \end{bmatrix*}\right) = \mathbb{0}_n \tag{2'}
+          \end{gather*}
          \end{theorem}
 
-         \begin{proof}
-          \[\Phi: E \rightarrow {\vR}^{n+m} \] 
-          \[ \Phi\left(\begin{bmatrix*}
+         \begin{longProof}
+            \begin{gather*}
+          \Phi: E \rightarrow {\vR}^{n+m} \\ 
+           \Phi\left(\begin{bmatrix*}
             X \\
             Y \end{bmatrix*}\right) = \begin{bmatrix*}
                F\left(\begin{bmatrix*}
@@ -457,17 +429,15 @@
                   Y
                \end{bmatrix*}\right) \\
                Y
-            \end{bmatrix*} \eqno\mathrm{(5)} \]
-
-            \[ \Phi(Z_0) = \begin{bmatrix*}
+            \end{bmatrix*} \tag{5} \\
+             \Phi(Z_0) = \begin{bmatrix*}
                F(Z_0) \\
                Y_0
             \end{bmatrix*} = \begin{bmatrix*}
                \mathbb{0}_n \\
                Y_0
-            \end{bmatrix*} \eqno\mathrm{(6)} \]
-
-            \[D \Phi(Z_0) = \begin{bmatrix*}
+            \end{bmatrix*} \tag{6} \\
+            D \Phi(Z_0) = \begin{bmatrix*}
                f^\prime_{1x_1}(\ldots) & \ldots & f^\prime_{1x_n} &f^\prime_{1y_1} & \ldots & f^\prime_{1y_m} \\
                \ldots & \ddots & \ldots & \ldots & \ddots & \ldots \\
                f^\prime_{nx_1} & \ldots & f^\prime_{nx_n} & f^\prime_{ny_1} & \ldots & f^\prime_{ny_m} \\
@@ -480,34 +450,29 @@
                      0 & \ldots & 1
                   \end{matrix} \\
                \end{array} & &
-            \end{bmatrix*}  \]
-
-            \[ def D\Phi(Z_0) = detA \ne 0 \]
-            По теореме об обратном отображении 
-            \[ \exists Z_0 \in U, \begin{bmatrix*}
+            \end{bmatrix*}  \\
+             def D\Phi(Z_0) = \det A \ne 0 \\
+            \text{По теореме об обратном отображении} \\
+             \exists Z_0 \in U, \begin{bmatrix*}
                \mathbb{0}_n \\
                Y_0
-            \end{bmatrix*} \in V \] 
-             \[S \in {\vR}^n, T \in {\vR}^m \]
-            \[ \Phi \text{ гомеоморфизм } U \text{ на } V \]
-
-            \[ \text{для} \begin{bmatrix*}
+            \end{bmatrix*} \in V \\
+             S \in {\vR}^n, T \in {\vR}^m \\
+             \Phi \text{ гомеоморфизм } U \text{ на } V \\
+             \text{для} \begin{bmatrix*}
                S\\
                T
             \end{bmatrix*}
              \in V \exists \Psi \left(\begin{bmatrix*}
                S \\
                T
-             \end{bmatrix*}\right) - \text{ обратный к} \Phi \eqno\mathrm{(7)} \]
-
-             \[\Psi\left(\begin{bmatrix*}
+             \end{bmatrix*}\right) - \text{ обратный к} \Phi \tag{7} \\
+             \Psi\left(\begin{bmatrix*}
                \mathbb{0}^n \\
                Y_0
-             \end{bmatrix*}\right) = Z_0 \eqno\mathrm{(8)} \]  
-
-             \[ \Psi \in C^1(V) \] 
-
-             \[ (5) \implies \Psi\left(\begin{bmatrix*}
+             \end{bmatrix*}\right) = Z_0 \tag{8} \\
+             \Psi \in C^1(V) \\
+              (5) \implies \Psi\left(\begin{bmatrix*}
                  S \\
                  T
              \end{bmatrix*}\right) = \begin{bmatrix*}
@@ -516,14 +481,13 @@
                   T
                \end{bmatrix*}\right) \\
                T
-             \end{bmatrix*} \eqno\mathrm{(9)} \]
-            
-             хотим выбрать такой вектор 
-             \[ P_0 =  \begin{bmatrix*}
+             \end{bmatrix*} \tag{9} \\
+             \text{хотим выбрать такой вектор} \\
+             P_0 =  \begin{bmatrix*}
                \mathbb{0}_n \\
                Y_0
-             \end{bmatrix*} \in V, \exists r > 0 : B_r^{m+n}(P_0) \subset V \] 
-
+             \end{bmatrix*} \in V, \exists r > 0 : B_r^{m+n}(P_0) \subset V 
+            \end{gather*}
              \begin{align*}
                \forall Y \in B_r^m(Y_0)  && \begin{bmatrix*}
                   \mathbb{0}_n \\
@@ -531,19 +495,18 @@
                \end{bmatrix*} \in B_r^{m+n}(P_0)
              \end{align*}
 
-             \[ W = B_r^m(Y_0) \] 
+            \begin{gather*}
+              W = B_r^m(Y_0) \\
              Хотим определить функцию 
-             \[ T \in W, g(T) \stackrel{def}{=} \psi\left(\begin{bmatrix*}
+             T \in W, g(T) \stackrel{def}{=} \psi\left(\begin{bmatrix*}
                \mathbb{0}_n \\
                T               
-             \end{bmatrix*}\right) \eqno\mathrm{(10)}\]
-
-             \[(10) \implies g(Y_0) = \psi\left(\begin{bmatrix*}
+             \end{bmatrix*}\right) \tag{10} \\
+             (10) \implies g(Y_0) = \psi\left(\begin{bmatrix*}
                \mathbb{0}_n \\
                Y_0   
-             \end{bmatrix*}\right) \]
-
-             \[ \Phi\left(\begin{bmatrix*}
+             \end{bmatrix*}\right) \\
+             \Phi\left(\begin{bmatrix*}
                   g(T) \\
                   T
              \end{bmatrix*}\right) \stackrel{(10)}{=} \Phi\left(\begin{bmatrix*}
@@ -558,13 +521,12 @@
              \end{bmatrix*}\right) \right)  = \begin{bmatrix*}
                \mathbb{0}_n \\
                T
-             \end{bmatrix*} \eqno\mathrm{(11)} \] 
-             \[ (11) \implies F\left(\begin{bmatrix*}
+             \end{bmatrix*} \tag{11} \\
+             (11) \implies F\left(\begin{bmatrix*}
                g(T) \\
                T
-             \end{bmatrix*}\right) = \mathbb{0}_n \eqno\mathrm{(12)} \]  
-
-             \[ \Psi\left(\begin{bmatrix*}
+             \end{bmatrix*}\right) = \mathbb{0}_n \tag{12} \\
+             \Psi\left(\begin{bmatrix*}
                   \mathbb{0}_n \\
                   Y_0
              \end{bmatrix*}\right) = \begin{bmatrix*}
@@ -573,16 +535,12 @@
              \end{bmatrix*} \stackrel{(9)}{\implies} \psi\left(\begin{bmatrix*}
                \mathbb{0}_n \\
                Y_0
-             \end{bmatrix*}\right) = X_0 \Leftrightarrow g(Y_0) = X_0 \eqno\mathrm{(13)} \]
-
-             Предположим, что такая функция не единственная .
-             \begin{gather*}
+             \end{bmatrix*}\right) = X_0 \Leftrightarrow g(Y_0) = X_0 \tag{13} \\
+             \intertext{Предположим, что такая функция не единственная.}
                W \\
                Y_0 \in W_1 \\
-               W_2 = W \cap W_1
-             \end{gather*}
-
-             \[ \Phi\left(\begin{bmatrix*}
+               W_2 = W \cap W_1 \\
+              \Phi\left(\begin{bmatrix*}
                g(y) \\
                y
              \end{bmatrix*}\right) = \begin{bmatrix*}
@@ -601,9 +559,7 @@
              \end{bmatrix*} \right) \stackrel{(12}{=} \begin{bmatrix*}
                \mathbb{0}_n \\
                X
-             \end{bmatrix*}
-              \eqno\mathrm{(14)}  \] 
-
-              \[ (14) \implies g(Y) = g_1(Y) \]
-      \end{proof} 
+             \end{bmatrix*} \tag{14}  \\
+             (14) \implies g(Y) = g_1(Y) \end{gather*}
+      \end{longProof} 
 \end{document}

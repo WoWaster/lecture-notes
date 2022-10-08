@@ -27,7 +27,7 @@
 
 \begin{definition}[Норма линейного отображения]
     \[|A|| \stackrel{def}{=} \underset{x \in {\vR}^m, ||X|_{{\vR}^m \leq 1}}{\sup}
-     {||AX||_{{\vR}^n}}\]
+     {||AX||_{{\vR}^n}} \tag{1} \]
 \end{definition}
 
 
@@ -45,8 +45,7 @@
     \sum_{k=1}^n (a^2_{k1} + \ldots + a^2_{km})\underbrace{(x_1^2 + \ldots x_m^2)}_{=||X||^2_{{\vR}^n}} \leq \\
     \sum_{k=1}^n (a^2_{k1} + \ldots + a^2_{km}) =
 \end{multline*}
-     \[=\sum_{k=1}^n \sum_{l=1}^m a_{kl}^2 =||A||_2  \eqno\mathrm{(2)}\]
-
+     \[=\sum_{k=1}^n \sum_{l=1}^m a_{kl}^2 =||A||_2  \tag{2}\]
 
 
 \[(2) \implies ||A|| \leq ||A||_2 \geq 0\]
@@ -101,7 +100,6 @@
            $ ||A+B|| \leq ||A|| + ||B|| $
         \end{theorem}
         \begin{proof}
-            
             \[||A + B|| = \underset{x \in {\vR}^m, ||X||_{{\vR}^m} \leq 1}{\sup} ||(A+B)X||_{{\vR}^n}
             = \underset{\ldots}{\sup} ||AX + BX||_{{\vR}^n} \leq \]
             \[\leq \underbrace{\sup(\underbrace{||AX||}_{\leq ||A||_2} + \underbrace{||BX||}_{\leq ||B||_2})}_{M}
@@ -109,7 +107,7 @@
            
            \[ \exists x_1 \in {\vR}^m, ||x_1||_{{\vR}^m} \leq 1 \text{и}
             ||Ax_1|| + ||Bx_1|| > M - \varepsilon
-             \eqno\mathrm{(3)} \]
+             \tag{3} \]
            
             $(3) \implies M - \varepsilon < ||A|| + ||B| \rightarrow 
             \underset{x \in {\vR}^m, ||X||_{{\vR}^m}\leq1}{\sup}
@@ -125,29 +123,30 @@
             ||x_0||_{{\vR}^m} =||\frac{1}{t}x||_{{\vR}^m}= \frac{1}{t}||X||_{{\vR}^m}
             = \frac{1}{t} \cdot t = 1 \implies
         \end{gather*}
-        \[ ||Ax_0||_{{\vR}^n} \leq ||A|| \eqno\mathrm{(5)}\] 
+        \[ ||Ax_0||_{{\vR}^n} \leq ||A|| \tag{5}\] 
         $ (5) \implies ||Ax_0||_{{\vR}^n}=||A \left(\frac{1}{t}x \right)||_{{\vR}^n} $
-        $\leq ||A|| \rightarrow 4.$
+        $\leq ||A|| \implies 4.$
         \end{proof}
         \begin{theorem}
-            \[c > 0, \forall x \in {\vR}^m$$ $$||Ax||_{{\vR}^n} \leq c||X||_{{\vR}^m} 
-            \forall x \in {\vR}^m \eqno\mathrm{(6)} \]
-            \[\rightarrow ||A|| \leq c \eqno\mathrm{(6^\prime)} \]
+            \[c > 0, \forall x \in {\vR}^m\] 
+            \[||Ax||_{{\vR}^n} \leq c||X||_{{\vR}^m} \forall x \in {\vR}^m \tag{6} \]
+            \[\implies ||A|| \leq c \tag{6\prime} \]
         \end{theorem}
         \begin{proof}
             \begin{gather*}
             (6) \implies \text{при } ||X||_{{\vR}^m} < 1 \text{ имеем} \\
             ||AX||_{{\vR}^n} \leq c \cdot ||X||_{{\vR}^m} \leq c \rightarrow
-            \underset{||X|| \leq 1}{\sup} ||AX|| \leq c \implies (6^\prime)
+            \underset{||X|| \leq 1}{\sup} ||AX|| \leq c \implies (6\prime)
             \end{gather*}
         \end{proof}
     \begin{theorem}
-        \[E = \{ c \in {\vR}, с > 0 : \forall x \in {\vR}^m \text{ имеем }
-        ||Ax||_{{\vR}^n} \leq C ||X||_{{\vR}^m} \} \eqno\mathrm{(7)} \]
-        В случае $A \neq 0$
-        \newline
-        $||A|| = \inf E$, $||A||_2 \in E$, $\inf E \stackrel{def}{=} m$
-        \[||A|| = \inf E \eqno\mathrm{(8)}\]
+        \begin{gather*}
+        E = \{ c \in {\vR}, с > 0 : \forall x \in {\vR}^m \text{ имеем }
+        ||Ax||_{{\vR}^n} \leq C ||X||_{{\vR}^m} \} \tag{7} \\
+        \text{В случае } A \neq 0 \\
+        ||A|| = \inf E, ||A||_2 \in E, \inf E \stackrel{def}{=} m \\
+        ||A|| = \inf E \tag{8} 
+    \end{gather*}
     \end{theorem}
     \begin{proof}
         \begin{enumerate}
@@ -159,10 +158,11 @@
                 \rightarrow ||A|| = 0
             \end{gather*}
             \item $m > 0$
-                \[||A|| \in E, m \leq ||A|| \]
-                \[\text{пусть } m < ||A|| \implies \exists c_2 : m < c_2 < ||A|| \eqno\mathrm{(9)} \]
-                \[(7) \implies ||Ax||_{{\vR}^n} \leq c_2||x||_{{\vR}^m} \forall x \in {\vR}^m\]
-                \[(9) \implies ||A|| \leq c_2 \text{ противоречие} \]
+            \begin{gather*}
+                ||A|| \in E, m \leq ||A|| \\
+                \text{пусть } m < ||A|| \implies \exists c_2 : m < c_2 < ||A|| \tag{9} \\
+                (7) \implies ||Ax||_{{\vR}^n} \leq c_2||x||_{{\vR}^m} \forall x \in {\vR}^m \\
+                [(9) \implies ||A|| \leq c_2 \text{ противоречие} \end{gather*}
         \end{enumerate}
     \end{proof}
     \begin{theorem}
@@ -170,7 +170,7 @@
         A : {\vR}^m \rightarrow {\vR}^n, B: {\vR}^n \rightarrow {\vR}^k \\
         L: {\vR}^m \rightarrow {\vR}^k \\
     \end{gather*}
-        \[Lx = B(A(x))\ \eqno\mathrm{(10)}\] 
+        \[Lx = B(A(x))\ \tag{10} \]
         Каждая норма соответствует своей паре пространств! 
         \[||L|| \leq ||A|| \cdot ||B||\]
 
@@ -181,7 +181,7 @@
         \leq ||B|| \cdot ||AX||_{{\vR}^n} 
         \end{gather*}
         \[\leq \underbrace{||B|| \cdot ||A||}_{c}
-         \cdot ||X||_{{\vR}^m}\   \eqno\mathrm{(11)}\]
+         \cdot ||X||_{{\vR}^m}\   \tag{11} \]
         по свойству 5 $(11) \implies (10)$
     \end{proof}
 
@@ -203,55 +203,44 @@
         \end{pmatrix} : G \rightarrow \mathbb{R^k} 
     \end{gather*} 
     \[\exists P: \Omega \rightarrow {\vR}^k, P(x) \stackrel{def}{=} \Phi(F(x))
-     \eqno\mathrm{(15)} \]
+     \tag{15} \]
 
 
     \begin{theorem}
         $F$ дифференцируема в $X_0$, $\Phi$ дифференцируема в $X_0$ 
         $\Rightarrow P$ дифференцируема в $X_0$ и 
-        \[DP(X_0) = D\Phi(X_0) \cdot DF(X_0) \text{( это матрицы Якоби)} \eqno\mathrm{(16)}\]
+        \[DP(X_0) = D\Phi(X_0) \cdot DF(X_0) \text{( это матрицы Якоби)} \tag{16}\]
     \end{theorem}
 
     \begin{proof}
-           \[ \Phi(Y_0 + \lambda) - \Phi(Y_0) = B \lambda +
-             \rho(\lambda)\eqno\mathrm{(17)} \]
-        \[
-        B = D\Phi(Y_0), \rho(\lambda) \in {\vR}^k \text{ и }
-         \frac{||\rho(\lambda)||_{{\vR}^k}}{||\lambda||_{{\vR}^n}} 
-         \underset{\lambda \to \mathbb{0}_n}{\longrightarrow} 0 \eqno{\mathrm{(18)}}\]
         \begin{gather*}
-        \lambda = \mathbb{0}_n, \Phi(Y_0) - \Phi(Y_0) = \mathbb{0}_k + \rho(\mathbb{0}_n)
-        \rightarrow \rho(\mathbb{0}_n) = \mathbb{0}_k \\
-         \forall \eta > 0 \exists \delta_1 > 0 :
+            \Phi(Y_0 + \lambda) - \Phi(Y_0) = B \lambda + \rho(\lambda) \tag{17} \\
+            B = D\Phi(Y_0), \rho(\lambda) \in {\vR}^k \text{ и } \frac{||\rho(\lambda)||_{{\vR}^k}}{||\lambda||_{{\vR}^n}} \xrightarrow[\lambda \to \mathbb{0}_n]{}0 \tag{18} \\
+            \lambda = \mathbb{0}_n, \Phi(Y_0) - \Phi(Y_0) = \mathbb{0}_k + \rho(\mathbb{0}_n) \rightarrow \rho(\mathbb{0}_n) = \mathbb{0}_k \\
+            \forall \eta > 0 \exists \delta_1 > 0 : \\
+            (18) \implies\forall \lambda \in {\vR}^n, \lambda \neq \mathbb{0}_n \text{ и } ||\lambda||_{{\vR}_n} <\delta_1 \text{ будет } \frac{||\rho(\lambda)||_{{\vR}_k}}{||\lambda||_{{\vR}^n}} < \eta \tag{19}
+            \intertext{и}
+            ||\rho(\lambda)||_{{\vR}^k} \leq \eta \cdot ||\lambda||_{{\vR}^n}  \tag{20} \\
+            (19) \implies ||\rho(\lambda)||_{{\vR}^k} \leq \eta \cdot ||\lambda||_{{\vR}^n} \tag{19'} \\
+            \forall \varepsilon > 0 \exists \delta_2 > 0 : \forall H \in {\vR}^m, ||H||_{{\vR}^m} \delta_2  \text{ имеем } \\
+            ||r(H)||_{{\vR}^n} \leq \varepsilon||H||_{{\vR}^m} \tag{21} \\
+            H \in {\vR}^m, x_0 + H \in \Omega \text{ возможно т.к. внутрення точка}\\
+            F(X_0) = Y_0 \\
+            \text{определим } F(x_0 + H) - F(x_0) = \lambda \tag{22} \\
+            F(x_0+H) - Y_0 = \lambda \tag{22'}
         \end{gather*}
-        \[(18) \implies\forall \lambda \in {\vR}^n, \lambda \neq \mathbb{0}_n
-        \text{ и } ||\lambda||_{{\vR}_n} <\delta_1 \text{ будет }
-        \frac{||\rho(\lambda)||_{{\vR}_k}}{||\lambda||_{{\vR}^n}} < \eta
-        \eqno\mathrm{(19)}\] и
-        \[ ||\rho(\lambda)||_{{\vR}^k} \leq \eta \cdot ||\lambda||_{{\vR}^n}  \eqno\mathrm{(20)} \]
-        \[ (19) \implies ||\rho(\lambda)||_{{\vR}^k} \leq \eta \cdot ||\lambda||_{{\vR}^n} 
-        \eqno\mathrm{(19^\prime)}\]
-        \[\forall \varepsilon > 0 \exists \delta_2 > 0 : \forall H \in {\vR}^m,
-        ||H||_{{\vR}^m} \delta_2  \text{ имеем }\]
-        \[ ||r(H)||_{{\vR}^n} \leq \varepsilon||H||_{{\vR}^m}
-        \eqno\mathrm{(21)} \]
-        \begin{gather*}
-             H \in {\vR}^m, x_0 + H \in \Omega \text{ возможно т.к. внутрення точка}\\ 
-        F(X_0) = Y_0 
-        \end{gather*}
-        \[\text{определим } F(x_0 + H) - F(x_0) = \lambda \eqno\mathrm{(22)} \]
-        \[F(x_0+H) - Y_0 = \lambda \eqno\mathrm{(22^\prime)} \]
         \begin{align*}
-            P(x_0+H) - P(x_0) = \Phi(F(x_0 + H)) - \Phi(F(x_0)) \stackrel{(22^\prime)}{=} \\
+            P(x_0+H) - P(x_0) = \Phi(F(x_0 + H)) - \Phi(F(x_0)) \stackrel{(22\prime)}{=} \\
             \Phi(Y_0 + \lambda) - \Phi(Y_0) 
              \stackrel{(17)}{=} B\lambda + \rho(\lambda)
               \stackrel{(12),(22)}{=} \\
              B(AH+r(H)) + \rho(AH + r(H)) = 
         \end{align*} 
-        
-        \[ = \overbrace{(BA)}^{P(x_0+H)-P(x_0)}H + \overbrace{Br(H) + \rho(AH+r(H))}^{r_1(H)} \eqno\mathrm{(23^\prime)}\]
-        \[ ||H||_{{\vR}^m} < \delta_2 \rightarrow ||r(H)||_{{\vR}^m} \leq \varepsilon ||H||_{{\vR}^m}
-        \eqno\mathrm{(23)}\]
+
+        \begin{gather*}
+         = \overbrace{(BA)}^{P(x_0+H)-P(x_0)}H + \overbrace{Br(H) + \rho(AH+r(H))}^{r_1(H)} \tag{23\prime}\\
+         ||H||_{{\vR}^m} < \delta_2 \rightarrow ||r(H)||_{{\vR}^m} \leq \varepsilon ||H||_{{\vR}^m}
+        \tag{23} \end{gather*}
         \begin{align*}
             \delta = \varepsilon \text{  } \exists \delta_1 : \text{ выполнено (20) при }
             ||\lambda||_{{\vR}^n} \delta_1 \\
@@ -261,29 +250,26 @@
             =(||A||+\varepsilon)||H||_{{\vR}^m} <\delta_1
         \end{align*}
         то есть 
-        \[|H||_{{\vR}^m} \leq \frac{\delta_1}{||A||+\varepsilon}\eqno\mathrm{(24)}\]
-        
-
-        \[\delta_0 = \min(\delta_2, \frac{\delta_1}{||A|| + \varepsilon}) \eqno\mathrm{(25)}\]
+        \[|H||_{{\vR}^m} \leq \frac{\delta_1}{||A||+\varepsilon}\tag{24}\]
+        \[\delta_0 = \min(\delta_2, \frac{\delta_1}{||A|| + \varepsilon}) \tag{25}\]
         и полагаем $||H||_{{\vR}^n} < \delta_0$
 
-    \begin{align*}
+    \begin{gather*}
        \text{При } ||H||_{{\vR}^m} < \delta_0 (26) \implies ||r_1(H)||_{{\vR}^k}  
         \leq ||Br(H)||_{{\vR}^k} + \\ 
         + ||\rho(AH+r(H))||_{{\vR}^k} 
         \leq ||B|| \cdot ||r(H)||_{{\vR}^n} + \varepsilon||AH+r(H)||_{{\vR}^n} \\
         \stackrel{(20), (23)}{\leq} ||B|| \cdot \varepsilon||H||_{{\vR}^m} +
-        \varepsilon(||AH||_{{\vR}^n}+||r(H)||_{{\vR}^n}) \leq 
-    \end{align*}
-        \[ \leq ||B||\varepsilon||H||_{{\vR}^m} + \varepsilon(||A|| \cdot ||H||_{{\vR}^m}
-        +\varepsilon||H||_{{\vR}^m}) = \varepsilon(||B|| + ||A|| + 
-        \varepsilon)||H||_{{\vR}^m} \eqno\mathrm{(22)}\]
-        \[P(x_0)+H - P(X_0) = (BA)H + r_1(H) \eqno\mathrm{(27^\prime)} \]
-        \[\text{При } ||H||_{{\vR}^n} < \delta_0 \text{ имеем }
+        \varepsilon(||AH||_{{\vR}^n}+||r(H)||_{{\vR}^n}) \leq \\
+        \leq ||B||\varepsilon||H||_{{\vR}^m} + \varepsilon(||A|| \cdot ||H||_{{\vR}^m}
+        +\varepsilon||H||_{{\vR}^m}) = \\
+        =\varepsilon(||B|| + ||A|| + \varepsilon)||H||_{{\vR}^m} \tag{22}\\
+        P(x_0)+H - P(X_0) = (BA)H + r_1(H) \tag{27\prime} \\
+        \text{При } ||H||_{{\vR}^n} < \delta_0 \text{ имеем }
         ||r_1(H)||_{{\vR}^k} \leq \varepsilon(||B|| + ||A|| + \varepsilon)||H||_{{\vR}^m} 
-        \eqno\mathrm{(27^{\prime\prime})}\]
-        \[ (27^{\prime\prime}) \implies \frac{||r_1(H)||_{{\vR}^k}}{||H||_{{\vR}^m}}
-        \underset{H \to \mathbb{0}_m}{\longrightarrow} 0 \eqno\mathrm{(28)} \]
-        $(23^\prime), (27^\prime), (28) \implies (16)$
+        \tag{27\prime\prime}\\
+        (27^{\prime\prime}) \implies \frac{||r_1(H)||_{{\vR}^k}}{||H||_{{\vR}^m}}
+        \underset{H \to \mathbb{0}_m}{\longrightarrow} 0 \tag{28} \\
+        (23^\prime), (27^\prime), (28) \implies (16) \end{gather*}
     \end{proof}
 \end{document}
