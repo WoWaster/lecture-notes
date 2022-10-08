@@ -1,0 +1,235 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Дифференциальная геометрия поверхностей}
+\chaptermark{Диф. геометрия поверхностей}
+\section{Касательная плоскость}\marginpar{03.10.22}
+\begin{theorem*}[О неявной функции]
+    Если $F(x,y,z) = 0$ и $F(x_0, y_0,z_0) = 0$,
+    а так же $\frac{\partial F}{\partial z}\rvert_{z = z_0} \neq 0$,
+    тогда в некоторой окрестности $(x_0, y_0)$,
+    тогда существует $f: \fancyD \to \R$, что $F(x, y, f(x,y)) =0$.
+\end{theorem*}
+
+Как задать поверхность?
+\begin{itemize}
+    \item Явная формула: $z = f(x,y)$, если $(x,y) \in \fancyD \subset \R^2$
+          ($\fancyD$ -- область, то есть открытое и связное множество)
+          \begin{center}
+              \import{figures/}{surface_z(x,y).pdf_tex}
+          \end{center}
+    \item Неявное задание: $F(x,y,z) = 0$. Классический пример -- сфера
+          $F(x,y,z)=x^2 + y^2 + z^2 - R^2 = 0$
+    \item Параметрическое задание:
+          есть $(u,v) \in \fancyD \subset \R^2$ -- область,
+          $(u,v)$ -- внутренние координаты.
+          \[\begin{cases}
+                  x = x(u,v) \\
+                  y = y(u,v) \\
+                  z = z(u,v)
+              \end{cases}\]
+          Иначе говоря, $\vr = \vf(u,v)$, где $f: \fancyD \to \R^3$.
+\end{itemize}
+
+\begin{example}
+    Поверхность вращения.
+    Есть кривая с параметризацией $x = f(t), z = g(t)$:
+
+    \begin{minipage}{0.59\textwidth}
+        \import{figures/}{surface_of_revolution.pdf_tex}
+    \end{minipage}
+    \begin{minipage}{0.35\textwidth}
+        \[\begin{cases}
+                x = f(t) \cos \phi \\
+                y = f(t) \sin \phi \\
+                z = g(t)
+            \end{cases}\]
+    \end{minipage}
+\end{example}
+\begin{example}
+    Еще более частный пример: сфера.
+    Зададим полуокружность в плоскости $Oxz$
+    \[\begin{cases}
+            x = R \cos \psi \\
+            z = R \sin \psi
+        \end{cases}\]
+    % Нужен рисунок??
+    Тогда параметризация поверхности вращения
+    \[\begin{cases}
+            x = R \cos \psi \cos \phi \\
+            y = R \cos \psi \sin \phi \\
+            z = R \sin \psi
+        \end{cases}\]
+    Получили стандартные географические координаты, где
+    $\phi$ -- долгота ($\phi \in [0;2 \pi]$), $\psi$ -- широта ($\psi \in [-\pi/2 ; \pi/2]$)
+\end{example}
+
+\subsection{Перепараметризация поверхности}
+\begin{definition}[Диффеоморфизм]
+    Диффеоморфизм -- дифференцируемый гомеоморфизм, обратный к которому тоже дифференцируем.
+\end{definition}
+\begin{center}
+    \import{figures/}{reparametrization_of_surfaces.pdf_tex}
+\end{center}
+Если $\theta$ -- диффеоморфизм, то $\vf = \vg \theta$ и $\vg = \vf \theta^{-1}$.
+
+\subsection{Кривая лежит на поверхности}
+\begin{center}
+    \import{figures/}{curve_on_surface.pdf_tex}
+\end{center}
+Считаем, что поверхность несамопересекается, то есть $\vf$ -- инъекция.
+Тогда $\vh = \vf^{-1}\vg$, где $\vh: [a,b] \to \fancyD$ и $u = h_1(t), v = h_2(t)$ -- внутренние уравнения кривой на поверхности.
+
+\begin{definition}[Касательный вектор поверхности]
+    Вектор $\vv$ называется касательным вектором поверхности в точке $M$,
+    если существует кривая на поверхности, проходящая через $M$, так что
+    $\vv$ -- касательный вектор к данной кривой в точке $M$.
+\end{definition}
+
+Верно ли что касательные векторы образуют плоскость? Ответ не тривиальный.
+
+Есть 2 касательных вектора
+$\frac{\partial \vf}{\partial u}$ и $\frac{\partial \vf}{\partial v}$ к кривым
+\[\begin{cases}
+        u = t \\
+        v = v_0
+    \end{cases}
+    \text{ и }
+    \begin{cases}
+        u = u_0 \\
+        v = t
+    \end{cases}.\]
+Векторы получены из
+\[\frac{d\vf(u,v)}{dt} = \frac{\partial\vf}{\partial u} u_t' + \frac{\partial\vf}{\partial v} v_t'.\]
+
+\begin{definition}[Регулярная параметризация]
+    Параметризация называется регулярной, если $\forall (u_0, v_0) \in \fancyD$
+    \[\frac{\partial\vf}{\partial u}|_{(u_0, v_0)}
+        \not\parallel
+        \frac{\partial\vf}{\partial v}|_{(u_0, v_0)}.\]
+\end{definition}
+Теперь будем последовательно фиксировать $v_0$ и строить кривые,
+потом повторим то же самое с $u_0$, получим семейство координатных кривых:
+\begin{center}
+    \import{figures/}{coordinate_curves.pdf_tex}
+\end{center}
+Параметризация регулярная $\Leftrightarrow$ любые 2 линии пересекаются под углом, не равном 0.
+
+Если $\vf$ регулярная, то
+\[
+    \frac{\partial \vf}{\partial u} = \vf'_u \quad
+    \frac{\partial \vf}{\partial v} = \vf'_v \quad
+    \vn = \frac{\vf_u' \times \vf_v'}{|\vf_u' \times \vf_v'|}
+\]
+образуют базис (свой для каждой точки).
+При этом $\vf_u'$ и $\vf_v'$ не обязательно ортогональны.
+
+\begin{example}[Поверхность с нерегулярной параметризацией]
+    Есть кривая в пространстве, рассмотрим множество касательных прямых.
+    Эти прямые будут заметать некоторую поверхность, в некоторой окрестности эта поверхность даже будет несамопересекающейся.
+    \begin{center}
+        \import{figures/}{not_regular_surface.pdf_tex}
+    \end{center}
+    Найдем параметризацию это поверхности:
+    \[\vg(t, \tau) = \vf(t) + \vf'(t) \tau\]
+    При $\tau = 0$ параметризация не регулярная.
+    \[\vg_t' |_{\tau = 0} = \vg_\tau'|_{\tau =0} = \vf'(t)\]
+\end{example}
+
+\begin{theorem}
+    $\vf$ -- регулярная параметризация, тогда касательные векторы в точке $(u_0, v_0)$ образуют плоскость с базисом $\vf_u'$ и $\vf_v'$.
+\end{theorem}
+\begin{proof}
+    Рассмотрим кривую на поверхности с внутренними координатами $u(t), v(t)$,
+    при этом $u(t_0) =u_0, v(t_0) = v_0$.
+    \begin{gather*}
+        \frac{d\vf}{dt} = \frac{\partial\vf}{\partial u} u_t' + \frac{\partial \vf}{\partial v} v_t' = \vf'_u u'_t + \vf_v' v_t' \in \langle \vf_u', \vf_v'\rangle
+    \end{gather*}
+    так как $u_t'$ и $v_t'$ константы в точке $t_0$.
+\end{proof}
+\begin{definition}[Касательная плоскость]
+    Касательная плоскость это плоскость, состоящая из касательных векторов.
+\end{definition}
+\begin{definition}[Вектор нормали]
+    \[\vn = \frac{\vf_u' \times \vf_v'}{|\vf_u' \times \vf_v'|}\]
+\end{definition}
+
+Формально докажем, что любой вектор плоскости $\langle \vf_u', \vf_v'\rangle$ -- касательный вектор.
+Рассмотрим $\alpha \vf_u' + \beta \vf_v'$, пусть внутренние координаты $u = \alpha t, v = \beta t$,
+которые задают кривую на поверхности, которая, очевидно, имеет касательный вектор $\alpha \vf_u' + \beta \vf_v'$.
+
+Как написать уравнение касательной плоскости, если поверхность задана параметрически?
+
+Пусть $\vf(u,v) = (x(u,v), y(u,v), z(u,v))$, тогда $\vf_u' = (x_u', y_u', z_u')$ и $\vf_v' = (x_v', y_v', z_v')$.
+В таком случае нормаль к касательной плоскости -- $\vf_u' \times \vf_v'$.
+А уравнение нормальной плоскости:
+\[\begin{vmatrix}
+        y_u' & z_u' \\
+        y_v' & z_v'
+    \end{vmatrix} (X - x_0 ) +
+    \begin{vmatrix}
+        z_u' & x_u' \\
+        z_v' & x_v'
+    \end{vmatrix} (Y - y_0 ) +
+    \begin{vmatrix}
+        x_u' & y_u' \\
+        x_v' & y_v'
+    \end{vmatrix} (Z - z_0 ) = 0\]
+(и все определители не равны 0)
+
+Явный вид сводится к параметрическому:
+\[\begin{cases}
+        x = u \\
+        y = v \\
+        z = z(u,v)
+    \end{cases}\]
+
+В случае неявного вида: $F(x,y,z) = 0$,
+у нас есть градиент $\nabla F = (F_x', F_y', F_z')$, и тогда
+$\nabla F |_M$ -- вектор нормали к поверхности в точке $M$. Докажем это:
+
+Пусть $x(t), y(t), z(t)$ -- любая кривая на поверхности.
+Это означает, что $F(x(t), y(t), z(t)) \equiv 0\ \forall t$, соответственно
+$\frac{d}{dt}F = F_x' x' + F_y' y' + F_z' z' =0$, а это
+$\nabla F \cdot (x', y', z') = 0$, где
+$(x', y', z')$ -- касательный вектор к кривой,
+тогда градиент перпендикулярен касательному вектору.
+По заданию у нас любая прямая, значит градиент -- вектор нормали.
+
+\section{Первая квадратная форма}
+Есть кривая на поверхности. Как сосчитать ее длину?
+Пусть кривая задана регулярной параметризацией:
+\[\vf(u,v) = (x(u,v), y(u,v), z(u,v))\]
+и $u = u(t), v = v(t)$.
+Чему равна длина от $t_0$ до $t_1$?
+
+\begin{gather*}
+    \frac{d\vf}{dt} = (x_u' u' + x_v' v', y_u' u' + y_v' v', z_u' u' + z_v' v') = \vf_u' u' + \vf_v' v'\\
+    \left| \frac{d\vf}{dt} \right| = \sqrt{(\vf_u' u' + \vf_v' v') \cdot (\vf_u' u' + \vf_v' v')} = \sqrt{\vf_u'^2 u'^2 + 2 \vf_u'\vf_v' u'v' + \vf_v'^2 v'^2}
+\end{gather*}
+Заметим, что $\vf_u'^2$ не зависит от прямой и зависит только от поверхности.
+Обозначим $E \coloneqq \vf_u'^2$, $F \coloneqq \vf_u' \vf_v'$, $G = \vf_v'^2$.
+В чем удобство? Эта штука определяется только поверхностью.
+
+Теперь длина принимает вид
+\[\frac{d\vf}{dt} = \sqrt{E u'^2 + 2Fu'v' + Gv'^2}\]
+\begin{definition}[Первая квадратичная форма поверхности]
+    \[Eu'^2 + 2F u'v' + G v'^2 = I(u',v')\]
+\end{definition}
+\begin{theorem}
+    Длина кривой
+    \[L = \int_{t_0}^{t_1} \sqrt{I(u', v')} dt\]
+\end{theorem}
+\begin{theorem}
+    Угол между кривыми $(u_1, v_1)$ и $(u_2, v_2)$, где
+    $u_1(t), v_1(t), u_2(\tau), v_2(\tau)$ -- функции.
+    \[\cos\angle = \frac{Eu_1' u_2' + F(u_1' v_2' + u_2' v_1') + G v_1' v_2'}{\sqrt{I(u_1', v_1')I(u_2', v_2')}} = \frac{\vf_t' \vf_\tau '}{|\vf_t'| |\vf_\tau'|}\]
+\end{theorem}
+
+Что такое $E, F, G$?
+\begin{center}
+    \import{figures/}{EFG.pdf_tex}
+\end{center}
+$E = |\vf_u'|^2$ и $G = |\vf_v'|^2$ -- длины соответствующих касательных векторов, а
+$F = \vf_u' \vf_v'$ -- мера непрямоугольности системы координат.
+\end{document}
