@@ -10,19 +10,19 @@
 \begin{gather*}
     A \Leftrightarrow \tilde{A}_{m \times n} \\
     X =
-        \begin{pmatrix}
+        \begin{bmatrix}
             x_1 \\
             \vdots \\
             x_m  \\
-        \end{pmatrix}
+        \end{bmatrix}
     A(x) = \tilde{A}_{m \times n} X \\
     \tilde{A} = 
-    \begin{pmatrix}
+    \begin{bmatrix}
         a_{11} & \ldots & a_{1m} \\
         a_{21} & \ldots & a_{2m} \\
         \vdots & \ddots & \vdots \\
         a_{n1} & \ldots & a_{nm} \\
-    \end{pmatrix}
+    \end{bmatrix}
 \end{gather*}
 
 \begin{definition}[Норма линейного отображения]
@@ -31,12 +31,12 @@
 \end{definition}
 
 
-\[AX = \begin{pmatrix}
+\[AX = \begin{bmatrix}
     a_{11}x_1 + \ldots a_{1n}x_m \\
     a_{21}x_1 + \ldots a_{2n}x_m \\
     \vdots \\
     a_{n1}x_1 + \ldots a_{nm}x_m
-\end{pmatrix}\]
+\end{bmatrix}\]
 
 
 
@@ -54,37 +54,37 @@
  \begin{theorem}$||A|| \geq 0, ||A|| = 0 \Leftrightarrow A = \mathbb{0}$ \end{theorem}
     \begin{proof}
         Пусть $||A|| = 0$ 
-        $A = \begin{pmatrix}
+        $A = \begin{bmatrix}
             a_{11} & \ldots & a_{1m} \\
             \vdots & \ddots & \vdots \\
             a_{1n} & \ldots & a_{nm} \\
-        \end{pmatrix}$
+        \end{bmatrix}$
         
         $1 \leq i \leq n, 1 \leq j \leq m$ не зависят друг от друга.
         \newline
         $e_i = (0, \ldots, \underbrace{1}_i, \ldots 0)$
-        $f_j = \begin{pmatrix}
+        $f_j = \begin{bmatrix}
             0 \\
             \vdots \\
             \underbrace{1}_j \\
             \vdots \\
-            0 \\ \end{pmatrix}$
+            0 \\ \end{bmatrix}$
         \newline
         $||A|| = 0 \rightarrow Af_j = \mathbb{0}_{{\vR}^n} $.
         $Af_j =
-        \begin{pmatrix}
+        \begin{bmatrix}
             a_{1j} \\
             a_{2j}\\
             \vdots \\
             a_{nj}
-        \end{pmatrix} $
+        \end{bmatrix} $
         Теперь рассмотрим $e_i \underbrace{(Af_j)}_{\mathbb{0}_{{\vR}^n}} =$
-        $ (0 \ldots 1 \ldots) \begin{pmatrix}
+        $ (0 \ldots 1 \ldots) \begin{bmatrix}
             0 \\
             \vdots \\
             1 \\
             \vdots \\
-            0 \\ \end{pmatrix}$ = $a_{ij} = 0$
+            0 \\ \end{bmatrix}$ = $a_{ij} = 0$
     \end{proof}
     $A, c \in {\vR}, (cA(x)) \stackrel{def}{=} c(A(x))$ 
     \begin{theorem}$||cA|| = |c| \cdot ||A||$ \end{theorem}
@@ -190,17 +190,17 @@
         \Omega \subset {\vR}^m, m \geq 1 \\
         X_o \in \Omega - \text{ внутрення точка}\\
         G \in {\vR}^n, Y_0 \in G, Y_0 - \text{ внутренняя точка в } G \\
-        F = \begin{pmatrix}
+        F = \begin{bmatrix}
             f_1 \\
             \vdots \\
             f_n
-        \end{pmatrix} : \Omega \rightarrow {\vR}^n \text{ }\forall x \in \Omega 
+        \end{bmatrix} : \Omega \rightarrow {\vR}^n \text{ }\forall x \in \Omega 
         \text{ }F(x) \in G, F(X_0) = Y_0 \\
-        \Phi = \begin{pmatrix}
+        \Phi = \begin{bmatrix}
             \varphi_1(y) \\
             \vdots \\
             \varphi_k(y)
-        \end{pmatrix} : G \rightarrow \mathbb{R^k} 
+        \end{bmatrix} : G \rightarrow \mathbb{R^k} 
     \end{gather*} 
     \[\exists P: \Omega \rightarrow {\vR}^k, P(x) \stackrel{def}{=} \Phi(F(x))
      \tag{15} \]
