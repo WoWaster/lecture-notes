@@ -1,0 +1,34 @@
+\documentclass[12pt, a4paper, oneside]{memoir}
+\input{../../../preamble.tex}
+\usepackage{subfiles}
+\title{Математический анализ}
+\author{Курс Широкова Н.А.}
+\date{Осень 2022 г.}
+
+
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vg}{\mathbf{g}}
+\newcommand{\vh}{\mathbf{h}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vR}{\mathbb{R}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vzero}{\mathbf{0}}
+
+
+\begin{document}
+\frontmatter
+
+\begin{titlingpage}
+    \maketitle
+\end{titlingpage}
+
+\microtypesetup{protrusion=false}
+\tableofcontents
+\microtypesetup{protrusion=true}
+
+
+\mainmatter
+\subfile{01_linear_operator_norm.tex}
+\subfile{02_partial_derivatives.tex}
+\end{document}

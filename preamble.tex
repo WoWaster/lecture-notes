@@ -69,7 +69,7 @@
     headpunct=.,
     postheadspace=5pt plus 1pt minus 1pt,
     qed=\blacksquare]{myProofStyleWithFrame}
-
+    
 \usepackage[breakable]{tcolorbox}
 \tcbset{sharp corners=all, colback=white}
 \tcolorboxenvironment{theorem}{}
@@ -81,7 +81,6 @@
 \tcolorboxenvironment{corollary}{}
 \tcolorboxenvironment{definition}{}
 \tcolorboxenvironment{proofReplace}{toprule=0mm,bottomrule=0mm,rightrule=0mm, colback=white, breakable }
-
 
 \declaretheorem[name=Теорема, numberwithin=chapter, style=myStyleWithFrame]{theorem}
 \declaretheorem[name=Теорема, numbered=no, style=myStyleWithFrame]{theorem*}
@@ -100,6 +99,7 @@
 
 \declaretheorem[name=Доказательство, numbered=no, style=myProofStyleWithFrame]{proofReplace}
 \renewenvironment{proof}[1][\proofname]{\begin{proofReplace}}{\end{proofReplace}}
+\declaretheorem[name=Доказательство, numbered=no, style=myProofStyleWithFrame]{longProof}
 
 %%% Memoir settings
 \chapterstyle{ger}
