@@ -7,13 +7,13 @@
 
 Пусть $\mca \in \End V$. Скаляр $\lambda \in K$ называется собственным значением оператора
 $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
-Можно написать иначе: $\mca v = \lambda v \Leftrightarrow \mca v - (\lambda \epsilon) v = 0
-    \Leftrightarrow (\mca -\lambda\epsilon)v = 0
-    \Leftrightarrow v \in \Ker(\mca -\lambda\epsilon)$, $\epsilon = \id$.
+Можно написать иначе: $\mca v = \lambda v \Leftrightarrow \mca v - (\lambda \mse) v = 0
+    \Leftrightarrow (\mca -\lambda\mse)v = 0
+    \Leftrightarrow v \in \Ker(\mca -\lambda\mse)$, $\mse = \id$.
 
 \begin{definition} [Собственное значение]
     Таким образом, $\lambda$  —  собственное значение $\mca
-        \Leftrightarrow  \Ker(\mca -\lambda\epsilon) \neq 0$.
+        \Leftrightarrow  \Ker(\mca -\lambda\mse) \neq 0$.
     Если $K$ — числовое поле, то <<собственное число = собственное значение>>.
 \end{definition}
 
@@ -21,11 +21,11 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
     Пусть $v \in V$, $\lambda$ — собственное значение $\mca$.
     Говорят, что $v$ — собственный вектор $\mca$, принадлежащий собственному значению
     $\lambda$, если $v \neq 0$ и $\mca v = \lambda v$,
-    т.е. $v \in \Ker (\mca - \lambda \epsilon) \backslash  \{0\}$.
+    т.е. $v \in \Ker (\mca - \lambda \mse) \backslash  \{0\}$.
 \end{definition}
 
 \begin{definition} [Собственной подпространства]
-    $V_\lambda = \Ker(\mca - \lambda \epsilon)$ —
+    $V_\lambda = \Ker(\mca - \lambda \mse)$ —
     собственное подпространство, принадлежащее собственному значению $\lambda$.
 \end{definition}
 
@@ -40,6 +40,7 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
 \end{proposition}
 
 \begin{proof}
+    $\Rightarrow$:
     \[ [\mca]_E = diag(\lambda_1, \ldots, \lambda_n) = \begin{pmatrix}
             \lambda_1 & \ldots & 0         \\
             \vdots    & \ddots & \vdots    \\
@@ -61,14 +62,14 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
 
 \begin{proof}
     0 — собственное значение оператора $\mca \Leftrightarrow
-        \Ker (\mca - 0\epsilon) \neq 0 \Leftrightarrow
+        \Ker (\mca - 0\mse) \neq 0 \Leftrightarrow
         \Ker \mca \neq 0 \Leftrightarrow \mca \not\in \GL(V)$.
 \end{proof}
 
 \begin{definition} [Геометрическая кратность]
     Пусть $\lambda$ — собственное значение $\mca$.
     Его геометрической кратностью называется
-    $g_\lambda = \dim \Ker (\mca -\lambda\epsilon),\ \lambda \leqslant g_\lambda \leqslant n = \dim V$.
+    $g_\lambda = \dim \Ker (\mca -\lambda\mse),\ 1 \leqslant g_\lambda \leqslant n = \dim V$.
 \end{definition}
 
 \begin{proposition}
@@ -144,7 +145,7 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
         \underbrace{\lambda_m, \ldots, \lambda_m}_{c_m}), \  c_1, \ldots, c_m \geq 0$.
     Первые $c_1$  векторов  — собственные, принадлежащие собственным значениям
     $\lambda_1$. Они ЛНЗ, так как являются часть базиса $\Rightarrow c_1 \leq g_{\lambda_1}$.
-    Аналогично, $c_i \leq g_{\lambda_i},\ m \leq i \leq 2$.
+    Аналогично, $c_i \leq g_{\lambda_i},\ 2 \leq i \leq m$.
     $n = c_1 + \ldots + c_m \leq g_{\lambda_1} + \ldots + g_{\lambda_m} = n
         \Rightarrow g_{\lambda_1} + \ldots + g_{\lambda_m} = n$
 

@@ -8,8 +8,8 @@
 $\mca \in \End V$, $[\mca]_E = A$.
 Задача: найти собственное значение $\mca$.
 $\lambda$ -- собственое значение $\mca \Leftrightarrow
-    \Ker(\mca - \lambda\epsilon) \neq 0 \Leftrightarrow
-    \underbrace{[\mca - \lambda\epsilon]_E}_{=A-\lambda E_n} \not\in \GL_n(K) \Leftrightarrow |\mca - \lambda\epsilon| = 0$. Задача сводится к нахождению таких
+    \Ker(\mca - \lambda\mse) \neq 0 \Leftrightarrow
+    \underbrace{[\mca - \lambda\mse]_E}_{=A-\lambda E_n} \not\in \GL_n(K) \Leftrightarrow |\mca - \lambda\mse| = 0$. Задача сводится к нахождению таких
 $\lambda$, при которых определитель матрицы равен нулю.
 
 
@@ -58,10 +58,10 @@ $C = M_{E \rightarrow E_1}$. Нужно: $\chi_{\mca} = \chi_{\mca_1}$.
 
 \[\A_1 = C^{-1}\A C\]
 \begin{multline*}
-    \chi_{\mca_1} = |\A_1 - X E_n| =
+    \chi_{A_1} = |\A_1 - X E_n| =
     |C^{-1}\A C - XC^{-1}C| = \\ = |C^{-1}\A C - C^{-1}XE_nC| =
     |C^{-1}(\A - XE_n) C| = \underbrace{|C^{-1}}_{|C|^{-1}}|\A - XE_n||C| = \\ =
-    |\A - XE_n| = \chi_{\mca}
+    |\A - XE_n| = \chi_{A}
 \end{multline*}
 
 У эквивалентных матриц след одинаков.
@@ -76,7 +76,7 @@ $C = M_{E \rightarrow E_1}$. Нужно: $\chi_{\mca} = \chi_{\mca_1}$.
     Пусть $\mca \in \End V$
     \begin{enumerate}
         \item Пусть $W$ -- ${\mca}$-инвариантное подпространство $V$; $\mca_1 = \mca|_w \in W$. Тогда $\chi_{\mca_1} | \chi_{\mca}$.
-        \item Пусть $V = W_1 \bigoplus W_2;\ W_1,\ W_2$ -- $\mca$-инвариантны. $\mca_1 = \mca|_{W_1},\ \mca_2 = \mca|_{W_2} \Rightarrow
+        \item Пусть $V = W_1 \oplus W_2;\ W_1,\ W_2$ -- $\mca$-инвариантны. $\mca_1 = \mca|_{W_1},\ \mca_2 = \mca|_{W_2} \Rightarrow
                   \chi_{\mca} = \chi_{\mca_1}\chi_{\mca_2}$.
     \end{enumerate}
 

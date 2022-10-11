@@ -7,9 +7,9 @@
 
 \begin{definition} [Примарное подпространство]
     Допустим, $p$ -- неприводимый многочлен, $\mca \in \End V, \ W \subset V$ называется $p$-примарным, если $W$ -- $\mca$-инвариантно
-    и $\forall v \in W \ \mu_{\mca, v} = p^m, \ m \geq 0$, $p$ -- неприводимый.
+    и $\forall v \in W: \ \mu_{\mca, v} = p^m, \ m \geq 0$, $p$ -- неприводимый.
 
-    $W_p = \{w \in V | \mu_{\mca, w} = p^m, \ m \geq 0\}$
+    \begin{center}$W_p = \{w \in V \ | \ \mu_{\mca, w} = p^m, \ m \geq 0\}$ \end{center}
 \end{definition}
 
 \begin{proposition}
@@ -19,55 +19,149 @@
 \begin{proof}
     Нужно проверить:
     \begin{enumerate}
-        \item $W_p < V$: очевидно, $\lambda \neq 0 \ \mu_{\mca, \lambda w} = \mu_{\mca, w}$.
+        \item $W_p < V$:
+              \begin{center}
+                  $\lambda \neq 0 \Rightarrow \mu_{\mca, \lambda w} = \mu_{\mca, w}$.
 
-              $W_1, \ W_2 \in W_p$,
+                  $W_1, \ W_2 \in W_p$
 
-              $\mu_{\mca, w_1} = p^{m_1}, \ \mu_{\mca, w_2} = p^{m_2}, \ m = max(m_1, \ m_2)$.
+                  $\mu_{\mca, w_1} = p^{m_1}, \ \mu_{\mca, w_2} = p^{m_2}$
 
-              $p^m(\mca)(W_1+W_2) = p^{m_1}(\mca)(W_1)+ p^{m_2}(\mca)(W_2) = 0 \Rightarrow
-                  \mu_{\mca, W_1 +W_2} | p^m \Rightarrow \mu_{\mca, W_1 +W_2} = p^l$, где $l \leq m \Rightarrow W_1+W_2 \subset W_p$.
-        \item $W_p$ -- $\mca$-инвариантно: пусть $w \in W_p \Rightarrow \mu_{\mca, w} = p^m$
+                  $ m = max(m_1, \ m_2)$.
 
-              $p^m(\mca)(w) = 0$
+                  $p^m(\mca)(W_1+W_2) = p^{m_1}(\mca)(W_1)+ p^{m_2}(\mca)(W_2) = 0 $
 
-              $p^m(\mca)(\mca w) - \mca\underbrace{(p^m(\mca)(w))}_{0} = 0 \Rightarrow \mu_{\mca, \mca_w} | p^m \Rightarrow \mu_{\mca, \mca_w} = p^l, \ l \leq m \Rightarrow \mca w \in W_p$.
+                  $\mu_{\mca, W_1 +W_2} | p^m \Rightarrow \mu_{\mca, W_1 +W_2} = p^l$, где $l \leq m \Rightarrow W_1+W_2 \subset W_p$
+              \end{center}
+
+        \item $W_p$ -- $\mca$-инвариантно:
+              \begin{center}
+                  $w \in W_p \Rightarrow \mu_{\mca, w} = p^m$
+
+                  $p^m(\mca)(w) = 0$
+
+                  $p^m(\mca)(\mca w) - \mca\underbrace{(p^m(\mca)(w))}_{0} = 0 $
+
+                  $ \mu_{\mca, \mca_w} | p^m \Rightarrow \mu_{\mca, \mca_w} = p^l, \ l \leq m \Rightarrow \mca w \in W_p$
+              \end{center}
+
     \end{enumerate}
 \end{proof}
 
 \begin{proposition}
-    Допустим $f(\mca) = 0, \ f = gh, \ (g, h) = 1$, тогда $V = W_1 \bigoplus W_2$, где
-    $W_1, W_2$ -- $\mca$-инвариантны  $g(\mca|_{W_1}) = 0, \  h(\mca |_{W_2}) = 0$.
+    Допустим $f(\mca) = 0, \ f = gh, \ (g, h) = 1$, тогда $V = W_1 \oplus W_2$, где
+    $W_1, W_2$ -- $\mca$-инвариантны,  $g(\mca|_{W_1}) = 0, \  h(\mca |_{W_2}) = 0$.
 \end{proposition}
 
 \begin{proof}
-    Предположим, $W_1 = \Ker g(\mca), \ W_2 = \Ker h(\mca),
+    Предположим, $W_1 = \Ker g(\mca), \ W_2 = \Ker h(\mca), \
         W_1, W_2$ -- $\mca$-инвариантные пространства.
-    $(g, h) = 1 \Rightarrow \exists \ a, \ b \in K[X]$ такие, что $ag+bh = 1$
+    $(g, h) = 1 \Rightarrow \exists \ a, \ b \in K[X]$ такие, что $ag+bh = 1$.
 
     \begin{enumerate}
-        \item Проверим, что $W_1 + W_2 = V$.
+        \item Проверим, что $W_1 + W_2 = V$:
+              \begin{center}
+                  $g(\mca)a(\mca) + h(\mca)b(\mca) = \mse_V$
 
-              \[g(\mca)a(\mca) + h(\mca)b(\mca) = \epsilon_V\]
+                  $v \in V, \ v = \underbrace{g(\mca)a(\mca)(v)}_{\in W_2} + \underbrace{h(\mca)b(\mca)(v)}_{\in W_1}$.
 
-              $v \in V, \ v = \underbrace{g(\mca)a(\mca)(v)}_{\in W_2} + \underbrace{h(\mca)b(\mca)(v)}_{\in W_1}$.
-              \begin{gather*}
-                  h(\mca)(g(\mca)a(\mca)v(\mca)) = \underbrace{(hg)}_{f}(\mca)a(\mca)(v) = 0 \\
-                  \Rightarrow g(\mca)a(\mca)(v) \in W_2
-              \end{gather*}
+                  $h(\mca)(g(\mca)a(\mca)v(\mca)) = \underbrace{(hg)}_{f}(\mca)a(\mca)(v) = 0 $
+
+                  $\Rightarrow g(\mca)a(\mca)(v) \in W_2$
+              \end{center}
+
               Аналогично, $h(\mca)b(\mca)(v) \in W_1$.
 
               Таким образом, $\forall v \in W_1 + W_2$.
-        \item Проверим, что $W_1 \bigcap W_2 = 0$.
+        \item Проверим, что $W_1 \bigcap W_2 = 0$:
+              \begin{center}
+                  $v \in W_1 \bigcap W_2$
 
-              Пусть $v \in W_1 \bigcap W_2$.
-              \begin{gather*}
-                  a(\mca)g(\mca) + b(\mca)h(\mca) = \epsilon_V \\
-                  a(\mca)\underbrace{g(\mca)(v)}_{0} + b(\mca)\underbrace{h(\mca)(v)}_{0} = v
-              \end{gather*}
+                  $a(\mca)g(\mca) + b(\mca)h(\mca) = \mse_V$
+
+                  $a(\mca)\underbrace{g(\mca)(v)}_{0} + b(\mca)\underbrace{h(\mca)(v)}_{0} = v$
+              \end{center}
               Таким образом, $v = 0$.
     \end{enumerate}
 \end{proof}
+
+\marginpar{05.10.22}
+
+\begin{proposition}
+    Пусть $f(\mca) = 0$, $f = \epsilon {p_1}^{r_1} \ldots {p_s}^{r_s}$, $\epsilon \in K^*$,
+    $p_i$ попарно неассоциативные неприводимые многочлены. Тогда $V = W_{p_1} \oplus \ldots \oplus W_{p_s}$, т.е.
+    \begin{enumerate}
+        \item $V = W_{p_1} + \ldots + W_{p_s}$
+        \item $ 0 = w_1 + \ldots + w_s, \ w_j \in W_{p_j} \Rightarrow w_1 = \ldots = w_s = 0$ (равносильно условию, что $V$ единственным образом представляется в виде суммы $W_{p_1}, \ldots, W_{p_s}$: $v = w_1 + \ldots + w_s = w'_1 + \ldots + w'_s \Rightarrow (w_1 - w'_1) + \ldots + (w_s - w'_s) = 0 \Rightarrow w_i - w'_i = 0$).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Индукция по $s$.
+
+    База: $s = 1$. ${p_1}^{r_1}(\mca) = 0 \Rightarrow \mu_{\mca, v} | {p_1}^{r_1} \Rightarrow W_{p_1} = V$.
+
+    Переход: $f = gh, \ g = \mse {p_1}^{r_1} \ldots {p_{s-1}}^{r_{s-1}}$, $h = {p_s}^{r_s}$, $(g, h) = 1 \Rightarrow
+        V = V' \oplus V'', \ g(\mca |_{V'}) = 0, \ h(\mca |_{V''}) = 0$ (по предложению 7.2).
+
+    По индукционному предположению, $V' =  \tilde{W}_{p_1} \oplus \ldots \oplus \tilde{W}_{p_s-1}$.
+
+    $\tilde{W}_{p_j}$ - максимальной $p_j$-примарное подпространство для $\mca |_{V'}$.
+    $\forall v \in \tilde{W}_{p_j}$: $\mu_{\mca |_{V'}, v} = \mu_{\mca, v} \Rightarrow \tilde{W}_{p_j} \subset W_{p_j}$.
+
+    ${p_s}^{r_s}(\mca |_{V''}) = 0 \Rightarrow V'' - p_s$-примарное $ \Rightarrow
+        V'' \subset W_{p_s}$.
+
+    $V = \tilde{W}_{p_1} \oplus \ldots \oplus \tilde{W}_{p_{s-1}} \oplus V'' \subset W_{p_1} + \ldots + \tilde{W}_{p_{s-1}} \subset W_{p_1} + \ldots + W_{p_s}$.
+
+    Таким образом, $V = W_{p_1} + \ldots + W_{p_s}$.
+
+    Предположим, $w_1 + \ldots + w_s = 0$, $w_j \in W_{p_j}, \ j = 1, \ldots, s$.
+
+    Проверим: $w_j = 0$ (аналогично $w_j = 0 \ \forall j)$.
+
+    $w_s = - w_1 - w_2 - \ldots - w_{s-1}$.
+
+    $w_j \in W_{p_j} \Rightarrow \mu_{\mca, w_j} = p_j^{l_j}, \ j = 1, \ldots, s$.
+
+    ${p_1}^{l_1} \ldots {p_{s-1}}^{l_{s-1}} (\mca) (w_j) = 0, \ j = 1, \ldots, s-1 \Rightarrow
+        {p_1}^{l_1} \ldots {p_{s-1}}^{l_{s-1}} (\mca) \underbrace{(w_1 + \ldots + w_{s-1})}_{-w_s} = 0  \Rightarrow
+        {p_s}^{l_s} \mid {p_1}^{l_1} \ldots {p_{s-1}}^{l_{s-1}} \Rightarrow ls = 0 \Rightarrow w_s = 0$.
+\end{proof}
+
+\begin{corollary}
+    Пусть $\mca \in \End V$. Тогда $V = \bigoplus_{p|\chi_{\mca}} W$.
+\end{corollary}
+
+\begin{remark}
+    $p \nmid \chi_{\mca} \Rightarrow W_p = 0$ (т.е. $\mu_{\mca, v} \mid \mu_{\mca} \mid \chi_{\mca}) \Rightarrow V = \bigoplus_p W_p$.
+\end{remark}
+
+\begin{remark}
+    $p \mid \chi_{\mca} \Rightarrow W_p \neq 0$.
+\end{remark}
+
+\begin{remark}
+    Пусть $V$ -- $p$-примарное, тогда $V = \bigoplus_{i = 1}^{t} C_{v_i}, \ \mu_{\mca_i, v_i} = p^{m_i}$.
+\end{remark}
+
+В частном подходящем базисе:
+
+$[\mca]_E = \left(\begin{array}{c|c|c}
+            L_{p^{m_1}} &  &             \\
+            \hline
+                        &  &             \\
+            \hline
+                        &  & L_{p^{m_t}} \\
+        \end{array}\right)$, где $L_f$ -- сопровождающая матрица многочлена $f$.
+
+$f = x^d + \alpha_{d - 1} x^{d - 1} + \ldots + dx + \alpha \Rightarrow L_f = \begin{pmatrix}
+        0      & 0      & \ldots & -\alpha_0     \\
+        1      & 0      & \ldots & -\alpha_1     \\
+        0      & 1      & \ldots & -\alpha_2     \\
+        \vdots & \vdots & \ddots & \vdots        \\
+        0      & 0      & \ldots & -\alpha_{d-1} \\
+    \end{pmatrix}$
 
 
 \end{document}
