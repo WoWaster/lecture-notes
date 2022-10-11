@@ -97,12 +97,12 @@ $EC=(c_{11}e_1+\ldots+c_{m1}e_n, c_{12}e_1 +\ldots +c_{n2}e_n, \ldots)$. Что 
     \[\begin{tikzcd}[ampersand replacement=\&]
             {U_E} \& {V_F} \\
             {U_{E'}} \& {V_{F'}}
-            \arrow["{\epsilon_V=id_V}", from=1-2, to=2-2]
+            \arrow["{\mse_V=id_V}", from=1-2, to=2-2]
             \arrow["{\mca}", from=2-2, to=2-1]
-            \arrow["{\epsilon_U}", from=2-1, to=1-1]
+            \arrow["{\mse_U}", from=2-1, to=1-1]
             \arrow["{\mca}", from=1-1, to=1-2]
         \end{tikzcd}\]
-    \[[\mca]_{E'F'}=\underbrace{[\epsilon_V]_{FF'}}_{D^{-1}}\underbrace{[\mca]_{EF}}_{A}\underbrace{[\epsilon_U]_{E'E}}_{C}\]
+    \[[\mca]_{E'F'}=\underbrace{[\mse_V]_{FF'}}_{D^{-1}}\underbrace{[\mca]_{EF}}_{A}\underbrace{[\mse_U]_{E'E}}_{C}\]
 
     В нашем случае $(U=V, E=F, E'=F')$.
 \end{proof}

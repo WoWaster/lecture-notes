@@ -6,7 +6,7 @@
 \chapter{Многочлены от операторов}
 
 Пусть $\mca \in \End V$ ($V$ над $K$), $f \in K[X]$. $f = \alpha_n x^n + \ldots + \alpha_1 x + \alpha_0$.
-$f(\mca) = \alpha_n {\mca}^n + \alpha_{n-1} {\mca}^{n-1} + \ldots + \alpha_1 \mca + \alpha_0 \epsilon_V \in \End V$.
+$f(\mca) = \alpha_n {\mca}^n + \alpha_{n-1} {\mca}^{n-1} + \ldots + \alpha_1 \mca + \alpha_0 \mse_V \in \End V$.
 
 \begin{proposition}
     $f, g \in K[X]$
@@ -156,16 +156,19 @@ $E = (v, \mca v, {\mca}^2 v, \ldots, {\mca}^{d-1} v)$ -- базис $C_v$.
         0      & 0      & 0      & \ldots & 1      & -\beta_{d-1} \\
     \end{pmatrix} = L_{f_0}\]
 
-$L_{f_0}$ -- сопровождающая матрица многочлена $f_0$.
+\begin{center}
+    $L_{f_0}$ -- сопровождающая матрица многочлена $f_0$.
+\end{center}
 
-*получаем последний столбец*
+\begin{center}
+    *получаем последний столбец*
 
-$f_0(\mca) v = 0 = \beta_0 v = \beta_1 \mca v + \ldots + \beta_{d-1} \alpha_{d-1} v + \alpha_d v$.
+    $f_0(\mca) v = 0 = \beta_0 v = \beta_1 \mca v + \ldots + \beta_{d-1} \alpha_{d-1} v + \alpha_d v$.
 
-${\mca_v}^d = -\beta_0 v - \beta_1 \mca v - \ldots - \beta_{d-1} {\mca}^{d-1} v$ -- разложение по базису $E$
+    ${\mca_v}^d = -\beta_0 v - \beta_1 \mca v - \ldots - \beta_{d-1} {\mca}^{d-1} v$ -- разложение по базису $E$
 
-*получаем последний столбец*
-
+    *получаем последний столбец*
+\end{center}
 
 
 \begin{align*}
@@ -196,7 +199,7 @@ ${\mca_v}^d = -\beta_0 v - \beta_1 \mca v - \ldots - \beta_{d-1} {\mca}^{d-1} v$
                         & + (-1)^{2d-1}(-\beta_{d-1})(-x)^{d-2} +                                                \\
                         & + (-1)^{2d}(-\beta_{d-1}-x)(-x)^{d-1} =                                                \\
                         & = (-1)^{d+1} \sum_{i=0}^{d-1} (-1)^i (-\beta_i)(-x)^i + (-x)^d =                       \\
-                        & = (-1)^{d+1}(\sum_{i=1}^{d-1} \beta_i)x^i + x^d) =                                     \\
+                        & = (-1)^{d+1}(\sum_{i=1}^{d-1} \beta_i x^i + x^d) =                                     \\
                         & = (-1)^d f_0
 \end{align*}
 

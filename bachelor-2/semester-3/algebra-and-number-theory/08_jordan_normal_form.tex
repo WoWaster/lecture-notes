@@ -4,18 +4,122 @@
 
 \chapter{Жорданова нормальная форма}
 
-$\mca \in \End V$, $\chi_{\mca}$ раскладывается на линейные множители.
+Пусть $\mca \in \End V$, $\chi_{\mca}$ раскладывается на линейные множители.
 
-$p| \chi_{\mca}$ неприведенная приведенная $\Rightarrow p = X - \lambda$, $\lambda$ - собственное значение $\mca$.
-$W_{X-\lambda} = R_{\lambda} = \{v | \exists j:(X-\lambda)^j (\mca) (v) = 0\} =
-    \{v | (\mca - \lambda \epsilon)^j (v) = 0}$ - корневые векторы, принадлежащее собственному значению $\lambda$. $R_{\lambda}$ - корневое подпространство, принадлежащее собственному значению $\lambda$.
+$p| \chi_{\mca}$ неприводимый приведенный $\Rightarrow p = X - \lambda$, $\lambda$ - собственное значение $\mca$.
+
+$W_{X-\lambda} = R_{\lambda} = \{v \ | \ \exists j:(X-\lambda)^j (\mca) (v) = 0\} =
+  \{v \ | \ (\mca - \lambda \mse )^j (v) = 0\}$ -- корневые векторы, принадлежащее собственному значению $\lambda$.
+
+\begin{definition} [Корневой вектор и корневое подпространство]
+  Корневым вектором, принадлежащим собственному значению $\lambda$ называется $v \in V$ такое, что $(\mca - \lambda \mse)^j (v) = 0$ для некоторого $j$.
+
+  $R_{\lambda}$ -- корневое подпространство, принадлежащее собственному значению $\lambda$.
+\end{definition}
 
 \begin{propertylist}
-    \begin{enumerate}
-        \item $V_{\lambda} \in R_{\item}, \ V_{\lambda} = \Ker(\mca - \lambda\epsilon)$
-        \item $R_{\lambda} \neq 0 \Leftrightarrow \lambda$  - собственное значение $\mca$.
-    \end{enumerate}
+  \begin{enumerate}
+    \item $V_{\lambda} \subset R_{\lambda}$, т.к. $V_{\lambda} = \Ker(\mca - \lambda \mse)$
+    \item $R_{\lambda} \neq 0 \Leftrightarrow \lambda$ -- собственное значение $\mca$
+          \begin{proof}
+            $\Rightarrow: \ R_{\lambda} = W_{X-\lambda}$ (по опр.). $R_{\lambda} \neq 0 \Rightarrow
+              (X - \lambda) \mid \chi_{\mca} \Rightarrow \lambda$ -- собственное значение.
+
+            $\Leftarrow: \lambda$ -- собственное значение $\Rightarrow V_{\lambda} \neq 0 \Rightarrow R_{\lambda} \neq 0$
+          \end{proof}
+    \item $V = \bigoplus_{\lambda} R_{\lambda}$ (интерпретация основного определения) $V = \bigoplus_{p | \chi_{\mca}} W_p$
+  \end{enumerate}
 \end{propertylist}
+
+\begin{definition} [Высота корневого вектора]
+  Высота корневого вектора $v$ -- это минимальное $h$ такое, что $(\mca) - \lambda \mse)^h (v) = 0$.
+\end{definition}
+
+Корневой вектор высоты 0 -- это 0, 1 -- собсвтенные векторы, 2 -- такие $v$, что $(\mca - \lambda \mse)(v)$ - собственный вектор,
+$h$ -- $\Ker(\mca - \lambda \mse)^h \setminus \Ker(\mca - \lambda \mse)^{h-1}$.
+
+Очевидно, $R_{\lambda} = \bigcup_{h \in \N} \underbrace{Ker(\mca - \lambda \mse)^h}_{= R_{\lambda, h}}$.
+
+$\underbrace{R_{\lambda, 0}}_{=0} \subset \underbrace{R_{\lambda, 1}}_{= V_{\lambda}} \subset R_{\lambda, 2} \subset \ldots \subsetneq  R_{\lambda, N_{\lambda}} = R_{\lambda, N_{\lambda} + 1} \Rightarrow
+  R_{\lambda} = R_{\lambda, N_{\lambda}}$.
+
+\begin{proposition}
+  Пусть $N_{\lambda}$ -- минимальное натуральное число такое, что $R_{\lambda} = R_{\lambda, N_{\lambda}}, \ \lambda_1, \ldots, \lambda_s$ -- все собственные значения $\mca$.
+  Тогда ${\mu}_{\mca} = \underbrace{\prod_{i = 1}^s(x-\lambda)^{N_{\lambda_i}}}_{=f}$.
+\end{proposition}
+
+\begin{proof}
+  $R_{\lambda_i} = R_{\lambda_i, N_{\lambda_i}} \Rightarrow (x - \lambda_i)^{N_{\lambda_i}}(\mca|_{R_{\lambda_i}}) = 0 \Rightarrow
+    f(\mca|_{R_{\lambda_i}}) = 0, \ i = 1, \ldots, s \Rightarrow f(\mca) = 0 \Rightarrow \mu_{\mca} | f$.
+
+  Докажем: $(x - \lambda)^{\lambda_i} \mid \mu_{\mca}, \ i = 1, \ldots, s$.
+
+  $\exists v \in R_{\lambda_i, N_{\lambda_i}}\setminus R_{\lambda_i, N_{\lambda_i} - 1}$
+
+  $\mu_{\mca, v} = (x - \lambda_i)^{N_{\lambda_i}}, \ \mu_{\mca, v} \mid \mu_{\mca} \Rightarrow f \mid \mu_{\mca}$.
+\end{proof}
+
+\begin{corollary}
+  Множества корней $\chi_{\mca}$ и $\mu_{\mca}$ совпадают.
+\end{corollary}
+
+\begin{proof}
+  $\mu_{\mca}$ делит $\chi{\mca}$, и у $\chi{\mca}$ нет других корней, так как $N_{\lambda_i} \geq  1$.
+\end{proof}
+
+\begin{definition} [Жорданова клетка порядка $n$]
+  Пусть  $\lambda \in K$, $n \in \N$. Жордановой клеткой порядка $n$ с собственным значением $\lambda$ называется
+  \begin{gather*} \mathcal{J}_n(\lambda) =
+    \begin{pmatrix}
+      \lambda & 0       & \ldots & 0       & 0       \\
+      1       & \lambda & \ldots & 0       & 0       \\
+      0       & 1       & \ldots & 0       & 0       \\
+      \vdots  & \vdots  & \ddots & \vdots  & \vdots  \\
+      0       & 0       & \ldots & \lambda & 0       \\
+      0       & 0       & \ldots & 1       & \lambda \\
+    \end{pmatrix}
+  \end{gather*}
+
+  Жорданова матрица -- блочно-диагональная матрица, блоки которой -- некоторые жордановы клетки.
+
+  $\chi_{\mathcal{J}_n(\lambda)} = (\lambda - x)^n = \pm (x - \lambda)^n, \ (a_{\lambda} = n,\ g_{\lambda} = 1)$ для $\mathcal{J}_n(\lambda)$.
+
+  Базис $E$ пространство $V$ называется Жордановым базисом (для $\mca$), если $[\mca]_E$ жорданова.
+\end{definition}
+
+\begin{definition} [Нильпотентный оператор]
+  $\mca$ называется нильпотентным, если $\exists \ N > 0: \ \mca^N = 0$ (т.е. $\mu_{\mca} = x^{...}$).
+\end{definition}
+
+$V = \bigoplus R_{\lambda}$
+
+$(x - \lambda)^{N_{\lambda}}(\mca |_{R_{\lambda}}) = 0 \Rightarrow (\mca |_{R_{\lambda}} - \mse |_{R_{\lambda}})^{N_{\lambda}} = 0$.
+Таким образом, $\mca |_{R_{\lambda}} - \mse_{R_{\lambda}}$ -- нильпотентный. Минимальное $N$ называется индексом нильпотентности $\mca$.
+
+\begin{remark}
+  $E$ -- жорданов базис для $\mca \Rightarrow E$ -- жорданов базис для $\mca + \alpha \mse$.
+  $[\mca + \alpha \mse]_E = [\mca]_E + [\alpha \mse]_E = [A]_E + diag(\alpha, \ldots, \alpha)$
+  $\mathcal{J}_n(\lambda) + \alpha E_n = \mathcal{J}_n(\lambda + \alpha)$
+\end{remark}
+
+Построение жорданового базиса для нильпотентного оператора.
+
+$\mcb$ - нильпотент, $N$ - индекс нильпотентности.
+
+$\mu_{\mcb} = x^N, \ V = R_0 = R_{0, N} \supsetneq R_{0, N-1} \supset \ldots \supset R_{0, 1} \supset R_{0, 0} = \{0\}$
+
+Пусть $e_{N, 1}, e_{N,2}, \ldots, e_{N, q_N}$ -- базис $R_{0, N}$ относительно $R_{0, N-1}$.
+
+\begin{lemma}
+  Пусть $v_1, \ldots, v_s \in R_{0, m}$ ЛНЗ относительно $R_{0, m-1}$.
+  Тогда: $\mcb v_1, \ldots, \mcb v_s \in R_{0, m-1}$. $\mcb^m v_i = 0 = \mcb^{m-1}(\mcb v_i) = 0 \Rightarrow \mcb v_i \in R_{0, m-1}$.
+\end{lemma}
+
+\begin{proof}
+  Пусть $\alpha_1 \mcb v_1 + \ldots + \alpha_s \mcb v_s \in R_{0, m-2}. \ \mcb^{m-2}(\alpha_1 \mcb v_1 + \ldots \alpha_s \mcb v_s) =
+    \mcb^{m-1}(\alpha_1 \mcb v_1 + \ldots \alpha_s \mcb v_s) = 0 \Rightarrow \alpha_1 \mcb v_1 + \ldots \alpha_s \mcb v_s \in \Ker B^{m-1} = R_{0, m-1}
+    \Rightarrow \alpha_1 = \ldots = \alpha_s = 0$.
+\end{proof}
 
 
 

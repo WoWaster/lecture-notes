@@ -6,11 +6,11 @@
 \chapter{Теорема Гамильтона-Кэли}
 
 \begin{theorem}
-    $\mca \in \End V$, тогда $\chi_{\mca}(\mca) = 0$.
+    Пусть $\mca \in \End V$, тогда $\chi_{\mca}(\mca) = 0$.
 \end{theorem}
 
 \begin{proof}
-    Рассмотрим $v \in V$, $\chi_{\mca |_{C_v}}$ -- минимальный аннулятор $v \Rightarrow \chi_{\mca |_{C_v}}(\mca)(v) = 0$.
+    Рассмотрим $v \in V$.  $\chi_{\mca |_{C_v}}$ -- минимальный аннулятор $v \Rightarrow \chi_{\mca |_{C_v}}(\mca)(v) = 0$.
     $\chi_{\mca |_{C_v}} | \chi_{\mca} \Rightarrow \chi_{\mca} (\mca)(v) = 0$,
     $v$ -- любой элемент $V$. Таким образом, $\chi_{\mca}(\mca) = 0$.
 \end{proof}
@@ -25,27 +25,29 @@
     $\chi_A (A) = \chi_A ([\mca]_E) = [\chi_A(\mca)]_E =[\chi_{\mca}(\mca)]_E = 0$.
 \end{proof}
 
-Как подставляется матрица в многочлен? Если $f = \alpha_0 + \alpha_1 x + \ldots + \alpha_n x^n$, $A \in M_n(K)$, то
+Как подставляется матрица в многочлен?
+
+Если $f = \alpha_0 + \alpha_1 x + \ldots + \alpha_n x^n$, $A \in M_n(K)$, то
 $f(A) = \alpha_0 E_n + \alpha_1 A + \ldots + \alpha_n A^n$.
 
 Почему мы можем представить матрицу как матрицу какого-то оператора?
 \begin{enumerate}
     \item $V$ -- любое пространство с $\dim V = n$, $E$ -- фиксированный базис.
-          $\End V \rightarrow M_n(K)$, $\beta \mapsto [\beta]_E$ -- изоморфизм $\Rightarrow$ существует такое $\mca \in \End V$: $[\mca]_E = A$.
+          $\End V \rightarrow M_n(K)$, $\beta \mapsto [\beta]_E$ -- изоморфизм $\Rightarrow$ существует $\mca \in \End V$: $[\mca]_E = A$.
 
     \item $V = K^n$, $\mca$: $K^n \rightarrow K^n$, $b \mapsto Ab$, $E$ -- стандартный базис $K^n$, $A = [\mca]_E$.
 \end{enumerate}
 
 \begin{proposition}
-    $\mca \in \End V$, тогда $I_{\mca} = \{f\in K[X] | f(\mca) = 0\}$ -- идеал $K[X]$, где $f(\mca)$ -- нулевой оператор.
+    Пусть $\mca \in \End V$, тогда $I_{\mca} = \{f\in K[X] | f(\mca) = 0\}$ -- идеал $K[X]$, где $f(\mca)$ -- нулевой оператор.
 \end{proposition}
 
 \begin{proof}
-    $f, g \in I_{\mca} \Rightarrow f+g \in I_{\mca} \in K[X]$.
+    $f, g \in I_{\mca} \Rightarrow f+g \in I_{\mca}$ - очевидно.
 
     $f \in I_{\mca}$, $g \in K[X]$: $(gf)(\mca) = g(\mca) \circ \underbrace{f(\mca)}_{0} = 0$.
 
-    $\chi_{\mca} \in I_{\mca}$ по теореме Гамильтона--Кэли $\Rightarrow I_{\mca} \neq 0$.
+    $\chi_{\mca} \in I_{\mca}$,  по теореме Гамильтона--Кэли $\Rightarrow I_{\mca} \neq 0$.
 \end{proof}
 
 Образующую $I_{\mca}$ называют минимальным многочленом  оператора $\mca$.
@@ -63,6 +65,7 @@ $f(A) = \alpha_0 E_n + \alpha_1 A + \ldots + \alpha_n A^n$.
 
 По теореме Гамильтона--Кэли $\mu_{\mca}|\chi_{\mca}$ ($\chi_{\mca} \in I_{\mca} = (\mu_{\mca})$).
 
+$\mu_{\mca, v}$ - минимальный аннулятор вектора $v$.
 \begin{proposition}
     \begin{enumerate}
         \item $\mu_{\mca, v} | \mu_{\mca}$
@@ -72,16 +75,26 @@ $f(A) = \alpha_0 E_n + \alpha_1 A + \ldots + \alpha_n A^n$.
 
 \begin{proof}
     \begin{enumerate}
-        \item $\mu_{\mca}(\mca) = 0 \Rightarrow \mu_{\mca}(\mca)(v) = 0 \Rightarrow \mu_{\mca} \in (\mu_{\mca, v})$
-        \item $f = $ НОК ($\ldots$)
+        \item
+              \
+              \begin{center}
+                  $\mu_{\mca}(\mca) = 0 \Rightarrow \mu_{\mca}(\mca)(v) = 0 \Rightarrow \mu_{\mca} \in (\mu_{\mca, v})$
+              \end{center}
+        \item
+              \
+              \begin{center}
+                  $f = $ НОК ($\ldots$)
 
-              $\mu_{\mca, v_i} | f \Rightarrow f(\mca)(v_i) = 0$, $i = 1, \ldots, n$
+                  $\mu_{\mca, v_i} | f \Rightarrow f(\mca)(v_i) = 0$, $i = 1, \ldots, n$
 
-              $v \in V \Rightarrow v = \alpha_1 v_1 + \ldots + \alpha_n v_n$
+                  $v \in V \Rightarrow v = \alpha_1 v_1 + \ldots + \alpha_n v_n$
 
-              $v_1, \ldots, v_n \in \Ker f(\mca) \Rightarrow v \in \Ker f(\mca)$
+                  $v_1, \ldots, v_n \in \Ker f(\mca) \Rightarrow v \in \Ker f(\mca)$
 
-              Таким образом, $f(\mca) = 0 \Rightarrow \mu_{\mca}|f; \ 1 \Rightarrow \mu_{\mca, v_i}|\mu_{\mca}, \ i=1, \ldots, n \Rightarrow f|\mu_{\mca} \Rightarrow f = \epsilon \mu_{\mca}, \ \epsilon \in K^*$.
+                  $f(\mca) = 0 \Rightarrow \mu_{\mca} \mid f$
+
+                  $ 1 \Rightarrow \mu_{\mca, v_i} \mid \mu_{\mca}, \ i=1, \ldots, n \Rightarrow f \mid \mu_{\mca} \Rightarrow f = \epsilon \mu_{\mca}, \ \epsilon \in K^*$.
+              \end{center}
     \end{enumerate}
 \end{proof}
 
