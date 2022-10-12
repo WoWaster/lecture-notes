@@ -86,7 +86,7 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
     Переход: $k-1 \rightarrow k$. Пусть $v_1, \ldots, v_k$  — собственные
     векторы, принадлежащие $\lambda_1, \ldots, \lambda_k$.
     Предположим, $\alpha_1 v_1 + \ldots + \alpha_k v_k = 0 (*).\
-        \mca(\lambda_1 v_1 + \ldots + \lambda_k v_k) =
+        \mca(\alpha_1 v_1 + \ldots + \alpha_k v_k) =
         \alpha_1 \lambda_1 v_1 + \ldots + \alpha_k \lambda_k v_k = 0$.  Домножим $(*)$ на $\lambda_k$:
     $\alpha_1 \lambda_k v_1 + \ldots + \alpha_k \lambda_k v_k = 0$.
     Вычтем: $\alpha_1(\lambda_1 - \lambda_k)v_1 + \ldots + \alpha_{k-1}(\lambda_{k-1} - \lambda_k)v_{k-1} = 0$
@@ -106,7 +106,7 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
 
 \begin{proof}
     Нужно доказать: если $v_1 + \ldots + v_k = v_1' + \ldots + v_k'$
-    (где $v_1,\ v_1' \in V_{\lambda_i}, i = 1, \ldots, k$).
+    (где $v_i,\ v_i' \in V_{\lambda_i}, i = 1, \ldots, k$).
     Таким образом, $v_1 = v_1', \ldots, v_k = v_k'$.
 
     \[(v_1 - v_1') + \ldots + (v_k - v_k') = 0 \quad \quad \quad (**)\]
@@ -127,7 +127,7 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
 
 \begin{proof}
     $\V_{\lambda_1} + \ldots + \V_{\lambda_m} < V
-        \Rightarrow \dim (\underbrace{\V_{\lambda_1} + \ldots + \V_{\lambda_k}}_{g_{\lambda_1} + \ldots + g_{\lambda_m}}) \leq n$ (по следствию 3.3.1).
+        \Rightarrow \dim (\underbrace{\V_{\lambda_1} + \ldots + \V_{\lambda_m}}_{g_{\lambda_1} + \ldots + g_{\lambda_m}}) \leq n$ (по следствию 3.3.1).
 \end{proof}
 
 \begin{proposition}
