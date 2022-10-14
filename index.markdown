@@ -14,7 +14,9 @@ title: Конспекты
 
 - [Алгебра и теория чисел](bachelor-2/semester-3/algebra-and-number-theory/main.pdf) (Автор [@chilison](https://github.com/chilison), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/9))
 - [Геометрия и топология](bachelor-2/semester-3/geometry-and-topology/main.pdf) (Автор [@WoWaster](https://github.com/WoWaster), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/8))
-- [Дифференциальные уравнения](http://hdl.handle.net/11701/34721) (Автор: кафедра диффуров)
+- Дифференциальные уравнения (Автор: кафедра диффуров)
+  1. Дифференциальные уравнения первого порядка в [репозитории СПбГУ](http://hdl.handle.net/11701/34721)
+  2. Общая теория систем обыкновенных дифференциальных уравнений в [репозитории СПбГУ](http://hdl.handle.net/11701/37873)
 - [Математический анализ](bachelor-2/semester-3/mathan/main.pdf) (Автор [@oveeernight](https://github.com/oveeernight), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/11))
 
 # 1 курс
@@ -27,3 +29,4 @@ title: Конспекты
 
 - [Алгебра и теория чисел](bachelor-1/semester-1/algebra-and-number-theory/main.pdf)
 - [Геометрия и топология](bachelor-1/semester-1/geometry-and-topology/main.pdf)
+
