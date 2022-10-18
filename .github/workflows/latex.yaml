@@ -4,31 +4,31 @@ jobs:
   build-and-publish:
     strategy:
       matrix:
-        copy:
+        files:
           [
             {
-              from: "bachelor-1/semester-1/algebra-and-number-theory/main.pdf",
-              to: "pdfs/algebra-and-number-theory-1.pdf",
+              file: "bachelor-1/semester-1/algebra-and-number-theory/main.pdf",
+              name: "algebra-and-number-theory-1.pdf",
             },
             {
-              from: "bachelor-1/semester-1/geometry-and-topology/main.pdf",
-              to: "pdfs/geometry-and-topology-1.pdf",
+              file: "bachelor-1/semester-1/geometry-and-topology/main.pdf",
+              name: "geometry-and-topology-1.pdf",
             },
             {
-              from: "bachelor-1/semester-2/geometry-and-topology/main.pdf",
-              to: "pdfs/geometry-and-topology-2.pdf",
+              file: "bachelor-1/semester-2/geometry-and-topology/main.pdf",
+              name: "geometry-and-topology-2.pdf",
             },
             {
-              from: "bachelor-2/semester-3/algebra-and-number-theory/main.pdf",
-              to: "pdfs/algebra-and-number-theory-3.pdf",
+              file: "bachelor-2/semester-3/algebra-and-number-theory/main.pdf",
+              name: "algebra-and-number-theory-3.pdf",
             },
             {
-              from: "bachelor-2/semester-3/geometry-and-topology/main.pdf",
-              to: "pdfs/geometry-and-topology-3.pdf",
+              file: "bachelor-2/semester-3/geometry-and-topology/main.pdf",
+              name: "geometry-and-topology-3.pdf",
             },
             {
-              from: "bachelor-2/semester-3/mathan/main.pdf",
-              to: "pdfs/analysis-3.pdf",
+              file: "bachelor-2/semester-3/mathan/main.pdf",
+              name: "pdfs/analysis-3.pdf",
             },
           ]
     runs-on: ubuntu-latest
@@ -39,16 +39,15 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: bachelor-*/**/main.tex
-          glob_root_file: true
+          root_file: ${{ matrix.files.name }}
           work_in_root_file_dir: true
           latexmk_use_lualatex: true
 
-      - name: Copy PDFs to pdfs dir
-        run: cp ${{ matrix.copy.from }} ${{ matrix.copy.to }}
+      - name: Rename PDF
+        run: mv ${{ matrix.files.file }} ${{ matrix.files.name }}
 
       - name: Upload PDFs
         uses: actions/upload-artifact@v3
         with:
-          name: pdfs
-          path: pdfs
+          name: ${{ matrix.files.name }}
+          path: ${{ matrix.files.name }}
