@@ -1,0 +1,22 @@
+name: Build and publish LaTeX
+on: push
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: bachelor-*/**/main.tex
+          glob_root_file: true
+          work_in_root_file_dir: true
+          latexmk_use_lualatex: true
+
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v3
+        with:
+          name: pdfs
+          path: bachelor-*/**/main.pdf
