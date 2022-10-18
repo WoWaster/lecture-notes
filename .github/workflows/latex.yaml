@@ -55,7 +55,7 @@ jobs:
       - name: Upload PDF
         uses: jakejarvis/s3-sync-action@master
         with:
-          args: --acl public-read --follow-symlinks --exclude '*' --include './*.pdf'
+          args: --acl public-read --follow-symlinks --exclude '*' --include ${{ matrix.files.upload_name }}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.YA_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.YA_SECRET_ACCESS_KEY }}
