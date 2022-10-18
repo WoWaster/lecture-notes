@@ -2,6 +2,35 @@ name: Build and publish LaTeX
 on: push
 jobs:
   build-and-publish:
+    strategy:
+      matrix:
+        copy:
+          [
+            {
+              from: "bachelor-1/semester-1/algebra-and-number-theory/main.pdf",
+              to: "pdfs/algebra-and-number-theory-1.pdf",
+            },
+            {
+              from: "bachelor-1/semester-1/geometry-and-topology/main.pdf",
+              to: "pdfs/geometry-and-topology-1.pdf",
+            },
+            {
+              from: "bachelor-1/semester-2/geometry-and-topology/main.pdf",
+              to: "pdfs/geometry-and-topology-2.pdf",
+            },
+            {
+              from: "bachelor-2/semester-3/algebra-and-number-theory/main.pdf",
+              to: "pdfs/algebra-and-number-theory-3.pdf",
+            },
+            {
+              from: "bachelor-2/semester-3/geometry-and-topology/main.pdf",
+              to: "pdfs/geometry-and-topology-3.pdf",
+            },
+            {
+              from: "bachelor-2/semester-3/mathan/main.pdf",
+              to: "pdfs/analysis-3.pdf",
+            },
+          ]
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
@@ -15,8 +44,11 @@ jobs:
           work_in_root_file_dir: true
           latexmk_use_lualatex: true
 
+      - name: Copy PDFs to pdfs dir
+        run: cp ${{ matrix.copy.from }} ${{ matrix.copy.to }}
+
       - name: Upload PDFs
         uses: actions/upload-artifact@v3
         with:
           name: pdfs
-          path: bachelor-*/**/main.pdf
+          path: pdfs
