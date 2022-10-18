@@ -49,11 +49,17 @@ jobs:
           work_in_root_file_dir: true
           latexmk_use_lualatex: true
 
-      - name: Rename PDF
-        run: mv ${{ matrix.files.pdf_file }} ${{ matrix.files.upload_name }}
+      - name: Make symlink
+        run: ln -s ${{ matrix.files.pdf_file }} ${{ matrix.files.upload_name }}
 
-      - name: Upload PDFs
-        uses: actions/upload-artifact@v3
+      - name: Upload PDF
+        uses: jakejarvis/s3-sync-action@master
         with:
-          name: ${{ matrix.files.upload_name }}
-          path: ${{ matrix.files.upload_name }}
+          args: --acl public-read --follow-symlinks
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.YA_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.YA_SECRET_ACCESS_KEY }}
+          AWS_S3_BUCKET: ${{ secrets.YA_S3_BUCKET }}
+          AWS_REGION: "ru-central1"
+          AWS_S3_ENDPOINT: "https://storage.yandexcloud.net"
+          SOURCE_DIR: ${{ matrix.files.upload_name }}
