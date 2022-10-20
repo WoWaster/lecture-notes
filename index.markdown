@@ -12,21 +12,22 @@ title: Конспекты
 
 ## 3 семестр
 
-- [Алгебра и теория чисел](bachelor-2/semester-3/algebra-and-number-theory/main.pdf) (Автор [@chilison](https://github.com/chilison), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/9))
-- [Геометрия и топология](bachelor-2/semester-3/geometry-and-topology/main.pdf) (Автор [@WoWaster](https://github.com/WoWaster), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/8))
+- [Алгебра и теория чисел](https://storage.yandexcloud.net/tp-2021-lecture-notes/algebra-and-number-theory-3.pdf) (Автор [@chilison](https://github.com/chilison), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/9))
+- [Геометрия и топология](https://storage.yandexcloud.net/tp-2021-lecture-notes/geometry-and-topology-3.pdf) (Автор [@WoWaster](https://github.com/WoWaster), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/8))
 - Дифференциальные уравнения (Автор: кафедра диффуров)
-  1. Дифференциальные уравнения первого порядка в [репозитории СПбГУ](http://hdl.handle.net/11701/34721)
-  2. Общая теория систем обыкновенных дифференциальных уравнений в [репозитории СПбГУ](http://hdl.handle.net/11701/37873)
-- [Математический анализ](bachelor-2/semester-3/mathan/main.pdf) (Автор [@oveeernight](https://github.com/oveeernight), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/11))
+  1. Дифференциальные уравнения первого порядка в [репозитории СПбГУ](http://hdl.handle.net/11701/34721), в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-3-part1.pdf)
+  2. Общая теория систем обыкновенных дифференциальных уравнений в [репозитории СПбГУ](http://hdl.handle.net/11701/37873), в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-3-part2.pdf)
+  3. Линейные дифференциальные уравнения в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-3-part3.pdf)
+  4. Линейные системы дифференциальных уравнений [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-3-part4.pdf)
+- [Математический анализ](https://storage.yandexcloud.net/tp-2021-lecture-notes/analysis-3.pdf) (Автор [@oveeernight](https://github.com/oveeernight), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/11))
 
 # 1 курс
 
 ## 2 семестр
 
-- [Геометрия и топология](bachelor-1/semester-2/geometry-and-topology/main.pdf)
+- [Геометрия и топология](https://storage.yandexcloud.net/tp-2021-lecture-notes/geometry-and-topology-2.pdf)
 
 ## 1 семестр
 
-- [Алгебра и теория чисел](bachelor-1/semester-1/algebra-and-number-theory/main.pdf)
-- [Геометрия и топология](bachelor-1/semester-1/geometry-and-topology/main.pdf)
-
+- [Алгебра и теория чисел](https://storage.yandexcloud.net/tp-2021-lecture-notes/algebra-and-number-theory-1.pdf)
+- [Геометрия и топология](https://storage.yandexcloud.net/tp-2021-lecture-notes/geometry-and-topology-1.pdf)
