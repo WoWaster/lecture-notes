@@ -1,0 +1,67 @@
+name: Build and publish LaTeX
+on: 
+  push:
+    branches:
+      - 'main'
+jobs:
+  build-and-publish:
+    strategy:
+      matrix:
+        files:
+          [
+            {
+              tex_file: "bachelor-1/semester-1/algebra-and-number-theory/main.tex",
+              pdf_file: "bachelor-1/semester-1/algebra-and-number-theory/main.pdf",
+              upload_name: "algebra-and-number-theory-1.pdf",
+            },
+            {
+              tex_file: "bachelor-1/semester-1/geometry-and-topology/main.tex",
+              pdf_file: "bachelor-1/semester-1/geometry-and-topology/main.pdf",
+              upload_name: "geometry-and-topology-1.pdf",
+            },
+            {
+              tex_file: "bachelor-1/semester-2/geometry-and-topology/main.tex",
+              pdf_file: "bachelor-1/semester-2/geometry-and-topology/main.pdf",
+              upload_name: "geometry-and-topology-2.pdf",
+            },
+            {
+              tex_file: "bachelor-2/semester-3/algebra-and-number-theory/main.tex",
+              pdf_file: "bachelor-2/semester-3/algebra-and-number-theory/main.pdf",
+              upload_name: "algebra-and-number-theory-3.pdf",
+            },
+            {
+              tex_file: "bachelor-2/semester-3/geometry-and-topology/main.tex",
+              pdf_file: "bachelor-2/semester-3/geometry-and-topology/main.pdf",
+              upload_name: "geometry-and-topology-3.pdf",
+            },
+            {
+              tex_file: "bachelor-2/semester-3/mathan/main.tex",
+              pdf_file: "bachelor-2/semester-3/mathan/main.pdf",
+              upload_name: "analysis-3.pdf",
+            },
+          ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: ${{ matrix.files.tex_file }}
+          work_in_root_file_dir: true
+          latexmk_use_lualatex: true
+
+      - name: Make symlink
+        run: ln -s ${{ matrix.files.pdf_file }} ${{ matrix.files.upload_name }}
+
+      - name: Upload PDF
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --exclude '*' --include ${{ matrix.files.upload_name }}
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.YA_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.YA_SECRET_ACCESS_KEY }}
+          AWS_S3_BUCKET: ${{ secrets.YA_S3_BUCKET }}
+          AWS_REGION: "ru-central1"
+          AWS_S3_ENDPOINT: "https://storage.yandexcloud.net"
