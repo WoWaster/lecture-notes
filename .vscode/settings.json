@@ -1,0 +1,49 @@
+{
+  "latex-workshop.latex.tools": [
+    {
+      "name": "lualatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-lualatex",
+        "-shell-escape",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    }
+  ],
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (lualatex)",
+      "tools": ["lualatexmk"]
+    }
+  ],
+  "files.exclude": {
+    "**/**.aux": true,
+    "**/**.bbl": true,
+    "**/**.bcf": true,
+    "**/**.blg": true,
+    "**/**.fdb_latexmk": true,
+    "**/**.fls": true,
+    "**/**.log": true,
+    "**/**.out": true,
+    "**/**.run.xml": true,
+    "**/**.synctex.gz": true,
+    "**/**.synctex(busy)": true,
+    "**/**.toc": true
+  },
+  "editor.rulers": [80, 120],
+  "cSpell.words": [
+    "перепараметризации",
+    "Перепараметризация",
+    "самопересекаются",
+    "бирегулярной",
+    "бирегулярность",
+    "бирегулярны",
+    "Френе"
+  ]
+}
