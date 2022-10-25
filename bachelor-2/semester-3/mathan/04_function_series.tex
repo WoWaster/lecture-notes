@@ -1,0 +1,185 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Функциональные ряды}
+\subsection{Функциональные последовательности и ряды}
+\begin{definition} 
+    Пусть $E\neq\varnothing$ - произвольное множество, $f_n:E\to{\vR}$ - функции,
+     определённые на $E, n=1,2,\ldots, X_0\in E.$\\ Назовём $X_0$
+      \textbf{точкой сходимости функциональной последовательности} $\{f_n(X)\},$ если $
+       \exists \underset{n\to\infty}{lim}f_n(X_0)\in{\vR};$\\
+        точку $X_1\in E$ 
+       назовём \textbf{точкой рассходимости функциональной последовательности} $\{f_n(X)\}_{n=1}^\infty,$ 
+       если предел $\Lim f_n(X_1)$ не существует или существут и равен $+\infty$ или $-\infty$.
+\end{definition}
+\begin{definition}
+        Множество всех точек сходимости $\fnn$ назовём \textbf{множеством сходимости}, обозначим его $E_0,$ 
+        а множество точек расходимости назовём \textbf{множеством расходимости} и обозначим его $E_1$. \\
+        Какое-то из множеств $E_0, E_1$ может быть пустым, они обладают свойством
+         $E_0\cap E_1=\varnothing, E_0\cup E_1=E,$
+         поэтому оба они пустыми быть не могут. \end{definition}
+         \begin{definition}
+Если $v_n:E\to {\vR}$ - функции, заданные на $E$, то \textbf{функциональным рядом}, заданным на $E$,
+ называемся символ $\sumn v_n(X), X\in E,$ его частичные суммы $S_n(X)$ определяются формулой
+  $S_n(X)=v_1(X)+\dots+v_n(X).$ \end{definition}
+  \begin{definition}
+Точка $X_0$ - \textbf{точка сходимости ряда} $\sumn v_n(X),$ если $X_0$ - 
+точка сходимости функциональной последовательности $\fnn[S_n(X)];
+ X_1$ -
+ \textbf{точка расходимости этого ряда}, если $X_1$ - точка расходимости 
+ функциональной последовательности $\fnn[S_n(X)].$\\ 
+ \textbf{Множества сходимости и расходимости функционального ряда}
+  $\sumn v_n(X)$ - соответственно, множества сходимости и расходимости
+   функциональной последовательности $\fnn[S_n(X)]$. 
+\end{definition}
+   \begin{definition}
+Предположим, что для функциональной последовательности $\fnn[f_n(X)]$ имеем $E_0=E, E_1=\varnothing$, 
+пусть $\forall X\in E\ f(X)\stackrel{def}{=}\Lim f_n(X).$\\ 
+Тогда говорим, что функциональная последовательность 
+$\fnn[f_n(X)]$ \textbf{сходится к функции $f$ на множестве $E$ поточечно}.
+ Если для функционального ряда $\sumn v_n(X)$ имеем $E_0=E, E_1=\varnothing,$ 
+ то для $X\in E$ полагаем $S(X)=\sumn v_n(X)$ и говорим, что функциональный ряд
+  $\sumn v_n(X)$ \textbf{сходится к сумме $S(X)$ на множестве $E$ поточечно}. \end{definition}
+\begin{definition}[Равномерная сходимость]
+Пусть $\fnn[f_n(X)]$ - функциональная последовательность, заданная на $E, f:E\to{\vR}$ - функция. 
+Будем называть $\fnn[f_n(X)]$ \textbf{равномерно сходящейся к $f$ на множестве $E$}, 
+если $\forall \varepsilon>0 \ \exists N\in\N $ т.ч. $\forall n>N$ и $\forall X\in E$ 
+выполнено соотношение \[ |f_n(X)-f(X)|<\varepsilon\tag{1} \]
+То, что $\fnn[f_n(X)]$ равномерно сходится к $f$ на множестве $E$, будем записывать в виде 
+\[ f_n(X) \darrow{\underset{X\in E}{n\to\infty}}  f(X)  \]
+Пусть $\sumn v_n(X)$ - функциональный ряд, $S:E\to{\vR}$ - функция. Будем говорить, 
+что этот функциональный ряд \textbf{равномерно сходится к $S$} на множестве $E$,
+ если $S_n(X){\darrow{\underset{X\in E}{n\to\infty}}} S(X).$\\
+Также говорят, что функциональный ряд $\sumn v_n(X)$ равномерно сходится на $E$,
+ если $\exists S(X)$, к которой он равномерно сходится на $E$, при этом функция $S(X)$ может быть не указана.
+\end{definition}
+\subsection{Критерий Коши равномерной сходимости}
+\begin{theorem}
+     Пусть $\fnn[f_n(X)]$ - функциональная последовательность, заданная на $E\neq\varnothing.$ 
+     Для того, чтобы нашлась функция $f: E\to {\vR}$ такая, что 
+     $f_n(X){\darrow{\underset{X\in E}{n\to\infty}}}  f(X),$
+      необходимо и достаточно, чтобы $\forall\ \varepsilon>0\ \exists N:\ \forall m, n>N$ и 
+      $\forall X\in E$ выполнялось соотношение 
+\[ |f_m(X)-f_n(X)|<\varepsilon\tag{2} \] \end{theorem}
+\begin{longProof} \textbf{Необходимость.} \\
+     Пусть $\ \exists f:E\to{\vR}$ т.ч. $f_n(X){\darrow{\underset{X\in E}{n\to\infty}}}  f(X).$ 
+     По определению равномерной сходимости $\forall \varepsilon>0 \ \exists N: \forall n>N$ и $\ \forall X\in E$
+      выполнено $|f_n(X)-f(X)|<\frac{\varepsilon}{2}$. Для $m>N$ это же неравенство выполняется.
+       Тогда $\ \forall X\in E$ имеем при $m,n>N:$ \[ |f_m(X)-f_n(X)|=|(f_m(X)-f(X))-(f_n(X)-f(X))|\leq\] 
+       \[\leq|f_m(X)-f(X)|+|f_n(X)-f(X)|<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon. \] 
+       \textbf{Необходимость доказана.}
+\textbf{Достаточность.} \\
+Предположим, что соотношение (2) выполнено с сф ормулированными для него условиями. 
+Фиксируем $X\in E,$ тогда (2) $\implies$ что для числовой последовательности $\fnn[f_n(X)]$ выполнено условие критерия Коши, поэтому $\ \exists \Lim f_n(X)\overset{def}{=}f(X).$ Таким образом, получена функция $f:E\to {\vR}$ т.ч. $f_n(X)\underset{n\to\infty}{\to} f(X)\ \forall X\in E.$\\
+Возьмём $\forall \varepsilon>0$ и выберем $N$ так, чтобы выполнялось соотношение (2). 
+Фиксируем $X\in E$ и возьмём $\ \forall m, n>N,$ тогда \[ |f_m(X)-f_n(X)|<\varepsilon \tag{2'} \]
+Фиксируем $m$ в (2'), тогда $(2')\implies$ 
+\[\Lim |f_m(X)-f_n(X)|\leq\varepsilon\tag{3} \]
+Но $f_n(X)\underset{n\to \infty}{\to}f(X),$ поэтому $(3)\implies$
+ \[|f_m(X)-f(X)|\leq\varepsilon \tag{4}\]
+В соотношении (4) $X\in E$ было фиксированным, но его можно было выбирать произвольно. Таким образом, $(4) \implies \forall\varepsilon>0\ \exists N: \forall m>N$ и $\forall X$ выполнено \[ |f_m(X)-f(X)|<2\varepsilon \]
+В силу произвольности $\varepsilon>0,$ достаточность в критерии Коши доказана.
+\end{longProof}
+\begin{theorem} 
+    Пусть $\sumn v_n(X)$ - функциональный ряд, заданный на $E$. Для того, чтобы он равномерно сходился на $E$,
+     необходимо и достаточно, чтобы $\forall \varepsilon>0\ \exists N: \forall m>n>N$ 
+     и $\forall X\in E$ выполнялось соотношение: \[ |\sum_{k=n+1}^m v_k(X)|<\varepsilon\tag{5} \]
+\end{theorem}
+\begin{proof}
+     Если $m>n$, то $S_m(X)-S_n(X)=\sum_{k=1}^m v_k(X)-\sum_{k=1}^n
+ v_k(X)=\\=\sum_{k=n+1}^m v_k(X),$ поэтому утверждение теоремы следует из 
+ определения равномерной сходимости функционального ряда и предыдущей теоремы.
+\end{proof}
+\subsection{Признак Вейерштрасса равномерной сходимости рядов.}
+\begin{theorem}
+     Пусть для функционального ряда $\sumn v_n(X) $ справедливо соотношение
+      $|v_n(X)|\leq c_n, c_n\geq 0,$ для $\forall X\in E$ и $\forall n\geq 1.$ 
+      Предположим, что ряд $\sumn c_n$ сходится. Тогда рассматриваемый функциональный ряд сходится равномерно.\end{theorem}
+\begin{proof} 
+    Возьмём $\forall \varepsilon >0.$ Тогда $\exists N: \forall m>n>N$ выполнено $\sum_{k=n+1}^m c_k<\varepsilon$. 
+    Теперь при $\forall X\in E$ и $m>n>N$ имеем соотношение 
+    \[ |\sum_{k=n+1}^m v_k(X)|\leq \sum_{k=n+1}^m |v_k(X)|\leq \sum_{k=n+1}^m c_k<\varepsilon \]
+Теперь утверждение теоремы следует из критерия Коши равномерной сходимости функциональных рядов. \end{proof}
+\subsection{Признак Дирихле равномерной сходимости функциональных рядов}
+\begin{theorem} 
+    Пусть $v_n:E\to{\vR}, b_n:E\to{\vR}$ - функции, заданные на множестве $E.$
+     Предположим, что последовательность $\fnn[b_n(X)]$ монотонна при $\forall X\in E.
+     $ Пусть $O_E:E\to{\vR}, O_E(X)=0\ \forall X\in E.$\\
+Предположим, что $b_n(X)\darrow{\underset{X\in E}{n\to\infty}}O_E(X)$ 
+и что $\exists C,$ не зависящая от $n$ и $X\in E$ такая, что $|\sum_{k=1}^n v_n(X)|\leq C.$ 
+Тогда ряд $\sumn b_n(X)v_n(X)$ равномерно сходится при $X\in E.$ \end{theorem}
+\begin{longProof} 
+    Отметим, что $\forall X\in E$ и $\forall k>n\geq 1$ выполнено
+     \[ |\sum_{l=n+1}^k v_l(X)|=|\sum_{l=1}^k v_l(X)-\sum_{l=1}^n v_l(X)|\leq
+      |\sum_{l=1}^k v_l(X)|+|\sum_{l=1}^n v_l(X)|\leq 2C\tag{6} \]
+Для $m>n\geq 1$ положим $V_n(X)\equiv0, V_{n+1}(X)=v_{n+1}(X),\\
+ V_k(X)=v_{n+1}(X)
++\dots+v_k(X),$ если $k>n+1.$ Тогда
+\begin{multline*}
+ \sum_{k=n+1}^m b_k(X)v_k(X)=\sum_{k=n+1}^m b_k(X)(V_k(X)-V_{k-1}(X))= \\
+=\sum_{k=n+1}^m b_k(X)V_k(X)-\sum_{k=n+1}^m b_k(X)V_{k-1}(X)= \\
+=\sum_{k=n+1}^m b_k(X)V_k(X)-\sum_{l=n}^{m-1} b_{l+1}(X)V_l(X)= \\
+=\sum_{k=n+1}^{m-1}(b_k(X)-b_{k+1}(X))V_k(X)+b_m(X)V_m(X)\tag{7} \end{multline*}
+Равенства (7) - это преобразование Абеля, применённое для функциональных рядов. 
+Для доказательства теоремы применим критерий Коши и соотношение (7). \\
+Возьмём $\forall\varepsilon>0.$ Тогда $\exists N:\forall n>N$ и $\forall X\in E$ 
+выполнено\\ $|b_n(X)|=|b_n(X)-O_E(X)|<\varepsilon.$ Тогда $\forall m>n>N\ (7)$ и
+ $(6) \implies$
+ \begin{multline*}
+  |\sum_{k=n+1}^m b_k(X)v_k(X)|\leq |\sum_{k=n+1}^{m-1}(b_k(X)-b_{k+1}(X))V_k(X)|+|b_m(X)V_m(X)|\leq \\
+\leq 2C\sum_{k=n+1}^{m-1}|b_k(X)-b_{k+1}(X)|+2C|b_m(X)|=2C|\sum_{k=n+1}^{m-1}(b_k(X)-b_{k+1}(X))|+ \\
++ 2C|b_m(X)|=2C|b_{n+1}(X)-b_m(X)|+2C|b_m(X)|\leq \\
+ \leq 2C|b_{n+1}(X)|+4C|b_m(X)|<6C\varepsilon\tag{8} 
+\end{multline*}
+В равенстве (8) мы воспользовались монотонностью последовательности
+ $\fn[b_n(X)], (8) \implies $ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится при $X\in E.$ 
+\end{longProof}
+\subsection{Признак Абеля равномерной сходимости функциональных рядов.}
+\begin{theorem}
+     Предположим, что последовательность $\fnn[b_n(X)]$ монотонна $\forall X\in E$ 
+     и что $\exists C_1$ т.ч. $|b_n(X)|\leq C_1 \forall n$ и $\forall X\in E.$ 
+     Предположим, что ряд $\sumn v_n(X)$ равномерно сходится при $X\in E.$ 
+     Тогда функциональный ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
+     при $X\in E.$ \end{theorem}
+\begin{proof}
+     Применим критерий Коши. Возьмём $\forall \varepsilon>0.$ \\
+      Тогда $\exists N: \forall m>n>N$ и $\forall X\in E$ выполнено
+       $|S_m(X)-S_n(X)|=|v_{n+1}(X)+\dots+v_m(X)|<\varepsilon.$ В обозначениях
+        соотношений (7) и (8) имеем $|V_k(X)|<\varepsilon, k\geq n+1.$ Тогда $(7) \implies$
+       \begin{multline*}
+ \left|\sum_{k=n+1}^m b_k(X)v_k(X)\right|\leq  \\ \leq 
+ \left|\sum_{k=n+1}^{m-1}(b_k(X)-b_{k+1}(X))V_k(X)\right|+ |b_m(X)||V_m(X)|\leq \\
+ \leq \sum_{k=n+1}^{m-1}|b_k(X)-b_{k+1}(X)|\varepsilon + |b_m(X)|\varepsilon =\\ =\varepsilon
+  |\sum_{k=n+1}^{m-1}(b_k(X)-b_{k+1}(X))|+|b_m(X)|\varepsilon= \\
+ =\varepsilon|b_{k+1}(X)-b_m(X)|+|b_m(X)|\varepsilon<3C_1\varepsilon\tag{9} \\
+\end{multline*}
+$(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится при $X\in E.$ \end{proof}
+ 
+\subsection{Переход к пределу в равномерно сходящейся функциональной последовательности.}
+\begin{theorem}
+     Пусть $E$ - метрическое пространство, $X_0\in E, X_0 - $ точка сгущения,
+      $f_n:E\to{\vR}, f:E\to{\vR}, f_n(X){\darrow{\underset{X\in E}{n\to\infty}}}  
+      f(X).$\\ Предположим, что $\forall n\ \exists\underset{X\to X_0}{lim}f_n(X)=A_n, A_n\in{\vR}.$\\
+       Тогда $\exists\Lim A_n=A\in{\vR}$ и $\ \exists\underset{X\to X_0}{lim}f(X)$ 
+       и $\underset{X\to X_0}{lim}f(X)=A$ \end{theorem}
+\begin{longProof}
+     Возьмём $\forall\varepsilon>0.$ По критерию Коши $\exists N$ т.ч. $\forall m, n>N$ и $\forall X\in E$
+      выполнено
+       \[|f_m(X)-f_n(X)|<\varepsilon\tag{9'} \]
+        Фиксируем $m,n>N$ и перейдём 
+      в (9') к пределу при $X\to X_0,$\\ тогда $(9') \implies$
+\[ |A_m-A_n|=|\underset{X\to X_0}{lim} f_m(X)-\underset{X\to X_0}{lim} f_n(X)|=\underset{X\to X_0}{lim} |f_m(X)-f_n(X)|\leq \varepsilon\tag{10} \] (У Николая Алексеевича здесь, вероятно, опечатка)\\
+Соотношение (10), применённое к последовательности $\fnn[A_n]$, по критерию Коши влечёт существование $\Lim A_n\in{\vR}.$ Пусть $A=\Lim A_n$.\\
+Опять выберем произвольное $\varepsilon>0.$ Тогда
+\begin{gather*}
+\exists N_1: \forall n>N_1 \text{ выполнено } |f_n(X)-f(X)|<\varepsilon\ \forall X\in E\tag{11} \\
+\exists N_2: \forall n>N_2 \text{ выполнено } |A_n-A|<\varepsilon \tag{12} \\
+\text{ Пусть } N_0=max(N_1,N_2)+1.\\
+ \text{ Тогда } \exists\delta: \forall X\in E, d(X,X_0)<\delta, X\neq X_0 \text{ выполняется} \\
+|f_{N_0}(X)-A_{N_0}|<\varepsilon\tag{13} \\
+\text{ Теперь при } X\in E, X\neq X_0, d(X,X_0)<\delta \text{ выполнено}: \\
+|f(X)-A|=|(f(X)-f_{N_0}(X))+(f_{N_0}(X)-A_{N_0})+(A_{N_0}-A)|\leq \\
+ \leq |f(X)-f_{N_0}(X)|+|f_{N_0}(X)-A_{N_0}|+|A_{N_0}-A|<\varepsilon+\varepsilon+\varepsilon=3\varepsilon\tag{14} \\
+ (14) \implies \underset{X\to X_0}{lim}{f(X)}=A. \end{gather*}
+\end{longProof}
+\end{document}

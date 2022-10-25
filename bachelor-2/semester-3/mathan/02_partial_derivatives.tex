@@ -11,11 +11,11 @@
         \[F(x_0) = Y_0, \exists x_0 \in v \text{ и }\exists y_0 \in V:
         F|_v - \text{гомеоморфизм на } V  \tag{3} \]
         \[ \Phi = F^{-1}, \Phi \in C^1(V) \tag{4}\]
-
+ 
         \begin{definition}[Якобиан]
         $I(x_0) \stackrel{def}{=} \det DF(x_0)$ -- Якобиан отображения $F$ в точке $x_0$
         \end{definition}
-
+ 
         \begin{gather*}
         \Phi(F(X)) \equiv X \implies D\Phi(Y)DF(X) = DI(X) \implies \\
         Y = F(X), I(X) \equiv X \\
@@ -41,7 +41,7 @@
              \text{ имеем } \\
              DF(X) - DF(X_0)|| < 2\lambda \tag{9} 
             \end{gather*}
-
+ 
              \[U = B_r(X_0) = \{ x \in {\vR}^n: ||x-x_0|_{{\vR}^n} < \lambda
              \tag{10}\]
              \[DF(X) - A|| < 2 \lambda \tag{9\prime} \]
@@ -56,7 +56,7 @@
                < tr + (1-t)r = r
                 \end{multline*}
                \end{remark}
-
+ 
              \item Биективность отображения $F$ на $U$
               \[ 0 < t < 1 \]
              \begin{gather*}
@@ -206,12 +206,12 @@
                      Y + K = F(X+H) \text{  } F(\Phi(Y)) = F(X) 
                  \end{gather*}
                  \[   K = (Y+K) - Y = F(X+H) - F(X) \tag{1} \]
-
+ 
                  \[DF(X) \text {   } ||(DF(X))^{-1}|| < \frac{1}{2\lambda} \text{ (42) от 29.09} \tag{2} \]
-
+ 
                  \[DF(X))^{-1} = B \]
                  \[F(X+H) - F(X) = DF(X)H+ t(H) \tag{3}\]
-
+ 
                  \[ \frac{t(H)}{||H||_{{\vR}^n}} \underset{H \to \mathbb{0}_n}{\longrightarrow} 0 \tag{4} \]
                   \begin{gather*}
                      (1),(3) \implies \\
@@ -219,14 +219,14 @@
                      DF(X)H = K - t(H) \\
                      (BDF(X))H = BK - B(t(H))
                   \end{gather*}
-
+ 
                   \[H = BK-Bt(H) \tag{5} \]
                   \[(5) \implies \Phi(Y+K) - \Phi(Y) = BK - Bt(H) \tag{6}\]
                   Дифференцируемость почти получилась, потому что есть линейное отображение $BK$...,
                   надо выяснить, что есть соответствующее свойство для дифференирцемости отображения.
-
+ 
                   \[ ||F(X+H)-F(X)||_{{\vR}^n} > 2 \lambda ||H||_{{\vR}^n} \text{ (23) из прошлой лекции } \tag{7} \]
-
+ 
                   \[ ||K||_{{\vR}^n} > 2\lambda||H||_{{\vR}^n} \tag{7\prime} \] 
                   \begin{multline*}
                      \frac{||t(H)||_{{\vR}^n}}{||K||_{{\vR}^n}} \leq
@@ -235,12 +235,12 @@
                       \frac{1}{2\lambda} \frac{||t(H)||_{{\vR}^n}}{||H||_{{\vR}^n}} \cdot
                      \frac{||H||_{{\vR}^n}}{||K||_{{\vR}^n}} \stackrel{<}{(7^\prime)}
                   \end{multline*}
-
+ 
                   \[ < \frac{1}{4\lambda^2} \frac{||t(H)||_{{\vR}^n}}{||H||_{{\vR}^n}}
                   \underset{K \to \mathbb{0}_n}{\longrightarrow} 0 \tag{8} \] 
                   \[ (6), (8) \implies \Phi \text{ дифференцируема в } Y \] 
                   Получаем следующие равенства:
-
+ 
                   \[ D\Phi(Y) = (DF(X))^{-1} \tag{9} \] 
                   \[ \text{ где } Y = F(X) \Leftrightarrow X = \Phi(Y) \] 
                   то, что мы доказали, влечёт следующее: если мы рассмотрим координатные функции $F$,
@@ -279,7 +279,7 @@
                (12) \implies \Phi \in C^1(V) \end{gather*}
                \end{enumerate}
         \end{longProof}
-
+ 
         \begin{corollary} %мне кажется, что лучше так, чем с gather
             \begin{align*}
                r \geq 1, F \in C^r(E)\\
@@ -313,7 +313,7 @@
              \lambda > 0, ||(DF(X_0)^{-1})|| = \frac{1}{4\lambda} \\
             \implies B_{\lambda r}(Y_0) \subset F(B_r(X_0)) \tag{шаг 3} \\
              F(B_r(X_0)) \subset F(w)  \end{gather*}
-
+ 
         \end{proof}
       \begin{theorem}[О неявном отображении]
          \begin{align*}
@@ -363,7 +363,7 @@
        X_0 = -(A^{-1}B)Y_0 \tag{2'} 
       \end{gather*}
       \end{theorem}
-
+ 
       \begin{theorem}[О неявном отображении в общем случае]
          \begin{gather*}
          E \subset {\vR}^{n+m}, Z \in E, Z = \begin{bmatrix*}
@@ -398,7 +398,7 @@
                f^\prime_{my_1}(Z_0) & \ldots & f^\prime_{my_m}(Z_0) \\
             \end{bmatrix*}
          \end{align*}
-
+ 
          \begin{gather*}
           DF(Z_0) = [AB] \\
          A \text{ обратима } \tag{1} \\
@@ -417,7 +417,7 @@
           \end{bmatrix*}\right) = \mathbb{0}_n \tag{2'}
           \end{gather*}
          \end{theorem}
-
+ 
          \begin{longProof}
             \begin{gather*}
           \Phi: E \rightarrow {\vR}^{n+m} \\ 
@@ -437,20 +437,23 @@
                \mathbb{0}_n \\
                Y_0
             \end{bmatrix*} \tag{6} \\
-            D \Phi(Z_0) = \begin{bmatrix*}
-               f^\prime_{1x_1}(\ldots) & \ldots & f^\prime_{1x_n} &f^\prime_{1y_1} & \ldots & f^\prime_{1y_m} \\
-               \ldots & \ddots & \ldots & \ldots & \ddots & \ldots \\
-               f^\prime_{nx_1} & \ldots & f^\prime_{nx_n} & f^\prime_{ny_1} & \ldots & f^\prime_{ny_m} \\
-                & & &  \begin{array}{c|c}
-                    & \\
-                  \hline
-                  0 & \begin{matrix}
-                     1 & \ldots & 0 \\
-                     \vdots & \ddots & \vdots \\
-                     0 & \ldots & 1
-                  \end{matrix} \\
-               \end{array} & &
-            \end{bmatrix*}  \\
+            D \Phi(Z_0) = \left(\begin{array}{c|c}
+               \begin{matrix*}
+                 f^\prime_{1x_1} & \ldots & f^\prime_{1x_n} \\
+                 \vdots & \ddots & \vdots \\
+                 f^\prime_{nx_1} & \ldots & f^\prime_{nx_n} \\
+               \end{matrix*} & \begin{matrix*}
+                                 f^\prime_{1y_1} & \ldots & f^\prime_{1y_m} \\
+                                 \vdots & \ddots & \vdots \\
+                                 f^\prime_{ny_1} & \ldots & f^\prime_{ny_m} \\
+                               \end{matrix*}                    \\
+               \hline
+0                & \begin{matrix*}
+                  1 & & \ldots & & 0 \\
+                  \vdots &  & \ddots & & \vdots \\
+                  0 & & \ldots & & 1
+               \end{matrix*} \\
+            \end{array}\right) \\
              def D\Phi(Z_0) = \det A \ne 0 \\
             \text{По теореме об обратном отображении} \\
              \exists Z_0 \in U, \begin{bmatrix*}
@@ -494,7 +497,7 @@
                   Y 
                \end{bmatrix*} \in B_r^{m+n}(P_0)
              \end{align*}
-
+ 
             \begin{gather*}
               W = B_r^m(Y_0) \\
              Хотим определить функцию 
@@ -562,4 +565,92 @@
              \end{bmatrix*} \tag{14}  \\
              (14) \implies g(Y) = g_1(Y) \end{gather*}
       \end{longProof} 
+ 
+      \section*{Вычисление матрицы Якоби функции (отображения), заданной неявно}
+ 
+      \begin{gather*}
+         E \subset {\vR}^{n+m} \quad Z_0 \in E \quad Z_0 = \begin{bmatrix*}
+            X_0 \\
+            Y_0
+         \end{bmatrix*} \quad X_0 \in {\vR}^n, Y_0 \quad \in {\vR}^m \\
+         F: E \rightarrow {\vR}^n \quad F \in C^1(E) \quad F(Z_0) = \mathbb{0}_n \quad
+         F = \begin{bmatrix*}
+            F_1 \\
+            \vdots \\
+            F_n
+         \end{bmatrix*} \\
+         A(Z) = \begin{bmatrix*}
+            F^\prime_{1x_1}(Z) & \ldots & F^\prime_{1x_n}(Z) \\
+            \ldots & \ddots & \ldots \\
+            F^\prime_{nx_1}(Z) & \ldots & F^\prime_{nx_n}(Z)
+         \end{bmatrix*} \tag{1} \\
+         \det A \ne 0  \\
+         B(Z) = \begin{bmatrix*}
+            F^\prime_{1y_1}(Z) & \ldots & F^\prime_{1xy_m}(Z) \\
+            \ldots & \ddots & \ldots \\
+            F^\prime_{my_1}(Z) & \ldots & F^\prime_{my_m}(Z)
+         \end{bmatrix*}  \tag{2}\\
+         A(Z_0) = \begin{bmatrix*}
+            F^\prime_{1x_1}(Z_0) & \ldots & F^\prime_{1x_n}(Z_0) \\
+            \ldots & \ddots & \ldots \\
+            F^\prime_{nx_1}(Z_0) & \ldots & F^\prime_{nx_n}(Z_0)
+         \end{bmatrix*} \\
+         B(Z_0) = \begin{bmatrix*}
+            F^\prime_{1y_1}(Z_0) & \ldots & F^\prime_{1xy_m}(Z_0) \\
+            \ldots & \ddots & \ldots \\
+            F^\prime_{my_1}(Z_0) & \ldots & F^\prime_{my_m}(Z_0)
+         \end{bmatrix*} \\
+         g(Y_0) = X_0 \\
+         F \left(\begin{bmatrix*}
+            g(Y) \\
+            Y
+         \end{bmatrix*} \right) = \mathbb{0}_n  \tag{1\prime}\\
+         \forall y \in W \\
+         (1\prime) \implies D(F\left(\begin{bmatrix*}
+            g(Y) \\
+            Y
+         \end{bmatrix*}\right)) = \mathbb{0}_{\ldots} \\
+         P(Y) = \begin{bmatrix*}
+            g(Y) \\
+            Y
+         \end{bmatrix*} \quad
+         P: W \rightarrow {\vR}^{n+m} \\
+         DF(P(Y)) = \mathbb{0}_{\ldots} \\
+         DF(Z)DP(Y) = \mathbb{0}_{\ldots} \tag{3} \\
+         \text{ в } (3) Z = P(Y) \\
+         g(Y) = \begin{bmatrix*}
+            g_1(Y) \\
+            \vdots \\
+            g_n(Y) 
+         \end{bmatrix*} \quad Y = \begin{bmatrix*}
+            y_1 \\
+            \vdots \\
+            y_m
+         \end{bmatrix*} \\
+         DP(Y) = \begin{bmatrix*}
+            g^\prime_{1y_1}(Y) & \ldots & g^\prime_{1y_m}(Y) \\
+            \ldots & \ddots & \ldots \\
+            g^\prime_{ny_1}(Y) & \ldots & g^\prime_{ny_m}(Y) \\
+            1 & \ldots & 0 \\
+            \ldots & \ddots & \ldots \\
+            0 & \ldots & 1
+         \end{bmatrix*} \tag{4} \\
+      \end{gather*}
+      \begin{gather*}
+         (1), (2) \implies DF(Z) = [A(Z)B(Z)] \tag{5} \\
+         (3), (4), (5) \implies \left[ \underbrace{A(Z)B(Z)}^{n+m} \right] \begin{bmatrix*}
+            Dg(Y) \\
+            I_m
+         \end{bmatrix*} = \mathbb{0}_{\ldots} \tag{6} \\
+         (6): A(Z) Dg(Y) + B(Z) I_m = \mathbb{0}_{\ldots}  \Leftrightarrow
+         A(Z) Dg(Y)= -B(Z) \tag{7} \\
+         (7) \implies Dg(Y) = -\left(A^{-1}\left( \begin{bmatrix*}
+            g(Y) \\
+            Y
+         \end{bmatrix*}  \right) \right) B \left( \begin{bmatrix*}
+            g(Y) \\
+            y
+         \end{bmatrix*} \right) \tag{8} 
+         % Таким образом при вычислении матрицы якоби в неявном отображении мы переходим к следующему:
+       \end{gather*}
 \end{document}
