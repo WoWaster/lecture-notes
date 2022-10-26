@@ -35,10 +35,10 @@ $W_{X-\lambda} = R_{\lambda} = \{v \ | \ \exists j:(X-\lambda)^j (\mca) (v) = 0\
   Высота корневого вектора $v$ -- это минимальное $h$ такое, что $(\mca - \lambda \mse)^h (v) = 0$.
 \end{definition}
 
-Корневой вектор высоты 0 -- это 0, 1 -- собсвтенные векторы, 2 -- такие $v$, что $(\mca - \lambda \mse)(v)$ - собственный вектор,
+Корневой вектор высоты 0 -- это 0, 1 -- собственные векторы, 2 -- такие $v$, что $(\mca - \lambda \mse)(v)$ -- собственный вектор,
 $h$ -- $\Ker(\mca - \lambda \mse)^h \setminus \Ker(\mca - \lambda \mse)^{h-1}$.
 
-Очевидно, $R_{\lambda} = \bigcup_{h \in \N} \underbrace{Ker(\mca - \lambda \mse)^h}_{= R_{\lambda, h}}$.
+Очевидно, $R_{\lambda} = \bigcup_{h \in \N} \underbrace{Ker(\mca - \lambda \mse)^h}_{:= R_{\lambda, h}}$.
 
 $\underbrace{R_{\lambda, 0}}_{=0} \subset \underbrace{R_{\lambda, 1}}_{= V_{\lambda}} \subset R_{\lambda, 2} \subset \ldots \subsetneq  R_{\lambda, N_{\lambda}} = R_{\lambda, N_{\lambda} + 1} \Rightarrow
   R_{\lambda} = R_{\lambda, N_{\lambda}}$.
@@ -104,7 +104,7 @@ $(x - \lambda)^{N_{\lambda}}(\mca |_{R_{\lambda}}) = 0 \Rightarrow (\mca |_{R_{\
 
 Построение жорданового базиса для нильпотентного оператора.
 
-$\mcb$ - нильпотент, $N$ - индекс нильпотентности.
+$\mcb$ -- нильпотент, $N$ -- индекс нильпотентности.
 
 $\mu_{\mcb} = x^N, \ V = R_0 = R_{0, N} \supsetneq R_{0, N-1} \supset \ldots \supset R_{0, 1} \supset R_{0, 0} = \{0\}$
 
@@ -119,6 +119,158 @@ $\mu_{\mcb} = x^N, \ V = R_0 = R_{0, N} \supsetneq R_{0, N-1} \supset \ldots \su
   Пусть $\alpha_1 \mcb v_1 + \ldots + \alpha_s \mcb v_s \in R_{0, m-2}. \ \mcb^{m-2}(\alpha_1 \mcb v_1 + \ldots \alpha_s \mcb v_s) =
     \mcb^{m-1}(\alpha_1 \mcb v_1 + \ldots \alpha_s \mcb v_s) = 0 \Rightarrow \alpha_1 \mcb v_1 + \ldots \alpha_s \mcb v_s \in \Ker B^{m-1} = R_{0, m-1}
     \Rightarrow \alpha_1 = \ldots = \alpha_s = 0$.
+\end{proof}
+
+\begin{remark}
+  $\mcb$  нильпотентный $\Rightarrow$ единственное собственное значение $\mcb$ -- это 0.
+\end{remark}
+
+\begin{proof}
+  Допустим, $\mcb v = \lambda v, \ \lambda\neq 0$. Тогда $0 = \mcb^N v = \lambda^N v$  -- противоречие. Появляющиеся жордановы клетки имеют собственное значение ноль.
+  \begin{gather*}
+    \begin{array}{c|c|c}
+       &                                     & \\
+      \hline
+       & \begin{matrix}
+           0      & 0      & \ldots & 0 & 0 \\
+           1      & 0      & \ldots & 0 & 0 \\
+           0      & 1      & \ldots & 0 & 0 \\
+           \vdots & \vdots & \ddots & 0 & 0 \\
+           0      & 0      & \ldots & 1 & 0 \\
+         \end{matrix} &      \\
+      \hline
+       &                                     & \\
+    \end{array} \\
+    e_l \stackrel{\mcb}{\mapsto} e_{l+1} \stackrel{\mcb}{\mapsto} \ldots \stackrel{\mcb}{\mapsto} 0
+  \end{gather*}
+  Базисные векторы разбиваются на такие цепочки, а последний переходит в ноль. Наша задача строить такие цепочки.
+\end{proof}
+
+$e_{N, 1}, \ e_{N, 2}, \ \ldots, e_{N, q_N}$ -- базис $R_{0, N}$ относительно $R_{0, N-1}$.
+Подействуем на каждый вектор оператором $\mcb$, соответственно, их высота уменьшится на единицу.
+$e_{N-1, 1}, \ e_{N-1, 2}, \ \ldots, e_{N-1, q_N} \in R_{0, N-1}$, линейно независимы относительно $ R_{0, N-2}$.
+Дополним этот набор $e_{N-1, q_N+1}, \ \ldots, e_{N-1, q_{N-1}}$, получили базис  $R_{0, N-1}$ относительно $R_{0, N-2}$. Повторяем эти действия, пока не дойдем до высоты 1:
+$e_{1, 1}, \ e_{1, 2}, \ \ldots, e_{1, q_2} \in R_{0, 1} = V_0$, линейно независимы относительно $ R_{0, 0} = \{0\}$.
+Тогда $e_{1, 1}, \ e_{1, 2}, \ \ldots, e_{1, q_2}$, $e_{1, q_2+1}, \ e_{1, q_2+2}, \ \ldots, e_{1, q_1}$ -- базис $R$,
+$e_{1, 1}, \ e_{1, 2}, \ \ldots, e_{1, q_1}$ и $e_{2, 1}, \ e_{2, 2}, \ \ldots, e_{2, q_2}$ в совокупности -- базис $R_2$
+
+Индукцией по $k$ мы получаем, что $(e_{i,j} \  | \ 1 \leq i \leq k_j, \ 1 \leq j \leq q_i)$ -- базис $R_{0, k}$.
+Найденный базис состоит из $\underbrace{(e_{i,j} \  | \ 1 \leq i \leq k_j-1, \ 1 \leq j \leq q_i)}_{\textrm{базис $R_{0, k-1}$ по ИП}}$
+и $\underbrace{(e_{k,j} \  | \ 1 \leq j \leq q_k)}_{\textrm{базис $R_{0, k}$ отн. $R_{0, k-1}$}}$. Следовательно, все $e_{i,j}$ образуют базис
+$R_{0, N} = R_0 = V$.
+
+Легко видеть, что найденный базис -- жорданов.
+
+\begin{gather*}
+  [\mcb]_E = diag(\underbrace{J_N(0), \ldots, J_N(0)}_{q_N}, \underbrace{J_{N-1}(0), \ldots, J_{N-1}(0)}_{q_{N-1}-q_N}, \ldots, \underbrace{J_1(0), \ldots, J_1(0)}_{q_1-q_2})
+\end{gather*}
+
+Пусть $\mca \in \End V$, такое что  $\chi_{\mca} = \pm \prod_{i=1}^m (x-\lambda^i)^{\alpha_{\lambda_i}} \Rightarrow
+  V = \bigoplus_{i=1}^m R_{\lambda_i}$.
+
+$\mcb_i = (\mca - \lambda_i\mse) |_{R_{\lambda_i}}$ -- нильпотентный $\Rightarrow$ в $R_{\lambda_i}$ существует жорданов базис для $\mcb_i \Rightarrow$ для $\mca|_{R_{\lambda_i}}$.
+Объединяя эти базисы, получим жорданов базис для $\mca$.
+
+В $R_{\lambda_i}$ есть базис $E_i$, такой что $[\mcb_i]_{E_i} = diag(J_m(0), \ldots) \Rightarrow
+  [\mca|_{R_{\lambda_i}}]_{E_i} = [\mcb_i+\lambda_i \mse{R_{\lambda_i}}]_{E_i} =
+    [\mcb_i]_{E_i}+ \lambda_i E_{dim R_{\lambda_i}} = diag(J_m(\lambda_i), \ldots)$.
+
+*здесь должен был быть кусок с кроссвордом*
+
+\begin{proposition}
+  Пусть $\chi_{\mca}$ раскладывается на линейные множители. Тогда жорданова форма $\mca$
+  определена однозначно с точностью до порядка следования клеток.
+\end{proposition}
+
+\begin{proof}
+  $\lambda$ -- собственное значение $\mca$. $m_{j, \lambda}$ -- количество жордановых клеток вида
+  $J_j(\lambda)$, докажем, что $m_{j, \lambda}$ - инвариант $\mca$. $d_j = dim R_{\lambda_i}$ -- инвариант $\mca$.
+  $E$ - жорданов базис $\mca$. Переупорядочивая $E$, считаем, что:
+  $[\mca]_E = diag(\underbrace{J_1(\lambda), \ldots, J_1(\lambda)}_{m_1, \lambda}, \underbrace{J_2(\lambda), \ldots, J_2(\lambda)}_{m_2, \lambda}, \ldots, \underbrace{J_N(\lambda), \ldots, J_N(\lambda)}_{m_N, \lambda}, J_p(\mu), \ldots)$.
+
+\end{proof}
+
+\newpage
+
+Посчитаем $d_j$, для этого рассмотрим оператор $\mcb = \mca - \lambda \mse$.
+
+\begin{gather*}
+  \left.
+  \begin{array}{ccc}
+    \ \quad \quad \quad \quad \quad \quad \quad \ \bullet\longmapsto 0 \\
+    \ \quad \quad \quad \quad \quad \quad \quad \ \vdots               \\
+    \ \quad \quad \quad \quad \quad \quad \quad \ \bullet\longmapsto 0 \\
+  \end{array}
+  \right\} m_{1,\lambda} \\
+  \left.
+  \begin{array}{ccc}
+    \ \quad \quad \quad \quad \quad \bullet \longmapsto \bullet \longmapsto 0  \\
+    \ \quad \quad \quad \quad \ \ \vdots \quad \quad \ \vdots                  \\
+    \ \quad \quad \quad \quad \quad  \bullet \longmapsto \bullet \longmapsto 0 \\
+  \end{array}
+  \right\} m_{2,\lambda} \\
+  \left.
+  \begin{array}{ccc}
+    \bullet \longmapsto \ \ \  \dots \ \ \  \bullet\longmapsto\bullet\longmapsto 0                 \\
+    \vdots \quad \quad \quad \quad \quad  \vdots \quad \quad \ \vdots                              \\
+    \underbrace{\bullet\longmapsto \ \ \  \dots \ \ \  \bullet\longmapsto\bullet\longmapsto 0}_{N} \\
+  \end{array}
+  \right\} m_{N,\lambda} \\
+  \text{ } \bullet\longmapsto \dots \\
+  \text{ } \bullet\longmapsto \dots \\
+  \text{ } \bullet\longmapsto \dots \\
+\end{gather*}
+
+$d_1 = \dim\Ker{\mcb} = m_{1,\lambda} + \ldots + m_{N,\lambda}$
+
+$d_2 = \dim\Ker{\mcb}^2 = m_{1,\lambda} + 2m_{2,\lambda} + \ldots + 2m_{N,\lambda} = d_1 + m_{2,\lambda}+ \ldots + m_{N,\lambda}$
+
+$d_3 = d_2 + m_{3,\lambda} + \ldots + m_{N,\lambda}$
+
+$\dots \ \ \ \ \dots \ \ \ \ \dots$
+
+$d_N = d_{N-1} + m_{N,\lambda}$
+
+\[
+  \rotatebox[origin=c]{270}{$\Rightarrow$}
+\]
+
+
+$d_1 = m_{1,\lambda} + \ldots + m_{N,\lambda}$
+
+$d_2 - d_1 = m_{2,\lambda} \ldots + m_{N,\lambda} $
+
+$d_3 - d_2 = m_{3,\lambda} + \ldots + m_{N,\lambda}$
+
+$\dots \ \ \ \ \dots \ \ \ \ \dots$
+
+$d_N - d_{N-1} = m_{N,\lambda}$
+
+\[
+  \rotatebox[origin=c]{270}{$\Rightarrow$}
+\]
+
+$d_1 - (d_2 -d_1) = m_{1,\lambda}$
+
+$(d_2 - d_1) -(d_3- d_2) = m_{2,\lambda}$
+
+$\dots \ \ \ \ \dots \ \ \ \ \dots$
+
+$(d_{N-1} - d_{N-2}) -(d_N -d_{N-1}) = m_{N,\lambda}$
+
+\[
+  m_{k,\lambda} = -d_{k-1}+2d_k-d_{k+1},\ k = 1,\ldots, N
+\]
+
+\begin{remark}
+  Максимальный порядок жордановой клетки с собственным значением $\lambda$
+  равен кратности $(x - \lambda)$ в $\mu_{\mca}$.
+\end{remark}
+
+\begin{proof}
+  $e_1, \ldots, e_n$ -- жорданов базис, $\mu_{\mca}=$ НОК $(\mu_{\mca, e_i} | i = 1, \ldots, n)$. Смотрим, где столбец пересекается с жордановой клеткой.
+  $(\mca - \lambda \mse)^s e_i = 0, \ (\mca - \lambda \mse)^(s-1) e_i \neq 0$, где $s$ -- количество столбцов, включая $i$, попавших в эту клетку.
+  Следовательно, $\mu_{\mca, e_i} = (x - \lambda)^s$, максимальное значение $s$ -- максимальный порядок жордановой клетки с собственным значением $\lambda$.
 \end{proof}
 
 

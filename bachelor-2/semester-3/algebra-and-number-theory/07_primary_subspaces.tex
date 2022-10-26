@@ -89,7 +89,7 @@
 
 \begin{proposition}
     Пусть $f(\mca) = 0$, $f = \epsilon {p_1}^{r_1} \ldots {p_s}^{r_s}$, $\epsilon \in K^*$,
-    $p_i$ попарно неассоциативные неприводимые многочлены. Тогда $V = W_{p_1} \oplus \ldots \oplus W_{p_s}$, т.е.
+    $p_i$ попарно неассоциированные неприводимые многочлены. Тогда $V = W_{p_1} \oplus \ldots \oplus W_{p_s}$, т.е.
     \begin{enumerate}
         \item $V = W_{p_1} + \ldots + W_{p_s}$
         \item $ 0 = w_1 + \ldots + w_s, \ w_j \in W_{p_j} \Rightarrow w_1 = \ldots = w_s = 0$ (равносильно условию, что $V$ единственным образом представляется в виде суммы $W_{p_1}, \ldots, W_{p_s}$: $v = w_1 + \ldots + w_s = w'_1 + \ldots + w'_s \Rightarrow (w_1 - w'_1) + \ldots + (w_s - w'_s) = 0 \Rightarrow w_i - w'_i = 0$).
@@ -104,15 +104,15 @@
     Переход: $f = gh, \ g = \mse {p_1}^{r_1} \ldots {p_{s-1}}^{r_{s-1}}$, $h = {p_s}^{r_s}$, $(g, h) = 1 \Rightarrow
         V = V' \oplus V'', \ g(\mca |_{V'}) = 0, \ h(\mca |_{V''}) = 0$ (по предложению 7.2).
 
-    По индукционному предположению, $V' =  \tilde{W}_{p_1} \oplus \ldots \oplus \tilde{W}_{p_s-1}$.
+    По индукционному предположению, $V' =  \widetilde{W}_{p_1} \oplus \ldots \oplus \widetilde{W}_{p_s-1}$.
 
-    $\tilde{W}_{p_j}$ - максимальной $p_j$-примарное подпространство для $\mca |_{V'}$.
-    $\forall v \in \tilde{W}_{p_j}$: $\mu_{\mca |_{V'}, v} = \mu_{\mca, v} \Rightarrow \tilde{W}_{p_j} \subset W_{p_j}$.
+    $\widetilde{W}_{p_j}$ -- максимальной $p_j$-примарное подпространство для $\mca |_{V'}$.
+    $\forall v \in \widetilde{W}_{p_j}$: $\mu_{\mca |_{V'}, v} = \mu_{\mca, v} \Rightarrow \widetilde{W}_{p_j} \subset W_{p_j}$.
 
     ${p_s}^{r_s}(\mca |_{V''}) = 0 \Rightarrow V'' - p_s$-примарное $ \Rightarrow
         V'' \subset W_{p_s}$.
 
-    $V = \tilde{W}_{p_1} \oplus \ldots \oplus \tilde{W}_{p_{s-1}} \oplus V'' \subset W_{p_1} + \ldots + \tilde{W}_{p_{s-1}} \subset W_{p_1} + \ldots + W_{p_s}$.
+    $V = \widetilde{W}_{p_1} \oplus \ldots \oplus \widetilde{W}_{p_{s-1}} \oplus V'' \subset W_{p_1} + \ldots + \widetilde{W}_{p_{s-1}} \subset W_{p_1} + \ldots + W_{p_s}$.
 
     Таким образом, $V = W_{p_1} + \ldots + W_{p_s}$.
 

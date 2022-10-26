@@ -1,0 +1,86 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+
+\chapter{Двойственное пространство}
+
+\begin{definition} [Двойственное пространство]
+    V -- линейное пространство над полем K, $V^*=\Hom(V,K)$ называется двойственным (дуальным, сопряженным) к V пространством, его элементы -- линейные функционалы.
+\end{definition}
+
+$V, \ W$ -- конечномерные $\Rightarrow$ $\dim\Hom(V,W) = \dim V \dim W$, где $\dim V = n,\dim W = m$.
+В нашем случае, если $\dim V = n < \infty$, то $\dim V^* = n$.
+
+Пусть $e_1,\dots,e_n \text{ -- базис } V$.
+$e^j : \underset{\alpha_1e_1+\dots+\alpha_ne_n \mapsto \alpha_j}{V \to K}$ -- линейное отображение, тем самым $e^j \in V^*$.
+
+\begin{proposition}
+    $e^1,\dots,e^n$ -- базис $V^*$.
+\end{proposition}
+\begin{proof}
+    Проверим линейную независимость: \\
+    Пусть $\lambda_1e^1 + \dots + \lambda_ne^n = 0 \Rightarrow (\lambda_1e^1+\dots+\lambda_ne^n)(e_i)=0$.
+
+    Так как $e^j(e_i)=\delta_{ij}=
+        \begin{cases}
+            1, \ i = j     \\
+            0 , \ i \neq j \\
+        \end{cases}
+    $, $\lambda_1e^1(e_i) + \dots + \lambda_ne^n(e_i) = \lambda_i$.
+    Таким образом, $e^1,\dots,e^n$ -- ЛНС.
+\end{proof}
+
+Убедимся, что любой линейный функционал раскладывается по такому базису.
+
+Пусть $f \in V^*$.
+
+\begin{gather*}
+    f(e_i) = \lambda_i , \ i = 1,\dots, n \\
+    f_0 = \lambda_1e^1 + \dots + \lambda_ne^n \in V^* \\
+    f_0(e_i) = \lambda_i , \ i = 1,\dots, n \\
+\end{gather*}
+Получается. что у $f$ и $f_0$ совпадают значения на всех базисных векторах.
+
+Таким образом $f = f_0$. Следовательно, $V^* = Lin(e^1,\dots,e^n)$.
+
+$e^1, \ldots,e^n$ -- базис $V^*$, двойственный к $e_1,\dots, e_n$.
+\begin{example}
+    $V = \{(a_i) \mid a_i \in K, \ i = 1,2,\dots, \ a_i = 0 \text{ при достаточно больших } i \}$.
+    Возьмем $W=\{(a_i) \mid a_i \in K, i = 1,2,\dots \}$.
+
+    \[\underset{(b_i)\mapsto((a_i)\mapsto \sum_{i = 1}^{\infty}a_ib_i)}{W \overset{\varepsilon}{\longrightarrow} V^*}\]
+
+    Легко понять, что $\varepsilon$ -- инъективное: eсли $b_i \neq b_i'$, то в $\varepsilon((b_i))$ и $\varepsilon((b_i'))$ подставим $e_i = (0, \ldots, 1_i, \ldots, 0) \in V$: $\varepsilon((b_i))(e_i) = b_i$ \neq $\varepsilon((b_i'))(e_i) = b_i'$.
+\end{example}
+
+\begin{proposition}
+    $\varepsilon: \underset{v \mapsto \varepsilon v}{V \to V^{**}}$ -- изоморфизм линейных пространств при условии,  что $\dim V=n < \infty$
+\end{proposition}
+
+\begin{proof}
+    $\Ker\varepsilon = 0 ?$
+    Пусть $v \in \Ker\varepsilon$ и $v \neq 0$, дополним до базиса $e_1=v_1, e_2,\dots,e_n$.
+    Пусть $e^1,\dots, e^n$ -- двойственный базис.
+    $\varepsilon_v(e^1)=e^1(v) = e^1(e_1) = 1 \Rightarrow$ противоречие, так как $\varepsilon_v(e^1) = 0
+        \Rightarrow \dim \Im \varepsilon = \dim V - 0 = n = \dim V^{**} \Rightarrow \Im \varepsilon = V^{**}$.
+\end{proof}
+
+$\mathcal{A} \in \Hom(V,W)$,\ $V \overset{\mathcal{A}}{\to} W \overset{f}{\to} K$.
+
+Определим $\mathcal{A}^T$ (двойственное к $\mathcal{A}$): $\underset{f \mapsto f \circ \mathcal{A}}{W^* \to V^*}$.
+
+Очевидно, $\mca^T \in \Hom(W^*,V^*)$.
+
+\begin{proposition}
+    Пусть $E,F$ - базисы V, W, $\dim E = n, \ \dim F = m$, $E', F'$ -- двойственные к ним базисы $V^*, W^*$, $\dim E' = n, \ \dim F' = m$.
+
+    Пусть $\mca \in \Hom(V,W), \ [\mathcal{A}]_{E,F} = A$. Тогда $[\mathcal{A}^T]_{F',E'} = A^T$.
+\end{proposition}
+
+\begin{proof}
+    $A = (a_{ij})$, $[\mathcal{A}^T]_{F',E'} = (b_{ij})$.
+
+    $\underbrace{\mathcal{A}^T(f^j)}_{=f^j\circ \mathcal{A}} = b_{1j}e^1+\dots+b_{n,j}e^n \Rightarrow  (f^j \circ \mathcal{A})(e_j) = b_{ij} = f^j(\mathcal{A}e_j)=f^j(a_{1i}f_1+\dots+a_{mi}f_m)=a_{ji}$.
+\end{proof}
+
+\end{document}
