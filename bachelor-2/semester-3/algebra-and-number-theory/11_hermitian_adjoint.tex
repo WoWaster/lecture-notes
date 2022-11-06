@@ -1,0 +1,112 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+
+\chapter{Сопряженный оператор}
+
+$V$ -- евклидово (унитарное) пространство.
+
+\begin{proposition}
+    $\mca, \ \mcb \in \End V, \ \alpha in K$
+    \begin{enumerate}
+        \item $(\mca + \mca)^* = \mca^* + \mcb^*$
+        \item $(\alpha \mca)^* = \overline{\alpha} \mca^*$
+        \item $(\mca \mcb)^* = \mcb^* \mca^*$
+        \item $\mca^{**} = \mca$
+    \end{enumerate}
+\end{proposition}
+
+Каждый раз при доказательстве будем использовать характеристическое свойство.
+
+\begin{proof}
+    \begin{enumerate}
+        \item Достаточно проверить: $\forall v, w \in V: \ ((\mca + \mcb)v, w) = (v, (\mca^* + \mcb^*) w)$. \\
+              Когда мы это проверим, то окажется, что $(\mca + \mcb)$ сопряжены с $(\mca^* + \mcb^*)$, а это как раз то, что нам нужно доказать.
+              \begin{multline*}
+                  ((\mca + \mcb)v, w) = (\mca v + \mcb v, w) = \\
+                  = (\mca v, w) + (\mcb v, w) = (v, \mca^* w) + (v, \mcb^* w) = \\
+                  = (v, (\mca^* + \mcb^*), w)
+              \end{multline*}
+        \item
+
+              $(\alpha \mca, w) = \alpha(\mca v, w) = \alpha(v, \mca^* w) = (v, \overline{\alpha} \mca^* w)$
+
+        \item  $((\mca \mcb)v, w)= (\mca(\mcb v), w) = (\mcb v, \mca^* w) = (v, \mcb^* \mca^* w) $
+        \item Достаточно проверить: $\forall v, w \in V: \ (\mca^* v, w) = (v,\mca w)$. \\
+              $(\mca^* v, w) = \overline{(w, \mca^* v)} = \overline{(\mca w, v)} = (v, \mca w) $
+    \end{enumerate}
+\end{proof}
+
+Теперь рассмотрим характеризацию сопряженного оператора на матричном языке.
+
+Пусть $E = (e_1, \ldots, e_n)$ -- ортонормированный базис $V$.
+
+$[\mca]_E = A = (a_{ij}), \ [\mca^*]_E = B = (b_{ij})$.
+
+Как связаны эти матрицы между собой?
+Первое ознаает, что $\mca e_j = \sum_{i=1}^n a_{ij} e_i$. Скалярно умножем это равенство на $e_k$:
+$\mca e_j e_k = a_{kj}$, т.к. базис ортонормированный, с другой стороны $\mca e_j e_k = (e_j, \mca^* e_k)$.
+Для $e_k$ запишем: $\mca^* e_k = \sum_{i=1}^k b_{i, k} e_i$. Подставим это в предыдущее равенство:
+$(e_j, \mca^* e_k) = (e_j, \sum_{i=1}^k b_{i, k} e_i) = (e_j, b_{j, k} e_j) = \overline{b_{j, k}} \Rightarrow
+    b_{j, k} = \overline{a_{k, j}}$.
+
+Таким образом, $B = \overline{A}^T = A^*$.
+
+\begin{proposition}
+    Пусть $U \subset V$ инвариантно относительно $\mca$. Тогда $U^{\perp}$ инвариантно относительно $\mca^*$.
+\end{proposition}
+
+\begin{proof}
+    Нужно проверить: $\forall w \in U^{\perp} \ \mca^* w \in U^{\perp}$.
+
+    $\forall u \in U \ (u, \mca^* w) = (\underbrace{\mca u}_{\in U}, \underbrace{w}_{\in U^{\perp}}) = 0$. Voila!
+\end{proof}
+
+\begin{definition}
+    $\mca \in \End V$ называется самосопряженным, если $\mca = \mca^*$.
+\end{definition}
+
+Если  $\mca = \mca^*$, рассмотрим отображение $\mcb: \ \underset{V\times V \rightarrow K}{(v, w) \mapsto (\mca v, w)}$.
+\[\mcb(w, v) = (\mca w, v) = (w, \mca^* v) = (w, \mca v) = \overline{(\mca v, w)} = \overline{(\mcb v, w)}\]
+
+Таким образом, $\mcb$ -- эрмитова форма.
+
+Можно проверить, что все эрмитовы формы так задаются.
+
+\begin{definition}
+    $\mca \in \End V$ в евклидовом (унитарном) пространстве называется ортогональным (соответственно, унитарным),
+    если $\mca \mca^* = \mse_V$.
+\end{definition}
+
+$E$ -- ортонормированный базис. Тогда: $\mca$ ортогональный (унитарный) $\Leftrightarrow AA^* = E_n$.
+В ортогональном случае: $AA^T = E_n \Leftrightarrow$ строки $A$ образуют ортонормированный базис $\R^n$.
+
+\begin{remark}
+    $A$ -- ортогональна $\Leftrightarrow$ $A^T$ -- ортогональна.
+\end{remark}
+
+\begin{proposition}
+    Пусть $\mca \in \End V, \ V$ -- евклидово. Тогда 3 утверждения эквивалентны:
+    \begin{enumerate}
+        \item $\mca$ -- ортогональный.
+        \item $\forall v, \ w \in V: \ (\mca v, \mca w) = (v, w)$.
+        \item $\forall v \in V: \ ||\mca v|| == ||v||$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    $1 \Rightarrow 2: \ (\mca v, \mca w) = (v, \mca^* \mca w) = (v, w)$.
+
+    $2 \Rightarrow 1: \ \forall v, \ w: \underbrace{(\mca v, \mca w)}_{= (v, \mca^* \mca w)} = (v, w) \Rightarrow (v, \mca^* \mca w - w) = 0$.
+
+    $2 \Rightarrow 3: ||\mca v|| = \sqrt{(\mca v, \mca v)} = \sqrt{(v, v)} = ||v||$
+
+    $3 \Rightarrow 2: v, \ w \in V, \ ||v + w||^2 = (v+w, v+w) = ||v||^2 + ||w||^2 + 2(v, w), \
+        ||\mca v + \mca w||^2 = (\mca v + \mca w, \mca v + \mca w) = ||\mca v||^2 + ||\mca w||^2 + 2(\mca v, \mca w)$,
+    по свойству 3 слева стоит одно и тоже, справа первые два слагаемые попарно равны $\Rightarrow (v, w) = (\mca v, \mca w)$.
+\end{proof}
+
+
+
+
+\end{document}

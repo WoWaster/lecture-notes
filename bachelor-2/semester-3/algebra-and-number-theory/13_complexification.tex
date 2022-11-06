@@ -1,0 +1,169 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+
+\begin{document}
+
+\chapter{Комплексификация}
+
+$V$ -- линейное пространство над полем $\R$. Построим $V_{\C}$ -- линейное пространство 
+полем $\C$. Неформально: $V_{\C} = \{v +  iw \ | \ v, \ w \in V\}$ (сложение: вещественные части и мнимые отдельно, 
+умножение на скаляр: $(\alpha + i\beta) (v + iw) = (\alpha v - \beta w) + i(\beta v + \alpha w)$).
+
+$V_{\C} = V\times V$. На этом множестве введем сложение и умножение на комплексные скаляры.
+\begin{gather*}
+    (v_1,w_1) + (v_2, w_2) := (v_1 + v_2, w_1 + w_2)  \\
+    (\alpha + i\beta) (v, w) = (\alpha v - \beta w, \beta v + \alpha w)
+\end{gather*}
+
+Нетрудно проверить, что $(V_{\C}, +, \cdot)$ -- линейное пространство над $\C$.
+
+\begin{enumerate}
+    \item Рассмотрим подмножество $V = \{(v, 0) \ | \ v \in V\}$ -- 
+    замкнуто относительно сложения и умножения на вещественные скаляры 
+    ($(\alpha + i0)(v, w) = (\alpha v, 0)$).
+    
+    $\underset{v \mapsto (v, 0)}{V \rightsquigarrow V'}$ -- изоморфизм линейных пространств над $\R$. Следовательно, 
+    $V$ можно рассматривать как линейное пространство над $\R$. Можно отжествить $v$ с $(v, 0)$.
+    \item Можно ли сделать что-то с $(0, w)$? Оказывается, что можно: $(0, w) = i(w, 0)$.
+    \item Таким образом, $(v, w) = (v, 0) + i(w, 0) = v +iw$.
+\end{enumerate}
+
+$V_{\C}$ -- комплексификация $V$.
+
+\begin{corollary}
+    Пусть $e_1, \ldots, e_n$ -- базис $V$. Тогда $e_1, \ldots, e_n$ -- базис $V_{\C}$, где $e_k = e_k + i0, \ 1 \leqslant k\leqslant n $.
+\end{corollary}
+
+\begin{proof}
+    Рассмотрим $u \in V_{\C}$.
+    \begin{gather*}
+        u = v + iw, \ v, \ w \in V \\
+        v = \alpha_1 e_1 + \ldots + \alpha_n e_n \\
+        w = \beta_1 e_1 + \ldots + \beta_n e_n \\
+        \Rightarrow u = (\alpha_1 + i\beta_1) e_1 + \ldots + (\alpha_n + i\beta_n) e_n \in \Lin_{V_{\C}} (e_1, \ldots, e_n)
+    \end{gather*} 
+    Предположим, $u = (\alpha_1 + i\beta_1) e_1 + \ldots + (\alpha_n + i\beta_n) e_n  = 0$.
+    $u = \alpha_1 e_1 + \ldots + \alpha_n e_n + i(\beta_1 e_1 + \ldots \beta_n e_n) \Rightarrow
+    \left\{ \begin{gathered} 
+          \alpha_1 e_1 + \ldots + \alpha_n e_n = 0 \hfill 
+          \\ 
+          \beta_1 e_1 + \ldots + \beta_n e_n = 0 \hfill 
+          \\ 
+        \end{gathered}   \right.\Rightarrow
+        \left\{ \begin{gathered} 
+            \alpha_1 = \ldots = \alpha_n = 0 \hfill 
+            \\ 
+            \beta_1 = \ldots  =\beta_n = 0 \hfill 
+            \\ 
+          \end{gathered} \right.$
+\end{proof}
+
+\begin{corollary}
+    $\dim V_{\C} = \dim V$
+\end{corollary}
+
+По $\mca \in \End V$ построим $\mca_{\C} \in \End V_{\C}$.
+
+\begin{gather*}
+    \mca_{\C}: \ \underset{v+iw \mapsto \mca v + i \mca w}{V_{\C} \rightarrow V_{\C}}
+\end{gather*}
+
+\begin{proposition}
+    $\mca_{\C} \in \End V_{\C}$.
+
+    $\mca_{\C}((v_1+iw_1)+(v_2+ iw_2)) = \mca(v_1 + v_2) + i\mca(w_1 + w_2) =
+    \mca v_1 + \mca v_2 + i\mca w_1 + i\mca w_2 = \mca_{\C}(v_1 + iw_1) + \mca_{\C}(v_2 + iw_2)$
+
+    $\alpha \in \R, \ \mca_{\C}(\alpha(v + iw)) = \mca(\alpha v) + i\mca(\alpha w) = 
+    \alpha(\mca v + i\mca w) = \alpha \mca_{\C}(v+ iw)$
+
+    $\mca_{\C}(i(v+w)) = \mca_{\C}(-w + iv) = \mca(-w) + i\mca v = i(\mca v + i\mca w) = i \mca_{\C}(v + iw)$
+
+    $\Rightarrow \mca_{\C}((\alpha + i\beta)(v+iw)) = (\alpha + i\beta)\mca_{\C}(v+iw)$
+\end{proposition}
+
+\begin{proposition}
+    Пусть $E$ -- базис $V$. Тогда $[\mca_{\C}]_E = [\mca]_E$.
+\end{proposition}
+
+\begin{proof}
+    $[\mca]_E = (a_{kj}), \ \mca e_j = \sum_{k=1}^n a_{kj} e_k. \ \mca_{\C}e_j = \sum_{k=1}^{n}a_{kj}e_k + i0 = \sum_{k=1}^n(a_{kj} + i0)e_k$.
+\end{proof}
+
+\begin{corollary}
+    $\chi_{\mca_{\C}} = \chi_{\mca}$.
+\end{corollary}
+
+\begin{proposition}
+    Пусть $\mca \in \End V$, $\lambda$ -- собственное значение $\mca_{\C}$, $\lambda \not\in \R$;
+    $v_1+iw_1, \ldots, v_l+iw_l$ -- базис $V_{\lambda}$. Тогда $\overline{\lambda}$ -- собственное 
+    значение $\mca_{\C}$ и $v_1-iw_i, \ldots, v_l-iw_l$ -- базис $V_{\overline{\lambda}}$.
+\end{proposition}
+
+\begin{proof}
+    \begin{gather*}
+        \chi_{\mca_{\C}} = \chi_{\mca} \in \R[X] \\
+        \chi_{\mca}(\lambda) = 0 \Rightarrow \chi_{\mca}(\overline{\lambda}) = 0 \\
+    \end{gather*}
+    
+    \begin{remark}
+        $u \in V_{\C}, \ \gamma \in \C \Rightarrow \overline{\gamma u} = \overline{\gamma} \overline{u}. \ \overline{u} = \overline{v + iw} = v - iw$.
+        Проверка: пусть $\lambda = \alpha + i\beta, \ u = v + w$, тогда $\overline{(\alpha + i\beta)(v + iw)} =
+         \overline{\alpha v - \beta w + (\alpha w + \beta v)} = \alpha v - \beta w - i(\alpha w + \beta v) = (\alpha + i\beta)(v - iw) =
+        \alpha v - \beta w -i(\beta v + \alpha w)$.
+    \end{remark}
+
+    \begin{gather*}
+        \underbrace{\mca_{\C}(v_j + iw_j)}_{\mca v_j + i\mca w_j} = \lambda(v_j + iw_j) \\
+        \mca_{\C}(v_j - iw_j) = \mca v_j - i\mca w_j = \overline{(\mca v_j + i\mca w_j)} = \\
+        = \overline{\lambda(v_j + iw_j)} = \overline{\lambda}(v_j-iw_j)
+    \end{gather*}
+
+    Таким образом, $v_1 - iw_1, \ldots, v_l - iw_l \in V_{\overline{\lambda}}$.
+
+    Проверим линейную независимость. Предположим, $\gamma_1(v_1 - iw_1) + \ldots +
+    \gamma(v_l - iw_l) = 0 \Rightarrow \overline{\gamma}(v_1 + iw_1) + \ldots + \overline{\gamma}(v_l + iw_l) = 0 \Rightarrow
+    \overline{\gamma_1} = \ldots = \overline{\gamma_l} = 0 \Rightarrow \gamma_1 = \ldots = \gamma_l = 0 \Rightarrow
+    \dim V_{\overline{\lambda}} \geq \dim V_{\lambda}$.
+
+    Аналогично, $\dim V_{\lambda} \geq \dim V_{\overline{\lambda}} \Rightarrow
+    \dim V_{\lambda} = \dim V_{\overline{\lambda}} = l \Rightarrow 
+    v_1 - iw_i, \ldots, v_l - iw_l$ -- базис $V_{\overline{\lambda}}$.
+\end{proof}
+
+    Далее $V$ -- евклидово пространство. Введем на $V_{\C}$ отображение $\underset{(u, u') \mapsto \mcb(u, u')}{V_{\C}\times V_{\C}\to\C}$, 
+    где $\mcb(v+iw, v'+iw') = (v, v') + (w, w') + i((w, v') - (v, w'))$.
+
+    \begin{proposition}
+        $\mcb$ -- скалярное произведение на $V_{\C}$
+    \end{proposition}
+    \begin{proof}
+        Полуторалинейность -- непосредственная проверка. 
+
+        $\mcb(v'+iw', u+iw) = \overline{\mcb(v + i w, v' + iw')}. 
+        \mcb(v + iw, v + iw) = (v, v) + (w, w) \geq 0$, ($=0$ только при $v = w = 0$).
+
+        Таким образом, $(V_{\C}, \mcb)$ -- унитарное пространство.
+    \end{proof}
+
+    \begin{remark}
+         $e_1, \ldots, e_n$ -- базис V. Тогда: $e_1, \ldots, e_n$ -- ортонормированный базис $V \Leftrightarrow$  $e_1, \ldots, e_n$ -- ортонормированный базис $V_{\C}$.
+    \end{remark}
+
+    \begin{proposition}
+        Пусть $\mca \in \End V$. Тогда $(\mca_{\C})^* = (\mca^*)_{\C}$.
+    \end{proposition}
+
+    \begin{proof}
+        Нужно проверить: $\forall u, \ u' \in V_{\C} \ (\mca_{\C}u, u') = (u, (\mca^*)_{\C} u')$. 
+
+        \begin{gather*}
+            u = v + iw, \ u' = v' + iw' \\
+            (\mca_{\C}u, u') = (\mca v + i \mca w, v' + iw') = \\
+            = (\mca v, v') + (\mca w, w') + i((\mca w, v') - (\mca v, w')) = \\
+            = (v, \mca^* v') + (w, \mca^* w') + i((w, \mca^* v') - (v, \mca^*w)) = \\
+            = (v, \mca^*v' + i\mca^*w') + (w, \mca^*w' - i\mca^* v') = \\
+            = (v, \underbrace{\mca^*v+ i\mca^* w'}_{(\mca^*)_{\C}u'}) + (iw, \underbrace{i(\mca^*w'-i\mca^*v')}_{((\mca^*)_{\C}u')}) = (u, (\mca^*)_{\C} u').
+        \end{gather*}
+    \end{proof}
+\end{document}
