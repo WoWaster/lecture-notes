@@ -423,7 +423,7 @@ $\vb'(s) \perp \vb(s)$ из леммы \ref{dfoc:very_important_lemma},
 
 \begin{theorem}
     Есть регулярная параметризация $\vf(t)$,
-    $\delta(t)$ -- расстояние от $\vf(t)$ до касательной в точке $\vf(t_0)$.
+    $\delta(t)$ -- расстояние от $\vf(t)$ до прямой, проходящей через точку $\vf(t_0)$.
     \begin{center}
         \import{figures/}{approximation1.pdf_tex}
     \end{center}
@@ -436,7 +436,7 @@ $\vb'(s) \perp \vb(s)$ из леммы \ref{dfoc:very_important_lemma},
         \item $\vf(t_0) = (0,0,0)$
         \item $t_0 = 0$
         \item Касательная прямая -- прямая $OX$.
-              Тогда $\vf(0) = (a,0,0)$.
+              Тогда $\vf'(0) = (a,0,0)$.
     \end{itemize}
     Пусть $\vf(t) = (f_1(t), f_2(t), f_3(t))$, выясним что такое $\delta$.
     \[\delta = \sqrt{f_2^2(t) + f_3^2(t)}\]
@@ -474,7 +474,7 @@ $\vb'(s) \perp \vb(s)$ из леммы \ref{dfoc:very_important_lemma},
         \item $\vf(0) = (0,0,0)$
         \item $\vf'(0) = (a,0,0)$ и $\vf''(0) = (b,c,0)$
     \end{enumerate}
-    Тогда соприкасающаяся плоскость, должна быть плоскостью $z=0$. Докажем это.
+    Тогда соприкасающаяся плоскость описывается уравнением $z = 0$ (это следует из вида $\vf'(0)$ и $\vf''(0)$).
 
     Запишем вектор-функцию в координатах: $\vf(t) = (f_1(t), f_2(t), f_3(t))$.
     Пусть плоскость $\alpha$ задана уравнением $Ax+By+Cz+D = 0$ и $A^2 + B^2 + C^2 = 1$.
@@ -509,7 +509,7 @@ $\vb'(s) \perp \vb(s)$ из леммы \ref{dfoc:very_important_lemma},
 \[\vf'(t) = (f_1',f_2',f_3')\]
 
 Построим нормальную плоскость:
-\[f_1'(t_0)(x - f_1(t_0)) + f_2'(t_0)(y - f_2(t_0)) + f_3(t_0)(z - f_3(t_0)) = 0\]
+\[f_1'(t_0)(x - f_1(t_0)) + f_2'(t_0)(y - f_2(t_0)) + f'_3(t_0)(z - f_3(t_0)) = 0\]
 
 Построим соприкасающуюся плоскость:
 для этого найдем вектор главной нормали
@@ -524,7 +524,7 @@ $\vb'(s) \perp \vb(s)$ из леммы \ref{dfoc:very_important_lemma},
 
 \section{Вычисление кривизны и кручения}
 
-В натуральной параметризации $\vf(s_0) = |\vf''(s_0)|$.
+В натуральной параметризации $k(s_0) = |\vf''(s_0)|$.
 \begin{theorem}
     $k \equiv 0 \Leftrightarrow$ кривая является частью прямой.
 \end{theorem}
@@ -552,7 +552,7 @@ $\vb'(s) \perp \vb(s)$ из леммы \ref{dfoc:very_important_lemma},
     \begin{multline*}
         k = |\vg''(s)| = |(\vf(\psi(s)))''| = \\
         | \vf''(\psi(s)) \psi'^2(s) + \vf'(\psi(s)) \psi''(s)| = \\
-        \proj_{\vn} (\vf''(\psi(s)) \psi'^2(s) + \vf'(\psi(s)) \psi''(s))
+        \left|\proj_{\vn} (\vf''(\psi(s)) \psi'^2(s) + \vf'(\psi(s)) \psi''(s))\right|
     \end{multline*}
     Пусть
     \begin{gather*}
@@ -565,9 +565,9 @@ $\vb'(s) \perp \vb(s)$ из леммы \ref{dfoc:very_important_lemma},
 \end{proof}
 
 Если $\vf = (f_1, f_2, f_3)$, то
-\[k = \frac{\sqrt{(f_2'f_3'' - f_3' f_2'')^2 + (f_3'f_1'' - f_1' f_3'')^2 + (f_1'f_2'' - f_2' f_1'')^2}}{(f_1^2 + f_2^2 + f_3^2)^{3/2}}\]
+\[k = \frac{\sqrt{(f_2'f_3'' - f_3' f_2'')^2 + (f_3'f_1'' - f_1' f_3'')^2 + (f_1'f_2'' - f_2' f_1'')^2}}{(f_1'^2 + f_2'^2 + f_3'^2)^{3/2}}\]
 В случае плоских кривых ($f_3 = 0$):
-\[k = \frac{|f_1'f_2'' - f_2' f_1''|}{(f_1^2 + f_2^2)^{3/2}}\]
+\[k = \frac{|f_1'f_2'' - f_2' f_1''|}{(f_1'^2 + f_2'^2)^{3/2}}\]
 При явном задании
 \begin{gather*}
     y = f(x) \quad \begin{cases}
@@ -628,16 +628,6 @@ $\vb'(s) \perp \vb(s)$ из леммы \ref{dfoc:very_important_lemma},
     \[\kappa = \frac{(\vg', \vg'', \vg''')}{k^2}.\]
 \end{theorem}
 \begin{proof}
-    По формулам Френе
-    \[\vb' = - \kappa \vn = - \kappa \frac{\vg'' }{k}\]
-    при этом
-    \[\vb = \frac{\vg' \times \vg''}{k}\]
-    тогда
-    \begin{align*}
-        \vb' & = \left(\frac{\vg' \times \vg''}{k}\right)' =                                          \\
-             & = \frac{(\vg'' \times \vg'') k + (\vg' \times \vg''')k - k'(\vg' \times \vg'')}{k^2} = \\
-             & = -\kappa \frac{\vg''}{k}
-    \end{align*}
     Посмотрим, чем являются производные $\vg$:
     \begin{gather*}
         \vg' = \vv\\
@@ -694,7 +684,7 @@ $\vb'(s) \perp \vb(s)$ из леммы \ref{dfoc:very_important_lemma},
     \begin{gather*}
         \vv_1 (s_0) = \vv_2(s_0)\\
         \vn_1 (s_0) = \vn_2(s_0)\\
-        \vb_1 (s_0) = \vv_2(s_0)
+        \vb_1 (s_0) = \vb_2(s_0)
     \end{gather*}
 
     Заведем скалярную функцию
