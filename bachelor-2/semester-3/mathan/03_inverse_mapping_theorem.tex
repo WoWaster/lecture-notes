@@ -1,0 +1,655 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Теорема об обратном отображении}
+    $E \subset {\vR}^n, n \geq 2$, $x_0 \in E$, $x_0 $ -- внутренняя точка
+    $F: E \rightarrow {\vR}^n$
+    \[F \in C^{1}(w) \tag{1}\]
+    \[ \det DF(x_0) \ne 0 \tag{2}\]
+    Соотношения (1) и (2) влекут:
+        \[F(x_0) = Y_0, \exists x_0 \in v \text{ и }\exists y_0 \in V:
+        F|_v - \text{гомеоморфизм на } V  \tag{3} \]
+        \[ \Phi = F^{-1}, \Phi \in C^1(V) \tag{4}\]
+ 
+        \begin{definition}[Якобиан]
+        $I(x_0) \stackrel{def}{=} \det DF(x_0)$ -- Якобиан отображения $F$ в точке $x_0$
+        \end{definition}
+ 
+        \begin{gather*}
+        \Phi(F(X)) \equiv X \implies D\Phi(Y)DF(X) = DI(X) \implies \\
+        Y = F(X), I(X) \equiv X \\
+        I_n - \text{ единичная матрица в } {\vR}^n \\
+       \implies \det D(\Phi(Y_0)) \cdot \det DF(X_0) = \det I_n = 1
+        \end{gather*}
+        \begin{longProof}
+         \begin{enumerate}
+            \item Будем пользоваться определителем матрицы Якоби. Будем обозначать дальше
+            $DF(x_0) = A$. Условие (2) влечёт $\exists A^{-1}$
+            \[ \text{Будем обозначать }||A^{-1}||  = \frac{1}{4 \lambda}, \lambda> 0
+             \tag{5} \]
+             Раассмотрим такое линейное отображение
+             $x \in w, ||DF(x) - DF(x_0)|| < ||DF(x) - DF(x_0)||_2$
+             \begin{gather*}
+             (\ldots |f^\prime_{ix_j}(x) - f^\prime_{ix_j}(x_0)|^2 + \ldots)^{\frac{1}{2}} \\
+             (1) \implies |f^\prime_{ix_j} - f^\prime_{ix_j}(x_0)|^2 
+             \underset{x \to x_0}{\longrightarrow} 0 \tag{6} \\
+             (6) \implies ||DF(X) - DF(X_0)||_2 \underset{x \to x_0}{\longrightarrow} 0
+             \tag{7} \\
+             (7) \implies ||DF(X - DF(X_0)|| \underset{x \to x_0}{\longrightarrow} 0 \tag{8} \\
+             (8) \implies \exists r > 0: \forall x, ||X-X_0||_{{\vR}^n} < r
+             \text{ имеем } \\
+             DF(X) - DF(X_0)|| < 2\lambda \tag{9} 
+            \end{gather*}
+ 
+             \[U = B_r(X_0) = \{ x \in {\vR}^n: ||x-x_0|_{{\vR}^n} < \lambda
+             \tag{10}\]
+             \[DF(X) - A|| < 2 \lambda \tag{9\prime} \]
+             \begin{remark}[О внутренности шара]
+               \[X_1, X_2 \in B_r(X_0), 0 < t < 1 \implies tX_1 + (1-t)x_2 \in B_r(x_0) \]
+               \begin{multline*}
+                X_1, X_2 \in B_r(X_0), 0 < t < 1 \implies tX_1 + (1-t)x_2 \in B_r(x_0) \\
+                  ||(tX_1 + (1-t)X_2)-X_0||_{{\vR}^n} = \\ 
+                  = ||t(X_1-X_0)+ (1-t)(X_2-X_0)||_{{\vR}^n} 
+                \leq ||t(X_1 - X_0)||_{{\vR}^n} + \\
+                + ||(1-t)(X_2-X_0)||_{{\vR}^n} < 
+               < tr + (1-t)r = r
+                \end{multline*}
+               \end{remark}
+ 
+             \item Биективность отображения $F$ на $U$
+              \[ 0 < t < 1 \]
+             \begin{gather*}
+            X \in B_r(x_0), H \in {\vR}^n, X + H \in B_r(X_0) \\
+             t(X+H) + (1-t)X = X+tH \in B_r(X_0) \\
+            g:[0,1] \rightarrow {\vR}^n
+             \end{gather*}
+            \[g(t) = F(X+tH) - tAH \tag{11}\]
+            По достаточному условию дифференцируемости все матрицы Якоби существуют
+            \begin{align*}
+            (11) \implies Dg(t) = g^\prime(t) = D(F(X+tH)) - D(tAH) =\\
+            =DF(X+tH)D(t + tH) - AH = \\  
+            = DF(x+tH)H-DF(x_0)H = \\
+            = (DF(x+tH)-DF(x_0))H \tag{12}
+            \end{align*} 
+            \begin{gather*}
+            \text{Правая часть} (12) \leq ||DF(X+tH)-DF(x_0)|| \cdot ||H||_{{\vR}^n} \\
+            \underset{13^\prime}{\leq} \frac{1}{2} ||AH||_{{\vR}^n} \tag{14} \\
+            ||A^{-1}|| = \frac{1}{4\lambda} \implies \forall X \in {\vR}^n 
+            ||A^{-1}X||_{{\vR}^n} \leq \frac{1}{4\lambda}||X||_{{\vR}^n} 
+            \Leftrightarrow \\
+            ||X||_{{\vR}^n} \geq 4\lambda||A^{-1}X||_{{\vR}^n} 
+            \Leftrightarrow ||AY||_{{\vR}^n} \geq 4\lambda ||Y||_{{\vR}^n} \tag{13} \\
+            (13) \Leftrightarrow 2\lambda||Y||_{{\vR}^n} \leq 
+            \frac{1}{2}||AY||_{{\vR}^n} \tag{13'} \\
+            \intertext{По теореме Лагранжа  ..} \\
+            (12), (14) \implies ||g^\prime(t)||_{{\vR}^n} < 
+            \frac{1}{2}||AH||_{{\vR}^n} \tag{15} \\
+            \exists t_o \in (0,1): ||g(1)-g(0)||_{{\vR}^n} \leq 
+            ||g^\prime(t_0)||_{{\vR}^n} \cdot (1-0) = ||g^\prime(t_0)||_{{\vR}^n}\tag{16}\\
+             g(1)-g(0) = F(X+H)-AH - F(X) = (F(X+H)-F(X)) - AH \tag{17} \\
+            (15), (16), (17) \implies ||(F(X+H)-F(X))-AH||_{{\vR}^n}
+            <  \frac{1}{2}||AH||_{{\vR}^n} \tag{18} \\
+             (18) \implies ||F(X+H)-F(X)||_{{\vR}^n} \geq ||AH||_{{\vR}^b} -\\
+            -||F(X+H)-F(X)-AH||_{{\vR}^n} > ||AH||_{{\vR}^n} -
+            \frac{1}{2}||AH||_{{\vR}^n} =  \\
+           = \frac{1}{2}||AH||_{{\vR}^n} > 0 \tag{19} \\
+            AH = (AH-F(X+H))-F(X) + (F(X_H)-F(X)) \\
+            ||F(X+H)-F(X)||_{{\vR}^n} > \frac{1}{2}||AH||_{{\vR}^n} \tag{20} \\
+            \intertext{при} 
+            X \in B_r(X_0), X+H \in B_r(x_0), H \ne \mathbb{0}_n \\
+            (20) \implies F(X+H) \ne F(X) \text{ при } H \ne \mathbb{0}_n \\
+            V \stackrel{def}{=} F(U) \tag{21} \\
+            \exists \Phi: V \rightarrow U  \tag{22} \\
+             \intertext{т.ч.} \Phi = F^{-1} \\
+            \end{gather*}
+             \item Открытость отображения
+             \[(20), (13^\prime) \implies ||F(X+H) - F(X)||_{{\vR}^n} 
+             >2\lambda||H||_{{\vR}^n} \tag{23} \]
+             \begin{lemma}[]
+                $X_1 \in U, Y_1 = F(X_1) $, 
+                $0 < \rho < \rho - ||X_1-X_0||_{{\vR}^n} $ 
+                Такой выбор влечёт 
+                \[\overline{B}_\rho(X_1) \in U Y \in B_{\lambda\rho}(Y_1), Y \neq Y_1 
+                \tag{12}\]
+                \[\implies \exists X \in B_\rho(X_1) : F(X) = Y \tag{25} \]
+             \end{lemma}
+             \begin{longProof} 
+                Давайте рассмотрим функцию
+                \[ P(X): \overline B_\rho(X_1) \rightarrow {\vR}\]
+                \[ P(X) = ||F(X) - Y||_{{\vR}^n}  \tag{26}\]
+                Видно, что функция непрерывная,  класса $C^1$, норма это непрерывная 
+                функция на замкнутом шаре. Так как замкнутый шар это компакт:
+                \begin{gather*}
+                \exists X_1 \in \overline{B}_\rho : P(X_) \leq P(X) \forall x \in \overline{B}_\rho(X_1)  
+                \tag{27} \\
+                X_2 \text{ т.ч. } ||X_2-X_1||_{{\vR}^n} = \rho, H = X_2-X_1 \\
+                 (23) \implies ||F(X_2) - F(X_1)||_{{\vR}^n} = ||F(x_1+H)
+                 - F(X_1)||_{{\vR}^n} > \\
+                 > 2 \lambda ||H||_{{\vR}^n} =2\lambda||X_2-X_1||_{{\vR}^n}  = 2\lambda\rho \tag{28} \\
+                  (28), (24) \implies ||F(X_2) -Y||_{{\vR}^n} \geq ||F(X_2) -\\
+                 -\underbrace{F(X_1)}_{Y_1}||_{{\vR}^n} - ||\underbrace{F(X_1)}_{Y_1} -
+                  Y||_{{\vR}^n} > 2\lambda\rho - \lambda\rho > 2\lambda\rho-\lambda\rho 
+                = \lambda\rho \tag{29} \\
+                 (29): P(X_2) > \lambda\rho \tag{30} \\
+                  P(X_1) = ||F(X_1)-Y||_{{\vR}^n} = ||Y_1-Y||_{|{\vR}^n} < \lambda\rho \tag{31} \\
+                 (30), (31) \implies P(X_1) < P(X_2) \tag{32} \\
+                 (32) \implies X_- \in B_{\rho}(X_1) \tag{33} \\
+                 \intertext{Теперь хотим ввести функцию}  
+                 f(X) = P^2(X)  \text{ и получаем, что }
+               f(X_-) \leq f(X) \forall X \in \overline{B}\rho(X_1) \tag{34} 
+                \end{gather*}
+                 \begin{align*}Y = \begin{bmatrix}
+                    Y_1 \\
+                    \vdots \\
+                    Y_n \\
+                 \end{bmatrix} &&
+               F(X) = 
+                 \begin{bmatrix}
+                    F_1(X) \\
+                    \vdots \\
+                    F_n(X) \\
+                 \end{bmatrix} \end{align*}
+                 $f(X) \geq 0 $
+                 ~ обозначили координатные функции ~
+                 \begin{gather*}
+                 f(X) = \sum_{k=1}^n(F_k(X)-Y_k)^2 \tag{35} \\
+               (35) \implies C^1(U)  \tag{36} \\
+               (34), (35) \implies f^\prime_{xj} = 0, 1 \leq j \leq n  \tag{37} \\
+                 \intertext{(необходимое условие экстремума, согласны ?)}
+               (35) \implies f^\prime_{x_j}(X) = 2 \sum_{k=1}^n(F_k(X)-Y_k)F^\prime_{kx_j}(X)
+                 \tag{38} \\
+                 f_k = F_k(X_-) -Y_k \\
+                 (37), (38) \implies \sum_{k=1}^n F^\prime_{kx_j}(X_-)l_k = 0, 1 \leq j \leq n \tag{39} \\
+                 L = (e_1, \ldots, e_n) \\
+                 (39) \implies LDF(X_-) = \mathbb{0}^T_n \tag{40} \\
+                 \intertext{Будем для краткости записи пользоваться обозначеними  из Якобиана}
+                 \forall X \in U J_F(X) \neq 0 \tag{41} \\
+                 ||A^{-1}|| = \frac{1}{4\lambda} \\
+                 \intertext{Хотим обозначить теперь}
+                 B = DF(X)  \\
+                  \beta = || A - B|| < 2 \lambda
+                \intertext{по  теореме из предыдущей лекции 22.09.22 (туть появится ссылка когда лекция от 22 числа появится)}
+                ||B^{-1}|| \leq \frac{1}{4\lambda - \beta} < \frac{1}{2\lambda} \tag{42} \\
+                \intertext{матрица якоби из (40) обратима, сейчас обратим её}
+                 (40), (41) \implies (LDF(X_-))(DF(X_-))^{-1} = \mathbb{0}^T_n(DF(X_-))^{-1} = 
+                \mathbb{0}_n \\
+                \implies L = \mathbb{0}_n^T \tag{43} \end{gather*}
+                \end{longProof}
+                $G \subset U$, $G$ -- открытое $\implies F(G)$ открытое.
+                 $ \forall Y_1 \in F(G)$, пусть $X_1 \in G, F(X_1) = Y_1$.
+                 $ \exists \rho > 0$ т.ч. $B_\rho(X_1) \in G$ и 
+                 $\overline{B_\rho(X_1)} \in U$ 
+                 по предыдущей лемме получаем соотношение
+                 \[ B_{\lambda\rho}(Y_1) \subset F(B_\rho(X_1)) \subset F(G) \]
+                 Отображение $F$ действительно является открытым отображением.
+                 \[ V =F(U), V - \text{ открытое } , G \subset U, G - \text{ открытое }\]
+                 хотим рассмотреть отображение
+                 \[ \Phi = F^{-1}; V \rightarrow U \]
+                 посмотрим на прообразы открытых множеств $V$.
+                 Пусть $\Omega \in V - $ открытое.
+                 \[ \Phi^{-1}(G) = F(G) - \text{ открытое}\]
+                 Применяем топологическое определение непрерывности
+                 \[ \implies \Phi \text{ непрерывна на } V \]
+                 Мы выяснили что $F$ биективно, $V$ - открыто, а обратное отображение непрерывно
+                   на $V$. Теперь надо проверять что $\Phi$ такой же гладкости как и ...
+                   Осталось проверить что обратное отображение класса $C^1$
+                  \item \[\forall Y \in V , K \in {\vR}^n , Y + K \in V\] 
+                  \begin{gather*}
+                  \Phi(Y+K) - \Phi(Y) \stackrel{def}{=} H \text { т.к. отображение } \Phi
+                 \text { непрерывно }\\
+                  H \underset{K \to \mathbb{0}_n}{\longrightarrow} \mathbb{0}_n 
+                  \end{gather*}
+                 \begin{gather*}
+                     \Phi(Y) = X \text {  } \Phi(Y+K) = X + H \\
+                      F(\Phi(Y+K)) = F(X+H) \\
+                     Y + K = F(X+H) \text{  } F(\Phi(Y)) = F(X) 
+                 \end{gather*}
+                 \[   K = (Y+K) - Y = F(X+H) - F(X) \tag{1} \]
+ 
+                 \[DF(X) \text {   } ||(DF(X))^{-1}|| < \frac{1}{2\lambda} \text{ (42) от 29.09} \tag{2} \]
+ 
+                 \[DF(X))^{-1} = B \]
+                 \[F(X+H) - F(X) = DF(X)H+ t(H) \tag{3}\]
+ 
+                 \[ \frac{t(H)}{||H||_{{\vR}^n}} \underset{H \to \mathbb{0}_n}{\longrightarrow} 0 \tag{4} \]
+                  \begin{gather*}
+                     (1),(3) \implies \\
+                     K = DF(X)H + t(H) \\
+                     DF(X)H = K - t(H) \\
+                     (BDF(X))H = BK - B(t(H))
+                  \end{gather*}
+ 
+                  \[H = BK-Bt(H) \tag{5} \]
+                  \[(5) \implies \Phi(Y+K) - \Phi(Y) = BK - Bt(H) \tag{6}\]
+                  Дифференцируемость почти получилась, потому что есть линейное отображение $BK$...,
+                  надо выяснить, что есть соответствующее свойство для дифференирцемости отображения.
+ 
+                  \[ ||F(X+H)-F(X)||_{{\vR}^n} > 2 \lambda ||H||_{{\vR}^n} \text{ (23) из прошлой лекции } \tag{7} \]
+ 
+                  \[ ||K||_{{\vR}^n} > 2\lambda||H||_{{\vR}^n} \tag{7\prime} \] 
+                  \begin{multline*}
+                     \frac{||t(H)||_{{\vR}^n}}{||K||_{{\vR}^n}} \leq
+                      \frac{||t(H)||_{{\vR}^n}}{||K||_{{\vR}^n}} \stackrel{<}{(2)} 
+                      \frac{1}{2\lambda} \frac{||t(H)||_{{\vR}^n}}{||K||_{{\vR}^n}} = \\ 
+                      \frac{1}{2\lambda} \frac{||t(H)||_{{\vR}^n}}{||H||_{{\vR}^n}} \cdot
+                     \frac{||H||_{{\vR}^n}}{||K||_{{\vR}^n}} \stackrel{<}{(7^\prime)}
+                  \end{multline*}
+ 
+                  \[ < \frac{1}{4\lambda^2} \frac{||t(H)||_{{\vR}^n}}{||H||_{{\vR}^n}}
+                  \underset{K \to \mathbb{0}_n}{\longrightarrow} 0 \tag{8} \] 
+                  \[ (6), (8) \implies \Phi \text{ дифференцируема в } Y \] 
+                  Получаем следующие равенства:
+ 
+                  \[ D\Phi(Y) = (DF(X))^{-1} \tag{9} \] 
+                  \[ \text{ где } Y = F(X) \Leftrightarrow X = \Phi(Y) \] 
+                  то, что мы доказали, влечёт следующее: если мы рассмотрим координатные функции $F$,
+                  то получится, что существуют все частные производные. осталось проверить их непрерывность
+                  \item 
+                  \begin{align*}
+                     F(X) =
+                  \begin{bmatrix*}
+                     F_1(X) \\
+                     \vdots \\
+                     F_n(X) 
+                  \end{bmatrix*} &
+                  \Phi(Y) = \begin{bmatrix*}
+                     \phi_1(Y) \\
+                     \vdots \\
+                     \phi_n(Y)                     
+                  \end{bmatrix*} 
+               \end{align*}
+               \begin{gather*}
+               \begin{bmatrix*}
+                  \phi^\prime_{1y_1}(Y) & \ldots & \phi^\prime_{1y_n}(Y) \\
+                  \ldots & \ddots & \ldots \\
+                   \phi^\prime_{ny_1} & \ldots & \phi^\prime_{ny_n}(Y) \\
+               \end{bmatrix*} =
+               \left( \begin{bmatrix*}
+                  F^\prime_{1x_1}(X) & \ldots & F^\prime_{1x_n} \\
+                  \ldots & \ddots & \ldots \\
+                  F^\prime_{1x_1}(X) & \ldots & F^\prime_{nx_n}(X)
+               \end{bmatrix*} \right)^{-1} \\
+               (9) \implies \phi^\prime_{ky_l}(Y) = \frac{\sum \pm F^\prime_{ix_i}(x)
+               \cdots F^\prime_{sx_t}(X)}{\underbrace{\sum + \cdots F^\prime_{px_q}(X) \cdots F^\prime{ux_v}(X)}_{\ne 0}}
+               \tag{10}\\
+                F^\prime_{ix_j}(X) = F^\prime_{ix_j}(\Phi(Y)) \in C(V) \tag{11} \\
+               (10), (11) \implies \phi^\prime_{ky_l} \in C(V) \forall k, l \tag{12} \\
+               \text{По определению класса } C^r \text{ получаем } 
+               (12) \implies \Phi \in C^1(V) \end{gather*}
+               \end{enumerate}
+        \end{longProof}
+ 
+        \begin{corollary} %мне кажется, что лучше так, чем с gather
+            \begin{align*}
+               r \geq 1, F \in C^r(E)\\
+                E \in {\vR}^n, n \geq 2, E - \text { открытое множество } \\
+                X_0 \in E,  F (X_0) = Y_0,  d_F(X_0) \ne 0 \\
+                \implies \exists x_0 \in U \text{ и } \exists Y_0 \in V \text{ т.ч. } 
+               F|_{U} - \text{ гомеоморфизм } \\
+               \Phi =F^{-1} \\
+                \Phi \in C^r(E)
+            \end{align*}
+        \end{corollary}
+        \begin{proof}
+            % Доказывать будем по индукции. База верна.
+            % \[F \in C^{r+1}(E) \] 
+            % Посмотрим на соотношение (10)
+            % \[ F^\prime_{ix_j}(\Phi(Y)) \]
+            Доказательство было проговорено устно и я ничего не расслышал :(
+        \end{proof}
+        \begin{corollary}[Теорема об открытом отображении]
+            \begin{gather*}
+                E \in {\vR}^n, n \geq 2\\
+                 E - \text{ открытое }, F: E \rightarrow {\vR}^n \end{gather*}
+            \[d_F(X) \ne 0 \forall x \in E \implies F - \text{ открытое отображение} \]
+        \end{corollary}
+        \begin{proof}
+         \begin{gather*}
+             w \in E, w - \text{ открытое }, F(w) = G, Y_0 \in G \\
+             \exists x_o \in w \text{ т.ч. } F(X_0) = Y_0 \exists r > 0 \text{ т.ч. }
+            B_r(X_0) \subset w, d_F(x_0) \ne 0 \text{ т.е. } \\
+            \exists (DF(X_0))^{-1} \\
+             \lambda > 0, ||(DF(X_0)^{-1})|| = \frac{1}{4\lambda} \\
+            \implies B_{\lambda r}(Y_0) \subset F(B_r(X_0)) \tag{шаг 3} \\
+             F(B_r(X_0)) \subset F(w)  \end{gather*}
+ 
+        \end{proof}
+      \begin{theorem}[О неявном отображении]
+         \begin{align*}
+          n \geq 1, m \geq 1 \\
+           X = \begin{bmatrix*}
+            X_1 \\
+            \vdots \\
+            X_n
+         \end{bmatrix*} &&  Y = \begin{bmatrix*}
+            y_1 \\
+            \vdots \\
+            y_m
+         \end{bmatrix*} &&
+         Z = \begin{bmatrix*}
+            X \\
+            Y \\
+         \end{bmatrix*} 
+      \end{align*}
+      \begin{align*}
+         % а - обратима
+         A = \begin{bmatrix*}
+            a_{11} & \ldots & a_{1n} \\
+            \ldots & \ddots & \ldots \\
+            a_{n1} & \ldots & a_{nn}
+         \end{bmatrix*} &&
+         B = \begin{bmatrix*}
+            b_{11} & \ldots & b_{1m} \\
+            \ldots & \ddots & \ldots \\
+            b_{m1} & \ldots & b_{mm}
+         \end{bmatrix*} 
+      \end{align*}
+      $A$ - обратима
+      \begin{gather*}
+          C= [AB]  = \begin{bmatrix*}
+            a_{11} & \ldots & a_{1n} & b_{11} & \ldots & b_{1m} \\
+            \ldots & \ddots & \ldots & \ddots & \ldots \\
+            a_{n1} & \ldots & a_{nn} & b_{n1} & \ldots & b_{nm}
+         \end{bmatrix*} \\
+       CZ_0 = \mathbb{0}_n \\
+       CZ = \mathbb{0}_n \\
+       [AB] \cdot \begin{bmatrix*}
+         X \\
+         Y
+      \end{bmatrix*} = \mathbb{0}_n \tag{1} \\
+      (1) \Leftrightarrow AX + BY = \mathbb{0}_n \Leftrightarrow AX = -BY \Leftrightarrow X
+      = -(A^{-1}B)Y \tag{2}  \\
+       X_0 = -(A^{-1}B)Y_0 \tag{2'} 
+      \end{gather*}
+      \end{theorem}
+ 
+      \begin{theorem}[О неявном отображении в общем случае]
+         \begin{gather*}
+         E \subset {\vR}^{n+m}, Z \in E, Z = \begin{bmatrix*}
+            X \\
+            Y
+         \end{bmatrix*},
+         X \in {\vR}^n, Y \in {\vR}^m, Z_0 = \begin{bmatrix*}
+            X_0 \\
+            Y_0
+         \end{bmatrix*} \\
+          F: E \rightarrow {\vR}^n, F \in C^1(E) \\
+         F(Z) = \begin{bmatrix*}
+            f_1(Z) \\
+            \vdots \\
+            f_n(Z)
+         \end{bmatrix*} \\
+         DF(Z_0) = \begin{bmatrix*}
+            f^\prime_{1x_1}(Z_0) & \ldots & f^\prime_{1x_n}(Z_0) & f^\prime_{1y_1}(Z_0) & \ldots & f^\prime_{1y_m}(Z_0) \\
+            \ldots & \ddots & \ldots & \ldots \ddots & \ldots \\
+            f^\prime_{nx_1}(Z_0) & \ldots & f^\prime_{nx_n}(Z_0) & f^\prime_{ny_1}(Z_0) & \ldots & f^\prime_{ny_m}(Z_0) 
+         \end{bmatrix*} 
+      \end{gather*}
+         \begin{align*}
+            A = \begin{bmatrix*}
+               f^\prime_{1x_1}(Z_0) & \ldots & f^\prime_{1x_n}(Z_0) \\
+               \ldots & \ddots & \ldots \\
+               f^\prime_{nx_1}(Z_0) & \ldots & f^\prime_{nx_n}(Z_0)
+            \end{bmatrix*} && B =
+            \begin{bmatrix*}
+               f^\prime_{1y_1}(Z_0) & \ldots & f^\prime_{1y_m}(Z_0) \\
+               \ldots & \ddots & \ldots \\
+               f^\prime_{my_1}(Z_0) & \ldots & f^\prime_{my_m}(Z_0) \\
+            \end{bmatrix*}
+         \end{align*}
+ 
+         \begin{gather*}
+          DF(Z_0) = [AB] \\
+         A \text{ обратима } \tag{1} \\
+          F(Z_0) = \mathbb{0}_n \tag{2} \\
+         \exists Y_0 \in W \\
+         g: W \rightarrow {\vR}^n, g \in C^1(W) \\
+          g(Y_0) = X_0 \text{  } \forall Y \in W \tag{3} \\
+         F\left(\begin{bmatrix*}
+            g(y) \\
+            Y
+         \end{bmatrix*}\right)
+          = \mathbb{0}_n  \tag{4} \\ 
+          F\left(\begin{bmatrix*}
+            X \\
+            Y
+          \end{bmatrix*}\right) = \mathbb{0}_n \tag{2'}
+          \end{gather*}
+         \end{theorem}
+ 
+         \begin{longProof}
+            \begin{gather*}
+          \Phi: E \rightarrow {\vR}^{n+m} \\ 
+           \Phi\left(\begin{bmatrix*}
+            X \\
+            Y \end{bmatrix*}\right) = \begin{bmatrix*}
+               F\left(\begin{bmatrix*}
+                  X\\
+                  Y
+               \end{bmatrix*}\right) \\
+               Y
+            \end{bmatrix*} \tag{5} \\
+             \Phi(Z_0) = \begin{bmatrix*}
+               F(Z_0) \\
+               Y_0
+            \end{bmatrix*} = \begin{bmatrix*}
+               \mathbb{0}_n \\
+               Y_0
+            \end{bmatrix*} \tag{6} \\
+            D \Phi(Z_0) = \left(\begin{array}{c|c}
+               \begin{matrix*}
+                 f^\prime_{1x_1} & \ldots & f^\prime_{1x_n} \\
+                 \vdots & \ddots & \vdots \\
+                 f^\prime_{nx_1} & \ldots & f^\prime_{nx_n} \\
+               \end{matrix*} & \begin{matrix*}
+                                 f^\prime_{1y_1} & \ldots & f^\prime_{1y_m} \\
+                                 \vdots & \ddots & \vdots \\
+                                 f^\prime_{ny_1} & \ldots & f^\prime_{ny_m} \\
+                               \end{matrix*}                    \\
+               \hline
+0                & \begin{matrix*}
+                  1 & & \ldots & & 0 \\
+                  \vdots &  & \ddots & & \vdots \\
+                  0 & & \ldots & & 1
+               \end{matrix*} \\
+            \end{array}\right) \\
+             def D\Phi(Z_0) = \det A \ne 0 \\
+            \text{По теореме об обратном отображении} \\
+             \exists Z_0 \in U, \begin{bmatrix*}
+               \mathbb{0}_n \\
+               Y_0
+            \end{bmatrix*} \in V \\
+             S \in {\vR}^n, T \in {\vR}^m \\
+             \Phi \text{ гомеоморфизм } U \text{ на } V \\
+             \text{для} \begin{bmatrix*}
+               S\\
+               T
+            \end{bmatrix*}
+             \in V \exists \Psi \left(\begin{bmatrix*}
+               S \\
+               T
+             \end{bmatrix*}\right) - \text{ обратный к} \Phi \tag{7} \\
+             \Psi\left(\begin{bmatrix*}
+               \mathbb{0}^n \\
+               Y_0
+             \end{bmatrix*}\right) = Z_0 \tag{8} \\
+             \Psi \in C^1(V) \\
+              (5) \implies \Psi\left(\begin{bmatrix*}
+                 S \\
+                 T
+             \end{bmatrix*}\right) = \begin{bmatrix*}
+               \psi\left(\begin{bmatrix*}
+                  S \\
+                  T
+               \end{bmatrix*}\right) \\
+               T
+             \end{bmatrix*} \tag{9} \\
+             \text{хотим выбрать такой вектор} \\
+             P_0 =  \begin{bmatrix*}
+               \mathbb{0}_n \\
+               Y_0
+             \end{bmatrix*} \in V, \exists r > 0 : B_r^{m+n}(P_0) \subset V 
+            \end{gather*}
+             \begin{align*}
+               \forall Y \in B_r^m(Y_0)  && \begin{bmatrix*}
+                  \mathbb{0}_n \\
+                  Y 
+               \end{bmatrix*} \in B_r^{m+n}(P_0)
+             \end{align*}
+ 
+            \begin{gather*}
+              W = B_r^m(Y_0) \\
+             Хотим определить функцию 
+             T \in W, g(T) \stackrel{def}{=} \psi\left(\begin{bmatrix*}
+               \mathbb{0}_n \\
+               T               
+             \end{bmatrix*}\right) \tag{10} \\
+             (10) \implies g(Y_0) = \psi\left(\begin{bmatrix*}
+               \mathbb{0}_n \\
+               Y_0   
+             \end{bmatrix*}\right) \\
+             \Phi\left(\begin{bmatrix*}
+                  g(T) \\
+                  T
+             \end{bmatrix*}\right) \stackrel{(10)}{=} \Phi\left(\begin{bmatrix*}
+               \psi\left(\begin{bmatrix*}
+                  \mathbb{0}_n \\
+                  T
+               \end{bmatrix*}\right)
+               T
+             \end{bmatrix*}\right) \stackrel{(9)}{=} \Phi \left( \Psi\left(\begin{bmatrix*}
+               \mathbb{0}_n \\
+               T
+             \end{bmatrix*}\right) \right)  = \begin{bmatrix*}
+               \mathbb{0}_n \\
+               T
+             \end{bmatrix*} \tag{11} \\
+             (11) \implies F\left(\begin{bmatrix*}
+               g(T) \\
+               T
+             \end{bmatrix*}\right) = \mathbb{0}_n \tag{12} \\
+             \Psi\left(\begin{bmatrix*}
+                  \mathbb{0}_n \\
+                  Y_0
+             \end{bmatrix*}\right) = \begin{bmatrix*}
+               X_0 \\
+               Y_0
+             \end{bmatrix*} \stackrel{(9)}{\implies} \psi\left(\begin{bmatrix*}
+               \mathbb{0}_n \\
+               Y_0
+             \end{bmatrix*}\right) = X_0 \Leftrightarrow g(Y_0) = X_0 \tag{13} \\
+             \intertext{Предположим, что такая функция не единственная.}
+               W \\
+               Y_0 \in W_1 \\
+               W_2 = W \cap W_1 \\
+              \Phi\left(\begin{bmatrix*}
+               g(y) \\
+               y
+             \end{bmatrix*}\right) = \begin{bmatrix*}
+               F\left(\begin{bmatrix*}
+                  g(y) \\
+                  y
+               \end{bmatrix*}\right) \\
+               Y
+             \end{bmatrix*} \stackrel{(12)}{=} \begin{bmatrix*}
+               \mathbb{0}_n \\
+               Y\\
+             \end{bmatrix*} ; 
+             \Phi\left(\begin{bmatrix*}
+               g_1(Y) \\
+               Y
+             \end{bmatrix*} \right) \stackrel{(12}{=} \begin{bmatrix*}
+               \mathbb{0}_n \\
+               X
+             \end{bmatrix*} \tag{14}  \\
+             (14) \implies g(Y) = g_1(Y) \end{gather*}
+      \end{longProof} 
+ 
+      \section*{Вычисление матрицы Якоби функции (отображения), заданной неявно}
+ 
+      \begin{gather*}
+         E \subset {\vR}^{n+m} \quad Z_0 \in E \quad Z_0 = \begin{bmatrix*}
+            X_0 \\
+            Y_0
+         \end{bmatrix*} \quad X_0 \in {\vR}^n, Y_0 \quad \in {\vR}^m \\
+         F: E \rightarrow {\vR}^n \quad F \in C^1(E) \quad F(Z_0) = \mathbb{0}_n \quad
+         F = \begin{bmatrix*}
+            F_1 \\
+            \vdots \\
+            F_n
+         \end{bmatrix*} \\
+         A(Z) = \begin{bmatrix*}
+            F^\prime_{1x_1}(Z) & \ldots & F^\prime_{1x_n}(Z) \\
+            \ldots & \ddots & \ldots \\
+            F^\prime_{nx_1}(Z) & \ldots & F^\prime_{nx_n}(Z)
+         \end{bmatrix*} \tag{1} \\
+         \det A \ne 0  \\
+         B(Z) = \begin{bmatrix*}
+            F^\prime_{1y_1}(Z) & \ldots & F^\prime_{1xy_m}(Z) \\
+            \ldots & \ddots & \ldots \\
+            F^\prime_{my_1}(Z) & \ldots & F^\prime_{my_m}(Z)
+         \end{bmatrix*}  \tag{2}\\
+         A(Z_0) = \begin{bmatrix*}
+            F^\prime_{1x_1}(Z_0) & \ldots & F^\prime_{1x_n}(Z_0) \\
+            \ldots & \ddots & \ldots \\
+            F^\prime_{nx_1}(Z_0) & \ldots & F^\prime_{nx_n}(Z_0)
+         \end{bmatrix*} \\
+         B(Z_0) = \begin{bmatrix*}
+            F^\prime_{1y_1}(Z_0) & \ldots & F^\prime_{1xy_m}(Z_0) \\
+            \ldots & \ddots & \ldots \\
+            F^\prime_{my_1}(Z_0) & \ldots & F^\prime_{my_m}(Z_0)
+         \end{bmatrix*} \\
+         g(Y_0) = X_0 \\
+         F \left(\begin{bmatrix*}
+            g(Y) \\
+            Y
+         \end{bmatrix*} \right) = \mathbb{0}_n  \tag{1\prime}\\
+         \forall y \in W \\
+         (1\prime) \implies D(F\left(\begin{bmatrix*}
+            g(Y) \\
+            Y
+         \end{bmatrix*}\right)) = \mathbb{0}_{\ldots} \\
+         P(Y) = \begin{bmatrix*}
+            g(Y) \\
+            Y
+         \end{bmatrix*} \quad
+         P: W \rightarrow {\vR}^{n+m} \\
+         DF(P(Y)) = \mathbb{0}_{\ldots} \\
+         DF(Z)DP(Y) = \mathbb{0}_{\ldots} \tag{3} \\
+         \text{ в } (3) Z = P(Y) \\
+         g(Y) = \begin{bmatrix*}
+            g_1(Y) \\
+            \vdots \\
+            g_n(Y) 
+         \end{bmatrix*} \quad Y = \begin{bmatrix*}
+            y_1 \\
+            \vdots \\
+            y_m
+         \end{bmatrix*} \\
+         DP(Y) = \begin{bmatrix*}
+            g^\prime_{1y_1}(Y) & \ldots & g^\prime_{1y_m}(Y) \\
+            \ldots & \ddots & \ldots \\
+            g^\prime_{ny_1}(Y) & \ldots & g^\prime_{ny_m}(Y) \\
+            1 & \ldots & 0 \\
+            \ldots & \ddots & \ldots \\
+            0 & \ldots & 1
+         \end{bmatrix*} \tag{4} \\
+      \end{gather*}
+      \begin{gather*}
+         (1), (2) \implies DF(Z) = [A(Z)B(Z)] \tag{5} \\
+         (3), (4), (5) \implies \left[ \underbrace{A(Z)B(Z)}^{n+m} \right] \begin{bmatrix*}
+            Dg(Y) \\
+            I_m
+         \end{bmatrix*} = \mathbb{0}_{\ldots} \tag{6} \\
+         (6): A(Z) Dg(Y) + B(Z) I_m = \mathbb{0}_{\ldots}  \Leftrightarrow
+         A(Z) Dg(Y)= -B(Z) \tag{7} \\
+         (7) \implies Dg(Y) = -\left(A^{-1}\left( \begin{bmatrix*}
+            g(Y) \\
+            Y
+         \end{bmatrix*}  \right) \right) B \left( \begin{bmatrix*}
+            g(Y) \\
+            y
+         \end{bmatrix*} \right) \tag{8} 
+         % Таким образом при вычислении матрицы якоби в неявном отображении мы переходим к следующему:
+       \end{gather*}
+\end{document}
