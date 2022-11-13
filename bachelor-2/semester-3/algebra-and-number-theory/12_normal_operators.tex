@@ -1,0 +1,125 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\usepackage{graphicx,txfonts}
+\begin{document}
+
+\chapter{Нормальные операторы}
+
+\begin{definition}
+    Пусть $V$ -- евклидово (унитарное) пространство. $\mca \in \End V$ называется нормальным, если
+    $\mca \mca^* = \mca^* \mca$.
+    \begin{enumerate}
+        \item Сомосопряженный: $\mca = \mca^*$
+        \item Ортогональный/унитарный: $\mca \mca^* = \mca \mca^{-1} =\mse_V = \mca^{-1} \mca = \mca^* \mca$
+        \item Кососимметрический: $\mca^* = -\mca$
+    \end{enumerate}
+\end{definition}
+
+\begin{proposition}
+    Пусть $\mca$ -- нормальный, $\alpha \in K$. Тогда $\mcb = \mca - \alpha \mse_V$ - тоже нормальный.
+    \begin{enumerate}
+        \item $\mcb^* = \mca^* - (\alpha \mse_V)^* = \mca^* - \overline{\alpha}\mse_V^* = \mca^* - \overline{\alpha}\mse_V$
+        \item $\mcb \mcb^* = \mca \mca^* - \alpha\mca^* - \overline{\alpha}\mca + |\alpha|^2\mse_V$
+        \item $\mcb^* \mcb = \mca^* \mca - \alpha \mca^* - \overline{\alpha}\mca + |\alpha|^2\mse_V$
+    \end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+    Пусть $\mca$ -- нормальный, $v \in V$ -- собственный вектор оператора $\mca$, принадлежащий собственному значению $\lambda$. Тогда $v$ -- собственный ветор оператора $\mca^*$, принадлежащий собственному значению $\overline{\lambda}$.
+\end{proposition}
+
+\begin{proof}
+    $\underbrace{(\mca - \lambda \mse_v)}_{\mcb} v = 0 \Rightarrow (\mcb v, \mcb v) = 0 \Rightarrow
+        (v, \mcb^* \mcb v) = 0 \Rightarrow (v, \mcb \mcb^* v) = 0 \Rightarrow (\mcb^* v, \mcb^* v) = 0 \Rightarrow \mcb^*v = 0 = \mca^* v - \overline{\lambda}v \Rightarrow \mca^*v = \overline{\lambda}v$.
+\end{proof}
+
+\begin{theorem} [Спектральная теорема для нормальных операторов в унитарных пространствах]
+    Пусть $V$ унитарное, $\mca \in \End V$ -- нормальный. Тогда в $V$ существует ортонормированный базис $E$, такой что $[\mca]_E$ -- диагональная.
+\end{theorem}
+
+\begin{proof}
+    $v \neq 0 \Rightarrow v_0 = \frac{1}{||v||} v$.
+
+    Индукция по $n = \dim V$.
+
+    База: $\exists e_1 \in V: \ ||e_1|| = 1$, $e_1$ -- искомый базис.
+
+    Переход: $\chi_{\mca} \in \C [x], \ \deg \chi_{\mca} = n > 1 \Rightarrow \exists \lambda \in \C: \ \chi_{\mca}(\lambda) = 0$, где $\lambda$ -- собственное значение $\mca$.
+    $v$ -- собственный вектор, принадлежащий собственному значению $\lambda$, $e_1 = \frac{1}{||v||} v$. $e_1$ -- собственный для $\mca \Rightarrow$ собственный для $\mca^*$.
+    $U = \Lin(e_1)$ -- инвариантное относительно $\mca$ и $\mca^*$. $W = U^{\perp}$ - инвариантно относительно $\mca^*$ и $\mca^{**} = \mca$. Размерность $U = 1$, $\dim W = \dim V - \dim U = n - 1$.
+
+    Применим  индукционное предположение. Проверим: $\mca_1 = \mca|_W$ - нормальный. $\mca^*|_W = \mca_1^*$?
+
+    $\forall v, \ w \in W: \ (\mca_1 v, w) = (\mca v, w) = (v, \mca^* w) = (v, (\mca^*|W) w)$
+
+    $\Rightarrow \mca_1 \mca_1^* = \mca_1^* \mca_1$.
+
+    По индукционному предположению в $W$ есть ортонормированный базис $E_1 = (e_2, e_3, \ldots, e_n)$, такой что $[\mca_1]_{E_1}$ диагональна.
+    $E = (\underbrace{e_1}_{\in U}, \underbrace{e_2, \ldots, e_n}_{\in U^{\perp}}). \ V = U \oplus U^{\perp} \Rightarrow E$ -- базис $V$. Очевидно, он ортонормированный.
+
+    \begin{gather*}
+        [\mca]_E = \left(\begin{array}{c|c|}
+                \lambda        & 0 \ldots 0   \\
+                \hline
+                \begin{matrix}
+                    0      \\
+                    \vdots \\
+                    0      \\
+                \end{matrix} & [\mca_1]_{E_1} \\
+            \end{array}\right) -- \text{диагональная}
+    \end{gather*}
+\end{proof}
+
+\begin{proposition}
+    Пусть $V$ -- евклидово и унитарное, $\mca \in \End V$ -- нормальный.
+    $v, \ w \in V$ -- собственые векторы $\mca$, принадлежащие разным собственным значениям.
+    Тогда $v \perp w$.
+\end{proposition}
+
+\begin{proof}
+    \begin{gather*}
+        \mca v = \lambda v \\
+        \mca w = \mu v \\
+        \mu \neq \lambda \\
+        \lambda(v, w) = (\lambda v, w) = (\mca v, w) = (v, \mca^* w) = (v, \overline{\mu} w) = \mu (v, w) \\
+        \Rightarrow (\mu - \lambda) (v, w) = 0 \\
+        \Rightarrow (v, w) = 0
+    \end{gather*}
+\end{proof}
+
+\begin{corollary} [из теоремы]
+    Пусть $V$ -- унитарное пространство, $\mca \in \End V$. Тогда:
+    $\mca = \mca^* \Leftrightarrow$ в $V$ существует ортонормированный базис $E$, такой что
+    $[\mca]_E = diag(c_1, \ldots, c_n), \ c_1, \ldots, c_n \in \R$.
+\end{corollary}
+
+\begin{proof}
+    $\exists$ ортонормированный $E$, такой что  $[\mca]_E = A = diag(c_1, \ldots, c_n)$. $\mca = \mca^* \Rightarrow
+        A = A^* = diag(\overline{c_1}, \ldots, \overline{c_n}) \Rightarrow c_1 = \overline{c_1}, \ldots, c_n = \overline{c_n} \Rightarrow
+        c_1, \ldots, c_n \in \R$.
+
+    Обратно: $ c_1, \ldots, c_n \in \R \Rightarrow A = diag(c_1, \ldots, c_n) = A^*$ -- эрмитова $\Rightarrow \mca = \mca^*$.
+\end{proof}
+
+\begin{corollary}
+    Пусть $V$ -- унитарное пространство, $\mca \in \End V$. Тогда:
+    $\mca$ -- унитарный $\Leftrightarrow$ в $V$ существует ортонормированный базис $E$, такой что
+    $[\mca]_E = diag(u_1, \ldots, u_n), \ |u_1|, \ldots, |u_n| = 1$.
+\end{corollary}
+
+\begin{proof}
+    $\Rightarrow$: в некотором ортонормированном базисе $E$ $[\mca]_E = A = diag(u_1, \ldots, u_n), \ AA* = E_n \Rightarrow
+        u_1 |u_1| = \ldots = u_n |u_n| = 1 \Rightarrow |u_1| = \ldots = |u_n| = 1$.
+
+    $\Leftarrow$: $A = diag(u_1, \ldots, u_n), \ |u_1| = \ldots = |u_n| = 1 \Rightarrow
+        AA^* = E_n, \ A \text{ -- матрица } \mca \text{ в ортонормированном базисе} \Rightarrow \mca \mca^* = \mse$.
+\end{proof}
+
+
+ 
+\begin{gather*}
+    \text{всем героям, проверяющим конспект, мерси } \ensuremath\varheartsuit \\
+    \text{я стараюсь делать поменьше ошибок, честно}
+\end{gather*}
+
+\end{document}
