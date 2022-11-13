@@ -1,0 +1,420 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Интегралы}
+\subsection*{Предел интеграла равномерно сходящегося функционального семейства}
+     \begin{theorem}
+          \begin{gather*}
+               E = [a,b] \quad G \subset \vR^n \quad Y_0 - \text{ точка сгущения } E \\
+               \text{ имеется функциональное семейство} f(x,Y) \darrow{\underset{Y \to Y_0}{x \in [a,b]}} \phi(x) \tag{1} \\
+               \text{предположим, что } f(x,Y) \in C([a,b]) \forall Y \in G \tag{2} \\
+               \text{ по предыдущему следствию } \phi \in C([a,b]) \\
+               \text{тогда} \int^b_a f(x,Y)dx \underset{Y \to Y_0}{\rightarrow} \int^b_a \phi(x) dx \tag{3} \\
+               Интегралы мы имеем право писать по только что доказанному следствию (фи непрерывна) 
+          \end{gather*}
+     \end{theorem}
+     \begin{proof}
+          \begin{gather*}
+               \forall \varepsilon > 0 (1) \implies \exists Y_0 \in U : \\
+               \forall x \in [a,b] \text{ и } \forall Y \in G \cap U \setminus Y_0 \text{ имеем } \\
+               |f(x,Y) - \phi(x)| < \varepsilon  \tag{4} 
+          \end{gather*}
+          \begin{multline*}
+               (4) \implies \left | \int^b_a f(x,Y)dx - \int^b_a \phi(x) dx \right | = \left | \int^b_a(f(x,Y) -\phi(x)) dx \right | \leq \\
+               \leq \int^b_a |f(x,Y) - \phi(x) |dx \leq \int^b_a \varepsilon dx = (b-a)\varepsilon \tag{5} \\
+               (5) \implies(3) \\
+          \end{multline*}
+     \end{proof}
+     \begin{definition}
+          $g(Y) = \int^b_a f(x,Y) dx$ -- интеграл, зависящий от параметра
+     \end{definition}
+     \begin{theorem}[Теорема о непрерывности интеграла, зависящего от параметра]
+          \begin{gather*}
+               f \in C([a,b] \times [p,q]) \\ 
+               g(y) = \int^b_a f(x,y) dx \tag{7} \\
+               g \in C([p,q]) \tag{8} \end{gather*}
+               наша функция $f$  равномерно непрерывна на замкнутом промежутке, поэтому по теореме Кантора 
+               \begin{gather*}
+               \forall \varepsilon > 0 \quad \exists \delta > 0 : \forall (x_1,y_1) \text{ и } (x_2,y_2) \\
+               \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} < \delta \implies |f(x_2,y_2) - f(x_1,y_1)  | < \varepsilon \tag{9} \\
+               y_1,y_2 \in [p,q] \quad |y_2 - y_1| < \delta 
+          \end{gather*}
+          \begin{multline*}
+               |g(y_2) - g(y_1)| = \left | \int^b_a f(x,y_2) dx - \int^b_a f(x,y_1)dx \right | = \\
+               = \left | \int^b_a (f(x,y_2) - f(x,y_1))dx \right | \leq \int^b_a |f(x,y_2) - f(x,y_1)|dx \stackrel{\leq}{(9)} \\
+               \stackrel{\leq}{(9)} \int^b_a \varepsilon dx = \varepsilon(b-a) \tag{10} \\
+                  \end{multline*}
+                  $(10) \implies (8) $
+     \end{theorem}
+     \begin{theorem}[О производной интеграла, зависящего от параметра]
+          \begin{gather*}
+               f \in C([a,b] \times [p,q] = Q) \\
+               \forall (x,y) \in Q \quad \exists f^\prime_y(x,y) \\
+               f^\prime_y(x,y) \in C(Q) \tag{11} \\
+               g(y) = \int^b_a f(x,y) dx \\
+          \end{gather*}
+     \end{theorem}
+     \begin{proof}
+          \begin{gather*}
+               \forall y \in [p,q] \exists g^\prime(y) \\
+               g^\prime(y) = \int^b_a f^\prime_y(x,y)dx \tag{12} \\
+               y \in [p,q] \quad h \quad y+h \in [p,q] \\
+               g(y+h) - g(y) = \int^b_a(f(x,y+h)dx) - \int^b_a f(x,y)dx =\\ =
+                \int^b_a(f(x,y+h) - f(x,y)) dx 
+               \intertext{ из-за непрерывности по теореме Лагранжа имеем} 
+               с(h,x,y) \text{ лежит между } y \text { и } y + h \\
+               f(x,y+h) - f(x,y) = f^\prime_y(x,c(h,x,y))h \\
+               \text{ продолжаем равенство } \end{gather*}
+               \begin{multline*}
+               = \int^b_a f^\prime_y(x,c(h,x,y)) \cdot hdx =\\ 
+               = \int^b_a f^\prime_y(x,y)hdx +
+               \int^b_a (f^\prime_y(x,c(h,x,y)) - f^\prime_y(x,y))hdx = \\
+               = h \cdot \underbrace{\int^b_a f^\prime_y(x,y)dx + h \cdot 
+               \int^b_a (f^\prime_y(x,c(h,x,y))-f^\prime_y(x,y))dx}_{A(y)} \tag{13} \end{multline*}
+               \begin{gather*}
+               \forall \varepsilon > 0 \text{ и } \forall x \in [a,b]
+               \intertext{ опять пользуемся теоремой Кантора} 
+               (11) \implies \exists \delta > 0 : \forall y_2,y_1 \in [p,q] \\
+               |y_2 - y_1| < \delta \implies |f^\prime_y(x,y_2) - f^\prime_y(x,y_1)| < \varepsilon \tag{14} \\
+               |c(h,x,y) - y| < |h| \quad |h| < \delta \tag{15} \end{gather*}
+               \begin{multline*}
+               (13),(14),(15) \implies |g(y+h) - g(y) - A(Y)h| \leq \\ 
+               \leq |h| \int^b_a |f^\prime_y(x,c(h,x,y)) - f^\prime_y(x,y)|dx \leq \\ 
+               \leq |h| \cdot \int^b_a \varepsilon dx = |h| \cdot \varepsilon(b-a) \tag{16} \end{multline*}
+               \begin{gather*}
+               (16) \implies g(y+h) - g(y) - hA(y) = r(h,y) \text{ и } \left |\frac{r(h,y)}{h} \right | \underset{h \to 0}{\rightarrow} 0 \tag{17}\\
+               \intertext{по определению дифференцируемости}
+               (17) \implies g^\prime(y) = A(y) \implies (12) \\
+          \end{gather*}
+     \end{proof}
+     \begin{theorem}[об интегрировании интеграла, завсящего от параметра]
+          \begin{gather*}
+               f \in C([a,b] \times [p,q]) \\
+               g(y) = \int^b_a f(x,y) dx \tag{18} \\
+               h(x) = \int^q_p f(x,y) dy \tag{19} \\
+               \intertext{По теореме о непрерывности интеграла, зависящего от параметра }
+               g \in C([p,q]) \quad h \in C([a,b]) \\
+               \int^b_a h(x) dx = \int^q_p g(y) dy \tag{20} \\
+               20: \int^b_a \left(  \int^q_p f(x,y)dy \right) dx = \int^q_p \left( \int^b_a f(x,y)dx \right)dy
+          \end{gather*} 
+     \end{theorem}
+     \begin{proof} 
+          \begin{gather*}
+               u \in [p,q] \quad \Phi(u) = \int^u_p g(y)dy \tag{21} \\
+               x \in [a,b] \quad l(x,u) = \int^u_p f(x,y) dy \tag{22} \\
+               \Psi (u) = \int^b_a l(x,u)dx \tag{23} \\
+               \intertext{g непрерывна, тогда Ф интеграл с переменным верхним пределом и для всякого u существует непрерывная производная} \\
+               (21) \implies \forall u \in [p,q] \quad \exists \Phi^\prime(u) = g(u) \tag{24} \\
+               (22) \implies \forall (x,u) \in \mathbb{Q} \quad \exists l^\prime_u(x,u) = f(x,u) \in C(Q) \tag{25} \end{gather*}
+            Посмотрим на функцию $\Psi$, это интеграл зависящий от параметра. по теореме о производной интегарла зависящего от параметра
+                у пси существует производная
+                \begin{gather*}
+                (23),(25) \implies \forall u \in [p,q] \quad \exists \Psi\prime(u) \\
+                \Psi^\prime(u) = \int^b_a l^\prime_u(x,u) dx = \int^b_a f(x,u) dx = g(u) \tag{26} \\
+                (24),(26) \implies \Phi^\prime(u) = \Psi^\prime(u) \quad \forall u \in [p,q] \tag{27} \\
+                \Phi(p) = \int^p_p \ldots = 0 \tag{28} \\
+                \Psi(p) = \int^b_a 0 \ldots = 0 \tag{29} \\
+               \text{Применим формулу Ньютона-Лейбница} \\
+                (27),(28),(29) \implies
+               \Phi(q) = \Phi(q) - \Phi(p) = \int^q_p \Phi^\prime(u) dx =\\
+                = \int^q_p \Psi^\prime(i)di =
+               \Psi(q)-\Psi(p) = \Psi(q) \tag{30} \\
+               (19),(30),(21),(23) \implies \int^q_p g(y) dy = \int^b_a h(x) dx 
+          \end{gather*}
+     \end{proof}
+     \subsection*{Несобственные интегралы, зависящие от параметра}
+     \begin{definition}
+          \begin{gather*}
+               f: [a, \infty) \times [p,q] \rightarrow \vR \\
+               f \in C([a,\infty] \times [p,q]) \\
+               \int^\infty_a f(x,y) dx \tag{1} \\
+               A \in [a,\infty) \\
+               g(A,y) = \int^A_a f(x,y) dx \tag{2}
+          \end{gather*}
+     \end{definition}
+     \begin{definition}
+          Будем говорить, что несобственный интеграл, зависящий от параметра, равномерно сходится, если
+          \[ \exists \phi(y), y \in [p,q] \]
+          \[ g(A,y) \darrow{\underset{y \in [p,q]}{A \to + \infty}} \phi(y) \tag{3} \]
+     \end{definition}
+     \begin{theorem}[Критерий Коши сходимости несобственного интеграла]
+          Для того, чтобы этот интеграл сходился при $y$, принадлежащем замкнутому промежутку, необходимо и достаточно, чтобы
+          \begin{gather*}
+               \forall \varepsilon > 0 \quad \exists L > a : \forall A_1, A_2 > L \text{ и } \forall y \in [p,q] \\
+               \left | \int^{A_2}_{A_1}  f(x,y) dx \right | < \varepsilon \tag{4} \end{gather*}
+          \end{theorem}
+          \begin{longProof}
+               По определению равномерной сходимости несобственного интеграла можем критерий для сходимости семейства функций
+               \begin{gather*}
+               |g(A_2,y) - g(A,y)| < \varepsilon \tag{5}\\
+               A_2 > A_1 \quad g(A_2,y) - g(A_1,y)|  = \int^{A_2}_a(x,y) dx - \int^{A_1}_a f(x,y)dx = \\
+               =\int^{A_2}_{A_1} f(x,y) dx \tag{6}\\
+               (5),(6) \implies (4)\\
+               \int^\infty_a f(x,y) dx \\
+               y \in [p,q] \quad f \in C([a,\infty) \times [p,q]) \\
+               h(x) \quad x \in [a, \infty) \quad h \in C([a,\infty)) \quad h(x) \geq 0 \\
+               \forall (x,y) \quad |f(x,y)| \leq h(x) \tag{7}\\
+               \int^\infty_a h(x) dx \text{ сходится } \tag{8}\\
+               \text{ применим Критерий Коши с прошлого семестра}\\
+               \forall \varepsilon > 0 \quad (8) \implies \exists L > 0 : \forall L < A_1 < A_2 \\
+               \int^{A_2}_{A_1} h(x) dx < \varepsilon \tag{9} \\
+               \text{ применим только что установленный критерий Коши} \end{gather*}
+               \begin{multline*}
+               \forall y in p,q \quad \left | \int^{A_2}_{A_1} f(x,y) dx \right | \leq \int_{A_1}^{A_2} |f(x,y)| dx \stackrel{(7)}{\leq}  \\
+               \stackrel{(7)}{\leq} \int^{A_2}_{A_1} h(X) dx \stackrel{(9)}{<} \varepsilon \tag{10}
+          \end{multline*}
+     \end{longProof}
+
+     \begin{theorem}[Признак Абеля равномерной сходимости несобственных интегралов]
+          \begin{gather*}
+               f(x,y), x \in [0, +\infty) \quad y \in E \subset \vR^n \\
+               g(x,y) \\
+               \int^\infty_a f(x,y) dx \text{ сходится рваномерно при } y \in E \tag{1} \\
+               g(x,y) \text{ при фиксированном } y \in E \text{ монотонны} \tag{2} \\ 
+               \exists M \quad \text{ т.ч. } \forall, x \in [a,+\infty), \forall y \in E |g(x,y)| \leq M \tag{3}
+          \end{gather*}
+     \end{theorem}
+     \begin{proof}
+          Будем пользоваться критерием Коши.
+          \begin{gather*}
+               \forall \varepsilon > 0 \quad (1) \implies \exists A > a : \forall A_1 > A \forall A_2 > A \text{ и } 
+               \forall y \in E \\
+               \left | \int^{A_2}_{A_1} f(x,y)dx \right | < \varepsilon \tag{5}\\
+          \end{gather*}
+          Можем применить вторую теорему о среднем
+          $ A_1 < A_2 \quad \exists A_0 \in (A_1,A_2) $
+          \begin{multline*}
+               \text{ Рассмотрим } \left | \int^{A_2}_{A_1} f(x,y)g(x,y) dx \right | = \\ 
+               =\left | g(A_1,y) \int^{A_0}_{A_1} f(x,y)dx + g(A_2,y)\int^{A_2}_{A_0}f(x,y)dx \right | \stackrel{(3)}{\leq} \\
+               \stackrel{(3)}{\leq} M \left | \int^{A_0}_{A_1} f(x,y)dx \right | + M \left | \int^{A_2}_{A_0} f(x,y)dx \right | < M\varepsilon + M\varepsilon \implies\\
+                \text{ по критерию Коши } (4)
+          \end{multline*}
+     \end{proof}
+     \begin{theorem}[Признак Дирихле равномерной сходимости несобственного интеграла]
+          \begin{gather*}
+               f(x,y) \quad x \in [0, \infty) \quad y \in \vR^n \\
+               g(x,y) \\
+               \exists M : \forall A > 0 \text{  и  } \forall y \in E \quad \left | \int^A_a f(x,y)dx \right | \leq M \tag{6} \\
+               g(x,y) \text{ монтонна } \forall y \in E \tag{7} \\
+               g(A,y) \darrow{\underset{y \in E}{A \to + \infty}} 0 \implies \int^\infty_a f(x,y)g(x,y)dx \text{ сходится равномерно при }\\
+                y \in E \tag{9}
+          \end{gather*}
+     \end{theorem}
+     \begin{proof}
+          Будем опять пользоваться критерим Коши равномерной сходимости
+          \begin{gather*}
+               \forall \varepsilon > 0 \quad \exists A > a : \forall A_1 > A \text{ и } \forall y \in E \\
+               |g(A_1,y)| < \varepsilon \tag{10}\\
+               \forall A_2 > A_1 > A \exists A_0 \in (A_1,A_2) \left | \int^{A_2}_{A_1} f(x,y)g(x,y)dx \right | = \\
+              = \left | g(A_1,y) \int^{A_0}_{A_1} f(x,y)dx + g(A_2,y) \int^{A_2}_{A_0}f(x,y)dx \right | \leq\\
+               (6) \implies \left | \int^{A_0}_{A_1}  f(x,y) dx \right | = \left | \int^{A_0}_a f(x,y) dx - \int^{A_1}_a f(x,y)dx \right | \leq 2M \tag{11}\\
+               \text{понятно, что второе слагаемое оценивается точно так же} \\
+               \stackrel{(10),(11)}{\leq} \varepsilon 2M + \varepsilon 2M = 4 M \varepsilon \implies(9)
+          \end{gather*}
+     \end{proof}
+     \subsection*{Свойства равномерно сходящихся несобственных интегралов}
+     \begin{theorem}[Непрерывность] 
+          Мы не разделяем $x,y$, просто рассматриваем непрерывную функцию
+          \begin{gather*}
+               f: [a, \infty) \times E \quad E \subset \vR^n, \text{ каждая точка -- точка сгущения} \\
+               f \in C([a,\infty] \times E) \tag{12} \\
+               I(y) = \int^\infty_a f(x,y) dx \text{ равномерно сходится при } y \in E \tag{13} \\
+               \implies I \in C(E) \tag{14} \\ 
+          \end{gather*}
+     \end{theorem}
+     \begin{proof}
+          Давайте рассмотрим функцию 
+          \begin{gather*}
+               g(y,A) = \int^A_a f(x,y)dx \tag{15} \\
+               (12) \implies f \in C([a,A] \times E) \tag{16} \\
+               \intertext{по теореме о непрерывности интеграла, зависящего от параметра, мы получаем} 
+               (16) \implies \exists  J(y,A) \in C(E) \quad \forall A > a \tag{17} \\
+               \text{по определению сходимости несобственного интеграла} \\
+               (13) : J(y,A) \darrow{\underset{A \to \infty}{y \in E}} I(y) \tag{18} 
+               \intertext{По теореме о непрерывности равномерно сходящегося семейства функций предельная функция будет непрерывна, поэтому} \\
+               (17), (18) \implies (14)
+          \end{gather*}
+     \end{proof}
+     \begin{theorem}[Интегрирование несобственного интеграла, зависящего от параметра]
+          множество параметров это отрезок теперь 
+          \begin{gather*}
+               f \in C([a,\infty] \times [p,q]) \tag{19} \\
+               I(y) = \int^\infty_a f(x,y) dx \text{ равномерно сходится при } y \in [p,q] \tag{20} \\
+               l(X) = \int^q_p f(x,y) dy \\
+               \implies \int^q_p I(y)dy = \int^\infty_a l(x) dx \tag{21}
+          \end{gather*}
+     \end{theorem}
+     \begin{proof}
+          \begin{gather*}
+               \forall \varepsilon > 0 \quad (20) \implies \exists  A > a : \forall A_1 > A \text{ и } \forall y \in [p,q]\\
+               \left | \int_a^{A_1} f(x,y) dx - I(y) \right | < \varepsilon \tag{22} \\
+               \intertext{по предыдущей теореме в силу соотношения (19) и (20)} 
+               I(y) \in C([p,q]) 
+          \end{gather*}
+          тогда соотношение (22) влечёт
+          \begin{multline*}
+               \left | \int^q_p \left ( \int_a^{A_1} f(x,y) dx \right )dy - \int^q_p I(y)dy \right | =\\
+                = \left | \int^q_p \left ( \int^{A_1}_a f(x,y)dx - I(y) \right )dy \right | \leq \\
+                \leq \int^q_p \left | \int^{A_1}_a f(x,y) dx - I(y) \right | dy < \int^q_p \varepsilon dy = (q - p) \varepsilon \tag{23}
+          \end{multline*}
+          мы интегрируем интеграл, зависящий от параметра, так что применима теорема об интегрировании интеграла, зависящего от параметра и мы имеем право поменять местами интегралы
+          \begin{gather*}
+               f \in C([a,A_1] \times [p,q]) \\ 
+               \int^q_p \left ( \int^{A_1}_a f(x,y) dx \right ) dy = \int^{A_1}_a \left ( \int^q_p f(x,y)dy \right )dx = \int^{A_1}_a l(x) dx \tag{24} \\
+                (23),(24) \implies \left | \int^{A_1}_a l(x)dx - \int^q_p I(y)dy \right | < \varepsilon (q-p) \tag{25} \\
+          \end{gather*}
+          Мы получили следующее: мы взяли любое $\varepsilon$ и нашли $A$ для которого выполнено соотношение (25), это означает
+          по определению сходимости несобственного интеграла $(25) \implies (21)$
+     \end{proof}
+     \begin{theorem}[О производной несобственного интеграла, зависящего от параметра]
+          \begin{gather*}
+               f \in C([a,\infty) \times [p,q] ) \tag{1} \\
+               \forall x \in [a,\infty) \quad \forall y \in [p,q] \quad \exists f^\prime_y(x,y) \tag{2} \\
+               f^\prime_y (x,y) \in C([a,\infty) \times [p,q]) \tag{3}\\
+               \forall y \in [p,q] I(y) = \int^\infty_a f(x,y) dx \text{ сходится (просто сходится!)} \tag{4} \\
+               \phi(y) = \int^\infty_a f^\prime_y(x,y)dx \text{ сходится равномерно } \tag{5} \\
+               \implies \forall y \in [p,q] \exists I^\prime(y) = \phi(y) \tag{6} 
+          \end{gather*}
+     \end{theorem}
+     \begin{longProof}
+          Давайте рассматривать функцию 
+          \begin{gather*}
+               J(a,A) = \int^A_a f(x,y) dx \tag{7} \\
+               \intertext{фиксируем y}
+               y \in [p,q] \\
+               E = \{ h: y + h \in [p,q], h \ne 0 \} \tag{8} \\
+               \text{будем еще рассматривать функцию} \\
+                \Phi(y,A,h)= \frac{g(y+h,A) - g(y,A)}{h} \quad h \in E, y \in [p,q] \tag{9}\\
+               \Phi(y,A,h) = \frac{1}{h} \left ( \int^A_a f(x,y) dx - \int^A_a f(x,y)dx \right ) \\
+               (3) \implies f^\prime_y(x,y) \in C([a,A] \times [p,q]) \tag{10} \\
+          \end{gather*}
+          если мы устремим $h$ к $0$, мы будем нахдить производную определнного интеграла, зависящего от параметра
+          \begin{gather*}
+               (9),(10) \implies \Phi(y,A,h) \underset{h \to 0}{\longrightarrow} \int^A_a f^\prime_y(x,y)dx \tag{11} \\
+               \psi(y,A) = \int^A_a f^\prime_y(x,y)dx \tag{12} \\
+          \end{gather*}
+     \end{longProof}
+     \begin{lemma}
+          $\Phi(y,A,h)$ равномерно сходится к функции при $A \to +\infty$ и $h \in E$
+     \end{lemma}
+     \begin{longProof}
+          Будем пользоваваться критерием Коши 
+          \begin{gather*}
+               \varepsilon > 0 \quad \exists A > a ' \forall A_2 > A_1 > A \\
+               \left | \int^{A_2}_{A_1} f^\prime_y(x,y)dx \right | < \varepsilon \tag{13}\\
+               \text{ хотим ввести ещё одну функцию } G(y,A_1,A_2) = \int^{A_2}_{A_1} f(x,y) dx \tag{14}
+          \end{gather*}
+          хотим применять критерий Коши к функции $\Phi$
+          \begin{multline*}
+               (9), (14) \implies \Phi(y,A_2,h) - \Phi(y,A_1,h) =\\
+               = \frac{1}{h} \left ( \left ( J(y+h,A_2) - J(y,A_2) \right ) \right ) -
+               (J(y+h, A_1) - J(y,A_1)) =\\
+                = \frac{1}{h} ((J(y+h,A_2) - J(y+h,A_1)) - (J(y,A_2) =\\
+                =J(y,A_1))) = \frac{1}{h} (G(y+h,A_1,A_2)) - G(y,A_1,A_2) \tag{15} 
+          \end{multline*} 
+          \begin{gather*}
+               (14) \implies \exists G^\prime(y,A_1,A_2) = \int^{A_2}_{A_1} f^\prime_y(x,y)dx \tag{16}\\
+               \intertext{к разнице в (15) применима теорема Лагранжа}
+               \exists c \text{ между } y \text{ и } y+h : \\
+               G(y+h,A_1,A_2) - G(y,A_1,A_2) = G^\prime(c,A_1,A_2) \cdot h \tag{17} \\
+               \text{ посмотрим на (15) и (17), в (15) есть множитель} h \\
+               (15), (17) \implies => \Phi(y,A_2,h) - \Phi(y,A_1,h) = G^\prime(c,A_1,A_2) \stackrel{(16)}{=} \\
+               \stackrel{(16)}{=} \int^{A_2}_{A_1} f^\prime_y(x,c)dx \tag{18}\\
+               (13), (18) \implies \left | \Phi(g,A_2,h) - \Phi(y,A,h) \right | =
+          \left | \int^{A_2}_{A_1} f^\prime_y(x,c)dx \right | < \varepsilon \tag{19}
+          \end{gather*}
+     \end{longProof}
+     \begin{longProof}[Продолжение доказательства]
+          \begin{gather*}
+               \intertext{В лемме мы доказли, что это выражение равномерно стремится к этой дроби}
+               (9) \implies \Phi(y,A,h) \darrow{\underset{a \to +\infty}{y \in [p,q], h \in E}} \frac{I(y+h)-I(y)}{h} \tag{20} \\
+               \Phi(y, A, h) = \frac{1}{h} \left ( \int^A_a f(x,y+h)dx - \int^A_a f(x,y)dx \right ) \underset{h \to 0}{\longrightarrow} \\ 
+               \underset{h \to 0}{\longrightarrow} \int^A_a f^\prime_y(x,y)dx =
+               \psi(y,A) \tag{21} \\
+               \intertext{(при фиксированном a это интеграл, зависящий от параметра)}
+          \end{gather*}
+               при фиксированном $y$ применима теорема о переходе к пределу в семействе функций
+               \begin{gather*}
+               (20),(21) \implies \exists \underset{A \to +\infty}{lim} \psi(y,A) \\
+               \exists \underset{h \to 0}{lim} \frac{I(y+h)-I(y)}{h} \text{ и } \\
+               \underset{A \to +\infty}{lim} \psi(y,A) = \underset{h \to 0}{lim} \frac{I(y+h)-I(y)}{h} \tag{22} \\
+               (19),(22) \implies (6)
+          \end{gather*}
+     \end{longProof}
+     \begin{theorem}[О несобственном интеграле от несобственного интеграла, зависящего от параметра]
+          На самом деле, она справедлива при более общей постановке, но нам сейчас это не нужно.
+          \begin{gather*}
+               f(x,y) \in C([a, \infty) \times [p, \infty)) \\
+               I(y) = \int^\infty_a |f(x,y)|dx  \quad [P,Q] \quad \int^\infty_p I(y)dy \text{ сходится } \\
+               k(x) = \int^\infty_p |f(x,y)|dy  \quad [a,A] \quad \int^\infty_a k(x) dx \text{ сходится } \\
+               \intertext{это интеграл от неотрицательной непрерывной функции}
+               \intertext{предположим, что хотя бы одна из этих функций интегрирумеа на промежутке, указанном справа от неё, и что существуют соответствующие интегралы}
+               \text{ тогда } \int^\infty_p \left ( \int^\infty_a f(x,y)dx \right ) dy = \int^\infty_a \left ( \int^\infty_p f(x,y)dy \right ) dx
+          \end{gather*}
+     \end{theorem}
+     \begin{proof}
+          Доказательство будет в следующем семестре, а пользоваться мы будем ей сейчас.
+     \end{proof}
+     \begin{example}[Вычисление интеграла Дирихле]
+          \begin{gather*}
+               I = \int^\infty_0 \frac{\sin x}{x} dx = \frac{\pi}{2} \\
+               f(x,y) = \frac{\sin x}{x} \\
+              -0 < g(x,y) = e^{-xy} \leq 1, g(x,y) \text{ монотонна } \\
+               \text{  несобственный интеграл }I \text{ по признаку Дирихле сходится} \\
+               y \leq 0 \quad x \leq 0 \\ 
+               \text{По признаку Абеля }
+                I(y) = \int^\infty_0 f(x,y)g(x,y)dx = \int^\infty_0 e^{-xy} \frac{\sin x}{x}dx \\
+                \text{ равномерно сходится при } y \leq 0 \\
+               f(x,y)g(x,y) = e^{-xy} \frac{\sin x}{x} \in C([0,\infty) \times [0,\infty) ) \tag{2} \end{gather*}
+          по теореме о непрерывности несобственного интеграла, зависящего от параметра
+          \begin{gather*}
+               (1),(2) \implies I(y) \in C([0,\infty)) \tag{3}\\
+               (3) \implies I(0) = \underset{y \to +0}{lim} I(y) \tag{4}\\
+               I(0) = I \\
+               \text{ фиксируем некоторое } y_0 > 0\\
+               F(x,y) = e^{-xy} \frac{\sin x}{x} \quad y \geq y_0 > 0 \\
+               F^\prime_y(x,y) = -e^{-xy} \sin x \tag{5} \\
+               (5) \implies |F^\prime_y(x,y)| \leq e^{-xy} \leq e^{-xy_0} \tag{6} \\
+               \int^\infty_0 e^{-xy_0} dx = \frac{1}{y_0} \\
+               \phi(y) = \int^\infty_0 F^\prime_y(x,y) dx = -\int^\infty_0 e^{-xy} \sin x dx \tag{7}\\
+               \text{ По признаку Вейерштрасса } \phi \text{ сходится равномерно } \\
+               (7) \implies I^\prime(y) = \phi(y) \tag{8} \\
+               \text{хотим применить интегрирование по частям}
+          \end{gather*}
+               \begin{multline*}
+               \phi(y) = -\int^\infty_0 e^{-xy}\sin x dx = \int^\infty_0 e^{-xy}(\cos x)^\prime dx = \\
+               =  e^{-xy} \cos x |^\infty_0 +
+               y \int^\infty_0 \cos x e^{-xy} dx = -1 + y \int^\infty_0 (\sin x)^\prime e^{-xy} dx = \\
+               = -1 +y \left ( e^{-xy} \sin x |^\infty_0 + y \int^\infty_0 e^{-xy} \sin x dx \right ) = \\
+               = -1 + y^2 \int^\infty_0(e^{-xy} \sin x dx) = -1 -y^2 \phi(y) \\
+               \phi (y)(1+y^2) = -1 \quad \phi(y) = - \frac{1}{1+y^2} \tag{9} \\
+               \end{multline*}
+               \begin{gather*}
+                (8),(9) \implies I^\prime(y) = - \frac{1}{1+y^2} \quad y \geq y_0 > y \tag{10} \\
+               \intertext{напишем формулу Ньютона-Лейбница}
+               (10) \implies I(A) - I(y_0) = \int^A_{y_0} I^\prime(y) dy = \\
+               = - \int^A_{y_0} \frac{dy}{1+y^2} =
+               -(\arctan A - \arctan y_0) \tag{11}\\
+               I(A) = \int^\infty_0 e^{-xA} \frac{\sin x}{x} dx \\
+               |I(A) | \leq \int^\infty_0 e^{-xA} dx = \frac{1}{A} \underset{A \to + \infty}{\rightarrow} 0 \tag{12}\\
+               \left | \frac{\sin x}{x} \right | \quad (11),(12) \implies \text{при } A \to + \infty 0 - I(y_0) = -(\frac{\pi}{2} - \arctan y_0) \\
+               I(y_0) = \frac{\pi}{2} - \arctan y_0 \tag{13}
+          \end{gather*}
+     \end{example}
+     \begin{example}[Вычисление интеграла Эйлера-Пуассона]
+          \begin{gather*}
+               I = \int^\infty_0 e^{-x^2} dx = \frac{\sqrt{\pi}}{2} \\
+               x \geq 0 \quad y \geq 0 \quad f(x,y) = e^{-x^2y - y} \tag{1} \\
+               x \in [0, \infty) \quad y \in [0, \infty) \\
+                \int^\infty_0 f(x,y) dx = \int^\infty_0 e^{-x^2y - y} dx = 
+               e^{-y} \int^\infty_0 e^{-x^2y} dx = \\
+               \text{замена } x\sqrt{y} = w \quad x = \frac{1}{\sqrt{y}}w \\
+                = e^{-y} \frac{1}{\sqrt{y}} \int^\infty_0 e^{-w^2} dw = I \cdot \frac {e^{-y}}{\sqrt(y)} \tag{2} \\
+               \int^\infty_0 (\ldots)dy = I \int^\infty_0 \frac{e^{-y}}{\sqrt{y}}dy = \\
+               \text{замена } y = v^2 \quad y^\prime = 2v \quad \sqrt{y} = v \\
+                =I \cdot \int^\infty_0 e^{-v^2} \cdot 2dv = I \cdot 2I = 2I^2 \tag{3} \\
+                \int^\infty_0 e^{-x^2y -y}dy = \int^\infty_0 e^{-(1+x^2)y} dy = \frac{1}{1+x^2} \tag{4} \\
+                 \int^\infty_0 \frac{dx}{1+x^2} = \underset{A \to \infty}{\lim} \int^A_0 \frac{dx}{1+x^2} = \underset{A \to \infty}{lim} (\arctan A - \arctan 0) = \frac{\pi}{2} \tag{5}
+          \end{gather*}
+     \end{example}
+    \end{document}

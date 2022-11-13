@@ -90,9 +90,9 @@
     \begin{theorem}$||cA|| = |c| \cdot ||A||$ \end{theorem}
     \begin{proof}
         \begin{multline*}
-        ||cA|| = \underset{X \in {\vR}^m, ||X||_{{\vR}^n}\leq 1}{\sup}||cA(X)||_{{\vR}^n} = 
-        \underset{X \in {\vR}^m, ||X||_{{\vR}^n}\leq 1}{\sup} ||c(AX)||_{\mathbb{R^n}} = \\
-        =\underset{X \in {\vR}^m, ||X||_{{\vR}^n}\leq 1}{\sup} |c| \cdot ||AX||_{{\vR}^n}
+        ||cA|| = \underset{X \in {\vR}^m, ||X||_{{\vR}^m}\leq 1}{\sup}||cA(X)||_{{\vR}^n} = 
+        \underset{X \in {\vR}^m, ||X||_{{\vR}^m}\leq 1}{\sup} ||c(AX)||_{\mathbb{R^n}} = \\
+        =\underset{X \in {\vR}^m, ||X||_{{\vR}^m}\leq 1}{\sup} |c| \cdot ||AX||_{{\vR}^n}
         \end{multline*} 
     \end{proof}
     $A, B : {\vR}^m \rightarrow {\vR}^n$
@@ -105,7 +105,7 @@
             \[\leq \underbrace{\sup(\underbrace{||AX||}_{\leq ||A||_2} + \underbrace{||BX||}_{\leq ||B||_2})}_{M}
             \leq \underset{\ldots}{\sup} ||AX||_{{\vR}^n} + \underset{\ldots}{\sup} ||BX||_{{\vR}^n}\]
            
-           \[ \exists x_1 \in {\vR}^m, ||x_1||_{{\vR}^m} \leq 1 \text{и}
+           \[ \exists x_1 \in {\vR}^m, ||x_1||_{{\vR}^m} \leq 1 \text {и }
             ||Ax_1|| + ||Bx_1|| > M - \varepsilon
              \tag{3} \]
            
@@ -152,7 +152,7 @@
         \begin{enumerate}
             \item $ m = 0$
             \begin{gather*}
-                \forall \varepsilon > 0 \exists c_1 \in E : с_1 < \varepsilon \\
+                \forall \varepsilon > 0 \exists c_1 \in E : c_1 < \varepsilon \\
                 (7) \rightarrow ||Ax||_{{\vR}^n} \leq c_1||x||_{{\vR}^m}
                 \forall x \in {\vR}^m \rightarrow ||A|| \leq c_1 < \varepsilon \\
                 \rightarrow ||A|| = 0
@@ -186,6 +186,12 @@
     \end{proof}
 
 \subsection*{Дифференцируемость суперпозиции линейных отображений}
+    \begin{definition}[Дифференцируемость]
+        Отображение дифференцируемо в $x_0$, если $\exists A : \vR^m \rightarrow \vR^n : 
+        \quad \forall H \in \vR^m : x_0 + H \in \Omega $
+        \[F(x_0) + H - F(x_0) = AH + r(H)  \quad r(h) \in \vR^n\tag{12} \]
+        \[ \frac{||r(H)||_{\vR^n}}{||H||_{\vR^m}} \underset{H \to \mathbb{0}_m}{\longrightarrow} 0 \tag{13} \]
+    \end{definition}
     \begin{gather*}
         \Omega \subset {\vR}^m, m \geq 1 \\
         X_o \in \Omega - \text{ внутрення точка}\\
@@ -212,7 +218,7 @@
         \[DP(X_0) = D\Phi(X_0) \cdot DF(X_0) \text{( это матрицы Якоби)} \tag{16}\]
     \end{theorem}
 
-    \begin{proof}
+    \begin{longProof}
         \begin{gather*}
             \Phi(Y_0 + \lambda) - \Phi(Y_0) = B \lambda + \rho(\lambda) \tag{17} \\
             B = D\Phi(Y_0), \rho(\lambda) \in {\vR}^k \text{ и } \frac{||\rho(\lambda)||_{{\vR}^k}}{||\lambda||_{{\vR}^n}} \xrightarrow[\lambda \to \mathbb{0}_n]{}0 \tag{18} \\
@@ -221,13 +227,13 @@
             (18) \implies\forall \lambda \in {\vR}^n, \lambda \neq \mathbb{0}_n \text{ и } ||\lambda||_{{\vR}_n} <\delta_1 \text{ будет } \frac{||\rho(\lambda)||_{{\vR}_k}}{||\lambda||_{{\vR}^n}} < \eta \tag{19}
             \intertext{и}
             ||\rho(\lambda)||_{{\vR}^k} \leq \eta \cdot ||\lambda||_{{\vR}^n}  \tag{20} \\
-            (19) \implies ||\rho(\lambda)||_{{\vR}^k} \leq \eta \cdot ||\lambda||_{{\vR}^n} \tag{19'} \\
-            \forall \varepsilon > 0 \exists \delta_2 > 0 : \forall H \in {\vR}^m, ||H||_{{\vR}^m} \delta_2  \text{ имеем } \\
+            (19) \implies ||\rho(\lambda)||_{{\vR}^k} \leq \eta \cdot ||\lambda||_{{\vR}^n} \tag{19\prime} \\
+            \forall \varepsilon > 0 \exists \delta_2 > 0 : \forall H \in {\vR}^m, ||H||_{{\vR}^m} < \delta_2  \text{ имеем } \\
             ||r(H)||_{{\vR}^n} \leq \varepsilon||H||_{{\vR}^m} \tag{21} \\
             H \in {\vR}^m, x_0 + H \in \Omega \text{ возможно т.к. внутрення точка}\\
             F(X_0) = Y_0 \\
             \text{определим } F(x_0 + H) - F(x_0) = \lambda \tag{22} \\
-            F(x_0+H) - Y_0 = \lambda \tag{22'}
+            F(x_0+H) - Y_0 = \lambda \tag{22\prime}
         \end{gather*}
         \begin{align*}
             P(x_0+H) - P(x_0) = \Phi(F(x_0 + H)) - \Phi(F(x_0)) \stackrel{(22\prime)}{=} \\
@@ -242,8 +248,8 @@
          ||H||_{{\vR}^m} < \delta_2 \rightarrow ||r(H)||_{{\vR}^m} \leq \varepsilon ||H||_{{\vR}^m}
         \tag{23} \end{gather*}
         \begin{align*}
-            \delta = \varepsilon \text{  } \exists \delta_1 : \text{ выполнено (20) при }
-            ||\lambda||_{{\vR}^n} \delta_1 \\
+            \eta = \varepsilon \quad \exists \delta_1 : \text{ выполнено (20) при }
+            ||\lambda||_{{\vR}^n}  < \delta_1 \\
             ||\lambda||_{{\vR}^n} = ||AH + r(H)||_{{\vR}^n} \leq ||AH||_{{\vR}^n}
             + ||r(H)||_{{\vR}^n} \\
             \stackrel{(22)}{\leq} ||A|| \cdot ||H||_{{\vR}^m} + \varepsilon \cdot ||H||_{{\vR}^m}
@@ -253,7 +259,6 @@
         \[|H||_{{\vR}^m} \leq \frac{\delta_1}{||A||+\varepsilon}\tag{24}\]
         \[\delta_0 = \min(\delta_2, \frac{\delta_1}{||A|| + \varepsilon}) \tag{25}\]
         и полагаем $||H||_{{\vR}^n} < \delta_0$
-
     \begin{gather*}
        \text{При } ||H||_{{\vR}^m} < \delta_0 (26) \implies ||r_1(H)||_{{\vR}^k}  
         \leq ||Br(H)||_{{\vR}^k} + \\ 
@@ -271,5 +276,20 @@
         (27^{\prime\prime}) \implies \frac{||r_1(H)||_{{\vR}^k}}{||H||_{{\vR}^m}}
         \underset{H \to \mathbb{0}_m}{\longrightarrow} 0 \tag{28} \\
         (23^\prime), (27^\prime), (28) \implies (16) \end{gather*}
-    \end{proof}
+    \end{longProof}
+    \subsection*{Конкретные выражения элементов матрицы B} 
+    \begin{gather*}
+        P(X) = \begin{bmatrix*}
+            P_1(X) \\
+            \vdots \\
+            P_K(X) 
+        \end{bmatrix*} \quad DP(X_0) = \begin{bmatrix*}
+            P_{1x_1}^\prime(X_0) & \vdots & P_{1x_m}^\prime(X_0) \\
+            \vdots & \ddots & \vdots \\
+            P_{kx_1}^\prime(X_0) & \ldots & P_{kx_m}^\prime(X_0)
+        \end{bmatrix*} \\
+        1 \leq l \leq k \quad q \leq j \leq m \\
+        P^\prime_{lx_j}(X_0) = Y^\prime_{ly_1}(Y_0) \cdot f^\prime_{lx_1}(X_0) + Y^\prime_{ly_2}(Y_0) \cdot f^\prime_{2x_j}(X_0) + \ldots +
+        Y^\prime_{ly_n} (Y_0) \cdot f_{nx_j}(X_0)
+    \end{gather*}
 \end{document}

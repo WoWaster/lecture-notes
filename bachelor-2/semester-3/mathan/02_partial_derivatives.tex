@@ -1,19 +1,82 @@
-% !TeX root = ./main.tex
+% !Tex root = ./main.tex
 \documentclass[main]{subfiles}
 \begin{document}
 \chapter{Частные производные}
+    \section*{Частные производные второго порядка}
+    \begin{gather*}
+        E \in \vR^n \quad n \geq 2 \\
+        x_0 \in E \quad x_0 - \text{ внутренняя точка} \\
+        f: E \rightarrow \vR \\
+        1 \leq i \leq n \quad 1 \leq j \leq n \quad x_0 \in W \subset E \\
+        \forall x \in W \quad \exists f^\prime_{x_i}(x) \\
+        g(x) = f^\prime_{x_i}(x) \quad g: W \rightarrow \vR
+        \exists g^\prime_{x_j}(x_0) \\
+        f^{\prime\prime}_{x_ix_j} \stackrel{def}{=} g^\prime_{x_j}(x_0) \\
+        i \ne j \quad \forall x \in W \quad \exists f^\prime_{x_j}(x) \\
+        h: W \rightarrow \vR \quad h(x) \stackrel{def}{=} f^\prime_{x_j}(x) \\
+        \exists h^\prime_{x_i}(x_0) \\
+        f^{\prime\prime}_{x_jx_i}(x_0) \stackrel{def}{=} h^\prime_{x_i} (x_0) \\
+        f(x_1,x_2) = \begin{cases}
+            \frac{x_1^3x_2}{x_1^2 + x_2^2} \quad \text{ если} x_1^2 + x_2^2 > 0\\
+            0 \quad \text{ если } x_1 = x_2 = 0
+        \end{cases} \\
+        |f(\ldots)| \leq \frac{|x_1|^3|x_2|}{x_1^2} = |x_1||x_2| \underset{(x_1,x_2) \to (0,0)}{\longrightarrow} 0 \\
+        f^\prime_{x_1} (\ldots) = \frac{3x_1^2x_2}{x_1^2+x_2^2} - 2\frac{x_1^3\cdot x_2 \cdot x_1}{(x_1^2+x_2^2)^2} = 
+        \frac{3x_1^2x_2}{x_1^2+x_2^2} - \frac{2x_1^4x_2}{(x_1^2+x_2^2)^2} \end{gather*}
+        \begin{gather*}
+        f^\prime_{x_1}(0,0) = \underset{x_1 \to 0}{\lim} \left ( \left (\frac{x_1^3 \cdot 0}{x_1^2+0} - 0 \right ) \frac{1}{x_1} \right ) = 0\\
+        \left | \frac{3x_1^2x_2}{x_1^2 + x_2^2} \right | = 3 |x_2| \underset{(x_1,x_2) \to 0}{\longrightarrow} 0\\
+        x_2 \ne 0 \\
+        f^\prime_{x_1}(0,x_2) = 0 \\
+        f^{\prime\prime}_{x_1x_2}(0,0) = \underset{x_2 \to 0}{\lim} \frac{f^\prime_{x_1}(0,x_2)-f^\prime_{x_1}(0,0)}{x_2} = 0\\
+        f^\prime_{x_2}(x_1,x_2) = \left ( \frac{x_1^3x_2}{x_1^2+x_2^2} \right )^\prime_{x_2} = \frac{x_1^3}{x_1^2+x_2^2} - 2\frac{x_1^3x_2^2}{(x_1^2+x_2^2)^2} \\
+        f^\prime_{x_2}(0,0) = \underset{x_2 \to 0}{\lim} \left ( \left ( \frac{0 \cdot x_2}{0 + x_2^2} - 0 \right ) \frac{1}{x_2} \right ) = 0 \\
+        \left | \frac{x_1^3}{x_1^2 + x_2^2} \right | \leq |x_1| \underset{(x_1,x_2) \to 0}{\longrightarrow} 0 \\
+        -2 \frac{x_1^3}{x_1^2+x_2^2} \cdot \frac {x_2^2}{x_1^2+x_2^2} \\
+        f^{\prime\prime}_{x_2x_1}(0,0) = \underset{x_1 \to 0}{ \lim} \frac{f^\prime_{x_2}(x_1,0)-f^\prime_{x_2}(0,0)}{x_1} = \underset{x_1 \to 0}{\lim} \frac{x_1}{x_1} = 1 \\
+        f^\prime_{x_2}(x_1,0) = x_1\\
+    \end{gather*}
+
     \section*{Теорема о смешанных производных}
-        \includegraphics[width=0.5\linewidth]{chikulya_finally.pdf}
+        \includegraphics[width=0.1\linewidth]{chikulya_finally.pdf}
         \begin{gather*}
             E \subset \vR^2 - \text{ открытое множество } \\
             f: E \rightarrow \vR \\
-            x_0 = (x_1, x_2) \in E \\
+            x_0 = (x_1^0, x_2^0) \in E \\
             f \in C(E) \forall x \in E \quad \exists f^\prime_{x_1}(x) \quad f^\prime_{x_2}(x) \\
             f^\prime_{x_1}, f^\prime_{x_2} \in C(E) \\
+            \forall x \in E \quad \exists f^{\prime\prime}{x_1x_2}(x) \quad \exists f^{\prime\prime}_{x_2x_1} \\
+            f^{\prime\prime}_{x_1x_2} \text{  и } f^{\prime\prime}_{x_2x_1} \text{ непрерывны в } x_0 \\
+            \implies f^{\prime\prime}_{x_1x_2} (x_0)  = f^{\prime\prime}_{x_2x_1}(x_0)
         \end{gather*}
-
-        \begin{gather*}
-            f_1, \ldots, f_k - \text{ относительный базис} R_n \text { над} R_{n-1} \\
-            Bf_1
-        \end{gather*}
+        \begin{longProof}
+            \begin{gather*}
+                \exists r > 0 \quad B_{2r}(x_0) = \{ (x_1,x_2) : (x_1-x_1^0)^2 + (x_2-x_2^0)^2 < 4r^2 \} \\
+                B_{2r}(x_0) \in E \quad |x_1^0 - x_1^0| \leq r \quad |x_2-xx2^0| \leq r \implies \\
+                \implies (x_1,x_2) \subset B_{2r}(x_0) \\
+                0 < h \leq r \\
+                g(h) = \frac{f(x_1^0+h,x_2^0+h)-f(x_1^0+h,x_2^0) - f(x_1^0,x_2^0+h) + f(x_1^0,x_2^0)}{h^2} \tag{1}\\
+                \phi(x_2) = \frac{f(x_1^0+h,x_2) - f(x_1^0,x_2)}{h} \tag{2}\\
+                x_2 \in [x_2^0-r, x_2^0+r]  \quad (1),(2) \implies g(h) = \frac{\phi(x_2^0+h)-\phi(x_2^0)}{h} \tag{3} \\
+                (2) \implies \forall x_2 \in [x^0_2 - r, x^0_2 + r] \exists \phi^\prime(x_2) = \frac{f^\prime_{x_2}(x_1^0+h,x_2)-f^\prime_{x_2}(x_1^0,x_2)}{h} \tag{4}\\
+                \text{по теореме Лагранжа } \exists h_2 \quad 0 < h_2 < h : \\
+                \phi(x_2^0+h) - \phi(x_2^0) = \phi^\prime(x_2^0+h_2) \cdot h \tag{5}\\
+                (3),(5) \implies g(h) = \phi^\prime(x_2^0 + h_2) \tag{6}\\
+                (4),(6) \implies g(h) = \frac{f^\prime_{x_2}(x_1^0+h_1,x_2^0+h_2)-f^\prime_{x_2}(x_1^0,x^0_2 + h_2)}{h} \tag{7}\\
+                \forall x_1 \in [x_1^0-r,x_1^0+r] \exists (f^\prime_{x_2}(x_1,x_2^=+h_2))^\prime_{x_1} = f^{\prime\prime}_{x_2x_1}(x_1,x_2^0+h_2) \tag{8}\\
+                \exists 0 < h_1 < h : f^\prime_{x_2}(x_1^0+h,x_2^0+h_2) - f^2\prime_{x_2}(x_1^0,x_2^0+h_2) =\\=
+                f^{\prime\prime}_{x_2x_1}(x_1^0 + h_1, x_2^0 + h_2) \cdot h \tag{9}\\
+                (7),(9) \implies g(h) = f^{\prime\prime}_{x_2x_1}{x_1^0+h_1,x_2^0 + h_2} \tag{10}\\
+                \psi(x_1) \ \frac{f(x_1,x_2^0+h)-f(x_1,x_2^0)}{h} \tag{11}\\
+                x_1 \in [x_1^0-r,x_1^0+r] \\
+                g(h) = \frac{\psi(x^0_1+h)-\psi(x_1^0)}{h} \tag{12}\\
+                (11) \implies \forall x_1 \in [x_1^0-r,x_1^0+r] \exists \psi^\prime(x_1) =
+                \frac{f^\prime_{x_1}(x_1,x_2^0+h)-f^\prime_{x_1}(x_1,x_2^0)}{h} \tag{13}\\
+                (13) \implies \psi (x_1^0+h) - \psi(x_1^0) = \psi^\prime(x_1^0+\overline(h))h \tag{14}\\
+                \exists \overline{h} \quad 0 < \overline{h} < h \\
+                (12),(14) \implies g(h) = \psi^\prime(x_1^0 + \overline{h_1}) = \\ =
+                 \frac{f^\prime_{x_1}(x_1^0+\overline{h_1},x_2^0+h)-f^\prime_{x_1}(x_1^0+\overline{h_1},x_2^0)}{h} \tag{15}\\
+                 \text{ здесь могла быть ваша реклама, а пока work in progress}
+            \end{gather*}
+        \end{longProof}
 \end{document}
