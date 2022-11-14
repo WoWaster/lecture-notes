@@ -33,10 +33,238 @@
 \begin{definition}[Соприкасающийся параболоид]
     Этот параболоид называется соприкасающимся параболоидом.
     Повернем $OXY$, так чтобы  слагаемое при $xy$ исчезло, получим:
-    \[z = Ax^2 + By^2\]
+    \[z = Ax^2 + Cy^2\]
     Считаем, что
     \begin{align*}
-        \vf''_{xx}(0,0) & = 2A & \vf''_{yy}(0,0) & =2B & \vf''_{xy}(0,0) = 0
+        \vf''_{xx}(0,0) & = 2A & \vf''_{yy}(0,0) & =2C & \vf''_{xy}(0,0) = 0
     \end{align*}
 \end{definition}
+
+Рассмотрим $\vf_1(x,y) = Ax^2 + Cy^2$\marginpar{07.11.22}
+\begin{gather*}
+    \left.\frac{\partial \vf}{\partial x} \right| _{(0,0)} = \left.\frac{\partial \vf_1}{\partial x} \right|_{(0,0)}\\
+    \left.\frac{\partial^2 \vf}{\partial x^2} \right|_{(0,0)} = \left.\frac{\partial^2 \vf_1}{\partial x^2} \right|_{(0,0)}
+\end{gather*}
+и т.д., таким образом приходим к теореме:
+\begin{theorem}
+    $\fff$ и $\sff$ квадратичные формы у поверхности и соприкасающегося параболоида в данной точке одинаковы.
+\end{theorem}
+Теорема очевидна, рассмотрим векторную форму поверхности $z = \vf(x,y)$: $\vr(x,y,\vf(x,y))$.
+\begin{gather*}
+    E = \frac{\partial \vr}{\partial x} \frac{\partial \vr}{\partial x} = \left(1 + \left|\frac{\partial \vf}{\partial x} \right|_{(0,0)}\right) = 1\\
+    F = 0 \\
+    G= 1\\
+    L = \frac{\partial^2 \vf}{\partial x^2} \vn = (0,0,2A) \cdot (0,0,1) = 2A\\
+    M = (0,0,\vf''_{xy}|_{(0,0)})\vn = 0\\
+    N =  2C
+\end{gather*}
+Но это только в одной конкретной точке, даже не в окрестности.
+\begin{corollary}
+    $k_{\vn}, k_1, k_2, K, H$ одинаковы у поверхности и соприкасающегося параболоида.
+\end{corollary}
+
+Когда нам нужно что-то сосчитать попробуем заменить поверхность на соприкасающийся параболоид.
+\begin{theorem}[Эйлера]
+    \[k_{\vn} (\theta) = k_1 \cos^2 \theta + k_2 \sin^2 \theta\]
+\end{theorem}
+\begin{center}
+    \import{figures}{euler_theorem.pdf_tex}
+\end{center}
+$k_1, k_2$ -- нормальные кривизны, в направлениях $OX$ и $OY$ в выбранной системе координат.
+
+Посмотрим на нормальную кривизну в направлении $\theta$:
+\[k_{\vn} (\theta) = \frac{\sff(\cos \theta, \sin \theta)}{\fff(\cos \theta, \sin \theta)} = \frac{2A \cos^2 \theta + 2C \sin^2 \theta}{\cos^2\theta + \sin^2 \theta}\]
+в нашем определении
+\begin{align*}
+    \theta & = 0             & 2A & = k_1 \\
+    \theta & = \frac{\pi}{2} & 2C & = k_2
+\end{align*}
+Докажем, что $k_1, k_2$ -- главные кривизны.
+Для этого исследуем $k_{\vn}(\theta)$ на минимум и максимум:
+\begin{gather*}
+    k_{\vn}(\theta) = k_1 \cos^2 \theta + k_2(1- \cos^2 \theta) = (k_1 - k_2) \cos^2 \theta + k_2.
+\end{gather*}
+\begin{itemize}
+    \item Если $k_1 \ge k_2$
+          \begin{description}
+              \item[минимум] при $\cos^2\theta = 0$ и $k_{\vn} = k_2$
+              \item[максимум] при $\cos^2\theta = 1$ и $k_{\vn} = k_1$
+          \end{description}
+    \item Если $k_1 \le k_2$, то минимум и максимум меняются местами
+\end{itemize}
+\begin{corollary}
+    Главные направления перпендикулярны.
+\end{corollary}
+\begin{corollary}
+    Направления $\theta$ и $\pi - \theta$ имеют одинаковые нормальные кривизны.
+\end{corollary}
+
+\begin{remark}
+    $K = 4AC$
+\end{remark}
+Каким может быть параболоид $z = Ax^2 + Cy^2$?
+
+
+\begin{enumerate}
+    \item Если $A, C$ -- одного знака, то параболоид эллиптический $\Leftrightarrow K > 0$, такая точка называется эллиптической
+          \begin{itemize}
+              \item Если $A=C$, то это параболоид вращения (в любом направлении одинаковые кривизна), такая точка -- точка округления
+          \end{itemize}
+    \item Если $A,C$ -- разных знаков, то параболоид гиперболический $\Leftrightarrow K < 0$ и эта точка называется гиперболической
+    \item Если $A =0$ или $C=0$ $\Leftrightarrow K = 0$, то параболоид является параболическим цилиндром, и такая точка называется параболической
+          \begin{itemize}
+              \item если $A = C = 0$, параболоид является плоскостью, и точка называется точкой уплощения
+          \end{itemize}
+\end{enumerate}
+
+
+\subsection{Вычисление главных направлений}
+Выберем направление $(\xi, \eta)$ в области $\fancyD$:
+\begin{center}
+    \import{figures}{xi_eta_direction.pdf_tex}
+\end{center}
+
+Введем замену $x = \xi / \eta$
+\[k_{\vn}(\xi, \eta) = \frac{\sff(\xi, \eta)}{\fff(\xi, \eta)} = \frac{L \xi^2 + 2M \xi\eta + N \eta^2}{E \xi^2 + 2F \xi\eta + G \eta^2} = \frac{L x^2 + 2Mx+N}{E x^2 + 2 Fx + G}\]
+Хотим вычислить главные направления, т.е. понять при каких $x$, $\xi$ и $\eta$ задают главные направления, т.к. $x = \tg \theta$, где $\theta$ -- угол с произвольным направлением.
+Для этого найдем минимум и максимум:
+\begin{gather*}
+    \begin{multlined}
+        \left(k_{\vn}(x)\right)' =\\
+        = \frac{(2Lx + 2M)(Ex^2 + 2Fx +G) - (2Ex + 2F)(Lx^2 + 2Mx+N)}{(Ex^2 + 2Fx + G)^2}
+        = 0
+    \end{multlined}\\
+    Ex^2 + 2Fx + G >0 \text{ т.к. } \frac{D}{4} = F^2 -EG < 0\\
+    \left( \sqrt{EG - F^2} = | \vr'_u \times \vr'_v| \right)\\
+    \intertext{в таком случае приравняем к нулю числитель}
+    (Lx + M) (Ex^2 + 2Fx + G) - (Ex+F) (Lx^2 + 2Mx + N) = 0\\
+    \begin{multlined}
+        2LFx^2 + LGx + MEx^2 + 2MFx + MG -\\
+        -  2MEx^2 - NEx  - FLx^2 - 2FMx -FN = 0
+    \end{multlined}\\
+    (FL - ME)x^2 + (LG-NE)x + (MG - FN) = 0\\
+    \intertext{решать данное уравнение неудобно, сделаем обратную замену и домножим на $\eta^2$}
+    (FL-ME)\xi^2 + (LG-NE)\xi\eta + (MG-FN)\eta^2 = 0\\
+    \intertext{и это равенство можно записать в виде}
+    \begin{vmatrix}
+        \xi^2 & -\xi\eta & \eta^2 \\
+        G     & F        & E      \\
+        N     & M        & L
+    \end{vmatrix} = 0
+\end{gather*}
+\subsection{Вычисление главных кривизн}
+\begin{gather*}
+    k = \frac{Lx^2 + 2Mx + N}{Ex^2 + 2Fx + G}\\
+    \intertext{запишем в другом виде}
+    Lx^2 + 2Mx + N = k(Ex^2 + 2F +G)\\
+    \intertext{если нам дано $k$, то это просто квадратное уравнение}
+    (L - kE)x^2 + 2(M-kF)x + (N-kG) = 0
+\end{gather*}
+
+Если $k$ не главная кривизна, то у этого уравнения есть 2 решения,
+
+Если $k$ главная кривизна -- 1 решение,
+
+Если $k$ не кривизна -- 0 решений, такое может быть, т.к. нормальная кривизна может быть заключена только между главными кривизнами.
+
+Т.к. мы ищем главные кривизны, то необходимое для нас условие: $D/4 = 0$, то есть
+\begin{gather*}
+    (M-kF)^2 - (L -kE)(N-kG) = 0\\
+    k^2 (F^2 -EG) - k(2MF - LG - EN) + (M^2 -LN) = 0
+\end{gather*}
+$k_1, k_2$ -- корни соответствующего уравнения
+\begin{gather*}
+    K = k_1 k_2 = \frac{M^2 - LN}{F^2 - EG} = \frac{LN - M^2}{EG - F^2}\\
+    H = \frac{2MF - LG - EN}{2(F^2 - EG)}
+\end{gather*}
+\subsection{Блистательная теорема Гаусса}
+\begin{lemma}
+    $\va, \vb, \vc, \vd, \ve, \vf$ -- векторы.
+    \[(\va, \vb, \vc)(\vd, \ve,\vf) = \begin{vmatrix}
+            \va\vd & \va\ve & \va\vf \\
+            \vb\vd & \vb\ve & \vb\vf \\
+            \vc\vd & \vc\ve & \vc\vf
+        \end{vmatrix}\]
+\end{lemma}
+\begin{proof}
+    $\va = (a_1, a_2, a_3)$ и так далее
+    \begin{multline*}
+        (\va, \vb, \vc)(\vd, \ve, \vf) = \begin{vmatrix}
+            a_1 & a_2 & a_3 \\
+            b_1 & b_2 & b_3 \\
+            c_1 & c_2 & c_3
+        \end{vmatrix}
+        \begin{vmatrix}
+            d_1 & e_1 & f_1 \\
+            d_2 & e_2 & f_2 \\
+            d_3 & e_3 & f_3
+        \end{vmatrix}
+        = \\
+        \det \left( \begin{pmatrix}
+            a_1 & a_2 & a_3 \\
+            b_1 & b_2 & b_3 \\
+            c_1 & c_2 & c_3
+        \end{pmatrix}
+        \begin{pmatrix}
+            d_1 & e_1 & f_1 \\
+            d_2 & e_2 & f_2 \\
+            d_3 & e_3 & f_3
+        \end{pmatrix}\right) =
+        \begin{vmatrix}
+            \va\vd & \va\ve & \va\vf \\
+            \vb\vd & \vb\ve & \vb\vf \\
+            \vc\vd & \vc\ve & \vc\vf
+        \end{vmatrix}
+    \end{multline*}
+\end{proof}
+
+\begin{lemma}
+    \[\begin{vmatrix}
+            A_1 + A_2 & B_1 + B_2 & C_1 + C_2 \\
+            D         & E         & F         \\
+            \alpha    & \beta     & \gamma
+        \end{vmatrix} =
+        \begin{vmatrix}
+            A_1    & B_1   & C_1    \\
+            D      & E     & F      \\
+            \alpha & \beta & \gamma
+        \end{vmatrix} +
+        \begin{vmatrix}
+            A_2    & B_2   & C_2    \\
+            D      & E     & F      \\
+            \alpha & \beta & \gamma
+        \end{vmatrix}\]
+\end{lemma}
+\begin{proof}
+    \begin{multline*}
+        \begin{vmatrix}
+            A_1 + A_2 & B_1 + B_2 & C_1 + C_2 \\
+            D         & E         & F         \\
+            \alpha    & \beta     & \gamma
+        \end{vmatrix} =\\
+        (A_1 + A_2) \begin{vmatrix}
+            E     & F      \\
+            \beta & \gamma
+        \end{vmatrix}
+        - (B_1 + B_2) \begin{vmatrix}
+            D      & F      \\
+            \alpha & \gamma
+        \end{vmatrix}
+        + (C_1 + C_2) \begin{vmatrix}
+            D      & E     \\
+            \alpha & \beta
+        \end{vmatrix}=\\
+        \begin{vmatrix}
+            A_1    & B_1   & C_1    \\
+            D      & E     & F      \\
+            \alpha & \beta & \gamma
+        \end{vmatrix} +
+        \begin{vmatrix}
+            A_2    & B_2   & C_2    \\
+            D      & E     & F      \\
+            \alpha & \beta & \gamma
+        \end{vmatrix}
+    \end{multline*}
+\end{proof}
+Планы на будущее: нам нужно доказать, что $LN- M^2$ выражается, через $E,F,G, E'_u, E'_v$  и т.д.
 \end{document}
