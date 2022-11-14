@@ -1,0 +1,146 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Вычисление кривизны и кручения}
+
+В натуральной параметризации $k(s_0) = |\vf''(s_0)|$.
+\begin{theorem}
+    $k \equiv 0 \Leftrightarrow$ кривая является частью прямой.
+\end{theorem}
+\begin{proof}
+    В натуральной параметризации $k=0$ равносильно $\vf''(t) = 0$,
+    а это равносильно тому, что $\vf(t) = \vu t + \vv$, где $\vu$ и $\vv = const$.
+\end{proof}
+\begin{theorem}
+    Для любой регулярной параметризации
+    \[k = \frac{|\vf'(t) \times \vf''(t)|}{|\vf'(t)|^3}.\]
+\end{theorem}
+\begin{proof}
+    Пусть $\vg(s)$ -- натуральная параметризация, а $\vf(t)$ любая другая параметризация.
+    \[s = \phi(t) = \int_{t_0}^t |\vf'(\tau)| d\tau\]
+    Тогда связь между ними: $\vf(t) = \vg(\phi(t))$.
+    И существует $\psi(s) = t$ -- обратная функция и $\vg(s) = \vf(\psi(s))$.
+
+    Пусть $\vu \in \langle \vf', \vf'' \rangle$
+    \begin{center}
+        \import{figures/}{proj_n-u.pdf_tex}
+    \end{center}
+    \[|\proj_{\vn} u| = \frac{|\vf' \times \vu|}{|\vf'|}\]
+
+    Вычислим $k$:
+    \begin{multline*}
+        k = |\vg''(s)| = |(\vf(\psi(s)))''| = \\
+        | \vf''(\psi(s)) \psi'^2(s) + \vf'(\psi(s)) \psi''(s)| = \\
+        \left|\proj_{\vn} (\vf''(\psi(s)) \psi'^2(s) + \vf'(\psi(s)) \psi''(s))\right|
+    \end{multline*}
+    Пусть
+    \begin{gather*}
+        \vu = \vf''(\psi(s)) \psi'^2(s) + \vf'(\psi(s)) \psi''(s)\\
+        \vf' \times \vu = \vf' \times \vf'' \psi'^2 + 0\\
+        \psi'(s) = \frac{1}{\phi'(t)} = \frac{1}{|\vf'(t)|}
+        \intertext{тогда}
+        \frac{|\vf' \times \vu|}{|\vf'|} = \frac{|\vf' \times \vf''|}{|\vf'|}\psi'^2(s) = \frac{|\vf' \times \vf''|}{|\vf'|^3}
+    \end{gather*}
+\end{proof}
+
+Если $\vf = (f_1, f_2, f_3)$, то
+\[k = \frac{\sqrt{(f_2'f_3'' - f_3' f_2'')^2 + (f_3'f_1'' - f_1' f_3'')^2 + (f_1'f_2'' - f_2' f_1'')^2}}{(f_1'^2 + f_2'^2 + f_3'^2)^{3/2}}\]
+В случае плоских кривых ($f_3 = 0$):
+\[k = \frac{|f_1'f_2'' - f_2' f_1''|}{(f_1'^2 + f_2'^2)^{3/2}}\]
+При явном задании
+\begin{gather*}
+    y = f(x) \quad \begin{cases}
+        x = f_1 = t \\
+        y = f_2 = f(t)
+    \end{cases}\\
+    k = \frac{|f''|}{(1+ f'^2)^{3/2}}
+\end{gather*}
+В полярных координатах
+\begin{gather*}
+    r = r(\phi) \quad \begin{cases}
+        f_1 = x = r \cos \phi \\
+        f_2 = y = r \sin \phi
+    \end{cases}\\
+    |f'| = \sqrt{r^2 + r'^2} = \sqrt{f_1'^2 + f_2'^2}\\
+    \begin{cases}
+        f_1' = r' \cos \phi - r \sin \phi \\
+        f_2' = r' \sin \phi + r \cos \phi
+    \end{cases}\\
+    \begin{cases}
+        f_1'' = r'' \cos \phi - 2 r' \sin \phi - r \cos \phi \\
+        f_2'' = r'' \sin \phi + 2 r' \cos \phi - r \sin \phi
+    \end{cases}
+\end{gather*}
+Чему равно $|f_1'f_2'' - f_2' f_1''|$ -- упражнение.
+
+\begin{theorem}
+    Кривая плоская тогда и только тогда, когда ее $\kappa = 0$.
+\end{theorem}\marginpar{26.09.22}
+\begin{proof}
+    Вспомним, что $\vb' = - \kappa \vn$ в натуральной параметризации.
+    Тогда $\kappa = 0 \Leftrightarrow \vb' = 0 \Leftrightarrow \vb = const \Leftrightarrow$ соприкасающаяся плоскость $= const$.
+
+    Если соприкасающаяся плоскость постоянная, то кривая лежит в ней.
+    Докажем это.
+
+    Ориентируем систему так, чтобы $\vb = (0,0,1)$.
+    Кривая в натуральной параметризации имеет уравнение $\vg(s) = (g_1(s), g_2(s), g_3(s))$.
+    И мы хотим доказать, что $g_3(s) = 0$.
+    Рассмотрим вектор $\vb$:
+    \[\vb = \frac{\vg' \times \vg''}{k}\]
+    (Напоминание: в натуральной параметризации $\vv = \vg'$, $k\vn = \vv' = \vg''$, $\vb = \vv \times \vn$)
+    \begin{gather*}
+        \vg' \times \vg'' = (\underbrace{g_2' g_3'' - g_3'g_2''}_{=0}, \underbrace{g_3'g_1'' - g_1' g_3''}_{=0}, \underbrace{g_1'g_2'' - g_2' g_1''}_{\neq 0})
+        \intertext{Получим систему:}
+        \begin{cases}
+            g_2' g_3'' - g_3'  g_2'' = 0              \\
+            g_1' g_3'' - g_1'' g_3' = 0 & |\cdot g_2'
+        \end{cases} \implies\\
+        g_1'g_3' g_2'' - g_1'' g_3' g_2' = 0 \\
+        g_3' (g_1' g_2'' - g_1'' g_2') = 0 \implies g_3' = 0\ \forall s \implies g_3 = const
+    \end{gather*}
+    значит третья координата кривой всегда одна и та же, а значит кривая лежит в плоскости $z = g_3 = const$.
+\end{proof}
+
+\begin{theorem}
+    В натуральной параметризации
+    \[\kappa = \frac{(\vg', \vg'', \vg''')}{k^2}.\]
+\end{theorem}
+\begin{proof}
+    Посмотрим, чем являются производные $\vg$:
+    \begin{gather*}
+        \vg' = \vv\\
+        \vg'' = \vv' = k \vn\\
+        \vg''' = k'\vn + k\vn' = k'\vn + k(-k\vv + \kappa \vb) = k' \vn - k^2 \vv + k \kappa \vb\\
+        \vg' \times \vg'' = \vv \times k \vn = k \vb
+    \end{gather*}
+    теперь посчитаем такое выражение:
+    \begin{gather*}
+        (\vg' \times \vg'') \cdot \vg''' = k \cdot k \kappa
+        \intertext{итого получаем}
+        \kappa = \frac{(\vg',\vg'' \vg''')}{k^2}
+    \end{gather*}
+\end{proof}
+\begin{theorem}
+    Для любой параметризации:
+    \[\kappa = \frac{(\vf',\vf'', \vf''')}{|\vf' \times \vf''|^2}.\]
+\end{theorem}
+\begin{proof}
+    Введем
+    \[s = \int_{t_0}^t  |\vf'(\tau)| d\tau = \phi(t)\]
+    -- натуральный параметр.
+
+    Пусть $t = \psi(s)$, тогда $\vg(s) = \vf(t) = \vf(\psi(s))$ и
+    $\psi'(s) = 1/\phi'(t) = 1/|\vf'(t)|$.
+    Рассмотрим производные $\vg$:
+    \begin{gather*}
+        \vg'(t) = \vf'(t) \psi'(s) = \frac{\vf'}{|\vf'|}\\
+        \vg'' = \vf'' \psi'^2 + \vf' \psi''\\
+        \vg''' = \vf''' \psi'^3 + 3\vf''\psi'\psi'' + \vf' \psi'''
+        \intertext{по свойствам смешаного произведения, все коллинеарные слагаемые можно записать один раз}
+        (\vg', \vg'', \vg''') = (\vf'\psi', \vf'' \psi'^2, \vf''' \psi'^3 )
+        = \psi'^6 (\vf', \vf'', \vf''')\\
+        \kappa = \frac{(\vg', \vg'', \vg'')}{k^2} = \frac{(\vf', \vf'', \vf''')}{|\vf'|^6} \cdot \frac{|\vf'|^6}{|\vf' \times \vf''|^2}
+    \end{gather*}
+\end{proof}
+\end{document}

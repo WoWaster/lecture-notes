@@ -1,0 +1,101 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Реп\'ер Френ\'е}
+
+Есть кривая и $\vf(s)$ -- ее натуральная параметризация, тогда $\vv(s)$ -- ее касательный вектор.
+$|\vv(s)| = 1$.
+Тогда $\vv'(s) \perp \vv(s)$ по лемме \ref{dfoc:very_important_lemma}.
+\begin{definition}[Кривизна кривой]
+    Определим $\vn(s)$: $\vn(s) \upuparrows \vv'(s)$, $|\vn(s)| = 1$,
+    такой $\vn$ -- вектор главной нормали.
+    \[k = \frac{\vv ' (s)}{\vn} \Leftrightarrow \vv' = k \vn\]
+    Такая $k$ -- кривизна кривой.
+    А выражение $\vv' = k \vn$ называется первой формулой Френе.
+\end{definition}
+\begin{remark}
+    $k \ge 0$.
+\end{remark}
+\begin{remark}
+    $\vn$ -- не везде определен, необходима бирегулярность.
+\end{remark}
+
+\begin{definition}[Бирегулярная параметризация]
+    Кривая называется бирегулярной, если $\vf''(t) \not\parallel \vf'(t)$ для любой параметризации.
+    Или, если $\vv'(s) \neq 0$ для натуральной параметризации.
+    Или $\vn$ корректно определен.
+    (почему они эквивалентны -- вопрос будущего)
+\end{definition}
+
+По умолчанию считаем, что все кривые бирегулярны.
+
+У нас есть вектор $\vv$ и перпендикулярный ему $\vn$.
+Они единичные, хотим превратить их в базис пространства.
+Для этого построим вектор $\vb$ перпендикулярный им обоим и тоже единичный.
+\begin{center}
+    \import{figures/}{binormal_vector.pdf_tex}
+\end{center}
+
+\begin{definition}[Вектор бинормали]
+    \[\vb \coloneqq \vv \times \vn\]
+    Правая тройка $(\vv,\vn, \vb$) -- репер Френе.
+\end{definition}
+
+Изучим $\vb'$:
+$\vb'(s) \perp \vb(s)$ из леммы \ref{dfoc:very_important_lemma},
+также $\vb' \perp \vv$. Почему?
+\[\vb' = (\vv \times \vn)' = \vv' \times \vn + \vv\times \vn' = 0 + \vv\times \vn' \perp \vv\]
+Таким образом, $\vb' \parallel \vn$ и $\vb' = -\kappa \vn$ -- вторая формула Френе.
+\begin{definition}[Кручение кривой]
+    $\kappa$, определенная выше -- кручение кривой.
+\end{definition}
+
+Изучим $\vn$:
+\[\vn' = (\vb \times \vv)' = \vb' \times \vv + \vb \times \vv' = -\kappa \vn \times \vv + \vb \times k\vn = \kappa\vb - k\vv\]
+получили третью формулу Френе.
+\begin{definition}[Формулы Френе]
+    \[
+        \begin{array}{cccc}
+            \toprule
+                 & \vv & \vn     & \vb    \\ \midrule
+            \vv' & 0   & k       & 0      \\ \midrule
+            \vn' & -k  & 0       & \kappa \\ \midrule
+            \vb' & 0   & -\kappa & 0      \\
+            \bottomrule
+        \end{array}
+    \]
+    Производная везде берется по натуральному параметру.
+\end{definition}
+\begin{definition}[Нормальная плоскость кривой]
+    Плоскость $(\vn, \vb)$ -- нормальная плоскость кривой.
+\end{definition}
+\begin{definition}[Соприкасающаяся плоскость кривой]
+    Плоскость $(\vv, \vn)$ -- соприкасающаяся плоскость кривой.
+\end{definition}
+\begin{definition}[Спрямляющая плоскость кривой]
+    Плоскость $(\vv, \vb)$ -- спрямляющая плоскость кривой.
+\end{definition}
+
+Вопрос: а как это посчитать?
+\begin{example}
+    Есть окружность:
+    \[\begin{cases}
+            x = R \cos t \\
+            y = R \sin t \\
+            z = 0
+        \end{cases}\]
+    Хотим найти натуральную параметризацию:
+    сейчас мы проходим окружность за время $2\pi$, наверное нужно проходить окружность за время $2\pi R$.
+    Тогда получим:
+    \[\begin{cases}
+            x = R\cos (t/R)  \\
+            y = R \sin (t/R) \\
+            z = 0
+        \end{cases}
+        \implies
+        \begin{cases}
+            x' = - \sin (t/R) \\
+            y' = \cos (t/R)
+        \end{cases}\]
+\end{example}
+\end{document}
