@@ -4,20 +4,20 @@
 
 \chapter{Двойственность в евклидовых и унитарных пространствах}
 
-Будем считать. что $V$ - евклидово или унитарное пространство над полем $K$ ($\R$ или $\C$), $\dim V = n \leq \infty$.
+Будем считать. что $V$ -- евклидово или унитарное пространство над полем $K$ ($\R$ или $\C$), $\dim V = n \leq \infty$.
 
 $w \in V, \ \rho_w: \underset{V \rightarrow K}{v \mapsto (v, w)}$, поскольку умножаем справа, отображение линейно: $(\alpha_1 v_1 + \alpha_2 v_2, w) = \alpha_1 (v_1, w) + \alpha_2 (v_2, w)$.
 Тем самым, $\rho \in V^*$.
 
 \begin{proposition}
-    Пусть $V$ евклидово. Тогда $\rho: \underset{V \rightarrow V^*}{w \mapsto \rho w}$ -- изоморфизм линейных пространств.
+    Пусть $V$ евклидово. Тогда $\rho_w: \underset{w \mapsto \rho w}{V \rightarrow V^*}$ -- изоморфизм линейных пространств.
 \end{proposition}
 
 \begin{proof}
     Знаем, что размерности одинаковы, остается проверить инъективность.
 
     Пусть $w \in \Ker \rho$, тогда $0 = \rho_w(w) = (w, w) \Rightarrow w = 0 \Rightarrow \rho$ -- инъективно
-    $\xRightarrow{\text{по пр. Дирихле}} \rho$ - сюръективно.
+    $\xRightarrow{\text{по пр. Дирихле}} \rho$ -- сюръективно.
 \end{proof}
 
 $V_1, V_2$ -- линейное пространства над полем комплексных чисел. $\mca: V_1 \rightarrow V_2$ --  называется полулинейным, если:
@@ -25,9 +25,9 @@ $V_1, V_2$ -- линейное пространства над полем ком
     \item $\mca(v+v') = \mca v + \mca v'$
     \item $\mca(\alpha v) = \overline{\alpha} v$
 \end{enumerate}
-
+   
 \begin{proposition}
-    Пусть $V$ унитарное. Тогда $\rho: \underset{V \rightarrow V^*}{w \mapsto \rho w}$ -- полулинейная биекция.
+    Пусть $V$ унитарное. Тогда $\rho_w: \underset{w \mapsto \rho w}{V \rightarrow V^*}$ -- полулинейная биекция.
 \end{proposition}
 
 \begin{proof}

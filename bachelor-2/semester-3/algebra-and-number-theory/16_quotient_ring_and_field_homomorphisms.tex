@@ -1,0 +1,139 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+
+\begin{document}
+
+\part{Элементы теории полей}
+
+\chapter{Факторкольца и гомоморфизмы полей}
+
+$R$ -- коммутативное (ассоциативность подразумевается) кольцо с 1. 
+
+$I \subset R$ называется идеалом, если $I$ -- подгруппа $R$ относительно сложения и $RI \subset R$.
+
+$(a) = \{ax \ |\ x \in R\}$
+
+$R = (1), \ 0 = (0)$.
+
+\begin{proposition}
+    $R$ -- поле $\Leftrightarrow$ в $R$ ровно 2 идеала.
+\end{proposition}
+
+\begin{proof}
+    $\Rightarrow$: $\underbrace{(1)}_{1 \in} \neq \underbrace{(0)}_{1 \in}$, т.к. $1 \neq 0$.
+    Пусть $I$ -- идеал в $R$, $I \neq 0 \Rightarrow \Rightarrow \exists c \in I \backslash \left\langle 0\right\rangle
+    \Rightarrow 1 = c c^{-1} \Rightarrow 1 \in I \Rightarrow I = R \ (r = r \cdot 1) $.
+
+    $\Leftarrow$: если $0 = 1$, $r = r \cdot 1 = r \cdot 0 = 0 \Leftarrow$ нет двух идеалов.
+    
+    Проверим обратимость: $c \in R \backslash \left\langle 0\right\rangle, \ (c) \neq 0 \Rightarrow
+    (c) = R \Rightarrow 1 \in (c) \Rightarrow c \in R^*$. 
+\end{proof}
+
+Пусть $R$ -- коммутативное кольцо, $I$ -- идеал в $R$.
+
+Рассмотрим факторгруппу $R/I$ и введем на ней умножение: \\ $\underset{(R/I)\times(R/I) \rightarrow R/I}{(a+I, b+I) \mapsto ab+I}$.
+
+\\
+
+Проверка корректности:
+
+\begin{gather*}
+    \begin{gathered}
+        a + I = a' + I \\
+        b + I = b' + I 
+    \end{gathered} \Rightarrow ab +I = a'b' +I \\
+    \begin{gathered}
+        a'= a + s, \ s\in I \\
+        b'= b + s, \ t\in I \\
+        a'b' = ab + \underbrace{at}_{\in I} + \underbrace{bs}_{\in I} + \underbrace{st}_{\in I}  \Rightarrow a'b' - ab \in I
+    \end{gathered} \Rightarrow a'b' + I = ab +I
+\end{gather*}
+
+\begin{proposition}
+    $(R/I, +, \cdot)$ -- коммутативное кольцо с 1.
+\end{proposition}
+
+\begin{proof}
+    Непосредственная проверка.
+\end{proof}
+
+\begin{theorem}
+    Пусть $R$ -- ОГИ, $a \in R$. Тогда $R/(a)$ -- поле 
+    $\Leftrightarrow a$ неприводимый.
+\end{theorem}
+
+\begin{proof}
+    $R/(a)$ поле $\Leftrightarrow \forall b \in R, \ a \not\in R^*$: $b \not\in (a) \Rightarrow
+    \exists c \in R: \ \overline{b}\overline{c} = \overline{1} \ (\overline{b} = b + (a)) \Leftrightarrow
+    \forall b \in R: \ a \not\mid b \Rightarrow \exists c \in R: \ bc = 1 + ax, \ x \in R$. Пусть $a$ неприводим. Тогда 
+    $a \not\mid b \Rightarrow (a, b) = 1 \Rightarrow ax + by = 1$ для некоторых $x, \ y \in R \Rightarrow by = 1 - ax$.
+    Таким образом, $R/(a)$ -- поле. 
+
+    Обратно,  $R/(a)$ -- поле $\Rightarrow R/(a) \neq 0$, т.е. $a \not\in R^*$ и $1 = bc - ax$, т.е. 
+    $a \not\mid \Rightarrow (a, b) = 1 \Rightarrow a$ -- неприводим.
+\end{proof}
+
+\begin{example}
+    \begin{enumerate}
+        \item $\R[x]/(x^2+1) = \C$
+        \item $\F_2 = \Z/(2)$, $\F_2[x]/(x^2+x+1) = \{0, 1, \overline{x}, 1 + \overline{x}\}  = \F_4$
+    \end{enumerate}
+\end{example}
+
+\begin{definition} [Гомоморфизм]
+    Пусть $R, \ S$ -- кольца с 1. $\phi: R \rightarrow S$ называется гоморфизмом, если: 
+    \begin{enumerate}
+        \item $\phi(a+b) = \phi(a) + \phi(b), \ \forall a, \ b \in R$
+        \item $\phi(ab) = \phi(a)\phi(b), \ \forall a, \ b \in R$
+        \item $\phi(1_R) = 1_S$
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    $\underset{a \mapsto a+I}{R \rightarrow R/I}$
+\end{example}
+
+\begin{theorem}[О гомоморфизме для колец]
+    Пусть $\phi: \ R \rightarrow S$ -- гомоморфизм колец. Тогда:
+    \begin{enumerate}
+        \item $\Ker \phi$ -- идеал в $R$.
+        \item $\Im \phi$ -- подкольцо в $S$.
+        \item Существует изоморфизм: $\underset{a+\Ker \phi \mapsto \phi(a)}{R/\Ker \phi \rightarrow \Im \phi}$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $\Ker \phi$ -- подгруппа $R$. Пусть $a \in \Ker \phi$, $r \in R \Rightarrow
+        \phi(ra) = \phi(r)\underbrace{\phi(a)}_{0} = 0 \Rightarrow ra \in \Ker \phi$.
+        \item $a', \ b' \in \Im \phi \Rightarrow a' = \phi(a), \ b' = \phi(b) \\
+        a' - b' = \phi (a) - \phi (b) = \phi (a - b) \in \Im \phi \\
+        a'b' = \phi (a) \phi (b) = \phi (ab) \\
+        1_S = \phi(1_R) \in \Im \phi$
+        \item Из ТГ знаем:
+        \begin{enumerate}
+            \item $\overline{\phi}$ определено корректно.
+            \item $\overline{\phi}$ -- изоморфизм групп.
+        \end{enumerate}
+        $\overline{\phi}((a + \Ker \phi)(b + \Ker \phi)) = 
+        \overline{\phi}(ab + \Ker \phi) = \phi(ab) = \phi(a)\phi(b) = \overline{\phi}(a + \Ker \phi) \overline{\phi}(b + \Ker \phi)$ \\
+        $\overline{\phi}(1_{R/\Ker \phi}) = \phi(1_R) = 1_S = 1_{\Im \phi}$
+
+    \end{enumerate}
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

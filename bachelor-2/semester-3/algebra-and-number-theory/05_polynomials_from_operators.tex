@@ -103,7 +103,7 @@ $I$ -- главный идеал $\Rightarrow I=(f_0), f_0 \neq 0$. $f_0$ -- м�
     Проверим $\mca$-инвариантность: $w \in C_v \Rightarrow w = \alpha_0 v + \alpha_1 \mca v + \ldots + \alpha_m {\mca}^{m} v \Rightarrow
         \mca w = \alpha_0 \mca v + \alpha_1 {\mca}^2 v + \ldots + \alpha_m {\mca}^{m+1} v \in C_v$.
 
-    Проверим базис. Предположим, $v, \mca v, {\mca}^2 v, \ldots, {\mca}^{d-1} v$ -- ЛЗС. $g(\mca)(v) = \beta_0 v + \beta_1 \mca v + \ldots + \beta_{d-1} {\mca}^{d-1} = 0$, не все $\beta = 0$.
+     Проверим базис. Предположим, $v, \mca v, {\mca}^2 v, \ldots, {\mca}^{d-1} v$ -- ЛЗС. $g(\mca)(v) = \beta_0 v + \beta_1 \mca v + \ldots + \beta_{d-1} {\mca}^{d-1} v = 0$, не все $\beta = 0$.
 
     $g = \beta_0 + \beta_1 x + \ldots + \beta_{d-1} x^{d-1} \neq 0 \Rightarrow
         g$ -- аннулятор $v \Rightarrow g \in (f_0) \Rightarrow f_0|g \Rightarrow deg g \leq d-1$, пришли к противоречию.
@@ -113,17 +113,17 @@ $I$ -- главный идеал $\Rightarrow I=(f_0), f_0 \neq 0$. $f_0$ -- м�
 
     Докажем индукцией по $k$: ${\mca}^{k} v \in W$.
 
-    База: $k = 0, 1, \ldots, d-1 \Rightarrow {\mca}^k \in W$ по определению.
+    База: $k = 0, 1, \ldots, d-1 \Rightarrow {\mca}^k v  \in W$ по определению.
 
     Переход: $k\geq d$.
 
     По индукционному предположению: ${\mca}^{k-1} v \in W$,
     т.е. ${\mca}^{k-1}v = \gamma_0 v + \gamma_1 \mca v + \ldots + \gamma_{d-1} {\mca}^{d-1} v \Rightarrow
-        {\mca}^k v = \underbrace{\gamma_0 \mca v + \gamma_1 {\mca}^2 v + \ldots + \gamma_{d-2} {\mca}^{d-1} v}_{W} + \gamma_{d-1} {\mca}^d v$.
+        {\mca}^k v = \underbrace{\gamma_0 \mca v + \gamma_1 {\mca}^2 v + \ldots + \gamma_{d-2} {\mca}^{d-1} v}_{\in W} + \gamma_{d-1} {\mca}^d v$.
 
     ${\mca}^d v \in W$?
 
-    $f_0 = \beta_0 + \beta_1 x + \ldots + \beta_{d-1} x^{d-1} + \beta_d x^d$ -- минимальный аннулятор, $B_d \neq 0$.
+    $f_0 = \beta_0 + \beta_1 x + \ldots + \beta_{d-1} x^{d-1} + \beta_d x^d$ -- минимальный аннулятор, $\beta_d \neq 0$.
 
     $0 = f_0(\mca) v = \underbrace{\beta_0 v +\beta_1 \mca v + \ldots + \beta_{d-1} {\mca}^{d-1} v}_{\in W} + \beta_d {\mca}^d v \Rightarrow {\mca}^d v \in W \Rightarrow
         {\mca}^k v \in W, \  \forall \ k \in \N$.

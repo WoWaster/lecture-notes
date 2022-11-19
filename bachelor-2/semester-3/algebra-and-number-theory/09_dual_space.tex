@@ -2,7 +2,11 @@
 \documentclass[main]{subfiles}
 \begin{document}
 
+\part{Операторы в евклидовых и унитарных пространствах}
+
 \chapter{Двойственное пространство}
+
+\marginpar{19.10.22}
 
 \begin{definition} [Двойственное пространство]
     V -- линейное пространство над полем K, $V^*=\Hom(V,K)$ называется двойственным (дуальным, сопряженным) к V пространством, его элементы -- линейные функционалы.
@@ -54,12 +58,12 @@ $e^1, \ldots,e^n$ -- базис $V^*$, двойственный к $e_1,\dots, e
 \end{example}
 
 \begin{proposition}
-    $\varepsilon: \underset{v \mapsto \varepsilon v}{V \to V^{**}}$ -- изоморфизм линейных пространств при условии,  что $\dim V=n < \infty$
+    $\varepsilon: \underset{v \mapsto \varepsilon_v}{V \to V^{**}}$ -- изоморфизм линейных пространств при условии,  что $\dim V=n < \infty$.
 \end{proposition}
 
 \begin{proof}
     $\Ker\varepsilon = 0 ?$
-    Пусть $v \in \Ker\varepsilon$ и $v \neq 0$, дополним до базиса $e_1=v_1, e_2,\dots,e_n$.
+    Пусть $v \in \Ker\varepsilon$ и $v \neq 0$, дополним до базиса $e_1=v, e_2,\dots,e_n$.
     Пусть $e^1,\dots, e^n$ -- двойственный базис.
     $\varepsilon_v(e^1)=e^1(v) = e^1(e_1) = 1 \Rightarrow$ противоречие, так как $\varepsilon_v(e^1) = 0
         \Rightarrow \dim \Im \varepsilon = \dim V - 0 = n = \dim V^{**} \Rightarrow \Im \varepsilon = V^{**}$.
@@ -82,5 +86,6 @@ $\mathcal{A} \in \Hom(V,W)$,\ $V \overset{\mathcal{A}}{\to} W \overset{f}{\to} K
 
     $\underbrace{\mathcal{A}^T(f^j)}_{=f^j\circ \mathcal{A}} = b_{1j}e^1+\dots+b_{n,j}e^n \Rightarrow  (f^j \circ \mathcal{A})(e_j) = b_{ij} = f^j(\mathcal{A}e_j)=f^j(a_{1i}f_1+\dots+a_{mi}f_m)=a_{ji}$.
 \end{proof}
+
 
 \end{document}

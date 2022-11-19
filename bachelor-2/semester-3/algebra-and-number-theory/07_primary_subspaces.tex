@@ -6,7 +6,7 @@
 \chapter{Примарные подпространства}
 
 \begin{definition} [Примарное подпространство]
-    Допустим, $p$ -- неприводимый многочлен, $\mca \in \End V, \ W \subset V$ называется $p$-примарным, если $W$ -- $\mca$-инвариантно
+    Допустим, $p$ -- неприводимый многочлен, $\mca \in \End V, \ W < V$ называется $p$-примарным, если $W$ -- $\mca$-инвариантно
     и $\forall v \in W: \ \mu_{\mca, v} = p^m, \ m \geq 0$, $p$ -- неприводимый.
 
     \begin{center}$W_p = \{w \in V \ | \ \mu_{\mca, w} = p^m, \ m \geq 0\}$ \end{center}
@@ -63,9 +63,9 @@
               \begin{center}
                   $g(\mca)a(\mca) + h(\mca)b(\mca) = \mse_V$
 
-                  $v \in V, \ v = \underbrace{g(\mca)a(\mca)(v)}_{\in W_2} + \underbrace{h(\mca)b(\mca)(v)}_{\in W_1}$.
+                  \text{Пусть } $v \in V, \ v = \underbrace{g(\mca)a(\mca)(v)}_{\in W_2} + \underbrace{h(\mca)b(\mca)(v)}_{\in W_1}$.
 
-                  $h(\mca)(g(\mca)a(\mca)v(\mca)) = \underbrace{(hg)}_{f}(\mca)a(\mca)(v) = 0 $
+                  $h(\mca)(g(\mca)a(\mca)(v)) = \underbrace{(hg)}_{f}(\mca)a(\mca)(v) = 0 $
 
                   $\Rightarrow g(\mca)a(\mca)(v) \in W_2$
               \end{center}
@@ -83,7 +83,7 @@
               \end{center}
               Таким образом, $v = 0$.
     \end{enumerate}
-\end{proof}
+ \end{proof}
 
 \marginpar{05.10.22}
 

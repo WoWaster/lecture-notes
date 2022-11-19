@@ -9,14 +9,14 @@
     Пусть $V$ -- евклидово (унитарное) пространство. $\mca \in \End V$ называется нормальным, если
     $\mca \mca^* = \mca^* \mca$.
     \begin{enumerate}
-        \item Сомосопряженный: $\mca = \mca^*$
+        \item Самосопряженный: $\mca = \mca^*$
         \item Ортогональный/унитарный: $\mca \mca^* = \mca \mca^{-1} =\mse_V = \mca^{-1} \mca = \mca^* \mca$
         \item Кососимметрический: $\mca^* = -\mca$
     \end{enumerate}
 \end{definition}
 
 \begin{proposition}
-    Пусть $\mca$ -- нормальный, $\alpha \in K$. Тогда $\mcb = \mca - \alpha \mse_V$ - тоже нормальный.
+    Пусть $\mca$ -- нормальный, $\alpha \in K$. Тогда $\mcb = \mca - \alpha \mse_V$ -- тоже нормальный.
     \begin{enumerate}
         \item $\mcb^* = \mca^* - (\alpha \mse_V)^* = \mca^* - \overline{\alpha}\mse_V^* = \mca^* - \overline{\alpha}\mse_V$
         \item $\mcb \mcb^* = \mca \mca^* - \alpha\mca^* - \overline{\alpha}\mca + |\alpha|^2\mse_V$
@@ -46,7 +46,7 @@
 
     Переход: $\chi_{\mca} \in \C [x], \ \deg \chi_{\mca} = n > 1 \Rightarrow \exists \lambda \in \C: \ \chi_{\mca}(\lambda) = 0$, где $\lambda$ -- собственное значение $\mca$.
     $v$ -- собственный вектор, принадлежащий собственному значению $\lambda$, $e_1 = \frac{1}{||v||} v$. $e_1$ -- собственный для $\mca \Rightarrow$ собственный для $\mca^*$.
-    $U = \Lin(e_1)$ -- инвариантное относительно $\mca$ и $\mca^*$. $W = U^{\perp}$ - инвариантно относительно $\mca^*$ и $\mca^{**} = \mca$. Размерность $U = 1$, $\dim W = \dim V - \dim U = n - 1$.
+    $U = \Lin(e_1)$ -- инвариантное относительно $\mca$ и $\mca^*$. $W = U^{\perp}$ -- инвариантно относительно $\mca^*$ и $\mca^{**} = \mca$. Размерность $U = 1$, $\dim W = \dim V - \dim U = n - 1$.
 
     Применим  индукционное предположение. Проверим: $\mca_1 = \mca|_W$ - нормальный. $\mca^*|_W = \mca_1^*$?
 
@@ -66,7 +66,7 @@
                     \vdots \\
                     0      \\
                 \end{matrix} & [\mca_1]_{E_1} \\
-            \end{array}\right) -- \text{диагональная}
+            \end{array}\right)  - \text{диагональная}
     \end{gather*}
 \end{proof}
 
