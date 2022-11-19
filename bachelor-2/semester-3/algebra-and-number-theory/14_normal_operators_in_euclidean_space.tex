@@ -39,12 +39,12 @@ v_1, \ldots, v_q, w_1, \ldots, w_q$ -- базис $W$.
     (v_j, v_k) - (w_j, w_k) = 0 \\
     (v_k, w_j) - (v_j, w_k) = 0 \\
     (v_k, w_j) + (v_j, w_k) = 0 
-\end{gathered} \right \Rightarrow \left\{ \begin{gathered} 
+\end{gathered} \right. \Rightarrow \left\{ \begin{gathered} 
     (v_j, v_k) = 0 \\
     (w_j, w_k) = 0 \\
     (v_k, w_j) = 0 \\
     (w_j, w_k) = 0 
-\end{gathered} \right 
+\end{gathered} \right.
 \end{gather*} 
 
 \begin{gather*}
@@ -54,16 +54,21 @@ v_1, \ldots, v_q, w_1, \ldots, w_q$ -- базис $W$.
     \end{gathered} \Rightarrow \left\{ \begin{gathered} 
         (v_j, v_j) + (w_j, w_j) + i((v_j, w_j) - (v_j, w_j)) = 1 \\
         (v_j, v_j) - (w_j, w_j) + i((v_j, w_j) + (v_j, w_j)) = 0 
-    \end{gathered} \right  \Rightarrow \\
-    \Rightarrow \left\{ \begin{gathered} 
+    \end{gathered} \right.  \Rightarrow \\
+    \Rightarrow 
+    \left \{ 
+        \begin{gathered} 
         (v_j, v_j) + (w_j, w_j) = 1 \\
         (v_j, v_j) - (w_j, w_j) = 0 \\
         2(v_j, w_j) = 0
-    \end{gathered} \right  \Rightarrow \left\{ \begin{gathered} 
+    \end{gathered} \right. 
+    \Rightarrow 
+    \left \{ 
+        \begin{gathered} 
         (v_j, v_j) = \frac{1}{2} \\
-        (w_j, w_j) = \frac{1}{2}\\
+        (w_j, w_j) = \frac{1}{2} \\
         (v_j, w_j) = 0
-    \end{gathered} \right
+    \end{gathered} \right. 
 \end{gather*}
 
 Таким образом, $v_1, \ldots, v_q, w_1, \ldots, w_q$ -- ортогональный базис $W$; $(v_j, v_j) = (w_j, w_j) = \frac{1}{2}$.
@@ -102,11 +107,11 @@ $ V_{\lambda_l} \perp  V_{\lambda_k} \ (k \neq l), \ W_l \perp  W_k \ (k \neq l)
     \mca v_j + i \mca w_j =\alpha v_j - \beta w_j + i(\alpha w_j + \beta v_j) \Rightarrow \left\{ \begin{gathered}
         \mca v_j=\alpha v_j - \beta w_j \\
         \mca w_j=\alpha w_j + \beta v_j
-     \end{gathered} \right
+     \end{gathered} \right.
     \Rightarrow  \\ \Rightarrow \left\{ \begin{gathered}
        \mca \widetilde{v_j}=\alpha \widetilde{v_j} - \beta \widetilde{w_j} \\
         \mca \widetilde{w_j}=\alpha w_j + \beta v_j
-    \end{gathered} \right \quad
+    \end{gathered} \right. \quad
     \begin{pmatrix}
         & & \vdots & \vdots &  \\
         \ldots & \ldots & \alpha & \beta & \ldots \\
