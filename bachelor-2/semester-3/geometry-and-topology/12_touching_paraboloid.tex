@@ -178,7 +178,7 @@ $k_1, k_2$ -- корни соответствующего уравнения
     H = \frac{2MF - LG - EN}{2(F^2 - EG)}
 \end{gather*}
 \section{Блистательная теорема Гаусса}
-\begin{lemma}
+\begin{lemma}\label{touching_paraboloid:cross_product_lemma}
     $\va, \vb, \vc, \vd, \ve, \vf$ -- векторы.
     \[(\va, \vb, \vc)(\vd, \ve,\vf) = \begin{vmatrix}
             \va\vd & \va\ve & \va\vf \\
@@ -266,5 +266,98 @@ $k_1, k_2$ -- корни соответствующего уравнения
         \end{vmatrix}
     \end{multline*}
 \end{proof}
-Планы на будущее: нам нужно доказать, что $LN- M^2$ выражается, через $E,F,G, E'_u, E'_v$  и т.д.
+\begin{theorem}
+    \[K = \frac{LN - M^2}{EG - F^2}\]
+\end{theorem}
+\begin{longProof}
+    Хотим выразить $LN-M^2$ через $E, F, G$ и их производные.
+    Вспомним:
+    \begin{align*}
+        L(u,v) & \coloneqq \vf''_{uu} \vn &
+        M(u,v) & \coloneqq \vf''_{uv} \vn &
+        N(u,v) & \coloneqq \vf''_{vv} \vn
+    \end{align*}
+    Что же такое $\vn$?
+    \begin{gather*}
+        \vn = \frac{\vf'_u \times \vf'_v}{|\vf'_u \times \vf'_v|} = \frac{\vf'_u \times \vf'_v}{\sqrt{EG-F^2}}\\
+        \intertext{тогда}
+        L = \frac{(\vf'_u \times \vf'_v)\vf''_{uu}}{\sqrt{EG-F^2}} = \frac{(\vf''_{uu}, \vf'_u, \vf'_v)}{\sqrt{EG-F^2}}\\
+        M = \frac{(\vf''_{uv}, \vf'_u, \vf'_v)}{\sqrt{EG-F^2}}\\
+        L = \frac{(\vf''_{vv}, \vf'_u, \vf'_v)}{\sqrt{EG-F^2}}\\
+        LN-M^2 = \frac{(\vf''_{uu}, \vf'_u, \vf'_v)(\vf''_{vv}, \vf'_u, \vf'_v) - (\vf''_{uv}, \vf'_u, \vf'_v)(\vf''_{uv}, \vf'_u, \vf'_v)}{EG-F^2}
+    \end{gather*}
+    Теперь выразим
+    \[(\vf''_{uu}, \vf'_u, \vf'_v)(\vf''_{vv}, \vf'_u, \vf'_v) - (\vf''_{uv}, \vf'_u, \vf'_v)(\vf''_{uv}, \vf'_u, \vf'_v)\]
+    через коэффициенты $\fff$ формы. Применим лемму \ref{touching_paraboloid:cross_product_lemma}, тогда
+    \begin{multline*}
+        (\vf''_{uu}, \vf'_u, \vf'_v)(\vf''_{vv}, \vf'_u, \vf'_v) - (\vf''_{uv}, \vf'_u, \vf'_v)(\vf''_{uv}, \vf'_u, \vf'_v) = \\
+        =\begin{vmatrix}
+            \vf''_{uu} \vf''_{vv} & \vf''_{uu} \vf'_u & \vf''_{uu}\vf'_v \\
+            \vf'_u \vf''_{vv}     & \vf'_u\vf'_u      & \vf'_u \vf'_v    \\
+            \vf'_v \vf''_{vv}     & \vf'_v\vf'_u      & \vf'_v \vf'_v
+        \end{vmatrix} -
+        \begin{vmatrix}
+            \vf''_{uv} \vf''_{uv} & \vf''_{uv} \vf'_u & \vf''_{uv}\vf'_v \\
+            \vf'_u \vf''_{uv}     & \vf'_u\vf'_u      & \vf'_u \vf'_v    \\
+            \vf'_v \vf''_{uv}     & \vf'_v\vf'_u      & \vf'_v \vf'_v
+        \end{vmatrix}= \\
+        = \begin{vmatrix}
+            \vf''_{uu} \vf''_{vv}  & \frac{1}{2}E'_u & F'_u - \frac{1}{2}E'_v \\
+            F'_v - \frac{1}{2}G'_u & E               & F                      \\
+            \frac{1}{2}G'_v        & F               & G
+        \end{vmatrix}-
+        \begin{vmatrix}
+            \vf''_{uv}\vf''_{uv} & \frac{1}{2} E'_v & \frac{1}{2} G'_u \\
+            \frac{1}{2} E'_v     & E                & F                \\
+            \frac{1}{2} G'_u     & F                & G
+        \end{vmatrix}
+    \end{multline*}
+    где последнее равенство следует из формул:
+    \begin{align*}
+        E'_u & = (\vf'_u, \vf'_u)'_u = 2\vf'_u \vf''_{uu} & F'_u              & = (\vf_u, \vf_v)'_u = \vf''_{uu}\vf'_v + \vf'_u \vf'_{vu} \\
+        E'_u & = (\vf'_u, \vf'_u)'_v = 2\vf'_u \vf''_{uv} & F'_v              & = \vf''_{uv}\vf'_v + \vf'_u \vf'_{vv}                     \\
+        G'_u & = 2 \vf'_v \vf''_{uv}                      & \vf''_{uu}\vf'_v  & = F'_u - \frac{1}{2}E'_v                                  \\
+        G'_v & = 2 \vf'_v \vf''_{vv}                      & \vf'_u \vf''_{vv} & = F'_v - \frac{1}{2}G'_u
+    \end{align*}
+    Отдельно взятый, каждый определитель не выражается через коэффициенты $\fff$ формы.
+    Разложим определители по первой строке:
+    \begin{multline*}
+        \vf''_{uu} \vf''_{vv} \begin{vmatrix}
+            E & F \\
+            F & G
+        \end{vmatrix}
+        - \frac{1}{2} E'_u \begin{vmatrix}
+            F'_v - \frac{1}{2}G'_u & F \\
+            \frac{1}{2}G'_u        & G
+        \end{vmatrix}
+        + \left(F'_u - \frac{1}{2} E'_v\right) \begin{vmatrix}
+            F'_v - \frac{1}{2} G'_u & E \\
+            \frac{1}{2}G'_v         & F
+        \end{vmatrix}-\\
+        - \vf''_{uv} \vf''_{uv} \begin{vmatrix}
+            E & F \\
+            F & G
+        \end{vmatrix}
+        + \frac{1}{2} E'_v \begin{vmatrix}
+            F'_v - \frac{1}{2}G'_u & F \\
+            \frac{1}{2}G'_v        & G
+        \end{vmatrix}
+        - \frac{1}{2} G'_u \begin{vmatrix}
+            F'_v - \frac{1}{2}G'_u & E \\
+            \frac{1}{2}G'_v        & F
+        \end{vmatrix}
+    \end{multline*}
+    Нас интересуют только $\vf''_{uu}\vf''_{vv} - \vf''^2_{uv}$, т.к. все остальное уже зависит только от $\fff$ квадратичной формы.
+    Возьмем вторые производные $E,F,G$:
+    \begin{gather*}
+        E''_{vv} = 2 (\vf''_{uv} \vf''_{uv} + \vf'_u \vf'''_{uvv})\\
+        G''_{uu} = 2 (\vf''_{uv} \vf''_{uv} + \vf'_v \vf'''_{uuv})\\
+        % Кажется они не нужны в итоге
+        % F''_{uu} = \vf'''_{uuu} \vf'_v + 2 \vf''_{uu} \vf''_{uv} + \vf'_u \vf'''_{uuv}\\
+        % F''_{vv} = \vf'''_{vvv} \vf'_u + 2 \vf''_{vv} \vf''_{uv} + \vf'_v \vf'''_{uvv}\\
+        F''_{uv} = \vf'''_{uuv} \vf'_v + \vf''_{uu} \vf''_{vv} + \vf'_u \vf'''_{uvv} + \vf''_{uv} \vf''_{uv}\\
+    \end{gather*}
+    Итого
+    \[\vf''_{uu}\vf''_{vv} - \vf''^2_{uv} = F''_{uv}- \vf'_v\vf'''_{uuv} - \vf'_u \vf'''_{uvv} - 2 \vf''^2_{uv} = F''_{uv} - \frac{1}{2}G''_{uu} - \frac{1}{2} E''_{vv}\]
+\end{longProof}
 \end{document}

@@ -1,0 +1,81 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Деривационные формулы}
+Для кривых были формулы Френе в базисе $(\vv, \vn, \vb)$.
+Для поверхностей тоже есть базис: $(\vf'_u, \vf'_v, \vn)$, однако векторы $\vf'_u, \vf'_v$ не единичные,
+и более того могут быть не ортогональны.
+Попробуем сделать аналог формул Френе продифференцировав базисные векторы.
+\begin{definition}[Деривационные формулы]
+    Основная тройка деривационных формул
+    \begin{gather*}
+        \vf''_{uu} = \Gamma^1_{11} \vf'_u + \Gamma^2_{11} \vf'_v + L \vn \\
+        \vf''_{uv} = \Gamma^1_{12} \vf'_u + \Gamma^2_{12} \vf'_v + M \vn \\
+        \vf''_{vv} = \Gamma^1_{22} \vf'_u + \Gamma^2_{22} \vf'_v + N \vn
+    \end{gather*}
+    есть еще отдельные формулы, которые тоже можно называть деривационными
+    \begin{gather*}
+        \vn'_u = \alpha \vf'_u + \beta \vf_v\\
+        \vn'_v = \gamma \vf'_u + \delta \vf_v
+    \end{gather*}
+\end{definition}
+\begin{definition}[Символы Кристоффеля]
+    $\Gamma^k_{ij}$ -- символы Кристоффеля.
+\end{definition}
+Для начала выясним, что такое $\alpha, \beta, \gamma, \delta$.
+Для начала скалярно умножим каждое равенство на $\vf'_u, \vf'_v$, получим
+\begin{align*}
+    \vn'_u \vf'_u & = \alpha E + \beta F = -L & \vn'_v \vf'_u & = \gamma E + \delta F = -M \\
+    \vn'_u \vf'_v & = \alpha F + \beta G = -M & \vn'_v \vf'_v & = \gamma F + \delta G = -N
+\end{align*}
+где последние равенства следуют из
+\begin{gather*}
+    0 = (\vf'_u, \vn)'_u = \vf''_{uu} \vn + \vf'_u \vn'_u = L + \vf'_u \vn'_u\\
+    0 = (\vf'_u, \vn)'_v = M + \vf'_u \vn_v
+\end{gather*}
+Отсюда $\alpha, \beta$ находятся
+\begin{gather*}
+    \begin{cases}
+        \alpha E + \beta F = -L \\
+        \alpha F + \beta G = -M
+    \end{cases}\\
+    \begin{aligned}
+        \alpha & = \frac{-LG + MF}{EG - F^2} & \beta  & = \frac{-EM + LF}{EG - F^2} \\
+        \gamma & = \frac{-MG + NF}{EG - F^2} & \delta & = \frac{-EN + MF}{EG - F^2}
+    \end{aligned}
+\end{gather*}
+\begin{theorem}
+    $\Gamma^k_{ij}$ относятся к внутренней геометрии поверхности.
+\end{theorem}
+\begin{proof}
+    Возьмем деривационные формулы и помножим их на базисные векторы:
+    \begin{gather*}
+        \frac{1}{2} E'_u = \vf''_{uu}\vf'_u = \Gamma^1_{11} E + \Gamma^2_{11} F\\
+        F'_u - \frac{1}{2} E'_v = \vf''_{uu}\vf'_v = \Gamma^1_{11} F + \Gamma^2_{11} G
+    \end{gather*}
+    получили систему
+    \begin{gather*}
+        \begin{cases}
+            E \Gamma^1_{11} + F \Gamma^2_{11} = \frac{1}{2}E'_u \\
+            F \Gamma^1_{11} + G \Gamma^2_{11} = F'_u - \frac{1}{2} E'_v
+        \end{cases}\\
+        \Gamma^1_{11} = \frac{\begin{vmatrix}
+                \frac{1}{2} E'_u       & F \\
+                F'_u - \frac{1}{2}E'_v & G
+            \end{vmatrix}}{EG - F^2} \qquad
+        \Gamma^2_{11} = \frac{\begin{vmatrix}
+                E & \frac{1}{2} E'_u       \\
+                F & F'_u - \frac{1}{2}E'_v
+            \end{vmatrix}}{EG - F^2}
+    \end{gather*}
+    $\Gamma^1_{22}, \Gamma^2_{22}$ вычисляются аналогично.
+
+    Верно ли, что $\Gamma^1_{12}$ и $\Gamma^2_{12}$ вычисляются так же?
+    \begin{gather*}
+        \vf''_{uv} \vf'_u =\Gamma^1_{12} E + \Gamma^2_{12} F = \frac{1}{2} E'_v\\
+        \vf''_{uv} \vf'_v =\Gamma^1_{12} F + \Gamma^2_{12} G = \frac{1}{2} G'_v
+    \end{gather*}
+    Ответ: да.
+\end{proof}
+
+\end{document}
