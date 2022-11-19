@@ -1,0 +1,398 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Числовые и функциональные ряды с комплексными слагаемыми}
+\section*{Числовые ряды}
+\begin{gather*}
+    i^2 = -1 \quad c = a + bi \quad a,b \in \vR \\
+    \mathbb{C}\\
+    \overline{c} = a -bi \\
+    |c| = \sqrt{a^2 + b^2}
+\end{gather*}
+\begin{definition}[Ряд комплексных слагаемых]
+     Cимвол \begin{gather*}
+        \sum_{n=1}^\infty c_n , c_n \in \mathbb{C} \quad c_n = a_n + ib_n \tag{1}
+    \end{gather*}
+\end{definition}
+
+\begin{definition}[Сходимость]
+    \begin{gather*}
+    \sum^\infty_{n=1} a_n \tag{2}\\
+    \sum^\infty_{n=1} b_n \tag{3}\\
+    \text{Будем говорить, что ряд (1) сходится, если сходятся (1) и (2)} \\
+    \sum^\infty_{n=1} c_n \stackrel{def}{=} \sum^\infty_{n=1} a_n + i \sum^\infty_{n=1} b_n \tag{4}\\
+    \end{gather*}
+\end{definition}
+Если сходится ряд из $c_n$, то сходится и ряд из комплексно сопряжённых. 
+
+\begin{gather*}
+    p \in \mathbb{C} \quad p \ne 0 \quad p = s + it \\
+    \sum^\infty_{n=1} pc_n = p \sum_{n=1}^\infty c_n \tag{5}\\
+    pc_n = (s+it)(a_n + ib_n) = (sa_n-tb_n) + i(sb_n+ ta_n) 
+\end{gather*}
+\begin{definition}[Абсолютная сходимость]
+    Ряд (1) сходится абсолютно, если сходится 
+    \[\sum_{n=1}^\infty |c_n| < \infty \tag{6} \]
+\end{definition}
+\begin{theorem}
+    Ряд (1) сходится тогда и только когда, когда сходятся ряды (2) и (3)
+\end{theorem}
+% \begin{proof}
+%     $\implies$ \\
+%     По признаку сравнений рядов
+%     \begin{gather*}
+%         |a_n| \leq |c_n| \quad |b_n| \leq |c_n| \\
+%         |c_n| \leq |a_n| + |b_n| \\
+%         \Leftarrow \text{ очевидно }
+%     \end{gather*}
+% \end{proof}
+\begin{corollary}
+    Ряд (1) сходится, если он сходится абсолютно.
+\end{corollary}
+
+\section*{Функциональные ряды}
+\begin{definition}[Комплексно-значная функция]
+    Будем говорить, что на множестве $E \ne \varnothing$ задана комплексно-значная функция, если
+    \begin{gather*}
+        u(x) \quad v(x) :  E \rightarrow \vR \\
+        w(x) = u(x) + i v(x)
+    \end{gather*}
+\end{definition}
+
+\begin{gather*}
+    x \in E \quad \{ w_n(x) \}^\infty_{n=1}  \quad w_n(x) \in \mathbb{C}\\
+    w_n(x) = u_n(x) + i v_n(x) \\
+\end{gather*}
+\begin{definition}[Равномерное стремление]
+    Будем говорить, что $w_n$ равномерно стремится к $\phi(x)$
+    \[ w_n(x) \darrow{\underset{x \in E}{n \to \infty}} \phi(x) \] если
+    \begin{gather*}
+        u_n(x) \darrow{\underset{x \in E}{n \to \infty}} \alpha(x) \text{ и }
+        v_n(x) \darrow{\underset{x \in E}{n \to \infty}} \beta(x) \tag{7}\\
+    \end{gather*}
+\end{definition}
+\begin{theorem}
+    \begin{gather*}
+        (7) \Leftrightarrow \quad \forall \varepsilon : \forall n > N \text{ и  } \forall x \in E \\
+        |w_n(x) - \phi(x) | < \varepsilon \tag{8}
+    \end{gather*}
+\end{theorem}
+\begin{longProof}
+    $\Leftarrow$ проводится точно так же, как в предыдущей теореме\\
+    $ \Rightarrow$ Если выполнено (7), то для  определения равномерной сходимости:
+    \begin{gather*}
+        \exists N_1 \text{ для } \{u_n(x) \}^\infty_{n=1} \\
+        \exists N_2 \text{ для } \{v_n(x) \}^\infty_{n=1} \\
+        N = \max{N_1, N_2} \\
+        |w_n(x) - \phi(x)| \leq \underbrace{| u_n(x) - \alpha(x) |}_{< \frac{\varepsilon}{2}} + \underbrace{|v_n(x) - \beta(x)|}_{< \frac{\varepsilon}{2}}
+    \end{gather*}
+\end{longProof}
+
+\begin{gather*}
+    x \in E \quad \{c_n(x) \}^\infty_{n=1} \quad c_n(x) \in \mathbb{C} \\
+    \sum^\infty_{n=1} c_n(x) \tag{9}\\
+    S_n(x) = \sum^n_{k=1} c_k(x) 
+\end{gather*}
+\begin{definition}[Равномерная сходимость]
+    Будем говорить, что ряд (9) сходится равномерно на множестве $E$, если
+    \begin{gather*}
+        \exists \phi(x) \quad S_n(x) \darrow{\underset{x \to E}{n \to \infty}} \phi(x) \tag{10}\\
+    \end{gather*}
+\end{definition}
+\begin{theorem}[Признак Вейерштрасса равномерной сходимости функционального ряда с комплексными слагаемыми]
+    Имеется функциональный ряд (9) с комплексными слагаемыми. 
+    \begin{gather*}
+        \text{ Имеется } A_N \geq 0 \\
+        \sum^\infty_{n=1} A_n < \infty \tag{11}\\
+        \forall n \text{ и } \forall x \in E |c_n(x)| \leq A_n \tag{12} \\
+        \text{тогда ряд (9) сходится равномерно}
+    \end{gather*}
+\end{theorem}
+
+\begin{longProof}
+    \begin{gather*}
+        \forall n \text{ и } \forall x \in E \quad |c_n(x)| \leq A_N \tag{12} \\
+        c_n(x) = a_n(x) = ib_n(x) \\
+        (12) \implies |a_n(x) | \leq A_N \quad \forall n \text{ и } \forall x \in E \tag{13}\\
+        (12) \implies |b_n(x) | \leq A_N \quad \forall n \text{ и } \forall x \in E \tag{14}\\
+    \end{gather*}
+    (13), (14) с вещественными слагаемыми, (11) и (13) $\implies$
+    \begin{gather*}
+        \sum^\infty_{n=1} a_n(x) \text{ сходится равномерно на } E \tag{15}\\
+        \sum^\infty_{n=1} b_n(x) \text{ сходится равномерно на } E \tag{16}\\
+        s=S_n(x) = \sum^n_{k=1} a_n(x) + i \sum^n_{k=1} b_k(x)
+    \end{gather*}
+    Поскольку частичные суммы выглядят таким образом, то по определению равномерной сходимости ряда, $a_n$
+    равномерно стремятся к некоторой функции. Суммы мнимых частей $b_n$ тоже равномерно стремятся к какой-то функции.
+    По определению равномерной сходимости получаем, что требовалось доказать.
+\end{longProof} 
+\begin{gather*}
+    \alpha \in \mathbb{C} \quad \{ c_n \} ^\infty_{n=0} \\
+    c_n \in \mathbb{C} \\
+    z = x + iy \\
+    z - \alpha
+\end{gather*}
+\begin{definition}[Степенной ряд]
+    \[ c_0 + \sum^\infty_{n=1} c_n(z-\alpha)^n \tag{17} \]
+\end{definition}
+\begin{lemma}[Абеля]
+    Предположим, что ряд (17) сходится. При фиксированном $z_0 \ne \alpha$ это ряд с комплексными 
+    слагаемыми.
+    \begin{gather*}
+        R = |z_0 - \alpha| > 0 \\
+        \forall z : |z-\alpha| < R \tag{18}\\
+        \text{ фиксируем } 0 < r < R  \\
+        \text{ при } |z-\alpha| \leq r \text{ ряд сходится равномерно }
+    \end{gather*} 
+\end{lemma}
+Пока отвлечемся от доказательства, рассмотрим ряд.
+    \begin{gather*}
+        w_n = p_n + iq_n \\
+        \sum^\infty_{n=1} w_n \text{ сходится } и
+        \sum^\infty_{n=1} q_n \text{ сходится } \\
+        p_n \underset{n \to \infty}{\longrightarrow} 0 \implies \exists M_1 : |p_n| \leq M_1 \forall n \\
+        q_n \underset{n \to \infty}{\longrightarrow} 0 \implies \exists M_2 : |q_n| \leq M_2 \forall n
+    \end{gather*}
+    Провели такое рассуждение, показав, что сумма ограниченна
+\begin{longProof}
+    Напомню свойство комплексных чисел  
+    \[|z_1| \cdot |z_2| = |z_1 \cdot z_2| \]
+    В условии сказано, что 
+    \begin{gather*}
+        c_0 + \sum^\infty_{n=1} c_n(z-z_0)^n \text{ сходится } \implies\\
+         \text{по предыдущему рассуждению} \exists M : \forall n \\
+        |c_n(z_0 - \alpha)^n | \leq M \tag{20} \\
+        (20) : |c_n| \cdot |z_0 - \alpha|^n \leq M \Leftrightarrow |c_n| \leq \frac{M}{R^n} \tag{21}\\
+        0 < \frac{|z-\alpha|}{R} = q < 1 \\
+        (21) \implies |c_n(z-alpha)^n | = |c_n| \cdot |z-\alpha|^n \leq \frac{M}{R^n} \cdot |z-\alpha|^n = Mq^n \tag{22}\\
+        \sum^\infty_{n=1} Mq^n = \frac{Mq}{1-q} \\
+    \end{gather*}
+    Получаем, что ряд (17) сходится абсолютно, значит, он просто сходится
+    \begin{gather*}
+        \frac{r}{R} = q_0 < 1
+        \text{Предположим, что выполнено(19)} \\
+        (19),(21) \implies |c_n(z-\alpha)^n| < |c_n| \cdot |z-\alpha|^n \leq \frac{M}{R^n} \cdot r^n = Mq_0^n \tag{23}\\
+    \end{gather*}
+    Ряд из $Mq_0^n$ сходится так как $q_0< 1$.  $q_0$ не зависит от $z$, 
+    если выполнено соотношение (19). Значит мы получаем, что сходимость ряда равномерная.
+\end{longProof}
+
+\section*{Радиус сходимости и круг сходимости степенного ряда}
+   \[ c_0 + \sum^\infty_{n=1} c_n(z-\alpha)^n  \quad R \quad B\tag{1} \]
+\begin{enumerate}
+    \item \begin{gather*}
+        (1) \text{ сходится лишь при } z = \alpha \\
+        R \stackrel{def}{=} 0 \quad B \stackrel{def}{=} \varnothing
+    \end{gather*}
+    \item \begin{gather*}
+        (1) \text{ сходится при } \forall z \in \mathbb{C} \\
+        R \stackrel{def}{=} +\infty \quad B \stackrel{def}{=} \mathbb{C}
+    \end{gather*}
+    \item \begin{gather*}
+        \exists z_1 \ne \alpha : (1) \text{ сходится  в } z_1 \text{ и } \exists z_2 : (1) \text{ не сходится в } z_2 \\
+        R_2 = |z_2 - \alpha| \implies \forall z : |z-\alpha| > R_2 \quad (1) \text{ расходится } \\
+        \text{ т. ч. } E = \{ |z-\alpha|: (1) \text{ сходится в } z \} \\
+        |z_1 - \alpha| \in E \quad \text{ и } E \text{ ограниченно сверху} \quad \forall \rho \in E \quad \rho \leq |z_2 - \alpha|
+    \end {gather*}
+\end{enumerate}
+Понятно, что (3) дополняет (1) и (2)
+\begin{definition}
+    \[ R \stackrel{def}{=} \sup E \quad B \stackrel{def}{=} \{ z: |z-\alpha| < R \} \]
+\end{definition}
+\subsection*{Свойства сходимости} 
+\begin{theorem}
+    \begin{gather*}
+        \forall z \in B \quad (1) \text{ сходится в } z \tag{2} \\
+        \forall z \in \overline{B} \text{ замыкание } \quad (1) \text{ расходится в } z \tag{3} 
+    \end{gather*}
+\end{theorem}
+
+\begin{longProof}
+    \begin{gather*}
+        \rho = |z-\alpha| \quad \rho < R \implies \exists \rho_1, \rho < \rho_1 < R \tag{4\prime}\\
+        \rho_1 \in E \tag{4} \\
+        \text{ т.е. } \exists z_1 : |z_1-\alpha| = \rho+1 \tag{5} \\
+        \text{ и } (1) \text{ сходится в } z_1 \tag{6} 
+    \end{gather*} 
+    В точке $z_1$ применима лемма Абеля.
+    \begin{gather*}
+        (4\prime), (4), (5),(6) \implies (2) \\
+        z_0 \notin \overline{B} \Leftrightarrow |z_0 - \alpha| > R \\
+        \text{ если бы (1) сходится в } z_0
+        \forall z : |z-\alpha| < |z_0 - \alpha| \quad (1) \text{ сходится в } z \\
+        \tilde{z} : |\tilde{z} - \alpha| = \frac{1}{2} (R + |z_0 - \alpha|) \quad |\tilde{z} - \alpha| < |z_0 - \alpha| \quad (1) \text{ сходится в } \tilde{z} \\
+        |\tilde{z} - \alpha| > R \quad |\tilde{z} - \alpha | \in E
+    \end{gather*}
+    Получили противоречие с определением супремума
+\end{longProof}
+
+\subsection*{Непрерывность}
+\begin{theorem}
+    \begin{gather*}
+        0 < r < R \\
+        \{ z: |z-\alpha| \leq r \} \quad  \quad r < \rho < R \quad |z_0 - \alpha| = \rho \\
+        z = x + iy \Leftrightarrow (x,y)  \quad \quad z - \alpha = x - \beta + i(y - \gamma)\\
+        |z| = ||(x,y)|| \quad \quad \alpha = \beta + i\gamma \\
+        c_0 + \sum^\infty_{n=1} u_n(z) + i \sum^\infty_{n=1} v_n(z)
+    \end{gather*}
+    Это ряды из непрерывных функций, поэтому их сумма тоже непрерывная функция
+\end{theorem}
+
+\begin{definition}[Непрерывность]
+    \[w(z) = A(Z) + iB(z) \] будем называть непрерывной, если непрерывны мнимая и вещественная часть
+\end{definition}
+
+(1) непрерывна на $B$ \\
+Получено следующее утверждение: сумма степенного ряда по степеням $z-\alpha$ непрерывна в круге сходимости.
+
+\subsection*{Вычисление радиуса сходимости степенного ряда}
+Имеется ряд (1).
+    \[t = \overline{\underset{n \to \infty}{\lim}} \sqrt[n]{|a_n|} \tag{7} \]
+Он может быть равен $+\infty$ \\
+Теперь хотим определить \[R_0 = \begin{cases}
+    0 \quad \text{ если } t = +\infty \\
+    +\infty \quad \text{ если } t = 0  \\
+    \frac{1}{t} \quad \text{ если } 0 < t < \infty
+\end{cases} \tag{8} \]
+\[ R_0 = R \tag{9} \]
+\begin{theorem}
+    $R_0$, опредленное в соотношении (8), является радиусом сходимости
+\end{theorem}
+\begin{longProof}
+    Надо рассмотреть 3 случая. Случаи $0$ и $+\infty$ мы рассматривать не будем, потому что это они простые. Рассмотрим
+    более интересный случай
+    \begin{gather*}
+        |z_0 - \alpha| > R_0 \tag{10} \\
+        \varepsilon = |z_0 - \alpha| - R_0 > 0 \\
+        \delta_0 = \frac{t^2 \varepsilon}{1-t\varepsilon} \tag{11}
+    \end{gather*}
+    В силу свойств верхнего предела (это было еще в далёком первом семестре)
+    \begin{gather*}
+        \exists \{ n_k \}^\infty_{k=1} : \sqrt[n_k]{|c_{n_k}|} > t - \delta_0 \tag{12} \\
+        (12) \Leftrightarrow |c_{n_k}| > (t-\delta_0)^{n_k} \tag{12\prime} \\
+        (12^\prime) \implies |c_{n_k} (z_0-\alpha)^{n_k} | > (t-\delta_0)^{n_k} \cdot (R_0 + \varepsilon)^{n_k} = \\
+       = ((t-\delta_0)(R_0 + \varepsilon))^{n_k}
+    \end{gather*}
+    Посчитаем теперь отдельно выражение в скобке
+    \begin{multline*}
+        (t-\delta_0)(R_0+ \varepsilon) =  \left (t- \frac{t^2\varepsilon}{1+t\varepsilon}\right ) \left (\frac{1}{t} + \varepsilon  \right ) = \\
+        = \frac{t+t^2\varepsilon-t^2\varepsilon}{1+t\varepsilon} \cdot \frac{1 + t \varepsilon}{t} = 1\\
+        (13) \implies c_{n_k} (z_0 - \alpha)^{n_k} \text{ не стремится к 0 при } k \to \infty
+    \end{multline*}
+    Ряд в точке $z_0$ разошёлся
+
+\begin{gather*}
+    |z_r - \alpha| < R_0 \quad \varepsilon = R_0 - |z_1 - \alpha| > 0 \\
+    \delta_1 = \frac{1}{z} \cdot \frac{t^2 \varepsilon}{1 - t \varepsilon}
+\end{gather*}
+Опять же по свойствам верхнего предела из первого семестра. 
+\begin{gather*}
+    \exists N_1 : \forall n > N_1 \quad \sqrt[n]{|c_n|}  < t + \delta_1 \tag{14} \\
+    (14) \Leftrightarrow |c_n| < (t+ \delta_1)^n \tag{14\prime} \\
+    (14\prime) \implies |c_n| |z_1 - \alpha|^n < (t+\delta_1)^n (R_0 - \varepsilon) =
+    ((t+\delta_1)(R_0 - \varepsilon))^n \tag{15} \\
+    (t+2\delta_1)(R_0 - \varepsilon) = \left ( t + \frac{t^2\varepsilon}{1-t\varepsilon} \right ) \left ( \frac{1}{t} - \varepsilon \right ) =
+    \frac{t - t^2\varepsilon + t^2\varepsilon}{1-t\varepsilon} \cdot \frac{1 -t \varepsilon}{t} = 1 \implies \\
+    \implies (t+\delta_1)(R_0 - \varepsilon) = 1 - \delta_1(R_0 - \varepsilon) \stackrel{def}{=} q < 1 \tag{16}
+\end{gather*} 
+$q$ не зависит от $n$, поэтому
+\begin{gather*}
+    (15), (16) \implies |c_n(z-\alpha)^n| < q^n \\
+    \sum_1^\infty q^n = \frac{1}{1-q} \\
+    \intertext{получим}
+    \forall z : |z-\alpha| > R_0 \quad  (1) \text{ расходится } \\
+    \forall z : |z-\alpha| < R_0 (1) \quad \text{ сходится } \\
+    (18) \implies R = R_0
+\end{gather*}
+Если бы $R \ne R_0$, то один из них больше другого. Возьмём $z$ между ними. 
+Тогда посмотрим на радиус сходимости $R$ в точке $z$, там
+будет расходимость, хотя должна быть сходимость.
+\end{longProof}
+
+\section*{Вещественные степенные ряды} 
+
+\[ \vR \leftrightarrow x + i0 \]
+\begin{definition}[Вещественный степенной ряд]
+    \begin{gather*}
+        c_n \in \vR, n \geq 0 \\
+        с_0 + \sum^\infty_{n=1} c_n(x-\alpha)^n \quad x \in \vR \tag{1} \\
+    \end{gather*}
+\end{definition}
+
+Рассмотрим
+\begin{gather*}
+    (2) c_0 + \sum^\infty_{n=1}  c_n (z-\alpha)^n \quad z \in \mathbb{C} \\
+    R, B \text{ -- круг сходимости } (2) \\
+    B = \{ z: |z-\alpha| < R  \} \quad R > 0 \\
+    I = B \cap \vR = (\alpha - R, \alpha + R) \tag{3}
+\end{gather*}
+
+\begin{definition}[Интервал сходимости]
+    $I$, которое может быть пустым, называется интервалом сходимости вещественного ряда (1).
+\end{definition}
+
+\begin{theorem*}
+    Он обладает следующими свойствами: \\
+  если $x_0 \in I \implies (1) $ сходится в $x_0$
+    если $x_1 \notin \overline{I}  \implies (1) $ расходится в $x_1$
+\end{theorem*}
+
+
+\begin{proof}
+    \[ x_0 \in I \implies x_0 \in B \implies \text{ ряд (2) сходится в }  x_0 \Leftrightarrow (1) \text{ сходится в } x_0 \] 
+    \[ x_1 \notin \overline{I} \Leftrightarrow |x_1 - \alpha| > R \Leftrightarrow x_1 \notin \overline{B} \implies (3) \text{ расходится в } x_1  \] 
+\end{proof}
+
+\begin{gather*}
+    R = \frac{1}{t} \\
+    t = \overline{\underset{n \to \infty}{\lim}} \sqrt[n]{|c_n|}
+\end{gather*}
+Есть еще одна формула для радиуса сходимости.
+\begin{theorem*}
+    \begin{gather*}
+        c_1 \in \mathbb{C} \quad c_n \ne \forall n \\
+        \exists \underset{n \to \infty}{\lim} \frac{|c_n|}{|c_{n+1}} = R
+    \end{gather*}
+\end{theorem*}
+\begin{proof}
+        Доказательство аналогично. Тут случай проще потому что предполагается,
+         что предел существует.
+\end{proof}
+
+\begin{theorem}
+    \begin{gather*}
+        \forall r \quad 0 < r < R \quad (1) \text{ сходится равномерно при } |x-\alpha| \leq r \implies \\
+        \implies c_0 + \sum^\infty_{n=1} c_n(x-\alpha)^n \in C(I) \quad I = [\alpha - r, \alpha + r] 
+    \end{gather*}
+\end{theorem}
+
+\begin{theorem}[Абеля]
+    \begin{gather*}
+        (1) \text{ сходится в } \alpha - R \implies (1) \text{ равномерно сходится на } [\alpha - R,\alpha]  \quad \\
+        \text{ сумма (1) } \in C([\alpha - R,R]) \\
+        (1) \text{ сходится в } \alpha + R \implies (1) \text{ равномерно сходится на } [\alpha,\alpha+R]  \quad \\
+        \text{ сумма (1) } \in C([\alpha , \alpha +R])
+    \end{gather*}
+\end{theorem}
+
+\begin{longProof}
+    Оба случая доказываются аналогично, рассмотрим первый. $c_0$ и так добавляется, его писать не будем
+    \begin{gather*}
+        \sum^\infty_{n=1} c_n((\alpha-R)-\alpha)^n \text{ сходится } \\
+        \sum^\infty_{n=1} (-1)^n c_n R^n \text{ сходится } \tag{5} \\
+        \alpha - x > 0 \quad \quad \alpha - R < x < \alpha \\
+        c_n(x-\alpha)^n = (-1)^n c_n (\alpha - x)^n = (-1)^n c_n R^n \cdot \left ( \frac{\alpha-x}{R} \right ) \tag{6}
+    \end{gather*}
+    Хотим применить признак Абеля равномерной сходимости функциональных рядов \\
+    \begin{gather*}
+        u_n(x) = (-1)^n c_n R^n \\
+        \sum^\infty_{n=1} u_n(x) v_n(x) \\
+        \sum^\infty_1 u_n(x) \text{ сходится равномерно } \\
+         v_n(x) \text{ монотонна } \forall x \\
+         |v_n(x)| \leq M \\
+         0 \leq v_n(x) = \left ( \frac{\alpha-x}{R} \right ) \leq 1 \\
+         (6) \implies (1) \text{ равномерно сходится на } [\alpha - R, R] 
+    \end{gather*}
+\end{longProof}
+
+\end{document}
