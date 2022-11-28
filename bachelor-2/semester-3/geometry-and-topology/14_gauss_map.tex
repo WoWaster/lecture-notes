@@ -1,0 +1,87 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Сферическое отображение}
+\begin{definition}[Сферическое отображение]
+    $\Gamma: S \to S^2$, $S$ -- поверхность, $S^2 = \{x^2 + y^2 + z^2 =1 \}$.
+\end{definition}
+\begin{center}
+    \import{figures}{gauss_map.pdf_tex}
+\end{center}
+\begin{example}
+    \begin{itemize}
+        \item Для окружности оно тождественно
+        \item Для плоскости это отображение в точку
+        \item Для цилиндра -- отображение в экватор сферы
+    \end{itemize}
+\end{example}
+\begin{theorem}[Родрига]
+    Формулы
+    \begin{gather*}
+        \vn'_u = -k_1 \vr'_u\\
+        \vn'_v = -k_2 \vr'_v
+    \end{gather*}
+    верны, если $u, v$ -- главные направления и $k_1, k_2$ -- главные кривизны.
+\end{theorem}
+\begin{definition}[Основной оператор]
+    Основной оператор в точке -- это дифференциал сферического отображения.
+    \[R: \R^2 \to \R^2\text{ -- линейный оператор}\]
+    Если $l$ -- направление, считаем, что $|l| = 1$, тогда $R(l) \coloneqq \vn'_l \perp \vn$.
+\end{definition}
+Теорема Родрига $\Leftrightarrow$ $-k_1, -k_2$ -- собственные числа $R$, $\vr'_u, \vr'_v$ -- собственные векторы $R$, если $u,v$ -- главные направления.
+\begin{proof}
+    Вместо поверхности рассмотрим соприкасающийся параболоид:
+    \[ \begin{cases}
+            x = u \\
+            y = v \\
+            z = f(u,v) = k_1 u^2 + k_2 v^2 + o(u^2 + v^2)
+        \end{cases}\]
+    В таком случае $2k_1, 2k_2$ -- главные кривизны.
+    Тогда
+    \begin{gather*}
+        \vn|_{(0,0,0)} = (0,0,1)\\
+        \vr'_u = (1, 0, 2k_1 u + o(u))\\
+        \vr'_v = (0,1,2k_2 v + o(v))\\
+        \intertext{для удобства откинем $o$}
+        \vn = \frac{\vr'_u \times \vr'_v}{|\vr'_u \times \vr'_v|} = \frac{(-2k_1 u; -2k_2v, 1)}{\sqrt{4k_1^2 u^2 + 4k_2^2 v^2 + 1}}\\
+        \intertext{обозначим $t \coloneqq 4k_1^2 u^2 + 4k_2^2 v^2 + 1$}
+        \begin{multlined}
+            \vn'_u|_{\substack{u = 0\\ v = 0}}
+            = \left(\frac{\frac{-2k_1}{\sqrt{t}} -2k_1 u(\sqrt{t})'_u}{t};-2k_2 v \left(\frac{1}{\sqrt{t}}\right)'_u; \left(\frac{1}{\sqrt{t}}\right)'_u\right) = \\
+            = (-2k_1,0,0) = 2k_1 \vr'_u|_{\substack{u = 0\\ v = 0}}
+        \end{multlined}
+    \end{gather*}
+    $\vn'_v$ аналогично.
+\end{proof}
+Что делает сферическое отображение с площадью?
+Глобально не очень понятно, но есть геометрический смысл локально, т.е. в предельном случае, в окрестности одной точки.
+\begin{theorem}
+    Пусть $S(X)$ -- отображение площади. Тогда
+    \[\lim_{\diam \fancyD \to 0} \frac{S(\Gamma(\fancyD))}{S(\fancyD)} = K\]
+\end{theorem}
+\begin{proof}
+    Пусть $\fancyD'$ -- прообраз $\fancyD$.
+    Вспомним, что
+    \begin{multline*}
+        S(\fancyD) = \iint_{\fancyD'} \sqrt{EG-F^2} dudv = \\
+        = \iint_{\fancyD'}|\vr'_u \times \vr'_v| dudv = |\vr'_u \times \vr'_v|\Big|_{M} \cdot S(\fancyD')
+    \end{multline*}
+    где последнее равенство следует из теоремы о среднем.
+    В $\Gamma(\fancyD)$ роль радиус-вектора $\vr$ выполняет вектор $\vn$, тогда
+    \begin{gather*}
+        S(\Gamma(\fancyD)) = \iint_{\fancyD'} |\vn'_u \times \vn'_v|dudv =  |\vn'_u \times \vn'_v|\Big|_{\tilde{M}} \cdot S(\fancyD')\\
+        \lim_{\diam \fancyD \to 0} \frac{S(\Gamma(\fancyD))}{S(\fancyD)} =
+        \lim_{\diam \fancyD \to 0}  \frac{S(\fancyD')|\vn'_u \times \vn'_v| \Big|_{\tilde{M}}}{S(\fancyD')|\vr'_u \times \vr'_v|\Big|_{M} } =
+        \left.\frac{|\vn'_u \times \vn'_v|}{|\vr'_u \times \vr'_v|}\right|_M = K
+    \end{gather*}
+    предел можно снять в силу того, что при $\diam \fancyD \to 0$, точки $M$ и $\tilde{M}$ стремятся друг к другу и мы можем считать их одной точкой.
+\end{proof}
+% TODO: Геодезическая кривизна, вероятно будет на следующей паре, проверить что этот текст не нужен
+% Есть поверхность и кривая на ней.
+% Есть вектор кривизны на поверхности.
+% Если этот вектор спроецировать на вектор нормали, то это будет нормальная кривизна в направлеии.
+% Если спроецировать этот вектор на .., то это будет геодезическая кривизна.
+% $k_g$ зависит только от I формы.
+
+% линии с $k_g = 0$ локально кратчайшие
+\end{document}

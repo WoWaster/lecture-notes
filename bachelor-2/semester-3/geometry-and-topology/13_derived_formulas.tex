@@ -78,4 +78,66 @@
     Ответ: да.
 \end{proof}
 
+\begin{theorem}
+    \begin{gather*}
+        L = - \vr'_u \vn'_u\\
+        M = - \vr'_u \vn'_v = - \vr'_v \vn'_u\\
+        N = - \vr'_v \vn'_v
+    \end{gather*}
+\end{theorem}
+\begin{proof}
+    $L + \vr'_u \vn'_u = \vr''_{uu} \vn + \vr'_u \vn'_u = (\vr'_u \cdot \vn)'_u = 0$ , т.к. $\vr'_u \perp \vn$.
+\end{proof}
+\begin{theorem}
+    \[|\vn'_u \times \vn'_v| = \frac{|LN-M^2|}{\sqrt{EG-F^2}}\]
+\end{theorem}
+\begin{proof}
+    Вспомним:
+    \begin{gather*}
+        \vn'_u = \alpha \vr'_u + \beta \vr'_v \\
+        \vn'_v = \gamma \vr'_u + \delta \vr'_v \\
+        \intertext{тогда}
+        \vn'_u \times \vn'_v = (\alpha \vr'_u + \beta \vr'_v) \times (\gamma \vr'_u + \delta \vr'_v) = (\alpha\delta - \beta\gamma) \vr'_u \times \vr'_v\\
+        \intertext{минус появляется, т.к. $\vr'_v \times\ \vr'_u = - \vr'_u \times \vr'_v$}
+        |\vn'_u \times \vn'_v| = |\alpha\delta - \beta\gamma| \sqrt{EG-F^2} = \\
+        \intertext{коэффициенты $\alpha, \beta, \gamma, \delta$ посчитаны выше}
+        \begin{multlined}
+            =\frac{
+                \left|\splitfrac
+                {(FM - GL)(FM - EN) -}
+                {(FL - EM)(FN - GM)}\right|
+            }{(EG-F^2)^{3/2}} =\\
+            =\frac{
+                \left|\splitfrac
+                {F^2 M^2 - EFMN - FGLM + EGLN}
+                {- F^2 LN + FGLM + EFMN - EGM^2}\right|
+            }{(EG-F^2)^{3/2}} = \\
+            =\frac{\left|(EG-F^2)(LN-M^2)\right|}{(EG-F^2)^{3/2}}
+        \end{multlined}
+    \end{gather*}
+\end{proof}
+\begin{corollary}
+    \[\frac{|\vn'_u \times \vn'_v|}{|\vr'_u \times \vr'_v|} = \frac{LN - M^2}{EG - F^2} = K\]
+\end{corollary}
+\section{Уравнения Петерсона-Майнарди-Кодацци}
+Вспомним:
+\begin{gather*}
+    \vr''_{uu} = \Gamma^1_{11} \vr'_u + \Gamma^2_{11} \vr'_v + L \vn \\
+    \vr''_{uv} = \Gamma^1_{12} \vr'_u + \Gamma^2_{12} \vr'_v + M \vn \\
+    \vr''_{vv} = \Gamma^1_{22} \vr'_u + \Gamma^2_{22} \vr'_v + N \vn
+    \intertext{тогда}
+    \vr'''_{uuv} = \left(\Gamma^1_{11}\right)'_v \vr'_u + \Gamma^1_{11} \vr''_{uv} + \left(\Gamma^2_{11}\right)'_v \vr'_v + \Gamma^2_{11} \vr''_{vv} + L'_v \vn + L \vn'_v = \vr'''_{uvu}\\
+    \intertext{умножим на $\vn$}
+    \vr'''_{uuv} \vn = \Gamma^1_{11}M + \Gamma^2_{11}N + L'_v = \vr'''_{uvu}\vn= \Gamma^1_{12} L + \Gamma^2_{12} N + M'_u \\
+    M'_u - L'_v = \Gamma^1_{11}M + \Gamma^2_{11} N - \Gamma^1_{12}L - \Gamma^2_{12} M\\
+    \intertext{аналогично}
+    \Gamma^1_{22} L + \Gamma^2_{22}M + N'_u = \vr'''_{uvv}\vn = \Gamma^1_{12}M +\Gamma^2_{12} N + M'_v
+\end{gather*}
+\begin{theorem}[Петерсона]
+    Если даны функции $E,F,G, L,M,N$, такие, что $E >0, G>0, EG - F^2 >0$, $LN - M^2$ равно результату теоремы \ref{touching_paraboloid:gauss}
+    и выполнены равенства выше, то существует единственная с точностью до положения в пространстве поверхность с такими коэффициентами.
+\end{theorem}
+\begin{proof}
+    Не будет.
+\end{proof}
 \end{document}
