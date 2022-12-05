@@ -1,0 +1,87 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Геодезическая кривизна}
+\begin{definition}[Вектор кривизны]
+    Есть кривая и её кривизна $\vk = k \vn_1$, где $\vn_1$ -- вектор главной нормали к кривой.
+\end{definition}
+\begin{definition}[Разложение вектора кривизны]
+    \[k_g = \proj_{TM_{x_0}} \vk\]
+    проекция $\vk$ на касательную плоскость к точке $x_0$.
+    \[k_n = \proj_{\vn_2} \vk, \]
+    где $\vn$ -- нормаль к поверхности.
+    Тогда
+    \[k^2 = k^2_n + k^2_g\]
+    (из теоремы Пифагора)
+\end{definition}
+\begin{theorem}
+    $k_g$ зависит только от $E,F,G$ и их производных.
+\end{theorem}
+\begin{proof}
+    Кривая задана внутренней натуральной параметризацией: $u = u(t), v = v(t)$.
+    Поверхность задана параметризацией $\vf: \fancyD \to \R^3$.
+
+    Подсчитаем $\vk = \vf''_{tt}$ (это равенство следует из натуральности параметризации):
+    \begin{gather*}
+        \vf'_t = \vf'_u u' + \vf'_v v'\\
+        \vf''_{tt} = \vf''_{uu}u'^2 + 2 \vf''_{uv} u' v' + \vf''_{vv} v'^2 + \vf'_u u'' + \vf'_v v''
+        \intertext{вспомним деривационные формулы}
+        \begin{multlined}
+            \vf''_{tt} = \Gamma^1_{11} \vf'_u u'^2 + \Gamma^2_{11} \vf'_v u'^2
+            +2 \Gamma^1_{12} \vf'_u u'v' + 2 \Gamma^2_{12} \vf'_v u'v' + \\
+            + \Gamma^1_{22} \vf'_u  v'^2+ \Gamma^2_{22} \vf'_v v'^2 + \vf'_u u'' + \vf'_v v''
+            + \vn (L u'^2 + 2M u'v' + N v'^2)
+        \end{multlined}
+    \end{gather*}
+    При таком разложении
+    \begin{multline*}
+        \vk_g = \Gamma^1_{11} \vf'_u u'^2 + \Gamma^2_{11} \vf'_v u'^2
+        +2 \Gamma^1_{12} \vf'_u u'v' + 2 \Gamma^2_{12} \vf'_v u'v' + \\
+        + \Gamma^1_{22} \vf'_u  v'^2+ \Gamma^2_{22} \vf'_v v'^2 + \vf'_u u'' + \vf'_v v''
+    \end{multline*}
+
+    Умножим на $\vf'_u$:
+    \begin{multline*}
+        \vk_g \vf'_u = \Gamma^1_{11} E u'^2 + \Gamma^2_{11} F u'^2 + 2 \Gamma^1_{12} E u'v' + 2 \Gamma^2_{12} F u'v'+\\
+        + \Gamma^1_{22} E v'^2 + \Gamma^2_{22} F v'^2 + E u'' + F v''
+    \end{multline*}
+    $\vk_g \vf'_u$ зависит только от $\fff$
+    Аналогично, $\vk_g \vf'_v$ зависит только от $\fff$.
+
+    Заметим, что если есть вектор на плоскости,
+    его проекции на $\vf'_u$ и $\vf'_v$ зависят только от $\fff$,
+    то и сам вектор зависит только от $\fff$.
+    Почему?
+    \begin{gather*}
+        \vk_g = A \vf'_u + B \vf'_v
+        \intertext{домножим на $\vf'_u$ и $\vf'_v$}
+        \begin{cases}
+            \vk_g \vf'_u = AE + BF \\
+            \vk_g \vf'_v = AF + BG
+        \end{cases}\\
+        A = \frac{\vk_g \vf'_u G - F \vk_g \vf'_v}{EG-F^2} \qquad  B = \frac{\vk_g\vf'_v E - F \vk_g \vf'_u}{EG-F^2}
+    \end{gather*}
+    при этом $\vk_g \vf'_u$ и $\vk_g \vf'_v$ зависят только от $\fff$.
+\end{proof}
+
+\begin{theorem}
+    \[k_g = \left|\frac{(\phi'', \phi', \vn)}{|\phi'|^3}\right|,\]
+    где $\phi(t) = \vf(u(t), v(t))$
+\end{theorem}
+% \begin{proof}
+%     \begin{gather*}
+%         % \vk = \frac{\vphi' \times \vphi''}{|\vphi'|^3}
+%         % \phi'(t) = \vf'_u u' + \vf'_v v'\\
+%         % \phi''(t) = \vf''_{uu}u'^2 + 2 \vf''_{uv} u' v' + \vf''_{vv} v'^2 + \vf'_u u'' + \vf'_v v''\\
+%         % (\phi'', \phi', \vn) = \\
+%         % = |(\vn, \vf'_u u' + \vf'_v v', \vf''_{uu}u'^2 + 2 \vf''_{uv} u' v' + \vf''_{vv} v'^2 + \vf'_u u'' + \vf'_v v'' )| =\\
+%         % = |(\vn, \vf'_u u')
+%         % \vk = \frac{\phi' \times \phi''}{|\phi'|^3}\\
+%         % \va \perp \phi' \vn, \phi'' \in \langle \phi', \va\rangle\\
+%         % \phi'' = \alpha \phi' + \beta \va\\
+%         % \phi'' \times \phi' = \beta \va\times \phi'\\
+%         % (\phi'' \times \phi')\vn = \beta (\va\times \phi')\vn
+%     \end{gather*}
+
+% \end{proof}
+\end{document}
