@@ -58,7 +58,7 @@
     $E = (\underbrace{e_1}_{\in U}, \underbrace{e_2, \ldots, e_n}_{\in U^{\perp}}). \ V = U \oplus U^{\perp} \Rightarrow E$ -- базис $V$. Очевидно, он ортонормированный.
 
     \begin{gather*}
-        [\mca]_E = \left(\begin{array}{c|c|}
+        [\mca]_E = \left(\begin{array}{c|c}
                 \lambda        & 0 \ldots 0   \\
                 \hline
                 \begin{matrix}
@@ -109,7 +109,7 @@
 
 \begin{proof}
     $\Rightarrow$: в некотором ортонормированном базисе $E$ $[\mca]_E = A = diag(u_1, \ldots, u_n), \ AA* = E_n \Rightarrow
-        u_1 |u_1| = \ldots = u_n |u_n| = 1 \Rightarrow |u_1| = \ldots = |u_n| = 1$.
+        u_1 \overline{u_1} = \ldots = u_n \overline{u_n} = 1 \Rightarrow |u_1| = \ldots = |u_n| = 1$.
 
     $\Leftarrow$: $A = diag(u_1, \ldots, u_n), \ |u_1| = \ldots = |u_n| = 1 \Rightarrow
         AA^* = E_n, \ A \text{ -- матрица } \mca \text{ в ортонормированном базисе} \Rightarrow \mca \mca^* = \mse$.

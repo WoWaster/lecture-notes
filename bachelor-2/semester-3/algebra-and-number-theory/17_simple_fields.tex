@@ -1,0 +1,133 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+
+\chapter{Простые поля}
+
+\marginpar{23.11.22}
+
+\begin{definition}[Подполе]
+    Пусть $K$ -- поле. Подполем $K$ называется подкольцо $F \subset K$, такое что
+     $F$ -- поле.
+\end{definition}
+
+\begin{definition}[Простое поле]
+    Поле $K$ называется простым, если в нем нет собственных подполей
+\end{definition}
+
+\begin{example}
+    Пусть $\Q$  -- простое поле.
+       
+    Пусть  $F \subset \Q$ -- подполе.
+        $1 \in F \Rightarrow \N \subset F \Rightarrow \Z \subset F 
+        \Rightarrow \forall n \in \N : n^{-1} \in F \Rightarrow F = \Q$.
+\end{example}
+\begin{example}
+    Пусть $p$ -- простое. Тогда $ \F_p = \underbrace{\Z / (p)}_{\Z /p \Z}$ -- простое поле.
+        $F \subset \F_p $ -- подполе.
+        $1 \in F \Rightarrow \quad \forall k \in \N : \underbrace{1 + \ldots + 1 }_{k} \in F  \Rightarrow F = \F_p
+         \\ (1 = \overline{1}, \ 
+        2 := 1 + 1$  и т. д.)
+    
+\end{example} 
+
+\begin{definition}[Характеристика кольца]
+    $R$ -- кольцо с единицей.
+        \[char R = \begin{cases}
+            min \{ n : \underbrace{1 + \ldots + 1}_n = 0 \text{ в } R \} \\
+            0, \quad \text{ если } \forall n \in \N: \ \underbrace{1 + \ldots + 1}_n \ne 0
+        \end{cases}
+    \]
+\end{definition}
+
+\begin{lemma}
+    Пусть $F$ -- поле. Тогда $char F$ является простым числом или $= 0$
+\end{lemma}
+
+\begin{proof}
+    Будем доказывать от противного. Пусть $l = char F = mn, \ m,\ n > 1$.
+    $ 0 = \underbrace{1 + \ldots + 1}_l = \underbrace{(1 + \ldots + 1)}_{\underset{\ne 0 \text{, т.к. } m < l}{m}}
+    \underbrace{(1 + \ldots + 1)}_{\underset{\ne 0 \text{, т.к. } n < l}{n}}$ -- невозможно в поле.
+\end{proof}
+
+\begin{proposition}
+    Пусть $F_1, F_2$ -- поля, $\alpha : F_1 \rightarrow F_2$ -- гомоморфизм.
+    Тогда $\alpha$ отображает $F_1$ изоморфно на подполе $\alpha(F_1)$
+     (индуцирует изоморфизм на свой образ).
+\end{proposition}
+
+\begin{proof}
+        \[\Ker \alpha \text{ -- идеал в } F_1 \]
+        \[\Rightarrow \left[
+            \begin{gathered}
+            \Ker \alpha = 0   \\
+            \Ker \alpha = F_1 \Rightarrow \underbrace{\alpha(1)} _{=1}= 0 \ne 1 \text{ - не реализуется}
+            \end{gathered}
+        \right.\]
+        \[\Rightarrow \alpha \text{ инъективно} \]
+        \[\Rightarrow \alpha \text{ индуцирует изоморфизм } F_1 \xrightarrow{\sim}
+         \alpha(F_1) \]
+       \[ F_1 \text{ поле } \Rightarrow \alpha (F_1) \text{ поле } \]
+\end{proof}
+Термин гоморфизм полей не используется, так как он всегда инъективен, говорят "вложение".
+\begin{theorem}
+    Пусть $F$ -- простое поле. 
+    \begin{enumerate}
+        \item Если $char F = 0$, то $F \cong \Q$.
+        \item Если $char F = p > 0 $, то $F \cong \F_p$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{longProof}
+    \begin{enumerate}
+        \item Будем строить $\alpha: \mathbb{Q} \rightarrow F$.
+        \[\left. \begin{gathered}
+         n \in \mathbb{N} \quad \alpha(n) := \underbrace{1 + \ldots 1}_n \text{ в } F \\
+            \alpha(0) := 0 \\
+            \alpha(-n) := -\underbrace{(1 + \ldots + 1)}_n 
+        \end{gathered}
+        \right. \tag*{(*)} \]
+        \[\alpha \left(  \frac{a}{b} \right) := \frac{\alpha(a)}{\alpha(b)}, \ \alpha(b) \ne 0 
+        \text{, т.е. } \alpha(b) = \underbrace{1 + \ldots + 1}_b \neq 0, \text{ т.к. } char F = 0\]
+        Проверка корректности:
+        \begin{gather*}  
+            \frac{a}{b} = \frac{a\prime}{b\prime} \Rightarrow ab^\prime = a^\prime b \\
+            \Rightarrow \underbrace{\alpha(a b^\prime)}_{=\alpha(a)\alpha(b^\prime) \ne 0}
+             = \underbrace{\alpha(a^\prime b)}_{\alpha(a^\prime)\alpha(b) \ne 0} \\
+            \Rightarrow \frac{\alpha(a)}{\alpha(b)} = 
+            \frac{\alpha(a^\prime)}{\alpha(b^\prime)} 
+        \end{gather*}
+        Непосредственно проверяется, что $\alpha$ -- гомоморфизм.
+        \begin{gather*}
+            \Rightarrow \alpha(\mathbb{Q}) \text{ -- подполе } F, \text{ изоморфное } \mathbb{Q}\\
+            \Rightarrow \alpha(\mathbb{Q}) = F \\
+            \Rightarrow F \cong \mathbb{Q}
+        \end{gather*}
+        \item
+         $\mathbb{Z} \stackrel{\alpha}{\longrightarrow} F$. Зададим $\alpha$ формулами $(*)$. Легко видеть:
+        $ \alpha $ -- гомоморфизм. $\Ker \alpha$ -- идеал в $\Z$.
+        \begin{gather*}
+            char F = p \Rightarrow \begin{cases}
+                p \in \Ker \alpha \\
+                1, \ldots, p-1 \notin \Ker \alpha
+            \end{cases} \Rightarrow \Ker \alpha = (p)
+        \end{gather*}
+        По теореме о гомоморфизме $\alpha$ -- индуцированный изоморфизм. $\overline{\alpha}: \ \Z / (p) 
+        \xrightarrow{\sim} \Im \alpha, \ p$ -- простое $\Rightarrow \Z / (p) $ -- поле 
+            $\Rightarrow \Im \alpha$ -- поле
+            $\Rightarrow \Im \alpha = F \Rightarrow
+            \overline{\alpha}: \ \mathbb{F}_p \xrightarrow{\sim} F$.
+    \end{enumerate}
+\end{longProof}
+
+\begin{proposition}
+    Пусть $K$ -- поле. Тогда в $K$ содержится единственное простое подполе.
+\end{proposition}
+\begin{proof}
+    $F_0 := \bigcap_{F \text{ -- подполе } K} F$ -- подполе $K$. $F_1 \subset F_0$-- подполе $\Rightarrow F_1$-- подполе 
+    $K \Rightarrow F_0 \subset F_1 \Rightarrow F_1 = F_0$.
+    
+    $F_0^\prime$ -- еще одно простое подполе $ \Rightarrow  F_0 \subset F^\prime_0 \Rightarrow F^\prime_0 = F_0$.
+\end{proof}
+
+\end{document}
