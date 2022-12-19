@@ -65,23 +65,39 @@
 \end{proof}
 
 \begin{theorem}
-    \[k_g = \left|\frac{(\phi'', \phi', \vn)}{|\phi'|^3}\right|,\]
+    \[k_g = \frac{\left|(\phi'', \phi', \vn)\right|}{|\phi'|^3},\]
     где $\phi(t) = \vf(u(t), v(t))$
 \end{theorem}
-% \begin{proof}
-%     \begin{gather*}
-%         % \vk = \frac{\vphi' \times \vphi''}{|\vphi'|^3}
-%         % \phi'(t) = \vf'_u u' + \vf'_v v'\\
-%         % \phi''(t) = \vf''_{uu}u'^2 + 2 \vf''_{uv} u' v' + \vf''_{vv} v'^2 + \vf'_u u'' + \vf'_v v''\\
-%         % (\phi'', \phi', \vn) = \\
-%         % = |(\vn, \vf'_u u' + \vf'_v v', \vf''_{uu}u'^2 + 2 \vf''_{uv} u' v' + \vf''_{vv} v'^2 + \vf'_u u'' + \vf'_v v'' )| =\\
-%         % = |(\vn, \vf'_u u')
-%         % \vk = \frac{\phi' \times \phi''}{|\phi'|^3}\\
-%         % \va \perp \phi' \vn, \phi'' \in \langle \phi', \va\rangle\\
-%         % \phi'' = \alpha \phi' + \beta \va\\
-%         % \phi'' \times \phi' = \beta \va\times \phi'\\
-%         % (\phi'' \times \phi')\vn = \beta (\va\times \phi')\vn
-%     \end{gather*}
-
-% \end{proof}
+\begin{proof}
+    \[k = \frac{|\phi' \times \phi ''|}{|\phi'|^3}\]
+    заменим $\phi''$ на $\phi''_\perp$,
+    где $\phi''_\perp$ -- проекция $\phi''$ на вектор перпендикулярный $\phi'$ и лежащий в плоскости $\langle \phi', \phi'' \rangle$
+    \begin{gather*}
+        \phi''_\perp = \frac{(\phi'' \times \phi') \times \phi'}{|\phi'|^2}\\
+        |(\phi'' \times \phi')\times \phi'| = |\phi'' \times \phi'||\phi'| = |\phi''||\phi'|^2 \sin \alpha\\
+        |\phi''_\perp| = |\phi''| \sin \alpha = |\phi''| \cos \beta
+    \end{gather*}
+    теперь у нас
+    \begin{gather*}
+        k = \frac{|\phi' \times \phi''_\perp|}{|\phi'|^3}
+    \end{gather*}
+    $\vk$ -- вектор кривизны
+    \begin{gather*}
+        |\vk| = \frac{|\phi' \times \phi ''|}{|\phi'|^3}
+    \end{gather*}
+    направление с точности до знака это $\phi' \times (\phi'' \times \phi')$
+    \begin{gather*}
+        \vk = \frac{\phi' \times (\phi'' \times \phi')}{|\phi'| |\phi'' \times \phi'|} \cdot \frac{|\phi' \times \phi ''|}{|\phi'|^3} = \frac{\phi' \times (\phi' \times \phi'')}{|\phi'|^4}\\
+        |\vn| = 1 \\
+        |\vk \times \vn| = |\vk| |\vn| |\sin \alpha| = |\vk| |\cos \beta|\\
+        |\sin \alpha| = |\cos \beta|\\
+        \proj_\alpha \vk = |\vk \times \vn|\\
+        % \va \times (\vb \times \vc) = \vb(\va, \vb) - \vc(\va, \vb)\\
+        % = \phi'' \frac{(\phi, \phi')}{|\phi'|^4} - \phi'\frac{(\phi', \phi'')}{|\phi'|^4}=\\
+        % = \frac{\phi''}{|\phi'|^2} - \phi' \frac{(\phi', \phi'')}{|\phi'|^4}\\
+        \vn \times \vk = \frac{\vn \times (\phi' \times (\phi' \times \phi''))}{|\phi'|^4} =
+        \frac{\phi' (\vn; \phi'\times \phi'')}{|\phi'|^4} - (\phi'' \times \phi') \frac{(\vn, \phi')}{|\phi'|^4}\\
+        k_g = |\vn \times \vk| = \frac{|\phi'||(\phi', \phi'', \vn)|}{|\phi'|^4} = \frac{|(\phi', \phi'', \vn)|}{|\phi'|^3}
+    \end{gather*}
+\end{proof}
 \end{document}
