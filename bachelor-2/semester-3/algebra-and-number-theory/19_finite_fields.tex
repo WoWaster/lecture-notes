@@ -110,4 +110,36 @@
 
     \end{enumerate}
 \end{proof}
-\end{document}
+
+\begin{example}
+   % https://q.uiver.app/?q=WzAsMTIsWzEsMCwiXFxtYXRoYmJ7Rn1fezQwOTZ9Il0sWzAsMSwiXFxtYXRoYmJ7Rn1fezY0fSJdLFsyLDEsIlxcbWF0aGJie0Z9X3sxNn0iXSxbMCwyLCJcXG1hdGhiYntGfV97OH0iXSxbMiwyLCJcXG1hdGhiYntGfV97NH0iXSxbMSwzLCJcXG1hdGhiYntGfV97Mn0iXSxbNCwwLCIxMiJdLFszLDEsIjYiXSxbNSwxLCI0Il0sWzMsMiwiMyJdLFs1LDIsIjIiXSxbNCwzLCIxIl0sWzAsMSwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFswLDIsIiIsMix7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMiw0LCIiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEsMywiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFszLDUsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNCw1LCIiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEsNCwiIiwxLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs2LDcsIiIsMSx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNiw4LCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzcsOSwiIiwxLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs4LDEwLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzksMTEsIiIsMSx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMTAsMTEsIiIsMSx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNywxMCwiIiwxLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dXQ==
+\[\begin{tikzcd}
+	& {\mathbb{F}_{4096}} &&& 12 \\
+	{\mathbb{F}_{64}} && {\mathbb{F}_{16}} & 6 && 4 \\
+	{\mathbb{F}_{8}} && {\mathbb{F}_{4}} & 3 && 2 \\
+	& {\mathbb{F}_{2}} &&& 1
+	\arrow[no head, from=1-2, to=2-1]
+	\arrow[no head, from=1-2, to=2-3]
+	\arrow[no head, from=2-3, to=3-3]
+	\arrow[no head, from=2-1, to=3-1]
+	\arrow[no head, from=3-1, to=4-2]
+	\arrow[no head, from=3-3, to=4-2]
+	\arrow[no head, from=2-1, to=3-3]
+	\arrow[no head, from=1-5, to=2-4]
+	\arrow[no head, from=1-5, to=2-6]
+	\arrow[no head, from=2-4, to=3-4]
+	\arrow[no head, from=2-6, to=3-6]
+	\arrow[no head, from=3-4, to=4-5]
+	\arrow[no head, from=3-6, to=4-5]
+	\arrow[no head, from=2-4, to=3-6]
+\end{tikzcd}\]
+\end{example}
+
+
+
+
+
+
+
+
+

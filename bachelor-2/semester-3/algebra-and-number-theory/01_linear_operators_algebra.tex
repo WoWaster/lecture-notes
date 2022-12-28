@@ -23,15 +23,15 @@
 \begin{definition} [Алгебра]
     Говорят, что задана алгебра над полем $K$, если задано множество $A$, бинарные операции +, $\times$ на нем и отбражение $K \cdot A \to A$, т.ч.:
     \begin{enumerate}
-        \item $(A,+, \times)$ - кольцо
-        \item $(A,+, \cdot)$ - линейное пространство над полем $K$
+        \item $(A,+, \times)$ -- кольцо
+        \item $(A,+, \cdot)$ -- линейное пространство над полем $K$
         \item $\forall \alpha \in K \  \forall a, b \in A : \alpha \cdot (a \times b) = (\alpha \cdot a) \times b = a \times (\alpha \cdot b)$
     \end{enumerate}
 \end{definition}
 
 \begin{example}
     $A = M_n(K)$,
-    $A_0 = \{ \alpha E_n | \alpha \in K\}$ —  подкольцо скалярных матриц, изоморфное полю $K$.
+    $A_0 = \{ \alpha E_n \ | \ \alpha \in K\}$ —  подкольцо скалярных матриц, изоморфное полю $K$.
 \end{example}
 
 \begin{example}
@@ -46,8 +46,8 @@
 
     Пусть $A$ —  алгебра c $1(\neq0)$ над полем $K$.
     Рассмотрим множество $A_0 = \{\alpha \cdot 1| \alpha \in K\}$.
-    \[K \xrightarrow{\varphi} A_0 \quad \alpha \mapsto \alpha_1\]
-    Идеал в поле либо нулевой, либо все поле.
+     \[\underset{\alpha \mapsto \alpha_1}{K \xrightarrow{\varphi} A_0 }\]
+    Идеал в  поле либо нулевой, либо все поле.
     $\varphi(1) \neq 0 \Rightarrow Ker(\varphi)\neq K$.
     Значит,  $\varphi$ — изоморфизм. $A_0$ — подкольцо, изоморфное полю $K$.
 \end{example}
@@ -87,7 +87,7 @@ $ - стандартный случай.
 $\mca: U_{EE'} \rightarrow V_{FF'}$. Как связаны матрицы этого линейного отображения в двух базисах?
 $[\mca]_{EF}=A$ -- знаем,  $[\mca]_{E'F'}=?$ Нужны матрицы перехода:
 $M_{E\rightarrow E'} = C,\ M_{F\rightarrow F'} = D$. Можем записать:
-$E' = EC,\ E=(e_1, \ldots ,e_n),\ C=c_{ij}$ ($E$ - вектор, $C$ - квадратная матрица). Тогда
+$E' = EC,\ E=(e_1, \ldots ,e_n),\ C=(c_{ij})$ ($E$ -- вектор, $C$ -- квадратная матрица). Тогда
 $EC=(c_{11}e_1+\ldots+c_{m1}e_n, c_{12}e_1 +\ldots +c_{n2}e_n, \ldots)$. Что происходит с матрицей при такой замене базиса?
 
 \begin{proposition}
@@ -98,9 +98,9 @@ $EC=(c_{11}e_1+\ldots+c_{m1}e_n, c_{12}e_1 +\ldots +c_{n2}e_n, \ldots)$. Что 
     % https://q.uiver.app/?q=WzAsNCxbMCwxLCJVX0YnIl0sWzEsMCwiVl9GIl0sWzEsMSwiVl9GJyJdLFswLDAsIlVfRSJdLFsxLDIsIlxccXVhZCBcXHF1YWQgXFxxdWFkXFxlcHNpbG9uX1Y9aWRfViJdLFswLDMsIlxcZXBzaWxvbl9VIl0sWzMsMSwiXFxtYXRoY2Fse0F9Il0sWzAsMiwiXFxtYXRoY2Fse0F9IiwyXV0=
     \[\begin{tikzcd}
             {U_E} & {V_F} \\
-            {U_F'} & {V_F'}
-            \arrow["{ \epsilon_V=id_V}", from=1-2, to=2-2]
-            \arrow["{\epsilon_U}", from=2-1, to=1-1]
+            {U_{F'}} & {V_{F'}}
+            \arrow["{ \mse_V=id_V}", from=1-2, to=2-2]
+            \arrow["{\mse_U}", from=2-1, to=1-1]
             \arrow["{\mathcal{A}}", from=1-1, to=1-2]
             \arrow["{\mathcal{A}}"', from=2-1, to=2-2]
         \end{tikzcd}\]
