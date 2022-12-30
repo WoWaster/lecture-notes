@@ -6,7 +6,7 @@
 
 Будем считать. что $V$ -- евклидово или унитарное пространство над полем $K$ ($\R$ или $\C$), $\dim V = n \leq \infty$.
 
-$w \in V, \ \rho_w: \underset{V \rightarrow K}{v \mapsto (v, w)}$, поскольку умножаем справа, отображение линейно: $(\alpha_1 v_1 + \alpha_2 v_2, w) = \alpha_1 (v_1, w) + \alpha_2 (v_2, w)$.
+$w \in V, \ \rho_w: \underset{v \mapsto (v, w)}{V \rightarrow K}$, поскольку умножаем справа, отображение линейно: $(\alpha_1 v_1 + \alpha_2 v_2, w) = \alpha_1 (v_1, w) + \alpha_2 (v_2, w)$.
 Тем самым, $\rho \in V^*$.
 
 \begin{proposition}
@@ -34,7 +34,7 @@ $V_1, V_2$ -- линейное пространства над полем ком
     Полулинейность очевидна, $\Ker \rho = 0$ доказывается таким же образом.
 
     $\widetilde{V} = V$, сложение как в $V$, $\alpha \ast v = \overline{\alpha} v$.
-    $(\widetilde{V}, \ +, \ ast)$ -- линейное пространство над $\C$. Базисы $\widetilde{V}, \ V$ совпадают $\Rightarrow \dim \widetilde{V} = n$.
+    $(\widetilde{V}, \ +, \ \ast)$ -- линейное пространство над $\C$. Базисы $\widetilde{V}, \ V$ совпадают $\Rightarrow \dim \widetilde{V} = n$.
     Рассмотрим $\widetilde{\rho}: \underset{w \mapsto \rho w}{\widetilde{V} \rightarrow V^*}$ -- линеное отображение, ядро по-прежнему равняется 0, тогда
     $\Im \widetilde{\rho} = V^*$.
 \end{proof}
@@ -46,12 +46,12 @@ $V_1, V_2$ -- линейное пространства над полем ком
         {W^*} & {V^*} \\
         W & V
         \arrow["{\mathcal{A}^T}", from=1-1, to=1-2]
-        \arrow["{\rho_v}"', from=2-2, to=1-2]
-        \arrow["{\rho_w}", from=2-1, to=1-1]
+        \arrow["{\rho_V}"', from=2-2, to=1-2]
+        \arrow["{\rho_W}", from=2-1, to=1-1]
         \arrow["{\mathcal{A}^*}"', dashed, from=2-1, to=2-2]
     \end{tikzcd}\]
 
-Пусть $\mca \in \Hom(V, W)$. Рассмотрим отображение $\mca^* = \rho_v^{-1} \circ \mca^T \circ \rho_w$. Тогда $\mca^* \in \Hom(W, V)$ называется отображением, сопряженным к $\mca$.
+Пусть $\mca \in \Hom(V, W)$. Рассмотрим отображение $\mca^* = \rho_V^{-1} \circ \mca^T \circ \rho_W$. Тогда $\mca^* \in \Hom(W, V)$ называется отображением, сопряженным к $\mca$.
 Очевидно, $\mca^*$ -- гомоморфизм групп.
 \begin{gather*}
     \mca^*(\alpha w) = (\rho_V^{-1} \circ \mca^T \circ \rho_W)(\alpha w) = (\rho_V^{-1} \circ \mca^T)(\overline{\alpha} \rho_W(w)) = \\
@@ -64,7 +64,7 @@ $V_1, V_2$ -- линейное пространства над полем ком
 
     \begin{enumerate}
         \item $\forall v \in V, \ w \in W: \ (\mca v, w) = (v, \mca^* w)$
-        \item Если $\mcb \in \Hom (W, V)$, такое что $\forall v \in V, \ w \in W: \ (\mca v, w) = (v, \mcb w)$,  то $\mcb = \mca^*$.
+        \item Если $\mcb \in \Hom (W, V)$ такое, что $\forall v \in V, \ w \in W: \ (\mca v, w) = (v, \mcb w)$,  то $\mcb = \mca^*$.
     \end{enumerate}
 \end{proposition}
 
