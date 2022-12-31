@@ -1,0 +1,312 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Простые поля}
+
+\begin{definition}[Подполе]
+    Пусть $K$ -- поле. Подполем $K$ называется подкольцо $F \subset K$, такое что
+     $F$ -- поле.
+\end{definition}
+
+\begin{definition}[Простое поле]
+    Поле $K$ называется простым, если в нём нет собственных подполей
+\end{definition}
+
+\begin{example}
+    \begin{gather*}
+        \mathbb{Q} \text{ -- простое поле } \\
+        \text{ Пусть } F \subset \mathbb{Q} \text{ -- подполе }
+        1 \in F \implies \mathbb{N} \subset F \implies \mathbb{Z} \subset F \\
+        \implies \forall n \in \mathbb{N} : n^{-1} \in F \implies F = \mathbb{Q}
+    \end{gather*}-
+\end{example}
+\begin{example}
+    Пусть $p$ -- простое
+    \begin{gather*}
+        \text{ Тогда } \mathbb{F}_p = \underbrace{\mathbb{Z} \backslash (p)}_{\mathbb{Z}\backslash \mathbb{Z}} \text{ -- простое поле }\\
+        F \subset \mathbb{F}_p \text{ -- подполе} \\
+        1 \in F \implies \quad \forall k \in \mathbb{N} : \underbrace{1 + \ldots + 1 }_{k} \in F  \implies F = \mathbb{F}_p\\
+        1 = \overline{1}\\
+        2 := 1 + 1 \text{ и т. д.}
+    \end{gather*}
+\end{example}
+
+\begin{definition}[Характеристика кольца]
+    $R$ -- кольцо с единицей
+        \[char R = \begin{cases}
+            min \{ n : \underbrace{1 + \ldots + 1}_n = 0 \text{ в } R \} \\
+            0 \quad \text{ если } \forall n \in \mathbb{N} \underbrace{1 + \ldots + 1}_n \ne 0
+        \end{cases}
+    \]
+\end{definition}
+\begin{lemma}
+    Пусть $F$ - поле. Тогда $char F$ является простым числом или $= 0$
+\end{lemma}
+
+\begin{proof}
+    Будем доказывать от противного. Пусть $l = char F = mn \quad m,n > 1$ \\
+    $ 0 = \underbrace{1 + \ldots + 1}_n = \underbrace{(1 + \ldots + 1)}_{\underset{\ne 0 \text{ т.к. } m < l}{m}}
+    \underbrace{(1 + \ldots + 1}_{\underset{\ne 0 \text{ т.к. } n < l}{n})}$ -- невозможно в поле
+\end{proof}
+
+\begin{proposition}
+    Пусть $F_1, F_2$ -- поля, $\alpha : F_1 \rightarrow F_2$ -- гомоморфизм.
+    Тогда $\alpha$ отображает $F_1$ изоморфно на подполе $\alpha(F_1)$
+     (индуцирует изоморфизм на свой образ).
+\end{proposition}
+
+\begin{proof}
+        \[\Ker \alpha \text{ -- идеал в } F_1 \]
+        \[\implies \left[
+            \begin{gathered}
+            \Ker \alpha = 0   \\
+            \Ker \alpha = F_1 \implies \underbrace{\alpha(1)} _{=1}= 0 \ne 1
+            \end{gathered}
+        \right.\]
+        \[\implies \alpha \text{ инъективно} \]
+        \[\implies \alpha \text{ индуцирует гоморфизм } F_1 \xrightarrow{\sim}
+         \alpha(F_1) \]
+       \[ F_1 \text{ поле } \implies \alpha (F_1) \text{ поле } \]
+\end{proof}
+Термин гоморфизм полей не используется, так как он всегда инъективен. Говорят "вложение".
+\begin{theorem}
+    Пусть $F$ -- простое поле. 
+    \begin{enumerate}
+        \item Если $char F = 0$, то $F \cong \mathbb{Q}$ 
+        \item Если $char F = p > 0 $, то $F \cong \mathbb{F}_p$
+    \end{enumerate}
+\end{theorem}
+
+\begin{longProof}
+    \begin{enumerate}
+        \item Случай $char F = 0$ \\
+        Будем строить $\alpha: \mathbb{Q} \rightarrow F$ 
+        \[\left. \begin{gathered}
+         n \in \mathbb{N} \quad \alpha(n) := \underbrace{1 + \ldots 1}_n \text{ в } F \\
+            \alpha(0) := 0 \\
+            \alpha(-n) := -\underbrace{(1 + \ldots + 1)}_n 
+        \end{gathered}
+        \right) \tag{*} \]
+        \[\alpha \left(  \frac{a}{b} \right) := \frac{\alpha(a)}{b} \quad \alpha(b) \ne 0 
+        \text{ т.е. } \alpha(b) = \underbrace{1 + \ldots + 1}_b \]
+        Проверка корректности:
+        \begin{gather*}32ё  
+            \frac{a}{b} = \frac{a\prime}{b\prime} \implies ab^\prime = a^\prime b \\
+            \implies \underbrace{(\alpha b^\prime)}_{=\alpha(a)\alpha(b^\prime) = \ne 0}
+             = \underbrace{\alpha(a^\prime b)}_{\alpha(a^\prime)\alpha(b) \ne 0} \\
+            \implies \frac{\alpha(a)}{\alpha(b)} = 
+            \frac{\alpha(a^\prime)}{\alpha(b^\prime)} 
+        \end{gather*}
+        Непосредственно проверяется, что $\alpha$ -- гомоморфизм.
+        \begin{gather*}
+            \implies \alpha(\mathbb{Q}) \text{ -- подполе } F, \text{ изоморфное } \mathbb{Q}\\
+            \implies \alpha(\mathbb{Q}) = F \\
+            \implies F \cong \mathbb{Q}
+        \end{gather*}
+        \item Случай $char K = p$ \\
+         \[\mathbb{Z} \stackrel{\alpha}{\longrightarrow} F \]
+        \begin{gather*}
+            \text{Зададим } \alpha \text{ формулами} (*). \text{ Легко видеть : } 
+            \alpha \text{ -- гомоморфизм} \\
+            \Ker \alpha \text{ -- идеал в } \mathbb{Z}\\
+            char F = p \implies \begin{cases}
+                p \in \Ker \alpha \\
+                1, \ldots, p-1 \notin \Ker \alpha
+            \end{cases} \implies \Ker \alpha = (p)
+        \end{gather*}
+        По теореме о гомоморфизме $\alpha$ -- индуцированный изоморфизм 
+        \begin{gather*}
+            \overline{\alpha} \quad \mathbb{Z} \backslash (p) \xrightarrow{\sim} \Im \alpha \\
+            p \text{ -- простое } \implies \mathbb{Z} \backslash (p) \text{ -- поле } \\
+            \implies \Im \alpha \text{ -- поле} \\
+            \implies \Im \alpha = F \\
+            \overline{\alpha}: \mathbb{F}_p \xrightarrow{\sim} F\\
+        \end{gather*}
+    \end{enumerate}
+\end{longProof}
+
+\begin{proposition}
+    Пусть $K$ поле. Тогда в $K$ содержится единственное простое подполе.
+\end{proposition}
+\begin{proof}
+    \[ F_0 := \bigcap_{F \text{ -- подполе } K} F \text{ -- подполе } K \]
+    \begin{gather*}
+        F_1 \subset F_0 \text{ -- подполе } \implies F_1 \text{ -- подполе } K \\
+        \implies F_0 \subset F_1 \\
+        \implies F_1 = F_0
+    \end{gather*} 
+    $F_0^\prime$ -- еще простое подполе $ \implies  F_0 \subset F^\prime_0 \implies F^\prime_0 = F_0$ 
+\end{proof}
+
+\chapter*{Расширения полей}
+\begin{definition}
+    Говорят, что задано расширение поля $L \backslash K$ (читается $L$ над $K$),
+     если задано поле $L$ и подполе $K$
+\end{definition}
+
+\begin{example}
+    $\mathbb{C} \backslash \vR$
+\end{example}
+\begin{example}
+    $ \vR \backslash \mathbb{Q} $
+\end{example}
+\begin{example}
+    $ K \backslash K$ для любого $K$
+\end{example}
+\begin{example}
+    $K(X) \backslash K $ для любого $K$
+\end{example}
+
+Если $L \backslash K$ -- расширение, то $L$ можно рассматривать как линейное пространство над $K$.
+$L \backslash K$ называется конечным расширением, если $\dim_k L < \infty$. 
+$[L:K] = \dim_k L $ -- степень расширяемости $L \backslash K$. В проитвном случае
+$L \backslash K$ называются бесконечно расширяемым.
+
+\begin{example}
+    $[\mathbb{C}:\vR] = 2$
+\end{example}
+\begin{example}
+    $[\vR : \mathbb{Q} ] = \infty$
+\end{example}
+\begin{example}
+    $ [K:K] = 1$
+\end{example}
+\begin{example}
+    $[K(X):K]= \infty $ 
+\end{example}
+
+\begin{proposition}
+    Пусть $L \backslash K, M \backslash K$ -- конечные расширения. Тогда $M \backslash K$ -- тоже
+    конечное расширение и 
+    \[ [M:K] = [M:L] \cdot [L:K] \] 
+    $M \backslash L \backslash K $ -- башня полей
+\end{proposition}
+
+\begin{proof}
+    Пусть $e_1, \ldots , e_l $ -- базис $L$ как линейного пространстнства $\backslash K$.
+    $f_1, \ldots , f_n$ -- базис $M$ как линейного пространства $\backslash L$. Проверим 
+    $(e_i f_j | 1 \leq i \leq l, 1 \leq j \leq m)$ -- базис $M \backslash K$. Предположим
+    \begin{multline*}
+        c \in M \\
+        \implies c = b_1f_1 + \ldots + b_mf_m \quad b_1, \ldots, b_m \in L = \\
+        = (a_{11}e_1 + \ldots + a_{1l}e_l)f_1 + \ldots + (a_{m1}e_1 + \ldots + a_{ml}e_l)f_m = \\
+        = \sum^n_{i=1} \sum^l_{j=1} a_{ij}e_jf_i \quad a_{ij} \in K \\
+        \implies Lin(e_jf_i | 1 \leq j \leq l, 1 \leq i \leq m) = M  
+    \end{multline*}
+    \begin{gather*}
+         \sum_{i,j} a_{ij} e_if_j = 0 \\
+         \sum_{j} \left( \underbrace{\sum_{i} a_{ij} e_i}_{\in L} \right) f_j \quad \quad 
+         f_1, \ldots, f_m \text{ -- базис } M \backslash L \\
+         \implies \sum_i a_{ij}  e_i = 0, j = 1, \ldots, m \quad e_1, \ldots, e_l \text{ -- базис} L \backslash K \\
+         \implies \text{ все } a_{ij} = 0
+    \end{gather*}
+\end{proof}
+
+\begin{definition}[Алгебраический элемент]
+    Пусть $L \backslash K$ -- расширение, $a \in L$. $a$ называется алгебраическим
+    над $K$, если существует $f \in K[X], f \ne 0$, такой что $f(a) = 0 $. В противном случае $a$
+    называется трансцендентным $\backslash K$.
+\end{definition}
+
+\begin{example}
+    $\sqrt{2}$ алгебраический над $\mathbb{Q} \quad f = X^2-2$
+\end{example}
+$L \backslash K$ называется алгебраическим, если все его элементы алгебраические $\backslash K$.
+В противном случае $L \backslash K$ называется трансцендентным.
+\begin{example}
+    $\mathbb{C} \backslash \vR $ -- алгебраическое 
+\end{example}
+\begin{example}
+    $\vR \backslash \mathbb{Q}$ -- трансцендентное. $\pi$ -- трансцендентное $\backslash \mathbb{Q}$.
+    Алгебраические числа (в $\vR$) образуют счётное множество
+\end{example}
+\begin{example}
+    $K(X) \backslash K$ -- трансцендентное.  $X$ -- трансцендентный $f(X) = \frac{f(X)}{1}$
+\end{example}
+
+\begin{proposition}
+    Любое конечное расширение поля -- алгебраическое.
+\end{proposition}
+\begin{proof}
+    \begin{gather*}
+        \text{Пусть } [L:K] = d \\
+        a \in L \quad \quad \underbrace{1, a, a^2, \ldots, a_d}_{d+1} \\
+        \implies \exists h_0, h_1, \ldots, h_d \in K : b_0 + b_1a + \ldots b_da^d = 0 \text{ и не все } b_i = 0\\
+        f:= b_dX^d + \ldots b_1 X + b_0 \ne 0 \\
+        f(a) = 0 \implies a \text{ -- алгебраическое }
+    \end{gather*}
+\end{proof}
+
+\begin{proposition}
+    Пусть $L \backslash K$, $a \in L$ -- алгебрическое. Тогда $ \{ f \in K[X] | f(a) = 0 \} = (p),
+    p$ -- неприводимый многочлен из $K[X]$.
+\end{proposition}
+\begin{proof}
+    \[ I = \{ f \in K[X] | f(x) \ 0 \} \text{ -- подгруппа в } K[X] \]
+     \[ \left.
+    \begin{gathered}
+        f \in I \\
+        g \in K[X]
+    \end{gathered} \right. \implies (gf)(a) = g(a)\underbrace{f(a)}_{0} = 0 \implies gf \in I \] 
+    Таким образом $I$ -- идеал $\implies I = (p)$ в K[X]. \\
+    Проверим, что $p$ -- неприводимый.
+    \[ p = fg \] 
+    \[p(a) = 0 \implies f(a)g(a) = 0 \implies \left[ \begin{gathered}
+        f(a) > 0 \\
+        g(a) > 0
+    \end{gathered} \right. \]
+    \[ \implies \left[ \begin{gathered}
+        f \in I = (p) \\
+        g \in I = (p)
+    \end{gathered} \right. \implies \left[ \begin{gathered}
+        f \sim p \\
+        g \sim p
+    \end{gathered} \right. \]
+\end{proof}
+Такой многочлен $p$ будем обозначать $Irr_k a$. Например $Irr_{\vR} i = X^2 + 1$. \\
+
+\begin{definition}
+    Пусть $L \backslash K : \quad a_1, \ldots, a_l \in L$ \\
+    \[K(a_1, \ldots, a_l) := \bigcap_{\underset{a_1, \ldots, a_n \in F}{\underset{K \subset F}{F \text{ подполе } L}}}
+    \text{ -- очевидно подполе } L. \]
+    наз. расширение $K$, порожденное $a_1, \ldots, a_n$
+\end{definition}
+
+\begin{definition}
+    Пусть $L \backslash K$ -- расширение, если $\exists a_1, \ldots, a_n \in L$ т.ч.
+    $K(a_1, \ldots, a_n) = L$, то $L \backslash K $ называется конечно порождённым.
+\end{definition}
+
+\begin{proposition}
+    Пусть $L \backslash K$ -- конечное  расширение, тогда $L \backslash K$ конечно порождённое.
+\end{proposition}
+\begin{proof}
+    \begin{gather*}
+        e_1, \ldots , e_n \text{ -- базис } L \backslash K \\
+        \text{ все } a_1e_1 + \ldots + a_ne_n  K(e_1, \ldots, e_n)  \implies K(e_1, \ldots, e_n) = L 
+    \end{gather*}
+\end{proof}
+\begin{remark}
+    Обратное неверно. $K(X) \backslash K$ -- порождается одним элементом $(X)$, но не конечное, так как трансцендентное.
+\end{remark}
+
+\begin{definition}[Простое расширение]
+    $L \backslash K$ называется простым, если $\exists a \in L \quad L = K(a)$
+\end{definition}
+
+\begin{proposition}
+    Пусть $L \backslash K$ -- простое алгебраическое расширение, то есть $L = K(a), a$ -- алгебраический над $K$.
+    Тогда $L \cong K[X] \backslash (p)$, где $p = Irr_k a$
+\end{proposition}
+
+\begin{proof}
+    \[ \underset{f \mapsto f(a)}{K[X] \stackrel{\alpha}{\longrightarrow}} L \]
+    \[ \Ker \alpha = (p) \] 
+    \[  \left. \begin{gathered}
+        \implies \Im \alpha \cong K[X] \backslash (p), p \text{ -- неприводимый} \implies \Im \alpha \text{ -- поле } \\
+        K \subset \Im \alpha \text{ т.к. } \alpha(c) = c (c = const) \\
+        a \in \Im \alpha \text{ т.к. } \alpha(x) = a
+    \end{gathered} \right) \implies \]
+    \[\implies K(a) \in \Im \alpha = L. \text{ Таким образом } L \cong K(X)  \backslash (p) \]
+\end{proof}
+\end{document}

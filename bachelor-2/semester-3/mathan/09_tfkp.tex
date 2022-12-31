@@ -1,0 +1,544 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Теория функции комплексной переменной}
+
+\section{Основные определения}
+\begin{gather*}
+    \mathbb{C} \\
+    Z = x + iy \\
+    x = \Re z
+    Y = \Im z
+    \overline{z} = x - iy\\
+    |z| = \sqrt{x^2 + y^2}
+    x + i0 = x \\
+\end{gather*}
+
+\begin{gather*}
+    \text{ Допустим есть } E \subset \mathbb{C}  \quad E^* \subset \vR^2 \\
+    z = x + iy \in E \Leftrightarrow (x,y) \in E^* \\
+    z, \zeta \in \mathbb{C} \\
+    d(z, \zeta) \stackrel{def}{=} |z-\zeta|
+\end{gather*}
+
+Таким образом, $\mathbb{C}$ -- метрическое пространство
+
+Будем переносить сюда непрерывность и т.д.
+
+\begin{gather*}
+    f: E \rightarrow \vR, \mathbb{C} \\
+    f^* : E^* \rightarrow \vR, \mathbb{C} \\
+    f \leftrightarrow f^* \\
+    f^* (x,y) \stackrel{def}{=} f(z), \text{ если } z = x + iy \\
+\end{gather*}
+Когда мы говорили о рядах с комплексными слагаемыми, там шла речь о пределе ряда с комплексными слагаемыми.
+Поскольку $\mathbb{C}$ -- метрическое пространство, можно применить определение предела последовательности
+для него.
+    \[c_n = a_n + ib_n  \quad c \in \mathbb{C} \]
+    \begin{enumerate}
+        \item $c_n \to c \text{ по определению } \exists a,b: \quad a_n \to a, b_n \to b \quad c = a + ib $
+        \item$ c_n \to c \text{ если } \forall \varepsilon > 0 \quad \exists N : \forall n > N \quad |c_n - c| < \varepsilon $
+    \end{enumerate}
+
+\begin{theorem}
+    (1) $\Leftrightarrow$ (2)
+\end{theorem}
+\begin{proof}
+    Если выполнено (1), выбираем $N_1, N_2$, затем возьмём $N = max(N_1, N_2)$ 
+    \begin{gather*}
+        (1) \implies (2) \\
+        |c_n - c| = |(a_n - a) + i(b_n - b)| \leq |a_n - a| + |b_n - b| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} \\
+        (2) \implies (1) 
+    \end{gather*}
+    \[ \left. \begin{gathered}
+        |a_n - a| \leq |c_n-c| \\
+        |b_n - b| \leq |c_n-c| 
+    \end{gathered} \right\} \implies \text { ч.т.д} \]
+\end{proof}
+
+\begin{definition}[Бесконечный предел]
+    \begin{gather*}
+        c_n \underset{n \to \infty}{\longrightarrow} \text{ если } \forall L > 0 \quad \exists N : \forall n > N \text{ выполнено } \\
+        |c_n| > L
+    \end{gather*}
+\end{definition}
+Это было дополнение к тому, о чем мы говорили в рядах с комплексными слагаемыми.
+
+
+Напомню, что нам известно, то такое точка сгущения для любого метрического пространства.
+\begin{definition}[Предел функции]
+    \begin{gather*}
+        E \subset \mathbb{C} \\
+        \alpha \in E \text { -- точка сгущения } E \\
+        f: E \rightarrow \vR, \mathbb{C}\\
+        A \in \mathbb{C} \quad f(z) \underset{z \to \alpha}{\longrightarrow} A \text{ если } \forall \varepsilon > 0 \exists \delta > 0  \\
+        \forall z \in E, z \ne \alpha, |z- \alpha| < \delta \\
+        |f(z) 0 - A| < \varepsilon \tag{3}
+    \end{gather*}
+\end{definition}
+
+Это давно знакомое определение функции в абстрактном виде.
+
+\subsection*{Свойства пределов}
+Дальше везде предполагается, что $z \to \alpha$, не будем это писать.
+\begin{enumerate}
+    \item $\lim cf(z) = c \lim f(z) \quad c \in \mathbb{C} $
+    \item $\lim (f(z) + g(z)) = \lim f(z) + \lim g(z)$
+    \item $\lim f(z) g(z) = \lim f(z)  \cdot \lim g(z)$
+    \item $f(z) \ne 0 \forall z \in E \setminus \{ \alpha \} \quad \lim f(z) \pm 0 \implies \lim \frac{1}{f(z)} = \frac{1}{\lim f(z)}$
+    \item $f$, как в 4 $\implies \lim \frac{g(z)}{f(z) } = \frac{\lim g(z)}{\lim f(z)}$
+\end{enumerate}
+
+Все доказательства проходят так же, как и в вещественном случае, но докажем самое существенное -- 4.
+\begin{longProof}
+    \begin{gather*}
+        \lim f(z) = A \pm 0 \\
+        \varepsilon_0 \frac{|A|}{2} \quad \exists \delta_0 > 0 : \forall z \in E, z \ne \alpha, |z-\alpha| < \delta_0 \\
+        |f(z) - A| < \frac{|A|}{2}
+        \intertext{По неравенству треугольника, записанному со знаком минус}
+        |f(z)| \geq |A| - |f(z) - A| > |A| -  \frac{|A|}{2} = \frac{1}{2}|A| \tag{4} \\
+        \forall \varepsilon > 0 \quad 0 < \delta \leq \delta_ 0 \quad \forall z \in E, z \ne \alpha, |z-\alpha| < \delta \\
+        |f(z) - A| < \frac{A^2\varepsilon}{2} \tag{5} 
+    \end{gather*}
+    \begin{multline*}
+        \left| \frac{1}{f(z)} - \frac{1}{A} \right| = \left| \frac{A - f(z)}{f(z)A} \right| = \frac{|A-f(z)|}{|f(z)|\cdot|A|} \underset{(4),(5)}{<} \frac{A^2}{2}\varepsilon \cdot
+        \frac{1}{\frac{|A|}{2}\cdot |A|} = \varepsilon
+    \end{multline*}
+        это по свойствам модулей комплексных чисел  $|cd| = |c|\cdot |d| \quad \left|\frac{c}{d}\right| = \frac{|c|}{|d|}$
+\end{longProof}
+
+\begin{definition}[Бесконечный предел]
+    \begin{gather*}
+        E \subset \mathbb{C} \\
+        \alpha \text{ -- точка сгущения } E \\
+        f: E \rightarrow \vR, \mathbb{C} \\
+        f(z) \underset{z \to \alpha}{\longrightarrow} \infty \text{ если } \forall L > 0 \quad \exists \delta > 0 : \forall z \in E \\
+        z \ne \alpha, |z-\alpha| < \delta \\
+        |f(z)| > L
+    \end{gather*}
+\end{definition}
+
+\begin{definition}[Непрерывность]
+    \begin{gather*}
+        E \subset \mathbb{C} \\
+        \alpha \text{ -- точка сгущения } E, \alpha \in  E \\
+        f: E \rightarrow \vR, \mathbb{C} \\
+        \exists  \underset{z \to \alpha}{\lim} f(z) \text{ и } \underset{z \to \alpha}{\lim} f(z) = f(\alpha)
+    \end{gather*}
+\end{definition}
+Верны все свойства непрерывности для функций вещественных переменных. Доказывается по свойствам пределов.
+
+\section{Частные производные комплексно-значных функций}
+
+\begin{definition}[Внутренняя точка]
+    \begin{gather*}
+        E \subset \mathbb{C} \\
+        z_0 \in E \\
+        \exists \delta > 0 : \quad \forall z, |z-z_0| < \delta \\
+        z \in E
+    \end{gather*}
+    \end{definition}
+    \begin{gather*}
+        f: E \rightarrow \vR, \mathbb{C}  \quad \quad E^* \subset \vR^2 \\
+        f(z) = u(z) + iv(z) \quad u^*(x,y) \quad v^*(x,y) \\
+        u^*(x,y) = u(x+iy) \\
+        v^*(x,y) = v(x+iy) \\
+        \exists u^{*\prime}_x(x_0,y_0) \text { и }\exists v^{*\prime}_x(x_0,y_0)\\
+        \exists u^{*\prime}_y(x_0,y_0) \text { и }\exists v^{*\prime}_y(x_0,y_0) \\
+        f^\prime_x(z_0) \stackrel{def}{=} u^*_x \prime(x_0,y_0) + i v^*_x\prime(x_0,y_0) \tag{6}\\
+        f^\prime_y(z_0) \stackrel{def}{=} u^*_y \prime(x_0,y_0) + i v^*_y\prime(x_0,y_0) \tag{7}\\
+    \end{gather*}
+Есть комплексно-значная функция, заданная на подмножестве $\mathbb{C}$, мы определяем операции
+частной производной по $x$ и по $y$, которые по определению равны вот такой сумме
+\begin{gather*}
+    f^\prime_x(z_0) = \underset{h \to 0}{\lim} \frac{f(z_0+h)-f(z_0)}{h} \tag{8}\\
+    f^\prime_y(z_0) = \underset{h \to 0}{\lim} \frac{f(z_0+ih)-f(z_0)}{h} \tag{9}\\
+    u^*_x \prime (x_0,y_0) = \underset{h \to 0}{\lim} \frac{u^*(x_0+h,y_0)-u^*(x_0,y_0)}{h} \tag{10} \\
+    v^*_x \prime (x_0,y_0) = \underset{h \to 0}{\lim} \frac{v^*(x_0+h,y_0)-v^*(x_0,y_0)}{h} \tag{11} 
+\end{gather*}
+\begin{multline*}
+    (10),(11) \implies \underset{h \to 0}{\lim} \frac{f(z_0+h)-f(z_0)}{h} = \underset{h \to 0}{\lim} \frac{u(z_0+h)-u(z_0) + i(v(z_0+h)-v(z_0))}{h} = \\
+     = \underset{h \to 0}{\lim} \frac{u(z_0+h)-u(z_0)}{h} + i \underset{h \to 0}{\lim} \frac{v(z_0+h)-v(z_0)}{h} = \\
+     = \underset{h \to 0}{\lim} \frac{u^*(x_0+h,y_0)-u^*(x_0,y_0)}{h} + i \underset{h \to 0}{\lim} \frac{v^*(x_0+h,y_0)-v^*(x_0,y_0)}{h} = \\
+     = u^*_x\prime(x_0,y_0) + i v^*_x\prime(x_0,y_0) \stackrel{(6)}{\implies} (8) \\
+     u(z_0 + ih) = u^*(x_0,y_0+h) \quad E \subset \mathbb{C} \\
+     v(z_0 + ih) = v^*(x_0,y_0+h) \quad z_0 \in E \\
+\end{multline*}
+
+\subsection{Свойства частных производных}
+l = x \text{ или } y (\text{ неважно })
+\begin{enumerate}
+    \item $(cf)^\prime_l(z_0) = cf^\prime_l(z_0)$
+    \item $(f+g)^\prime_l(z_0) = f^\prime_l(z_0) + g^\prime_l(z_0)$
+    \item $(fg)^\prime_l(z_0) = f^\prime_l(z_0)g(z_0) = f(z_0)g^\prime_l(z_0)$
+    \item $f(z) \ne 0 \forall z \in E \quad \left( \frac{1}{f} \right)^{\prime}_l (z_0) = - \frac{f^\prime_l(z_0)}{f(z_0)}$
+    \item $f$ как в 4, тогда $\left(\frac{g}{f}\right)_l(z_0) = \frac{g^\prime_l(z_0)f(z_0)-g(z_0)f^\prime_l(z_0)}{f^2(z_0)}$
+\end{enumerate}
+
+Все доказывается аналогично при помощи предыдущего утверждения. Докажем 4 как самое показательное.
+\begin{proof}
+    \begin{multline*}
+        l = x \quad \left(\frac{1}{f}\right)^\prime_x(z_0) = \underset{h \to 0}{\lim} \frac{\frac{1}{f(z_0+h)} - \frac{1}{f(z_0)}}{h} = \\
+        = \underset{h \to 0}{\lim} \frac{1}{f(z_0+h)f(z_0)} \cdot \frac{f(z_0) - f(z_0+h)}{h} = \\
+         -\underset{h \to 0}{\lim} \frac{f(z_0+h)-f(z_0)}{h} \cdot \frac{1}{f(z_0)f(z_0+h)} = \\
+        = -\frac{1}{f(z_0)} \cdot \underset{h \to 0}{\lim} \frac{1}{f(z_0+h)} \cdot \underset{h \to 0}{\lim} \frac{f(z_0+h)-f(z_0)}{h} = - \frac{1}{f(z_0)^2} \cdot f^\prime_x(z_0)
+    \end{multline*}
+\end{proof}
+
+\[ \exists {u^*}^\prime_x(x_0,y_0) \quad {v^*}^\prime_x(x_0,y_0) \] 
+\[\underset{h \to 0}{\lim} u^*(x_0 + h, y_0) = u^*(x_0,y_0) \] 
+\[ \underset{h \to 0}{\lim} v^*(x_0 + h, y_0) = v^*(x_0, y_0) \] 
+\[ \implies \underset{h \to 0}{\lim} f(z_0 + h) = f(z_0) \]
+
+\begin{theorem}[Важная комбинация производных]
+    \[ z_0 \in E \quad \exists f^\prime_x(z_0) \quad \exists f^\prime_y(z_0) \] 
+    \[f^\prime_z (z_0) \stackrel{def}{=} \frac{1}{2} (f^\prime_x(z_0)-if^\prime_y(z_0)) \tag{12} \] 
+    \[ f^\prime_{\overline{z}} (z_0) \stackrel{def}{=} \frac{1}{2} ( f^\prime_x(z_0) + if^\prime_y(z_0)) \tag{13} \]
+\end{theorem}
+
+\subsection*{Свойства операций $f^\prime_z$ и $f^\prime_{\overline{z}}$}
+\[ w = z, \overline{z} \]
+Также не будем писать везде $z_0$ для сокращения
+\begin{enumerate}
+    \item $(cf)^\prime_w = cf^\prime_w \quad c \in \mathbb{C}$
+    \item $(f+g)^\prime_w - f^\prime_w + g^\prime_w $ 
+    \item $(fg)^\prime_w = f^\prime_w g + f g^\prime_w $
+    \item $f(z) \ne 0, z \in E \quad \left(\frac{1}{f}\right)^\prime_w = - \frac{f^\prime_w}{f^2}$
+    \item $f$ из 4 $\quad \left(\frac{f}{g}\right)^\prime_w = \frac{g^\prime_w f - g f^\prime_w}{f^2}$
+\end{enumerate}
+
+Опять же, все доказательства аналогичные. Докажем 4 как самое нетривильное.
+\begin{proof}
+    \begin{multline*}
+        w = \overline{z} \\
+        \left(\frac{1}{f}\right)^\prime_{\overline{z}} = \frac{1}{2}\left(\left(\frac{1}{f}\right)^\prime_x + i\left(\frac{1}{f} \right)^\prime_y\right) 
+        = \frac{1}{2}\left(-\frac{f^\prime_x}{f^2}-i\frac{f^\prime_y}{f^2}\right) = \\
+       = -\frac{1}{f^2}\left(f^\prime_x + if^\prime_y\right) = -\frac{1}{f^2}f^\prime_{\overline{z}}
+    \end{multline*}
+\end{proof}
+
+\begin{definition}[Дифференцируемость функции комплексной переменной в точке]
+    \begin{gather*}
+        z_0 \in E \subset \mathbb{C} \\
+        f: E \rightarrow \mathbb{C} \\
+        z_0 = x_0 +  \\
+        f(z_0) - u(z_0) + iv(z) \\
+        u^\prime(x,y) \text{ и } v^\prime(x,y) \\
+        \text{ дифференцируемы в } (x_0, y_0) 
+    \end{gather*}
+\end{definition}
+
+    $u(z)$ и $v(z)$ для сокращения записи пишем без звездочек, $(x_0, y_0)$ тоже
+    \begin{multline*}
+        \sigma = s + it \quad f(z_0+v) - f(z_0) = f^*(x_0 + s, y_0 + t) - f^*(x_0,y_0) = \\
+        = (u^*(x_0 + s, y_0 + t) - u^*(x_0,y_0)) + i(v^*(x_0 + s, y_0 + t) - v^*(x_0,y_0)) = \\
+        = (u^\prime_xs + u^\prime_yt + r_1(s,t))+i(v^\prime_x s + v^\prime_y t + r_2(s,t)) \textcolor{red}{ = }
+    \end{multline*}
+    \[ \frac{|r_1(s,t)|}{\sqrt{s^2+t^2}} \underset{(s,t) \to (0,0)}{\longrightarrow} 0 \] 
+    \[ \frac{|r_2(s,t)|}{\sqrt{s^2+t^2}} \underset{(s,t) \to (0,0)}{\longrightarrow} 0 \]
+    \[ \textcolor{red}{ = } (u^\prime_x = i v^\prime_x)s + (u^\prime_y + iv^\prime_y)t +(r_1(s,t) + ir_2(s,t)) \textcolor{red}{ = } \]
+    \[ r_1(s,t) + ir_2(s,t) = r^*(s,t) = r(\sigma) \]
+    \[\frac{|r(\sigma)|}{|\sigma|} \underset{\sigma \to 0}{\longrightarrow} 0 \tag{14\prime} \]
+    \[ \textcolor{red}{ = } f^\prime_x(z_0)s + f^\prime_y(z_0)t + r(\sigma) \tag{14} \]
+    \begin{gather*}
+        \sigma = s + it \\
+        s = \frac{1}{2}(\sigma + \overline{\sigma}) \\
+        \sigma - \overline{\sigma} = 2it \\
+        t = \frac{1}{2i}(\sigma - \overline{\sigma}) = - \frac{i}{2}(\sigma - \overline{\sigma}) = \frac{i}{2}(\overline{\sigma}-\sigma) 
+    \end{gather*}
+    \begin{multline*}
+        (14) \implies f(z_0 + \sigma) - f(z_0) = f^\prime_x(\frac{1}{2}(\sigma + \overline{\sigma})) + if^\prime_y(\frac{1}{2}(\sigma - \overline{\sigma})) + r(\sigma) = \\
+        = \frac{1}{2}(f^\prime_x - if^\prime_y) \sigma + \frac{1}{2}(f^\prime_x + if^\prime_y) \overline{\sigma} = r(\overline{\sigma}) = \\
+        = f^\prime_z(z_0)\sigma + f^\prime_{\overline{z}}(z_0) \overline{\sigma} + r(\sigma) \tag{15}
+    \end{multline*}
+$u(z)$ и $v(z)$ для сокращения записи пишем без звездочек
+
+\subsection{4 эквивалентных свойства функции, дифференцируемой в точке $z_0$}
+    \begin{enumerate}
+        \item $f^\prime_{\overline{z}} (z_0) = 0 $
+        \item $f(z_0 + \sigma) - f(z_0) = f^\prime_z(z_0) \sigma + r(\sigma) \quad \frac{|r(\sigma)|}{|\sigma|} \underset{\sigma \to 0}{\longrightarrow} 0 $
+        \item $f(z) = u(z) + iv(z) \quad u(x,y), v(x,y) \begin{cases}
+            u^\prime_x(x_0,y_0)  = v^\prime_y(x_0,y_0) \\
+            u^\prime_y(x_0,y_0) = -v^\prime_x(x_0,y_0)
+        \end{cases}$  Уравнения Коши-Римана
+        \item $ \exists \underset{\sigma \to 0}{\lim} \frac{f(z_0 + \sigma) - f(z_0)}{\sigma} = f^\prime(z_0)$
+    \end{enumerate}
+
+\begin{longProof}
+    \begin{gather*}
+        1. (15) \implies f(z_0 + \sigma) - f(z_0) = f^\prime_z(z_0) \sigma + r(\sigma) \\
+         1 \implies 2  \\
+         2 \implies \frac{f(z_0 + \sigma)-f(z_0)}{\sigma} = f^\prime_z(z_0) + \frac{r(\sigma)}{\sigma} \underset{\sigma \to 0}{ \longrightarrow} f^\prime_z(z_0) \\
+        2 \implies 4, f^\prime(z_0) = f^\prime_z(z_0) \\
+        3 \Leftrightarrow 1 \Rightarrow 2 \Rightarrow 4 \\
+        4 \implies 1 ? \\
+        \exists \underset{\sigma \to 0}{\lim} \frac{f(z_0 + \sigma) - f(z_0)}{\sigma} = A \in \mathbb{C} \tag{16} \\
+        f(z_0 + \sigma) - f(z_0) = f^\prime_z \sigma = f^\prime_{\overline{z}} \overline{\sigma} + r(\sigma) \tag{16\prime}\\
+        \frac{f(z_0 + \sigma) - f(z_0)}{\sigma} - A = \beta(\sigma) \\
+        r_0(\sigma = \sigma \beta(\sigma)) \quad (16) \implies \beta(\sigma) \underset{\sigma \to 0}{\longrightarrow} 0 \tag{17}\\
+        (17) \implies \frac{|r_0\sigma|}{|\sigma|} = \frac{|\sigma| \cdot |\beta{\sigma}|}{|\sigma|} = |\beta(\sigma)| \underset{\sigma \to 0}{\longrightarrow} 0 \tag{18}\\
+        4 \implies f(z_0 + \sigma) + f(z_0) = A\sigma + r_0(\sigma) \tag{19}\\
+        \text{ из } (16\prime) \text{ вычтем } (19)  \\
+         \implies 0 = (f^\prime_z - A) \sigma  + f^\prime_z \overline{\sigma } + r(\sigma) - r_0(\sigma)\tag{20} \\
+        (20) \implies A - f^\prime_z + \frac{r_0(\sigma)}{\sigma} - \frac{r(\sigma)}{\sigma} = f^\prime_{\overline{z}}(z_0) \frac{\overline{\sigma}}{\sigma} \tag{21} \\
+        A - f^\prime_z(z_0) + \underbrace{\frac{r_0(\sigma)}{\sigma}}_{\to 0} - \underbrace{\frac{r_1(\sigma)}{\sigma}}_{\to 0} \underset{\sigma \to 0}{\longrightarrow} A - f^\prime_z(z_0) \tag{22}\\
+        (21), (22) \implies \exists \underset{\sigma \to 0}{\lim} f^\prime_{\overline{z{}}} \frac{\overline{\sigma}}{\sigma} \tag{23} \\
+    \end{gather*}
+    Пусть $f^\prime_{\overline{z}}(z_0) \ne 0$
+    \begin{enumerate}
+        \item $\sigma = h \in \vR, h \ne 0$
+        \[ (23) \implies f^\prime_{\overline{z}}(z_0) \frac{\overline{\sigma}}{\sigma} = 
+        f^\prime_{\overline{z}}(z_0) \cdot \frac{h}{h} \underset{h \to 0}{\longrightarrow} f^\prime_{\overline{z}}(z_0)\]
+        \item $\sigma = ih \quad \overline{\sigma} = -ih$
+        \[  f^\prime_{\overline{z}}(z_0) \frac{\overline{\sigma}}{\sigma} = f^\prime_{\overline{z}}(z_0) \cdot \frac{-ih}{ih} = -f^\prime_{\overline{z}}(z_0) \longrightarrow -f^\prime_{\overline{z}}(z_0) \] 
+        \[ \implies f^\prime_{\overline{z}}(z_0) = - \]
+    \end{enumerate}
+    $3 \Leftrightarrow 1 \Rightarrow 2 \Rightarrow 4 \Rightarrow 1$
+\end{longProof}
+
+\begin{definition}
+    \begin{gather*}
+        E \subset \mathbb{C} \text{ -- открытое связное множество, область} \\
+        f: E \rightarrow \mathbb{C} \\
+        f = u + iv \\
+        f \in C^1(E)
+        u^*(x,y) \in C^1(E^*) \\
+        v^*(x,y) \in C^1(E^*)
+    \end{gather*}
+\end{definition}
+
+\begin{proposition}
+    тут было какое-то утверждение которое он устно сформулировал и устно доказал xd, записи последней лекции не нашел
+\end{proposition}
+
+\section{Аналитическая функция}
+
+\begin{definition}[Аналитическая функция]
+    \begin{gather*}
+        E \subset \mathbb{C}, E \text{ --  область} \\
+        f: E \rightarrow \mathbb{C} \\
+        f \in C^1(E) \\
+        f \text{ аналитична в } E, \text{ если } f^\prime_{\overline{z}}(z) = 0 \forall z \in E \tag{1}  \\
+    \end{gather*}
+    обозначается  $f \in A(E)$ -- множество аналитических функкций на $E$
+\end{definition}
+
+\begin{enumerate}
+    \item $f \in A(E) \implies cf \in A(E) \quad c \in \mathbb{C} $
+    \item $f,g \in A(E) \implies f + g \in A(E) $
+    \item $f,g \in A(E) \implies fg \in A(E) $
+    \item $f(z) \ne 0 \forall z \in E, f \in A(E) \implies \frac{1}{f(z)} \in A(E) $
+    \item $f$ из 4 $\quad g \in A(E) \implies \frac{g}{f} \in A(E) $
+\end{enumerate}
+
+Как вы наверное уже поняли, все доказательства аналогичны (неожиданно). Неожиданно снова докажем 4.
+\begin{proof}
+    \[ \left(\frac{1}{f}\right)^\prime_{\overline{z}} = - \frac{f^\prime_{\overline{z}}(z)}{f^2(z)} = 0 \]
+\end{proof}
+
+\subsection*{Первые примеры аналитических функций}
+В качестве $E$ рассматриваем всю комплексную плоскость
+\begin{example}
+    \[ f(z) \equiv c \quad c^\prime_{\overline{z}} \equiv 0 \quad c \in A(\mathbb{C}) \]
+\end{example}
+\begin{example}
+    \begin{gather*}
+        f(z) = z = x +iy \quad z \in A(\mathbb{C}) \\
+        z^\prime_{\overline{z}} = \frac{1}{2} (1 + i0 + i(0 + i \cdot 1)) = \frac{1}{2}(1+ i^2) = 0
+    \end{gather*}
+\end{example}
+\begin{example}
+    \begin{gather*}
+        2 \implies z \cdot z = z^2 \in A(\mathbb{C}) \\
+        z^n = z^{n-1} \cdot z \in A(\mathbb{C}) \quad n \in \mathbb{N} 
+    \end{gather*}
+\end{example}
+\begin{example}
+    \begin{gather*}
+        P(z) = c_0 + c_1z + \ldots + c_nz^n \in A(\mathbb{C}), c_k \in \mathbb{C} \\
+        \alpha_1, \ldots, \alpha_m \quad m \leq n \quad c_n \ne 0 \\
+        P(\alpha_k) = 0 \\
+        q(z) = b_0 + b_1z + \ldots + b_lz^l \in A(\mathbb{C}) \\
+        D = \mathbb{C} \setminus \bigcup^m_{k=1} \{ \alpha_k \}
+        p(z) \ne 0, z \in D \\
+        \frac{q(z)}{p(z)} \in A(D) \\
+        z^n \\
+        \frac{1}{z^n} \in A (\mathbb{C} \setminus \{ 0 \}) \\
+        n \in \mathbb{N}
+    \end{gather*}
+\end{example}
+\begin{example}
+    \begin{gather*}
+        z = x + iy\\
+        e^z \stackrel{def}{=} e^x(\cos y + i \sin y) = \underbrace{e^x \cos y}_{u(x,y)} + i \underbrace{e^x \sin y}_{v(x,y)} \tag{2} \\
+        z \in \mathbb{C} \\
+        v^\prime_x = e^x \sin y \quad v^\prime_y = e^x \cos y \\
+        (2) \implies  u^\prime_x - e^x \cos y = v^\prime_y = e^xx \cos y \\
+        u^\prime_y = -e^x \sin y \\
+        u^\prime_y = -v^\prime_x
+    \end{gather*}
+\end{example}
+\begin{example}
+    \begin{gather*}
+        D = \mathbb{C} \setminus (-\infty, 0] \text{ -- область} \\
+        z \in D \quad z = r(\cos \phi + i \sin \phi) \quad \phi \in (-\pi, \pi) \quad r = |z| \\
+        \ln z \stackrel{def}{=} \ln r + i \phi \tag{3} \\
+        \text{ при } x > 0 \phi = \arctan \frac{y}{x} \\
+        \ln(x+iy) = \ln|z| + i \arctan \frac{y}{x} = \underbrace{\frac{1}{2}\ln(x^2+y^2)}_{u(x,y)} + i\underbrace{\arctan\frac{y}{x}}_{v(x,y)} \tag{4} 
+        \ln z \in A(D) 
+        \intertext{Будем опять пользоваться уравнениями Коши-Римана}
+        (4) \implies u^\prime_x = \frac{x}{x^2+y^2} = v^\prime_y = \frac{\frac{1}{x}}{1 + \left(\frac{y}{x}\right)^2} = \frac{x}{x^2+y^2} \\
+        v^\prime_x = \frac{-\frac{y}{x^2}}{1 + \left(\frac{y}{x}\right)^2} = - \frac{y}{x^2+y^2} \\
+        u^\prime_y = \frac{y}{x^2+y^2} \\
+        u^\prime_y = - v^\prime_x \\
+    \end{gather*}
+\end{example}
+
+\[
+    f \in A(E) \quad z \in E \\
+    \begin{cases}
+        f^\prime(z) = f^\prime_z(z) \\
+        0 = f^\prime_{\overline{z}}(z)
+    \end{cases} \implies f^\prime(z) = f^\prime_z(z) + f^\prime_{\overline{z}} = \]
+   \[ =  \frac{1}{2}(f^\prime_x(z) -if^\prime_y(z)) + \frac{1}{2}(f^\prime_x(z) + i f^\prime_y(z)) =
+    f^\prime_x(z) = f^\prime(z) \]
+
+\subsection{Аналитичность суперпозиции аналитических функций}
+\begin{theorem}
+     Пусть $E\subset\mathbb{C}, G\subset\mathbb{C}$ - область, $f\in A(E), f(z)\in G\ \forall 
+     z\in E,\varphi\in A(G), F:E\rightarrow\mathbb{C}, F(Z)\overset{def}{=}\varphi(f(z)).$ Тогда $F\in A(E).$
+\end{theorem}
+
+\begin{longProof}
+     По определению, $f\in C^1(E), \varphi\in C^1(G),$ поэтому по теореме о матрице Якоби суперпозиции
+      выполнено соотношение $F(z)=\varphi(f(z))\in C^1(E).$ Фиксируем $\forall z\in E,$ и пусть $\sigma\in\mathbb{C}, \sigma\neq 0, z+\sigma\in E,$ 
+      пусть $w\overset{def}{=}f(z), w\in G$
+
+Будем использовать теорему о 4 эквивалентных свойствах аналитической функции
+ (точнее, любое из них можно принять за определение, тогда 3 остальные --- свойства).
+  Пусть $\lambda\in\mathbb{C}, \lambda\neq 0, w+\lambda\in G.$
+
+Из условия следует соотношение \[ \varphi(w+\lambda)-\varphi(w)=\varphi'(w)\lambda+r(\lambda),\tag{1} \]
+и \[\frac{|r(\lambda)|}{|\lambda|}\underset{\lambda\rightarrow 0}{\rightarrow} 0\tag{2}\]
+
+Положим $r(\lambda)=\lambda\delta(\lambda),$ тогда $(2)\Leftrightarrow \delta(\lambda)\underset{\lambda\rightarrow 0}{\rightarrow} 0.$
+
+Положим $\delta(0)\overset{def}{=}0,$ тогда в соотношении (1) можно не рассматривать ограничение $\lambda\neq 0,$ при следующей записи:
+\[ \varphi(w+\lambda)-\varphi(w)=\varphi'(w)\lambda+\lambda\delta(\lambda)\tag{3} \]
+В формулах (1) и (3) мы воспользовались соотношением $\varphi'_w(w)=\varphi'(w).$
+
+Положим $\lambda=f(z+\sigma)-f(z),$ тогда $f(z+\sigma)=f(z)+\lambda=w+\lambda$
+
+Имеем:
+\[ F(z+\sigma)-F(z)=\varphi(f(z+\sigma))-\varphi(f(z))=\varphi(w+\lambda)-\varphi(w)= \]
+\[ =\varphi'(w)\lambda+\lambda\delta(\lambda)=\varphi'(w)\lambda+(f(z+\sigma)-f(z))\delta(f(z+\sigma)-f(z)),\tag{4}\]
+\[ \lambda=f(z+\sigma)-f(z)=f'(z)\sigma+\rho(\sigma),\tag{5} \]
+где \[\frac{|\rho(\sigma)|}{|\sigma|}\underset{\sigma\rightarrow 0}{\rightarrow} 0.\tag{6}\]
+Из (4) и (5) получаем:
+\[ F(z+\sigma)-F(z)=\varphi'(w)(f'(z)\sigma+\rho(\sigma))+(f(z+\sigma)-f(z))\delta(f(z+\sigma)-f(z))= \]
+\[ =\varphi'(w)f'(z)\sigma+\varphi'(w)\rho(\sigma)+(f(z+\sigma)-f(z))\delta(f(z+\sigma)-f(z))\tag{7} \]
+\[ R(\sigma)= \varphi'(w)\rho(\sigma)+(f(z+\sigma)-f(z))\delta(f(z+\sigma)-f(z)) \]
+Далее, \[\frac{R(\sigma)}{\sigma}=\varphi'(w)\frac{\rho(\sigma)}{\sigma}+\frac{f(z+\sigma)-f(z)}{\sigma}\delta(f(z+\sigma)-f(z))\underset{\sigma\rightarrow 0}{\rightarrow} \varphi'(w)\cdot 0+f'(z)\cdot 0=0\tag{8}\]
+в силу соотношений (2) и (6). По теореме о 4 свойствах получаем, что $F\in A(E).$ 
+\end{longProof}
+
+\textbf{Дополнение к теореме.} Из теоремы о 4 свойствах и соотношений (7) и (8) получаем равенство:
+\[ F'(z)=(\varphi(f(z)))'=\varphi'(f(z))\cdot f'(z)\tag{9} \]
+Доказанная теорема и соотношение (9) позволяет расширить список примеров аналитических функций.
+
+Если $p(z)=c_0+c_1z+\dots+c_nz^n,$ то $e^{p(z)}\in A(\mathbb{C})$
+
+Пусть $\D=\mathbb{C}\backslash(-\infty,0], \alpha\in\mathbb{C},\alpha\neq 0.$ Тогда проверено, что $\ln z\in A(\D)\implies \alpha \ln z\in A(\D)\implies e^{\alpha \ln z}\in A(\D)$
+
+Далее полагаем при $z\in\D\ z^\alpha\overset{def}{=} e^{\alpha \ln z}$
+
+Рассмотрим случай $\alpha=1.\ \ln z\overset{def}{=}ln|z|+i\varphi$,
+\[ e^{\ln z}=e^{ln|z|+i\varphi}\overset{def}{=}e^{ln|z|}\cdot(cos\,\varphi+isin\,\varphi)=|z|(cos\,\varphi+isin\,\varphi)=z\tag{10} \]
+Полагая $\ln z=f(z), e^w=\varphi(w),$ из (9) находим \[ (e^{\ln z})'=(e^w)'(\ln z)'\tag{11} \]
+Пусть $w=u+iv,$ по последней формуле предыдущей лекции имеем
+\[ (e^w)'=(e^w)'_u=(e^u \cos v+ie^usin\,v)'_u=e^u \cos v+ie^u \sin v=e^w\tag{12} \]
+
+Если $w=\ln z,$ то (10) и (12) $\implies$
+\[ (e^w)'=e^w=e^{\ln z}=z,\tag{13} \]
+\[(13)\implies (e^{\ln z})'=z(\ln z)'\tag{14}\]
+Но \[e^{\ln z}=z\implies (e^{\ln z})'=z'=z'_x=(x+iy)'_x=1,\tag{15}\]
+поэтому (11), (14) и (15) $\implies$\[ z(\ln z)'=1 , (\ln z)'=\frac{1}{z}, z\in\D\tag{16}\]
+Используя (16) и (9), находим при $\alpha\neq 0, 1, z\in\D:$
+\[ (z^\alpha)'=(e^{\alpha \ln z})'=(e^w)'_{w=\alpha ln\, z}\cdot (\alpha ln\, z)'=e^{\alpha ln\, z}\cdot (\alpha ln\, z)'_x= \]
+\[ =\alpha e^{\alpha \ln z}\cdot(\ln z)'_x=\alpha e^{\alpha \ln z}\cdot(\ln z)'=\alpha e^{\alpha ln\, z}\cdot\frac{1}{z}= \]
+\[=\alpha e^{\alpha \ln z}\cdot e^{-\ln z}=\alpha\cdot e^{(\alpha-1)\ln z}=\alpha z^{\alpha-1}.\tag{17} \]
+
+В соотношении (17) использовалась формула $\frac{1}{e^w}=e^{-w}.$ Действительно, если $w=u+iv,$ то \[\frac{1}{e^w}=\frac{1}{e^u(cos\,v+isin\,v)}=e^{-u}\cdot\frac{1}{cos\,v+isin\,v}=e^{-u}\cdot\frac{cos\,v-isin\,v}{cos^2v+sin^2v}=\]
+\[ =e^{-u}cos(-v)+isin(-v)=e^{-u-iv}=e^{-w}. \]
+Следующий пример аналитических функций имеет общий характер.
+
+\subsection{Аналитичность суммы степенного ряда}
+\begin{theorem} Пусть \[f(z)=a_0+\sum\limits_{n=1}^\infty a_n(z-c)^n\tag{18}\]
+    -- степенной ряд, $R>0$ - его радиус сходимости, $B$ - круг сходимости степенного ряда;
+     в (18) $z\in B.$\\
+Тогда $f\in A(B).$
+\end{theorem}
+
+\section{Дифференцирование суммы степенного ряда}
+\begin{theorem}
+    Пусть $\{ c_n \}_{n \geq 0}$ -- такая последовательность комплексных чисел, что радиус сходимости $R$ степенного ряда
+    \[ S(Z) = \sum^\infty_{n=0}c_n (z-z_0)^n \quad (z_0, z \in \mathbb{C}) \]
+    положителен (т.е. $0 < r \leq + \infty$). Тогда для любого $z, |z-z_0| < R$ существует $\mathbb{C}$-производная
+    $S^\prime(z)$ и она равна:
+    \[ S^\prime(z) = \sum^\infty_{n=0} nc_n(z-z_0)^{n-1} \tag{*} \]
+    Иначе говоря, внутри круга сходимости степенной ряд моэно дифференцировать почленно.
+
+    Напомним, что согласно лемме о радиусе сходимости формально продифференцированого степенного ряда этот радиус
+    равен радиусу сходимости исходного ряда, т.е. он равен $R$. Кроме того, всякий степенной ряд внутри
+    своего круга сходимости сходится абсол.тно. Поэтому ряд в правой части формулы $(*)$ абсолютно сходящийся.
+\end{theorem}
+
+\begin{longProof}
+    Ради простоты сначала рассмотрим основной случай, когда $z_0 = 0$. Общий случай легко сводится к нему.
+    
+    Поскольку $|z| < R$, существует столь малое положительное число $r$, что $|z| + r < R$ 
+    (если $R < +\infty$, то можно взять $r = \frac{R-|z|}{2}$, а в противном случае $r$ -- любое
+    число из интервала $(0, + \infty)$). Точка $z$ и число $r$ фиксированы до конца доказательства.
+    Так как $|z| + r < R$,  то
+    \[ \sum^\infty_{n=0} |c_n| (|z|+r)^n < +\infty  \tag {**}\]
+    и весь замкнутый круг $\overline{B_r}(z)$ лежит в круге сходимости. Иначе говоря, для любого
+    $w \in \mathbb{C}, |w| \leq r$, сумма $z+w$ находится внутри круга сходимости, так что ряд $S(z+w)$ абсолютно сходится.
+
+    Докажем, что при $w \to 0$ дроб $\frac{S(z+w)-S(z)}{w}$ стремится к правой части формулы (*) с $z_0 = 0$,
+    т.е. к сумме $A = \sum^\infty_{n=0} nc_nz^{n-1}$. Для этого надо показать, что при $w \to 0$ бесконечно мала разность
+    \begin{multline*}
+        \Delta(w) = \frac{S(z+w)-S(z)}{w} - A = \frac{1}{w} \sum^\infty_{n=0}c_n((z+w)^n-z^n) - A = 
+        = \sum^\infty_{n=0} c_n \left( \frac{(z+w)^n - z^n}{w -} nz^{n-1} \right)
+    \end{multline*} 
+    В получившемся ряде слагаемые, соответствующие $n = 0$ и $n= 1$, нулевые. Поэтому
+    \[ |\Delta(w)| - \left| \sum^\infty_{n=2} c_n \left( \frac{(z+w)^n-z^n}{w} -nz^{n-1} \right) \right| \leq
+    \sum^\infty_{n=2}|c_n| \left| \frac{(z+w)^n-z^n}{w} - nz^{n-1}\right| \]
+    Теперь надо оценить разности $\rho_n(w) = \frac{(z+w)^n-z^n}{w} -nz^{n-1}$ при $n \geq 2$. Для
+    этого сначала преобразуем их, воспользовавшись биномом Ньютона.
+    \begin{multline}
+        \rho_n(w) = \frac{1}{w} \left( \sum^n_{k=0}C^k_n z^{n-k}w^k-z^n \right) - nz^{n-1} =\\
+        \frac{1}{w} \sum^n_{k=1}C^k_nz^{n-k}w^k - nz^{n-1} = \frac{1}{w} \sum^n_{k=2} C^k_n z^{n-k} w^k
+    \end{multline}
+    Поскольку $|w| \leq r$, отсюда следует нужная нам оценка:
+    \begin{multline}
+        |\rho_n(w)| = \left| w \sum^n_{k=2} C^k_n z^{n-k}w^{k-2} \right| \leq |w| \sum^n_{k=2} C^k_n|z|^{n-k}|w|^{k-2} \leq \\
+        \leq |w| \sum^n_{k=2}C^k_n |z|^{n-k} r^{k-2} \leq \frac{|w|}{r^2}(|z|+r)^n
+    \end{multline}
+    Таким образом
+    \[ |\Delta(w)| \leq \sum^\infty_{n=0} |c_n| |\rho_n(w)| \leq \frac{|w|}{r^2} \sum^\infty_{n=0} |c_n| (|z|+r)^n \]
+    Благодаря неравенству (**) отсюда вытекает что $\Delta(w) \underset{w \to 0}{\longrightarrow} 0$.
+
+    Итак, теорема доказана в случае $z_0 = 0$. К нему нетрудно свести и общий случай. Действительно, положив $\tilde{z} = z - z_0$, мы видим, что
+    \[S(z) = \sum^\infty_{n=0} c_n(z-z_0)^n = \sum^\infty_{n=0} c_n \tilde{z}^n = \tilde{S}(\tilde{z}) \]
+    и $S(z+w) = \tilde{S}(\tilde{z} + w)$
+
+    Дифференцировать степенной ряд $\tilde{S}(\tilde{z})$ мы уже умеем. Это даёт нам
+    \begin{multline*}
+        \frac{S(z+w)=S(Z)}{w} = \frac{\tilde{S}(\tilde{z} + w)-\tilde{S}(\tilde{z})}{w \underset{w \to 0}{\longrightarrow}} \tilde{S}^\prime(\tilde{z}) = \\
+        =\sum^\infty_{n=0} nc_n \tilde{z}^{n-1}  = \sum^\infty_{n=0} nc_n(z-z_0)^{n-1}
+    \end{multline*}
+    Поэтому производная $S^\prime(z)$ существует и равна сумме $\sum^\infty_{n=0} nc_n(z-z_0)^{n-1}$ для любого
+    $z, |z-z_0| < R$. Это завершает доказательство.
+\end{longProof}
+
+\end{document}
