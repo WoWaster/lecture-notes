@@ -22,15 +22,15 @@
 
 
 Пусть $W$ — $\mca$-инвариант. Следовательно, $\mca|_W$ можно рассматривать как элемент $\End \ W$.
-Более формально, $\exists\  \mca_1 \in \End \ W \ \forall w \in W : \mca_1 w=\mca w$
-\[W\xrightarrow{\mca_1} W \quad w\mapsto \mca w\]
+Более формально, $\exists\  \mca_1 \in \End \ W \ \forall w \in W : \mca_1 w=\mca w$.
+\[\underset{w\mapsto \mca w}{W\xrightarrow{\mca_1} W}\]
 
-$\mca_1$  —  оператор индуцированный оператором $\mca$ на инвариантном подпространстве $W$.
+$\mca_1$  —  оператор, индуцированный оператором $\mca$ на инвариантном подпространстве $W$.
 
-$Пусть W < V,\ V/W = \{ v+w |v \in V\}$ — фактор-пространство.  $W$ — $\mca$-инвариант.
+$Пусть W < V,\ V/W = \{ v+w \ | \ v \in V\}$ — фактор-пространство.  $W$ — $\mca$-инвариант.
 Определим $\mca_2$.
 
-\[\mca_2: V/W \rightarrow V/W \quad v+W \mapsto \mca v+W\]
+\[\mca_2: \underset{v+W \mapsto \mca v+W}{V/W \rightarrow V/W }\]
 
 Проверка корректности: пусть $v_1+W = v_2+W$, нужно проверить, что $\mca v_1+W=\mca v_2 + W$. Так, $\mca v_2= \mca(v_1+(v_2-v_1))=\mca v_1+ \mca\underbrace{(v_2-v_1)}_{\in W} \Rightarrow
     \mca v_2 + W= \mca v_1+W$.
@@ -56,7 +56,7 @@ $Пусть W < V,\ V/W = \{ v+w |v \in V\}$ — фактор-пространс
 $\mca_2$ — индуцированный оператор на фактор-пространстве.
 
 \begin{proposition} {}
-    Пусть $\mca \in \End \ V, W < V, e_1, \ldots ,e_m$ — базис $W$, $e_{m+1}, \ldots ,e_n$ — дополнение до базиса $V$. Тогда эквивалентны 2 утверждения:
+    Пусть $\mca \in \End \ V, \  W < V, \ e_1, \ldots ,e_m$ — базис $W$, $e_{m+1}, \ldots ,e_n$ — дополнение до базиса $V$. Тогда эквивалентны 2 утверждения:
 
     \begin{enumerate}
         \item $W$ — $\mca$-инвариант

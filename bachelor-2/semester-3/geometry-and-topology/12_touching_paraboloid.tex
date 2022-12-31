@@ -60,12 +60,12 @@
 \end{gather*}
 Но это только в одной конкретной точке, даже не в окрестности.
 \begin{corollary}
-    $k_{\vn}, k_1, k_2, K, H$ одинаковы у поверхности и соприкасающегося параболоида.
+    $k_{n}, k_1, k_2, K, H$ одинаковы у поверхности и соприкасающегося параболоида.
 \end{corollary}
 
 Когда нам нужно что-то сосчитать попробуем заменить поверхность на соприкасающийся параболоид.
 \begin{theorem}[Эйлера]
-    \[k_{\vn} (\theta) = k_1 \cos^2 \theta + k_2 \sin^2 \theta\]
+    \[k_{n} (\theta) = k_1 \cos^2 \theta + k_2 \sin^2 \theta\]
 \end{theorem}
 \begin{center}
     \import{figures}{euler_theorem.pdf_tex}
@@ -73,22 +73,22 @@
 $k_1, k_2$ -- нормальные кривизны, в направлениях $OX$ и $OY$ в выбранной системе координат.
 
 Посмотрим на нормальную кривизну в направлении $\theta$:
-\[k_{\vn} (\theta) = \frac{\sff(\cos \theta, \sin \theta)}{\fff(\cos \theta, \sin \theta)} = \frac{2A \cos^2 \theta + 2C \sin^2 \theta}{\cos^2\theta + \sin^2 \theta}\]
+\[k_{n} (\theta) = \frac{\sff(\cos \theta, \sin \theta)}{\fff(\cos \theta, \sin \theta)} = \frac{2A \cos^2 \theta + 2C \sin^2 \theta}{\cos^2\theta + \sin^2 \theta}\]
 в нашем определении
 \begin{align*}
     \theta & = 0             & 2A & = k_1 \\
     \theta & = \frac{\pi}{2} & 2C & = k_2
 \end{align*}
 Докажем, что $k_1, k_2$ -- главные кривизны.
-Для этого исследуем $k_{\vn}(\theta)$ на минимум и максимум:
+Для этого исследуем $k_{n}(\theta)$ на минимум и максимум:
 \begin{gather*}
-    k_{\vn}(\theta) = k_1 \cos^2 \theta + k_2(1- \cos^2 \theta) = (k_1 - k_2) \cos^2 \theta + k_2.
+    k_{n}(\theta) = k_1 \cos^2 \theta + k_2(1- \cos^2 \theta) = (k_1 - k_2) \cos^2 \theta + k_2.
 \end{gather*}
 \begin{itemize}
     \item Если $k_1 \ge k_2$
           \begin{description}
-              \item[минимум] при $\cos^2\theta = 0$ и $k_{\vn} = k_2$
-              \item[максимум] при $\cos^2\theta = 1$ и $k_{\vn} = k_1$
+              \item[минимум] при $\cos^2\theta = 0$ и $k_{n} = k_2$
+              \item[максимум] при $\cos^2\theta = 1$ и $k_{n} = k_1$
           \end{description}
     \item Если $k_1 \le k_2$, то минимум и максимум меняются местами
 \end{itemize}
@@ -125,12 +125,12 @@ $k_1, k_2$ -- нормальные кривизны, в направлениях
 \end{center}
 
 Введем замену $x = \xi / \eta$
-\[k_{\vn}(\xi, \eta) = \frac{\sff(\xi, \eta)}{\fff(\xi, \eta)} = \frac{L \xi^2 + 2M \xi\eta + N \eta^2}{E \xi^2 + 2F \xi\eta + G \eta^2} = \frac{L x^2 + 2Mx+N}{E x^2 + 2 Fx + G}\]
+\[k_{n}(\xi, \eta) = \frac{\sff(\xi, \eta)}{\fff(\xi, \eta)} = \frac{L \xi^2 + 2M \xi\eta + N \eta^2}{E \xi^2 + 2F \xi\eta + G \eta^2} = \frac{L x^2 + 2Mx+N}{E x^2 + 2 Fx + G}\]
 Хотим вычислить главные направления, т.е. понять при каких $x$, $\xi$ и $\eta$ задают главные направления, т.к. $x = \tg \theta$, где $\theta$ -- угол с произвольным направлением.
 Для этого найдем минимум и максимум:
 \begin{gather*}
     \begin{multlined}
-        \left(k_{\vn}(x)\right)' =\\
+        \left(k_{n}(x)\right)' =\\
         = \frac{(2Lx + 2M)(Ex^2 + 2Fx +G) - (2Ex + 2F)(Lx^2 + 2Mx+N)}{(Ex^2 + 2Fx + G)^2}
         = 0
     \end{multlined}\\
@@ -156,7 +156,7 @@ $k_1, k_2$ -- нормальные кривизны, в направлениях
 \begin{gather*}
     k = \frac{Lx^2 + 2Mx + N}{Ex^2 + 2Fx + G}\\
     \intertext{запишем в другом виде}
-    Lx^2 + 2Mx + N = k(Ex^2 + 2F +G)\\
+    Lx^2 + 2Mx + N = k(Ex^2 + 2Fx +G)\\
     \intertext{если нам дано $k$, то это просто квадратное уравнение}
     (L - kE)x^2 + 2(M-kF)x + (N-kG) = 0
 \end{gather*}
@@ -266,7 +266,7 @@ $k_1, k_2$ -- корни соответствующего уравнения
         \end{vmatrix}
     \end{multline*}
 \end{proof}
-\begin{theorem}
+\begin{theorem}\label{touching_paraboloid:gauss}
     \[K = \frac{LN - M^2}{EG - F^2}\]
 \end{theorem}
 \begin{longProof}
@@ -315,7 +315,7 @@ $k_1, k_2$ -- корни соответствующего уравнения
     где последнее равенство следует из формул:
     \begin{align*}
         E'_u & = (\vf'_u, \vf'_u)'_u = 2\vf'_u \vf''_{uu} & F'_u              & = (\vf_u, \vf_v)'_u = \vf''_{uu}\vf'_v + \vf'_u \vf'_{vu} \\
-        E'_u & = (\vf'_u, \vf'_u)'_v = 2\vf'_u \vf''_{uv} & F'_v              & = \vf''_{uv}\vf'_v + \vf'_u \vf'_{vv}                     \\
+        E'_v & = (\vf'_u, \vf'_u)'_v = 2\vf'_u \vf''_{uv} & F'_v              & = \vf''_{uv}\vf'_v + \vf'_u \vf'_{vv}                     \\
         G'_u & = 2 \vf'_v \vf''_{uv}                      & \vf''_{uu}\vf'_v  & = F'_u - \frac{1}{2}E'_v                                  \\
         G'_v & = 2 \vf'_v \vf''_{vv}                      & \vf'_u \vf''_{vv} & = F'_v - \frac{1}{2}G'_u
     \end{align*}

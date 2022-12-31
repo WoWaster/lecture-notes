@@ -3,7 +3,7 @@
 \begin{document}
 \chapter{Площадь поверхности}
 \begin{theorem}
-    \[S = \iint_{\fancyD} \sqrt{EG - F} dudv\]
+    \[S = \iint_{\fancyD} \sqrt{EG - F^2} dudv\]
 \end{theorem}
 \begin{proof}
     Не будет.
@@ -46,7 +46,7 @@
         \import{figures/}{schwarz_lantern_part.pdf_tex}
     \end{center}
     \begin{gather*}
-        OD = r\\
+        OD = r, \alpha = AOD\\
         \angle AOB = \frac{2\pi}{n} \implies \angle \alpha = \frac{\pi}{n}\\
         AD = AO\sin \alpha = R \sin \frac{\pi}{n}\text{ по определению антипризмы}\\
         AB = 2AD = 2 R \sin \frac{\pi}{n}\\
@@ -85,6 +85,30 @@
     \end{center}
 \end{definition}
 \begin{theorem}
-    \[\left| \frac{\partial f}{\partial u} \times \frac{\partial f}{\partial v}\right| = \sqrt{EG - F^2}\]
+    \[\left| \frac{\partial \vf}{\partial u} \times \frac{\partial \vf}{\partial v}\right| = \sqrt{EG - F^2}\]
 \end{theorem}
+\begin{proof}
+    Пусть $\vf = (x,y,z)$, где $x=x(u,v), y = y(u,v), z = z(u,v)$, тогда $\vf'_u = (x'_u, y'_u, z'_u), \vf'_v = (x'_v, y'_v, z'_v)$.
+    Посчитаем в координатах:
+    \begin{gather*}
+        \vf'_u \times \vf'_v = (y'_u z'_v - z'_u y'_v; z'_u x'_v - x'_u z'_v; x'_u y'_v - y'_u x'_v)\\
+        \begin{multlined}
+            |\vf'_u \times \vf'_v| = \\
+            =\sqrt{
+                \begin{multlined}
+                    y'^2_u z'^2_v + z'^2_u y'^2_v + z'^2_u x'^2_v + x'^2_u z'^2_v + x'^2_u y'^2_v + y'^2_u x'^2_v\\
+                    -2 (y'_u z'_v z'_u y'_v + z'_u x'_v x'_u z'_v + x'_u y'_v y'_u x'_v )
+                \end{multlined}
+            } = \\
+            =\sqrt{
+                \begin{multlined}
+                    (x'^2_u + y'^2_u +z'^2_u)(x'^2_v + y'^2_v + z'^2_v) - \\
+                    - (x'^2_u x'^2_v + y'^2_u y'^2_v + z'^2_u z'^2_v) - \\
+                    -2 (y'_u z'_v z'_u y'_v + z'_u x'_v x'_u z'_v + x'_u y'_v y'_u x'_v )
+                \end{multlined}
+            }  \\
+            =\sqrt{EG-F^2}
+        \end{multlined}
+    \end{gather*}
+\end{proof}
 \end{document}

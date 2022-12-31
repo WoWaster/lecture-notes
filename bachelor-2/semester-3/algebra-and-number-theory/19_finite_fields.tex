@@ -1,0 +1,145 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+
+\chapter{Конечные поля}
+
+\begin{proposition}
+    Пусть $k$ -- поле, $|k| = q, \ K/k$ -- расширение, $[K:k] = m$. Тогда $|K| = q^m$.
+\end{proposition}
+
+\begin{proof}
+    $K \cong k^m$ как линейное пространство $\Rightarrow |K| = |k^m| = |k|^m = q^m$.
+\end{proof}
+
+\begin{corollary}
+    Пусть $K$ -- конечное поле, $char K = p$. Тогда $|K| = p^m$ для некоторого $m \in \N$.
+\end{corollary}
+
+\begin{proof}
+    $k$ -- простое подполе $K \Rightarrow k \cong \F_p, \ |k| = p \Rightarrow |K| = p^m$, где $m = [K:k]$. 
+\end{proof}
+
+\begin{proposition}
+    Пусть $K$ -- поле, $|K| = q$. Тогда $\forall a \in K: \ a^q = a$.
+\end{proposition}
+
+\begin{proof}
+    $a = 0$ -- очевидно. $a \neq 0: \ |K^*| = q - 1 \Rightarrow \forall c \in K^*: \ ord \ c \mid q - 1 \Rightarrow c^{q-1} = 1, \ a \in K^* \Rightarrow 
+    a^{q-1} = 1 \Rightarrow a^q = a$.
+\end{proof}
+
+\begin{corollary}
+    По предыдущему предложению: $\forall \ a \in K \ f(a) = 0, \ f = X^q - X. \ deg \ f = q \Rightarrow f = \prod_{a \in K}(X - a). \ k$ -- подполе, 
+    $k(a \ | \ f(a) = 0) = k(K) = K$.
+\end{corollary}
+
+\begin{lemma}
+    Пусть $char \ K = p > 0; \ \alpha, \beta \in K$. Тогда $\forall m \in \N: \ (\alpha + \beta)^{p^m} = \alpha^{p^m} + \beta^{p^m}$.
+\end{lemma}
+
+\begin{proof}
+    Достаточно рассмотреть $m = 1$.
+    \begin{gather*}
+        (\alpha + \beta)^p = \alpha^p + \beta^p + \sum_{i = 1}^{p-1}C_p^i\alpha^i\beta^{p-1} \\
+        C_p^i = \frac{p!}{i!(p-i)!} = 0 \text{ в } K
+    \end{gather*}
+\end{proof}
+
+\begin{theorem}[О существовании конечных полей]
+    Пусть $p$ -- простое, $n \in \N$. Тогда существует поле $K$: $|K| = p^n$.
+\end{theorem}
+
+\begin{proof}
+    Пусть $F$ -- поле разложения $X^q - X$ над $\F_p, \ q = p^n$. Предположим, что 
+    у него нет кратных корней: $(X^q - X)' = qX^{q-1} = -1 \Rightarrow$ в 
+    $F: \ X^q - X = \prod_{i = 1}^{q}(X - a_i), \ a_1, \ldots, a_q$ -- различны.
+    \begin{gather*}
+        K = \{a_1, \ldots, a_q\}, \ \forall \ i: \ a_i^q = a_i \\
+        a_i, a_j \in K \ (a_i + a_j)^q  = (a_i + a_j)^{p^n} = a_i^{p^n} + a_j^{p^n} = a_i + a_j \\
+        \Rightarrow a_i + a_j \in K \\
+        a \in K \ (-a)^q = \left[ 
+            \begin{gathered} 
+                -a^q, \ q \text{ неч.} \hfill \\
+                a^q, \ q \text{ чет.} \hfill
+            \end{gathered}
+        \right. \Rightarrow -a \in K \\
+        a, \ b \in K \Rightarrow (ab)^q = a^qb^q = ab \Rightarrow ab \in K \\
+        \underbrace{a \in K}_{a \neq 0} \Rightarrow a^q = a \Rightarrow (a^{-1})^q = a^{-q} = (a^q)^{-1} = a^{-1}
+    \end{gather*}
+    Таким образом, $K$ -- поле, $|K| = q = p^n$.
+\end{proof}
+
+\marginpar{07.12.22}
+
+\begin{lemma}
+    Пусть $K/k$ -- расширение конечных полей ($K$ -- конечное). Тогда это простое расширение.
+\end{lemma}
+
+\begin{proof}
+    Конечная подгруппа в мультипликативной группе поля -- циклическая (из ТГ). $K^*$ -- циклическая, т.е. $K^* = \langle \theta \rangle$. Тогда $K = k(\theta)$.
+\end{proof}
+
+\begin{theorem}
+    Пусть $K_1, \ K_2$ -- конечные поля, $|K_1| = |K_2| = p^n$. Тогда $K_1$ и $K_2$ изоморфны.
+\end{theorem}
+
+\begin{proof}
+    По лемме $K_1 = \F_p(\theta_1)$. Многочлен $g = Irr_{\F_p}\theta_1, \ \deg g = [K_1 : \F_p] = n$. $\theta_1$ -- корень $X^{p^n} - X \Rightarrow g | X^{p^n} - X$.
+
+    В $K_2$ все элементы -- корни $X^{p^n} - X \Rightarrow$ в $K_2[X] \ X^{p^n} - X$ -- раскладывается на линейные множители $\Rightarrow g$ раскладывается в $K_2[X]$ на линейные множители $\Rightarrow \exists \theta_2 \in K_2: \ g(\theta_2) = 0 \Rightarrow [\F_p(\theta_2):\F_p] = \deg g = n$, но $[K_2:\F_p] = n \Rightarrow K_2 = \F_p(\theta_2) \Rightarrow K_2\cong K_1 (\cong \F_p[X]/(g))$.
+\end{proof}
+
+\begin{theorem}
+    \begin{enumerate}
+        \item Пусть $K$ -- подполе $\F_{p^n}$ (поле из $p^n$ элементов). Тогда $|K| = p^n, \ m \mid n$.
+        \item Пусть $m \mid n$. Тогда в $\F_{p^n}$ есть единственное подполе из $p^m$ элементов.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $|K| = q, \ [\F_{p^n}:K] = l \Rightarrow q^l = p^n \Rightarrow q = p^m, \ p^{ml} = p^n \Rightarrow m \mid n$.
+        \item $m \mid n \Rightarrow (p^m - 1) \mid (p^n - 1). \ n = ml \Rightarrow p^n - 1 = (p^m)^l - 1^l = (p^m - 1)(\ldots) \Rightarrow (X^{p^m-1} - 1) | (X^{p^n-1} - 1), \ (p^n - 1) = r(p^m - 1) \Rightarrow (X^{p^m}- X) | (X^{p^n} - X)$. 
+        
+        $X^{p^n} - X$ раскладывается на линейные множители в $\F_p[X] \Rightarrow X^{p^m} - X$  раскладывается на линейные множители в $\F_p[X]$.
+
+        $F = \{a \ | \ a^{p^m} - a = 0\}$ -- искомое подполе.
+
+        Пусть $F'$ -- другое подполе, такое что $|F'| = 0, \ F' \neq F \ \forall a \in F': \ a^{p^m} - a = 0 \Rightarrow \forall a \in F \cup F': \ a^{p^m} - a = 0, \ |F \cup F'| > p^m$. 
+
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+   % https://q.uiver.app/?q=WzAsMTIsWzEsMCwiXFxtYXRoYmJ7Rn1fezQwOTZ9Il0sWzAsMSwiXFxtYXRoYmJ7Rn1fezY0fSJdLFsyLDEsIlxcbWF0aGJie0Z9X3sxNn0iXSxbMCwyLCJcXG1hdGhiYntGfV97OH0iXSxbMiwyLCJcXG1hdGhiYntGfV97NH0iXSxbMSwzLCJcXG1hdGhiYntGfV97Mn0iXSxbNCwwLCIxMiJdLFszLDEsIjYiXSxbNSwxLCI0Il0sWzMsMiwiMyJdLFs1LDIsIjIiXSxbNCwzLCIxIl0sWzAsMSwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFswLDIsIiIsMix7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMiw0LCIiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEsMywiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFszLDUsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNCw1LCIiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEsNCwiIiwxLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs2LDcsIiIsMSx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNiw4LCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzcsOSwiIiwxLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs4LDEwLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzksMTEsIiIsMSx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMTAsMTEsIiIsMSx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNywxMCwiIiwxLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dXQ==
+\[\begin{tikzcd}
+	& {\mathbb{F}_{4096}} &&& 12 \\
+	{\mathbb{F}_{64}} && {\mathbb{F}_{16}} & 6 && 4 \\
+	{\mathbb{F}_{8}} && {\mathbb{F}_{4}} & 3 && 2 \\
+	& {\mathbb{F}_{2}} &&& 1
+	\arrow[no head, from=1-2, to=2-1]
+	\arrow[no head, from=1-2, to=2-3]
+	\arrow[no head, from=2-3, to=3-3]
+	\arrow[no head, from=2-1, to=3-1]
+	\arrow[no head, from=3-1, to=4-2]
+	\arrow[no head, from=3-3, to=4-2]
+	\arrow[no head, from=2-1, to=3-3]
+	\arrow[no head, from=1-5, to=2-4]
+	\arrow[no head, from=1-5, to=2-6]
+	\arrow[no head, from=2-4, to=3-4]
+	\arrow[no head, from=2-6, to=3-6]
+	\arrow[no head, from=3-4, to=4-5]
+	\arrow[no head, from=3-6, to=4-5]
+	\arrow[no head, from=2-4, to=3-6]
+\end{tikzcd}\]
+\end{example}
+
+
+
+
+
+
+
+
+

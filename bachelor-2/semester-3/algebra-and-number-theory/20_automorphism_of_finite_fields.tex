@@ -1,0 +1,111 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+
+\chapter{Автоморфизм конечных полей}
+
+\begin{lemma} [Автоморфизм Фробениуса]
+    Пусть $p$ -- простое, $n \in \N$. Тогда отображение $\underset{a \mapsto a^p}{\F_{p^n} \rightarrow \F_{p^n}}$ является автоморфизмом 
+    $\F_{p^n}$.
+\end{lemma}
+
+\begin{proof}
+    \begin{gather*}
+        (a+b)^p = a^p + b^p \\
+        (ab)^p = a^pb^p \\
+        1^p = 1
+    \end{gather*}
+    Таким образом, это вложение полей.  Оно инъективно $\Rightarrow$ сюръективно.
+\end{proof}
+
+$\Aut(K)$ -- группа автоморфизмов поля $K$.
+ 
+Пусть $L/K$ -- расширение. $\Aut(L/K) = \{\sigma \in \Aut L \ | \ \forall a \in K: \ \sigma(a) = a\}$.
+
+\begin{example}$\Aut(\C/\R) = \{\id, \text{ комплексное сопряжение}\}$. 
+\end{example} 
+
+$K, \ F$ -- поля, $\sigma: \ K \hookrightarrow F$ -- вложение.
+
+\begin{gather*}
+    f \in K[X] \\
+    f = a_nX^n + \ldots a_1X + a_0 \\
+    f^{\sigma} = \sigma(a_n)X^n + \ldots + \sigma(a_1) + \sigma(a_0) \in F[X]
+\end{gather*}
+
+\begin{proposition}
+    Пусть $\sigma: \ K \hookrightarrow F$ -- вложение, $L = K(x)$ -- простое алгебраичсекое расширение,  $f = Irr_Kx, \ y_1, \ldots, y_n$ -- все корни $f^{\sigma}$ в $F$. Тогдау $\sigma$ есть ровно $n$ продолжений $\sigma_1, \ldots, \sigma_n$ на $L$, причем $\sigma_i(x) = y_i, \ i = 1, \ldots, n$.
+\end{proposition}
+
+Пусть $L/K$ -- расширение. Вложение $\tau: \ L \hookrightarrow F$ называется продолжением вложения $\sigma: \ K \hookrightarrow F$, если $\tau|_K = \sigma$.
+
+\begin{proof}
+    Построим $\sigma_i$. Можно считать $L = K[X]/(f)$.
+
+    \begin{gather*}
+        \underset{ g \mapsto g^{\sigma}(y_i)}{K[X] \xrightarrow{\alpha_i} F} \\
+        \underset{ g \mapsto g^{\sigma} \mapsto g^{\sigma}(y_i)}{K[X] \rightarrow F[X] \rightarrow F} \\
+        f \in \Ker \alpha_i \text{, т.е. } f(y_i) = 0 \\
+        \Ker \alpha_i = (h) \Rightarrow h \mid f \Rightarrow h = f
+    \end{gather*}
+
+    По теореме о гомоморфизме $\alpha_i$ индуцирует вложение $\underset{x = \overline{x} \mapsto y_i}{L \xhookrightarrow{\sigma_i} F}. \ \sigma_i|_K = \sigma$, т.к. $\alpha_i(c) = c^{\sigma} = \sigma(c)$, при $c\in K$. 
+     
+    Осталось проверить, что других продолжений нет. Пусть $\tau: \ L \hookrightarrow F, \ \tau|_K = \sigma. \ f^{\sigma}(\tau(x)) = f^\tau(\tau(x)) = \tau(f(x)) = \tau(0) = 0 \Rightarrow \exists i: \ \tau(x) = y_i = \sigma_i(x), \ \forall c \in K: \ \tau(c) = \sigma(c) = \sigma_i(c) \Rightarrow (L = \{\alpha_0 + \alpha_1 x + \ldots +  \alpha_{d-1} x^{d-1} \ | \ \alpha_0, \ldots, \alpha_{d-1} \in K\}) \Rightarrow \tau = \sigma_i$.
+\end{proof}
+
+\begin{corollary}
+    Пусть $\sigma: \ K \hookrightarrow F$ -- вложение. $L/K$ -- конечное расширение. Тогда у $\sigma$ есть $\leq [L:K]$ продолжений на $L$.
+\end{corollary}
+
+\begin{corollary}
+    $L = K(x_1, \ldots, x_n)$.
+
+    Индукция по $m$. $m = 0: \ [L:K] = 1$, у $\sigma$ одно продолжение.
+
+    Переход. $L_0 = K(x_1, \ldots, x_{m-1})$. По ИП у $\sigma$ есть $\leq d_0$ продолжений на $L_0$, где $d_0 = [L_0:K]: \ \sigma_1 \ldots, \sigma_l, \ l \leq d_0$. У каждого $\sigma_i$ есть $\leq [L:L_0]$  продоолжений на $L$ $\Rightarrow$ у $\sigma$  есть $\leq l\cdot [L:L_0]$  продоолжений на $L$, т.к. $[\underbrace{L}_{L_0(x_m)}:L_0] = deg Irr_{L_0} x_m$. $l \cdot [L:L_0] \leq d_0 \cdot [L:L_0] = [L:K]$.
+\end{corollary}
+
+\begin{corollary}
+    Пусть $L/K$ -- конечное расширение. Тогда $|\Aut (L/K)| \leq [L:K]$.
+\end{corollary}
+
+\begin{proof}
+    Автоморфизм $L/K$ -- вложение $L \hookrightarrow L$, продолжающее $\underset{a \mapsto a}{K \hookrightarrow L}$. $[L:K] < \infty \Rightarrow$ любое вложение $L \hookrightarrow L$ над $K$ -- биекция.
+\end{proof}
+
+\begin{theorem}[О группе автоморфизмов конечных полей]
+    Пусть $p$ -- простое, $n \in \N, \ K = \F_{p^n}$. Тогда $\Aut(K) = \langle \Fr\rangle$, где $\Fr$ -- автоморфизм Фробениуса и $|\Aut(K)| = n$.
+\end{theorem}
+
+\begin{proof}
+    Хотим узнать степень $\Fr$. $(Fr)^n = \id_K. \ \forall x \in K: \ x^{p^n} = x \Rightarrow ord Fr \leq n$. Предположим, $\exists d< n: Fr^d = \id_K \Rightarrow \forall x \in K: \ x^{p^d} = x \Rightarrow x$ -- корень $X^{p^d} - X$. Однако, у $X^{p^d} - X$ не может быть $p^n$ корней. Таким образом, $ord \Fr = n \Rightarrow |\langle \Fr\rangle| = n = [K:\F_p] \geq  \Aut(K/\F_p) = \Aut (K) \ (c \in \F_p: \ \sigma(c) = c = \{1+ \ldots + 1\})$ (на простом подполе любой автоморфизм тождественный) $\Rightarrow \langle \Fr\rangle = \Aut K$.
+\end{proof}
+
+\begin{example} [Ужасный пример]
+    $\Aut (\Q(\sqrt[3]{2})/\Q)$. У $X^3 - 2$ один корень в $\Q(\sqrt[3]{2}) \Rightarrow |\Aut (\Q(\sqrt[3]{2}) / \Q)| = 1$.
+\end{example}
+
+Алгебраическое расширение $L/K$ сепарабельно, если $\forall x \in L: \ Irr_K x$ не имеет кратных корней в $L$.
+
+Есть кратный корень $\Rightarrow (f,f') \neq$ в $L[X], \ (f,f') \neq$ в $K[X]$, но $f$ неприводим.
+
+\begin{definition}
+    Конечное расширение $L/K$ называется расширением Галуа, если оно нормальное и сепарабельное ($\Leftrightarrow \Aut(L/K) = [L:K]$). 
+\end{definition}
+
+$L/K$ -- расширение Галуа, $G = \Aut(L/K)$.
+
+% https://q.uiver.app/?q=WzAsOSxbMSwwLCJcXHtNIC1cXHRleHR70L/RgNC+0LzQtdC20YPRgtC+0YfQvdC+0LUg0L/QvtC70LUg0LIgfSBML0tcXH0iXSxbMiwwLCJcXHtIIFxcIHwgXFwgSCA8IEcgXFx9Il0sWzEsMSwiICAgXFxxdWFkICBcXHF1YWQgIFxccXVhZCAgXFxxdWFkICBcXHF1YWQgIFxccXVhZCAgXFxxdWFkICBcXHF1YWQgIFxccXVhZCAgXFxxdWFkICBcXHF1YWQgIFxccXVhZCAgXFxxdWFkICBNIl0sWzIsMSwiXFx0ZXh0cm17QXV0fShML00pIDwgXFx0ZXh0cm17QXV0fShML0spIl0sWzEsMiwiIFxccXVhZCAgXFxxdWFkICBcXHF1YWQgIFxccXVhZCAgXFxxdWFkICBcXHF1YWQgIFxccXVhZCBcXHVuZGVyYnJhY2V7TF5IfV97PVxce2EgXFxpbiBMIFxcIHwgXFwgXFxmb3JhbGwgXFxzaWdtYSBcXGluIEg6IFxcIGFee1xcc2lnbWF9ID0gYVxcfX0iXSxbMiwyLCJIIl0sWzAsMCwiTCJdLFswLDEsIk0iXSxbMCwyLCJLIl0sWzIsMywiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibWFwcyB0byJ9fX1dLFs1LDQsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1hcHMgdG8ifX19XSxbNiw3LCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzcsOCwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dXQ==
+\[\begin{tikzcd}
+	L & {\{M -\text{промежуточное поле в } L/K\}} & {\{H \ | \ H < G \}} \\
+	M & {   \quad  \quad  \quad  \quad  \quad  \quad  \quad  \quad  \quad  \quad  \quad  \quad  \quad  M} & {\textrm{Aut}(L/M) < \textrm{Aut}(L/K)} \\
+	K & { \quad  \quad  \quad  \quad  \quad  \quad  \quad \underbrace{L^H}_{=\{a \in L \ | \ \forall \sigma \in H: \ a^{\sigma} = a\}}} & H
+	\arrow[maps to, from=2-2, to=2-3]
+	\arrow[maps to, from=3-3, to=3-2]
+	\arrow[no head, from=1-1, to=2-1]
+	\arrow[no head, from=2-1, to=3-1]
+\end{tikzcd}\]
+
+-- две взаимно обратные функции, образующие включения.
+\end{document} 
