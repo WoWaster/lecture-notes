@@ -6,9 +6,8 @@
     $F: E \rightarrow {\vR}^n$
     \[F \in C^{1}(w) \tag{1}\]
     \[ \det DF(x_0) \ne 0 \tag{2}\]
-    Соотношения (1) и (2) влекут:
-        \[F(x_0) = Y_0, \exists x_0 \in v \text{ и }\exists y_0 \in V:
-        F|_v - \text{гомеоморфизм на } V  \tag{3} \]
+    Соотношения (1) и (2) влекут: $\exists U \ni X_0 \quad \exists V \ni Y_0$
+        \[F(X_0) = Y_0:F|_U - \text{гомеоморфизм на } V  \tag{3} \]
         \[ \Phi = F^{-1}, \Phi \in C^1(V) \tag{4}\]
  
         \begin{definition}[Якобиан]
@@ -27,31 +26,28 @@
             $DF(x_0) = A$. Условие (2) влечёт $\exists A^{-1}$
             \[ \text{Будем обозначать }||A^{-1}||  = \frac{1}{4 \lambda}, \lambda> 0
              \tag{5} \]
-             Раассмотрим такое линейное отображение
-             $x \in w, ||DF(x) - DF(x_0)|| < ||DF(x) - DF(x_0)||_2$
+             Рассмотрим такое линейное отображение
+             $X \in w, ||DF(X) - DF(X_0)|| < ||DF(X) - DF(X_0)||_2$
              \begin{gather*}
-             (\ldots |f^\prime_{ix_j}(x) - f^\prime_{ix_j}(x_0)|^2 + \ldots)^{\frac{1}{2}} \\
+             (\ldots |f^\prime_{ix_j}(X) - f^\prime_{ix_j}(X_0)|^2 + \ldots)^{\frac{1}{2}} \\
              (1) \implies |f^\prime_{ix_j} - f^\prime_{ix_j}(x_0)|^2 
-             \underset{x \to x_0}{\longrightarrow} 0 \tag{6} \\
-             (6) \implies ||DF(X) - DF(X_0)||_2 \underset{x \to x_0}{\longrightarrow} 0
+             \underset{X \to X_0}{\longrightarrow} 0 \tag{6} \\
+             (6) \implies ||DF(X) - DF(X_0)||_2 \underset{X \to X_0}{\longrightarrow} 0
              \tag{7} \\
-             (7) \implies ||DF(X - DF(X_0)|| \underset{x \to x_0}{\longrightarrow} 0 \tag{8} \\
-             (8) \implies \exists r > 0: \forall x, ||X-X_0||_{{\vR}^n} < r
+             (7) \implies ||DF(X - DF(X_0)|| \underset{X \to X_0}{\longrightarrow} 0 \tag{8} \\
+             (8) \implies \exists r > 0: \forall X, ||X-X_0||_{{\vR}^n} < r
              \text{ имеем } \\
-             DF(X) - DF(X_0)|| < 2\lambda \tag{9} 
+             ||DF(X) - DF(X_0)|| < 2\lambda \tag{9} \\
+             DF(X) - A|| < 2 \lambda \tag{9\prime} 
             \end{gather*}
- 
-             \[U = B_r(X_0) = \{ x \in {\vR}^n: ||x-x_0|_{{\vR}^n} < \lambda
-             \tag{10}\]
-             \[DF(X) - A|| < 2 \lambda \tag{9\prime} \]
+             \[U = B_r(X_0) = \{ X \in {\vR}^n: ||X-X_0|_{{\vR}^n} < r\tag{10} \}\]
              \begin{remark}[О внутренности шара]
-               \[X_1, X_2 \in B_r(X_0), 0 < t < 1 \implies tX_1 + (1-t)x_2 \in B_r(x_0) \]
                \begin{multline*}
                 X_1, X_2 \in B_r(X_0), 0 < t < 1 \implies tX_1 + (1-t)x_2 \in B_r(x_0) \\
                   ||(tX_1 + (1-t)X_2)-X_0||_{{\vR}^n} = \\ 
                   = ||t(X_1-X_0)+ (1-t)(X_2-X_0)||_{{\vR}^n} 
                 \leq ||t(X_1 - X_0)||_{{\vR}^n} + \\
-                + ||(1-t)(X_2-X_0)||_{{\vR}^n} < 
+                + ||(1-t)(X_2-X_0)||_{{\vR}^n} 
                < tr + (1-t)r = r
                 \end{multline*}
                \end{remark}
@@ -67,9 +63,9 @@
             По достаточному условию дифференцируемости все матрицы Якоби существуют
             \begin{align*}
             (11) \implies Dg(t) = g^\prime(t) = D(F(X+tH)) - D(tAH) =\\
-            =DF(X+tH)D(t + tH) - AH = \\  
-            = DF(x+tH)H-DF(x_0)H = \\
-            = (DF(x+tH)-DF(x_0))H \tag{12}
+            =DF(X+tH)D(X + tH) - AH = \\  
+            = DF(X+tH)H-DF(X0)H = \\
+            = (DF(X+tH)-DF(X_0))H \tag{12}
             \end{align*} 
             \begin{gather*}
             \text{Правая часть} (12) \leq ||DF(X+tH)-DF(x_0)|| \cdot ||H||_{{\vR}^n} \\
@@ -89,11 +85,11 @@
              g(1)-g(0) = F(X+H)-AH - F(X) = (F(X+H)-F(X)) - AH \tag{17} \\
             (15), (16), (17) \implies ||(F(X+H)-F(X))-AH||_{{\vR}^n}
             <  \frac{1}{2}||AH||_{{\vR}^n} \tag{18} \\
-             (18) \implies ||F(X+H)-F(X)||_{{\vR}^n} \geq ||AH||_{{\vR}^b} -\\
+             (18) \implies ||F(X+H)-F(X)||_{{\vR}^n} \geq ||AH||_{{\vR}^n} -\\
             -||F(X+H)-F(X)-AH||_{{\vR}^n} > ||AH||_{{\vR}^n} -
             \frac{1}{2}||AH||_{{\vR}^n} =  \\
            = \frac{1}{2}||AH||_{{\vR}^n} > 0 \tag{19} \\
-            AH = (AH-F(X+H))-F(X) + (F(X_H)-F(X)) \\
+            AH = (AH-(F(X+H))-F(X)) + (F(X+H)-F(X)) \\
             ||F(X+H)-F(X)||_{{\vR}^n} > \frac{1}{2}||AH||_{{\vR}^n} \tag{20} \\
             \intertext{при} 
             X \in B_r(X_0), X+H \in B_r(x_0), H \ne \mathbb{0}_n \\
@@ -120,7 +116,7 @@
                 Видно, что функция непрерывная,  класса $C^1$, норма это непрерывная 
                 функция на замкнутом шаре. Так как замкнутый шар это компакт:
                 \begin{gather*}
-                \exists X_1 \in \overline{B}_\rho : P(X_) \leq P(X) \forall x \in \overline{B}_\rho(X_1)  
+                \exists X_1 \in \overline{B}_\rho : P(X_) \leq P(X) \forall X \in \overline{B}_\rho(X_1)  
                 \tag{27} \\
                 X_2 \text{ т.ч. } ||X_2-X_1||_{{\vR}^n} = \rho, H = X_2-X_1 \\
                  (23) \implies ||F(X_2) - F(X_1)||_{{\vR}^n} = ||F(x_1+H)
@@ -269,7 +265,7 @@
                   \ldots & \ddots & \ldots \\
                   F^\prime_{1x_1}(X) & \ldots & F^\prime_{nx_n}(X)
                \end{bmatrix*} \right)^{-1} \\
-               (9) \implies \phi^\prime_{ky_l}(Y) = \frac{\sum \pm F^\prime_{ix_i}(x)
+               (9) \implies \phi^\prime_{ky_l}(Y) = \frac{\sum \pm F^\prime_{ix_i}(X)
                \cdots F^\prime_{sx_t}(X)}{\underbrace{\sum + \cdots F^\prime_{px_q}(X) \cdots F^\prime{ux_v}(X)}_{\ne 0}}
                \tag{10}\\
                 F^\prime_{ix_j}(X) = F^\prime_{ix_j}(\Phi(Y)) \in C(V) \tag{11} \\
@@ -301,7 +297,7 @@
             \begin{gather*}
                 E \in {\vR}^n, n \geq 2\\
                  E - \text{ открытое }, F: E \rightarrow {\vR}^n \end{gather*}
-            \[d_F(X) \ne 0 \forall x \in E \implies F - \text{ открытое отображение} \]
+            \[d_F(X) \ne 0 \forall X \in E \implies F - \text{ открытое отображение} \]
         \end{corollary}
         \begin{proof}
          \begin{gather*}

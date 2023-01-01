@@ -26,7 +26,7 @@
 \end{gather*}
 
 \begin{definition}[Норма линейного отображения]
-    \[|A|| \stackrel{def}{=} \underset{x \in {\vR}^m, ||X|_{{\vR}^m \leq 1}}{\sup}
+    \[||A|| \stackrel{def}{=} \underset{x \in {\vR}^m, ||X||_{{\vR}^m \leq 1}}{\sup}
      {||AX||_{{\vR}^n}} \tag{1} \]
 \end{definition}
 
@@ -45,7 +45,7 @@
     \sum_{k=1}^n (a^2_{k1} + \ldots + a^2_{km})\underbrace{(x_1^2 + \ldots x_m^2)}_{=||X||^2_{{\vR}^n}} \leq \\
     \sum_{k=1}^n (a^2_{k1} + \ldots + a^2_{km}) =
 \end{multline*}
-     \[=\sum_{k=1}^n \sum_{l=1}^m a_{kl}^2 =||A||_2  \tag{2}\]
+     \[=\sum_{k=1}^n \sum_{l=1}^m a_{kl}^2 =||A||_2^2  \tag{2}\]
 
 
 \[(2) \implies ||A|| \leq ||A||_2 \geq 0\]
@@ -80,11 +80,9 @@
         \end{bmatrix} $
         Теперь рассмотрим $e_i \underbrace{(Af_j)}_{\mathbb{0}_{{\vR}^n}} =$
         $ (0 \ldots 1 \ldots) \begin{bmatrix}
-            0 \\
+            a_{1j} \\
             \vdots \\
-            1 \\
-            \vdots \\
-            0 \\ \end{bmatrix}$ = $a_{ij} = 0$
+            a_{nj} \\ \end{bmatrix}$ = $a_{ij} = 0$
     \end{proof}
     $A, c \in {\vR}, (cA(x)) \stackrel{def}{=} c(A(x))$ 
     \begin{theorem}$||cA|| = |c| \cdot ||A||$ \end{theorem}
@@ -105,11 +103,11 @@
             \[\leq \underbrace{\sup(\underbrace{||AX||}_{\leq ||A||_2} + \underbrace{||BX||}_{\leq ||B||_2})}_{M}
             \leq \underset{\ldots}{\sup} ||AX||_{{\vR}^n} + \underset{\ldots}{\sup} ||BX||_{{\vR}^n}\]
            
-           \[ \exists x_1 \in {\vR}^m, ||x_1||_{{\vR}^m} \leq 1 \text {и }
+           \[ \exists x_1 \in {\vR}^m, ||x_1||_{{\vR}^m} \leq 1 \text { и }
             ||Ax_1|| + ||Bx_1|| > M - \varepsilon
              \tag{3} \]
            
-            $(3) \implies M - \varepsilon < ||A|| + ||B| \rightarrow 
+            $(3) \implies M - \varepsilon < ||A|| + ||B|| \Rightarrow 
             \underset{x \in {\vR}^m, ||X||_{{\vR}^m}\leq1}{\sup}
             (||AX||_{{\vR}^n} + ||BX||_{{\vR}^n}) \leq ||A|| + ||B||$
         \end{proof}
@@ -118,9 +116,9 @@
         \end{theorem}
         \begin{proof}
             \begin{gather*}
-            X \neq \mathbb{0}^m \Leftrightarrow ||X||_{{\vR}^m} \stackrel{def}{=} t > 0 \\
-            x_0 = \frac{1}{t}x \\
-            ||x_0||_{{\vR}^m} =||\frac{1}{t}x||_{{\vR}^m}= \frac{1}{t}||X||_{{\vR}^m}
+            X \neq \mathbb{0}_m \Leftrightarrow ||X||_{{\vR}^m} \stackrel{def}{=} t > 0 \\
+            X_0 = \frac{1}{t}X \\
+            ||X_0||_{{\vR}^m} =||\frac{1}{t}X||_{{\vR}^m}= \frac{1}{t}||X||_{{\vR}^m}
             = \frac{1}{t} \cdot t = 1 \implies
         \end{gather*}
         \[ ||Ax_0||_{{\vR}^n} \leq ||A|| \tag{5}\] 
@@ -142,28 +140,27 @@
     \begin{theorem}
         \begin{gather*}
         E = \{ c \in {\vR}, с > 0 : \forall x \in {\vR}^m \text{ имеем }
-        ||Ax||_{{\vR}^n} \leq C ||X||_{{\vR}^m} \} \tag{7} \\
+        ||Ax||_{{\vR}^n} \leq c ||X||_{{\vR}^m} \} \tag{7} \\
+        \inf E \stackrel{def}{=} m \geq 0 \\
         \text{В случае } A \neq 0 \\
-        ||A|| = \inf E, ||A||_2 \in E, \inf E \stackrel{def}{=} m \\
+        ||A|| \in E, ||A||_2 \in E \implies E \ne \varnothing, \text{ тогда } \\
         ||A|| = \inf E \tag{8} 
     \end{gather*}
     \end{theorem}
     \begin{proof}
-        \begin{enumerate}
-            \item $ m = 0$
+         $ m = 0$
             \begin{gather*}
                 \forall \varepsilon > 0 \exists c_1 \in E : c_1 < \varepsilon \\
                 (7) \rightarrow ||Ax||_{{\vR}^n} \leq c_1||x||_{{\vR}^m}
                 \forall x \in {\vR}^m \rightarrow ||A|| \leq c_1 < \varepsilon \\
                 \rightarrow ||A|| = 0
             \end{gather*}
-            \item $m > 0$
+           $m > 0$
             \begin{gather*}
                 ||A|| \in E, m \leq ||A|| \\
                 \text{пусть } m < ||A|| \implies \exists c_2 : m < c_2 < ||A|| \tag{9} \\
                 (7) \implies ||Ax||_{{\vR}^n} \leq c_2||x||_{{\vR}^m} \forall x \in {\vR}^m \\
-                [(9) \implies ||A|| \leq c_2 \text{ противоречие} \end{gather*}
-        \end{enumerate}
+                (9) \implies ||A|| \leq c_2 \text{ противоречие} \end{gather*}
     \end{proof}
     \begin{theorem}
     \begin{gather*}
@@ -269,10 +266,9 @@
         \leq ||B||\varepsilon||H||_{{\vR}^m} + \varepsilon(||A|| \cdot ||H||_{{\vR}^m}
         +\varepsilon||H||_{{\vR}^m}) = \\
         =\varepsilon(||B|| + ||A|| + \varepsilon)||H||_{{\vR}^m} \tag{22}\\
-        P(x_0)+H - P(X_0) = (BA)H + r_1(H) \tag{27\prime} \\
+        P(X_0+H) - P(X_0) = (BA)H + r_1(H) \tag{27\prime} \\
         \text{При } ||H||_{{\vR}^n} < \delta_0 \text{ имеем }
-        ||r_1(H)||_{{\vR}^k} \leq \varepsilon(||B|| + ||A|| + \varepsilon)||H||_{{\vR}^m} 
-        \tag{27\prime\prime}\\
+        ||r_1(H)||_{{\vR}^k} \leq \varepsilon(||B|| + ||A|| + \varepsilon)||H||_{{\vR}^m}  \tag{27\prime\prime}\\
         (27^{\prime\prime}) \implies \frac{||r_1(H)||_{{\vR}^k}}{||H||_{{\vR}^m}}
         \underset{H \to \mathbb{0}_m}{\longrightarrow} 0 \tag{28} \\
         (23^\prime), (27^\prime), (28) \implies (16) \end{gather*}

@@ -67,11 +67,11 @@
             \end{gather*}
             \begin{gather*}
                 (3),(5) \implies g(h) = \phi^\prime(x_2^0 + h_2) \tag{6}\\
-                (4),(6) \implies g(h) = \frac{f^\prime_{x_2}(x_1^0+h_1,x_2^0+h_2)-f^\prime_{x_2}(x_1^0,x^0_2 + h_2)}{h} \tag{7}\\
+                (4),(6) \implies g(h) = \frac{f^\prime_{x_2}(x_1^0+h,x_2^0+h_2)-f^\prime_{x_2}(x_1^0,x^0_2 + h_2)}{h} \tag{7}\\
                 \forall x_1 \in [x_1^0-r,x_1^0+r] \exists (f^\prime_{x_2}(x_1,x_2^0+h_2))^\prime_{x_1} = f^{\prime\prime}_{x_2x_1}(x_1,x_2^0+h_2) \tag{8}\\
-                \exists 0 < h_1 < h : f^\prime_{x_2}(x_1^0+h,x_2^0+h_2) - f^2\prime_{x_2}(x_1^0,x_2^0+h_2) =\\=
+                \exists 0 < h_1 < h : f^\prime_{x_2}(x_1^0+h,x_2^0+h_2) - f^\prime_{x_2}(x_1^0,x_2^0+h_2) =\\=
                 f^{\prime\prime}_{x_2x_1}(x_1^0 + h_1, x_2^0 + h_2) \cdot h \tag{9}\\
-                (7),(9) \implies g(h) = f^{\prime\prime}_{x_2x_1}{x_1^0+h_1,x_2^0 + h_2} \tag{10}\\
+                (7),(9) \implies g(h) = f^{\prime\prime}_{x_2x_1}(x_1^0+h_1,x_2^0 + h_2) \tag{10}\\
                 \psi(x_1) \ \frac{f(x_1,x_2^0+h)-f(x_1,x_2^0)}{h} \tag{11}
             \end{gather*}
             \begin{gather*}
@@ -82,15 +82,15 @@
                 (13) \implies \psi (x_1^0+h) - \psi(x_1^0) = \psi^\prime(x_1^0+\overline{h})h \tag{14}
             \end{gather*}
             \begin{gather*}
-                \exists \overline{h} \quad 0 < \overline{h} < h \\
+                \exists \overline{h_1} \quad 0 < \overline{h_1} < h \\
                 (12),(14) \implies g(h) = \psi^\prime(x_1^0 + \overline{h_1}) = \\ =
                  \frac{f^\prime_{x_1}(x_1^0+\overline{h_1},x_2^0+h)-f^\prime_{x_1}(x_1^0+\overline{h_1},x_2^0)}{h} \tag{15}\\
                 f^\prime_{x_1}(x_1^0 + \overline{h}, x_2) \\
                 (15) \implies \exists \overline{h_2}, 0 < \overline{h_2} < h : 
-                \frac{f^\prime_{x_1}(x_1^0 + \overline{h_1}, x_2^0 + h) - f^\prime_{x_1}(x_1^0 + \overline{h_1}, x_2^0)}{w} = \\
+                \frac{f^\prime_{x_1}(x_1^0 + \overline{h_1}, x_2^0 + h) - f^\prime_{x_1}(x_1^0 + \overline{h_1}, x_2^0)}{h} = \\
                = f^{\prime\prime}_{x_1 x_2}(x_1^0 + \overline{h_1}, x_2^0 + \overline{h_2}) \tag{16} \\
                 (15),(16) \implies g(h) = f^{\prime\prime}_{x_1x_2}(x_1^0+ \overline{h_1}, x_2^0 + \overline{h_2}) \tag{17}\\
-                f^{\prime\prime}_{x_2x_1}(x_1^0+ \overline{h_1}, x_2^0 + \overline{h_2}) \underset{h \to 0}{\rightarrow} f^{\prime\prime}_{x_2x_1}(x_1^0, x_2^0) \tag{18}\\
+                f^{\prime\prime}_{x_2x_1}(x_1^0+ h_1, x_2^0 + h_2) \underset{h \to 0}{\rightarrow} f^{\prime\prime}_{x_2x_1}(x_1^0, x_2^0) \tag{18}\\
             f^{\prime\prime}_{x_1x_2}(x_1^0+ \overline{h_1}, x_2^0 + \overline{h_2}) \underset{h \to 0}{\rightarrow} f^{\prime\prime}_{x_1x_2}(x_1^0x_2^0) \tag{19}\\
             (10), (17), (18), (19) \implies f^{\prime\prime}_{x_1x_2}(x_0) = f^{\prime\prime}_{x_2x_1}(x_0)
             \end{gather*}
@@ -132,7 +132,7 @@
     C^r(E) \quad r \geq 1 \quad e \subset \vR^n \quad n \geq 2 
 \end{gather*}
     $f \in$ классу $C^1(E)$, если $f \in C(E) \forall x \in E$ и $\forall i \quad 1 \leq i \leq n \quad
-    \exists f^{\prime}_{x_i}(X)$ т.ч. $f^prime_{x_i} \in C(E)$. $f \in C^{r+1}(E)$, если $f^\prime_{x_i} \in C^r(E) \quad 1 \leq i \leq n$.
+    \exists f^{\prime}_{x_i}(X)$ т.ч. $f^\prime_{x_i} \in C(E)$. $f \in C^{r+1}(E)$, если $f^\prime_{x_i} \in C^r(E) \quad 1 \leq i \leq n$.
     $f \in C^2(E) \Leftrightarrow f^\prime_{x_i} \in C^1(E) \quad 1 \leq i \leq n$. $f^\prime_{x_i} \in C^1(E) \Leftrightarrow
     \forall i, j f^{\prime\prime}_{x_i x_j}(X) \in C(E) \implies$ при $i \ne j f^{\prime\prime}_{x_ix_j}(X) = f^{\prime\prime}_{x_jx_i}(X)$
 
@@ -144,14 +144,14 @@
     \end{theorem}
         \begin{longProof}[по индукции]
             \begin{gather*}
-                r = 2 \text{ -- уже  рассмотрено.}
+                r = 2 \text{ -- уже  рассмотрено.} \\
                 i_1, \ldots, i_{r-1}, i_r, i_{r+1} \\
                 j_1, \ldots, j_{r-1}, j_{r+1}, j_r\\
                 i_r \ne i_{r+1} \\
                 f \in  C^{r+1}(E) \implies f \in C^{r-1}(E) \\
                 F(X) = f^{(r-1)}_{x_{i_1} \ldots x_i{r-1}}(X) = f^{(r-1)}_{x_{j_1} \ldots x_{j_{r-1}}}(X) \forall X \in E \\
                 f^{(r+1)}_{x_{i_1} \ldots x_{i_{r-1}} x_{i_r} x_{i_{r+1}}}(X) = F^{\prime\prime}_{x_{i_r} x_{i_{r+1}}}(X) \\
-                f^{(r+1)}_{x_{j_1} \ldots x_{j_{r-1}} x_{j_r} x_{j_{r+1}}}(X) = F^{\prime\prime}_{x_{j_r} x_{j_{r+1}}}(X) \\
+                f^{(r+1)}_{x_{j_1} \ldots x_{j_{r-1}} x_{i_{r_1}} x_{i_r}}(X) = F^{\prime\prime}_{x_{i_{r+1}} x_{i_r}}(X) \\
                 F^{\prime\prime}_{x_{i_r} x_{i_{r+1}}} \in C(E) \quad F^{\prime\prime}_{x_{i_{r+1}}x_{i_r}} \in C(E) \\
                 \implies F^{\prime\prime}_{x_{i_r}x_{i_{r+1}}}(X) = F^{\prime\prime}_{x_{i_{r+1}} x_{i_r}}(X) \\
                 f^{(r+1)}_{x_{i_1} \ldots x_{i_{r-1}} x_{i_r} x_{i_{r+1}}}(X) =  f^{(r+1)}_{x_{j_1} \ldots x_{j_{r-1}} x_{j_{r+1}} x_{j_r}}(X) \\
@@ -170,7 +170,6 @@
         |\alpha| = \alpha_1 + \ldots + \alpha_n \\
         \alpha! \stackrel{def}{=} \alpha_1! \ldots \alpha_n! \\
         |\alpha| = r > 0 \quad C^\alpha_r \stackrel{def}{=} \frac{r!}{\alpha!} = \frac{r!}{\alpha_1! \ldots \alpha_n!} \\
-        d^{\alpha}f(x) \stackrel{def}{=} f^{|\alpha|}
         X = (X_1 \ldots X_n) \in \vR^n \\
         X^\alpha \stackrel{def}{=} X_1^{\alpha_1} \ldots X_n^{\alpha_n} \\
         0^0 \stackrel{def}{=} 1 \\
@@ -182,24 +181,28 @@
         E \subset \vR^n \quad X_0 \in E \quad H \in \vR^n \quad t_0 \in \vR \\
         X_0 + t_0H \in E \quad f: E \rightarrow \vR \quad f \in C^r(E) \quad r \geq 1 \\
         g(t) = f(X_0 + tH) \quad t \in (t_0 - \delta, t_0 + \delta) \quad g \in C^r((t_0 - \delta, t_0 + \delta)) \\
-        g^{(r)}(t_0) = \sum_{\alpha : |\alpha| = r} C^\alpha_r \partial^\alpha f(X_0 + t_0)H^\alpha  \tag{1}
+        g^{(r)}(t_0) = \sum_{\alpha : |\alpha| = r} C^\alpha_r \partial^\alpha f(X_0 + t_0H)H^\alpha  \tag{1}
     \end{gather*}
 \end{theorem}
 \begin{longProof}[по индукции]
     \begin{gather*}
         \text{ пусть } r=1 \quad f \in C^1(E) \\
         P(t) = t \rightarrow X_0 + tH \quad (t_0 - \delta, t_0 + \delta) \rightarrow \vR^n \\
-        f: E \rightarrow \vR^1 \\
-        Dg(t_0) = Df(X_0 + t_0H)DP(t_0)  = \begin{bmatrix}
+        f: E \rightarrow \vR^1 \quad H =  \begin{bmatrix}
             h_1 \\
             \vdots \\
             h_n
-        \end{bmatrix} = H \tag{2} \\
-        (2) \implies g^\prime(t_0) = (f^{\prime}_{x_1}(\ldots), \ldots, f^\prime_{x_n}(\ldots)) = H \\
-        H = f^\prime_{x_1}(\ldots)h_1 + \ldots + f^\prime_{x_n}(\ldots)h_n \tag{3} \\
+        \end{bmatrix} \quad \ldots = x_0 + t_0H \\
+        Dg(t_0) = \underbrace{Df(X_0 + t_0H)}_{=(f^{\prime}_{x_1}(\ldots), \ldots, f^\prime_{x_n}(\ldots))}\underbrace{DP(t_0)}_{=H}  \tag{2} \\
+        (2) \implies g^\prime(t_0) = (f^{\prime}_{x_1}(\ldots), \ldots, f^\prime_{x_n}(\ldots)) \cdot \begin{bmatrix}
+            h_1 \\
+            \vdots \\
+            h_n
+        \end{bmatrix}  =\\
+         = f^\prime_{x_1}(\ldots)h_1 + \ldots + f^\prime_{x_n}(\ldots)h_n \tag{3} \\
         f^\prime_{x_j}(t_0 + tH) \in C((t_0 - \delta, t_0 + \delta)) \\
         \sum_{\alpha: |\alpha| = 1} C^\alpha_1 \partial^\alpha f(\ldots) H^\alpha = \sum^{n}_{j=1} f^\prime_{x_j}(\ldots)h_j \tag{4}\\
-        \tilde{\alpha} = (1 0\ldots 0) \\
+        \tilde{\alpha} = (1,0,\ldots, 0) \\
         C^{\tilde{\alpha}}_1 = \frac{1!}{1!0!\ldots0!} = 1 \\
         H^{\tilde{\alpha}} = h_1^1 h_2^0 \ldots h_n^0 = h_1 
     \end{gather*}
@@ -219,14 +222,14 @@
     \begin{gather*}
      \beta_{k_1}, \ldots, \beta_{k_m} \ne 0 \\
      \alpha = (0, 0, \beta_{k_1}-1, \ldots, \beta_{k_m}, \ldots 0) \\
-     B_j = 0 \text{ если } j \ne k_1, \ldots, k_m \\
+     \beta_j = 0 \text{ если } j \ne k_1, \ldots, k_m \\
      (0,0 \ldots, \beta_{k_1}, \beta_{k_2}-1, \ldots, \beta_{k_m}, 0) \quad (0, 0, \ldots, \beta_{k_1} \ldots, \beta_{k_m}-1) \\
-     = \sum_{\beta: |\beta| = r+1} \partial^\beta f(\ldots)H^\beta \sum_{\alpha + e_j: \alpha + e_j=\beta}C^\alpha_r \textcolor{red}{ =} \\
+     = \sum_{\beta: |\beta| = r+1} \partial^\beta f(\ldots)H^\beta \sum_{\alpha, e_j: \alpha + e_j=\beta}C^\alpha_r \textcolor{red}{ =} \\
     \end{gather*}
     \includegraphics[width=1\linewidth]{eji.pdf}
     \begin{gather*}
         \beta_{k_1} + \ldots + \beta_{k_m} = |\beta| = r + 1 \\
-        \sum_{\alpha, j: \alpha + e_j = \beta} C^\alpha_r = \sum^m_{\nu=1} \frac{r! \cdot \beta_{k_\nu}}{B_{k_1}!(B_{k_\nu}-1)! \ldots \beta_{k_m}!} = 
+        \sum_{\alpha, j: \alpha + e_j = \beta} C^\alpha_r = \sum^m_{\nu=1} \frac{r! \cdot \beta_{k_\nu}}{\beta_{k_1}!(\beta_{k_\nu}-1)! \ldots \beta_{k_m}!} = 
         \frac{r!}{\beta!}\sum_{\nu=1}^m \beta_{k\nu} \textcolor{green}{ =} \\
         (0, \beta_{k_1}, \ldots, \beta_{k_\nu}-1, \ldots, \beta_{k_m}, 0) = \gamma_\nu \quad |\gamma_\nu| = r \\
         \textcolor{green}{= } \frac{r!|\beta|}{\beta!} = \frac{(r+1)!}{\beta!} \tag{6}\\
@@ -242,14 +245,14 @@
     \exists c \quad 0 < c < 1 \end{gather*}
     \begin{multline*}
     f(X_0 + tH) = f(X_0) + \sum^r_{k=1} \sum_{\alpha: |\alpha| = k} \frac{1}{\alpha!} \partial^\alpha f(X_0)(tH)^\alpha + \\
-     + \sum_{\alpha: |\alpha| = r+1} \frac{1}{\alpha!} \partial^\alpha f(X_0 + ctH)(tH)^{\alpha+1} \tag{7}
+     + \sum_{\alpha: |\alpha| = r+1} \frac{1}{\alpha!} \partial^\alpha f(X_0 + ctH)(tH)^{\alpha} \tag{7}
 \end{multline*}
 \begin{gather*}
     (tH)^\alpha = t^{|\alpha|}H^\alpha \quad tH = \tilde{H} \quad g(S) = f(X_0 + S\tilde{H}) \quad 0 \leq S \leq 1\\
     g \in C^{r+1}([0,1]) \quad g \in C^{r+1}((-\varepsilon, 1 + \varepsilon)) \\
     g(1) = g(0) = \sum^r_{k=1} \frac{1}{k!} g^{(k)}(0) \cdot 1^k + \frac{1}{(r+1)!} g^{(r+1)}(c) 1^{r+1} \tag{8}\\
     \exists c \quad 0 < c < 1 \\
-    g(1) = g(0) + \sum^r_{k=1} \frac{1}{k!} g^{(k)}(0) \cdot 1^k + \frac{1}{(r+1)!}g^{(r+1)}(c) 1^{k+1} \tag{8\prime} \\
+    g(1) = g(0) + \sum^r_{k=1} \frac{1}{k!} g^{(k)}(0) \cdot  + \frac{1}{(r+1)!}g^{(r+1)}(c)  \tag{8\prime} \\
     (8) \implies (8\prime) \\
     g(0) = f(X_0) \tag{9\prime} \\
     g^{(k)}(0) = \sum_{\alpha: |\alpha| = k} C^\alpha_k \partial^\alpha f(X_0) \tilde{H}^\alpha \tag{9\prime\prime} \\
@@ -263,12 +266,12 @@
 
 \begin{gather*}
     E \subset \vR^n \quad n \geq 2 \quad f: E \rightarrow \vR \quad f \in C^r(E) \quad r \geq 1 \\
-    X_0 \in e \quad X+0 + H \in E \quad H \ne \mathbb{0}_n  \quad X_0 + tH \in E \forall t \in [0,1] \\
-    f(X_0) + H = f(X_0) + \sum^r_{k=1} \sum_{\alpha: |\alpha| = k} \frac{1}{\alpha!} \partial^\alpha f (X_0) H^\alpha + R(H) \tag{11}\\
-    \frac{|R(H)|}{||H||_{\vR^n}} \underset{H \to \mathbb{0}_n}{\rightarrow} 0 \tag{12} \\
+    X_0 \in E \quad X_0 + H \in E \quad H \ne \mathbb{0}_n  \quad X_0 + tH \in E \forall t \in [0,1] \\
+    f(X_0 + H) = f(X_0) + \sum^r_{k=1} \sum_{\alpha: |\alpha| = k} \frac{1}{\alpha!} \partial^\alpha f (X_0) H^\alpha + R(H) \tag{11}\\
+    \frac{|R(H)|}{||H||_{\vR^n}}^r \underset{H \to \mathbb{0}_n}{\rightarrow} 0 \tag{12} \\
 \end{gather*}
 $r=1$
-\[ f(X_0+1) = f(X_0) + \sum^n_{j=1} f^\prime_{x_j}(X_0)h_j + R(H) \quad H = \begin{bmatrix}
+\[ f(X_0+H) = f(X_0) + \sum^n_{j=1} f^\prime_{x_j}(X_0)h_j + R(H) \quad H = \begin{bmatrix}
     h_1 \\
     \vdots \\
     h_n
@@ -284,10 +287,10 @@ $r \geq 2 \quad r - 1 \geq 1 $
     \end{multline*}
     \[f \in C^r(E) \implies \forall \alpha, |\alpha| = r \quad \partial^\alpha f \in C(E) \implies \] 
     \[ |\partial^\alpha f(X_0 + cH) - \partial^\alpha f(X_0)| \underset{H \to \mathbb{0}_n}{\rightarrow} 0  \tag{15} \]
-    \[H^\alpha| = |h_1^{\alpha_1} \ldots h_n^{\alpha_n}| \leq ||H||^{\alpha_1} \cdot \ldots \cdot ||H||^{\alpha_n} = ||H||^{|\alpha|}_{\vR^n} \tag{16} \]
+    \[|H^\alpha| = |h_1^{\alpha_1} \ldots h_n^{\alpha_n}| \leq ||H||^{\alpha_1} \cdot \ldots \cdot ||H||^{\alpha_n} = ||H||^{|\alpha|}_{\vR^n} \tag{16} \]
     \begin{multline*}
-        (15), (16) \implies \frac{|(\partial^\alpha f (X_0 + cH) - \partial^\alpha f(X_0))H^\alpha|}{||H||_{\vR^n}} \leq \\
-    \leq |\partial^\alpha f(X_0 + cH) = \partial^\alpha f(X_0)| \underset{H \to \mathbb{0}_n}{0\rightarrow}  0 \tag{17}
+        (15), (16) \implies \frac{|(\partial^\alpha f (X_0 + cH) - \partial^\alpha f(X_0))H^\alpha|}{||H||_{\vR^n}^r} \leq \\
+    \leq |\partial^\alpha f(X_0 + cH) - \partial^\alpha f(X_0)| \underset{H \to \mathbb{0}_n}{\rightarrow}  0 \tag{17}
     \end{multline*}
     $(14), (17) \implies (11), (12) $
 
@@ -315,10 +318,12 @@ $r \geq 2 \quad r - 1 \geq 1 $
             $r = 1$ справедливо. Предположим, верно для $r \geq 1$ 
             \begin{multline*}
                 (2) \implies d^{r+1}f(X_0, H) = \sum_{\alpha: |\alpha| = r} C^\alpha_r d(\partial^\alpha f(X_0,H))H^\alpha = \\
-                = \sum_{\alpha: |\alpha| = r} C^\alpha_r \left( \sum^n_{j=1} (\partial^\alpha f(X_0))^\prime_{x_j}h_j \right)H^\alpha = \sum_{\beta: |\beta| = r+1} C_{r+1}^\beta \partial^\beta f(X_0) H \beta 
+                = \sum_{\alpha: |\alpha| = r} C^\alpha_r \left( \sum^n_{j=1} (\partial^\alpha f(X_0))^\prime_{x_j}h_j \right)H^\alpha = \sum_{\beta: |\beta|
+                 = r+1} C_{r+1}^\beta \partial^\beta f(X_0) H^\beta 
             \end{multline*}
-            \[ (1), (2), (3) \implies d^r f(X_0,H) = \sum_{\alpha: |\alpha| = r} C^\alpha_r \partial^\alpha f(X_0) H^\alpha = \sum_{\alpha: |\alpha|=r} \frac{r!}{\alpha!} \partial^\alpha f(X_0) H^\alpha \tag{4} \] 
-            \[ (4) \implies f(X_0 + H) = f(X_0) \sum^r_{k=1|} \frac{1}{k!} d^k f(X_0, H) + R(H) \tag{5} \]
+            \[ (1), (2), (3) \implies d^r f(X_0,H) = \sum_{\alpha: |\alpha| = r} C^\alpha_r \partial^\alpha f(X_0) H^\alpha =
+             \sum_{\alpha: |\alpha|=r} \frac{r!}{\alpha!} \partial^\alpha f(X_0) H^\alpha \tag{4} \] 
+            \[ (4) \implies f(X_0 + H) = f(X_0) + \sum^r_{k=1|} \frac{1}{k!} d^k f(X_0, H) + R(H) \tag{5} \]
             \[ \frac{|R(H)|}{||H||^r_{\vR^n}} \underset{H \to \mathbb{0}_n}{\rightarrow} 0 \tag{6} \]
             \[ (4) \implies d^2f(X_0, H) = \sum_{\alpha : |\alpha| = 2} C^\alpha_2 \partial^\alpha f(X_0)H^\alpha \tag{7} \] 
             \begin{gather*}
@@ -339,7 +344,7 @@ $r \geq 2 \quad r - 1 \geq 1 $
 $A(X) = \sum^n_{i=1}\sum^n_{k=1} a_{ik} x_i x_k$ называется положительно определённой, если $\forall X \in \vR^n, X \ne \mathbb{0}_n \quad A(X) > 0$.
 $B(X) = \sum^n_{i=1}\sum^n_{j=1} b_{ik}x_i x_k$ -- отрицательно определённой, если $B(X) < 0$.
 $C(X) = \sum^n_{i=1}\sum^n_{j=1} c_{ik}x_k x_k$ -- неопределённой, если $\exists x_1, x_2$ т.ч. $C(x_1) > 0, C(X_2) < 0$.
-$\tilde{A}(X) \geq 0$ -- положительно неопредлённая. $\tilde{B}(X) \leq 0$ -- отрицательно неопределённая. \\
+$\tilde{A}(X) \geq 0$ -- неотрицательно определённая. $\tilde{B}(X) \leq 0$ -- неположительно определённая. \\
 $x^2 + y^2$ -- положительно определена \\
 $x^2 - y^2$ -- не определена \\
 $-x^2 -y^2$ -- отрицательно определена \\
@@ -347,16 +352,16 @@ $x^2 - 2xy y^2$ -- неотрицателна \\
 $-x^2 + 2xy - y^2$ -- не положительна \\
 \[A(X) > 0 \Leftrightarrow -A(X) < 0 \]
 \begin{gather*}
-    \text{положительно определена } \exists 0 < m \leq M : \forall X \in \vR^n \\
+     A(X) \text{положительно определена } \exists 0 < m \leq M : \forall X \in \vR^n \\
     m||X||^2_{\vR^n} \leq A(X) \leq M||X||^2_{\vR^n} \tag{1} \\
-    \text{ отрицательно определена } \exists 0 < m_1 \leq M_1: \forall X \in \vR^n \\
-    -M_1||X||^2_{\vR^n} \leq B(X) \leq -m||X||^2_{\vR^n} \tag{2} \\
+    B(X) \text{ отрицательно определена } \exists 0 < m_1 \leq M_1: \forall X \in \vR^n \\
+    -M_1||X||^2_{\vR^n} \leq B(X) \leq -m_1||X||^2_{\vR^n} \tag{2} \\
 \end{gather*}
-\[ S_n \{ X \in \vR^n " ||X||_{\vR^n} = 1 \} \] 
+\[ S_n = \{ X \in \vR^n : ||X||_{\vR^n} = 1 \} \] 
 \[ A(X) \in C(S_n) \]
 По второй теореме Вейерштрасса
 \begin{gather*}
-    \exists (.) X_- \in S_n \text{ и } \exists X_+ \in S_n: \forall X \in S_n  \\
+    \exists  X_- \in S_n \text{ и } \exists X_+ \in S_n: \forall X \in S_n  \\
     A(X_-) \leq A(X) \leq A(X_+) \tag{3\prime} \\
     m = A(X_-) > 0 \quad M = A(X_+) \implies \text{соотношение (1) справедливо } \tag{3}
 \end{gather*} 
@@ -369,12 +374,12 @@ $-x^2 + 2xy - y^2$ -- не положительна \\
 \end{gather*}
 
 \begin{gather*}
-    C(X) \quad m_2, M_2 > 0 \quad X_1, X_2 : t \in \vR \ne 0 \\
+    \text {неопределённая форма }C(X) \quad \exists m_2, M_2 > 0 \quad X_1, X_2 \in \vR^n : t \in \vR \ne 0 \\
     C(tX_1) = -m_2t^2 \\
     C(tX_2) = M_2t^2 \\
     -m_2 = C(X_1) < 0 \\
     M_2 = C(X_2) > 0 \\
-    d^2 f(X,H) = \sum{i=1}^n\sum_{k=1}^n f^{\prime\prime}_{x_i x_k}(X) h_i h_k \tag{4}
+    d^2 f(X,H) = \sum_{i=1}^n\sum_{k=1}^n f^{\prime\prime}_{x_i x_k}(X) h_i h_k \text{ квадратичная форма } \tag{4}
 \end{gather*}
 
 \section{Достаточное условие наличия или отсутствия локального экстремума}
@@ -399,8 +404,8 @@ $-x^2 + 2xy - y^2$ -- не положительна \\
         (7) \implies \exists \delta > 0 : \text{ при } H \ne \mathbb{0}_n \quad ||H|| < \delta \\
         \text{ выполнено } |r(H)| < \frac{m}{4}||H||^2 \tag{9} \end{gather*}
         \begin{multline*}
-            (5),(6),(8), (9) \implies f(X_0 + H) \geq f(X_0) \frac{m}{2}||H||^2 - |r(H)| \geq \\
-            \geq f(X_0) + \frac{m}{2}||H||^2 - \frac{m}{4}||H||^2 = f(X) + \frac{m}{4}||H|| > f(X_0)
+            (5),(6),(8), (9) \implies f(X_0 + H) \geq f(X_0) + \frac{m}{2}||H||^2 - |r(H)| \geq \\
+            \geq f(X_0) + \frac{m}{2}||H||^2 - \frac{m}{4}||H||^2 = f(X) + \frac{m}{4}||H||^2 > f(X_0)
         \end{multline*}
         \begin{gather*}
         f_1, f_2 \quad a,b \in \vR \quad (af_1 + bf_2)^\prime_{x_i} = a{f_1}^\prime_{x_i} + b{f_2}^\prime_{x_i} \\
@@ -421,13 +426,13 @@ $-x^2 + 2xy - y^2$ -- не положительна \\
             m = \min(m_1, m_2) > 0 \\
             f(X_0 + tH) = f(X_0) + \frac{1}{2} t^2 d^2f(X_0,H) + r(tH) \tag{13}\\
             \frac{|r(tH)|}{|t|^2} \underset{t \to 0}{\rightarrow} 0 \quad |t|||H|| = ||tH|| \tag{14} \\
-            \varepsilon > 0 \exists \quad  \delta > 0 : |r(tH)| < \varepsilon|t|||H|| \tag{15} \\
-            (5), (11), (15) \implies f(x_0 + tH_1) \quad |t|||H_1|| < \delta \\
+            \varepsilon > 0 \exists \quad  \delta > 0 : |r(tH)| < \varepsilon|t|^2||H||^2 \tag{15} \\
+            |t|||H_1|| < \delta \\
             \varepsilon||H_1||^2 \leq \frac{m}{4} \tag{17} \\
         \end{gather*}
         \begin{multline*}
-            f(X_0 + tH_1) \geq f(X_0) + \frac{1}{2} m_1t^2 - |r(tH_1)| > f(X_0) + \frac{m_1}{2}t^2 - \\
-            - \varepsilon t^2||H_1||^2 \geq f(X_0) + \frac{m}{4}t^2 > f(x)  \tag{16} \\
+            (5), (11), (15) \implies f(X_0 + tH_1) \geq f(X_0) + \frac{1}{2} m_1t^2 - |r(tH_1)| > f(X_0) + \frac{m_1}{2}t^2 - \\
+            - \varepsilon t^2||H_1||^2 \geq f(X_0) + \frac{m}{4}t^2 > f(X_0)  \tag{16} \\
         \end{multline*}
 
         \begin{multline*}
