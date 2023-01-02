@@ -17,11 +17,11 @@
 
 \begin{proposition}
     Пусть $\mca$ -- нормальный, $\alpha \in K$. Тогда $\mcb = \mca - \alpha \mse_V$ -- тоже нормальный.
-    \begin{enumerate}
-        \item $\mcb^* = \mca^* - (\alpha \mse_V)^* = \mca^* - \overline{\alpha}\mse_V^* = \mca^* - \overline{\alpha}\mse_V$
-        \item $\mcb \mcb^* = \mca \mca^* - \alpha\mca^* - \overline{\alpha}\mca + |\alpha|^2\mse_V$
-        \item $\mcb^* \mcb = \mca^* \mca - \alpha \mca^* - \overline{\alpha}\mca + |\alpha|^2\mse_V$
-    \end{enumerate}
+    \begin{gather*}
+        \mcb^* = \mca^* - (\alpha \mse_V)^* = \mca^* - \overline{\alpha}\mse_V^* = \mca^* - \overline{\alpha}\mse_V \\
+        \mcb \mcb^* = \mca \mca^* - \alpha\mca^* - \overline{\alpha}\mca + |\alpha|^2\mse_V \\
+        \mcb^* \mcb = \mca^* \mca - \alpha \mca^* - \overline{\alpha}\mca + |\alpha|^2\mse_V 
+    \end{gather*}
 \end{proposition}
 
 \begin{proposition}
@@ -50,7 +50,7 @@
 
     Применим  индукционное предположение. Проверим: $\mca_1 = \mca|_W$ - нормальный. $\mca^*|_W = \mca_1^*$?
 
-    $\forall v, \ w \in W: \ (\mca_1 v, w) = (\mca v, w) = (v, \mca^* w) = (v, (\mca^*|W) w)$
+    $\forall v, \ w \in W: \ (\mca_1 v, w) = (\mca v, w) = (v, \mca^* w) = (v, (\mca^*|_W) w)$
 
     $\Rightarrow \mca_1 \mca_1^* = \mca_1^* \mca_1$.
 
@@ -79,7 +79,7 @@
 \begin{proof}
     \begin{gather*}
         \mca v = \lambda v \\
-        \mca w = \mu v \\
+        \mca w = \mu w \\
         \mu \neq \lambda \\
         \lambda(v, w) = (\lambda v, w) = (\mca v, w) = (v, \mca^* w) = (v, \overline{\mu} w) = \mu (v, w) \\
         \Rightarrow (\mu - \lambda) (v, w) = 0 \\

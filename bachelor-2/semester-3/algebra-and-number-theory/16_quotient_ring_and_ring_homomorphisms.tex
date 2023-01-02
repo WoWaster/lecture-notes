@@ -5,7 +5,7 @@
 
 \part{ Элементы теории полей}
 
-\chapter{Факторкольца и гомоморфизмы полей}
+\chapter{Факторкольца и гомоморфизмы колец}
 
 $R$ -- коммутативное (ассоциативность подразумевается) кольцо с 1. 
 
@@ -32,7 +32,7 @@ $R = (1), \ 0 = (0)$.
 
 Пусть $R$ -- коммутативное кольцо, $I$ -- идеал в $R$.
 
-Рассмотрим факторгруппу $R/I$ и введем на ней умножение: \\ $\underset{(R/I)\times(R/I) \rightarrow R/I}{(a+I, b+I) \mapsto ab+I}$.
+Рассмотрим факторгруппу $R/I$ и введем на ней умножение: \\ $\underset{(a+I, b+I) \mapsto ab+I}{(R/I)\times(R/I) \rightarrow R/I}$.
 
 Проверка корректности:
 
@@ -64,7 +64,9 @@ $R = (1), \ 0 = (0)$.
 \begin{proof}
     $R/(a)$ поле $\Leftrightarrow \forall b \in R, \ a \not\in R^*$: $b \not\in (a) \Rightarrow
     \exists c \in R: \ \overline{b}\overline{c} = \overline{1} \ (\overline{b} = b + (a)) \Leftrightarrow
-    \forall b \in R: \ a \not\mid b \Rightarrow \exists c \in R: \ bc = 1 + ax, \ x \in R$. Пусть $a$ неприводим. Тогда 
+    \forall b \in R: \ a \not\mid b \Rightarrow \exists c \in R: \ bc = 1 + ax, \ x \in R$. 
+    
+    Пусть $a$ неприводим. Тогда 
     $a \not\mid b \Rightarrow (a, b) = 1 \Rightarrow ax + by = 1$ для некоторых $x, \ y \in R \Rightarrow by = 1 - ax$.
     Таким образом, $R/(a)$ -- поле. 
 

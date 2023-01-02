@@ -58,6 +58,8 @@
 Пусть $V$ -- евклидово пространство, $\mca \in \End V$ -- самосопряженный. $\mca$ называется положительно определенным, если $\forall
 v \in V, \ v \neq 0: \ (\mca v, v)  > 0$.
 
+\marginpar{16.11.22}
+
 \begin{proposition}
     Следующие 2 условия эквивалентны:
     \begin{enumerate}
@@ -84,7 +86,7 @@ v \in V, \ v \neq 0: \ (\mca v, v)  > 0$.
     $\mcb(e_i) = \sqrt{\lambda_i} e_i$. $[\mcb]_E = diag(\sqrt{\lambda_1}, \ldots, \sqrt{\lambda_n}) = B$.
     $B^* = B \Rightarrow \mcb = \mcb^*; \ \mcb^2 = \mca$.
 
-    Единственность: пусть $\mcb_1 = \mcb_1^*$, $\mcb^*$ положительно определен, $\mcb_1^* = \mca$.
+    Единственность: пусть $\mcb_1 = \mcb_1^*$, $\mcb^*$ положительно определен, $\mcb_1^2 = \mca$.
     Существует ортонормированный $F$, $[\mcb_1]_F$ -- диагональная. Пусть $\mu_1, \ldots, \mu_k$ -- все собственные значения $\mcb_1$, $g_{\mcb_1\mu_1}, \ldots, g_{\mcb_1\mu_k}$ --
     их геометричсекие кратности. 
     \begin{gather*} 
@@ -93,17 +95,17 @@ v \in V, \ v \neq 0: \ (\mca v, v)  > 0$.
         \mcb_1|_{V_{\mcb_1\mu_j}} = \mu_j \mse|_{\ldots} \\
         \Rightarrow \mcb_1^2|_{V_{\mcb_1\mu_j}} = \mu_j^2 \mse|_{\ldots} \\
         \Rightarrow \mca | _{V_{\mcb_1\mu_j}} = \mu_j^2 \mse|_{\ldots} \\
-        \Rightarrow V_{\mcb_1\mu_j} \subset V_{\mca{\mu_j}^2} \\
-        g_{\mcb_1\mu_j} \leq g_{\mca{\mu_j}^2} \\
+        \Rightarrow V_{\mcb_1\mu_j} \subset V_{\mca{\mu^2_j}} \\
+        g_{\mcb_1\mu_j} \leq g_{\mca{\mu^2_j}} \\
         n = g_{\mcb_1\mu_1} + \ldots + g_{\mcb_1\mu_k} \leq g_{\mca\mu_1} + \ldots + g_{\mca\mu_k} \leq n \\
-        \Rightarrow g_{\mcb_1\mu_j} = g_{\mca{\mu_j}^2} \text{ и из } \mca \text{ нет собственных значений, кроме } \mu_1^2, \ldots, \mu_k^2 \\
-        \text{Таким образом, } V_{\mcb_1\mu_j} = V_{\mca_1{\mu_j}^2} \Rightarrow \\
+        \Rightarrow g_{\mcb_1\mu_j} = g_{\mca{\mu^2_j}} \text{ и из } \mca \text{ нет собственных значений, кроме } \mu_1^2, \ldots, \mu_k^2 \\
+        \text{Таким образом, } V_{\mcb_1\mu_j} = V_{\mca_1{\mu^2_j}} \Rightarrow \\
         \Rightarrow (\mca e = \lambda e \Rightarrow \mcb_1 e = \sqrt{\lambda}e, \text{в частности, }) \mcb_1 e_i = \sqrt{\lambda_i} = \mcb e _i
     \end{gather*}
 \end{proof}
 
 \begin{theorem} [Полярное разложение]
-    Пусть $V$ -- евклидово, $\mca \in \GL (V)$. Тогда существует единственное $\mcc, \mco \in \End V$, такие что 
+    Пусть $V$ -- евклидово, $\mca \in \GL (V)$. Тогда существуют единственные $\mcc, \mco \in \End V$, такие что 
     $\mcc$ -- положительно определенный, $\mco$ ортогональный и $\mca = \mcc \mco$.
 \end{theorem}
 
@@ -124,7 +126,7 @@ $\mca \in \GL(V) \Rightarrow \mca^* \in \GL(V) \ (\mca \mcb = \mse \Rightarrow \
     \text{а потом нас обманули...} \\
     \mca \mca^* = \mcc_1 \mco_1 \mco_1^* \mcc_1 = \mcc_1^2 \\
     \mca \mca^* = \mcc_2 \underbrace{\mco_2 \mco_2^*}_{=\mse} \mcc_2 = \mcc_2^2 \\
-    \text{из соображений единственности: } \mcc_1 = \mcc_2, \ \mco_1, \mco_2
+    \text{из соображений единственности: } \mcc_1 = \mcc_2, \ \mco_1 = \mco_2
 \end{gather*}
 
 \end{document}

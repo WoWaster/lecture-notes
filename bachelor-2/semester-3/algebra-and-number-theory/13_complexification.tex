@@ -7,7 +7,7 @@
 
 \marginpar{02.11.22}
 
-$V$ -- линейное пространство над полем $\R$. Построим $V_{\C}$ -- линейное пространство 
+$V$ -- линейное пространство над полем $\R$. Построим $V_{\C}$ -- линейное пространство над
 полем $\C$. Неформально: $V_{\C} = \{v +  iw \ | \ v, \ w \in V\}$ (сложение: вещественные части и мнимые отдельно, 
 умножение на скаляр: $(\alpha + i\beta) (v + iw) = (\alpha v - \beta w) + i(\beta v + \alpha w)$).
 
@@ -111,7 +111,7 @@ $V_{\C}$ -- комплексификация $V$.
     \begin{remark}
         $u \in V_{\C}, \ \gamma \in \C \Rightarrow \overline{\gamma u} = \overline{\gamma} \overline{u}. \ \overline{u} = \overline{v + iw} = v - iw$.
         Проверка: пусть $\lambda = \alpha + i\beta, \ u = v + w$, тогда $\overline{(\alpha + i\beta)(v + iw)} =
-         \overline{\alpha v - \beta w + (\alpha w + \beta v)} = \alpha v - \beta w - i(\alpha w + \beta v) = (\alpha + i\beta)(v - iw) =
+         \overline{\alpha v - \beta w + i(\alpha w + \beta v)} = \alpha v - \beta w - i(\alpha w + \beta v) = (\alpha + i\beta)(v - iw) =
         \alpha v - \beta w -i(\beta v + \alpha w)$.
     \end{remark}
 
@@ -142,8 +142,9 @@ $V_{\C}$ -- комплексификация $V$.
     \begin{proof}
         Полуторалинейность -- непосредственная проверка. 
 
-        $\mcb(v'+iw', u+iw) = \overline{\mcb(v + i w, v' + iw')}. 
-        \mcb(v + iw, v + iw) = (v, v) + (w, w) \geq 0$, ($=0$ только при $v = w = 0$).
+        $\mcb(v'+iw', u+iw) = \overline{\mcb(v + i w, v' + iw')}.$ 
+
+        $\mcb(v + iw, v + iw) = (v, v) + (w, w) \geq 0$, ($=0$ только при $v = w = 0$).
 
         Таким образом, $(V_{\C}, \mcb)$ -- унитарное пространство.
     \end{proof}

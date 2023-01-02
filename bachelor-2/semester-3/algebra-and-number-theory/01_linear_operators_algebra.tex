@@ -88,7 +88,7 @@ $\mca: U_{EE'} \rightarrow V_{FF'}$. Как связаны матрицы это
 $[\mca]_{EF}=A$ -- знаем,  $[\mca]_{E'F'}=?$ Нужны матрицы перехода:
 $M_{E\rightarrow E'} = C,\ M_{F\rightarrow F'} = D$. Можем записать:
 $E' = EC,\ E=(e_1, \ldots ,e_n),\ C=(c_{ij})$ ($E$ -- вектор, $C$ -- квадратная матрица). Тогда
-$EC=(c_{11}e_1+\ldots+c_{m1}e_n, c_{12}e_1 +\ldots +c_{n2}e_n, \ldots)$. Что происходит с матрицей при такой замене базиса?
+$EC=(c_{11}e_1+\ldots+c_{n1}e_n, c_{12}e_1 +\ldots +c_{n2}e_n, \ldots)$. Что происходит с матрицей при такой замене базиса?
 
 \begin{proposition}
     Пусть $\mca \in \End V, E$ и $E'$ — базисы, $[\mca]_{E}=A,\ M_{E\rightarrow E'}=C$, тогда $[\mca]_{E'}=C^{-1}AC$.
@@ -98,7 +98,7 @@ $EC=(c_{11}e_1+\ldots+c_{m1}e_n, c_{12}e_1 +\ldots +c_{n2}e_n, \ldots)$. Что 
     % https://q.uiver.app/?q=WzAsNCxbMCwxLCJVX0YnIl0sWzEsMCwiVl9GIl0sWzEsMSwiVl9GJyJdLFswLDAsIlVfRSJdLFsxLDIsIlxccXVhZCBcXHF1YWQgXFxxdWFkXFxlcHNpbG9uX1Y9aWRfViJdLFswLDMsIlxcZXBzaWxvbl9VIl0sWzMsMSwiXFxtYXRoY2Fse0F9Il0sWzAsMiwiXFxtYXRoY2Fse0F9IiwyXV0=
     \[\begin{tikzcd}
             {U_E} & {V_F} \\
-            {U_{F'}} & {V_{F'}}
+            {U_{E'}} & {V_{F'}}
             \arrow["{ \mse_V=id_V}", from=1-2, to=2-2]
             \arrow["{\mse_U}", from=2-1, to=1-1]
             \arrow["{\mathcal{A}}", from=1-1, to=1-2]
