@@ -146,21 +146,21 @@
             \begin{gather*}
                 r = 2 \text{ -- уже  рассмотрено.} \\
                 i_1, \ldots, i_{r-1}, i_r, i_{r+1} \\
-                j_1, \ldots, j_{r-1}, j_{r+1}, j_r\\
+                j_1, \ldots, j_{r-1}, I_{r+1}, j=I_r\\
                 i_r \ne i_{r+1} \\
                 f \in  C^{r+1}(E) \implies f \in C^{r-1}(E) \\
                 F(X) = f^{(r-1)}_{x_{i_1} \ldots x_i{r-1}}(X) = f^{(r-1)}_{x_{j_1} \ldots x_{j_{r-1}}}(X) \forall X \in E \\
                 f^{(r+1)}_{x_{i_1} \ldots x_{i_{r-1}} x_{i_r} x_{i_{r+1}}}(X) = F^{\prime\prime}_{x_{i_r} x_{i_{r+1}}}(X) \\
-                f^{(r+1)}_{x_{j_1} \ldots x_{j_{r-1}} x_{i_{r_1}} x_{i_r}}(X) = F^{\prime\prime}_{x_{i_{r+1}} x_{i_r}}(X) \\
+                f^{(r+1)}_{x_{j_1} \ldots x_{j_{r-1}} x_{i_{r+1} x_{i_r}}}(X) = F^{\prime\prime}_{x_{i_{r+1}} x_{i_r}}(X) \\
                 F^{\prime\prime}_{x_{i_r} x_{i_{r+1}}} \in C(E) \quad F^{\prime\prime}_{x_{i_{r+1}}x_{i_r}} \in C(E) \\
                 \implies F^{\prime\prime}_{x_{i_r}x_{i_{r+1}}}(X) = F^{\prime\prime}_{x_{i_{r+1}} x_{i_r}}(X) \\
-                f^{(r+1)}_{x_{i_1} \ldots x_{i_{r-1}} x_{i_r} x_{i_{r+1}}}(X) =  f^{(r+1)}_{x_{j_1} \ldots x_{j_{r-1}} x_{j_{r+1}} x_{j_r}}(X) \\
+                f^{(r+1)}_{x_{i_1} \ldots x_{i_{r-1}} x_{i_r} x_{i_{r+1}}}(X) =  f^{(r+1)}_{x_{j_1} \ldots x_{j_{r-1}} x_{i_{r+1}} x_{i_r}}(X) \\
                 1 \leq k < r \\
-                i_{1} i_{k-1} i_k i_{k+1} i_{k+2} \ldots i_{r+1} \\
-                j_{1} j_{k-1} j_k j_{k+1} j_{k+2} \ldots j_{r+1} \\
-                \Phi(X) = f^{(k+1)}_{x_{i_1} \ldots x_{i_{k-1}} x_{i_k} x_{i_{k+1}}}(X) = f^{(k+1)}_{x_{j_1} \ldots x_{j_{k-1}} x_{j_{k+1}} x_{j_k}}(X)  \\
+                i_{1} i_{k-1} i_k i_{k+1} i_{k+2} \ldots i_{r+1} \ldots i_n \\
+                j_{1} j_{k-1} i_k i_{k+1} i_{k+2} \ldots i_{r+1} \ldots i_n \\
+                \Phi(X) = f^{(k+1)}_{x_{i_1} \ldots x_{i_{k-1}} x_{i_k} x_{i_{k+1}}}(X) = f^{(k+1)}_{x_{j_1} \ldots x_{j_{k-1}} x_{i_{k+1}} x_{i_k}}(X)  \\
                 f^{(r+1)}_{x_{i_1} \ldots x_{i_{k-1}} x_{i_k} x_{i_{k+1}} \ldots x_{i_{r+1}}}(X) = \Phi^{(r-k)}_{x_{i_{k+2}} \ldots x_{i_{r+1}}}(X) \\ 
-                f^{(r+1)}_{x_{j_1} \ldots x_{j_{k-1}} x_{j_k} x_{j_{k+1}} \ldots x_{j_{r+1}}}(X) = \Phi^{(r-k)}_{x_{i_{k+2}} \ldots x_{i_{r+1}}}(X) 
+                f^{(r+1)}_{x_{j_1} \ldots x_{j_{k-1}}  x_{i_{k+1}} x_{i_k} x_{i_{k+2}}\ldots x_{i_{r+1}}}(X) = \Phi^{(r-k)}_{x_{i_{k+2}} \ldots x_{i_{r+1}}}(X) 
             \end{gather*}
         \end{longProof}
     \begin{gather*}
@@ -175,7 +175,6 @@
         0^0 \stackrel{def}{=} 1 \\
         \partial^{\alpha}f(x) \stackrel{def}{=} f^{|\alpha|}_{\underbrace{x_1 \ldots x_1}_{\alpha_1} \ldots \underbrace{x_n \ldots x_n}_{\alpha_n}} 
     \end{gather*}
-
     \begin{theorem}
     \begin{gather*}
         E \subset \vR^n \quad X_0 \in E \quad H \in \vR^n \quad t_0 \in \vR \\
@@ -192,7 +191,7 @@
             h_1 \\
             \vdots \\
             h_n
-        \end{bmatrix} \quad \ldots = x_0 + t_0H \\
+        \end{bmatrix} \quad \ldots = X_0 + t_0H \\
         Dg(t_0) = \underbrace{Df(X_0 + t_0H)}_{=(f^{\prime}_{x_1}(\ldots), \ldots, f^\prime_{x_n}(\ldots))}\underbrace{DP(t_0)}_{=H}  \tag{2} \\
         (2) \implies g^\prime(t_0) = (f^{\prime}_{x_1}(\ldots), \ldots, f^\prime_{x_n}(\ldots)) \cdot \begin{bmatrix}
             h_1 \\
@@ -311,7 +310,7 @@ $r \geq 2 \quad r - 1 \geq 1 $
         d^{r+1}f(X_0, H) \stackrel{def}{=} \sum_{\alpha: |\alpha| = r} A_{r,\alpha}d(\partial^\alpha f(X_0, H))H^\alpha \tag{2} \\
     \end{gather*}
     \begin{theorem}
-        \[A_{r, \alpha} = c^\alpha_r \tag{3} \]
+        \[A_{r, \alpha} = C^\alpha_r \tag{3} \]
         \end{theorem}
 
         \begin{longProof}[по индукции]

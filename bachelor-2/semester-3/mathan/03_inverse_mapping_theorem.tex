@@ -38,7 +38,7 @@
              (8) \implies \exists r > 0: \forall X, ||X-X_0||_{{\vR}^n} < r
              \text{ имеем } \\
              ||DF(X) - DF(X_0)|| < 2\lambda \tag{9} \\
-             DF(X) - A|| < 2 \lambda \tag{9\prime} 
+             ||DF(X) - A|| < 2 \lambda \tag{9\prime} 
             \end{gather*}
              \[U = B_r(X_0) = \{ X \in {\vR}^n: ||X-X_0|_{{\vR}^n} < r\tag{10} \}\]
              \begin{remark}[О внутренности шара]
@@ -53,8 +53,8 @@
                \end{remark}
  
              \item Биективность отображения $F$ на $U$
-              \[ 0 < t < 1 \]
              \begin{gather*}
+               0 < t < 1  \\
             X \in B_r(x_0), H \in {\vR}^n, X + H \in B_r(X_0) \\
              t(X+H) + (1-t)X = X+tH \in B_r(X_0) \\
             g:[0,1] \rightarrow {\vR}^n
@@ -105,8 +105,8 @@
                 $X_1 \in U, Y_1 = F(X_1) $, 
                 $0 < \rho < \rho - ||X_1-X_0||_{{\vR}^n} $ 
                 Такой выбор влечёт 
-                \[\overline{B}_\rho(X_1) \in U Y \in B_{\lambda\rho}(Y_1), Y \neq Y_1 
-                \tag{12}\]
+                \[\overline{B}_\rho(X_1) \in U \quad  Y \in B_{\lambda\rho}(Y_1), Y \neq Y_1 
+                \tag{24}\]
                 \[\implies \exists X \in B_\rho(X_1) : F(X) = Y \tag{25} \]
              \end{lemma}
              \begin{longProof} 
@@ -116,7 +116,7 @@
                 Видно, что функция непрерывная,  класса $C^1$, норма это непрерывная 
                 функция на замкнутом шаре. Так как замкнутый шар это компакт:
                 \begin{gather*}
-                \exists X_1 \in \overline{B}_\rho : P(X_) \leq P(X) \forall X \in \overline{B}_\rho(X_1)  
+                \exists X_- \in \overline{B}_\rho : P(X_-) \leq P(X) \forall X \in \overline{B}_\rho(X_1)  
                 \tag{27} \\
                 X_2 \text{ т.ч. } ||X_2-X_1||_{{\vR}^n} = \rho, H = X_2-X_1 \\
                  (23) \implies ||F(X_2) - F(X_1)||_{{\vR}^n} = ||F(x_1+H)
@@ -150,11 +150,11 @@
                  \begin{gather*}
                  f(X) = \sum_{k=1}^n(F_k(X)-Y_k)^2 \tag{35} \\
                (35) \implies C^1(U)  \tag{36} \\
-               (34), (35) \implies f^\prime_{xj} = 0, 1 \leq j \leq n  \tag{37} \\
+               (34), (35) \implies f^\prime_{xj}(X_-) = 0, 1 \leq j \leq n  \tag{37} \\
                  \intertext{(необходимое условие экстремума, согласны ?)}
                (35) \implies f^\prime_{x_j}(X) = 2 \sum_{k=1}^n(F_k(X)-Y_k)F^\prime_{kx_j}(X)
                  \tag{38} \\
-                 f_k = F_k(X_-) -Y_k \\
+                 l_k = F_k(X_-) -Y_k \\
                  (37), (38) \implies \sum_{k=1}^n F^\prime_{kx_j}(X_-)l_k = 0, 1 \leq j \leq n \tag{39} \\
                  L = (e_1, \ldots, e_n) \\
                  (39) \implies LDF(X_-) = \mathbb{0}^T_n \tag{40} \\
@@ -169,7 +169,9 @@
                 \intertext{матрица якоби из (40) обратима, сейчас обратим её}
                  (40), (41) \implies (LDF(X_-))(DF(X_-))^{-1} = \mathbb{0}^T_n(DF(X_-))^{-1} = 
                 \mathbb{0}_n \\
-                \implies L = \mathbb{0}_n^T \tag{43} \end{gather*}
+                \implies L = \mathbb{0}_n^T \tag{43} \\
+                (43) \implies F(X_-) = Y 
+                \end{gather*}
                 \end{longProof}
                 $G \subset U$, $G$ -- открытое $\implies F(G)$ открытое.
                  $ \forall Y_1 \in F(G)$, пусть $X_1 \in G, F(X_1) = Y_1$.
@@ -224,8 +226,8 @@
  
                   \[ ||K||_{{\vR}^n} > 2\lambda||H||_{{\vR}^n} \tag{7\prime} \] 
                   \begin{multline*}
-                     \frac{||t(H)||_{{\vR}^n}}{||K||_{{\vR}^n}} \leq
-                      \frac{||t(H)||_{{\vR}^n}}{||K||_{{\vR}^n}} \stackrel{<}{(2)} 
+                     \frac{||Bt(H)||_{{\vR}^n}}{||K||_{{\vR}^n}} \leq
+                      \frac{||B||||t(H)||_{{\vR}^n}}{||K||_{{\vR}^n}} \stackrel{<}{(2)} 
                       \frac{1}{2\lambda} \frac{||t(H)||_{{\vR}^n}}{||K||_{{\vR}^n}} = \\ 
                       \frac{1}{2\lambda} \frac{||t(H)||_{{\vR}^n}}{||H||_{{\vR}^n}} \cdot
                      \frac{||H||_{{\vR}^n}}{||K||_{{\vR}^n}} \stackrel{<}{(7^\prime)}
@@ -235,11 +237,10 @@
                   \underset{K \to \mathbb{0}_n}{\longrightarrow} 0 \tag{8} \] 
                   \[ (6), (8) \implies \Phi \text{ дифференцируема в } Y \] 
                   Получаем следующие равенства:
- 
                   \[ D\Phi(Y) = (DF(X))^{-1} \tag{9} \] 
                   \[ \text{ где } Y = F(X) \Leftrightarrow X = \Phi(Y) \] 
                   то, что мы доказали, влечёт следующее: если мы рассмотрим координатные функции $F$,
-                  то получится, что существуют все частные производные. осталось проверить их непрерывность
+                  то получится, что существуют все частные производные. Осталось проверить их непрерывность
                   \item 
                   \begin{align*}
                      F(X) =
@@ -279,31 +280,57 @@
             \begin{align*}
                r \geq 1, F \in C^r(E)\\
                 E \in {\vR}^n, n \geq 2, E - \text { открытое множество } \\
-                X_0 \in E,  F (X_0) = Y_0,  d_F(X_0) \ne 0 \\
+                X_0 \in E,  F (X_0) = Y_0,  J_F(X_0) \ne 0 \\
                 \implies \exists x_0 \in U \text{ и } \exists Y_0 \in V \text{ т.ч. } 
                F|_{U} - \text{ гомеоморфизм } \\
                \Phi =F^{-1} \\
                 \Phi \in C^r(E)
             \end{align*}
         \end{corollary}
-        \begin{proof}
-            % Доказывать будем по индукции. База верна.
-            % \[F \in C^{r+1}(E) \] 
-            % Посмотрим на соотношение (10)
-            % \[ F^\prime_{ix_j}(\Phi(Y)) \]
-            Доказательство было проговорено устно и я ничего не расслышал :(
-        \end{proof}
+        \begin{longProof}
+            Устное доказательство по индукции!
+
+            При $r=1$ это утверждение доказано и найдены $U$ и $V$ (в теореме об обратном отображении), которыми мы будем пользоваться.
+
+            Переход. Рассмотрим отображение $F \in C^{r+1}(E)$. По предположению индукции мы получаем,
+            что соответствующее обратное отображение $\Phi \in C^r(V)$. Давайте посмотрим на соотношение (10). Посмотрим
+            на множители, которые там фигурируют. Что мы можем сказать о множителе $F^\prime_{ix_j}(\Phi(Y))$? Если
+            мы будем находить частную производную этого выражения по любому аргументу $Y$, то мы будем применять
+            формулу для частной производной сложного отображения, правда ведь?
+            
+            \[ (F^\prime_{ix_j}(\Phi(Y)))^\prime_{y_k}\]
+
+            Мы будем иметь слагаемые вот такого типа $\ldots + F^\prime_{ix_j x_l}(\Phi(y)) \cdot \phi^\prime_{l_{y_k}}$.
+            Если мы будем  находить последующие частные производные (предполагая, что они существуют), мы будем либо дифференцировать первый множитель и выносить второй, либо
+            будем дифференцировать $\phi$. И если мы хотим найти производную порядка $r$, то у нас максимум, что появится,
+            это требование существования  частной производной порядка $r$ от всех функций $\phi$. Мы не выписываем конкретные формулы,
+            но видно, как они устроены.
+            
+            По предположению индукции $\Phi \in C^r(V)$. Поэтому когда мы будем дифференцировать $r$ раз
+            $\partial^\alpha(\ldots) \quad |\alpha| = r$, там будут фигурировать производные максимум порядка $r$ от $\phi$, которые
+            будут непрерывны по $y$. А поскольку $\Phi(Y)$ тоже непрерывны, мы имеем \[\partial^\alpha(\ldots) \in C^r(V) \tag{13}\]
+             Значит,
+            путём последующих применений формулы для производной сложной функции получаются очень громоздкие выражения, но все они будут непрерывны,
+            потому что понятно, как они устроены из предыдущих формул. Опять же, каждая из производных непрерывна на $V$,
+            а теперь посмотрим на (10), мы будем находить производную порядка $r$ от правой части, там будут очень громоздкие выражения, но тем не менее,
+            они будут непрерывными функциями, потому что знаменатель не 0 и, когда будем пользоваться правилами дифференцирования, всё будет непрерывно.
+            Когда мы будем дифференцировать $r$ раз левую часть, мы будем получать непрерывные функции, мы на самом деле будем
+            получаю производную порядка $r+1$, потому что там уже стоит частная производная от любой координатной функции по любому аргументу.
+            Правую часть мы можем дифференцировать $r$ раз в любом порядке по любым аргументам и получать, что она непрерывна,
+            значит, и левая часть непрерывна.
+            $(10), (13) \implies \Phi \in C^{r+1}(V)$
+        \end{longProof}
         \begin{corollary}[Теорема об открытом отображении]
             \begin{gather*}
                 E \in {\vR}^n, n \geq 2\\
                  E - \text{ открытое }, F: E \rightarrow {\vR}^n \end{gather*}
-            \[d_F(X) \ne 0 \forall X \in E \implies F - \text{ открытое отображение} \]
+            \[J_F(X) \ne 0 \forall X \in E \implies F - \text{ открытое отображение} \]
         \end{corollary}
         \begin{proof}
          \begin{gather*}
              w \in E, w - \text{ открытое }, F(w) = G, Y_0 \in G \\
-             \exists x_o \in w \text{ т.ч. } F(X_0) = Y_0 \exists r > 0 \text{ т.ч. }
-            B_r(X_0) \subset w, d_F(x_0) \ne 0 \text{ т.е. } \\
+             \exists X_0 \in w \text{ т.ч. } F(X_0) = Y_0 \exists r > 0 \text{ т.ч. }
+            B_r(X_0) \subset w, J_F(X_0) \ne 0 \text{ т.е. } \\
             \exists (DF(X_0))^{-1} \\
              \lambda > 0, ||(DF(X_0)^{-1})|| = \frac{1}{4\lambda} \\
             \implies B_{\lambda r}(Y_0) \subset F(B_r(X_0)) \tag{шаг 3} \\
@@ -337,7 +364,7 @@
          B = \begin{bmatrix*}
             b_{11} & \ldots & b_{1m} \\
             \ldots & \ddots & \ldots \\
-            b_{m1} & \ldots & b_{mm}
+            b_{n1} & \ldots & b_{nm}
          \end{bmatrix*} 
       \end{align*}
       $A$ - обратима
@@ -355,7 +382,7 @@
       \end{bmatrix*} = \mathbb{0}_n \tag{1} \\
       (1) \Leftrightarrow AX + BY = \mathbb{0}_n \Leftrightarrow AX = -BY \Leftrightarrow X
       = -(A^{-1}B)Y \tag{2}  \\
-       X_0 = -(A^{-1}B)Y_0 \tag{2'} 
+       X_0 = -(A^{-1}B)Y_0 \tag{2\prime} 
       \end{gather*}
       \end{theorem}
  
@@ -390,15 +417,15 @@
             \begin{bmatrix*}
                f^\prime_{1y_1}(Z_0) & \ldots & f^\prime_{1y_m}(Z_0) \\
                \ldots & \ddots & \ldots \\
-               f^\prime_{my_1}(Z_0) & \ldots & f^\prime_{my_m}(Z_0) \\
+               f^\prime_{ny_1}(Z_0) & \ldots & f^\prime_{ny_m}(Z_0) \\
             \end{bmatrix*}
          \end{align*}
  
          \begin{gather*}
           DF(Z_0) = [AB] \\
          A \text{ обратима } \tag{1} \\
-          F(Z_0) = \mathbb{0}_n \tag{2} \\
-         \exists Y_0 \in W \\
+          F(Z_0) = \mathbb{0}_n \tag{2}  \\
+          \implies \exists W \ni Y_0 \text{ и единственное } \\
          g: W \rightarrow {\vR}^n, g \in C^1(W) \\
           g(Y_0) = X_0 \text{  } \forall Y \in W \tag{3} \\
          F\left(\begin{bmatrix*}
@@ -409,8 +436,9 @@
           F\left(\begin{bmatrix*}
             X \\
             Y
-          \end{bmatrix*}\right) = \mathbb{0}_n \tag{2'}
+          \end{bmatrix*}\right) = \mathbb{0}_n \tag{2\prime}
           \end{gather*}
+          задаёт $X$ как неявную функцию от $Y$ в окрестности $W$.
          \end{theorem}
  
          \begin{longProof}

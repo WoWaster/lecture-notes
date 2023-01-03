@@ -279,13 +279,13 @@
      \begin{longProof}
           Давайте рассматривать функцию 
           \begin{gather*}
-               J(a,A) = \int^A_a f(x,y) dx \tag{7} \\
+               J(y,A) = \int^A_a f(x,y) dx \tag{7} \\
                \intertext{фиксируем y}
                y \in [p,q] \\
                E = \{ h: y + h \in [p,q], h \ne 0 \} \tag{8} \\
                \text{будем еще рассматривать функцию} \\
-                \Phi(y,A,h)= \frac{g(y+h,A) - g(y,A)}{h} \quad h \in E, y \in [p,q] \tag{9}\\
-               \Phi(y,A,h) = \frac{1}{h} \left ( \int^A_a f(x,y) dx - \int^A_a f(x,y)dx \right ) \\
+                \Phi(y,A,h)= \frac{J(y+h,A) - J(y,A)}{h} \quad h \in E, y \in [p,q] \tag{9}\\
+               \Phi(y,A,h) = \frac{1}{h} \left ( \int^A_a f(x,y+h) dx - \int^A_a f(x,y)dx \right ) \\
                (3) \implies f^\prime_y(x,y) \in C([a,A] \times [p,q]) \tag{10} \\
           \end{gather*}
           если мы устремим $h$ к $0$, мы будем нахдить производную определнного интеграла, зависящего от параметра
@@ -309,15 +309,15 @@
                (9), (14) \implies \Phi(y,A_2,h) - \Phi(y,A_1,h) =\\
                = \frac{1}{h} \left ( \left ( J(y+h,A_2) - J(y,A_2) \right ) \right ) -
                (J(y+h, A_1) - J(y,A_1)) =\\
-                = \frac{1}{h} ((J(y+h,A_2) - J(y+h,A_1)) - (J(y,A_2) =\\
-                =J(y,A_1))) = \frac{1}{h} (G(y+h,A_1,A_2)) - G(y,A_1,A_2) \tag{15} 
+                = \frac{1}{h} ((J(y+h,A_2) - J(y+h,A_1)) - (J(y,A_2) - J(y,A_1))) =\\
+                 = \frac{1}{h} (G(y+h,A_1,A_2)) - G(y,A_1,A_2) \tag{15} 
           \end{multline*} 
           \begin{gather*}
                (14) \implies \exists G^\prime(y,A_1,A_2) = \int^{A_2}_{A_1} f^\prime_y(x,y)dx \tag{16}\\
                \intertext{к разнице в (15) применима теорема Лагранжа}
                \exists c \text{ между } y \text{ и } y+h : \\
                G(y+h,A_1,A_2) - G(y,A_1,A_2) = G^\prime(c,A_1,A_2) \cdot h \tag{17} \\
-               \text{ посмотрим на (15) и (17), в (15) есть множитель} h \\
+               \text{ посмотрим на (15) и (17), в (15) есть множитель } h \\
                (15), (17) \implies => \Phi(y,A_2,h) - \Phi(y,A_1,h) = G^\prime(c,A_1,A_2) \stackrel{(16)}{=} \\
                \stackrel{(16)}{=} \int^{A_2}_{A_1} f^\prime_y(x,c)dx \tag{18}\\
                (13), (18) \implies \left | \Phi(g,A_2,h) - \Phi(y,A,h) \right | =
@@ -335,9 +335,9 @@
           \end{gather*}
                при фиксированном $y$ применима теорема о переходе к пределу в семействе функций
                \begin{gather*}
-               (20),(21) \implies \exists \underset{A \to +\infty}{lim} \psi(y,A) \\
-               \exists \underset{h \to 0}{lim} \frac{I(y+h)-I(y)}{h} \text{ и } \\
-               \underset{A \to +\infty}{lim} \psi(y,A) = \underset{h \to 0}{lim} \frac{I(y+h)-I(y)}{h} \tag{22} \\
+               (20),(21) \implies \exists \underset{A \to +\infty}{\lim} \psi(y,A) \\
+               \exists \underset{h \to 0}{\lim} \frac{I(y+h)-I(y)}{h} \text{ и } \\
+               \underset{A \to +\infty}{\lim} \psi(y,A) = \underset{h \to 0}{\lim} \frac{I(y+h)-I(y)}{h} \tag{22} \\
                (19),(22) \implies (6)
           \end{gather*}
      \end{longProof}
@@ -369,7 +369,7 @@
           по теореме о непрерывности несобственного интеграла, зависящего от параметра
           \begin{gather*}
                (1),(2) \implies I(y) \in C([0,\infty)) \tag{3}\\
-               (3) \implies I(0) = \underset{y \to +0}{lim} I(y) \tag{4}\\
+               (3) \implies I(0) = \underset{y \to +0}{\lim} I(y) \tag{4}\\
                I(0) = I \\
                \text{ фиксируем некоторое } y_0 > 0\\
                F(x,y) = e^{-xy} \frac{\sin x}{x} \quad y \geq y_0 > 0 \\
@@ -414,7 +414,7 @@
                \text{замена } y = v^2 \quad y^\prime = 2v \quad \sqrt{y} = v \\
                 =I \cdot \int^\infty_0 e^{-v^2} \cdot 2dv = I \cdot 2I = 2I^2 \tag{3} \\
                 \int^\infty_0 e^{-x^2y -y}dy = \int^\infty_0 e^{-(1+x^2)y} dy = \frac{1}{1+x^2} \tag{4} \\
-                 \int^\infty_0 \frac{dx}{1+x^2} = \underset{A \to \infty}{\lim} \int^A_0 \frac{dx}{1+x^2} = \underset{A \to \infty}{lim} (\arctan A - \arctan 0) = \frac{\pi}{2} \tag{5}
+                 \int^\infty_0 \frac{dx}{1+x^2} = \underset{A \to \infty}{\lim} \int^A_0 \frac{dx}{1+x^2} = \underset{A \to \infty}{\lim} (\arctan A - \arctan 0) = \frac{\pi}{2} \tag{5}
           \end{gather*}
      \end{example}
     \end{document}

@@ -50,7 +50,7 @@
 
 \[(2) \implies ||A|| \leq ||A||_2 \geq 0\]
 
-\subsection*{Свойства нормы линейного отображения}
+\subsection{Свойства нормы линейного отображения}
  \begin{theorem}$||A|| \geq 0, ||A|| = 0 \Leftrightarrow A = \mathbb{0}$ \end{theorem}
     \begin{proof}
         Пусть $||A|| = 0$ 
@@ -70,7 +70,7 @@
             \vdots \\
             0 \\ \end{bmatrix}$
         \newline
-        $||A|| = 0 \rightarrow Af_j = \mathbb{0}_{{\vR}^n} $.
+        $||A|| = 0 \implies Af_j = \mathbb{0}_{{\vR}^n} $.
         $Af_j =
         \begin{bmatrix}
             a_{1j} \\
@@ -121,7 +121,7 @@
             ||X_0||_{{\vR}^m} =||\frac{1}{t}X||_{{\vR}^m}= \frac{1}{t}||X||_{{\vR}^m}
             = \frac{1}{t} \cdot t = 1 \implies
         \end{gather*}
-        \[ ||Ax_0||_{{\vR}^n} \leq ||A|| \tag{5}\] 
+        \[ ||AX_0||_{{\vR}^n} \leq ||A|| \tag{5}\] 
         $ (5) \implies ||Ax_0||_{{\vR}^n}=||A \left(\frac{1}{t}x \right)||_{{\vR}^n} $
         $\leq ||A|| \implies 4.$
         \end{proof}
@@ -186,33 +186,38 @@
     \begin{definition}[Дифференцируемость]
         Отображение дифференцируемо в $x_0$, если $\exists A : \vR^m \rightarrow \vR^n : 
         \quad \forall H \in \vR^m : x_0 + H \in \Omega $
-        \[F(x_0) + H - F(x_0) = AH + r(H)  \quad r(h) \in \vR^n\tag{12} \]
+        \[F(x_0 + H) - F(x_0) = AH + r(H)  \quad r(h) \in \vR^n\tag{12} \]
         \[ \frac{||r(H)||_{\vR^n}}{||H||_{\vR^m}} \underset{H \to \mathbb{0}_m}{\longrightarrow} 0 \tag{13} \]
     \end{definition}
     \begin{gather*}
         \Omega \subset {\vR}^m, m \geq 1 \\
-        X_o \in \Omega - \text{ внутрення точка}\\
+        X_0 \in \Omega - \text{ внутрення точка}\\
         G \in {\vR}^n, Y_0 \in G, Y_0 - \text{ внутренняя точка в } G \\
         F = \begin{bmatrix}
             f_1 \\
             \vdots \\
             f_n
-        \end{bmatrix} : \Omega \rightarrow {\vR}^n \text{ }\forall x \in \Omega 
-        \text{ }F(x) \in G, F(X_0) = Y_0 \\
+        \end{bmatrix} : \Omega \rightarrow {\vR}^n \quad \forall x \in \Omega 
+        \text{ }F(X) \in G, F(X_0) = Y_0 \\
         \Phi = \begin{bmatrix}
             \varphi_1(y) \\
             \vdots \\
             \varphi_k(y)
-        \end{bmatrix} : G \rightarrow \mathbb{R^k} 
+        \end{bmatrix} : G \rightarrow \mathbb{R^k}  \\
     \end{gather*} 
-    \[\exists P: \Omega \rightarrow {\vR}^k, P(x) \stackrel{def}{=} \Phi(F(x))
+    $A = DF(X_0) = \begin{bmatrix}
+        f^\prime_{1 x_1}(X_0) & \ldots & f^\prime_{1x_m}(X_0) \\
+        \vdots & \ddots & \vdots \\
+        f^\prime_{n x_1}(X_0) & \ldots & f^\prime_{n x_m}(X_0)
+    \end{bmatrix}$-- матрица Якоби отображения  $F$  в $X_0$
+    \[\exists P: \Omega \rightarrow {\vR}^k, P(X) \stackrel{def}{=} \Phi(F(X))
      \tag{15} \]
 
 
     \begin{theorem}
-        $F$ дифференцируема в $X_0$, $\Phi$ дифференцируема в $X_0$ 
+        $F$ дифференцируема в $X_0$, $\Phi$ дифференцируема в $Y_0$ 
         $\Rightarrow P$ дифференцируема в $X_0$ и 
-        \[DP(X_0) = D\Phi(X_0) \cdot DF(X_0) \text{( это матрицы Якоби)} \tag{16}\]
+        \[DP(X_0) = D\Phi(Y_0) \cdot DF(X_0) \tag{16}\]
     \end{theorem}
 
     \begin{longProof}
