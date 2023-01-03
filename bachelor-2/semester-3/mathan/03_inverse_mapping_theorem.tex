@@ -2,6 +2,61 @@
 \documentclass[main]{subfiles}
 \begin{document}
 \chapter{Теорема об обратном отображении}
+
+\section*{Линейные отображения}
+
+   $A: \vR^n \rightarrow \vR^n \quad n \geq 2 \quad A \quad \exists A^{-1}: AA^{-1} = A^{-1}A = I_n \quad
+   I_n(X) = (X) $
+
+    Необходимо и достаточно $\det A \ne 0$
+
+    \begin{remark}
+      \[ ||A^{-1}|| = \frac{1}{\alpha} \quad \forall x \in \vR^n \tag{1} \]
+      \[ \forall Y \in \vR^n \quad Y = A^{-1}X \Leftrightarrow X = AY \]
+      \begin{multline*}
+         ||A^{-1}X||_{\vR^n} \leq ||A^{-1}|| ||X||_{\vR^n} = \frac{1}{\alpha}||X||_{\vR^n} \implies ||X||_{\vR^n} \geq \alpha ||A^{-1}X||_{\vR^n} \Leftrightarrow \\
+         \Leftrightarrow ||A^||_{\vR^n}|| \geq \alpha ||Y||_{\vR^n} \tag{2}         
+      \end{multline*}
+    \end{remark}
+
+    \begin{theorem}
+      \[A: \vR^n \rightarrow \vR^n \quad ||B-A|| = \beta < \alpha \tag{3\prime} \]
+      \[ \implies \exists B^{-1} \quad ||B^{-1}|| \leq \frac{1}{\alpha-\beta} \tag{3} \]
+      \[ ||B^{-1} - A^{-1} || \leq \frac{\beta}{\alpha} \frac{1}{\alpha-\beta} \tag{4} \]
+    \end{theorem}
+
+    \begin{longProof}
+      \[  (3\prime) \implies ||(B-A)X||_{\vR^n} \leq ||B-A|| ||X||_{\vR^n} = \beta||X||_{\vR^n} \tag{5} \]
+      \begin{multline*}
+         \forall x \in \vR^n \quad (\alpha-\beta) ||X||_{\vR^n} \leq  ||AX||_{\vR^n} - \beta||X||_{\vR^n} \leq \\
+         \leq ||AX||_{\vR^n} - ||(B-A)X||_{\vR^n} \tag{6} 
+      \end{multline*}
+      \[ BX = (B-A)X + AX \implies ||BX||_{\vR^n} \geq ||AX||_{\vR^n} - ||(B-A)X||_{\vR^n} \tag{7} \]
+      \begin{align*}
+         c_1, c_2, c_3 \in \vR^n && c_3 = c_1 + c_2 \\
+        && ||c_3|| \leq ||c_1|| + ||c_2|| \\
+         && ||c_1|| \leq ||c_3|| + ||c_2|| \quad ||c_3|| \geq ||c_1|| - ||c_2||
+      \end{align*}
+      \[(6), (7) \implies \forall x \in \vR^n \quad (\alpha - \beta)||X||_{\vR^n} \leq ||BX||_{\vR^n} \tag{8} \] 
+      \[ (8) \implies \forall x \ne \mathbb{0}_n \text{ имеем} BX \ne \mathbb{0}_n \tag{9} \]
+      \[ 9 \implies \exists B^{-1} \]
+      \[ \forall Y \in \vR^n \Leftrightarrow X = B^{-1}Y \]
+      \begin{multline*}
+         (8) \implies (\alpha - \beta)||B^{-1}Y||_{\vR^n} \leq ||Y||_{\vR^n} \Leftrightarrow \\
+         \Leftrightarrow ||B^{-1}Y||_{\vR^n} \leq \frac{1}{\alpha - \beta} ||Y||_{\vR^n} \tag{10} 
+      \end{multline*}
+      \[ (10) \implies ||B^{-1}|| \leq \frac{1}{\alpha-\beta} \Leftrightarrow (3) \]
+      \begin{multline}
+         (A(A^{-1}-B^{-1}))B = (AA^{-1} - AB^{-1})B = (I_n - AB^{-1})B = I_nB - (AB^{-1})B = \\
+         =B - A(B^{-1}B) = B - AI_n = B - A \tag{11}
+      \end{multline}
+      \[ (11) \implies A^{-1} - B^{-1} = A^{-1}(B-A)B^{-1} \tag{12} \]
+      \[ (1), (3), (12) \implies ||A^{-1} - B^{-1}||  \leq ||A^{-1}|| \cdot ||B-A|| \cdot ||B^{-1}|| \leq
+      \frac{\beta}{\alpha} \cdot \frac{1}{\alpha-\beta} \tag{4} \]
+    \end{longProof}
+
+
+\section*{Теорема об обратном отображении}
     $E \subset {\vR}^n, n \geq 2$, $x_0 \in E$, $x_0 $ -- внутренняя точка
     $F: E \rightarrow {\vR}^n$
     \[F \in C^{1}(w) \tag{1}\]
@@ -611,7 +666,7 @@
          B(Z) = \begin{bmatrix*}
             F^\prime_{1y_1}(Z) & \ldots & F^\prime_{1xy_m}(Z) \\
             \ldots & \ddots & \ldots \\
-            F^\prime_{my_1}(Z) & \ldots & F^\prime_{my_m}(Z)
+            F^\prime_{ny_1}(Z) & \ldots & F^\prime_{ny_m}(Z)
          \end{bmatrix*}  \tag{2}\\
          A(Z_0) = \begin{bmatrix*}
             F^\prime_{1x_1}(Z_0) & \ldots & F^\prime_{1x_n}(Z_0) \\
@@ -621,14 +676,19 @@
          B(Z_0) = \begin{bmatrix*}
             F^\prime_{1y_1}(Z_0) & \ldots & F^\prime_{1xy_m}(Z_0) \\
             \ldots & \ddots & \ldots \\
-            F^\prime_{my_1}(Z_0) & \ldots & F^\prime_{my_m}(Z_0)
+            F^\prime_{ny_1}(Z_0) & \ldots & F^\prime_{ny_m}(Z_0)
          \end{bmatrix*} \\
          g(Y_0) = X_0 \\
          F \left(\begin{bmatrix*}
             g(Y) \\
             Y
-         \end{bmatrix*} \right) = \mathbb{0}_n  \tag{1\prime}\\
-         \forall y \in W \\
+         \end{bmatrix*} \right) = \mathbb{0}_n  \tag{1\prime}
+      \end{gather*}
+      Это по предыдущей теореме. Мы доказали, что такое отображение $g$ существует и что оно единственное.
+      $\exists W \ni Y_0 \quad g \in C^1(W) \quad g: W \rightarrow \vR^n$.
+      Теперь будем вычислять матрицу якоби отображения $g$.
+         \begin{gather*}
+         \forall Y \in W \\
          (1\prime) \implies D(F\left(\begin{bmatrix*}
             g(Y) \\
             Y
