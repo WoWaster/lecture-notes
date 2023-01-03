@@ -21,8 +21,8 @@
 \end{example}
 
 Если $L / K$ -- расширение, то $L$ можно рассматривать как линейное пространство над $K$.
-$L / K$ называется конечным расширением, если $\dim_k L < \infty$. 
-$[L:K] = \dim_k L $ -- степень расширения $L / K$. В противном случае
+$L / K$ называется конечным расширением, если $\dim_K L < \infty$. 
+$[L:K] = \dim_K L $ -- степень расширения $L / K$. В противном случае
 $L / K$ называются бесконечным.
 
 \begin{example}
@@ -42,15 +42,15 @@ $L / K$ называются бесконечным.
 
 \begin{proof}
     Пусть $e_1, \ldots , e_l $ -- базис $L$ как линейного пространстнства $/ K$.
-    $f_1, \ldots , f_n$ -- базис $M$ как линейного пространства $/ L$. Проверим 
+    $f_1, \ldots , f_n$ -- базис $M$ как линейного пространства $/ L$. Проверим, 
     $(e_i f_j \ | \ 1 \leq i \leq l, 1 \leq j \leq m)$ -- базис $M / K$. Пусть $c \in M
     \Rightarrow c = b_1f_1 + \ldots + b_mf_m, \ b_1, \ldots, b_m \in L \Rightarrow 
         c = (a_{11}e_1 + \ldots + a_{1l}e_l)f_1 + \ldots + (a_{m1}e_1 + \ldots + a_{ml}e_l)f_m = \\
-        = \sum^n_{i=1} \sum^l_{j=1} a_{ij}e_jf_i, \ a_{ij} \in K 
+        = \sum^m_{i=1} \sum^l_{j=1} a_{ij}e_jf_i, \ a_{ij} \in K 
         \Rightarrow Lin(e_jf_i \ | \ 1 \leq j \leq l, 1 \leq i \leq m) = M$.
 
-        Пусть $\sum_{i,j} a_{ij} e_if_j = 0 $.
-         $\sum_{j} \left( \underbrace{\sum_{i} a_{ij} e_i}_{\in L} \right) f_j, \ f_1, \ldots, f_m \text{ -- базис } M / L 
+        Пусть $\sum_{i,j} a_{ij} e_if_j = 0 $ = 
+         $\sum_{j} \left( \underbrace{\sum_{i} a_{ij} e_i}_{\in L} \right). \  f_j, \ f_1, \ldots, f_m \text{ -- базис } M / L 
          \Rightarrow \sum_i a_{ij}  e_i = 0, \ j = 1, \ldots, m, \ e_1, \ldots, e_l$ -- базис $L / K
          \Rightarrow$ все $a_{ij} = 0$.
    
@@ -72,8 +72,9 @@ $L / K$ называется алгебраическим, если все ег�
 \begin{example}
     \begin{enumerate}
         \item $ \C / \R $ -- алгебраическое.
-        \item $\R / \Q$ -- трансцендентное, например, $\pi$ -- трансцендентное $/ Q$.
-        Таким образом, алгебраические числа (в $\R$) образуют счётное множество.
+        \item $\R / \Q$ -- трансцендентное, например, $\pi$ -- трансцендентное $/ Q$. Без примера: рациональных чисел счетное множество 
+        и многочленов с рациональными коэффициентами тоже. У каждого многочлена конечное число корней.
+        Таким образом, алгебраические числа (в $\R$) образуют счетное множество. Однако $\R$ несчетно.
         \item  $K(X) / K$ -- трансцендентное,  $X$ -- трансцендентный, $f(X) = \frac{f(X)}{1}$.
     \end{enumerate}
 \end{example}
@@ -86,9 +87,9 @@ $L / K$ называется алгебраическим, если все ег�
 \begin{proof}
     Пусть $[L:K] = d$.
     \begin{gather*}
-        a \in L, \d \underbrace{1, a, a^2, \ldots, a_d}_{d+1} \\
+        a \in L, \ \underbrace{1, a, a^2, \ldots, a_d}_{d+1} \\
         \Rightarrow \exists h_0, h_1, \ldots, h_d \in K : b_0 + b_1a + \ldots b_da^d = 0 \text{ и не все } b_i = 0\\
-        f:= b_dX^d + \ldots b_1 X + b_0 \ne 0 \\
+        f:= b_dX^d + \ldots + b_1 X + b_0 \ne 0 \\
         f(a) = 0 \Rightarrow a \text{ -- алгебраическое }
     \end{gather*}
 \end{proof}
@@ -99,7 +100,7 @@ $L / K$ называется алгебраическим, если все ег�
 \end{proposition}
 
 \begin{proof}
-    $ I = \{ f \in K[X] | f(x) \ 0 \} \text{ -- подгруппа в } K[X]$.
+    $ I = \{ f \in K[X] | f(x) = 0 \} \text{ -- подгруппа в } K[X]$.
 
     \[\left.
     \begin{gathered}
@@ -113,8 +114,8 @@ $L / K$ называется алгебраическим, если все ег�
   
     \[p = fg, \ 
     p(a) = 0 \Rightarrow f(a)g(a) = 0 \Rightarrow \left[ \begin{gathered}
-        f(a) > 0 \\
-        g(a) > 0
+        f(a) = 0 \\
+        g(a) = 0
     \end{gathered} \right. \]
     \[ \Rightarrow \left[ \begin{gathered}
         f \in I = (p) \\
@@ -127,8 +128,8 @@ $L / K$ называется алгебраическим, если все ег�
 Такой многочлен $p$ будем обозначать $Irr_K a$. Например $Irr_{\R} i = x^2 + 1$. \\
 
 \begin{definition}
-    Пусть $L / K : \quad a_1, \ldots, a_m \in L$. 
-    $K(a_1, \ldots, a_m) := \bigcap_{\underset{a_1, \ldots, a_m \in F}{\underset{K \subset F}{F \text{ подполе } L}}}
+    Пусть $L / K ; \quad a_1, \ldots, a_m \in L$. 
+    $K(a_1, \ldots, a_m) := \bigcap_{\underset{a_1, \ldots, a_m \in F}{\underset{K \subset F}{F \text{ подполе } L}}} F
     \text{ -- подполе } L$.
     Назовем его расширением $K$, порожденным $a_1, \ldots, a_m$.
 \end{definition}
@@ -160,14 +161,14 @@ $L / K$ называется алгебраическим, если все ег�
 \end{proposition}
 
 \begin{proof}
-    \[ \underset{f \mapsto f(a)}{K[X] \stackrel{\alpha}{\longrightarrow}} L \]
+    \[ \underset{f \mapsto f(a)}{K[X] \stackrel{\alpha}{\longrightarrow}L}  \]
     \[ \Ker \alpha = (p) \] 
     \[  \left. \begin{gathered}
-        \Rightarrow \Im \alpha \cong K[X] / (p), p \text{ -- неприводимый} \Rightarrow \Im \alpha \text{ -- поле } \\
-        K \subset \Im \alpha \text{, т.к. } \alpha(c) = c \ (c = const) \\
-        a \in \Im \alpha \text{ т.к. } \alpha(x) = a
+        \Rightarrow \Im \alpha \cong K[X] / (p), \ p \text{ -- неприводимый} \Rightarrow \Im \alpha \text{ -- поле } \\
+        K \subset \Im \alpha \text{, т.к. } \alpha(c) = c \ (c \in K) \\
+        a \in \Im \alpha \text{ т.к. } \alpha(X) = a
     \end{gathered} \right) \Rightarrow \]
-    \[\Rightarrow K(a) \subset \Im \alpha = L \]
+    \[\Rightarrow \Im \alpha \supset K(a) = L \]
     
    Таким образом, $L \cong K(X)  / (p)$.
 \end{proof}
