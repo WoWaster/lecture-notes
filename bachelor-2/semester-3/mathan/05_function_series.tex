@@ -195,19 +195,25 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
 \begin{proof}
      \begin{gather*}
           f_n(X_0) \underset{n \to \infty}{\rightarrow} f(X_0) \tag {2\prime}\\
-          \forall n \quad  \exists \underset{X \to X_0}{lim} f_n(X) = f(X_0) \tag{2} \\
-          (1), (2) \implies \exists \underset{x \to x_0}{lim} f(X) = f_n(X_0)
+          \forall n \quad  \exists \underset{X \to X_0}{lim} f_n(X) = f_n(X_0) \tag{2} \\
+          (1), (2), (2\prime) \implies \exists \underset{x \to x_0}{lim} f(X) = f(X_0)
      \end{gather*}
 \end{proof}
 \begin{corollary}[Следствие 1]
      \begin{gather*}
-          \sumn v_n(X) \tag{3} \\
+         \sum^\infty_{n=1} v_n(X) \tag{3} \\
           v_n \text{ непрерывна в } X_0 \forall n \\
-          S(X) = \sumn v_n(X) \quad S \text{ непрерывна в } X_0 \\
-          S(X) = \sum_{k=1}^\infty v_k (X) \\
-          S_n(X) \darrow{\stackrel{n \to \infty}{x \in E}} S(X)
+          \text{ и предположим } (3) \text{ сходится равномерно  на } E  \implies\\
+          S(X) = \sum^\infty v_n(X) \quad S \text{ непрерывна в } X_0 
       \end{gather*}
 \end{corollary}
+\begin{longProof}
+     Рассмотрим частичные суммы $\sum^n_{k=1} v_k(X)$. По условию, раз ряд равномерно сходится,
+     то и частичные суммы равномерно сходятся к $S(X)$.
+     \[S_n(X) \darrow{\stackrel{n \to \infty}{x \in E}} S(X) \]
+    $S_n$  -- сумма конечного числа слагаемых, каждое из которых непрерывно в $X_0$, поэтому
+    $S_n$ тоже непрерывна в $X_0$. Тогда мы можем применить только что доказанную теорему и $S(X)$ непрерывна в $X_0$
+\end{longProof}
 \begin{corollary}[Cледствие 2]
      \begin{gather*}
           E \quad \forall x \in E \text{ - точка сгущения} \\
@@ -215,11 +221,12 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
           f_n \in C(E) \implies f \in C(E) \\
      \end{gather*}
 \end{corollary}
-\begin{proof}
+\begin{longProof}
      Доказательство следует прямо из теоремы.
       В каждой точке множества $E$ по этой теореме функция непрерывна.
-\end{proof}
+\end{longProof}
 \begin{corollary}[Следствие 3]
+     $v$ и $S$ из Следствия 1.
      \begin{gather*}
           v_n \in C(E) \quad \forall n \implies S \in C(E)
      \end{gather*}
@@ -247,32 +254,39 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
           |f_n(X) - f(X)| < \varepsilon \tag{7} 
      \end{gather*}
      \begin{multline*}
-          (7) \implies |I_n - I| = \left | \int^b_a f_n(X)dx - f(X)dx \right |  = \\
-         = \left | \int^b_a (f_n(X) - f(x))dx \right | \leq \int^b_a \left | f_n(X) - f(X) \right | dx \leq\\
+          (7) \implies |I_n - I| = \left | \int^b_a f_n(X)dx - \int^b_a f(X)dx \right |  = \\
+         = \left | \int^b_a (f_n(X) - f(X))dx \right | \leq \int^b_a \left | f_n(X) - f(X) \right | dx \leq\\
           \leq \int^b_a \varepsilon dx = \varepsilon(b-a) \tag{8} \end{multline*}
           \begin{gather*}
-          (8) \implies (6)\\
-          \sumn v_n(X) \tag{9} \\
+          (8) \implies (6)
+          \end{gather*}
+     \end{longProof}
+     \begin{corollary}
+          \begin{gather*}
+               \sumn v_n(X) \tag{9} \\
           v_n : [a,b] \rightarrow \vR \\
-          v_n \in C([a,b]) \forall n \\
+          v_n \in C([a,b]) \forall n
           \end{gather*}
           Предполагаем, что функциональный ряд (9) сходится равномерно. 
           Тогда по следствию 1 из предыдущей теоремы 
           сумма будет непрерывной функцией. Тогда справедливо соотношение
+          \[  \sum^\infty_{n=1} \int^b_a v_n(x)dx = \int^b_a \sum_{n=1}^\infty v_n(x)dx \tag{10} \]
+     \end{corollary}
+     \begin{longProof}
           \begin{gather*}
-          \sumn \int^b_a v_n(x)dx = \int^b_a \sumn v_n(x)dx \tag{10} \\
-          S_n(X) = \sumn v_k(X) \\
-          S_n \in C([a,b]) \\
-          S_n(X) \darrow{n \to \infty, x \in [a,b]} S(x)\\
-          \text{Тогда по предыдущей теореме } \int^b_a S_n(X) dx \underset{n \to \infty}{\rightarrow}
-          \int^b_a S(X) dx \tag{11} \\
-          \text{В правой части (11) стоит правая часть (10)} \\
-          \int^b_a S_n(X)dx = \int^b_a \sum^\infty_{k=1} v_k(X) dx = \sumn \int^b_a v_k(x) dx \tag{12} \\
-          \text{ Правая часть (12) это частичная сумма числового ряда (10)} \\
-          (12) \implies (10)
-     \end{gather*}
-\end{longProof}
-\begin{theorem}[О последовательном дифференцировании функциональной последовательности]
+               \sum^\infty_{n=1} \int^b_a v_n(x)dx = \int^b_a \sum_{n=1}^\infty v_n(x)dx \tag{10} \\
+               S_n(X) = \sum_{k=1}^n v_k(X) \\
+               S_n \in C([a,b]) \\
+               S_n(X) \darrow{n \to \infty, x \in [a,b]} S(x)\\
+               \text{Тогда по предыдущей теореме } \int^b_a S_n(X) dx \underset{n \to \infty}{\rightarrow}
+               \int^b_a S(X) dx \tag{11} \\
+               \text{В правой части (11) стоит правая часть (10)} \\
+               \int^b_a S_n(X)dx = \int^b_a \sum^n_{k=1} v_k(X) dx = \sum^n_{k=1} \int^b_a v_k(x) dx \tag{12} \\
+               \text{ Правая часть (12) это частичная сумма числового ряда (10)} \\
+               (11),(12) \implies (10)
+          \end{gather*}
+     \end{longProof}
+\begin{theorem}[О почленном дифференцировании функциональной последовательности]
      \begin{gather*}
           \fnn \quad f_n: [a,b] \rightarrow \vR \\
           \forall n { и } \forall x \in [a,b] \exists f^\prime_n(X) \tag{13} \\
@@ -305,7 +319,7 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
           =|P^\prime_{mn} (C)(x-x_0) | + |P_{mn}(x_0)| < \\ <
           \varepsilon(b-a) + \varepsilon = \varepsilon(b-a+1) \tag{22} \\\end{multline*}
           \[ (22) \implies (16) \]
-     Теперь будем доказывать что у функции $\fnn$ существует производная и она равна $\phi(x)$
+     Теперь будем доказывать что у функции $f$ существует производная и она равна $\phi(x)$
           $x \in [a,b]$ Фиксируем точку. Будем доказывать что в ней существует производная.
           \begin{gather*}
           E = [a,b] \setminus \{ x \} \\
@@ -328,14 +342,15 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
            любого $Y$ выполнено соотношение (26). Тогда по критерию Коши сходимости 
            последовательности существует последовательность, к которой ... сходится равномерно
            \begin{gather*}
-           (26) \implies \exists \tilde{g}: E \rightarrow \vR : g_n(Y) \darrow{\stackrel{n \to \infty}{y \in E}} (\tilde{g})(Y) \tag{27} \\
+           (26) \implies \exists \tilde{g}: E \rightarrow \vR : g_n(Y) \darrow{\stackrel{n \to \infty}{y \in E}} \tilde{g}(Y) \tag{27} \\
            \text{фиксируем } y \in E \\
-           (16) \implies f_n(Y) \underset{n \to \infty}{\rightarrow} f(Y), f_n(X) \\
-           \underset{n \to \infty}{\rightarrow} f(x) 
+           (16) \implies f_n(Y) \underset{n \to \infty}{\rightarrow} f(Y) \\
+           f_n(X)\underset{n \to \infty}{\rightarrow} f(x) 
            \implies g_n(Y) \underset{n \to \infty}{\rightarrow} \frac{f(y) - f(x)}{y-x} = g(y) \tag{28} \\
      \end{gather*}
           Давйте посмотрим на (27) и (28). в (28) сказано, что $g_n$ равномерно стремится к $\tilde{g}$.
             Если возьмем конкретную точку, которая стремится к $g$, то это будет одна и та же функция.
+            \[(27), (28) \implies \tilde{g}(y) = g(y) \tag{29} \]
             \[(23), (24),(27), (29) \implies \frac{f_n(Y) - f_n(x)}{y-x} \darrow{\stackrel{n \to \infty}{y \in E}} 
             \frac{f(y)-f(x)}{y-x} \tag{30} \]
             Теперь будем применять теорему о переходе к пределу \\
@@ -345,22 +360,28 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
 
 \begin{corollary}
      \begin{gather*}
-          \sumn v_n(x) \\
+          \sum^\infty_{n=1} v_n(x) \\
           v_n :[a,b] \rightarrow \vR \\
           \forall n, \forall x \in [a,b] \quad \exists v^\prime_n(X) \\
-          \sumn v^\prime_n(X) \text{ равномерно сходится на } [a,b] \\
+          \sum^\infty_{n=1} v^\prime_n(X) \text{ равномерно сходится на } [a,b] \\
           x_0 \in [a,b] \\ 
-          \sumn v_n(x_0) \text{ сходится} \implies \\
-          \exists \left( v_n(x) \right)^\prime = \sumn v^\prime_n(x) \\
-          \sumn v_k(X) = S_n(X)  \\
-          \forall x \in [a,b] \exists S^\prime_n(x) = \sum_{k=1}^n v^\prime_k(x) \\
-          \sum^n_{k=1} = S_n(X) \\
-          \exists \phi : [a,b] \rightarrow \vR \\
-          S^\prime_n(X) \darrow{\stackrel{n \to \infty}{x \in [a,b]}} \phi(x) \\
-          S^\prime(X) = \phi(X) \forall x \in [a,b] \\
-          \phi(x) = \underset{n \to \infty}{lim} \sum_{k=1}^n v^\prime_k(X)  = \sum^\infty_{k=1} v^\prime_k(x) 
+          \sum^\infty_{n=1} v_n(x_0) \text{ сходится} \implies \sum^\infty_{n=1} v_n(x) \text{ сходится равномерно }\\
+          \text {и } \forall x \in [a,b]\quad  \exists \left( \sum^\infty_{n=1} v_n(x) \right)^\prime = \sum^\infty_{n=1} v^\prime_n(x) 
      \end{gather*}
 \end{corollary}
+     
+     \begin{longProof}
+          \begin{gather*}
+               \sum^n_{k=1} v_k(X) = S_n(X)  \\
+               \forall x \in [a,b] \exists S^\prime_n(x) = \sum_{k=1}^n v^\prime_k(x) \\
+               \exists \phi : [a,b] \rightarrow \vR \\
+               S^\prime_n(X) \darrow{\stackrel{n \to \infty}{x \in [a,b]}} \phi(x) \\
+               \exists \underset{n \to \infty}{\lim} S_n(X_0) = A \in \vR \\
+               S_n(X) \darrow{\underset{x \in [a,b]}{n \to \infty}} S(X) \text{ (следует из теоремы) } \\
+               S^\prime(X) = \phi(X) \forall x \in [a,b] \\
+               \phi(x) = \underset{n \to \infty}{\lim} \sum_{k=1}^n v^\prime_k(X)  = \sum^\infty_{k=1} v^\prime_k(x)  
+          \end{gather*}
+     \end{longProof}
 \begin{example}[Ван дер Варден]
      30-е годы XX века.
      \begin{gather*}
@@ -370,43 +391,43 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
           \phi(0) = 0, \phi(1) = 1, \phi(2) = 0 \\
           x \in [2k, 2k+2] \quad k \in \mathbb{Z} \\
           \phi(x) \stackrel{def}{=} \phi(x-2k) \\
-          f(x) \sumn \left( \frac{3}{4} \right)^n \phi(4^n(X)) \tag{1} \\
+          f(x) \sum^\infty_{n=1} \left( \frac{3}{4} \right)^n \phi(4^n(X)) \tag{1} \\
           0 \leq \phi(x) \leq 1 \\
      \end{gather*}
           Применим признак Вейерштрасса сходимости функциональных рядов.
           \begin{gather*}
           \left | \left(\frac{3}{4} \right)^n \phi(4^nx) \right | \leq \left(\frac{3}{4} \right) ^n \forall n \forall x \in \vR \\
           \begin{cases}
-          \sumn \left( \frac{3}{4} \right)^n < \infty \\
-          \sumn \left( \frac{3}{4} \right)^n \phi(4^nx) \in C(\vR)
+          \sum^{n}_{i=1} \left( \frac{3}{4} \right)^n < \infty \\
+          \left( \frac{3}{4} \right)^n \phi(4^nx) \in C(\vR)
           \end{cases}  \implies f \in C(\vR) \\
      \end{gather*}
   Наличие производной эквивалентно диффиеренцируемости функции в точке 
   (из 1 семестра) \\
-     Пусть $\exists f^\prime(x) \text{ в } x \in vR$
+     Пусть $\exists f^\prime(x) \text{ в } x \in \vR$
      \begin{gather*}
-          \implies f(x + h) = f(X) = f^\prime(x)h + r(h) \tag{2} \\
+          \implies f(x + h) = f(X) + f^\prime(x)h + r(h) \tag{2} \\
           \frac{|r(h)|}{|h|} \underset{h \to 0}{\rightarrow} 0 \tag{3} \\
-          (3) \prime \exists \delta > 0  : \text{ при } 0 < |h| < \delta \\
-          \frac{|r(h)|}{|h|}{|h|} < 1 \implies |f(x+h) -f(x)| \leq |f^\prime(x)| \cdot |h| +
+          (3) \implies \quad \exists \delta > 0  : \text{ при } 0 < |h| < \delta \\
+          \frac{|r(h)|}{|h|} < 1 \implies |f(x+h) -f(x)| \leq |f^\prime(x)| \cdot |h| +
           |r(h)| < (|f^\prime(x)| + 1)|h| \tag{4} \\
           A = |f^\prime(x)| + 1 \quad |f(x+h) - f(x)| \leq A|h| \tag{4\prime} \\
-          h_1 > 0 \quad h_2 > 0, 0 < h_1 \delta, h_2 < \delta \end{gather*}
+          h_1 > 0 \quad h_2 > 0, 0 < h_1 < \delta, h_2 < \delta \end{gather*}
           \begin{multline*}
-          (4\prime) \implies |f(x+h_2) - f(x)-h_1|  -f(x) + f(x)| \leq \\ 
+          (4\prime) \implies |f(x+h_2) - f(x-h_1) -f(x) + f(x)| \leq \\ 
           \leq  |f(x+h_2)-f(x)| + |f(x) - f(x-h_1)| \leq \\
           \leq Ah_2 + Ah_1 = A(h_2 + h_1) \tag{5} \end{multline*}
           \begin{gather*}
           (5): \quad x_1 < x < x_2, x_2 - x  < \delta, x - x_1 < \delta \\
           |f(x_2) - f(x_1)| \leq A(x_2-x_1) \tag{5\prime} \\
-          4^m > \frac{1}{\varepsilon} \Leftrightarrow 4^{-m} < \delta \\
+          \text{ выберем такое } m \quad 4^m > \frac{1}{\delta} \Leftrightarrow 4^{-m} < \delta \\
           k \leq 4^m(x) < k+1 \quad k \in \mathbb{Z} \\     
-          a_m = \frac{k}{4m} \quad b_m = \frac{k+1}{4^m} \quad a_m \leq x < b_m \\
+          a_m = \frac{k}{4^m} \quad b_m = \frac{k+1}{4^m} \quad a_m \leq x < b_m \\
           b_m - a_m = \frac{1}{4^m} 
      \end{gather*}
           \begin{enumerate}
           \item n > m          
-          $4^nb_m-4^na_m \quad 1. n > m$ \\
+          $4^nb_m-4^na_m$ \\
           \[\frac{4^n}{4^m}k + \frac{4^n}{4^m} - \frac{4^n}{4^m}k = 4^{n-m} \in \mathbb{Z}, \text{ чётное } \tag{6} \]
           \[(6) \implies \phi(4^nb_m) = \phi(4^na_m + \text { чётное }) =  \phi(4^na_n) \tag{7} \]
           \item $n = m$ \\
@@ -416,11 +437,11 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
           \[ 4^nb_m - 4^na_m = 4^{n-m} \tag{9} \]
           \end{enumerate}
           \begin{multline*}
-          (1) \implies f(b_m) - f(a_m) = \sumn \left( \frac{3}{4} \right) ^n (\phi(4^nb_m) - \phi(4^na_m)) \\
+          (1) \implies f(b_m) - f(a_m) = \sum^\infty_{n=1} \left( \frac{3}{4} \right) ^n (\phi(4^nb_m) - \phi(4^na_m)) \\
           \stackrel{(7)}{=} \sum^m_{n=1} \left( \frac{3}{4} \right)^n(\phi(4^nb_m) - \phi(4^na_m)) \tag{10} \end{multline*}
           \[\forall l \in \mathbb{Z} |\phi(l+1) - \phi(l)| = 1 \tag{11} \]
           \begin{multline*}
-          (10), (11) \implies |f(b_m) - f(a_m)|  \geq \\ \geq \left( \frac{3}{4} \right)^m |\phi(4^,b_m) - \phi(4^ma_m)|
+          (10), (11) \implies |f(b_m) - f(a_m)|  \geq \\ \geq \left( \frac{3}{4} \right)^m |\phi(4^mb_m) - \phi(4^ma_m)|
           -\sum_{n=1}^{m-1} \left( \frac{3}{4} \right)^n | \phi(4^nb_m) - \phi(4^na_m)| \geq \\
            \geq   \left( \frac{3}{4} \right)^m \cdot 1 
           - \sum^{m-1}_{n=1} \left( \frac{3}{4} \right)^n |\phi(4^nb_m)-\phi(4^na_m)|\end{multline*}
@@ -430,7 +451,7 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
           \text{ дальше не будем расписывать неравенство треугольника} 
           \end{gather*}
           \begin{multline*}
- |x_2-x_1|\geq \left( \frac{3}{4} \right)^m - \sum_{n=1}^{m-1} \left( \frac{3}{4} \right)^n
+  |f(b_m) - f(a_m)| \geq \left( \frac{3}{4} \right)^m - \sum_{n=1}^{m-1} \left( \frac{3}{4} \right)^n
           4^n(b_m - a_m) =\\
           = \left( \frac{3}{4} \right)^m - \frac{1}{4^m} \sum_{n=1}^{m-1}3^n =
           \left( \frac{3}{4} \right)^m - \frac{1}{4^m} \cdot \frac{3^m-1}{3-1} > \\ 
@@ -512,7 +533,7 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
           k = 2k, k_1 > K_1 \\
           |f(X,Y^\prime_{k_1}) - f(X,Y_{l_1})| < \varepsilon {\tag{14\prime}} \\
           \text{ по соотношению (9) если мы устремим } l_1 \text{ к } \infty \\
-          (14 \prime) \implies |f(X,Y^\prime_{k_1}) - \phi(X)| = \underset{l_1 \to \infty}{lim} |f(X,Y^\prime{k_1}) - f(X,Y_{l_1}) \leq \varepsilon \tag{15} \\
+          (14 \prime) \implies |f(X,Y^\prime_{k_1}) - \phi(X)| = \underset{l_1 \to \infty}{\lim} |f(X,Y^\prime{k_1}) - f(X,Y_{l_1}) \leq \varepsilon \tag{15} \\
      \end{gather*}
      Мы взяли любую последовательнось $Y_k^\prime$, любое $\varepsilon < 0$, поэтому мы по этому $\varepsilon$ нашли
      окрестность $U$ и такую функцию $\phi$
@@ -522,40 +543,43 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
           E \subset \vR^m \quad G \subset \vR^n \quad X_0 - \text{ точка сгущения } E \quad Y_0 - { точка сгущения } G \\
           f(X,Y) \darrow{\underset{Y \to Y_0}{X \in E}} \phi(X) \tag{16} \\
           \text{Далее предполагаем } \forall Y \in G \\
-          \exists \underset{X \to X_0}{f(X,Y)} = h(Y) \tag{17} \\
-          \implies \exists \underset{X \to X_0}{\phi(X)} = \underset{Y \to Y_0}{h(Y)} \tag{18} \\
-          \text{ Рассмотрим любую последовательность } \{Y_k\}^\infty_{k=1} \quad Y_k \in G \setminus Y_0 \quad Y_k \to Y_0 \\
-          \text{Рассмотрим функциональную последовательность} F_k(X) f(X,Y_k) \tag{19} \\
+          \exists \underset{X \to X_0}{\lim}f(X,Y) = h(Y) \tag{17} \\
+          \implies \exists \underset{X \to X_0}{\lim}\phi(X) =  \quad \exists \underset{Y \to Y_0}{\lim}h(Y) \tag{18} 
      \end{gather*}
+     Утверждение в том, что пределы существуют и они равны.
+\end{theorem}
+     \begin{longProof}
+           Рассмотрим любую последовательность  $\{Y_k\}^\infty_{k=1} \quad Y_k \in G \setminus Y_0 \quad Y_k \to Y_0 $.
+          Рассмотрим функциональную последовательность \[F_k(X) f(X,Y_k) \tag{19} \]
           Поскольку есть соотношение (16), то понятно, что 
-          \[(16) \implies F_k(X) \darrow{\underset{k \to \infty}{x \in E}} \tag{20} \]
+          \[(16) \implies F_k(X) \darrow{\underset{k \to \infty}{x \in E}} \phi(X) \tag{20} \]
           Если соотношение (16) годится  для всего множества $G$, то годится оно и для любого его подмножества
           \begin{gather*}
-               (17) \implies \forall k \exists \underset{x \to x_0}{lim} F_k(X) = h(Y_k) \tag{21} \\
-               (20), (21) \exists \underset{X \to X_0}{lim} \phi(X) \tag{22} \\
-               \exists \underset{k \to \infty}{lim} h^0_k \stackrel{def}{=} A \\
-               A = \underset{X \to X_0}{lim} \phi(X) \tag{23} \\
+               (17) \implies \forall k \exists \underset{x \to x_0}{\lim} F_k(X) = h(Y_k) \tag{21} \\
+               (20), (21) \exists \underset{X \to X_0}{\lim} \phi(X) \tag{22} \\
+               \exists \underset{k \to \infty}{\lim} h^0_k \stackrel{def}{=} A \\
+               A = \underset{X \to X_0}{\lim} \phi(X) \tag{23} \\
           \end{gather*}
           Поскольку $A$ не зависит от последовательности $Y_k$
           \[ (23) \implies (18) \]
-\end{theorem}
+     \end{longProof}
      \begin{corollary}
           \begin{gather*}
                f(X,Y) \quad X \in E \quad Y \in G \subset \vR^n \\
                X_0 \in E \quad X_0 - \text{ точка сгущения } E \quad Y_0 \text{ точка сгущения } G \\
                f(X,Y) \darrow{\underset{Y \to Y_0}{X \in}} \phi(X) \tag{ 24} \\
-               f(X,Y) \text{ непрерывна в } X_0 \forall Y \in G \tag{25} \\
-               \implies \phi \text{ непрерывна в } X_0 \\
+               f(X,Y) \text{ непрерывна в } X_0\quad  \forall Y \in G \tag{25} \\
+               \implies \phi \text{ непрерывна в } X_0 \tag{26}\\
           \end{gather*}
      \end{corollary}
-     \begin{proof}
+     \begin{longProof}
           \begin{gather*}
-               (25) \implies \underset{X \to X_0}{lim} f(X,Y) = f(X_0,Y) \forall Y \in G \tag{27} \\
-               (24),(27) \implies \exists \underset{X \to X_0}{lim} \phi(X) = \underset{Y \to Y_0}{lim} f(X_0,Y) \tag{28} \\
+               (25) \implies \underset{X \to X_0}{\lim} f(X,Y) = f(X_0,Y) \forall Y \in G \tag{27} \\
+               (24),(27) \implies \exists \underset{X \to X_0}{\lim} \phi(X) = \underset{Y \to Y_0}{lim} f(X_0,Y) \tag{28} \\
                (24) \implies f(X_0,Y) \underset{Y \to Y_0}{\rightarrow} \phi(X_0) \tag{29} \\
-               (28),(29) \implies \exists \underset{X \to X_0}{lim} \phi(X) = \phi(X_0) \implies (26)
+               (28),(29) \implies \exists \underset{X \to X_0}{\lim} \phi(X) = \phi(X_0) \implies (26)
           \end{gather*}
-     \end{proof}
+     \end{longProof}
      \begin{corollary}[Следствие из следствия???]
           \begin{gather*}
                f(X,Y) \quad X \in E \quad Y \in G \subset \vR^n \quad Y_0 - \text{ точка сгущения } G \\

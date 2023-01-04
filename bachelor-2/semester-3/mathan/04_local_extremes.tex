@@ -32,7 +32,10 @@
         \end{bmatrix*} \in E \quad F \left( \begin{bmatrix*}
             X_0 \\
             Y_0
-        \end{bmatrix*} \right) = \mathbb{0}_n \\
+        \end{bmatrix*} \right) = \mathbb{0}_n \\ Z = \begin{bmatrix}
+            X \\
+            Y
+        \end{bmatrix} \quad
         M = \left\{ \begin{bmatrix*}
             X \\
             Y
@@ -40,14 +43,14 @@
             X \\
             Y
         \end{bmatrix*}\right) = \mathbb{0}_n  \right\} \\
-        f: E \rightarrow {\vR} \\
+        f: E \rightarrow {\vR}  \quad  f \in C^1(E)\\
         \begin{bmatrix*}
             X_0 \\
             Y_0
         \end{bmatrix*} - \text{ локальный экстремум } f \text{ при условии } M. 
         \text{ Тогда} \\ 
-        \exists! \Lambda = (\lambda_1, \ldots, \lambda_n) : \phi_\Lambda = f(Z) + \Lambda F(Z) \tag{11} \\
-        \nabla  \phi_\Lambda = \mathbb{0}^{T}_{n+m} (\nabla - \text{ градиент}) \tag{12} \\
+        \exists! \Lambda = (\lambda_1, \ldots, \lambda_n) : \phi_\Lambda(Z) = f(Z) + \Lambda F(Z) \tag{11} \\
+        \nabla  \phi_\Lambda(Z_0) = \mathbb{0}^{T}_{n+m} (\nabla - \text{ градиент}) \tag{12} \\
         (12) : \phi^\prime_{\Lambda x_1}(Z_0) = 0, \ldots, \phi^\prime_{\Lambda x_n}(Z_0) = 0 \\
         \phi^\prime_{\Lambda y_1}(Z_0), \ldots, \phi^\prime_{\Lambda y_m}(Z_0) = 0
     \end{gather*}
@@ -56,7 +59,6 @@
     Мы не случайно обозначили так координаты, по условию сказано, что ранг матрицы Якоби в любой точке равен n. Мы можем выбрать n столбцов
         так, чтобы соответсвующий определитель матрицы Якоби не был равен 0.
     \begin{gather*}
-            f \in C^1(E) \quad 
             \left |\begin{matrix*}
                 F^\prime_{1x_1}(Z_0) & \ldots & F^\prime_{1x_n}(Z_0) \\
                 \ldots & \ddots & \ldots \\
@@ -78,11 +80,11 @@
             \begin{bmatrix*}
                 X \\
                 Y
-            \end{bmatrix*} \in W \implies Y \in W \tag{15} \\
+            \end{bmatrix*} \in w \implies Y \in W \tag{15} \\
             (14\prime), (15) \implies \begin{bmatrix*}
                 X \\
                 Y
-            \end{bmatrix*} \in W \cap M \Leftrightarrow X = g(Y) \tag{16} \\
+            \end{bmatrix*} \in w \cap M \Leftrightarrow X = g(Y) \tag{16} \\
             (16) \text{ и определение локального условного экстремума } \implies\\
              Y_0 - \text { локальный экстремум для } h(Y) \tag{17}\\
              h \in C^1(W) \quad g \in C^1(W) \\
@@ -99,7 +101,7 @@
                 Y
              \end{bmatrix*} \right) \\
              h \in C^1(W) \\
-             (18), (19) \implies Df(P(Y_0))DP(Y) = \mathbb{0}^T_m \tag{4} \\
+             (18), (19) \implies Df(P(Y_0))DP(Y_0) = \mathbb{0}^T_m \tag{20} \\
              P(Y_0) = \begin{bmatrix*}
                 g(Y_0) \\
                 Y_0

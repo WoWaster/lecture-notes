@@ -8,14 +8,14 @@
     \[A(px_1 + qx_2) = pA(x_1) + qA(x_2)\]
 \end{definition}
 \begin{gather*}
-    A \Leftrightarrow \tilde{A}_{m \times n} \\
+    A \leftrightarrow \tilde{A}_{n \times m} \quad
     X =
         \begin{bmatrix}
             x_1 \\
             \vdots \\
             x_m  \\
-        \end{bmatrix}
-    A(x) = \tilde{A}_{m \times n} X \\
+        \end{bmatrix} \quad 
+    A(X) = \tilde{A}_{n \times m} X \quad
     \tilde{A} = 
     \begin{bmatrix}
         a_{11} & \ldots & a_{1m} \\
@@ -25,6 +25,11 @@
     \end{bmatrix}
 \end{gather*}
 
+\begin{remark}
+    Н.А. размерность матриц обозначал $m \times n$, подразуемвая $n$ строк и $m$ столбцов.
+    Кажется, было так только 1 раз и именно на этом моменте.
+\end{remark}
+
 \begin{definition}[Норма линейного отображения]
     \[||A|| \stackrel{def}{=} \underset{x \in {\vR}^m, ||X||_{{\vR}^m \leq 1}}{\sup}
      {||AX||_{{\vR}^n}} \tag{1} \]
@@ -32,10 +37,10 @@
 
 
 \[AX = \begin{bmatrix}
-    a_{11}x_1 + \ldots a_{1n}x_m \\
-    a_{21}x_1 + \ldots a_{2n}x_m \\
+    a_{11}x_1 + \ldots + a_{1m}x_m \\
+    a_{21}x_1 + \ldots + a_{2m}x_m \\
     \vdots \\
-    a_{n1}x_1 + \ldots a_{nm}x_m
+    a_{n1}x_1 + \ldots + a_{nm}x_m
 \end{bmatrix}\]
 
 
@@ -52,7 +57,7 @@
 
 \subsection{Свойства нормы линейного отображения}
  \begin{theorem}$||A|| \geq 0, ||A|| = 0 \Leftrightarrow A = \mathbb{0}$ \end{theorem}
-    \begin{proof}
+    \begin{longProof}
         Пусть $||A|| = 0$ 
         $A = \begin{bmatrix}
             a_{11} & \ldots & a_{1m} \\
@@ -83,21 +88,21 @@
             a_{1j} \\
             \vdots \\
             a_{nj} \\ \end{bmatrix}$ = $a_{ij} = 0$
-    \end{proof}
+    \end{longProof}
     $A, c \in {\vR}, (cA(x)) \stackrel{def}{=} c(A(x))$ 
     \begin{theorem}$||cA|| = |c| \cdot ||A||$ \end{theorem}
-    \begin{proof}
+    \begin{longProof}
         \begin{multline*}
         ||cA|| = \underset{X \in {\vR}^m, ||X||_{{\vR}^m}\leq 1}{\sup}||cA(X)||_{{\vR}^n} = 
         \underset{X \in {\vR}^m, ||X||_{{\vR}^m}\leq 1}{\sup} ||c(AX)||_{\mathbb{R^n}} = \\
         =\underset{X \in {\vR}^m, ||X||_{{\vR}^m}\leq 1}{\sup} |c| \cdot ||AX||_{{\vR}^n}
         \end{multline*} 
-    \end{proof}
+    \end{longProof}
     $A, B : {\vR}^m \rightarrow {\vR}^n$
         \begin{theorem}
            $ ||A+B|| \leq ||A|| + ||B|| $
         \end{theorem}
-        \begin{proof}
+        \begin{longProof}
             \[||A + B|| = \underset{x \in {\vR}^m, ||X||_{{\vR}^m} \leq 1}{\sup} ||(A+B)X||_{{\vR}^n}
             = \underset{\ldots}{\sup} ||AX + BX||_{{\vR}^n} \leq \]
             \[\leq \underbrace{\sup(\underbrace{||AX||}_{\leq ||A||_2} + \underbrace{||BX||}_{\leq ||B||_2})}_{M}
@@ -110,11 +115,11 @@
             $(3) \implies M - \varepsilon < ||A|| + ||B|| \Rightarrow 
             \underset{x \in {\vR}^m, ||X||_{{\vR}^m}\leq1}{\sup}
             (||AX||_{{\vR}^n} + ||BX||_{{\vR}^n}) \leq ||A|| + ||B||$
-        \end{proof}
+        \end{longProof}
          \begin{theorem}
            $ ||AX||_{{\vR}^n} \leq ||A|| \cdot ||X||_{{\vR}^m}$
         \end{theorem}
-        \begin{proof}
+        \begin{longProof}
             \begin{gather*}
             X \neq \mathbb{0}_m \Leftrightarrow ||X||_{{\vR}^m} \stackrel{def}{=} t > 0 \\
             X_0 = \frac{1}{t}X \\
@@ -122,21 +127,21 @@
             = \frac{1}{t} \cdot t = 1 \implies
         \end{gather*}
         \[ ||AX_0||_{{\vR}^n} \leq ||A|| \tag{5}\] 
-        $ (5) \implies ||Ax_0||_{{\vR}^n}=||A \left(\frac{1}{t}x \right)||_{{\vR}^n} $
+        $ (5) \implies ||AX_0||_{{\vR}^n}=||A \left(\frac{1}{t}x \right)||_{{\vR}^n} $
         $\leq ||A|| \implies 4.$
-        \end{proof}
+        \end{longProof}
         \begin{theorem}
             \[c > 0, \forall x \in {\vR}^m\] 
             \[||Ax||_{{\vR}^n} \leq c||X||_{{\vR}^m} \forall x \in {\vR}^m \tag{6} \]
             \[\implies ||A|| \leq c \tag{6\prime} \]
         \end{theorem}
-        \begin{proof}
+        \begin{longProof}
             \begin{gather*}
             (6) \implies \text{при } ||X||_{{\vR}^m} < 1 \text{ имеем} \\
             ||AX||_{{\vR}^n} \leq c \cdot ||X||_{{\vR}^m} \leq c \rightarrow
             \underset{||X|| \leq 1}{\sup} ||AX|| \leq c \implies (6\prime)
             \end{gather*}
-        \end{proof}
+        \end{longProof}
     \begin{theorem}
         \begin{gather*}
         E = \{ c \in {\vR}, с > 0 : \forall x \in {\vR}^m \text{ имеем }
@@ -147,7 +152,7 @@
         ||A|| = \inf E \tag{8} 
     \end{gather*}
     \end{theorem}
-    \begin{proof}
+    \begin{longProof}
          $ m = 0$
             \begin{gather*}
                 \forall \varepsilon > 0 \exists c_1 \in E : c_1 < \varepsilon \\
@@ -161,7 +166,7 @@
                 \text{пусть } m < ||A|| \implies \exists c_2 : m < c_2 < ||A|| \tag{9} \\
                 (7) \implies ||Ax||_{{\vR}^n} \leq c_2||x||_{{\vR}^m} \forall x \in {\vR}^m \\
                 (9) \implies ||A|| \leq c_2 \text{ противоречие} \end{gather*}
-    \end{proof}
+    \end{longProof}
     \begin{theorem}
     \begin{gather*}
         A : {\vR}^m \rightarrow {\vR}^n, B: {\vR}^n \rightarrow {\vR}^k \\
@@ -172,7 +177,7 @@
         \[||L|| \leq ||A|| \cdot ||B||\]
 
     \end{theorem}
-    \begin{proof}
+    \begin{longProof}
         \begin{gather*}
             \forall x \in {\vR}^m \text{  }||LX||_{{\vR}^k} = ||B(AX)||_{{\vR}^k}
         \leq ||B|| \cdot ||AX||_{{\vR}^n} 
@@ -180,7 +185,7 @@
         \[\leq \underbrace{||B|| \cdot ||A||}_{c}
          \cdot ||X||_{{\vR}^m}\   \tag{11} \]
         по свойству 5 $(11) \implies (10)$
-    \end{proof}
+    \end{longProof}
 
 \subsection*{Дифференцируемость суперпозиции линейных отображений}
     \begin{definition}[Дифференцируемость]

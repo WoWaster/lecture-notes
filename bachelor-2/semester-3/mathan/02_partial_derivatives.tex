@@ -41,27 +41,29 @@
     \end{gather*}
 
     \section{Теорема о смешанных производных}
-        \includegraphics[width=0.1\linewidth]{chikulya_finally.pdf}
+    %\begin{wrapfigure}{l}{0.25\textwidth} 
+        \includegraphics[width=0.05\linewidth]{chikulya_finally.pdf}
+    %\end{wrapfigure}.
         \begin{gather*}
-            E \subset \vR^2 - \text{ открытое множество } \\
-            f: E \rightarrow \vR \\
+            E \subset \vR^2 - \text{ открытое множество } \quad
+            f: E \rightarrow \vR \quad
             x_0 = (x_1^0, x_2^0) \in E \\
             f \in C(E) \forall x \in E \quad \exists f^\prime_{x_1}(x) \quad f^\prime_{x_2}(x) \\
             f^\prime_{x_1}, f^\prime_{x_2} \in C(E) \\
-            \forall x \in E \quad \exists f^{\prime\prime}{x_1x_2}(x) \quad \exists f^{\prime\prime}_{x_2x_1} \\
+            \forall x \in E \quad \exists f^{\prime\prime}_{x_1x_2}(x) \quad \exists f^{\prime\prime}_{x_2x_1}(x) \\
             f^{\prime\prime}_{x_1x_2} \text{  и } f^{\prime\prime}_{x_2x_1} \text{ непрерывны в } x_0 \\
             \implies f^{\prime\prime}_{x_1x_2} (x_0)  = f^{\prime\prime}_{x_2x_1}(x_0)
         \end{gather*}
         \begin{longProof}
             \begin{gather*}
                 \exists r > 0 \quad B_{2r}(x_0) = \{ (x_1,x_2) : (x_1-x_1^0)^2 + (x_2-x_2^0)^2 < 4r^2 \} \\
-                B_{2r}(x_0) \in E \quad |x_1^0 - x_1^0| \leq r \quad |x_2-xx2^0| \leq r \implies \\
+                B_{2r}(x_0) \in E \quad |x_1 - x_1^0| \leq r \quad |x_2-x_2^0| \leq r \implies \\
                 \implies (x_1,x_2) \subset B_{2r}(x_0) \\
                 0 < h \leq r \\
                 g(h) = \frac{f(x_1^0+h,x_2^0+h)-f(x_1^0+h,x_2^0) - f(x_1^0,x_2^0+h) + f(x_1^0,x_2^0)}{h^2} \tag{1}\\
                 \phi(x_2) = \frac{f(x_1^0+h,x_2) - f(x_1^0,x_2)}{h} \tag{2}\\
                 x_2 \in [x_2^0-r, x_2^0+r]  \quad (1),(2) \implies g(h) = \frac{\phi(x_2^0+h)-\phi(x_2^0)}{h} \tag{3} \\
-                (2) \implies \forall x_2 \in [x^0_2 - r, x^0_2 + r] \exists \phi^\prime(x_2) = \frac{f^\prime_{x_2}(x_1^0+h,x_2)-f^\prime_{x_2}(x_1^0,x_2)}{h} \tag{4}\\
+                (2) \implies \forall x_2 \in [x^0_2 - r, x^0_2 + r] \quad \exists \phi^\prime(x_2) = \frac{f^\prime_{x_2}(x_1^0+h,x_2)-f^\prime_{x_2}(x_1^0,x_2)}{h} \tag{4}\\
                 \text{по теореме Лагранжа } \exists h_2 \quad 0 < h_2 < h : \\
                 \phi(x_2^0+h) - \phi(x_2^0) = \phi^\prime(x_2^0+h_2) \cdot h \tag{5}
             \end{gather*}
@@ -99,7 +101,7 @@
         \begin{theorem}
             \begin{gather*}
                 E \subset \vR^n \quad n \geq 3 \quad x_0 = (x_1^0 \ldots x_i^0 \ldots x^0_j \ldots x_n^0) \in E \\
-                f: E \rightarrow \vR \quad f \in C(E) \quad \forall X \in E \exists f^\prime_{x_i}(X) f^\prime{x_j}(X) \\
+                f: E \rightarrow \vR \quad f \in C(E) \quad \forall X \in E  \quad \exists f^\prime_{x_i}(X), f^\prime{x_j}(X) \\
                 f^\prime_{x_i}(X), f^\prime_{x_j}(X) \in C(E) \quad \exists f^{\prime\prime}_{x_ix_j}(X) f^{\prime\prime}_{x_jx_i}(X) \\
                 f^{\prime\prime}_{x_ix_j}(X) \text{ и } f^{\prime\prime}_{x_jx_i}(X) \text{ непрерывны в } X_0 \implies \\
                 \implies f^{\prime\prime}_{x_ix_j}(X_0) = f^{\prime\prime}_{x_jx_i}(X_0)
@@ -117,7 +119,7 @@
             \[
                  \left. \begin{gathered} E \subset \vR^n \quad n \geq 2 \quad i \ne j \\
                 f: E \rightarrow \vR \\
-                f \quad f\prime_{x_i} f^\prime_{x_j} f^{\prime\prime}_{x_jx_j} f^{\prime\prime}_{x_jx_i} \in C(E) \end{gathered} \right\} \implies \forall x \in E \quad f^{\prime\prime}_{x_ix_j}(X) = f^{\prime\prime}_{x_jx_i}(X)
+                f, f\prime_{x_i}, f^\prime_{x_j}, f^{\prime\prime}_{x_jx_j}, f^{\prime\prime}_{x_jx_i} \in C(E) \end{gathered} \right\} \implies \forall x \in E \quad f^{\prime\prime}_{x_ix_j}(X) = f^{\prime\prime}_{x_jx_i}(X)
             \]
         \end{longProof}
 
