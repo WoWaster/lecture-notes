@@ -13,7 +13,7 @@
                Интегралы мы имеем право писать по только что доказанному следствию (фи непрерывна) 
           \end{gather*}
      \end{theorem}
-     \begin{proof}
+     \begin{longProof}
           \begin{gather*}
                \forall \varepsilon > 0 (1) \implies \exists Y_0 \in U : \\
                \forall x \in [a,b] \text{ и } \forall Y \in G \cap U \setminus Y_0 \text{ имеем } \\
@@ -24,7 +24,7 @@
                \leq \int^b_a |f(x,Y) - \phi(x) |dx \leq \int^b_a \varepsilon dx = (b-a)\varepsilon \tag{5} \\
                (5) \implies(3) \\
           \end{multline*}
-     \end{proof}
+     \end{longProof}
      \begin{definition}
           $g(Y) = \int^b_a f(x,Y) dx$ -- интеграл, зависящий от параметра
      \end{definition}
@@ -33,6 +33,8 @@
                f \in C([a,b] \times [p,q]) \\ 
                g(y) = \int^b_a f(x,y) dx \tag{7} \\
                g \in C([p,q]) \tag{8} \end{gather*}
+     \end{theorem}
+     \begin{longProof}
                наша функция $f$  равномерно непрерывна на замкнутом промежутке, поэтому по теореме Кантора 
                \begin{gather*}
                \forall \varepsilon > 0 \quad \exists \delta > 0 : \forall (x_1,y_1) \text{ и } (x_2,y_2) \\
@@ -45,48 +47,48 @@
                \stackrel{\leq}{(9)} \int^b_a \varepsilon dx = \varepsilon(b-a) \tag{10} \\
                   \end{multline*}
                   $(10) \implies (8) $
-     \end{theorem}
+     \end{longProof}
      \begin{theorem}[О производной интеграла, зависящего от параметра]
           \begin{gather*}
                f \in C([a,b] \times [p,q] = Q) \\
                \forall (x,y) \in Q \quad \exists f^\prime_y(x,y) \\
                f^\prime_y(x,y) \in C(Q) \tag{11} \\
                g(y) = \int^b_a f(x,y) dx \\
+               \forall y \in [p,q] \exists g^\prime(y) \\
+               g^\prime(y) = \int^b_a f^\prime_y(x,y)dx \tag{12} 
           \end{gather*}
      \end{theorem}
-     \begin{proof}
+      \begin{longProof}
           \begin{gather*}
-               \forall y \in [p,q] \exists g^\prime(y) \\
-               g^\prime(y) = \int^b_a f^\prime_y(x,y)dx \tag{12} \\
-               y \in [p,q] \quad h \quad y+h \in [p,q] \\
-               g(y+h) - g(y) = \int^b_a(f(x,y+h)dx) - \int^b_a f(x,y)dx =\\ =
-                \int^b_a(f(x,y+h) - f(x,y)) dx 
-               \intertext{ из-за непрерывности по теореме Лагранжа имеем} 
-               с(h,x,y) \text{ лежит между } y \text { и } y + h \\
-               f(x,y+h) - f(x,y) = f^\prime_y(x,c(h,x,y))h \\
-               \text{ продолжаем равенство } \end{gather*}
-               \begin{multline*}
-               = \int^b_a f^\prime_y(x,c(h,x,y)) \cdot hdx =\\ 
-               = \int^b_a f^\prime_y(x,y)hdx +
-               \int^b_a (f^\prime_y(x,c(h,x,y)) - f^\prime_y(x,y))hdx = \\
-               = h \cdot \underbrace{\int^b_a f^\prime_y(x,y)dx + h \cdot 
-               \int^b_a (f^\prime_y(x,c(h,x,y))-f^\prime_y(x,y))dx}_{A(y)} \tag{13} \end{multline*}
-               \begin{gather*}
-               \forall \varepsilon > 0 \text{ и } \forall x \in [a,b]
-               \intertext{ опять пользуемся теоремой Кантора} 
-               (11) \implies \exists \delta > 0 : \forall y_2,y_1 \in [p,q] \\
-               |y_2 - y_1| < \delta \implies |f^\prime_y(x,y_2) - f^\prime_y(x,y_1)| < \varepsilon \tag{14} \\
-               |c(h,x,y) - y| < |h| \quad |h| < \delta \tag{15} \end{gather*}
-               \begin{multline*}
-               (13),(14),(15) \implies |g(y+h) - g(y) - A(Y)h| \leq \\ 
-               \leq |h| \int^b_a |f^\prime_y(x,c(h,x,y)) - f^\prime_y(x,y)|dx \leq \\ 
-               \leq |h| \cdot \int^b_a \varepsilon dx = |h| \cdot \varepsilon(b-a) \tag{16} \end{multline*}
-               \begin{gather*}
-               (16) \implies g(y+h) - g(y) - hA(y) = r(h,y) \text{ и } \left |\frac{r(h,y)}{h} \right | \underset{h \to 0}{\rightarrow} 0 \tag{17}\\
-               \intertext{по определению дифференцируемости}
-               (17) \implies g^\prime(y) = A(y) \implies (12) \\
-          \end{gather*}
-     \end{proof}
+          y \in [p,q] \quad h \quad y+h \in [p,q] \\
+          g(y+h) - g(y) = \int^b_a(f(x,y+h)dx) - \int^b_a f(x,y)dx =\\ =
+               \int^b_a(f(x,y+h) - f(x,y)) dx 
+          \intertext{ из-за непрерывности по теореме Лагранжа имеем} 
+          c(h,x,y) \text{ лежит между } y \text { и } y + h \\
+          f(x,y+h) - f(x,y) = f^\prime_y(x,c(h,x,y))h \\
+          \text{ продолжаем равенство } \end{gather*}
+          \begin{multline*}
+          = \int^b_a f^\prime_y(x,c(h,x,y)) \cdot hdx =\\ 
+          = \int^b_a f^\prime_y(x,y)hdx +
+          \int^b_a (f^\prime_y(x,c(h,x,y)) - f^\prime_y(x,y))hdx = \\
+          = h \cdot \underbrace{\int^b_a f^\prime_y(x,y)dx}_{A(y)} + h \cdot 
+          \int^b_a (f^\prime_y(x,c(h,x,y))-f^\prime_y(x,y))dx \tag{13} \end{multline*}
+          \begin{gather*}
+          \forall \varepsilon > 0 \text{ и } \forall x \in [a,b]
+          \intertext{ опять пользуемся теоремой Кантора} 
+          (11) \implies \exists \delta > 0 : \forall y_2,y_1 \in [p,q] \\
+          |y_2 - y_1| < \delta \implies |f^\prime_y(x,y_2) - f^\prime_y(x,y_1)| < \varepsilon \tag{14} \\
+          |c(h,x,y) - y| < |h| \quad |h| < \delta \tag{15} \end{gather*}
+          \begin{multline*}
+          (13),(14),(15) \implies |g(y+h) - g(y) - A(Y)h| \leq \\ 
+          \leq |h| \int^b_a |f^\prime_y(x,c(h,x,y)) - f^\prime_y(x,y)|dx \leq \\ 
+          \leq |h| \cdot \int^b_a \varepsilon dx = |h| \cdot \varepsilon(b-a) \tag{16} \end{multline*}
+          \begin{gather*}
+          (16) \implies g(y+h) - g(y) - hA(y) = r(h,y) \text{ и } \left |\frac{r(h,y)}{h} \right | \underset{h \to 0}{\rightarrow} 0 \tag{17}\\
+          \intertext{по определению дифференцируемости}
+          (17) \implies g^\prime(y) = A(y) \implies (12) \\
+     \end{gather*}
+     \end{longProof}
      \begin{theorem}[об интегрировании интеграла, завсящего от параметра]
           \begin{gather*}
                f \in C([a,b] \times [p,q]) \\
@@ -98,7 +100,7 @@
                20: \int^b_a \left(  \int^q_p f(x,y)dy \right) dx = \int^q_p \left( \int^b_a f(x,y)dx \right)dy
           \end{gather*} 
      \end{theorem}
-     \begin{proof} 
+     \begin{longProof} 
           \begin{gather*}
                u \in [p,q] \quad \Phi(u) = \int^u_p g(y)dy \tag{21} \\
                x \in [a,b] \quad l(x,u) = \int^u_p f(x,y) dy \tag{22} \\
@@ -116,12 +118,12 @@
                 \Psi(p) = \int^b_a 0 \ldots = 0 \tag{29} \\
                \text{Применим формулу Ньютона-Лейбница} \\
                 (27),(28),(29) \implies
-               \Phi(q) = \Phi(q) - \Phi(p) = \int^q_p \Phi^\prime(u) dx =\\
-                = \int^q_p \Psi^\prime(i)di =
+               \Phi(q) = \Phi(q) - \Phi(p) = \int^q_p \Phi^\prime(u) du =\\
+                = \int^q_p \Psi^\prime(u)du =
                \Psi(q)-\Psi(p) = \Psi(q) \tag{30} \\
                (19),(30),(21),(23) \implies \int^q_p g(y) dy = \int^b_a h(x) dx 
           \end{gather*}
-     \end{proof}
+     \end{longProof}
      \section{Несобственные интегралы, зависящие от параметра}
      \begin{definition}
           \begin{gather*}
@@ -137,6 +139,7 @@
           \[ \exists \phi(y), y \in [p,q] \]
           \[ g(A,y) \darrow{\underset{y \in [p,q]}{A \to + \infty}} \phi(y) \tag{3} \]
      \end{definition}
+     \subsection{Достаточные условия сходимости}
      \begin{theorem}[Критерий Коши сходимости несобственного интеграла]
           Для того, чтобы этот интеграл сходился при $y$, принадлежащем замкнутому промежутку, необходимо и достаточно, чтобы
           \begin{gather*}
@@ -146,21 +149,29 @@
           \begin{longProof}
                По определению равномерной сходимости несобственного интеграла можем критерий для сходимости семейства функций
                \begin{gather*}
-               |g(A_2,y) - g(A,y)| < \varepsilon \tag{5}\\
-               A_2 > A_1 \quad g(A_2,y) - g(A_1,y)|  = \int^{A_2}_a(x,y) dx - \int^{A_1}_a f(x,y)dx = \\
+               |g(A_2,y) - g(A_1,y)| < \varepsilon \tag{5}\\
+               A_2 > A_1 \quad g(A_2,y) - g(A_1,y)  = \int^{A_2}_a(x,y) dx - \int^{A_1}_a f(x,y)dx = \\
                =\int^{A_2}_{A_1} f(x,y) dx \tag{6}\\
-               (5),(6) \implies (4)\\
-               \int^\infty_a f(x,y) dx \\
-               y \in [p,q] \quad f \in C([a,\infty) \times [p,q]) \\
-               h(x) \quad x \in [a, \infty) \quad h \in C([a,\infty)) \quad h(x) \geq 0 \\
-               \forall (x,y) \quad |f(x,y)| \leq h(x) \tag{7}\\
-               \int^\infty_a h(x) dx \text{ сходится } \tag{8}\\
+               (5),(6) \implies (4)
+               \end{gather*}
+          \end{longProof}
+               \begin{theorem}[Признак Вейерштрасса сходимости несобственного интеграла]
+                  \begin{gather*}
+                    \int^\infty_a f(x,y) dx  \tag{*}\\
+                    y \in [p,q] \quad f \in C([a,\infty) \times [p,q]) \\
+                    h(x) \quad x \in [a, \infty) \quad h \in C([a,\infty)) \quad h(x) \geq 0 \\
+                    \forall (x,y) \quad |f(x,y)| \leq h(x) \tag{7}\\
+                    \int^\infty_a h(x) dx \text{ сходится } \implies (*) \text{ сходится } \tag{8}\\
+                  \end{gather*}  
+               \end{theorem}
+               \begin{longProof}
+          \begin{gather*}
                \text{ применим Критерий Коши с прошлого семестра}\\
                \forall \varepsilon > 0 \quad (8) \implies \exists L > 0 : \forall L < A_1 < A_2 \\
                \int^{A_2}_{A_1} h(x) dx < \varepsilon \tag{9} \\
                \text{ применим только что установленный критерий Коши} \end{gather*}
                \begin{multline*}
-               \forall y in p,q \quad \left | \int^{A_2}_{A_1} f(x,y) dx \right | \leq \int_{A_1}^{A_2} |f(x,y)| dx \stackrel{(7)}{\leq}  \\
+               \forall y \in [p,q] \quad \left | \int^{A_2}_{A_1} f(x,y) dx \right | \leq \int_{A_1}^{A_2} |f(x,y)| dx \stackrel{(7)}{\leq}  \\
                \stackrel{(7)}{\leq} \int^{A_2}_{A_1} h(X) dx \stackrel{(9)}{<} \varepsilon \tag{10}
           \end{multline*}
      \end{longProof}
@@ -171,13 +182,14 @@
                g(x,y) \\
                \int^\infty_a f(x,y) dx \text{ сходится рваномерно при } y \in E \tag{1} \\
                g(x,y) \text{ при фиксированном } y \in E \text{ монотонны} \tag{2} \\ 
-               \exists M \quad \text{ т.ч. } \forall, x \in [a,+\infty), \forall y \in E |g(x,y)| \leq M \tag{3}
+               \exists M \quad \text{ т.ч. } \forall, x \in [a,+\infty), \forall y \in E \quad |g(x,y)| \leq M \implies  \\
+               \int^\infty_a f(x,y)g(x,y)dx \text{ сходится равномерно }  \tag{3}
           \end{gather*}
      \end{theorem}
-     \begin{proof}
+     \begin{longProof}
           Будем пользоваться критерием Коши.
           \begin{gather*}
-               \forall \varepsilon > 0 \quad (1) \implies \exists A > a : \forall A_1 > A \forall A_2 > A \text{ и } 
+               \forall \varepsilon > 0 \quad (1) \implies \exists A > a : \forall A_1 > A \quad \forall A_2 > A \text{ и } 
                \forall y \in E \\
                \left | \int^{A_2}_{A_1} f(x,y)dx \right | < \varepsilon \tag{5}\\
           \end{gather*}
@@ -189,7 +201,7 @@
                \stackrel{(3)}{\leq} M \left | \int^{A_0}_{A_1} f(x,y)dx \right | + M \left | \int^{A_2}_{A_0} f(x,y)dx \right | < M\varepsilon + M\varepsilon \implies\\
                 \text{ по критерию Коши } (4)
           \end{multline*}
-     \end{proof}
+     \end{longProof}
      \begin{theorem}[Признак Дирихле равномерной сходимости несобственного интеграла]
           \begin{gather*}
                f(x,y) \quad x \in [0, \infty) \quad y \in \vR^n \\
@@ -200,7 +212,7 @@
                 y \in E \tag{9}
           \end{gather*}
      \end{theorem}
-     \begin{proof}
+     \begin{longProof}
           Будем опять пользоваться критерим Коши равномерной сходимости
           \begin{gather*}
                \forall \varepsilon > 0 \quad \exists A > a : \forall A_1 > A \text{ и } \forall y \in E \\
@@ -211,8 +223,8 @@
                \text{понятно, что второе слагаемое оценивается точно так же} \\
                \stackrel{(10),(11)}{\leq} \varepsilon 2M + \varepsilon 2M = 4 M \varepsilon \implies(9)
           \end{gather*}
-     \end{proof}
-     \subsection*{Свойства равномерно сходящихся несобственных интегралов}
+     \end{longProof}
+     \subsection{Свойства равномерно сходящихся несобственных интегралов}
      \begin{theorem}[Непрерывность] 
           Мы не разделяем $x,y$, просто рассматриваем непрерывную функцию
           \begin{gather*}
@@ -222,10 +234,10 @@
                \implies I \in C(E) \tag{14} \\ 
           \end{gather*}
      \end{theorem}
-     \begin{proof}
+     \begin{longProof}
           Давайте рассмотрим функцию 
           \begin{gather*}
-               g(y,A) = \int^A_a f(x,y)dx \tag{15} \\
+               J(y,A) = \int^A_a f(x,y)dx \tag{15} \\
                (12) \implies f \in C([a,A] \times E) \tag{16} \\
                \intertext{по теореме о непрерывности интеграла, зависящего от параметра, мы получаем} 
                (16) \implies \exists  J(y,A) \in C(E) \quad \forall A > a \tag{17} \\
@@ -234,7 +246,7 @@
                \intertext{По теореме о непрерывности равномерно сходящегося семейства функций предельная функция будет непрерывна, поэтому} \\
                (17), (18) \implies (14)
           \end{gather*}
-     \end{proof}
+     \end{longProof}
      \begin{theorem}[Интегрирование несобственного интеграла, зависящего от параметра]
           множество параметров это отрезок теперь 
           \begin{gather*}
@@ -244,7 +256,7 @@
                \implies \int^q_p I(y)dy = \int^\infty_a l(x) dx \tag{21}
           \end{gather*}
      \end{theorem}
-     \begin{proof}
+     \begin{longProof}
           \begin{gather*}
                \forall \varepsilon > 0 \quad (20) \implies \exists  A > a : \forall A_1 > A \text{ и } \forall y \in [p,q]\\
                \left | \int_a^{A_1} f(x,y) dx - I(y) \right | < \varepsilon \tag{22} \\
@@ -265,7 +277,7 @@
           \end{gather*}
           Мы получили следующее: мы взяли любое $\varepsilon$ и нашли $A$ для которого выполнено соотношение (25), это означает
           по определению сходимости несобственного интеграла $(25) \implies (21)$
-     \end{proof}
+     \end{longProof}
      \begin{theorem}[О производной несобственного интеграла, зависящего от параметра]
           \begin{gather*}
                f \in C([a,\infty) \times [p,q] ) \tag{1} \\
@@ -352,9 +364,9 @@
                \text{ тогда } \int^\infty_p \left ( \int^\infty_a f(x,y)dx \right ) dy = \int^\infty_a \left ( \int^\infty_p f(x,y)dy \right ) dx
           \end{gather*}
      \end{theorem}
-     \begin{proof}
+     \begin{longProof}
           Доказательство будет в следующем семестре, а пользоваться мы будем ей сейчас.
-     \end{proof}
+     \end{longProof}
      \begin{example}[Вычисление интеграла Дирихле]
           \begin{gather*}
                I = \int^\infty_0 \frac{\sin x}{x} dx = \frac{\pi}{2} \\

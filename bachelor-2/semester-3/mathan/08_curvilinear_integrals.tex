@@ -141,7 +141,9 @@ f_1(t)\\\vdots\\f_n(t)
 
 
 \subsection{Определение сумм Римана криволинейного интеграла первого рода}
-Пусть $\Gamma([a,b])$ - гладкая кривая, $\{ t_k\}^m_{k=0}$ - разбиение отрезка $[a,b],\\ \{\tau_k\}^m_{k=1}$ - оснащение этого разбиения, $\tau_k\in[t_{k-1},t_k],\ f\in C(\Gamma([a,b])).$ \\\textbf{Суммой Римана} для интеграла $\int\limits_{\Gamma([a,b])} f(M)dl(M)$ по разбиению $\{ t_k\}_{k=0}^m$   и оснащению $\{\tau_k\}_{k=1}^\infty$ называется выражение 
+Пусть $\Gamma([a,b])$ - гладкая кривая, $\{ t_k\}^m_{k=0}$ - разбиение отрезка $[a,b],\\ \{\tau_k\}^m_{k=1}$ -
+ оснащение этого разбиения, $\tau_k\in[t_{k-1},t_k],\ f\in C(\Gamma([a,b])).$ \\\textbf{Суммой Римана} для интеграла $\int\limits_{\Gamma([a,b])} f(M)dl(M)$ по разбиению $\{ t_k\}_{k=0}^m$ 
+   и оснащению $\{\tau_k\}_{k=1}^m$ называется выражение 
 \[ S_\Gamma (f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})=\sum\limits_{k=1}^m f(\Gamma(\tau_k))l(\Gamma([t_{k-1},t_k]))\tag{27} \]
 \subsection{Теорема о пределе сумм Римана}
 Пусть $\Gamma([a,b])$ - гладкая кривая, $f\in C(\Gamma([a,b]))$.\\
@@ -167,7 +169,7 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
      \leq \sum\limits_{k=1}^m |f(\Gamma(\tau_k)) l(\Gamma([t_{k-1},t_k]))-\int_{t_{k-1}}^{t_k} f(\Gamma(t))||\D\Gamma(t)||_{\vR^n} dt|< \\
      \varepsilon\sum\limits_{k=1}^m l(\Gamma([t_{k-1},t_k]))= 
     \end{multline*}
-\[ =\varepsilon\Gamma([a,b]). \]
+\[ =\varepsilon l\Gamma([a,b]). \]
 \end{longProof}
 
 

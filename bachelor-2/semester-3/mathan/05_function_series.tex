@@ -466,7 +466,7 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
 \end{example}
 \section{Равномерная сходимость семейства функций}
 \begin{gather*}
-     E \subset \vR^m \quad g \subset \vR^n \\
+     E \subset \vR^m \quad G \subset \vR^n \\
      f: E \times G \rightarrow \vR \\
      x \in E \quad y \in G \\
      f(X,Y) \\
@@ -475,12 +475,12 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
      \intertext{Частный случай} G = \mathbb{N} \\
      \fnn \\
      Y_* \in \vR^n
-     Y_* - \text{ точка из } G \\
+     Y_* - \text{ точка сгущения } G \\
      \phi : E \rightarrow \vR 
 \end{gather*}
 \begin{definition}
      Пусть  $f(X,Y) \darrow{\underset{Y \to Y_*}{x \in E}} \phi(X)$
-      Если $\forall \varepsilon > 0 \exists U(Y_*) \subset  \forall Y \in (U \cap G) \setminus \{Y_*\} $
+      Если $\forall \varepsilon > 0 \quad \exists U(Y_*) \subset \vR^n  \forall Y \in (U \cap G) \setminus \{Y_*\} $
      \[\forall X \in E \text{ имеем } |f(X, Y) - \phi(X) | < \varepsilon \tag{1} \]
      
 \end{definition}
@@ -488,21 +488,21 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
      Пусть $E,G$ такие, как было написано раньше. Для того, чтобы существовала некоторая функция $\phi$, к которой стремилось функциональное семейство,
      необходимо и достаточно, чтобы
      \begin{gather*}
-          \forall \varepsilon > 0 \quad \exists Y_* \in U : \forall Y_1, Y_2 \in U \cap G \setminus \{Y_*\} \\
+          \forall \varepsilon > 0 \quad \exists U \ni Y_* : \forall Y_1, Y_2 \in U \cap G \setminus \{Y_*\} \\
           \forall x \in E \text{ выполнялось соотношение } \\
-          |f(X, Y_1) - F(X,Y_2)| < \varepsilon \tag{2} \\
+          |f(X, Y_1) - f(X,Y_2)| < \varepsilon \tag{2} \\
      \end{gather*}
 \end{theorem}
 \begin{longProof}
-     Необходимость \\ 
+     Необходимость 
      \begin{gather*}
           \phi: E \rightarrow \vR : f(X,Y) \darrow{\underset{Y \to Y_*}{X \in E}} \phi(X) \tag{3}\\
-          (1) \implies Y_* \in U  : \\
+          (1) \implies  U \ni Y_*  : \\
            \forall Y \in U \cap G \setminus \{ Y_* \} \text{ и } \forall x \in E F\|f(X,Y) - \phi(X)| < \frac{\varepsilon}{2} \tag{4} 
      \end{gather*}
      \begin{multline*}
           (4) \implies \forall Y_1, Y_2 \in U \cap G \setminus \{Y_*\} \quad |f(X,Y_2) - f(X,Y_1)| = \\
-          =|(f(X,Y_1) - \phi(x)) - (f(X,Y_1) - \phi(x))| \leq \\ 
+          =|(f(X,Y_2) - \phi(x)) - (f(X,Y_1) - \phi(x))| \leq \\ 
           \leq |f(X,Y_2) - \phi(x)| + |f(X,Y_1) - \phi(X)| 
           < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon \implies (2)
      \end{multline*}
@@ -510,11 +510,11 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
      Предположим, что выполнено соотношение (2). Поскольку $Y_*$ -- точка сгущения, давайте выберем подпоследовательность, сходящуюся к ней
      \begin{gather*}
           \{Y_k\}^\infty_{k=1} \quad Y_k \in G \quad Y_K \neq Y_* \forall k \\
-          Y_k \underset{k \to \infty}{Y_*} \tag{5} \\
-          \{F_k(X) \}^\infty_{k=1} \quad F_k(X) = F(X, Y_k) \tag{6}\\
+          Y_k \underset{k \to \infty}{\rightarrow} Y_* \tag{5} \\
+          \{F_k(X) \}^\infty_{k=1} \quad F_k(X) = f(X, Y_k) \tag{6}\\
           \varepsilon > 0 \quad (5) \implies \exists K_0 : \forall k > K_0 \quad Y_k \in U \cap G \tag{7} \\
           (2), (7) \implies \forall k > K_0 \text{ и } \forall l > K_0 \text{ и } \forall X \in E  \\
-          \text{применяем Критерий Коши сходимости функционального ряда ??} \\
+          \text{применяем Критерий Коши сходимости функциональной последовательности} \\
           |F_k(X) - F_l(X)| = (f(X,Y_k) - f(X,Y_l)) < \varepsilon \tag{8} \\
           (2), (8) \implies \exists \phi: E \rightarrow \vR : F_k(X) \darrow{\underset{k \to \infty}{x \in E}} \phi(X) \tag{9}\\
           \{Y_k^\prime\}^\infty_{k=1} \quad Y^\prime_k \in G \setminus Y_* (Y_k^\prime - \text{ произвольная последовательность }) \\
@@ -526,21 +526,21 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
           (11),(5),(10) \implies Y^0_k \to Y_* \tag{12}\\
           (12) \implies \exists K_1 : \forall k > K_1 \quad Y^0_k \in U \cap G \setminus Y_* \tag{13} \\
           \text{Возьмём } \forall k > K_1 \text{ и } l = 2l_1 - 1, l_1 > K_1 \text{ и } \forall x \in E \\
-          (2),(3) \implies |f(X,Y^0_k) - f(X,Y^0_{2l-1})| = |f(X,Y^0_k) - f(X,Y_l)| < \varepsilon \tag{14}\\
+          (2),(13) \implies |f(X,Y^0_k) - f(X,Y^0_{2l_1-1})| = |f(X,Y^0_k) - f(X,Y_l)| < \varepsilon \tag{14}\\
      \end{gather*}
      Давайте посмотрим на соотношение (14), оно действует при любом $X \in E$, при любом $l_1$ 
      \begin{gather*}
-          k = 2k, k_1 > K_1 \\
+          k = 2k_1, k_1 > K_1 \quad \text{ фиксируем } X \text { и } k_1\\
           |f(X,Y^\prime_{k_1}) - f(X,Y_{l_1})| < \varepsilon {\tag{14\prime}} \\
           \text{ по соотношению (9) если мы устремим } l_1 \text{ к } \infty \\
-          (14 \prime) \implies |f(X,Y^\prime_{k_1}) - \phi(X)| = \underset{l_1 \to \infty}{\lim} |f(X,Y^\prime{k_1}) - f(X,Y_{l_1}) \leq \varepsilon \tag{15} \\
+          (14 \prime) \implies |f(X,Y^\prime_{k_1}) - \phi(X)| = \underset{l_1 \to \infty}{\lim} |f(X,Y^\prime_{k_1}) - f(X,Y_{l_1}) \leq \varepsilon| \tag{15} \\
      \end{gather*}
-     Мы взяли любую последовательнось $Y_k^\prime$, любое $\varepsilon < 0$, поэтому мы по этому $\varepsilon$ нашли
+     Мы взяли любую последовательнось $Y_k^\prime$, любое $\varepsilon > 0$, по этому $\varepsilon$ нашли
      окрестность $U$ и такую функцию $\phi$
 \end{longProof}
 \begin{theorem}[О пределе равномерно сходящегося семейства функций]
      \begin{gather*}
-          E \subset \vR^m \quad G \subset \vR^n \quad X_0 - \text{ точка сгущения } E \quad Y_0 - { точка сгущения } G \\
+          E \subset \vR^m \quad G \subset \vR^n \quad X_0 - \text{ точка сгущения } E \quad Y_0 - \text{ точка сгущения } G \\
           f(X,Y) \darrow{\underset{Y \to Y_0}{X \in E}} \phi(X) \tag{16} \\
           \text{Далее предполагаем } \forall Y \in G \\
           \exists \underset{X \to X_0}{\lim}f(X,Y) = h(Y) \tag{17} \\
@@ -550,14 +550,14 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
 \end{theorem}
      \begin{longProof}
            Рассмотрим любую последовательность  $\{Y_k\}^\infty_{k=1} \quad Y_k \in G \setminus Y_0 \quad Y_k \to Y_0 $.
-          Рассмотрим функциональную последовательность \[F_k(X) f(X,Y_k) \tag{19} \]
+          Рассмотрим функциональную последовательность \[F_k(X) =  f(X,Y_k) \tag{19} \]
           Поскольку есть соотношение (16), то понятно, что 
           \[(16) \implies F_k(X) \darrow{\underset{k \to \infty}{x \in E}} \phi(X) \tag{20} \]
           Если соотношение (16) годится  для всего множества $G$, то годится оно и для любого его подмножества
           \begin{gather*}
-               (17) \implies \forall k \exists \underset{x \to x_0}{\lim} F_k(X) = h(Y_k) \tag{21} \\
-               (20), (21) \exists \underset{X \to X_0}{\lim} \phi(X) \tag{22} \\
-               \exists \underset{k \to \infty}{\lim} h^0_k \stackrel{def}{=} A \\
+               (17) \implies \forall k \quad \exists \underset{x \to x_0}{\lim} F_k(X) = h(Y_k) \tag{21} \\
+               (20), (21)  \implies \quad  \exists \underset{X \to X_0}{\lim} \phi(X) \tag{22} \\
+               \exists \underset{k \to \infty}{\lim} h(Y_k) \stackrel{def}{=} A \\
                A = \underset{X \to X_0}{\lim} \phi(X) \tag{23} \\
           \end{gather*}
           Поскольку $A$ не зависит от последовательности $Y_k$
@@ -567,7 +567,7 @@ $(9)\implies$ ряд $\sumn b_n(X)v_n(X)$ равномерно сходится 
           \begin{gather*}
                f(X,Y) \quad X \in E \quad Y \in G \subset \vR^n \\
                X_0 \in E \quad X_0 - \text{ точка сгущения } E \quad Y_0 \text{ точка сгущения } G \\
-               f(X,Y) \darrow{\underset{Y \to Y_0}{X \in}} \phi(X) \tag{ 24} \\
+               f(X,Y) \darrow{\underset{Y \to Y_0}{X \in E}} \phi(X) \tag{ 24} \\
                f(X,Y) \text{ непрерывна в } X_0\quad  \forall Y \in G \tag{25} \\
                \implies \phi \text{ непрерывна в } X_0 \tag{26}\\
           \end{gather*}

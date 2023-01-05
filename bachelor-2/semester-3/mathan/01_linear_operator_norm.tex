@@ -31,7 +31,7 @@
 \end{remark}
 
 \begin{definition}[Норма линейного отображения]
-    \[||A|| \stackrel{def}{=} \underset{x \in {\vR}^m, ||X||_{{\vR}^m \leq 1}}{\sup}
+    \[||A|| \stackrel{def}{=} \underset{X \in {\vR}^m, ||X||_{{\vR}^m \leq 1}}{\sup}
      {||AX||_{{\vR}^n}} \tag{1} \]
 \end{definition}
 
@@ -89,7 +89,7 @@
             \vdots \\
             a_{nj} \\ \end{bmatrix}$ = $a_{ij} = 0$
     \end{longProof}
-    $A, c \in {\vR}, (cA(x)) \stackrel{def}{=} c(A(x))$ 
+    $A, c \in {\vR}, (cA(X)) \stackrel{def}{=} c(A(X))$ 
     \begin{theorem}$||cA|| = |c| \cdot ||A||$ \end{theorem}
     \begin{longProof}
         \begin{multline*}
@@ -103,7 +103,7 @@
            $ ||A+B|| \leq ||A|| + ||B|| $
         \end{theorem}
         \begin{longProof}
-            \[||A + B|| = \underset{x \in {\vR}^m, ||X||_{{\vR}^m} \leq 1}{\sup} ||(A+B)X||_{{\vR}^n}
+            \[||A + B|| = \underset{X \in {\vR}^m, ||X||_{{\vR}^m} \leq 1}{\sup} ||(A+B)X||_{{\vR}^n}
             = \underset{\ldots}{\sup} ||AX + BX||_{{\vR}^n} \leq \]
             \[\leq \underbrace{\sup(\underbrace{||AX||}_{\leq ||A||_2} + \underbrace{||BX||}_{\leq ||B||_2})}_{M}
             \leq \underset{\ldots}{\sup} ||AX||_{{\vR}^n} + \underset{\ldots}{\sup} ||BX||_{{\vR}^n}\]
@@ -113,7 +113,7 @@
              \tag{3} \]
            
             $(3) \implies M - \varepsilon < ||A|| + ||B|| \Rightarrow 
-            \underset{x \in {\vR}^m, ||X||_{{\vR}^m}\leq1}{\sup}
+            \underset{X \in {\vR}^m, ||X||_{{\vR}^m}\leq1}{\sup}
             (||AX||_{{\vR}^n} + ||BX||_{{\vR}^n}) \leq ||A|| + ||B||$
         \end{longProof}
          \begin{theorem}
@@ -127,24 +127,24 @@
             = \frac{1}{t} \cdot t = 1 \implies
         \end{gather*}
         \[ ||AX_0||_{{\vR}^n} \leq ||A|| \tag{5}\] 
-        $ (5) \implies ||AX_0||_{{\vR}^n}=||A \left(\frac{1}{t}x \right)||_{{\vR}^n} $
+        $ (5) \implies ||AX_0||_{{\vR}^n}=||A \left(\frac{1}{t}X \right)||_{{\vR}^n} $
         $\leq ||A|| \implies 4.$
         \end{longProof}
         \begin{theorem}
-            \[c > 0, \forall x \in {\vR}^m\] 
-            \[||Ax||_{{\vR}^n} \leq c||X||_{{\vR}^m} \forall x \in {\vR}^m \tag{6} \]
+            \[c > 0, \forall X \in {\vR}^m\] 
+            \[||Ax||_{{\vR}^n} \leq c||X||_{{\vR}^m} \forall X \in {\vR}^m \tag{6} \]
             \[\implies ||A|| \leq c \tag{6\prime} \]
         \end{theorem}
         \begin{longProof}
             \begin{gather*}
             (6) \implies \text{при } ||X||_{{\vR}^m} < 1 \text{ имеем} \\
-            ||AX||_{{\vR}^n} \leq c \cdot ||X||_{{\vR}^m} \leq c \rightarrow
+            ||AX||_{{\vR}^n} \leq c \cdot ||X||_{{\vR}^m} \leq c \implies
             \underset{||X|| \leq 1}{\sup} ||AX|| \leq c \implies (6\prime)
             \end{gather*}
         \end{longProof}
     \begin{theorem}
         \begin{gather*}
-        E = \{ c \in {\vR}, с > 0 : \forall x \in {\vR}^m \text{ имеем }
+        E = \{ c \in {\vR}, с > 0 : \forall X \in {\vR}^m \text{ имеем }
         ||Ax||_{{\vR}^n} \leq c ||X||_{{\vR}^m} \} \tag{7} \\
         \inf E \stackrel{def}{=} m \geq 0 \\
         \text{В случае } A \neq 0 \\
@@ -155,16 +155,16 @@
     \begin{longProof}
          $ m = 0$
             \begin{gather*}
-                \forall \varepsilon > 0 \exists c_1 \in E : c_1 < \varepsilon \\
-                (7) \rightarrow ||Ax||_{{\vR}^n} \leq c_1||x||_{{\vR}^m}
-                \forall x \in {\vR}^m \rightarrow ||A|| \leq c_1 < \varepsilon \\
-                \rightarrow ||A|| = 0
+                \forall \varepsilon > 0\quad  \exists c_1 \in E : c_1 < \varepsilon \\
+                (7) \implies ||AX||_{{\vR}^n} \leq c_1||X||_{{\vR}^m}
+                \forall X \in {\vR}^m \implies ||A|| \leq c_1 < \varepsilon \\
+                \implies ||A|| = 0
             \end{gather*}
            $m > 0$
             \begin{gather*}
                 ||A|| \in E, m \leq ||A|| \\
                 \text{пусть } m < ||A|| \implies \exists c_2 : m < c_2 < ||A|| \tag{9} \\
-                (7) \implies ||Ax||_{{\vR}^n} \leq c_2||x||_{{\vR}^m} \forall x \in {\vR}^m \\
+                (7) \implies ||AX||_{{\vR}^n} \leq c_2||X||_{{\vR}^m} \forall X \in {\vR}^m \\
                 (9) \implies ||A|| \leq c_2 \text{ противоречие} \end{gather*}
     \end{longProof}
     \begin{theorem}
@@ -172,14 +172,14 @@
         A : {\vR}^m \rightarrow {\vR}^n, B: {\vR}^n \rightarrow {\vR}^k \\
         L: {\vR}^m \rightarrow {\vR}^k \\
     \end{gather*}
-        \[Lx = B(A(x))\ \tag{10} \]
+        \[LX = B(A(X)) \]
         Каждая норма соответствует своей паре пространств! 
-        \[||L|| \leq ||A|| \cdot ||B||\]
+        \[||L|| \leq ||A|| \cdot ||B|| \tag{10}\]
 
     \end{theorem}
     \begin{longProof}
         \begin{gather*}
-            \forall x \in {\vR}^m \text{  }||LX||_{{\vR}^k} = ||B(AX)||_{{\vR}^k}
+            \forall X \in {\vR}^m \text{  }||LX||_{{\vR}^k} = ||B(AX)||_{{\vR}^k}
         \leq ||B|| \cdot ||AX||_{{\vR}^n} 
         \end{gather*}
         \[\leq \underbrace{||B|| \cdot ||A||}_{c}
@@ -191,7 +191,7 @@
     \begin{definition}[Дифференцируемость]
         Отображение дифференцируемо в $x_0$, если $\exists A : \vR^m \rightarrow \vR^n : 
         \quad \forall H \in \vR^m : x_0 + H \in \Omega $
-        \[F(x_0 + H) - F(x_0) = AH + r(H)  \quad r(h) \in \vR^n\tag{12} \]
+        \[F(x_0 + H) - F(x_0) = AH + r(H)  \quad r(H) \in \vR^n\tag{12} \]
         \[ \frac{||r(H)||_{\vR^n}}{||H||_{\vR^m}} \underset{H \to \mathbb{0}_m}{\longrightarrow} 0 \tag{13} \]
     \end{definition}
     \begin{gather*}
@@ -202,7 +202,7 @@
             f_1 \\
             \vdots \\
             f_n
-        \end{bmatrix} : \Omega \rightarrow {\vR}^n \quad \forall x \in \Omega 
+        \end{bmatrix} : \Omega \rightarrow {\vR}^n \quad \forall X \in \Omega 
         \text{ }F(X) \in G, F(X_0) = Y_0 \\
         \Phi = \begin{bmatrix}
             \varphi_1(y) \\
@@ -221,7 +221,7 @@
 
     \begin{theorem}
         $F$ дифференцируема в $X_0$, $\Phi$ дифференцируема в $Y_0$ 
-        $\Rightarrow P$ дифференцируема в $X_0$ и 
+        $\implies P$ дифференцируемо в $X_0$ и 
         \[DP(X_0) = D\Phi(Y_0) \cdot DF(X_0) \tag{16}\]
     \end{theorem}
 
@@ -229,7 +229,7 @@
         \begin{gather*}
             \Phi(Y_0 + \lambda) - \Phi(Y_0) = B \lambda + \rho(\lambda) \tag{17} \\
             B = D\Phi(Y_0), \rho(\lambda) \in {\vR}^k \text{ и } \frac{||\rho(\lambda)||_{{\vR}^k}}{||\lambda||_{{\vR}^n}} \xrightarrow[\lambda \to \mathbb{0}_n]{}0 \tag{18} \\
-            \lambda = \mathbb{0}_n, \Phi(Y_0) - \Phi(Y_0) = \mathbb{0}_k + \rho(\mathbb{0}_n) \rightarrow \rho(\mathbb{0}_n) = \mathbb{0}_k \\
+            \lambda = \mathbb{0}_n, \Phi(Y_0) - \Phi(Y_0) = \mathbb{0}_k + \rho(\mathbb{0}_n) \implies \rho(\mathbb{0}_n) = \mathbb{0}_k \\
             \forall \eta > 0 \exists \delta_1 > 0 : \\
             (18) \implies\forall \lambda \in {\vR}^n, \lambda \neq \mathbb{0}_n \text{ и } ||\lambda||_{{\vR}_n} <\delta_1 \text{ будет } \frac{||\rho(\lambda)||_{{\vR}_k}}{||\lambda||_{{\vR}^n}} < \eta \tag{19}
             \intertext{и}

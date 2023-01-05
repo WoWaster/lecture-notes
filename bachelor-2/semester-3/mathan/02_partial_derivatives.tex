@@ -10,7 +10,7 @@
         f: E \rightarrow \vR \\
         1 \leq i \leq n \quad 1 \leq j \leq n \quad x_0 \in W \subset E \\
         \forall x \in W \quad \exists f^\prime_{x_i}(x) \\
-        g(x) = f^\prime_{x_i}(x) \quad g: W \rightarrow \vR
+        g(x) = f^\prime_{x_i}(x) \quad g: W \rightarrow \vR \quad
         \exists g^\prime_{x_j}(x_0) \\
         f^{\prime\prime}_{x_ix_j} \stackrel{def}{=} g^\prime_{x_j}(x_0) \\
         i \ne j \quad \forall x \in W \quad \exists f^\prime_{x_j}(x) \\
@@ -18,7 +18,7 @@
         \exists h^\prime_{x_i}(x_0) \\
         f^{\prime\prime}_{x_jx_i}(x_0) \stackrel{def}{=} h^\prime_{x_i} (x_0) \\
         f(x_1,x_2) = \begin{cases}
-            \frac{x_1^3x_2}{x_1^2 + x_2^2} \quad \text{ если} x_1^2 + x_2^2 > 0\\
+            \frac{x_1^3x_2}{x_1^2 + x_2^2} \quad \text{ если    } x_1^2 + x_2^2 > 0\\
             0 \quad \text{ если } x_1 = x_2 = 0
         \end{cases} 
     \end{gather*}
@@ -70,21 +70,21 @@
             \begin{gather*}
                 (3),(5) \implies g(h) = \phi^\prime(x_2^0 + h_2) \tag{6}\\
                 (4),(6) \implies g(h) = \frac{f^\prime_{x_2}(x_1^0+h,x_2^0+h_2)-f^\prime_{x_2}(x_1^0,x^0_2 + h_2)}{h} \tag{7}\\
-                \forall x_1 \in [x_1^0-r,x_1^0+r] \exists (f^\prime_{x_2}(x_1,x_2^0+h_2))^\prime_{x_1} = f^{\prime\prime}_{x_2x_1}(x_1,x_2^0+h_2) \tag{8}\\
+                \forall x_1 \in [x_1^0-r,x_1^0+r] \quad \exists (f^\prime_{x_2}(x_1,x_2^0+h_2))^\prime_{x_1} = f^{\prime\prime}_{x_2x_1}(x_1,x_2^0+h_2) \tag{8}\\
                 \exists 0 < h_1 < h : f^\prime_{x_2}(x_1^0+h,x_2^0+h_2) - f^\prime_{x_2}(x_1^0,x_2^0+h_2) =\\=
                 f^{\prime\prime}_{x_2x_1}(x_1^0 + h_1, x_2^0 + h_2) \cdot h \tag{9}\\
                 (7),(9) \implies g(h) = f^{\prime\prime}_{x_2x_1}(x_1^0+h_1,x_2^0 + h_2) \tag{10}\\
-                \psi(x_1) \ \frac{f(x_1,x_2^0+h)-f(x_1,x_2^0)}{h} \tag{11}
+                \psi(x_1) = \frac{f(x_1,x_2^0+h)-f(x_1,x_2^0)}{h} \tag{11}
             \end{gather*}
             \begin{gather*}
                 x_1 \in [x_1^0-r,x_1^0+r] \\
                 g(h) = \frac{\psi(x^0_1+h)-\psi(x_1^0)}{h} \tag{12}\\
                 (11) \implies \forall x_1 \in [x_1^0-r,x_1^0+r] \exists \psi^\prime(x_1) =
                 \frac{f^\prime_{x_1}(x_1,x_2^0+h)-f^\prime_{x_1}(x_1,x_2^0)}{h} \tag{13}\\
-                (13) \implies \psi (x_1^0+h) - \psi(x_1^0) = \psi^\prime(x_1^0+\overline{h})h \tag{14}
+                \exists \overline{h_1} \quad 0 < \overline{h_1} < h \\
+                (13) \implies \psi (x_1^0+h) - \psi(x_1^0) = \psi^\prime(x_1^0+\overline{h}_1)h \tag{14}
             \end{gather*}
             \begin{gather*}
-                \exists \overline{h_1} \quad 0 < \overline{h_1} < h \\
                 (12),(14) \implies g(h) = \psi^\prime(x_1^0 + \overline{h_1}) = \\ =
                  \frac{f^\prime_{x_1}(x_1^0+\overline{h_1},x_2^0+h)-f^\prime_{x_1}(x_1^0+\overline{h_1},x_2^0)}{h} \tag{15}\\
                 f^\prime_{x_1}(x_1^0 + \overline{h}, x_2) \\
@@ -136,7 +136,7 @@
     $f \in$ классу $C^1(E)$, если $f \in C(E) \forall x \in E$ и $\forall i \quad 1 \leq i \leq n \quad
     \exists f^{\prime}_{x_i}(X)$ т.ч. $f^\prime_{x_i} \in C(E)$. $f \in C^{r+1}(E)$, если $f^\prime_{x_i} \in C^r(E) \quad 1 \leq i \leq n$.
     $f \in C^2(E) \Leftrightarrow f^\prime_{x_i} \in C^1(E) \quad 1 \leq i \leq n$. $f^\prime_{x_i} \in C^1(E) \Leftrightarrow
-    \forall i, j f^{\prime\prime}_{x_i x_j}(X) \in C(E) \implies$ при $i \ne j f^{\prime\prime}_{x_ix_j}(X) = f^{\prime\prime}_{x_jx_i}(X)$
+    \forall i, j \quad  f^{\prime\prime}_{x_i x_j}(X) \in C(E) \implies$ при $i \ne j \quad f^{\prime\prime}_{x_ix_j}(X) = f^{\prime\prime}_{x_jx_i}(X)$
 
     \begin{theorem}
         \begin{gather*}
@@ -148,7 +148,7 @@
             \begin{gather*}
                 r = 2 \text{ -- уже  рассмотрено.} \\
                 i_1, \ldots, i_{r-1}, i_r, i_{r+1} \\
-                j_1, \ldots, j_{r-1}, I_{r+1}, j=I_r\\
+                j_1, \ldots, j_{r-1}, i_{r+1}, j_r\\
                 i_r \ne i_{r+1} \\
                 f \in  C^{r+1}(E) \implies f \in C^{r-1}(E) \\
                 F(X) = f^{(r-1)}_{x_{i_1} \ldots x_i{r-1}}(X) = f^{(r-1)}_{x_{j_1} \ldots x_{j_{r-1}}}(X) \forall X \in E \\
