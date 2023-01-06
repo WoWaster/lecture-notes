@@ -91,7 +91,8 @@ f_1(t)\\\vdots\\f_n(t)
  Считаем, не умаляя общности, что $\int_a^b F(t)dt\ne\On,$ поскольку иначе неравенство также справедливо. Пусть: \[ \alpha_k =\int_a^b f_k(t)dt,\ a_k=\frac{\alpha_k}{||\int_a^b F(t)dt||_{\vR^n}}\tag{13}\]
 Тогда \[ \sum\limits_{k=1}^n a_k\alpha_k=\sum\limits_{k=1}^n \frac{\alpha_k^2}{||\int_a^b F(t)dt||_{\vR^n}}=\frac{||\int_a^b F(t)dt||^2_{\vR^n}}{||\int_a^b F(t)dt||_{\vR^n}}=||\int_a^b F(t)dt||_{\vR^n}\tag{14}\]
 Но \( \sum\limits_{k=1}^n a_k\alpha_k=\sum\limits_{k=1}^n a_k\int_a^b f_k(t)dt=\int_a^b\sum\limits_{k=1}^n a_k f_k(t)dt\leq\) \[ \leq \int_a^b(\sum\limits_{k=1}^n a_k^2)^\frac{1}{2}(\sum\limits_{k=1}^n f_k^2(t))^\frac{1}{2}dt=(\sum\limits_{k=1}^n a_k^2)^\frac{1}{2}\int_a^b|| F(t)||_{\vR^n} dt\tag{15} \]
-Из (13) $\implies$ \[ \sum\limits_{k=1}^n a_k^2=\frac{1}{||\int_a^b F(t)dt||^2_{\vR^n}}\sum\limits_{k=1}^n \alpha_k^2=\frac{||\int_a^b F(t)dt||_{\vR^n}^2}{||\int_a^b F(t)dt||^2_{\vR^n}}=1\tag{16} \]
+Из (13) $\implies$ \[ \sum\limits_{k=1}^n a_k^2=\frac{||\int_a^b F(t)dt||_{\vR^n}^2}{||\int_a^b F(t)dt||^2_{\vR^n}}=1\tag{16} \]
+%\frac{1}{||\int_a^b F(t)dt||^2_{\vR^n}}\sum\limits_{k=1}^n \alpha_k^2
 Теперь (14)-(16) $\implies (12).$ \\\textbf{Лемма доказана.}\\
 Продолжим доказательство теоремы.
 Рассмотрим $\forall\ $ разбиение кривой $\Gamma(\cdot),$ которое получим из $\forall\ $

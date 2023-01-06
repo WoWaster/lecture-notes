@@ -57,8 +57,9 @@
         \begin{longProof}
             \begin{gather*}
                 \exists r > 0 \quad B_{2r}(x_0) = \{ (x_1,x_2) : (x_1-x_1^0)^2 + (x_2-x_2^0)^2 < 4r^2 \} \\
-                B_{2r}(x_0) \in E \quad |x_1 - x_1^0| \leq r \quad |x_2-x_2^0| \leq r \implies \\
-                \implies (x_1,x_2) \subset B_{2r}(x_0) \\
+                B_{2r}(x_0) \subset E \text{ и } \\
+                 |x_1 - x_1^0| \leq r \text{ и } |x_2-x_2^0| \leq r \implies \\
+                \implies (x_1,x_2) \in B_{2r}(x_0) \\
                 0 < h \leq r \\
                 g(h) = \frac{f(x_1^0+h,x_2^0+h)-f(x_1^0+h,x_2^0) - f(x_1^0,x_2^0+h) + f(x_1^0,x_2^0)}{h^2} \tag{1}\\
                 \phi(x_2) = \frac{f(x_1^0+h,x_2) - f(x_1^0,x_2)}{h} \tag{2}\\
@@ -148,10 +149,10 @@
             \begin{gather*}
                 r = 2 \text{ -- уже  рассмотрено.} \\
                 i_1, \ldots, i_{r-1}, i_r, i_{r+1} \\
-                j_1, \ldots, j_{r-1}, i_{r+1}, j_r\\
+                j_1, \ldots, j_{r-1}, i_{r+1}, i_r\\
                 i_r \ne i_{r+1} \\
                 f \in  C^{r+1}(E) \implies f \in C^{r-1}(E) \\
-                F(X) = f^{(r-1)}_{x_{i_1} \ldots x_i{r-1}}(X) = f^{(r-1)}_{x_{j_1} \ldots x_{j_{r-1}}}(X) \forall X \in E \\
+                F(X) = f^{(r-1)}_{x_{i_1} \ldots x_{i_{r-1}}}(X) = f^{(r-1)}_{x_{j_1} \ldots x_{j_{r-1}}}(X) \forall X \in E \\
                 f^{(r+1)}_{x_{i_1} \ldots x_{i_{r-1}} x_{i_r} x_{i_{r+1}}}(X) = F^{\prime\prime}_{x_{i_r} x_{i_{r+1}}}(X) \\
                 f^{(r+1)}_{x_{j_1} \ldots x_{j_{r-1}} x_{i_{r+1} x_{i_r}}}(X) = F^{\prime\prime}_{x_{i_{r+1}} x_{i_r}}(X) \\
                 F^{\prime\prime}_{x_{i_r} x_{i_{r+1}}} \in C(E) \quad F^{\prime\prime}_{x_{i_{r+1}}x_{i_r}} \in C(E) \\
@@ -177,7 +178,7 @@
         0^0 \stackrel{def}{=} 1 \\
         \partial^{\alpha}f(x) \stackrel{def}{=} f^{|\alpha|}_{\underbrace{x_1 \ldots x_1}_{\alpha_1} \ldots \underbrace{x_n \ldots x_n}_{\alpha_n}} 
     \end{gather*}
-    \begin{theorem}
+    \begin{theorem}[О сложной функции специального вида]
     \begin{gather*}
         E \subset \vR^n \quad X_0 \in E \quad H \in \vR^n \quad t_0 \in \vR \\
         X_0 + t_0H \in E \quad f: E \rightarrow \vR \quad f \in C^r(E) \quad r \geq 1 \\
@@ -269,7 +270,7 @@
     E \subset \vR^n \quad n \geq 2 \quad f: E \rightarrow \vR \quad f \in C^r(E) \quad r \geq 1 \\
     X_0 \in E \quad X_0 + H \in E \quad H \ne \mathbb{0}_n  \quad X_0 + tH \in E \forall t \in [0,1] \\
     f(X_0 + H) = f(X_0) + \sum^r_{k=1} \sum_{\alpha: |\alpha| = k} \frac{1}{\alpha!} \partial^\alpha f (X_0) H^\alpha + R(H) \tag{11}\\
-    \frac{|R(H)|}{||H||_{\vR^n}}^r \underset{H \to \mathbb{0}_n}{\rightarrow} 0 \tag{12} \\
+    \frac{|R(H)|}{||H||_{\vR^n}^r} \underset{H \to \mathbb{0}_n}{\rightarrow} 0 \tag{12} \\
 \end{gather*}
 $r=1$
 \[ f(X_0+H) = f(X_0) + \sum^n_{j=1} f^\prime_{x_j}(X_0)h_j + R(H) \quad H = \begin{bmatrix}
@@ -342,9 +343,9 @@ $r \geq 2 \quad r - 1 \geq 1 $
     \vdots \\
     x_n
 \end{bmatrix} \]
-$A(X) = \sum^n_{i=1}\sum^n_{k=1} a_{ik} x_i x_k$ называется положительно определённой, если $\forall X \in \vR^n, X \ne \mathbb{0}_n \quad A(X) > 0$.
-$B(X) = \sum^n_{i=1}\sum^n_{j=1} b_{ik}x_i x_k$ -- отрицательно определённой, если $B(X) < 0$.
-$C(X) = \sum^n_{i=1}\sum^n_{j=1} c_{ik}x_k x_k$ -- неопределённой, если $\exists x_1, x_2$ т.ч. $C(x_1) > 0, C(X_2) < 0$.
+$A(X) = \sum^n_{i=1}\sum^n_{k=1} a_{ik}x_i x_k$ называется положительно определённой, если $\forall X \in \vR^n, X \ne \mathbb{0}_n \quad A(X) > 0$.
+$B(X) = \sum^n_{i=1}\sum^n_{k=1} b_{ik}x_i x_k$ -- отрицательно определённой, если $B(X) < 0$.
+$C(X) = \sum^n_{i=1}\sum^n_{k=1} c_{ik}x_i x_k$ -- неопределённой, если $\exists x_1, x_2$ т.ч. $C(x_1) > 0, C(X_2) < 0$.
 $\tilde{A}(X) \geq 0$ -- неотрицательно определённая. $\tilde{B}(X) \leq 0$ -- неположительно определённая. \\
 $x^2 + y^2$ -- положительно определена \\
 $x^2 - y^2$ -- не определена \\

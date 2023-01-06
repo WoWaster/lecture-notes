@@ -312,7 +312,7 @@
      \begin{longProof}
           Будем пользоваваться критерием Коши 
           \begin{gather*}
-               \varepsilon > 0 \quad \exists A > a ' \forall A_2 > A_1 > A \\
+               \varepsilon > 0 \quad \exists A > a \forall A_2 > A_1 > A \\
                \left | \int^{A_2}_{A_1} f^\prime_y(x,y)dx \right | < \varepsilon \tag{13}\\
                \text{ хотим ввести ещё одну функцию } G(y,A_1,A_2) = \int^{A_2}_{A_1} f(x,y) dx \tag{14}
           \end{gather*}
@@ -322,7 +322,7 @@
                = \frac{1}{h} \left ( \left ( J(y+h,A_2) - J(y,A_2) \right ) \right ) -
                (J(y+h, A_1) - J(y,A_1)) =\\
                 = \frac{1}{h} ((J(y+h,A_2) - J(y+h,A_1)) - (J(y,A_2) - J(y,A_1))) =\\
-                 = \frac{1}{h} (G(y+h,A_1,A_2)) - G(y,A_1,A_2) \tag{15} 
+                 = \frac{1}{h} (G(y+h,A_1,A_2) - G(y,A_1,A_2)) \tag{15} 
           \end{multline*} 
           \begin{gather*}
                (14) \implies \exists G^\prime(y,A_1,A_2) = \int^{A_2}_{A_1} f^\prime_y(x,y)dx \tag{16}\\
@@ -330,16 +330,16 @@
                \exists c \text{ между } y \text{ и } y+h : \\
                G(y+h,A_1,A_2) - G(y,A_1,A_2) = G^\prime(c,A_1,A_2) \cdot h \tag{17} \\
                \text{ посмотрим на (15) и (17), в (15) есть множитель } h \\
-               (15), (17) \implies => \Phi(y,A_2,h) - \Phi(y,A_1,h) = G^\prime(c,A_1,A_2) \stackrel{(16)}{=} \\
+               (15), (17) \implies \Phi(y,A_2,h) - \Phi(y,A_1,h) = G^\prime(c,A_1,A_2) \stackrel{(16)}{=} \\
                \stackrel{(16)}{=} \int^{A_2}_{A_1} f^\prime_y(x,c)dx \tag{18}\\
-               (13), (18) \implies \left | \Phi(g,A_2,h) - \Phi(y,A,h) \right | =
+               (13), (18) \implies \left | \Phi(y,A_2,h) - \Phi(y,A_1,h) \right | =
           \left | \int^{A_2}_{A_1} f^\prime_y(x,c)dx \right | < \varepsilon \tag{19}
           \end{gather*}
      \end{longProof}
      \begin{longProof}[Продолжение доказательства]
           \begin{gather*}
                \intertext{В лемме мы доказли, что это выражение равномерно стремится к этой дроби}
-               (9) \implies \Phi(y,A,h) \darrow{\underset{a \to +\infty}{y \in [p,q], h \in E}} \frac{I(y+h)-I(y)}{h} \tag{20} \\
+               (9) \implies \Phi(y,A,h) \darrow{\underset{A \to +\infty}{y \in [p,q], h \in E}} \frac{I(y+h)-I(y)}{h} \tag{20} \\
                \Phi(y, A, h) = \frac{1}{h} \left ( \int^A_a f(x,y+h)dx - \int^A_a f(x,y)dx \right ) \underset{h \to 0}{\longrightarrow} \\ 
                \underset{h \to 0}{\longrightarrow} \int^A_a f^\prime_y(x,y)dx =
                \psi(y,A) \tag{21} \\
@@ -371,12 +371,12 @@
           \begin{gather*}
                I = \int^\infty_0 \frac{\sin x}{x} dx = \frac{\pi}{2} \\
                f(x,y) = \frac{\sin x}{x} \\
-              -0 < g(x,y) = e^{-xy} \leq 1, g(x,y) \text{ монотонна } \\
+              0 < g(x,y) = e^{-xy} \leq 1, g(x,y) \text{ монотонна } \\
                \text{  несобственный интеграл }I \text{ по признаку Дирихле сходится} \\
-               y \leq 0 \quad x \leq 0 \\ 
+               y \geq 0 \quad x \geq 0 \\ 
                \text{По признаку Абеля }
                 I(y) = \int^\infty_0 f(x,y)g(x,y)dx = \int^\infty_0 e^{-xy} \frac{\sin x}{x}dx \\
-                \text{ равномерно сходится при } y \leq 0 \\
+                \text{ равномерно сходится при } y \geq 0 \\
                f(x,y)g(x,y) = e^{-xy} \frac{\sin x}{x} \in C([0,\infty) \times [0,\infty) ) \tag{2} \end{gather*}
           по теореме о непрерывности несобственного интеграла, зависящего от параметра
           \begin{gather*}
@@ -409,8 +409,9 @@
                -(\arctan A - \arctan y_0) \tag{11}\\
                I(A) = \int^\infty_0 e^{-xA} \frac{\sin x}{x} dx \\
                |I(A) | \leq \int^\infty_0 e^{-xA} dx = \frac{1}{A} \underset{A \to + \infty}{\rightarrow} 0 \tag{12}\\
-               \left | \frac{\sin x}{x} \right | \quad (11),(12) \implies \text{при } A \to + \infty 0 - I(y_0) = -(\frac{\pi}{2} - \arctan y_0) \\
-               I(y_0) = \frac{\pi}{2} - \arctan y_0 \tag{13}
+               \left | \leq 1 \quad  \frac{\sin x}{x} \right | \quad (11),(12) \implies \text{при } A \to + \infty \quad  0 - I(y_0) = -(\frac{\pi}{2} - \arctan y_0) \\
+               I(y_0) = \frac{\pi}{2} - \arctan y_0 \tag{13} \\
+               (13), (4) \implies \text{ при } y_0 \to 0 \implies \underset{y \to 0+}{\lim} I(y_0) = \frac{\pi}{2}
           \end{gather*}
      \end{example}
      \begin{example}[Вычисление интеграла Эйлера-Пуассона]
@@ -426,7 +427,8 @@
                \text{замена } y = v^2 \quad y^\prime = 2v \quad \sqrt{y} = v \\
                 =I \cdot \int^\infty_0 e^{-v^2} \cdot 2dv = I \cdot 2I = 2I^2 \tag{3} \\
                 \int^\infty_0 e^{-x^2y -y}dy = \int^\infty_0 e^{-(1+x^2)y} dy = \frac{1}{1+x^2} \tag{4} \\
-                 \int^\infty_0 \frac{dx}{1+x^2} = \underset{A \to \infty}{\lim} \int^A_0 \frac{dx}{1+x^2} = \underset{A \to \infty}{\lim} (\arctan A - \arctan 0) = \frac{\pi}{2} \tag{5}
+                 (4) \implies \int^\infty_0 \frac{dx}{1+x^2} = \underset{A \to \infty}{\lim} \int^A_0 \frac{dx}{1+x^2} = \underset{A \to \infty}{\lim} (\arctan A - \arctan 0) = \frac{\pi}{2} \tag{5} \\
+                 (3),(5) \implies 2I^2 = \frac{\pi}{2} \implies I = \frac{\sqrt{\pi}}{2}
           \end{gather*}
      \end{example}
     \end{document}
