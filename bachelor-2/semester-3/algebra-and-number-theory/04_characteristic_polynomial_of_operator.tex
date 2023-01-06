@@ -90,13 +90,13 @@ $C = M_{E \rightarrow E_1}$. Нужно: $\chi_{A} = \chi_{A_1}$.
                 0   & A_2 \\
             \end{array}\right),\ A_1 = [\mca_1]_{E_1},\ E_1$ -- начальная часть $E$.
 
-    $\chi_{\mca } = |\left(\begin{array}{c|c}
+    $\chi_{\mca } = \left|\left(\begin{array}{c|c}
                 A_1 & B   \\ \hline
                 0   & A_2 \\
-            \end{array}\right) - XE_n| = |\left(\begin{array}{c|c}
+            \end{array}\right) - XE_n\right| = \left|\left(\begin{array}{c|c}
                 A_1 - XE_m & B              \\ \hline
                 0          & A_2 - XE_{n-m} \\
-            \end{array}\right)| = |A_1 - XE_m||A_2 - XE_{n-m}| = \underbrace{\chi_{A_1}}_{=\chi_{\mca_1}}\chi_{A_2}$.
+            \end{array}\right)\right| = |A_1 - XE_m||A_2 - XE_{n-m}| = \underbrace{\chi_{A_1}}_{=\chi_{\mca_1}}\chi_{A_2}$.
 
     2: аналогично, в подходящем $E$ $[\mca]_E = \left(\begin{array}{c|c}
                 A_1 & 0   \\ \hline
@@ -113,8 +113,8 @@ $C = M_{E \rightarrow E_1}$. Нужно: $\chi_{A} = \chi_{A_1}$.
     Применим предложение к $W=V_{\lambda}$. Очевидно, $W$ -- $\mca$-инвариантно
     $\Rightarrow \chi_{\mca|_{V_{\lambda}}}|\chi_{\mca}$.
 
-    В любом базисе $[\mca|_{V_{\lambda}}] = diag(\underbrace{\lambda, \lambda, \ldots, \lambda}_{g_{\lambda}})
-        \Rightarrow \chi_{\mca|_{V_{\lambda}}} = |diag(\underbrace{\lambda - x, \ldots, \lambda - x}_{g_{\lambda}})| =
+    В любом базисе $[\mca|_{V_{\lambda}}] = \diag(\underbrace{\lambda, \lambda, \ldots, \lambda}_{g_{\lambda}})
+        \Rightarrow \chi_{\mca|_{V_{\lambda}}} = |\diag(\underbrace{\lambda - x, \ldots, \lambda - x}_{g_{\lambda}})| =
         (\lambda - x)^{g_{\lambda}} \Rightarrow
         (\lambda - x)^{g_{\lambda}}|\chi_{\mca} \Rightarrow a_{\lambda} \geq g_{\lambda}$.
 \end{proof}
@@ -130,7 +130,7 @@ $C = M_{E \rightarrow E_1}$. Нужно: $\chi_{A} = \chi_{A_1}$.
 
 
 \begin{proof}
-    1 $\Rightarrow$ 2: существует базис $E$, такой что $A = [\mca]_E = diag(\underbrace{\lambda_1, \ldots, \lambda_1}_{g_{\lambda_1}},
+    1 $\Rightarrow$ 2: существует базис $E$, такой что $A = [\mca]_E = \diag(\underbrace{\lambda_1, \ldots, \lambda_1}_{g_{\lambda_1}},
         \underbrace{\lambda_2, \ldots, \lambda_2}_{g_{\lambda_2}}, \ldots, \underbrace{\lambda_k, \ldots, \lambda_k}_{g_{\lambda_k}})$, где $\lambda_1, \ldots, \lambda_k$ -- различные собственные значения.
 
     $\chi_{\mca} = (\lambda_1 - x)^{g_{\lambda_1}}\ldots (\lambda_k - x)^{g_{\lambda_k}}$ -- раскладывается на линейные множители (кратность -- степень)

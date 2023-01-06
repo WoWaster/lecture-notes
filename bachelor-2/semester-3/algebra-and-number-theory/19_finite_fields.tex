@@ -13,7 +13,7 @@
 \end{proof}
 
 \begin{corollary}
-    Пусть $K$ -- конечное поле, $char K = p$. Тогда $|K| = p^m$ для некоторого $m \in \N$.
+    Пусть $K$ -- конечное поле, $\text{char} K = p$. Тогда $|K| = p^m$ для некоторого $m \in \N$.
 \end{corollary}
 
 \begin{proof}
@@ -25,7 +25,7 @@
 \end{proposition}
 
 \begin{proof}
-    $a = 0$ -- очевидно. $a \neq 0: \ |K^*| = q - 1 \Rightarrow \forall c \in K^*: \ ord \ c \mid q - 1 \Rightarrow c^{q-1} = 1, \ a \in K^* \Rightarrow 
+    $a = 0$ -- очевидно. $a \neq 0: \ |K^*| = q - 1 \Rightarrow \forall c \in K^*: \ \text{ord} \ c \mid q - 1 \Rightarrow c^{q-1} = 1, \ a \in K^* \Rightarrow 
     a^{q-1} = 1 \Rightarrow a^q = a$.
 \end{proof}
 
@@ -35,7 +35,7 @@
 \end{corollary}
 
 \begin{lemma}
-    Пусть $char \ K = p > 0; \ \alpha, \beta \in K$. Тогда $\forall m \in \N: \ (\alpha + \beta)^{p^m} = \alpha^{p^m} + \beta^{p^m}$.
+    Пусть $\text{char} \ K = p > 0; \ \alpha, \beta \in K$. Тогда $\forall m \in \N: \ (\alpha + \beta)^{p^m} = \alpha^{p^m} + \beta^{p^m}$.
 \end{lemma}
 
 \begin{proof}
@@ -92,7 +92,7 @@
 
 \begin{theorem}
     \begin{enumerate}
-        \item Пусть $K$ -- подполе $\F_{p^n}$ (поле из $p^n$ элементов). Тогда $|K| = p^n, \ m \mid n$.
+        \item Пусть $K$ -- подполе $\F_{p^n}$ (поле из $p^n$ элементов). Тогда $|K| = p^m, \ m \mid n$.
         \item Пусть $m \mid n$. Тогда в $\F_{p^n}$ есть единственное подполе из $p^m$ элементов.
     \end{enumerate}
 \end{theorem}
@@ -112,6 +112,7 @@
 \end{proof}
 
 \begin{example}
+    $\F_{p^n}, \ d \mid n \Rightarrow$ в $\F_{p^n}$ есть ровно одно поле из $p^d$ элементов.
    % https://q.uiver.app/?q=WzAsMTIsWzEsMCwiXFxtYXRoYmJ7Rn1fezQwOTZ9Il0sWzAsMSwiXFxtYXRoYmJ7Rn1fezY0fSJdLFsyLDEsIlxcbWF0aGJie0Z9X3sxNn0iXSxbMCwyLCJcXG1hdGhiYntGfV97OH0iXSxbMiwyLCJcXG1hdGhiYntGfV97NH0iXSxbMSwzLCJcXG1hdGhiYntGfV97Mn0iXSxbNCwwLCIxMiJdLFszLDEsIjYiXSxbNSwxLCI0Il0sWzMsMiwiMyJdLFs1LDIsIjIiXSxbNCwzLCIxIl0sWzAsMSwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFswLDIsIiIsMix7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMiw0LCIiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEsMywiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFszLDUsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNCw1LCIiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEsNCwiIiwxLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs2LDcsIiIsMSx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNiw4LCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzcsOSwiIiwxLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs4LDEwLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzksMTEsIiIsMSx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMTAsMTEsIiIsMSx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNywxMCwiIiwxLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dXQ==
 \[\begin{tikzcd}
 	& {\mathbb{F}_{4096}} &&& 12 \\

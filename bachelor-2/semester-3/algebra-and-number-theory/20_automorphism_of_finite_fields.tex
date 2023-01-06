@@ -63,7 +63,7 @@ $K, \ F$ -- поля, $\sigma: \ K \hookrightarrow F$ -- вложение.
 
     Индукция по $m$. $m = 0: \ [L:K] = 1$, у $\sigma$ одно продолжение.
 
-    Переход. $L_0 = K(x_1, \ldots, x_{m-1})$. По ИП у $\sigma$ есть $\leq d_0$ продолжений на $L_0$, где $d_0 = [L_0:K]: \ \sigma_1 \ldots, \sigma_l, \ l \leq d_0$. У каждого $\sigma_i$ есть $\leq [L:L_0]$  продоолжений на $L$ $\Rightarrow$ у $\sigma$  есть $\leq l\cdot [L:L_0]$  продоолжений на $L$, т.к. $[\underbrace{L}_{L_0(x_m)}:L_0] = deg Irr_{L_0} x_m$. $l \cdot [L:L_0] \leq d_0 \cdot [L:L_0] = [L:K]$.
+    Переход. $L_0 = K(x_1, \ldots, x_{m-1})$. По ИП у $\sigma$ есть $\leq d_0$ продолжений на $L_0$, где $d_0 = [L_0:K]: \ \sigma_1 \ldots, \sigma_l, \ l \leq d_0$. У каждого $\sigma_i$ есть $\leq [L:L_0]$  продоолжений на $L$ $\Rightarrow$ у $\sigma$  есть $\leq l\cdot [L:L_0]$  продоолжений на $L$, т.к. $[\underbrace{L}_{L_0(x_m)}:L_0] = \deg Irr_{L_0} x_m$. $l \cdot [L:L_0] \leq d_0 \cdot [L:L_0] = [L:K]$.
 \end{corollary}
 
 \begin{corollary}
@@ -79,7 +79,7 @@ $K, \ F$ -- поля, $\sigma: \ K \hookrightarrow F$ -- вложение.
 \end{theorem}
 
 \begin{proof}
-    Хотим узнать степень $\Fr$. $(Fr)^n = \id_K. \ \forall x \in K: \ x^{p^n} = x \Rightarrow ord Fr \leq n$. Предположим, $\exists d< n: Fr^d = \id_K \Rightarrow \forall x \in K: \ x^{p^d} = x \Rightarrow x$ -- корень $X^{p^d} - X$. Однако, у $X^{p^d} - X$ не может быть $p^n$ корней. Таким образом, $ord \Fr = n \Rightarrow |\langle \Fr\rangle| = n = [K:\F_p] \geq  \Aut(K/\F_p) = \Aut (K) \ (c \in \F_p: \ \sigma(c) = c = \{1+ \ldots + 1\})$ (на простом подполе любой автоморфизм тождественный) $\Rightarrow \langle \Fr\rangle = \Aut K$.
+    Хотим узнать степень $\Fr$. $(Fr)^n = \id_K. \ \forall x \in K: \ x^{p^n} = x \Rightarrow \text{ord} Fr \leq n$. Предположим, $\exists d< n: Fr^d = \id_K \Rightarrow \forall x \in K: \ x^{p^d} = x \Rightarrow x$ -- корень $X^{p^d} - X$. Однако, у $X^{p^d} - X$ не может быть $p^n$ корней. Таким образом, $ord \Fr = n \Rightarrow |\langle \Fr\rangle| = n = [K:\F_p] \geq  \Aut(K/\F_p) = \Aut (K) \ (c \in \F_p: \ \sigma(c) = c = \{1+ \ldots + 1\})$ (на простом подполе любой автоморфизм тождественный) $\Rightarrow \langle \Fr\rangle = \Aut K$.
 \end{proof}
 
 \begin{example} [Ужасный пример]

@@ -38,7 +38,7 @@ $W_{X-\lambda} = R_{\lambda} = \{v \ | \ \exists j:(X-\lambda)^j (\mca) (v) = 0\
 Корневой вектор высоты 0 -- это 0, 1 -- собственные векторы, 2 -- такие $v$, что $(\mca - \lambda \mse)(v)$ -- собственный вектор,
 $h$ -- $\Ker(\mca - \lambda \mse)^h \setminus \Ker(\mca - \lambda \mse)^{h-1}$.
 
-Очевидно, $R_{\lambda} = \bigcup_{h \in \N} \underbrace{Ker(\mca - \lambda \mse)^h}_{:= R_{\lambda, h}}$.
+Очевидно, $R_{\lambda} = \bigcup_{h \in \N} \underbrace{\Ker(\mca - \lambda \mse)^h}_{:= R_{\lambda, h}}$.
 
 $\underbrace{R_{\lambda, 0}}_{=0} \subset \underbrace{R_{\lambda, 1}}_{= V_{\lambda}} \subset R_{\lambda, 2} \subset \ldots \subsetneq  R_{\lambda, N_{\lambda}} = R_{\lambda, N_{\lambda} + 1} \Rightarrow
   R_{\lambda} = R_{\lambda, N_{\lambda}}$.
@@ -98,7 +98,7 @@ $(x - \lambda)^{N_{\lambda}}(\mca |_{R_{\lambda}}) = 0 \Rightarrow (\mca |_{R_{\
 
 \begin{remark}
   $E$ -- жорданов базис для $\mca \Leftrightarrow E$ -- жорданов базис для $\mca + \alpha \mse$.
-  $[\mca + \alpha \mse]_E = [\mca]_E + [\alpha \mse]_E = [A]_E + diag(\alpha, \ldots, \alpha)$.
+  $[\mca + \alpha \mse]_E = [\mca]_E + [\alpha \mse]_E = [A]_E + \diag(\alpha, \ldots, \alpha)$.
   $\mathcal{J}_n(\lambda) + \alpha E_n = \mathcal{J}_n(\lambda + \alpha)$.
 \end{remark}
 
@@ -164,7 +164,7 @@ $R_{0, N} = R_0 = V$.
 Легко видеть, что найденный базис -- жорданов.
 
 \begin{gather*}
-  [\mcb]_E = diag(\underbrace{J_N(0), \ldots, J_N(0)}_{q_N}, \underbrace{J_{N-1}(0), \ldots, J_{N-1}(0)}_{q_{N-1}-q_N}, \ldots, \underbrace{J_1(0), \ldots, J_1(0)}_{q_1-q_2})
+  [\mcb]_E = \diag(\underbrace{\mathcal{J}_N(0), \ldots, \mathcal{J}_N(0)}_{q_N}, \underbrace{\mathcal{J}_{N-1}(0), \ldots, \mathcal{J}_{N-1}(0)}_{q_{N-1}-q_N}, \ldots, \underbrace{\mathcal{J}_1(0), \ldots, \mathcal{J}_1(0)}_{q_1-q_2})
 \end{gather*}
 
 Пусть $\mca \in \End V$, такое что  $\chi_{\mca} = \pm \prod_{i=1}^m (x-\lambda^i)^{\alpha_{\lambda_i}} \Rightarrow
@@ -173,9 +173,9 @@ $R_{0, N} = R_0 = V$.
 $\mcb_i = (\mca - \lambda_i\mse) |_{R_{\lambda_i}}$ -- нильпотентный $\Rightarrow$ в $R_{\lambda_i}$ существует жорданов базис для $\mcb_i \Rightarrow$ для $\mca|_{R_{\lambda_i}}$.
 Объединяя эти базисы, получим жорданов базис для $\mca$.
 
-В $R_{\lambda_i}$ есть базис $E_i$, такой что $[\mcb_i]_{E_i} = diag(J_m(0), \ldots) \Rightarrow
+В $R_{\lambda_i}$ есть базис $E_i$, такой что $[\mcb_i]_{E_i} = \diag(\mathcal{J}_m(0), \ldots) \Rightarrow
   [\mca|_{R_{\lambda_i}}]_{E_i} = [\mcb_i+\lambda_i \mse_{R_{\lambda_i}}]_{E_i} =
-    [\mcb_i]_{E_i}+ \lambda_i E_{\dim R_{\lambda_i}} = diag(J_m(\lambda_i), \ldots)$.
+    [\mcb_i]_{E_i}+ \lambda_i E_{\dim R_{\lambda_i}} = \diag(\mathcal{J}_m(\lambda_i), \ldots)$.
 
 
 
@@ -186,9 +186,9 @@ $\mcb_i = (\mca - \lambda_i\mse) |_{R_{\lambda_i}}$ -- нильпотентны�
 
 \begin{proof}
   $\lambda$ -- собственное значение $\mca$. $m_{j, \lambda}$ -- количество жордановых клеток вида
-  $J_j(\lambda)$, докажем, что $m_{j, \lambda}$ -- инвариант $\mca$. $d_j = dim R_{\lambda, j}$ -- инвариант $\mca$.
+  $\mathcal{J}_j(\lambda)$, докажем, что $m_{j, \lambda}$ -- инвариант $\mca$. $d_j = \dim R_{\lambda, j}$ -- инвариант $\mca$.
   $E$ -- жорданов базис $\mca$. Переупорядочивая $E$, считаем, что:
-  $[\mca]_E = diag(\underbrace{J_1(\lambda), \ldots, J_1(\lambda)}_{m_1, \lambda}, \underbrace{J_2(\lambda), \ldots, J_2(\lambda)}_{m_2, \lambda}, \ldots, \underbrace{J_N(\lambda), \ldots, J_N(\lambda)}_{m_N, \lambda}, J_p(\mu), \ldots)$.
+  $[\mca]_E = \diag(\underbrace{\mathcal{J}_1(\lambda), \ldots, \mathcal{J}_1(\lambda)}_{m_1, \lambda}, \underbrace{\mathcal{J}_2(\lambda), \ldots, \mathcal{J}_2(\lambda)}_{m_2, \lambda}, \ldots, \underbrace{\mathcal{J}_N(\lambda), \ldots, \mathcal{J}_N(\lambda)}_{m_N, \lambda}, \mathcal{J}_p(\mu), \ldots)$.
 
 
 

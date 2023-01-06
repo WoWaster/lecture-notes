@@ -7,7 +7,7 @@
 
 \begin{proposition}
     Пусть $V$ -- евклидово или унитарное пространство, $\mca \in \End V$. Тогда $\mca = \mca^* \Leftrightarrow$ в $V$ существует ортонормированный базис $E$, такой что
-    $[\mca]_E = diag(\alpha_1, \ldots, \alpha_n), \  \alpha_1, \ldots, \alpha_n \in \R$.
+    $[\mca]_E = \diag(\alpha_1, \ldots, \alpha_n), \  \alpha_1, \ldots, \alpha_n \in \R$.
 \end{proposition}
 
 \begin{proof}
@@ -50,9 +50,9 @@
     $\mcb(v, w) = (\mca v, w)$.
 \end{remark}
 \begin{gather*}
-    \text{*упражнение*} \\
+    \textsl{упражнение} \\
     \text{если } E \text{ -- ортонормированный базис } V, \text{ то } [\mca]_E = [\mcb]_E \\
-    \text{*упражнение*}
+    \textsl{упражнение}
 \end{gather*}
 
 Пусть $V$ -- евклидово пространство, $\mca \in \End V$ -- самосопряженный. $\mca$ называется положительно определенным, если $\forall
@@ -64,12 +64,12 @@ v \in V, \ v \neq 0: \ (\mca v, v)  > 0$.
     Следующие 2 условия эквивалентны:
     \begin{enumerate}
         \item $\mca$  положительно определенный.
-        \item В $V$ существует ортонормированный базис $E$, такой что $[\mca]_E = diag(\lambda_1, \ldots, \lambda_n), \ \lambda_i > 0, \ i = 1, \ldots, n$.
+        \item В $V$ существует ортонормированный базис $E$, такой что $[\mca]_E = \diag(\lambda_1, \ldots, \lambda_n), \ \lambda_i > 0, \ i = 1, \ldots, n$.
     \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-    1 $\Rightarrow$ 2: существует ортонормированный $E$, такой что $[\mca]_E = diag(\lambda_1, \ldots, \lambda_n)$. 
+    1 $\Rightarrow$ 2: существует ортонормированный $E$, такой что $[\mca]_E = \diag(\lambda_1, \ldots, \lambda_n)$. 
     $\mca e_i = \lambda_i e_i$. $\underbrace{(\mca e_i, e_i)}_{>0} = (\lambda_i e_i, e_i) = \lambda_i (e_i, e_i) = \lambda_1$.
 
     2 $\Rightarrow$ 1: $v= \alpha_1 e_1 + \ldots + \alpha_n e_n, \ \exists i: \ \alpha_i \neq 0$. $\mca v = \alpha_1 \lambda_1 e_1 + \ldots + \alpha_n \lambda_n e_n$. $(\mca v, v) = \alpha_1^2 \lambda_1 + 
@@ -82,8 +82,8 @@ v \in V, \ v \neq 0: \ (\mca v, v)  > 0$.
 \end{proposition}
 
 \begin{proof}
-    Существование: есть ортонормированный базис $E$: $[\mca]_E = diag(\lambda_1, \ldots, \lambda_n), \ \lambda_i \geq  0$.
-    $\mcb(e_i) = \sqrt{\lambda_i} e_i$. $[\mcb]_E = diag(\sqrt{\lambda_1}, \ldots, \sqrt{\lambda_n}) = B$.
+    Существование: есть ортонормированный базис $E$: $[\mca]_E = \diag(\lambda_1, \ldots, \lambda_n), \ \lambda_i \geq  0$.
+    $\mcb(e_i) = \sqrt{\lambda_i} e_i$. $[\mcb]_E = \diag(\sqrt{\lambda_1}, \ldots, \sqrt{\lambda_n}) = B$.
     $B^* = B \Rightarrow \mcb = \mcb^*; \ \mcb^2 = \mca$.
 
     Единственность: пусть $\mcb_1 = \mcb_1^*$, $\mcb^*$ положительно определен, $\mcb_1^2 = \mca$.

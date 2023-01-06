@@ -47,10 +47,10 @@ $L / K$ называются бесконечным.
     \Rightarrow c = b_1f_1 + \ldots + b_mf_m, \ b_1, \ldots, b_m \in L \Rightarrow 
         c = (a_{11}e_1 + \ldots + a_{1l}e_l)f_1 + \ldots + (a_{m1}e_1 + \ldots + a_{ml}e_l)f_m = \\
         = \sum^m_{i=1} \sum^l_{j=1} a_{ij}e_jf_i, \ a_{ij} \in K 
-        \Rightarrow Lin(e_jf_i \ | \ 1 \leq j \leq l, 1 \leq i \leq m) = M$.
+        \Rightarrow \Lin(e_jf_i \ | \ 1 \leq j \leq l, 1 \leq i \leq m) = M$.
 
         Пусть $\sum_{i,j} a_{ij} e_if_j = 0 $ = 
-         $\sum_{j} \left( \underbrace{\sum_{i} a_{ij} e_i}_{\in L} \right). \  f_j, \ f_1, \ldots, f_m \text{ -- базис } M / L 
+         $\sum_{j} \left( \underbrace{\sum_{i} a_{ij} e_i}_{\in L} \right). \  f_j, \ f_1, \ldots, f_m \text{ -- базис } M / L \\
          \Rightarrow \sum_i a_{ij}  e_i = 0, \ j = 1, \ldots, m, \ e_1, \ldots, e_l$ -- базис $L / K
          \Rightarrow$ все $a_{ij} = 0$.
    
@@ -177,7 +177,7 @@ $L / K$ называется алгебраическим, если все ег�
 
 \begin{corollary}
     \begin{enumerate}
-        \item Если $F$ -- минимальный многочлен $a$, $deg f = d$, то $[K(a):K] = d$, и базисом $K(a)$, как линейного пространства над $K$, служит
+        \item Если $f$ -- минимальный многочлен $a$, $\deg f = d$, то $[K(a):K] = d$, и базисом $K(a)$, как линейного пространства над $K$, служит
     семейство $1, a, a^2, \ldots, a^{d-1}$.
         \item Если есть еще одно расширение $K(b)/K$, и минимальный многочлен $b$ также $f$, то существует изоморфизм
         $\underset{\sum_{i=0}^{d-1}\alpha_ia^i \mapsto \sum_{i=0}^{d-1}\alpha_ib^i}{K(a) \rightarrow K(b)} (\alpha_i \in K)$.
@@ -186,11 +186,11 @@ $L / K$ называется алгебраическим, если все ег�
 
 \begin{proof}
     \begin{enumerate}
-    \item Есть изоморфизм $K[X]/(f) \underset{\rightarrow}{\sim } K(a)$ -- изоморфизм полей и линейных пространств $/K$. Рассмотрим первое пространство: 
+    \item Есть изоморфизм $K[X]/(f) \xrightarrow{\sim } K(a)$ -- изоморфизм полей и линейных пространств $/K$. Рассмотрим первое пространство: 
     $K[X]/(f) = \{\overline{\alpha_0 + \alpha_1X + \ldots + \alpha_{d-1}X^{d-1}} \ | \ \alpha_0, \ldots, \alpha_{d-1} \in K\} = 
     \{\alpha_0\overline{1} + \alpha_1\overline{X} + \ldots + \alpha_{d-1}\overline{X^{d-1}} \ | \ \alpha_0, \ldots, \alpha_{d-1} \in K\}$.
     Очевидно, $\overline{1}, \overline{X}, \ldots, \overline{X^{d-1}}$ -- линейно независимые
-    ($\alpha_0 + \alpha_1X + \ldots + \alpha_{d-1}X^{d-1} \ne\equiv 0 \mod f$). Таким образом, 
+    ($\alpha_0 + \alpha_1X + \ldots + \alpha_{d-1}X^{d-1} \not\equiv 0 \mod f$). Таким образом, 
     $\overline{1}, \overline{X}, \ldots, \overline{X^{d-1}}$ -- базис $K[X]/(f)$ 
     $\Rightarrow 1, a, a^2, \ldots, a^{d-1}$ -- базис $K(a)$.
     \item \includegraphics[width=0.8\textwidth]{ugly_scheme.jpg}
@@ -204,7 +204,7 @@ $L / K$ называется алгебраическим, если все ег�
 \begin{proof}
     $L = K[X] / (f)$ -- поле, так как $f$ неприводим. $\underset{c \mapsto \overline{c}}{K \hookrightarrow L}$ отожествляет $c$ с $\overline{c}$. 
     Очевидно, $L = K(\underbrace{\overline{X}}_{a:=})$, любой элемент этого поля представим в виде $\overline{\sum \alpha_i x^i} = \sum \overline{\alpha_i} \overline{X^i} =
-    \sum \alpha_i \overline{X^i}$. $Irr_K X = f$, так как $f(\overline{x}) = \overline{F} = 0$ и $f$ неприводим.
+    \sum \alpha_i \overline{X^i}$. $Irr_K X = f$, так как $f(\overline{x}) = \overline{f} = 0$ и $f$ неприводим.
 \end{proof}
 
 %уже здесь почему-то не собиралось
@@ -216,7 +216,7 @@ $L / K$ называется алгебраическим, если все ег�
 \begin{proof}
     \begin{gather*}
         \underset{\underbrace{\frac{f}{g}}_{g \neq 0} \mapsto \underbrace{\frac{f(a)}{g(a)}}_{g(a) \neq 0 \text{, т.к. } a \text{ тр.}}}{K(X) \xrightarrow{\mse} K(a)} \\
-        \Im \mse \text{ -- подполе в } К(a) \\
+        \Im \mse \text{ -- подполе в } K(a) \\
         K \subset \Im \mse \ (c = \mse(c)) \\
         a \in \Im \mse \ (a = \mse(X)) \\
         \Rightarrow \Im \mse = K(a)
@@ -266,15 +266,15 @@ $L / K$ называется алгебраическим, если все ег�
 \end{proposition}
 
 \begin{proof}
-    Индукция по  $d = deg f$.
+    Индукция по  $d = \deg f$.
 
  $d \leq 1$: $K$ -- поле разложения $f$.
 
  $d > 1$: $p$ -- неприводимый делитель $f$. $L = K(a), \ p(a) = 0$. $f(a) = 0 \xRightarrow{\text{т. Безу}} f = (X - a)g$.
- $g \in L[X], \ deg g = d-1$.
+ $g \in L[X], \ \deg g = d-1$.
 
  По индукционному предположению существует $M/L$ -- поле разложения $g$. В $M[X] \ g = c(X - a_1)\ldots(X - a_{d-1}) \Rightarrow
- f = c(x - a)(x - a_1)\ldots(x - a_{d-1}).\ M = L(a_1, \ldots, a_{d-1}) = K(a)(a_1, \ldots, a_{d-1}) = K(a, a_1, \ldots, a_{d-1})$.
+ f = c(X - a)(X - a_1)\ldots(X - a_{d-1}).\ M = L(a_1, \ldots, a_{d-1}) = K(a)(a_1, \ldots, a_{d-1}) = K(a, a_1, \ldots, a_{d-1})$.
 \end{proof}
 
 Изоморфизмом между расширениями $L_1/K$ и $L_2/K$ -- это изоморфизм $\sigma$: $L_1 \backsimeq L_2$ такой, что $\forall \ a \in K: \ \sigma(a) = a$.
@@ -288,12 +288,12 @@ $L / K$ называется алгебраическим, если все ег�
 \end{proposition}
 
 \begin{proof}
-    1 $\Rightarrow$ 2: Пусть $\theta_1, \ldots, \theta_n$ -- алгебраичсекие над $K \Rightarrow
+    1 $\Rightarrow$ 2: Пусть $\theta_1, \ldots, \theta_n$ -- алгебраические над $K \Rightarrow
     K(\theta_1, \ldots, \theta_n) = L$, все элементы $L$ алгебраичны над $K$.
 
     2 $\Rightarrow$ 1: Индукция по $n$. $n = 0 \Rightarrow L = K$.
     $n > 0 \Rightarrow L = K'(a_n), \ K' = K(a_1, \ldots, a_{n-1}),
-    [K':K] < \infty$ по ИП, $[L:K'] = d, \ d = deg Irr_{K'}a_n < \infty, 
+    [K':K] < \infty$ по ИП, $[L:K'] = d, \ d = \deg Irr_{K'}a_n < \infty, 
     [L:K] = [L:K'][K':K] < \infty$.
 \end{proof}
 

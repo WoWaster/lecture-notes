@@ -41,7 +41,7 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
 
 \begin{proof}
     $\Rightarrow$:
-    \[ [\mca]_E = diag(\lambda_1, \ldots, \lambda_n) = \begin{pmatrix}
+    \[ [\mca]_E = \diag(\lambda_1, \ldots, \lambda_n) = \begin{pmatrix}
             \lambda_1 & \ldots & 0         \\
             \vdots    & \ddots & \vdots    \\
             0         & \ldots & \lambda_n \\
@@ -52,7 +52,7 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
     $\Leftarrow$: Пусть  $E = (e_1, \ldots, e_n)$ — базис из собственных векторов.
     $\mca e_i = \lambda_i e_i$ для некоторых $\lambda_i \in K, \ i = 1, \ldots, n
         \Rightarrow [\mca]_E
-        = diag(\lambda_1, \ldots, \lambda_n)$.
+        = \diag(\lambda_1, \ldots, \lambda_n)$.
 \end{proof}
 
 \begin{lemma}
@@ -140,7 +140,7 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
 
 \begin{proof}
     $\Rightarrow$: найдется базис $\E$, такой что:
-    $[\mca]_\E = diag(\underbrace{\lambda_1, \ldots, \lambda_1}_{c_1},
+    $[\mca]_\E = \diag(\underbrace{\lambda_1, \ldots, \lambda_1}_{c_1},
         \underbrace{\lambda_2, \ldots, \lambda_2}_{c_2}, \ldots,
         \underbrace{\lambda_m, \ldots, \lambda_m}_{c_m}), \  c_1, \ldots, c_m \geq 0$.
     Первые $c_1$  векторов  — собственные, принадлежащие собственным значениям
@@ -160,7 +160,7 @@ $\mca$, если $\exists v \in V,\ v \neq 0 : \mca v = \lambda v$.
 
 \begin{remark}
     При этом получили, если
-    \[[\mca]_E = diag(\underbrace{\lambda_1, \ldots, \lambda_1}_{c_1},
+    \[[\mca]_E = \diag(\underbrace{\lambda_1, \ldots, \lambda_1}_{c_1},
         \underbrace{\lambda_2, \ldots, \lambda_2}_{c_2}, \ldots,
         \underbrace{\lambda_m, \ldots, \lambda_m}_{c_m}),\]
     то $c_1 = g_{\lambda_1}, \ldots,c_m = g_{\lambda_m}$.

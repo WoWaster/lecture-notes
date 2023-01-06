@@ -90,28 +90,28 @@
 \begin{corollary} [из теоремы]
     Пусть $V$ -- унитарное пространство, $\mca \in \End V$. Тогда:
     $\mca = \mca^* \Leftrightarrow$ в $V$ существует ортонормированный базис $E$, такой что
-    $[\mca]_E = diag(c_1, \ldots, c_n), \ c_1, \ldots, c_n \in \R$.
+    $[\mca]_E = \diag(c_1, \ldots, c_n), \ c_1, \ldots, c_n \in \R$.
 \end{corollary}
 
 \begin{proof}
-    $\exists$ ортонормированный $E$, такой что  $[\mca]_E = A = diag(c_1, \ldots, c_n)$. $\mca = \mca^* \Rightarrow
-        A = A^* = diag(\overline{c_1}, \ldots, \overline{c_n}) \Rightarrow c_1 = \overline{c_1}, \ldots, c_n = \overline{c_n} \Rightarrow
+    $\exists$ ортонормированный $E$, такой что  $[\mca]_E = A = \diag(c_1, \ldots, c_n)$. $\mca = \mca^* \Rightarrow
+        A = A^* = \diag(\overline{c_1}, \ldots, \overline{c_n}) \Rightarrow c_1 = \overline{c_1}, \ldots, c_n = \overline{c_n} \Rightarrow
         c_1, \ldots, c_n \in \R$.
 
-    Обратно: $ c_1, \ldots, c_n \in \R \Rightarrow A = diag(c_1, \ldots, c_n) = A^*$ -- эрмитова $\Rightarrow \mca = \mca^*$.
+    Обратно: $ c_1, \ldots, c_n \in \R \Rightarrow A = \diag(c_1, \ldots, c_n) = A^*$ -- эрмитова $\Rightarrow \mca = \mca^*$.
 \end{proof}
 
 \begin{corollary}
     Пусть $V$ -- унитарное пространство, $\mca \in \End V$. Тогда:
     $\mca$ -- унитарный $\Leftrightarrow$ в $V$ существует ортонормированный базис $E$, такой что
-    $[\mca]_E = diag(u_1, \ldots, u_n), \ |u_1|, \ldots, |u_n| = 1$.
+    $[\mca]_E = \diag(u_1, \ldots, u_n), \ |u_1|, \ldots, |u_n| = 1$.
 \end{corollary}
 
 \begin{proof}
-    $\Rightarrow$: в некотором ортонормированном базисе $E$ $[\mca]_E = A = diag(u_1, \ldots, u_n), \ AA* = E_n \Rightarrow
+    $\Rightarrow$: в некотором ортонормированном базисе $E$ $[\mca]_E = A = \diag(u_1, \ldots, u_n), \ AA* = E_n \Rightarrow
         u_1 \overline{u_1} = \ldots = u_n \overline{u_n} = 1 \Rightarrow |u_1| = \ldots = |u_n| = 1$.
 
-    $\Leftarrow$: $A = diag(u_1, \ldots, u_n), \ |u_1| = \ldots = |u_n| = 1 \Rightarrow
+    $\Leftarrow$: $A = \diag(u_1, \ldots, u_n), \ |u_1| = \ldots = |u_n| = 1 \Rightarrow
         AA^* = E_n, \ A \text{ -- матрица } \mca \text{ в ортонормированном базисе} \Rightarrow \mca \mca^* = \mse$.
 \end{proof}
 

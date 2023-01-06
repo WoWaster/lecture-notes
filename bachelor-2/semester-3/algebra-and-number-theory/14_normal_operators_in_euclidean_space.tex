@@ -97,7 +97,7 @@ $ V_{\lambda_l} \perp  V_{\lambda_k} \ (k \neq l), \ W_l \perp  W_k \ (k \neq l)
     \lambda_l & \ldots       & 0    \\
     \vdots     & \ddots & \vdots     \\
     0       & \ldots       & \lambda_l      \\
-  \end{pmatrix} = diag(\underbrace{\lambda_l, \ldots, \lambda_l}_{p}) \text{ -- соответствует } V_{\lambda_l}
+  \end{pmatrix} = \diag(\underbrace{\lambda_l, \ldots, \lambda_l}_{p}) \text{ -- соответствует } V_{\lambda_l}
 \end{gather*}
 
 \begin{gather*}
@@ -137,9 +137,9 @@ $ V_{\lambda_l} \perp  V_{\lambda_k} \ (k \neq l), \ W_l \perp  W_k \ (k \neq l)
 $\mca$ называется ортогональным, если $\mca \mca^* = \mse = E_n \Leftrightarrow A = [\mca]_E \in O_n$, где $E$ -- ортонормированный базис $V$.
 
 \begin{gather*}
-    A = diag(\ldots, \lambda, \ldots, \begin{pmatrix} \alpha & \beta \\ -\beta & \alpha \end{pmatrix}, \ldots) \\
-    A^T = diag(\ldots, \lambda, \ldots, \begin{pmatrix} \alpha & -\beta \\ \beta & \alpha \end{pmatrix}, \ldots) \\
-    AA^T = diag(\ldots, \lambda^2,\ldots, \begin{pmatrix} \alpha^2 + \beta^2 & 0 \\ 0 & \alpha^2 + \beta^2 \end{pmatrix}, \ldots) \\
+    A = \diag(\ldots, \lambda, \ldots, \begin{pmatrix} \alpha & \beta \\ -\beta & \alpha \end{pmatrix}, \ldots) \\
+    A^T = \diag(\ldots, \lambda, \ldots, \begin{pmatrix} \alpha & -\beta \\ \beta & \alpha \end{pmatrix}, \ldots) \\
+    AA^T = \diag(\ldots, \lambda^2,\ldots, \begin{pmatrix} \alpha^2 + \beta^2 & 0 \\ 0 & \alpha^2 + \beta^2 \end{pmatrix}, \ldots) \\
     A \in O_n \Leftrightarrow \text{ все } \lambda^2 = 1 \text{ и все } \alpha^2 + \beta^2 = 1 \\
     R_{\phi} = \begin{pmatrix}
         \cos \phi & -\sin \phi \\
@@ -149,7 +149,7 @@ $\mca$ называется ортогональным, если $\mca \mca^* = 
 
 \begin{corollary}
     Пусть $\mca \in \End V$ -- ортогональный. Тогда в $V$ существует ортонормированный базис $E$, т.ч.
-    $[\mca]_E = diag(R_{\phi_1}, \ldots, R_{\phi_t}, \pm 1, \ldots, \pm 1)$.
+    $[\mca]_E = \diag(R_{\phi_1}, \ldots, R_{\phi_t}, \pm 1, \ldots, \pm 1)$.
 \end{corollary}
 
 \begin{corollary} [Теорема Эйлера]
@@ -165,10 +165,10 @@ $\mca$ называется ортогональным, если $\mca \mca^* = 
         \end{array}\right)$.
 \end{corollary}
 
-$\dim V$ нечетный: $[\mca]_E = diag(R_{\phi_1}, \ldots, R_{\phi_s}, \pm 1)$
+$\dim V$ нечетный: $[\mca]_E = \diag(R_{\phi_1}, \ldots, R_{\phi_s}, \pm 1)$
 
-$\dim V$ четный, $|\mca| = 1$: $[\mca]_E = diag(R_{\phi_1}, \ldots, R_{\phi_s})$
+$\dim V$ четный, $|\mca| = 1$: $[\mca]_E = \diag(R_{\phi_1}, \ldots, R_{\phi_s})$
 
-$\dim V$ четный, $|\mca| = -1$: $[\mca]_E = diag(R_{\phi_1}, \ldots, R_{\phi_s}, 1, -1)$
+$\dim V$ четный, $|\mca| = -1$: $[\mca]_E = \diag(R_{\phi_1}, \ldots, R_{\phi_s}, 1, -1)$
 
 \end{document}
