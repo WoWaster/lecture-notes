@@ -24,7 +24,7 @@ $V_{\C} = V\times V$. На этом множестве введем сложен
     замкнуто относительно сложения и умножения на вещественные скаляры 
     ($(\alpha + i0)(v, w) = (\alpha v, 0)$).
     
-    $\underset{v \mapsto (v, 0)}{V \rightsquigarrow V'}$ -- изоморфизм линейных пространств над $\R$. Следовательно, 
+    $\underset{v \mapsto (v, 0)}{V \xrightarrow{\sim} V'}$ -- изоморфизм линейных пространств над $\R$. Следовательно, 
     $V$ можно рассматривать как линейное пространство над $\R$. Можно от отожествить $v$ с $(v, 0)$.
     \item Можно ли сделать что-то с $(0, w)$? Оказывается, что можно: $(0, w) = i(w, 0)$.
     \item Таким образом, $(v, w) = (v, 0) + i(w, 0) = v +iw$.
@@ -159,14 +159,13 @@ $V_{\C}$ -- комплексификация $V$.
 
     \begin{proof}
         Нужно проверить: $\forall u, \ u' \in V_{\C} \ (\mca_{\C}u, u') = (u, (\mca^*)_{\C} u')$. 
-
-        \begin{gather*}
-            u = v + iw, \ u' = v' + iw' \\
+        Пусть  $u = v + iw, \ u' = v' + iw'$.
+        \begin{multline*}
             (\mca_{\C}u, u') = (\mca v + i \mca w, v' + iw') = \\
             = (\mca v, v') + (\mca w, w') + i((\mca w, v') - (\mca v, w')) = \\
             = (v, \mca^* v') + (w, \mca^* w') + i((w, \mca^* v') - (v, \mca^*w)) = \\
             = (v, \mca^*v' + i\mca^*w') + (w, \mca^*w' - i\mca^* v') = \\
             = (v, \underbrace{\mca^*v+ i\mca^* w'}_{(\mca^*)_{\C}u'}) + (iw, \underbrace{i(\mca^*w'-i\mca^*v')}_{((\mca^*)_{\C}u')}) = (u, (\mca^*)_{\C} u').
-        \end{gather*}
+        \end{multline*}
     \end{proof}
 \end{document}

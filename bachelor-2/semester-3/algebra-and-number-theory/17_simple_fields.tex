@@ -33,19 +33,19 @@
 
 \begin{definition}[Характеристика кольца]
     $R$ -- кольцо с единицей.
-        \[\text{char} R = \begin{cases}
-            min \{ n : \underbrace{1 + \ldots + 1}_n = 0 \text{ в } R \} \\
+        \[\rchar R = \begin{cases}
+            \min \{ n : \underbrace{1 + \ldots + 1}_n = 0 \text{ в } R \} \\
             0, \quad \text{ если } \forall n \in \N: \ \underbrace{1 + \ldots + 1}_n \ne 0
         \end{cases}
     \]
 \end{definition}
 
 \begin{lemma}
-    Пусть $F$ -- поле. Тогда $\text{char} F$ является простым числом или $= 0$.
+    Пусть $F$ -- поле. Тогда $\rchar F$ является простым числом или $= 0$.
 \end{lemma}
 
 \begin{proof}
-    Будем доказывать от противного. Пусть $l = \text{char} F = mn, \ m,\ n > 1$.
+    Будем доказывать от противного. Пусть $l = \rchar F = mn, \ m,\ n > 1$.
     $ 0 = \underbrace{1 + \ldots + 1}_l = \underbrace{(1 + \ldots + 1)}_{\underset{\ne 0 \text{, т.к. } m < l}{m}}
     \underbrace{(1 + \ldots + 1)}_{\underset{\ne 0 \text{, т.к. } n < l}{n}}$ -- невозможно в поле.
 \end{proof}
@@ -69,12 +69,12 @@
          \alpha(F_1) \]
        \[ F_1 \text{ поле } \Rightarrow \alpha (F_1) \text{ поле } \]
 \end{proof}
-Термин гоморфизм полей не используется, так как он всегда инъективен, говорят "вложение".
+Термин гоморфизм полей не используется, так как он всегда инъективен, говорят «вложение».
 \begin{theorem}
     Пусть $F$ -- простое поле. 
     \begin{enumerate}
-        \item Если $\text{char} F = 0$, то $F \cong \Q$.
-        \item Если $\text{char} F = p > 0 $, то $F \cong \F_p$.
+        \item Если $\rchar F = 0$, то $F \cong \Q$.
+        \item Если $\rchar F = p > 0 $, то $F \cong \F_p$.
     \end{enumerate}
 \end{theorem}
 
@@ -88,7 +88,7 @@
         \end{gathered}
         \right. \tag*{(*)} \]
         \[\alpha \left(  \frac{a}{b} \right) := \frac{\alpha(a)}{\alpha(b)}, \ \alpha(b) \ne 0 
-        \text{, т.е. } \alpha(b) = \underbrace{1 + \ldots + 1}_b \neq 0, \text{ т.к. } \text{char} F = 0\]
+        \text{, т.е. } \alpha(b) = \underbrace{1 + \ldots + 1}_b \neq 0, \text{ т.к. } \rchar F = 0\]
         Проверка корректности:
         \begin{gather*}  
             \frac{a}{b} = \frac{a\prime}{b\prime} \Rightarrow ab^\prime = a^\prime b \\
@@ -107,7 +107,7 @@
          $\mathbb{Z} \stackrel{\alpha}{\longrightarrow} F$. Зададим $\alpha$ формулами $(*)$. Легко видеть:
         $ \alpha $ -- гомоморфизм. $\Ker \alpha$ -- идеал в $\Z$.
         \begin{gather*}
-            \text{char} F = p \Rightarrow \begin{cases}
+            \rchar F = p \Rightarrow \begin{cases}
                 p \in \Ker \alpha \\
                 1, \ldots, p-1 \notin \Ker \alpha
             \end{cases} \Rightarrow \Ker \alpha = (p)

@@ -25,12 +25,12 @@
 \end{proposition}
 
 \begin{proof}
-    $a = 0$ -- очевидно. $a \neq 0: \ |K^*| = q - 1 \Rightarrow \forall c \in K^*: \ \text{ord} \ c \mid q - 1 \Rightarrow c^{q-1} = 1, \ a \in K^* \Rightarrow 
+    $a = 0$ -- очевидно. $a \neq 0: \ |K^*| = q - 1 \Rightarrow \forall c \in K^*: \ \ordc \ c \mid q - 1 \Rightarrow c^{q-1} = 1, \ a \in K^* \Rightarrow 
     a^{q-1} = 1 \Rightarrow a^q = a$.
 \end{proof}
 
 \begin{corollary}
-    По предыдущему предложению: $\forall \ a \in K \ f(a) = 0, \ f = X^q - X. \ deg \ f = q \Rightarrow f = \prod_{a \in K}(X - a). \ k$ -- подполе, 
+    По предыдущему предложению: $\forall \ a \in K \ f(a) = 0, \ f = X^q - X. \ \deg \ f = q \Rightarrow f = \prod_{a \in K}(X - a). \ k$ -- подполе, 
     $k(a \ | \ f(a) = 0) = k(K) = K$.
 \end{corollary}
 
@@ -41,7 +41,7 @@
 \begin{proof}
     Достаточно рассмотреть $m = 1$.
     \begin{gather*}
-        (\alpha + \beta)^p = \alpha^p + \beta^p + \sum_{i = 1}^{p-1}C_p^i\alpha^i\beta^{p-1} \\
+        (\alpha + \beta)^p = \alpha^p + \beta^p + \sum_{i = 1}^{p-1}C_p^i\alpha^i\beta^{p-i} \\
         C_p^i = \frac{p!}{i!(p-i)!} = 0 \text{ в } K
     \end{gather*}
 \end{proof}
@@ -85,7 +85,7 @@
 \end{theorem}
 
 \begin{proof}
-    По лемме $K_1 = \F_p(\theta_1)$. Многочлен $g = Irr_{\F_p}\theta_1, \ \deg g = [K_1 : \F_p] = n$. $\theta_1$ -- корень $X^{p^n} - X \Rightarrow g | X^{p^n} - X$.
+    По лемме $K_1 = \F_p(\theta_1)$. Многочлен $g = \Irr_{\F_p}\theta_1, \ \deg g = [K_1 : \F_p] = n$. $\theta_1$ -- корень $X^{p^n} - X \Rightarrow g | X^{p^n} - X$.
 
     В $K_2$ все элементы -- корни $X^{p^n} - X \Rightarrow$ в $K_2[X] \ X^{p^n} - X$ -- раскладывается на линейные множители $\Rightarrow g$ раскладывается в $K_2[X]$ на линейные множители $\Rightarrow \exists \theta_2 \in K_2: \ g(\theta_2) = 0 \Rightarrow [\F_p(\theta_2):\F_p] = \deg g = n$, но $[K_2:\F_p] = n \Rightarrow K_2 = \F_p(\theta_2) \Rightarrow K_2\cong K_1 (\cong \F_p[X]/(g))$.
 \end{proof}

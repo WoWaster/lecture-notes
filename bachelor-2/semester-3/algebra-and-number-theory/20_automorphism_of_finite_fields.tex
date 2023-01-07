@@ -34,7 +34,7 @@ $K, \ F$ -- поля, $\sigma: \ K \hookrightarrow F$ -- вложение.
 \end{gather*}
 
 \begin{proposition}
-    Пусть $\sigma: \ K \hookrightarrow F$ -- вложение, $L = K(x)$ -- простое алгебраичсекое расширение,  $f = Irr_Kx, \ y_1, \ldots, y_n$ -- все корни $f^{\sigma}$ в $F$. Тогдау $\sigma$ есть ровно $n$ продолжений $\sigma_1, \ldots, \sigma_n$ на $L$, причем $\sigma_i(x) = y_i, \ i = 1, \ldots, n$.
+    Пусть $\sigma: \ K \hookrightarrow F$ -- вложение, $L = K(x)$ -- простое алгебраичсекое расширение,  $f = \Irr_Kx, \ y_1, \ldots, y_n$ -- все корни $f^{\sigma}$ в $F$. Тогдау $\sigma$ есть ровно $n$ продолжений $\sigma_1, \ldots, \sigma_n$ на $L$, причем $\sigma_i(x) = y_i, \ i = 1, \ldots, n$.
 \end{proposition}
 
 Пусть $L/K$ -- расширение. Вложение $\tau: \ L \hookrightarrow F$ называется продолжением вложения $\sigma: \ K \hookrightarrow F$, если $\tau|_K = \sigma$.
@@ -63,7 +63,7 @@ $K, \ F$ -- поля, $\sigma: \ K \hookrightarrow F$ -- вложение.
 
     Индукция по $m$. $m = 0: \ [L:K] = 1$, у $\sigma$ одно продолжение.
 
-    Переход. $L_0 = K(x_1, \ldots, x_{m-1})$. По ИП у $\sigma$ есть $\leq d_0$ продолжений на $L_0$, где $d_0 = [L_0:K]: \ \sigma_1 \ldots, \sigma_l, \ l \leq d_0$. У каждого $\sigma_i$ есть $\leq [L:L_0]$  продоолжений на $L$ $\Rightarrow$ у $\sigma$  есть $\leq l\cdot [L:L_0]$  продоолжений на $L$, т.к. $[\underbrace{L}_{L_0(x_m)}:L_0] = \deg Irr_{L_0} x_m$. $l \cdot [L:L_0] \leq d_0 \cdot [L:L_0] = [L:K]$.
+    Переход. $L_0 = K(x_1, \ldots, x_{m-1})$. По ИП у $\sigma$ есть $\leq d_0$ продолжений на $L_0$, где $d_0 = [L_0:K]: \ \sigma_1 \ldots, \sigma_l, \ l \leq d_0$. У каждого $\sigma_i$ есть $\leq [L:L_0]$  продоолжений на $L$ $\Rightarrow$ у $\sigma$  есть $\leq l\cdot [L:L_0]$  продоолжений на $L$, т.к. $[\underbrace{L}_{L_0(x_m)}:L_0] = \deg \Irr_{L_0} x_m$. $l \cdot [L:L_0] \leq d_0 \cdot [L:L_0] = [L:K]$.
 \end{corollary}
 
 \begin{corollary}
@@ -86,7 +86,7 @@ $K, \ F$ -- поля, $\sigma: \ K \hookrightarrow F$ -- вложение.
     $\Aut (\Q(\sqrt[3]{2})/\Q)$. У $X^3 - 2$ один корень в $\Q(\sqrt[3]{2}) \Rightarrow |\Aut (\Q(\sqrt[3]{2}) / \Q)| = 1$.
 \end{example}
 
-Алгебраическое расширение $L/K$ сепарабельно, если $\forall x \in L: \ Irr_K x$ не имеет кратных корней в $L$.
+Алгебраическое расширение $L/K$ сепарабельно, если $\forall x \in L: \ \Irr_K x$ не имеет кратных корней в $L$.
 
 Есть кратный корень $\Rightarrow (f,f') \neq$ в $L[X], \ (f,f') \neq$ в $K[X]$, но $f$ неприводим.
 

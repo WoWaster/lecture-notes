@@ -70,14 +70,14 @@ v \in V, \ v \neq 0: \ (\mca v, v)  > 0$.
 
 \begin{proof}
     1 $\Rightarrow$ 2: существует ортонормированный $E$, такой что $[\mca]_E = \diag(\lambda_1, \ldots, \lambda_n)$. 
-    $\mca e_i = \lambda_i e_i$. $\underbrace{(\mca e_i, e_i)}_{>0} = (\lambda_i e_i, e_i) = \lambda_i (e_i, e_i) = \lambda_1$.
+    $\mca e_i = \lambda_i e_i$. $\underbrace{(\mca e_i, e_i)}_{>0} = (\lambda_i e_i, e_i) = \lambda_i (e_i, e_i) = \lambda_i$.
 
-    2 $\Rightarrow$ 1: $v= \alpha_1 e_1 + \ldots + \alpha_n e_n, \ \exists i: \ \alpha_i \neq 0$. $\mca v = \alpha_1 \lambda_1 e_1 + \ldots + \alpha_n \lambda_n e_n$. $(\mca v, v) = \alpha_1^2 \lambda_1 + 
+    2 $\Rightarrow$ 1: $v= \alpha_1 e_1 + \ldots + \alpha_n e_n, \ \exists i: \ \alpha_i \neq 0$. $\mca v = \alpha_1 \lambda_1 e_1 + \ldots + \alpha_n \lambda_n e_n$. $(\mca v, v) = \alpha_1^2 \lambda_1 + \ldots +
     \alpha_n^2 \lambda_n >0$.
 \end{proof}
 
 \begin{proposition}
-    Пусть $\mca$ -- положительно определенныйна $V$. Тогда существует единственный $\mcb \in \End V$, такой что $\mca = \mcb^2$ и 
+    Пусть $\mca$ -- положительно определенный на $V$. Тогда существует единственный $\mcb \in \End V$, такой что $\mca = \mcb^2$ и 
     $\mcb$ -- положительно определенный. 
 \end{proposition}
 
@@ -100,7 +100,7 @@ v \in V, \ v \neq 0: \ (\mca v, v)  > 0$.
         n = g_{\mcb_1\mu_1} + \ldots + g_{\mcb_1\mu_k} \leq g_{\mca\mu_1} + \ldots + g_{\mca\mu_k} \leq n \\
         \Rightarrow g_{\mcb_1\mu_j} = g_{\mca{\mu^2_j}} \text{ и из } \mca \text{ нет собственных значений, кроме } \mu_1^2, \ldots, \mu_k^2 \\
         \text{Таким образом, } V_{\mcb_1\mu_j} = V_{\mca_1{\mu^2_j}} \Rightarrow \\
-        \Rightarrow (\mca e = \lambda e \Rightarrow \mcb_1 e = \sqrt{\lambda}e, \text{в частности, }) \mcb_1 e_i = \sqrt{\lambda_i} = \mcb e _i
+        \Rightarrow (\mca e = \lambda e \Rightarrow \mcb_1 e = \sqrt{\lambda}e). \text{ В частности, } \mcb_1 e_i = \sqrt{\lambda_i} = \mcb e _i
     \end{gather*}
 \end{proof}
 
