@@ -42,10 +42,8 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\id}{\mathrm{id}}
-\renewcommand{\le}{\leqslant}
-\renewcommand{\leq}{\leqslant}
-\renewcommand{\ge}{\geqslant}
-\renewcommand{\geq}{\geqslant}
+\AtBeginDocument{\renewcommand{\leq}{\leqslant}}
+\AtBeginDocument{\renewcommand{\geq}{\geqslant}}
 \AtBeginDocument{\renewcommand{\Re}{\operatorname{Re}}}
 \AtBeginDocument{\renewcommand{\Im}{\operatorname{Im}}}
 \AtBeginDocument{\renewcommand{\phi}{\varphi}}
