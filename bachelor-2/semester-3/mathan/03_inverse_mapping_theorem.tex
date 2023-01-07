@@ -98,7 +98,7 @@
              \[U = B_r(X_0) = \{ X \in {\vR}^n: ||X-X_0|_{{\vR}^n} < r\tag{10} \}\]
              \begin{remark}[О внутренности шара]
                \begin{multline*}
-                X_1, X_2 \in B_r(X_0), 0 < t < 1 \implies tX_1 + (1-t)x_2 \in B_r(x_0) \\
+                X_1, X_2 \in B_r(X_0), 0 < t < 1 \implies tX_1 + (1-t)X_2 \in B_r(x_0) \\
                   ||(tX_1 + (1-t)X_2)-X_0||_{{\vR}^n} = \\ 
                   = ||t(X_1-X_0)+ (1-t)(X_2-X_0)||_{{\vR}^n} 
                 \leq ||t(X_1 - X_0)||_{{\vR}^n} + \\
@@ -119,16 +119,17 @@
             \begin{align*}
             (11) \implies Dg(t) = g^\prime(t) = D(F(X+tH)) - D(tAH) =\\
             =DF(X+tH)D(X + tH) - AH = \\  
-            = DF(X+tH)H-DF(X0)H = \\
+            = DF(X+tH)H-DF(X_0)H = \\
             = (DF(X+tH)-DF(X_0))H \tag{12}
             \end{align*} 
             \begin{gather*}
-            \text{Правая часть} (12) \leq ||DF(X+tH)-DF(x_0)|| \cdot ||H||_{{\vR}^n} \\
+            \text{Правая часть} (12) \leq ||DF(X+tH)-DF(X_0)|| \cdot ||H||_{{\vR}^n} < 2\lambda||H||_{\vR^n} \\
             \underset{13^\prime}{\leq} \frac{1}{2} ||AH||_{{\vR}^n} \tag{14} \\
+            \forall Y \in \vR^n \quad A^{-1}X=Y \Leftrightarrow X = AY \\
             ||A^{-1}|| = \frac{1}{4\lambda} \implies \forall X \in {\vR}^n 
             ||A^{-1}X||_{{\vR}^n} \leq \frac{1}{4\lambda}||X||_{{\vR}^n} 
             \Leftrightarrow \\
-            ||X||_{{\vR}^n} \geq 4\lambda||A^{-1}X||_{{\vR}^n} 
+            ||X||_{{\vR}^n} \geq 4\lambda||A^{-1}X||_{{\vR}^n} \Leftrightarrow
             \Leftrightarrow ||AY||_{{\vR}^n} \geq 4\lambda ||Y||_{{\vR}^n} \tag{13} \\
             (13) \Leftrightarrow 2\lambda||Y||_{{\vR}^n} \leq 
             \frac{1}{2}||AY||_{{\vR}^n} \tag{13'} \\

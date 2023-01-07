@@ -4,7 +4,7 @@
 \chapter{Норма линейного отображения}
 \begin{definition}[Линейный оператор]
     $A: {\vR}^m \rightarrow {\vR}^n$ -- линейный оператор, если
-    $ \forall x_1, x_2 \in {\vR}^m, \forall p, q \in {\vR}^n \Rightarrow$
+    $ \forall x_1, x_2 \in {\vR}^m, \forall p, q \in {\vR} \Rightarrow$
     \[A(px_1 + qx_2) = pA(x_1) + qA(x_2)\]
 \end{definition}
 \begin{gather*}
@@ -132,7 +132,7 @@
         \end{longProof}
         \begin{theorem}
             \[c > 0, \forall X \in {\vR}^m\] 
-            \[||Ax||_{{\vR}^n} \leq c||X||_{{\vR}^m} \forall X \in {\vR}^m \tag{6} \]
+            \[||AX||_{{\vR}^n} \leq c||X||_{{\vR}^m} \forall X \in {\vR}^m \tag{6} \]
             \[\implies ||A|| \leq c \tag{6\prime} \]
         \end{theorem}
         \begin{longProof}
@@ -145,7 +145,7 @@
     \begin{theorem}
         \begin{gather*}
         E = \{ c \in {\vR}, с > 0 : \forall X \in {\vR}^m \text{ имеем }
-        ||Ax||_{{\vR}^n} \leq c ||X||_{{\vR}^m} \} \tag{7} \\
+        ||AX||_{{\vR}^n} \leq c ||X||_{{\vR}^m} \} \tag{7} \\
         \inf E \stackrel{def}{=} m \geq 0 \\
         \text{В случае } A \neq 0 \\
         ||A|| \in E, ||A||_2 \in E \implies E \ne \varnothing, \text{ тогда } \\
@@ -163,8 +163,8 @@
            $m > 0$
             \begin{gather*}
                 ||A|| \in E, m \leq ||A|| \\
-                \text{пусть } m < ||A|| \implies \exists c_2 : m < c_2 < ||A|| \tag{9} \\
-                (7) \implies ||AX||_{{\vR}^n} \leq c_2||X||_{{\vR}^m} \forall X \in {\vR}^m \\
+                \text{пусть } m < ||A|| \implies \exists c_2 : m < c_2 < ||A|| \\
+                (7) \implies ||AX||_{{\vR}^n} \leq c_2||X||_{{\vR}^m} \forall X \in {\vR}^m \tag{9} \\
                 (9) \implies ||A|| \leq c_2 \text{ противоречие} \end{gather*}
     \end{longProof}
     \begin{theorem}

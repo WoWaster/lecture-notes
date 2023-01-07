@@ -112,7 +112,7 @@
             \begin{gather*}
                 B_r(X_0) \subset E \quad F(x_i, x_j) = f(x_1^0 \ldots x_i \ldots x_j \ldots x^0_n) \\
                 K_r(x_i, x_j) = \{ (x_i - x^0_i)^2 + (x_j-x_j^0)^2 < r^2 \} \\
-                \forall (x_i, x_j) \in K_2(x_i^0, x_j^0) \quad X = (x_1^0 \ldots x_i \ldots x_j \ldots x_n^0) \\
+                \forall (x_i, x_j) \in K_r(x_i^0, x_j^0) \quad X = (x_1^0 \ldots x_i \ldots x_j \ldots x_n^0) \\
                 F^{\prime\prime}_{x_ix_j}(x_i,x_j) = f^{\prime\prime}_{x_ix_j}(X) \\
                 F^{\prime\prime}_{x_jx_i}(x_i, x_j) = f^{\prime\prime}_{x_jx_i}(X) \\
                 F^{\prime\prime}(x_i^0, x_j^0) = F^{\prime\prime}_{x_j x_i}(x_i^0, x_j^0)
@@ -332,7 +332,7 @@ $r \geq 2 \quad r - 1 \geq 1 $
                 H^\alpha = h_i h_j \quad (0 \ldots \underbrace{1}_i \ldots \underbrace{1}_j \ldots 0) \quad C^\alpha_2 = \frac{2!}{0! \ldots 1! \ldots 1! \ldots 0!} = 2 \\
                 (0 \ldots \underbrace{2}_k \ldots 0) \quad H^\alpha = h^2k\quad C^\alpha_2 = \frac{2!}{0! \ldots 2! \ldots 0!} = 1 \\
             \end{gather*}
-               \[ (7) \implies d^2 f(X_0, H)= \sum 2 f^{\prime\prime}_{x_ix_j}(X_0) h_i h_j + \sum^n_{k=1}f^{\prime\prime}_{x_kx_k}(X_0)h^2 k \textcolor{red}{ =} \] 
+               \[ (7) \implies d^2 f(X_0, H)= \sum 2 f^{\prime\prime}_{x_ix_j}(X_0) h_i h_j + \sum^n_{k=1}f^{\prime\prime}_{x_kx_k}(X_0)h^2_k \textcolor{red}{ =} \] 
                \[ 2f^{\prime\prime}_{x_ix_j}(X_0) h_ih_j = f^{\prime\prime}_{x_ix_j}(X_0)h_i h_j + f^{\prime\prime}_{x_jx_i}(X_0)h_j h_i \tag{8} \]
                \[ \textcolor{red}{ = } \sum^n_{i=1} \sum^n_{j=1} f^{\prime\prime}_{x_ix_j}(X_0) h_i h_j \]
         \end{longProof}
@@ -428,7 +428,7 @@ $-x^2 + 2xy - y^2$ -- не положительна \\
             m = \min(m_1, m_2) > 0 \\
             f(X_0 + tH) = f(X_0) + \frac{1}{2} t^2 d^2f(X_0,H) + r(tH) \tag{13}\\
             \frac{|r(tH)|}{|t|^2} \underset{t \to 0}{\rightarrow} 0 \quad |t|||H|| = ||tH|| \tag{14} \\
-            \varepsilon > 0 \exists \quad  \delta > 0 : |r(tH)| < \varepsilon|t|^2||H||^2 \tag{15} \\
+            \varepsilon > 0 \quad \exists \delta > 0 : |r(tH)| < \varepsilon|t|^2||H||^2 \tag{15} \\
             |t|||H_1|| < \delta \\
             \varepsilon||H_1||^2 \leq \frac{m}{4} \tag{17} \\
         \end{gather*}
