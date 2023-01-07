@@ -19,7 +19,7 @@
     \begin{gather*}
     \sum^\infty_{n=1} a_n \tag{2}\\
     \sum^\infty_{n=1} b_n \tag{3}\\
-    \text{Будем говорить, что ряд (1) сходится, если сходятся (1) и (2)} \\
+    \text{Будем говорить, что ряд (1) сходится, если сходятся (3) и (2)} \\
     \sum^\infty_{n=1} c_n \stackrel{def}{=} \sum^\infty_{n=1} a_n + i \sum^\infty_{n=1} b_n \tag{4}\\
     \end{gather*}
 \end{definition}
@@ -136,22 +136,24 @@
     \[ c_0 + \sum^\infty_{n=1} c_n(z-\alpha)^n \tag{17} \]
 \end{definition}
 \begin{lemma}[Абеля]
-    Предположим, что ряд (17) сходится. При фиксированном $z_0 \ne \alpha$ это ряд с комплексными 
-    слагаемыми.
+    Предположим, что ряд (17) сходится при фиксированном $z_0 \ne \alpha$ (это ряд с комплексными 
+    слагаемыми)
     \begin{gather*}
-        R = |z_0 - \alpha| > 0 \\
-        \forall z : |z-\alpha| < R \tag{18}\\
+        R = |z_0 - \alpha| > 0 \implies \\
+        (17) \text { сходится }\forall z : |z-\alpha| < R \tag{18}\\
         \text{ фиксируем } 0 < r < R  \\
-        \text{ при } |z-\alpha| \leq r \text{ ряд сходится равномерно }
+        \text{ при } |z-\alpha| \leq r \text{ ряд сходится равномерно } \tag{19}
     \end{gather*} 
 \end{lemma}
 Пока отвлечемся от доказательства, рассмотрим ряд.
     \begin{gather*}
         w_n = p_n + iq_n \\
-        \sum^\infty_{n=1} w_n \text{ сходится } и
-        \sum^\infty_{n=1} q_n \text{ сходится } \\
+        \sum^\infty_{n=1} w_n \text{ сходится } \implies
+        \sum^\infty_{n=1} q_n \text{ сходится и } \sum^\infty_{n=1}p_n \text{ сходится } 
+        \intertext{по необходимому признаку сходимости}
         p_n \underset{n \to \infty}{\longrightarrow} 0 \implies \exists M_1 : |p_n| \leq M_1 \forall n \\
-        q_n \underset{n \to \infty}{\longrightarrow} 0 \implies \exists M_2 : |q_n| \leq M_2 \forall n
+        q_n \underset{n \to \infty}{\longrightarrow} 0 \implies \exists M_2 : |q_n| \leq M_2 \forall n \\
+        \implies |w_n| \leq |p_n| + |q_n| \leq M_1 + M_2
     \end{gather*}
     Провели такое рассуждение, показав, что сумма ограниченна
 \begin{longProof}
@@ -159,12 +161,12 @@
     \[|z_1| \cdot |z_2| = |z_1 \cdot z_2| \]
     В условии сказано, что 
     \begin{gather*}
-        c_0 + \sum^\infty_{n=1} c_n(z-z_0)^n \text{ сходится } \implies\\
+        c_0 + \sum^\infty_{n=1} c_n(z_0-\alpha)^n \text{ сходится } \implies\\
          \text{по предыдущему рассуждению} \exists M : \forall n \\
         |c_n(z_0 - \alpha)^n | \leq M \tag{20} \\
         (20) : |c_n| \cdot |z_0 - \alpha|^n \leq M \Leftrightarrow |c_n| \leq \frac{M}{R^n} \tag{21}\\
         0 < \frac{|z-\alpha|}{R} = q < 1 \\
-        (21) \implies |c_n(z-alpha)^n | = |c_n| \cdot |z-\alpha|^n \leq \frac{M}{R^n} \cdot |z-\alpha|^n = Mq^n \tag{22}\\
+        (21) \implies |c_n(z-\alpha)^n | = |c_n| \cdot |z-\alpha|^n \leq \frac{M}{R^n} \cdot |z-\alpha|^n = Mq^n \tag{22}\\
         \sum^\infty_{n=1} Mq^n = \frac{Mq}{1-q} \\
     \end{gather*}
     Получаем, что ряд (17) сходится абсолютно, значит, он просто сходится
@@ -203,7 +205,7 @@
 \begin{theorem}
     \begin{gather*}
         \forall z \in B \quad (1) \text{ сходится в } z \tag{2} \\
-        \forall z \in \overline{B} \text{ замыкание } \quad (1) \text{ расходится в } z \tag{3} 
+        \forall z \notin \overline{B} \text{ замыкание } \quad (1) \text{ расходится в } z \tag{3} 
     \end{gather*}
 \end{theorem}
 
@@ -211,7 +213,7 @@
     \begin{gather*}
         \rho = |z-\alpha| \quad \rho < R \implies \exists \rho_1, \rho < \rho_1 < R \tag{4\prime}\\
         \rho_1 \in E \tag{4} \\
-        \text{ т.е. } \exists z_1 : |z_1-\alpha| = \rho+1 \tag{5} \\
+        \text{ т.е. } \exists z_1 : |z_1-\alpha| = \rho_1 \tag{5} \\
         \text{ и } (1) \text{ сходится в } z_1 \tag{6} 
     \end{gather*} 
     В точке $z_1$ применима лемма Абеля.
@@ -229,13 +231,16 @@
 \subsection*{Непрерывность}
 \begin{theorem}
     \begin{gather*}
-        0 < r < R \\
-        \{ z: |z-\alpha| \leq r \} \quad  \quad r < \rho < R \quad |z_0 - \alpha| = \rho \\
+        0 < r < R \quad \text{ если применить лемму Абеля к }  z_0\\
+        \text{ ряд равномерно сходится в круге }\{ z: |z-\alpha| \leq r \} \\
+         r < \rho < R \quad |z_0 - \alpha| = \rho \\
         z = x + iy \Leftrightarrow (x,y)  \quad \quad z - \alpha = x - \beta + i(y - \gamma)\\
-        |z| = ||(x,y)|| \quad \quad \alpha = \beta + i\gamma \\
+        |z| = ||(x,y)|| \quad \quad \alpha = \beta + i\gamma 
+        \intertext{тогда степенной ряд (1) имеет вид}
         c_0 + \sum^\infty_{n=1} u_n(z) + i \sum^\infty_{n=1} v_n(z)
     \end{gather*}
-    Это ряды из непрерывных функций, поэтому их сумма тоже непрерывная функция
+    $c_n(z-\alpha) = u_n(z) + iv_n(z)$, где $u_n$ и $v_n$ -- непрерывные функции, заданные на $\mathbb{C}$.
+    Это ряды из непрерывных функций, поэтому их сумма тоже непрерывная функция.
 \end{theorem}
 
 \begin{definition}[Непрерывность]
@@ -245,9 +250,9 @@
 (1) непрерывна на $B$ \\
 Получено следующее утверждение: сумма степенного ряда по степеням $z-\alpha$ непрерывна в круге сходимости.
 
-\subsection*{Вычисление радиуса сходимости степенного ряда}
+\subsection{Вычисление радиуса сходимости степенного ряда}
 Имеется ряд (1).
-    \[t = \overline{\underset{n \to \infty}{\lim}} \sqrt[n]{|a_n|} \tag{7} \]
+    \[t = \overline{\underset{n \to \infty}{\lim}} \sqrt[n]{|c_n|} \tag{7} \]
 Он может быть равен $+\infty$ \\
 Теперь хотим определить \[R_0 = \begin{cases}
     0 \quad \text{ если } t = +\infty \\
@@ -256,7 +261,7 @@
 \end{cases} \tag{8} \]
 \[ R_0 = R \tag{9} \]
 \begin{theorem}
-    $R_0$, опредленное в соотношении (8), является радиусом сходимости
+    $R_0$, опредленное в соотношении (8), является радиусом сходимости.
 \end{theorem}
 \begin{longProof}
     Надо рассмотреть 3 случая. Случаи $0$ и $+\infty$ мы рассматривать не будем, потому что это они простые. Рассмотрим
@@ -264,7 +269,7 @@
     \begin{gather*}
         |z_0 - \alpha| > R_0 \tag{10} \\
         \varepsilon = |z_0 - \alpha| - R_0 > 0 \\
-        \delta_0 = \frac{t^2 \varepsilon}{1-t\varepsilon} \tag{11}
+        \delta_0 = \frac{t^2 \varepsilon}{1+t\varepsilon} \tag{11}
     \end{gather*}
     В силу свойств верхнего предела (это было еще в далёком первом семестре)
     \begin{gather*}
@@ -283,7 +288,7 @@
 
 \begin{gather*}
     |z_r - \alpha| < R_0 \quad \varepsilon = R_0 - |z_1 - \alpha| > 0 \\
-    \delta_1 = \frac{1}{z} \cdot \frac{t^2 \varepsilon}{1 - t \varepsilon}
+    \delta_1 = \frac{1}{2} \cdot \frac{t^2 \varepsilon}{1 - t \varepsilon}
 \end{gather*}
 Опять же по свойствам верхнего предела из первого семестра. 
 \begin{gather*}
@@ -314,8 +319,8 @@ $q$ не зависит от $n$, поэтому
 \[ \vR \leftrightarrow x + i0 \]
 \begin{definition}[Вещественный степенной ряд]
     \begin{gather*}
-        c_n \in \vR, n \geq 0 \\
-        с_0 + \sum^\infty_{n=1} c_n(x-\alpha)^n \quad x \in \vR \tag{1} \\
+        c_n \in \vR \quad n \geq 0 \quad \alpha \in \vR  \\
+        c_0 + \sum^\infty_{n=1} c_n(x-\alpha)^n \quad x \in \vR \tag{1} \\
     \end{gather*}
 \end{definition}
 
@@ -351,7 +356,7 @@ $q$ не зависит от $n$, поэтому
 \begin{theorem*}
     \begin{gather*}
         c_1 \in \mathbb{C} \quad c_n \ne \forall n \\
-        \exists \underset{n \to \infty}{\lim} \frac{|c_n|}{|c_{n+1}} = R
+        \exists \underset{n \to \infty}{\lim} \frac{|c_n|}{|c_{n+1}|} = R
     \end{gather*}
 \end{theorem*}
 \begin{proof}
@@ -369,7 +374,7 @@ $q$ не зависит от $n$, поэтому
 \begin{theorem}[Абеля]
     \begin{gather*}
         (1) \text{ сходится в } \alpha - R \implies (1) \text{ равномерно сходится на } [\alpha - R,\alpha]  \quad \\
-        \text{ сумма (1) } \in C([\alpha - R,R]) \\
+        \text{ сумма (1) } \in C([\alpha - R,\alpha]) \\
         (1) \text{ сходится в } \alpha + R \implies (1) \text{ равномерно сходится на } [\alpha,\alpha+R]  \quad \\
         \text{ сумма (1) } \in C([\alpha , \alpha +R])
     \end{gather*}
@@ -381,7 +386,7 @@ $q$ не зависит от $n$, поэтому
         \sum^\infty_{n=1} c_n((\alpha-R)-\alpha)^n \text{ сходится } \\
         \sum^\infty_{n=1} (-1)^n c_n R^n \text{ сходится } \tag{5} \\
         \alpha - x > 0 \quad \quad \alpha - R < x < \alpha \\
-        c_n(x-\alpha)^n = (-1)^n c_n (\alpha - x)^n = (-1)^n c_n R^n \cdot \left ( \frac{\alpha-x}{R} \right ) \tag{6}
+        c_n(x-\alpha)^n = (-1)^n c_n (\alpha - x)^n = (-1)^n c_n R^n \cdot \left ( \frac{\alpha-x}{R} \right )^n \tag{6}
     \end{gather*}
     Хотим применить признак Абеля равномерной сходимости функциональных рядов \\
     \begin{gather*}
@@ -391,7 +396,7 @@ $q$ не зависит от $n$, поэтому
          v_n(x) \text{ монотонна } \forall x \\
          |v_n(x)| \leq M \\
          0 \leq v_n(x) = \left ( \frac{\alpha-x}{R} \right ) \leq 1 \\
-         (6) \implies (1) \text{ равномерно сходится на } [\alpha - R, R] 
+         (6) \implies (1) \text{ равномерно сходится на } [\alpha - R, \alpha] 
     \end{gather*}
 \end{longProof}
 

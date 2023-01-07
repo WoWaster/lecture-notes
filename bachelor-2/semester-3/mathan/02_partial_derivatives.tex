@@ -202,7 +202,7 @@
             h_n
         \end{bmatrix}  =\\
          = f^\prime_{x_1}(\ldots)h_1 + \ldots + f^\prime_{x_n}(\ldots)h_n \tag{3} \\
-        f^\prime_{x_j}(t_0 + tH) \in C((t_0 - \delta, t_0 + \delta)) \\
+        f^\prime_{x_j}(X_0 + tH) \in C((t_0 - \delta, t_0 + \delta)) \\
         \sum_{\alpha: |\alpha| = 1} C^\alpha_1 \partial^\alpha f(\ldots) H^\alpha = \sum^{n}_{j=1} f^\prime_{x_j}(\ldots)h_j \tag{4}\\
         \tilde{\alpha} = (1,0,\ldots, 0) \\
         C^{\tilde{\alpha}}_1 = \frac{1!}{1!0!\ldots0!} = 1 \\
@@ -307,7 +307,7 @@ $r \geq 2 \quad r - 1 \geq 1 $
             \vdots \\
             h_n
         \end{bmatrix} \quad H \in \vR^n \quad d^1f(X_0,H) \stackrel{def}{=} df(X_0,H) \quad f \in C^r(E) \quad r \geq 1\\
-        \forall x \in E \text{ и } \forall  H \in \vR^n \quad d^2f(X_0,H)  = \sum_{\alpha:|\alpha|=r} A{r,\alpha} \partial^\alpha f(X_0)H^\alpha  \tag{1} \\
+        \forall x \in E \text{ и } \forall  H \in \vR^n \quad d^rf(X_0,H)  = \sum_{\alpha:|\alpha|=r} A_{r,\alpha} \partial^\alpha f(X_0)H^\alpha  \tag{1} \\
         \textcolor{red}{ = } \sum_{\alpha: |\alpha| = 1} 1 \cdot \partial^\alpha f(X_0)H^\alpha \\
         f \in C^{r+1}(E) \\
         d^{r+1}f(X_0, H) \stackrel{def}{=} \sum_{\alpha: |\alpha| = r} A_{r,\alpha}d(\partial^\alpha f(X_0, H))H^\alpha \tag{2} \\
@@ -325,15 +325,15 @@ $r \geq 2 \quad r - 1 \geq 1 $
             \end{multline*}
             \[ (1), (2), (3) \implies d^r f(X_0,H) = \sum_{\alpha: |\alpha| = r} C^\alpha_r \partial^\alpha f(X_0) H^\alpha =
              \sum_{\alpha: |\alpha|=r} \frac{r!}{\alpha!} \partial^\alpha f(X_0) H^\alpha \tag{4} \] 
-            \[ (4) \implies f(X_0 + H) = f(X_0) + \sum^r_{k=1|} \frac{1}{k!} d^k f(X_0, H) + R(H) \tag{5} \]
+            \[ (4) \implies f(X_0 + H) = f(X_0) + \sum^r_{k=1} \frac{1}{k!} d^k f(X_0, H) + R(H) \tag{5} \]
             \[ \frac{|R(H)|}{||H||^r_{\vR^n}} \underset{H \to \mathbb{0}_n}{\rightarrow} 0 \tag{6} \]
             \[ (4) \implies d^2f(X_0, H) = \sum_{\alpha : |\alpha| = 2} C^\alpha_2 \partial^\alpha f(X_0)H^\alpha \tag{7} \] 
             \begin{gather*}
                 H^\alpha = h_i h_j \quad (0 \ldots \underbrace{1}_i \ldots \underbrace{1}_j \ldots 0) \quad C^\alpha_2 = \frac{2!}{0! \ldots 1! \ldots 1! \ldots 0!} = 2 \\
-                (0 \ldots \underbrace{2}_k \ldots 0) \quad H^\alpha = h^2k C^\alpha_2 = \frac{2!}{0! \ldots 2! \ldots 0!} = 1 \\
+                (0 \ldots \underbrace{2}_k \ldots 0) \quad H^\alpha = h^2k\quad C^\alpha_2 = \frac{2!}{0! \ldots 2! \ldots 0!} = 1 \\
             \end{gather*}
-               \[ (7) \implies d^2 f(X_0, H) \sum 2 f^{\prime\prime}_{x_ix_j} h_i h_j + \sum^n_{k=1}f^{\prime\prime}_{x_kx_k}(X_0)h^2 k \textcolor{red}{ =} \] 
-               \[ 2f^{\prime\prime}_{x_ix_j}(X_0) h_ih_j = f^{\prime\prime}_{x_ix_j}(X_0) + f^{\prime\prime}_{x_jx_i}(X_0)h_j h_i \tag{8} \]
+               \[ (7) \implies d^2 f(X_0, H)= \sum 2 f^{\prime\prime}_{x_ix_j}(X_0) h_i h_j + \sum^n_{k=1}f^{\prime\prime}_{x_kx_k}(X_0)h^2 k \textcolor{red}{ =} \] 
+               \[ 2f^{\prime\prime}_{x_ix_j}(X_0) h_ih_j = f^{\prime\prime}_{x_ix_j}(X_0)h_i h_j + f^{\prime\prime}_{x_jx_i}(X_0)h_j h_i \tag{8} \]
                \[ \textcolor{red}{ = } \sum^n_{i=1} \sum^n_{j=1} f^{\prime\prime}_{x_ix_j}(X_0) h_i h_j \]
         \end{longProof}
 
@@ -350,7 +350,7 @@ $\tilde{A}(X) \geq 0$ -- неотрицательно определённая. 
 $x^2 + y^2$ -- положительно определена \\
 $x^2 - y^2$ -- не определена \\
 $-x^2 -y^2$ -- отрицательно определена \\
-$x^2 - 2xy y^2$ -- неотрицателна \\
+$x^2 - 2xy - y^2$ -- неотрицательна \\
 $-x^2 + 2xy - y^2$ -- не положительна \\
 \[A(X) > 0 \Leftrightarrow -A(X) < 0 \]
 \begin{gather*}
