@@ -15,7 +15,7 @@
       \[ \forall Y \in \vR^n \quad Y = A^{-1}X \Leftrightarrow X = AY \]
       \begin{multline*}
          ||A^{-1}X||_{\vR^n} \leq ||A^{-1}|| ||X||_{\vR^n} = \frac{1}{\alpha}||X||_{\vR^n} \implies ||X||_{\vR^n} \geq \alpha ||A^{-1}X||_{\vR^n} \Leftrightarrow \\
-         \Leftrightarrow ||A^||_{\vR^n}|| \geq \alpha ||Y||_{\vR^n} \tag{2}         
+         \Leftrightarrow ||AY||_{\vR^n} \geq \alpha ||Y||_{\vR^n} \tag{2}         
       \end{multline*}
     \end{remark}
 
@@ -57,7 +57,7 @@
     \end{longProof}
 
 
-\section*{Теорема об обратном отображении}
+\section{Теорема об обратном отображении}
     $E \subset {\vR}^n, n \geq 2$, $x_0 \in E$, $x_0 $ -- внутренняя точка
     $F: E \rightarrow {\vR}^n$
     \[F \in C^{1}(w) \tag{1}\]
@@ -67,7 +67,7 @@
         \[ \Phi = F^{-1}, \Phi \in C^1(V) \tag{4}\]
  
         \begin{definition}[Якобиан]
-        $I(x_0) \stackrel{def}{=} \det DF(x_0)$ -- Якобиан отображения $F$ в точке $x_0$
+        $J_F(x_0) \stackrel{def}{=} \det DF(x_0)$ -- Якобиан отображения $F$ в точке $x_0$
         \end{definition}
  
         \begin{gather*}
@@ -159,11 +159,11 @@
              \item Открытость отображения
              \[(20), (13^\prime) \implies ||F(X+H) - F(X)||_{{\vR}^n} 
              >2\lambda||H||_{{\vR}^n} \tag{23} \]
-             \begin{lemma}[]
+             \begin{lemma}
                 $X_1 \in U, Y_1 = F(X_1) $, 
                 $0 < \rho < r - ||X_1-X_0||_{{\vR}^n} $ 
                 Такой выбор влечёт 
-                \[\overline{B}_\rho(X_1) \in U \quad  Y \in B_{\lambda\rho}(Y_1), Y \neq Y_1 
+                \[\overline{B}_\rho(X_1) \subset U \quad  Y \in B_{\lambda\rho}(Y_1), Y \neq Y_1 
                 \tag{24}\]
                 \[\implies \exists X \in B_\rho(X_1) : F(X) = Y \tag{25} \]
              \end{lemma}
@@ -247,7 +247,7 @@
                  Применяем топологическое определение непрерывности
                  \[ \implies \Phi \text{ непрерывна на } V \]
                  Мы выяснили что $F$ биективно, $V$ - открыто, а обратное отображение непрерывно
-                   на $V$. Теперь надо проверять что $\Phi$ такой же гладкости как и ...
+                   на $V$. Теперь надо проверять что $\Phi$ такой же гладкости.
                    Осталось проверить что обратное отображение класса $C^1$
                   \item \[\forall Y \in V , K \in {\vR}^n , Y + K \in V\] 
                   \begin{gather*}
@@ -535,7 +535,7 @@
                   0 & & \ldots & & 1
                \end{matrix*} \\
             \end{array}\right) \\
-             def D\Phi(Z_0) = \det A \ne 0 \\
+             \det D\Phi(Z_0) = \det A \ne 0 \\
             \text{По теореме об обратном отображении} \\
              \exists Z_0 \in U, \begin{bmatrix*}
                \mathbb{0}_n \\

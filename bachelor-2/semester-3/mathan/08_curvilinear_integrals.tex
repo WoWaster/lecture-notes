@@ -178,13 +178,18 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
 \begin{definition}[Ориентированная кривая]
     \begin{gather*}
         \Gamma([a,b]): [a,b] \rightarrow {\vR^n}  \quad n \geq 2\\
-        \Gamma(t) \quad t \in [a,b] \\
+        \Gamma(t) \quad t \in [a,b] 
+    \end{gather*}
+    Будем говорить, что на кривой задана ориентация, если
+    \begin{gather*}
         \Gamma(a) \text { -- начало } \Gamma(t) \\
         \Gamma(b) \text { -- конец } \Gamma(t) \\
         \Gamma(a) \ne \Gamma(b) \\
-        \intertext{Будем говорить что при обходе ориентирвоанной кривой точки проходятся в порядке }
-        с \in (a,b) \quad \Gamma(a), \Gamma(c), \Gamma(b) 
+        c \in (a,b)
     \end{gather*}
+        Будем говорить что при обходе ориентирвоанной кривой точки проходятся в порядке $ \Gamma(a), \Gamma(c), \Gamma(b) $
+    Обозначение кривой с заданной ориентацией:
+    \[ \stackrel{\rightarrow}{\Gamma}_{([a,b)]} \quad \stackrel{\rightarrow}{\Gamma}_{(t)} \]
 \end{definition}
 \begin{definition}[Противоположная ориентация]
     Давайте рассмотрим любое отображение 
@@ -192,8 +197,9 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
     \Gamma_1(t) \stackrel{def}{=} \Gamma(a+b-t) \\
     \Gamma_1(a) = \Gamma(b) \\
     \Gamma_1(b) = \Gamma(a) \\
-    \stackrel{\leftarrow}{\Gamma} (t) = \stackrel{\rightarrow}{\Gamma_1(t)} \\
+    \stackrel{\leftarrow}{\Gamma} (t) = \stackrel{\rightarrow}{\Gamma_1(t)} 
 \end{gather*}
+Кривая ориентирована противоположным образом.
 \end{definition}
 
 \begin{definition}[Ориентация на кривой]
@@ -209,8 +215,8 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
 Если мы первоначально рассматриваем $\Gamma_1$, то $\Gamma$ будет ей противоположно ориентирована.
 Ориентации всего две!!! 
 
-\begin{definition}[Гладкая кривая]
-  \[ \in C^1 \]
+\begin{definition}[Напоминание определения гладкой кривой]
+  \[\Gamma(t)  \in C^1([a,b]) \]
  \[\exists \delta : ||\Gamma^\prime(t)|| \geq \delta\]
 \end{definition}
 \begin{lemma}
@@ -277,7 +283,7 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
 \begin{gather*}
     [a,b] \quad P = \{ t_k \}^m_{k=0} \quad a = t_0 < \ldots < t_m = b \\
     T = \{ \tau_k \}^m_{k=1} \quad \tau_k \in [t_{k-1},t_k] \\
-    \Gamma \text{ -- ориентированная кривая. }
+    \Gamma \text{ -- ориентированная гладкая кривая. }
     \{ N_k \}^m_{k=1} \leftrightarrow T
 \end{gather*}
 Далее для сокращения записи $[a,b]$ у $\Gamma$ пропускаем.
@@ -314,7 +320,7 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
         x_{kn}
     \end{bmatrix*} \\
     \gamma_j(t_k) = x_{kj} \\
-     S_{\stackrel{\rightarrow}{\Gamma}} = \sum^m_{k=1} f(N_k)(x_{kj} - x_{k-1,j}) \tag{4} \\
+     S_{\stackrel{\rightarrow}{\Gamma}}(f,P,T) = \sum^m_{k=1} f(N_k)(x_{kj} - x_{k-1,j}) \tag{4} \\
 \end{gather*}
 Применим предыдущие рассуждения. Пусть $ \{ M_k \}^m_{k=0}$ и $\{ N_k \}^m_{k=1}$ удоветворяющие условию для ориентации кривой
 (точки следуют в соответствии с выбранной ориентацией)
@@ -333,7 +339,7 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
     \stackrel{\leftarrow}{\Gamma}(t) = \ldots \\ 
 \end{gather*}
 \begin{multline*}
-    \sum^m_{k=1} f(N^\prime_k)(x^\prime_{kj} - x^\prime_{k-1,j}) = \sum^m_{k=1}f(N_m-k+1)(x_{m-k,i} - x_{m-k+1,j}) =\\
+    \sum^m_{k=1} f(N^\prime_k)(x^\prime_{kj} - x^\prime_{k-1,j}) = \sum^m_{k=1}f(N_{m-k+1})(x_{m-k,i} - x_{m-k+1,j}) =\\
     = - \sum^m_{k=1} f(N_{m-k+1})(x_{m-k+1,j} - x_{m-k,j}) = -\sum^m_{\nu = 1}f(N_\nu) (x_{\nu j} - x_{\nu -1,j}) \tag{6}
 \end{multline*}
 
@@ -341,11 +347,11 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
     S_{\stackrel{\leftarrow}{\Gamma}}(f, \{ M^\prime_k \}^m_{k=0}, \{N_k^\prime\}^m_{k=1}) = \\
     = -S_{\stackrel{\rightarrow}{\Gamma}}(f, \{ M_\nu \}^m_{\nu=0}, \{N_\nu\}_{\nu=1}^m) \tag{6\prime} \\
 \end{multline*}
-\[ \underset{k}{max} || M^\prime_{k-1}M^\prime_k||_{{\vR^n}} = \underset{k}{max} ||M_{m-k+1}M_{m-k}||_{{\vR^n}} =
-\underset{\nu}{max} || M_{\nu-1}N_{\nu} ||_{{\vR^n}} \tag{7} \]
+\[ \underset{k}{\max} || M^\prime_{k-1}M^\prime_k||_{{\vR^n}} = \underset{k}{\max} ||M_{m-k+1}M_{m-k}||_{{\vR^n}} =
+\underset{\nu}{\max} || M_{\nu-1}M_{\nu} ||_{{\vR^n}} \tag{7} \]
 \begin{theorem}[Теорема о приближении криволинейного интеграла второго рода к интегральной сумме]
     \begin{gather*}
-        \stackrel{\rightarrow}{\Gamma}([a,b]) \rightarrow {\vR^n} \\
+       \text{ гладкая кривая } \stackrel{\rightarrow}{\Gamma}([a,b]) \rightarrow {\vR^n} \\
         f \in C(\Gamma)\\
         \forall \varepsilon > 0 \exists \delta > 0 : \forall P = \{t_k \}^m_{k=0} |t_k - t_{k-1}| < \delta \quad 1 \leq k \leq m \\
         |S_{\stackrel{\rightarrow}{\Gamma}}(f,P,T) - \int_{\stackrel{\rightarrow}{\Gamma}} f(M)dx_j| < \varepsilon \tag{8}\\
@@ -363,9 +369,9 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
     $f$ непрерывна на $\Gamma$, а это компакт, значит, справедлива теорема Кантора
     \begin{gather*}
         c_3 \quad \forall \tilde{M}_1, \tilde{M}_2 \in \Gamma \quad ||\tilde{M}_1\tilde{M}_2||_{{\vR^n}} < \delta_0 \implies
-        |f(\tilde{M}_2 - \tilde{M}_1)| < c_3\varepsilon \tag{10}
+        |f(\tilde{M}_2) - f(\tilde{M}_1))| < c_3\varepsilon \tag{10}
     \end{gather*}
-    Теперь хотим определить $delta_0$. Вспомним лемму между темами. Там фигурировало $c_1$ слева, $c_2$ справа
+    Теперь хотим определить $\delta_0$. Вспомним лемму между темами. Там фигурировало $c_1$ слева, $c_2$ справа
     \[ \delta : c_2\delta < \delta_0 \tag{11} \] 
     \begin{gather*}
         (10),(11) \implies t_k - t_{k-1} < \delta \forall k, \tau_k \in [t_{k-1}, t_k] \quad t \in [t_{k-1},t_k] \implies \\
@@ -378,7 +384,7 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
         = c_3 \varepsilon \int^b_a |\gamma_j^\prime(t)|dt \leq c_3 \varepsilon \int^b_a \sqrt{(\gamma_1^\prime(t))^2+ \ldots (\gamma^\prime_n(t))^2}dt = \\
         = c_3 \varepsilon \int^b_a ||D\Gamma(t)||_{{\vR^n}}dt = c_3 \varepsilon \underbrace{L(\Gamma)}_\text{длина кривой} \tag{13} 
     \end{multline*}
-    \[c_3 = \frac{1}{C(\Gamma)}\]
+    \[c_3 = \frac{1}{l(\Gamma)}\]
 \end{proof}
 \begin{remark}[Переформулировка теоремы]
     \begin{gather*}
@@ -393,7 +399,7 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
     \begin{gather*}
         \delta \quad P \quad |t_k - t_{k-1}| < \delta \\
         c_1 \text{ из леммы } \\
-        c_1|t_k-t_{k-1}| \leq || \Gamma(\underbrace{t_k}_{M_k}) - \Gamma(\underbrace{t_{k-1}}_{M_{k-1}})||_{{\vR^n}}  \text{это Лемма}\\
+        c_1|t_k-t_{k-1}| \leq || \underbrace{\Gamma(t_k)}_{M_k} - \underbrace{\Gamma(t_{k-1})}_{M_{k-1}})||_{{\vR^n}}  \text{это Лемма}\\
         \delta_1 = c_1 \delta \\
         \text{Если } ||\Gamma(t_k) - \Gamma(t_{k-1})||_{{\vR^n}} < \delta_1 = c_1 \delta \implies \\
         \implies |t_k - t_{k-1}| < \delta
@@ -412,7 +418,7 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
     \end{gather*}
     \[ \int_{\stackrel{\leftarrow}{\Gamma}} f(M)dx_j = - \int_{\stackrel{\rightarrow}{\Gamma}} f(M)dx_j \tag{15} \] 
 \end{theorem}
-\begin{proof}
+\begin{longProof}
     $\varepsilon > 0 \quad \delta_1$\\
     Выберем точки, чтобы они находились в соответствии с ориентацией кривой.
     \begin{gather*}
@@ -421,25 +427,22 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
         \forall k \\
         N_k \in \Gamma([M_{k-1},M_k])
         M^\prime_k = M_{m-k} \quad N^\prime_k = N_{m-k+1}\\
-        \underbrace{\{ M^\prime_k \}^m_{k=1}}_{\stackrel{\leftarrow}{\Gamma}}\\
-        S_{\stackrel{\rightarrow}{\Gamma}}(f, \{M_k\}^m_{k=1}, \{N_k\}^m_{k=1}) + 
-        S_{\stackrel{\leftarrow}{\Gamma}}(f, \{M^\prime_k\}^m_{k=1}, \{N^\prime_k\}^m_{k=1}) = 0 \tag{16}
+        \underbrace{\{ M^\prime_k \}^m_{k=0}}_{\stackrel{\leftarrow}{\Gamma}}\\
+        S_{\stackrel{\rightarrow}{\Gamma}}(f, \{M_k\}^m_{k=0}, \{N_k\}^m_{k=1}) + 
+        S_{\stackrel{\leftarrow}{\Gamma}}(f, \{M^\prime_k\}^m_{k=0}, \{N^\prime_k\}^m_{k=1}) = 0 \tag{16}
     \end{gather*}
     \begin{multline*}
         (16) = \left| \int_{\stackrel{\rightarrow}{\Gamma}}f(M)dx_j + \int_{\stackrel{\leftarrow}{\Gamma}} f(M)dx_j \right| = \\
         =  \bigg| \int_{\stackrel{\rightarrow}{\Gamma}} f(M)dx_j + \int_{\stackrel{\leftarrow}{\Gamma}} f(M)dx_j  -
-        (S_{\stackrel{\rightarrow}{\Gamma}}(f, \{M_k\}, \{N_k\})) + \\ 
-        + S_{\stackrel{\leftarrow}{\Gamma}}(f, \{M^\prime_k\}, \{N^\prime_k\}) \bigg| 
-        \leq \varepsilon + \varepsilon = 2 \varepsilon
-    \end{multline*}
-    \begin{gather*}
-        \left| \int_{\stackrel{\rightarrow}{\Gamma}}f(M)dx_j - S_{\stackrel{\rightarrow}{\Gamma}}(f, \{M_k\},\{N_k\}) \right| + \\
-        + \left| \int_{\stackrel{\leftarrow}{\Gamma}} f(M)dx_j-S_{\stackrel{\leftarrow}{\Gamma}}(f, \{ M^\prime_k\},\{ N^\prime_k\} ) \right| \\
-        || M_{k-1}M_k||_{{\vR^n}} < \delta_1 \forall k \Leftrightarrow \\
-        ||M^\prime_{k-1}M^\prime_{k}||_{{\vR^n}} < \delta_1 \tag{7}\\
+        (S_{\stackrel{\rightarrow}{\Gamma}}(f, \{M_k\}, \{N_k\}) + \\ 
+        + S_{\stackrel{\leftarrow}{\Gamma}}(f, \{M^\prime_k\}, \{N^\prime_k\})) \bigg| 
+        \leq \left| \int_{\stackrel{\rightarrow}{\Gamma}}f(M)dx_j - S_{\stackrel{\rightarrow}{\Gamma}}(f, \{M_k\},\{N_k\}) \right| + \\
+        + \left| \int_{\stackrel{\leftarrow}{\Gamma}} f(M)dx_j-S_{\stackrel{\leftarrow}{\Gamma}}(f, \{ M^\prime_k\},\{ N^\prime_k\} ) \right| < \\
         < \varepsilon + \varepsilon = 2\varepsilon \implies(15)
-    \end{gather*}
-\end{proof}
+    \end{multline*}
+        \[|| M_{k-1}M_k||_{{\vR^n}} < \delta_1 \forall k \Leftrightarrow \]
+        \[M^\prime_{k-1}M^\prime_{k}||_{{\vR^n}} < \delta_1 \tag{7}\]
+\end{longProof}
 
 \begin{theorem}
     \begin{gather*}
@@ -456,10 +459,12 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
     \end{gather*}
     \[ \int_{\stackrel{\rightarrow}{\Gamma}}cdx_j = c(y_j - x_j^*) \]
 \end{theorem}
-\begin{proof}
+\begin{longProof}
+    Гладкая кривая
     \begin{gather*}
         \int_{\stackrel{\rightarrow}{\Gamma}}cdx_j = \int^b_a c \gamma^\prime_j(t) = c(\gamma_j(b)-\gamma_j(a)) =
-        c(y_j - x^*_j) \\
+        c(y_j - x^*_j) 
+        \intertext{кусочно-гладкая кривая}
         M_k = \begin{bmatrix}
             x_{k^1} \\
             \vdots \\
@@ -468,7 +473,7 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
         \stackrel{\rightarrow}{\Gamma}_k \text{ начало } M_k \text{ и конец } M_{k+1} \\
         \int_{\stackrel{\rightarrow}{\Gamma}}cdx_j = \sum^m_{k=1} \int_{\stackrel{\rightarrow}{\Gamma_k}} cdx_j = \sum^N_{k=1}c(x_{k+1,j}-x_{k,j})
     \end{gather*}
-\end{proof}
+\end{longProof}
 
 \begin{theorem}
     \begin{gather*}
@@ -476,7 +481,8 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
         \left| \int_{\stackrel{\rightarrow}{\Gamma}} f(M) dx_j \right| \leq \int_\Gamma |f(M)|dl(M) \\
     \end{gather*}
 \end{theorem}
-\begin{proof}
+\begin{longProof}
+    Гладкая кривая
     \begin{gather*}
         ||D\Gamma(t)||_{{\vR^n}} = \sqrt{(\gamma_1^\prime(t))^2 + \ldots + (\gamma^\prime_n(t))^2} 
     \end{gather*}
@@ -485,13 +491,14 @@ $(34)\implies$ \[ |S_\Gamma(f,\{t_k\}^m_{k=0},\{\tau_k\}^m_{k=1})-\int_a^b f(\Ga
         \leq \int^b_a | f(\Gamma(t)) | | \gamma^\prime_j(t)| dt \leq \int^b_a |f(\Gamma(t))||D\Gamma(t)||_{\vR^n} dt = \\
         = \int_{\Gamma} f(M) dl(M) 
     \end{multline*}
+    Кусочно-гладкая кривая
     \[\stackrel{\rightarrow}{\Gamma} = \bigcup^N_{k=1} \stackrel{\rightarrow}{\Gamma}_k \] 
     \begin{multline*}
         \left| \int_{\stackrel{\rightarrow}{\Gamma}} f(M) dx_j \right| = \left| \sum^N_{k=1}
          \int_{\stackrel{\rightarrow}{\Gamma_k}} f(M)dx_j \right| \leq \sum^N_{k=1} 
          \left| \int_{\stackrel{\rightarrow}{\Gamma_k}} f(M)dx_j \right| \leq \\
-         \leq \sum^N_{k=1}  \int_{Gamma_k} |f(M)|dl(M) = \int_{\Gamma} f(M)dl(M)
+         \leq \sum^N_{k=1}  \int_{\Gamma_k} |f(M)|dl(M) = \int_{\Gamma} f(M)dl(M)
     \end{multline*}
     Это по определению криволинейный интеграл 1 рода
-\end{proof}
+\end{longProof}
 \end{document}

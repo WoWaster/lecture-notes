@@ -12,34 +12,38 @@
         \forall x \in W \quad \exists f^\prime_{x_i}(x) \\
         g(x) = f^\prime_{x_i}(x) \quad g: W \rightarrow \vR \quad
         \exists g^\prime_{x_j}(x_0) \\
-        f^{\prime\prime}_{x_ix_j} \stackrel{def}{=} g^\prime_{x_j}(x_0) \\
+        f^{\prime\prime}_{x_ix_j}(x_0) \stackrel{def}{=} g^\prime_{x_j}(x_0) \\
         i \ne j \quad \forall x \in W \quad \exists f^\prime_{x_j}(x) \\
         h: W \rightarrow \vR \quad h(x) \stackrel{def}{=} f^\prime_{x_j}(x) \\
         \exists h^\prime_{x_i}(x_0) \\
-        f^{\prime\prime}_{x_jx_i}(x_0) \stackrel{def}{=} h^\prime_{x_i} (x_0) \\
-        f(x_1,x_2) = \begin{cases}
-            \frac{x_1^3x_2}{x_1^2 + x_2^2} \quad \text{ если    } x_1^2 + x_2^2 > 0\\
-            0 \quad \text{ если } x_1 = x_2 = 0
-        \end{cases} 
+        f^{\prime\prime}_{x_jx_i}(x_0) \stackrel{def}{=} h^\prime_{x_i} (x_0) 
     \end{gather*}
-    \begin{gather*}
-        |f(\ldots)| \leq \frac{|x_1|^3|x_2|}{x_1^2} = |x_1||x_2| \underset{(x_1,x_2) \to (0,0)}{\longrightarrow} 0 \\
-        f^\prime_{x_1} (\ldots) = \frac{3x_1^2x_2}{x_1^2+x_2^2} - 2\frac{x_1^3\cdot x_2 \cdot x_1}{(x_1^2+x_2^2)^2} = 
-        \frac{3x_1^2x_2}{x_1^2+x_2^2} - \frac{2x_1^4x_2}{(x_1^2+x_2^2)^2} \end{gather*}
+    \begin{example}
         \begin{gather*}
-        f^\prime_{x_1}(0,0) = \underset{x_1 \to 0}{\lim} \left ( \left (\frac{x_1^3 \cdot 0}{x_1^2+0} - 0 \right ) \frac{1}{x_1} \right ) = 0\\
-        \left | \frac{3x_1^2x_2}{x_1^2 + x_2^2} \right | = 3 |x_2| \underset{(x_1,x_2) \to 0}{\longrightarrow} 0\\
-        x_2 \ne 0 \\
-        f^\prime_{x_1}(0,x_2) = 0 \\
-        f^{\prime\prime}_{x_1x_2}(0,0) = \underset{x_2 \to 0}{\lim} \frac{f^\prime_{x_1}(0,x_2)-f^\prime_{x_1}(0,0)}{x_2} = 0\\
-        f^\prime_{x_2}(x_1,x_2) = \left ( \frac{x_1^3x_2}{x_1^2+x_2^2} \right )^\prime_{x_2} = \frac{x_1^3}{x_1^2+x_2^2} - 2\frac{x_1^3x_2^2}{(x_1^2+x_2^2)^2} \\
-        f^\prime_{x_2}(0,0) = \underset{x_2 \to 0}{\lim} \left ( \left ( \frac{0 \cdot x_2}{0 + x_2^2} - 0 \right ) \frac{1}{x_2} \right ) = 0 \\
-        \left | \frac{x_1^3}{x_1^2 + x_2^2} \right | \leq |x_1| \underset{(x_1,x_2) \to 0}{\longrightarrow} 0 \\
-        -2 \frac{x_1^3}{x_1^2+x_2^2} \cdot \frac {x_2^2}{x_1^2+x_2^2} \\
-        f^{\prime\prime}_{x_2x_1}(0,0) = \underset{x_1 \to 0}{ \lim} \frac{f^\prime_{x_2}(x_1,0)-f^\prime_{x_2}(0,0)}{x_1} = \underset{x_1 \to 0}{\lim} \frac{x_1}{x_1} = 1 \\
-        f^\prime_{x_2}(x_1,0) = x_1\\
-    \end{gather*}
-
+            f(x_1,x_2) = \begin{cases}
+                \frac{x_1^3x_2}{x_1^2 + x_2^2} \quad \text{ если    } x_1^2 + x_2^2 > 0\\
+                0 \quad \text{ если } x_1 = x_2 = 0
+            \end{cases} 
+        \end{gather*}
+        \begin{gather*}
+            |f(\ldots)| \leq \frac{|x_1|^3|x_2|}{x_1^2} = |x_1||x_2| \underset{(x_1,x_2) \to (0,0)}{\longrightarrow} 0 \\
+            f^\prime_{x_1} (\ldots) = \frac{3x_1^2x_2}{x_1^2+x_2^2} - 2\frac{x_1^3\cdot x_2 \cdot x_1}{(x_1^2+x_2^2)^2} = 
+            \frac{3x_1^2x_2}{x_1^2+x_2^2} - \frac{2x_1^4x_2}{(x_1^2+x_2^2)^2} \end{gather*}
+            \begin{gather*}
+            f^\prime_{x_1}(0,0) = \underset{x_1 \to 0}{\lim} \left ( \left (\frac{x_1^3 \cdot 0}{x_1^2+0} - 0 \right ) \frac{1}{x_1} \right ) = 0\\
+            \left | \frac{3x_1^2x_2}{x_1^2 + x_2^2} \right | = 3 |x_2| \underset{(x_1,x_2) \to 0}{\longrightarrow} 0\\
+            x_2 \ne 0 \\
+            f^\prime_{x_1}(0,x_2) = 0 \\
+            f^{\prime\prime}_{x_1x_2}(0,0) = \underset{x_2 \to 0}{\lim} \frac{f^\prime_{x_1}(0,x_2)-f^\prime_{x_1}(0,0)}{x_2} = 0\\
+            f^\prime_{x_2}(x_1,x_2) = \left ( \frac{x_1^3x_2}{x_1^2+x_2^2} \right )^\prime_{x_2} = \frac{x_1^3}{x_1^2+x_2^2} - 2\frac{x_1^3x_2^2}{(x_1^2+x_2^2)^2} \\
+            f^\prime_{x_2}(0,0) = \underset{x_2 \to 0}{\lim} \left ( \left ( \frac{0 \cdot x_2}{0 + x_2^2} - 0 \right ) \frac{1}{x_2} \right ) = 0 \\
+            \left | \frac{x_1^3}{x_1^2 + x_2^2} \right | \leq |x_1| \underset{(x_1,x_2) \to 0}{\longrightarrow} 0 \\
+            -2 \frac{x_1^3}{x_1^2+x_2^2} \cdot \frac {x_2^2}{x_1^2+x_2^2} \\
+            f^{\prime\prime}_{x_2x_1}(0,0) = \underset{x_1 \to 0}{ \lim} \frac{f^\prime_{x_2}(x_1,0)-f^\prime_{x_2}(0,0)}{x_1} = \underset{x_1 \to 0}{\lim} \frac{x_1}{x_1} = 1 \\
+            f^\prime_{x_2}(x_1,0) = x_1\\
+        \end{gather*}
+    \end{example}
+       
     \section{Теорема о смешанных производных}
     %\begin{wrapfigure}{l}{0.25\textwidth} 
         \includegraphics[width=0.05\linewidth]{chikulya_finally.pdf}
