@@ -20,6 +20,7 @@
     \end{remark}
 
     \begin{theorem}
+      \label{theorem31}
       \[A: \vR^n \rightarrow \vR^n \quad ||B-A|| = \beta < \alpha \tag{3\prime} \]
       \[ \implies \exists B^{-1} \quad ||B^{-1}|| \leq \frac{1}{\alpha-\beta} \tag{3} \]
       \[ ||B^{-1} - A^{-1} || \leq \frac{\beta}{\alpha} \frac{1}{\alpha-\beta} \tag{4} \]
@@ -129,23 +130,24 @@
             ||A^{-1}|| = \frac{1}{4\lambda} \implies \forall X \in {\vR}^n 
             ||A^{-1}X||_{{\vR}^n} \leq \frac{1}{4\lambda}||X||_{{\vR}^n} 
             \Leftrightarrow \\
-            ||X||_{{\vR}^n} \geq 4\lambda||A^{-1}X||_{{\vR}^n} \Leftrightarrow
+            ||X||_{{\vR}^n} \geq 4\lambda||A^{-1}X||_{{\vR}^n} \Leftrightarrow \\
             \Leftrightarrow ||AY||_{{\vR}^n} \geq 4\lambda ||Y||_{{\vR}^n} \tag{13} \\
             (13) \Leftrightarrow 2\lambda||Y||_{{\vR}^n} \leq 
             \frac{1}{2}||AY||_{{\vR}^n} \tag{13'} \\
             \intertext{По теореме Лагранжа  ..} \\
             (12), (14) \implies ||g^\prime(t)||_{{\vR}^n} < 
             \frac{1}{2}||AH||_{{\vR}^n} \tag{15} \\
-            \exists t_o \in (0,1): ||g(1)-g(0)||_{{\vR}^n} \leq 
+            \exists t_0 \in (0,1): ||g(1)-g(0)||_{{\vR}^n} \leq 
             ||g^\prime(t_0)||_{{\vR}^n} \cdot (1-0) = ||g^\prime(t_0)||_{{\vR}^n}\tag{16}\\
              g(1)-g(0) = F(X+H)-AH - F(X) = (F(X+H)-F(X)) - AH \tag{17} \\
             (15), (16), (17) \implies ||(F(X+H)-F(X))-AH||_{{\vR}^n}
-            <  \frac{1}{2}||AH||_{{\vR}^n} \tag{18} \\
+            <  \frac{1}{2}||AH||_{{\vR}^n} \tag{18} 
+            \intertext{по неравенству треугольника}
              (18) \implies ||F(X+H)-F(X)||_{{\vR}^n} \geq ||AH||_{{\vR}^n} -\\
             -||F(X+H)-F(X)-AH||_{{\vR}^n} > ||AH||_{{\vR}^n} -
             \frac{1}{2}||AH||_{{\vR}^n} =  \\
            = \frac{1}{2}||AH||_{{\vR}^n} > 0 \tag{19} \\
-            AH = (AH-(F(X+H))-F(X)) + (F(X+H)-F(X)) \\
+            AH = (AH-(F(X+H)-F(X)) + (F(X+H)-F(X)) \\
             ||F(X+H)-F(X)||_{{\vR}^n} > \frac{1}{2}||AH||_{{\vR}^n} \tag{20} \\
             \intertext{при} 
             X \in B_r(X_0), X+H \in B_r(x_0), H \ne \mathbb{0}_n \\
@@ -159,7 +161,7 @@
              >2\lambda||H||_{{\vR}^n} \tag{23} \]
              \begin{lemma}[]
                 $X_1 \in U, Y_1 = F(X_1) $, 
-                $0 < \rho < \rho - ||X_1-X_0||_{{\vR}^n} $ 
+                $0 < \rho < r - ||X_1-X_0||_{{\vR}^n} $ 
                 Такой выбор влечёт 
                 \[\overline{B}_\rho(X_1) \in U \quad  Y \in B_{\lambda\rho}(Y_1), Y \neq Y_1 
                 \tag{24}\]
@@ -212,7 +214,7 @@
                  \tag{38} \\
                  l_k = F_k(X_-) -Y_k \\
                  (37), (38) \implies \sum_{k=1}^n F^\prime_{kx_j}(X_-)l_k = 0, 1 \leq j \leq n \tag{39} \\
-                 L = (e_1, \ldots, e_n) \\
+                 L = (l_1, \ldots, l_n) \\
                  (39) \implies LDF(X_-) = \mathbb{0}^T_n \tag{40} \\
                  \intertext{Будем для краткости записи пользоваться обозначеними  из Якобиана}
                  \forall X \in U J_F(X) \neq 0 \tag{41} \\
@@ -220,7 +222,7 @@
                  \intertext{Хотим обозначить теперь}
                  B = DF(X)  \\
                   \beta = || A - B|| < 2 \lambda
-                \intertext{по  теореме из предыдущей лекции 22.09.22 (туть появится ссылка когда лекция от 22 числа появится)}
+                \intertext{по  теореме \eqref{theorem31} из предыдущей лекции }
                 ||B^{-1}|| \leq \frac{1}{4\lambda - \beta} < \frac{1}{2\lambda} \tag{42} \\
                 \intertext{матрица якоби из (40) обратима, сейчас обратим её}
                  (40), (41) \implies (LDF(X_-))(DF(X_-))^{-1} = \mathbb{0}^T_n(DF(X_-))^{-1} = 
@@ -254,7 +256,7 @@
                   H \underset{K \to \mathbb{0}_n}{\longrightarrow} \mathbb{0}_n 
                   \end{gather*}
                  \begin{gather*}
-                     \Phi(Y) = X \text {  } \Phi(Y+K) = X + H \\
+                     \Phi(Y) = X \quad \Phi(Y+K) = X + H \\
                       F(\Phi(Y+K)) = F(X+H) \\
                      Y + K = F(X+H) \text{  } F(\Phi(Y)) = F(X) 
                  \end{gather*}
@@ -276,7 +278,7 @@
                   \[H = BK-Bt(H) \tag{5} \]
                   \[(5) \implies \Phi(Y+K) - \Phi(Y) = BK - Bt(H) \tag{6}\]
                   Дифференцируемость почти получилась, потому что есть линейное отображение $BK$...,
-                  надо выяснить, что есть соответствующее свойство для дифференирцемости отображения.
+                  надо выяснить, что есть соответствующее свойство для дифференцируемости отображения.
  
                   \[ ||F(X+H)-F(X)||_{{\vR}^n} > 2 \lambda ||H||_{{\vR}^n} \text{ (23) из прошлой лекции } \tag{7} \]
  
@@ -315,10 +317,10 @@
                \begin{bmatrix*}
                   \phi^\prime_{1y_1}(Y) & \ldots & \phi^\prime_{1y_n}(Y) \\
                   \ldots & \ddots & \ldots \\
-                   \phi^\prime_{ny_1} & \ldots & \phi^\prime_{ny_n}(Y) \\
+                   \phi^\prime_{ny_1}(Y) & \ldots & \phi^\prime_{ny_n}(Y) \\
                \end{bmatrix*} =
                \left( \begin{bmatrix*}
-                  F^\prime_{1x_1}(X) & \ldots & F^\prime_{1x_n} \\
+                  F^\prime_{1x_1}(X) & \ldots & F^\prime_{1x_n}(X) \\
                   \ldots & \ddots & \ldots \\
                   F^\prime_{1x_1}(X) & \ldots & F^\prime_{nx_n}(X)
                \end{bmatrix*} \right)^{-1} \\

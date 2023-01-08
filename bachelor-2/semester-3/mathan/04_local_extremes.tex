@@ -161,12 +161,13 @@
         \begin{corollary}[Приложение теоремы Лагранжа]
         \begin{gather*}
             X = \begin{bmatrix*}
-                X_1 \\
+                x_1 \\
                 \vdots \\
                 x_n
             \end{bmatrix*} \\
             A(X) = \sum^n_{i=1} \sum^n_{j=1} a_{ij} x_i x_j \quad a_{ij} = a_{ji} \quad i \ne j \\
-            max A(X), min A(X) \text{ при } ||X||^2_{{\vR}^n} = 1 (\text{то есть при условии } x_1^2 + \ldots + x_n^2 = 1)\\
+            \max A(X), \min A(X) \text{ при } ||X||^2_{{\vR}^n} = 1\\
+             (\text{то есть при условии } x_1^2 + \ldots + x_n^2 = 1)\\
             F_1(X) = x_1^2 + \ldots + x_n^2 - 1  = 0 \quad
             X_+ = \begin{bmatrix*}
                 X_1^+ \\
@@ -187,7 +188,7 @@
             \sum^n_{i=1} a_{ki}x^+_i = -\lambda x^+_k, 1 \leq k \leq n  \implies ax_+ = -\lambda x_+ \\
             \implies\lambda - \text { составное число} \\
             \sum_{i=1}^n a_{ki}x_i^+x_k^+ = -\lambda x_k^{+2} \implies 
-            A(x_+) = \sum^n_{k=1}\sum^n{i=1} a_{ki}x_i^+x_k^+ = \\ = 
+            A(x_+) = \sum^n_{k=1}\sum^n_{i=1} a_{ki}x_i^+x_k^+ = \\ = 
             -\lambda \sum^n_{k=1}x_k^{+2} = -\lambda
         \end{gather*}
     \end{corollary}

@@ -2,6 +2,7 @@
 \documentclass[main]{subfiles}
 \begin{document}
 \chapter{Норма линейного отображения}
+\section{Определение и свойства нормы}
 \begin{definition}[Линейный оператор]
     $A: {\vR}^m \rightarrow {\vR}^n$ -- линейный оператор, если
     $ \forall x_1, x_2 \in {\vR}^m, \forall p, q \in {\vR} \Rightarrow$
@@ -62,7 +63,7 @@
         $A = \begin{bmatrix}
             a_{11} & \ldots & a_{1m} \\
             \vdots & \ddots & \vdots \\
-            a_{1n} & \ldots & a_{nm} \\
+            a_{n1} & \ldots & a_{nm} \\
         \end{bmatrix}$
         
         $1 \leq i \leq n, 1 \leq j \leq m$ не зависят друг от друга.
@@ -108,7 +109,7 @@
             \[\leq \underbrace{\sup(\underbrace{||AX||}_{\leq ||A||_2} + \underbrace{||BX||}_{\leq ||B||_2})}_{M}
             \leq \underset{\ldots}{\sup} ||AX||_{{\vR}^n} + \underset{\ldots}{\sup} ||BX||_{{\vR}^n}\]
            
-           \[ \exists x_1 \in {\vR}^m, ||x_1||_{{\vR}^m} \leq 1 \text { и }
+           \[ \forall \varepsilon > 0 \quad \exists x_1 \in {\vR}^m, ||x_1||_{{\vR}^m} \leq 1 \text { и }
             ||Ax_1|| + ||Bx_1|| > M - \varepsilon
              \tag{3} \]
            
@@ -137,9 +138,9 @@
         \end{theorem}
         \begin{longProof}
             \begin{gather*}
-            (6) \implies \text{при } ||X||_{{\vR}^m} < 1 \text{ имеем} \\
+            (6) \implies \text{при } ||X||_{{\vR}^m} \leq 1 \text{ имеем} \\
             ||AX||_{{\vR}^n} \leq c \cdot ||X||_{{\vR}^m} \leq c \implies
-            \underset{||X|| \leq 1}{\sup} ||AX|| \leq c \implies (6\prime)
+            \underset{||X|| \leq 1}{\sup} ||AX||_{\vR^n} \leq c \implies (6\prime)
             \end{gather*}
         \end{longProof}
     \begin{theorem}
@@ -187,7 +188,7 @@
         по свойству 5 $(11) \implies (10)$
     \end{longProof}
 
-\subsection*{Дифференцируемость суперпозиции линейных отображений}
+\section{Дифференцируемость суперпозиции линейных отображений}
     \begin{definition}[Дифференцируемость]
         Отображение дифференцируемо в $x_0$, если $\exists A : \vR^m \rightarrow \vR^n : 
         \quad \forall H \in \vR^m : x_0 + H \in \Omega $
@@ -197,13 +198,13 @@
     \begin{gather*}
         \Omega \subset {\vR}^m, m \geq 1 \\
         X_0 \in \Omega - \text{ внутрення точка}\\
-        G \in {\vR}^n, Y_0 \in G, Y_0 - \text{ внутренняя точка в } G \\
+        G \subset {\vR}^n, Y_0 \in G, Y_0 - \text{ внутренняя точка в } G \\
         F = \begin{bmatrix}
             f_1 \\
             \vdots \\
             f_n
         \end{bmatrix} : \Omega \rightarrow {\vR}^n \quad \forall X \in \Omega 
-        \text{ }F(X) \in G, F(X_0) = Y_0 \\
+        \text{ }F(X) \subset G, F(X_0) = Y_0 \\
         \Phi = \begin{bmatrix}
             \varphi_1(y) \\
             \vdots \\
@@ -233,7 +234,6 @@
             \forall \eta > 0 \exists \delta_1 > 0 : \\
             (18) \implies\forall \lambda \in {\vR}^n, \lambda \neq \mathbb{0}_n \text{ и } ||\lambda||_{{\vR}_n} <\delta_1 \text{ будет } \frac{||\rho(\lambda)||_{{\vR}_k}}{||\lambda||_{{\vR}^n}} < \eta \tag{19}
             \intertext{и}
-            ||\rho(\lambda)||_{{\vR}^k} \leq \eta \cdot ||\lambda||_{{\vR}^n}  \tag{20} \\
             (19) \implies ||\rho(\lambda)||_{{\vR}^k} \leq \eta \cdot ||\lambda||_{{\vR}^n} \tag{19\prime} \\
             \forall \varepsilon > 0 \exists \delta_2 > 0 : \forall H \in {\vR}^m, ||H||_{{\vR}^m} < \delta_2  \text{ имеем } \\
             ||r(H)||_{{\vR}^n} \leq \varepsilon||H||_{{\vR}^m} \tag{21} \\
@@ -252,7 +252,7 @@
 
         \begin{gather*}
          = \overbrace{(BA)}^{P(x_0+H)-P(x_0)}H + \overbrace{Br(H) + \rho(AH+r(H))}^{r_1(H)} \tag{23\prime}\\
-         ||H||_{{\vR}^m} < \delta_2 \rightarrow ||r(H)||_{{\vR}^m} \leq \varepsilon ||H||_{{\vR}^m}
+         ||H||_{{\vR}^m} < \delta_2 \rightarrow ||r(H)||_{{\vR}^n} \leq \varepsilon ||H||_{{\vR}^m}
         \tag{23} \end{gather*}
         \begin{align*}
             \eta = \varepsilon \quad \exists \delta_1 : \text{ выполнено (20) при }
@@ -263,9 +263,9 @@
             =(||A||+\varepsilon)||H||_{{\vR}^m} <\delta_1
         \end{align*}
         то есть 
-        \[|H||_{{\vR}^m} \leq \frac{\delta_1}{||A||+\varepsilon}\tag{24}\]
+        \[|H||_{{\vR}^m} < \frac{\delta_1}{||A||+\varepsilon}\tag{24}\]
         \[\delta_0 = \min(\delta_2, \frac{\delta_1}{||A|| + \varepsilon}) \tag{25}\]
-        и полагаем $||H||_{{\vR}^n} < \delta_0$
+        и полагаем $||H||_{{\vR}^m} < \delta_0$
     \begin{gather*}
        \text{При } ||H||_{{\vR}^m} < \delta_0 (26) \implies ||r_1(H)||_{{\vR}^k}  
         \leq ||Br(H)||_{{\vR}^k} + \\ 
@@ -275,15 +275,15 @@
         \varepsilon(||AH||_{{\vR}^n}+||r(H)||_{{\vR}^n}) \leq \\
         \leq ||B||\varepsilon||H||_{{\vR}^m} + \varepsilon(||A|| \cdot ||H||_{{\vR}^m}
         +\varepsilon||H||_{{\vR}^m}) = \\
-        =\varepsilon(||B|| + ||A|| + \varepsilon)||H||_{{\vR}^m} \tag{22}\\
+        =\varepsilon(||B|| + ||A|| + \varepsilon)||H||_{{\vR}^m} \tag{27}\\
         P(X_0+H) - P(X_0) = (BA)H + r_1(H) \tag{27\prime} \\
-        \text{При } ||H||_{{\vR}^n} < \delta_0 \text{ имеем }
+        \text{При } ||H||_{{\vR}^m} < \delta_0 \text{ имеем }
         ||r_1(H)||_{{\vR}^k} \leq \varepsilon(||B|| + ||A|| + \varepsilon)||H||_{{\vR}^m}  \tag{27\prime\prime}\\
         (27^{\prime\prime}) \implies \frac{||r_1(H)||_{{\vR}^k}}{||H||_{{\vR}^m}}
         \underset{H \to \mathbb{0}_m}{\longrightarrow} 0 \tag{28} \\
         (23^\prime), (27^\prime), (28) \implies (16) \end{gather*}
     \end{longProof}
-    \subsection*{Конкретные выражения элементов матрицы B} 
+    \subsubsection{Конкретные выражения элементов матрицы $P$} 
     \begin{gather*}
         P(X) = \begin{bmatrix*}
             P_1(X) \\
@@ -294,8 +294,8 @@
             \vdots & \ddots & \vdots \\
             P_{kx_1}^\prime(X_0) & \ldots & P_{kx_m}^\prime(X_0)
         \end{bmatrix*} \\
-        1 \leq l \leq k \quad q \leq j \leq m \\
-        P^\prime_{lx_j}(X_0) = \phi^\prime_{ly_1}(Y_0) \cdot f^\prime_{lx_j}(X_0) + \phi^\prime_{ly_2}(Y_0) \cdot f^\prime_{2x_j}(X_0) + \ldots +
+        1 \leq l \leq k \quad 1 \leq j \leq m \\
+        P^\prime_{lx_j}(X_0) = \phi^\prime_{ly_1}(Y_0) \cdot f^\prime_{1x_j}(X_0) + \phi^\prime_{ly_2}(Y_0) \cdot f^\prime_{2x_j}(X_0) + \ldots +
         \phi^\prime_{ly_n} (Y_0) \cdot f_{nx_j}(X_0)
     \end{gather*}
 \end{document}

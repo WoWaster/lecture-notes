@@ -5,7 +5,7 @@
 \chapter{Частные производные}
     \section{Частные производные второго порядка}
     \begin{gather*}
-        E \in \vR^n \quad n \geq 2 \\
+        E \subset \vR^n \quad n \geq 2 \\
         x_0 \in E \quad x_0 - \text{ внутренняя точка} \\
         f: E \rightarrow \vR \\
         1 \leq i \leq n \quad 1 \leq j \leq n \quad x_0 \in W \subset E \\
@@ -120,7 +120,7 @@
             \[
                  \left. \begin{gathered} E \subset \vR^n \quad n \geq 2 \quad i \ne j \\
                 f: E \rightarrow \vR \\
-                f, f\prime_{x_i}, f^\prime_{x_j}, f^{\prime\prime}_{x_jx_j}, f^{\prime\prime}_{x_jx_i} \in C(E) \end{gathered} \right\} \implies \forall x \in E \quad f^{\prime\prime}_{x_ix_j}(X) = f^{\prime\prime}_{x_jx_i}(X)
+                f, f^\prime_{x_i}, f^\prime_{x_j}, f^{\prime\prime}_{x_jx_j}, f^{\prime\prime}_{x_jx_i} \in C(E) \end{gathered} \right\} \implies \forall x \in E \quad f^{\prime\prime}_{x_ix_j}(X) = f^{\prime\prime}_{x_jx_i}(X)
             \]
         \end{longProof}
 
@@ -214,7 +214,7 @@
         g^{(r)}(t_0) = \sum_{\alpha: |\alpha| = r} C^\alpha_r \partial^\alpha f(X_0 + t_0H) H^\alpha \tag{5} \\
         g^{(r+1)}(t_0) = \sum_{\alpha: |\alpha| = r} C^\alpha_r (\partial^\alpha f(X_0 + t_0H))^\prime_t H^\alpha \stackrel{(3)}{=} \\
      \partial^\alpha f(X_0 + tH) \in C^1((t_0 - \delta, t_0 + \delta)) \\
-     \stackrel{(3)}{=} \sum_{\alpha: |\alpha| = 1} C^\alpha_r \left( \sum_{j=1}^n(\partial^\alpha f(X_0 + t_0H)^\prime_{x_j}h_j)\right)H^\alpha \textcolor{red}{ =} \\
+     \stackrel{(3)}{=} \sum_{\alpha: |\alpha| = r} C^\alpha_r \left( \sum_{j=1}^n(\partial^\alpha f(X_0 + t_0H)^\prime_{x_j}h_j)\right)H^\alpha \textcolor{red}{ =} \\
      e_j = (0, \ldots, \underbrace{1}_j, \ldots, 0) \quad h_j = H_{e_j} \\
      (\partial^\alpha f(\ldots))^\prime_x = \partial^{\alpha + e_j} f(\ldots) \\
      \textcolor{red}{= } \sum^n_{j=1} \sum_{\alpha: |\alpha|=r}C^\alpha_r \partial^{\alpha + e_j} f(\ldots)H^{\alpha + e_j} = \\
@@ -252,9 +252,9 @@
 \begin{gather*}
     (tH)^\alpha = t^{|\alpha|}H^\alpha \quad tH = \tilde{H} \quad g(S) = f(X_0 + S\tilde{H}) \quad 0 \leq S \leq 1\\
     g \in C^{r+1}([0,1]) \quad g \in C^{r+1}((-\varepsilon, 1 + \varepsilon)) \\
-    g(1) = g(0) = \sum^r_{k=1} \frac{1}{k!} g^{(k)}(0) \cdot 1^k + \frac{1}{(r+1)!} g^{(r+1)}(c) 1^{r+1} \tag{8}\\
+    g(1) = g(0) + \sum^r_{k=1} \frac{1}{k!} g^{(k)}(0) \cdot 1^k + \frac{1}{(r+1)!} g^{(r+1)}(c) 1^{r+1} \tag{8}\\
     \exists c \quad 0 < c < 1 \\
-    g(1) = g(0) + \sum^r_{k=1} \frac{1}{k!} g^{(k)}(0) \cdot  + \frac{1}{(r+1)!}g^{(r+1)}(c)  \tag{8\prime} \\
+    g(1) = g(0) + \sum^r_{k=1} \frac{1}{k!} g^{(k)}(0)  + \frac{1}{(r+1)!}g^{(r+1)}(c)  \tag{8\prime} \\
     (8) \implies (8\prime) \\
     g(0) = f(X_0) \tag{9\prime} \\
     g^{(k)}(0) = \sum_{\alpha: |\alpha| = k} C^\alpha_k \partial^\alpha f(X_0) \tilde{H}^\alpha \tag{9\prime\prime} \\
@@ -299,16 +299,15 @@ $r \geq 2 \quad r - 1 \geq 1 $
     \section{Дифференциалы второго и последующих порядков}
 
     \begin{gather*}
-        E \subset \vR^n \quad n \geq 1 \quad E \text{ -- открытое } \quad x_0 \in E \quad f: E \rightarrow \vR \\
+        E \subset \vR^n \quad n \geq 1 \quad E \text{ -- открытое } \quad X_0 \in E \quad f: E \rightarrow \vR \\
         f \text{ дифференцируема в } X_0 \\
-        df(X_0, H) = f^\prime_{x_1} (X_0)h_1 + \ldots + f^\prime_{x_n}(X_0)h_n \textcolor{red}{ =} \\
+        df(X_0, H) = f^\prime_{x_1} (X_0)h_1 + \ldots + f^\prime_{x_n}(X_0)h_n = \sum_{\alpha: |\alpha| = 1} 1 \cdot \partial^\alpha f(X_0)H^\alpha \\
         H = \begin{bmatrix}
             h_1 \\
             \vdots \\
             h_n
         \end{bmatrix} \quad H \in \vR^n \quad d^1f(X_0,H) \stackrel{def}{=} df(X_0,H) \quad f \in C^r(E) \quad r \geq 1\\
-        \forall x \in E \text{ и } \forall  H \in \vR^n \quad d^rf(X_0,H)  = \sum_{\alpha:|\alpha|=r} A_{r,\alpha} \partial^\alpha f(X_0)H^\alpha  \tag{1} \\
-        \textcolor{red}{ = } \sum_{\alpha: |\alpha| = 1} 1 \cdot \partial^\alpha f(X_0)H^\alpha \\
+        \forall X \in E \text{ и } \forall  H \in \vR^n \quad d^rf(X_0,H)  = \sum_{\alpha:|\alpha|=r} A_{r,\alpha} \partial^\alpha f(X_0)H^\alpha  \tag{1} \\
         f \in C^{r+1}(E) \\
         d^{r+1}f(X_0, H) \stackrel{def}{=} \sum_{\alpha: |\alpha| = r} A_{r,\alpha}d(\partial^\alpha f(X_0, H))H^\alpha \tag{2} \\
     \end{gather*}
@@ -323,19 +322,23 @@ $r \geq 2 \quad r - 1 \geq 1 $
                 = \sum_{\alpha: |\alpha| = r} C^\alpha_r \left( \sum^n_{j=1} (\partial^\alpha f(X_0))^\prime_{x_j}h_j \right)H^\alpha = \sum_{\beta: |\beta|
                  = r+1} C_{r+1}^\beta \partial^\beta f(X_0) H^\beta 
             \end{multline*}
+        \end{longProof}
             \[ (1), (2), (3) \implies d^r f(X_0,H) = \sum_{\alpha: |\alpha| = r} C^\alpha_r \partial^\alpha f(X_0) H^\alpha =
              \sum_{\alpha: |\alpha|=r} \frac{r!}{\alpha!} \partial^\alpha f(X_0) H^\alpha \tag{4} \] 
-            \[ (4) \implies f(X_0 + H) = f(X_0) + \sum^r_{k=1} \frac{1}{k!} d^k f(X_0, H) + R(H) \tag{5} \]
+
+             \begin{example}[Вычисление второго диференциала]
+                \[ (4) \implies f(X_0 + H) = f(X_0) + \sum^r_{k=1} \frac{1}{k!} d^k f(X_0, H) + R(H) \tag{5} \]
             \[ \frac{|R(H)|}{||H||^r_{\vR^n}} \underset{H \to \mathbb{0}_n}{\rightarrow} 0 \tag{6} \]
             \[ (4) \implies d^2f(X_0, H) = \sum_{\alpha : |\alpha| = 2} C^\alpha_2 \partial^\alpha f(X_0)H^\alpha \tag{7} \] 
             \begin{gather*}
                 H^\alpha = h_i h_j \quad (0 \ldots \underbrace{1}_i \ldots \underbrace{1}_j \ldots 0) \quad C^\alpha_2 = \frac{2!}{0! \ldots 1! \ldots 1! \ldots 0!} = 2 \\
-                (0 \ldots \underbrace{2}_k \ldots 0) \quad H^\alpha = h^2k\quad C^\alpha_2 = \frac{2!}{0! \ldots 2! \ldots 0!} = 1 \\
+                H^\alpha = h^2_k  \quad \quad (0 \ldots \underbrace{2}_k \ldots 0) \quad  C^\alpha_2 = \frac{2!}{0! \ldots 2! \ldots 0!} = 1 \\
             \end{gather*}
                \[ (7) \implies d^2 f(X_0, H)= \sum 2 f^{\prime\prime}_{x_ix_j}(X_0) h_i h_j + \sum^n_{k=1}f^{\prime\prime}_{x_kx_k}(X_0)h^2_k \textcolor{red}{ =} \] 
                \[ 2f^{\prime\prime}_{x_ix_j}(X_0) h_ih_j = f^{\prime\prime}_{x_ix_j}(X_0)h_i h_j + f^{\prime\prime}_{x_jx_i}(X_0)h_j h_i \tag{8} \]
                \[ \textcolor{red}{ = } \sum^n_{i=1} \sum^n_{j=1} f^{\prime\prime}_{x_ix_j}(X_0) h_i h_j \]
-        \end{longProof}
+             \end{example}
+            
 
 \section{Локальные экстремумы}
 \[ n \geq 2 \quad a_{ik} \in \vR \quad 1 \leq i, k \leq n \quad a_{ik} = a_{ki} \quad X = \begin{bmatrix}
@@ -354,7 +357,7 @@ $x^2 - 2xy - y^2$ -- неотрицательна \\
 $-x^2 + 2xy - y^2$ -- не положительна \\
 \[A(X) > 0 \Leftrightarrow -A(X) < 0 \]
 \begin{gather*}
-     A(X) \text{положительно определена } \exists 0 < m \leq M : \forall X \in \vR^n \\
+     A(X) \text{ положительно определена } \exists 0 < m \leq M : \forall X \in \vR^n \\
     m||X||^2_{\vR^n} \leq A(X) \leq M||X||^2_{\vR^n} \tag{1} \\
     B(X) \text{ отрицательно определена } \exists 0 < m_1 \leq M_1: \forall X \in \vR^n \\
     -M_1||X||^2_{\vR^n} \leq B(X) \leq -m_1||X||^2_{\vR^n} \tag{2} \\
@@ -370,7 +373,7 @@ $-x^2 + 2xy - y^2$ -- не положительна \\
 
 \begin{gather*}
     X \ne \mathbb{0}_n \quad t = ||X||_{\vR^n} > 0 \quad X_0 = \frac{1}{t}X \\
-     ||X_0||_{\vR^n} = \frac{1}{t} ||X||_{\vR^n} = \frac{t}{t} = 1, \text{ то есть } x_0 \in S_n\\
+     ||X_0||_{\vR^n} = \frac{1}{t} ||X||_{\vR^n} = \frac{t}{t} = 1, \text{ то есть } X_0 \in S_n\\
      (3), (3\prime) \implies A(X) = A(tX_0) = t^2A(X_0) \geq m||X||^2_{\vR^n} \\
      A(X) = A(tX_0) \leq M||X||^2_{\vR^n} \\
 \end{gather*}
@@ -401,7 +404,10 @@ $-x^2 + 2xy - y^2$ -- не положительна \\
     \begin{gather*}
         H \ne \mathbb{0}_n, X_0 + H \in W, X_0 + tH \in W \quad 0 \leq t \leq 1 \\
         f(X_0 + H) = f(X_0) + df(X_0,H) + \frac{1}{2}d^2f(X_0,H) + r(H) \tag{6}\\
-        \frac{|r(H)|}{||H||^2_{\vR^n}} \underset{H \to \mathbb{0}_n}{\rightarrow} 0 \tag{7}\\
+        \frac{|r(H)|}{||H||^2_{\vR^n}} \underset{H \to \mathbb{0}_n}{\rightarrow} 0 \tag{7}
+    \end{gather*}
+        $d^2f$ положительно определена
+        \begin{gather*}
         \exists m > 0 : d^2f(X_0,H) \geq m||H||^2_{\vR^n} \tag{8}\\
         (7) \implies \exists \delta > 0 : \text{ при } H \ne \mathbb{0}_n \quad ||H|| < \delta \\
         \text{ выполнено } |r(H)| < \frac{m}{4}||H||^2 \tag{9} \end{gather*}
@@ -462,7 +468,7 @@ $-x^2 + 2xy - y^2$ -- не положительна \\
         \frac{f_n(x+h) -f_n(x)}{h}
      \end{bmatrix} \tag{2} \end{gather*}
         \[ F: [a,b] \rightarrow \vR^n \]
-        \[ \forall k \quad 1 \leq k \leq n \quad \forall x \in (a,b) \exists f^\prime_k(x) \] 
+        \[ \forall k \quad 1 \leq k \leq n \quad \forall x \in (a,b) \quad \exists f^\prime_k(x) \] 
         \[ F \in C([a,b]) \Leftrightarrow f^\prime_k \in C([a,b]) \quad 1 \leq k \leq n \] 
         \[ \implies c \in (a,b) : ||F(b) - F(a)||_{\vR^n} \leq ||F^{\prime}(c)||_{\vR^n}(b-a) \tag{3}\]
 \begin{example}[Важный!]
@@ -476,7 +482,11 @@ $-x^2 + 2xy - y^2$ -- не положительна \\
             \cos x
         \end{bmatrix} \quad ||F^\prime(x)||_{\vR^n} = 1 \\
         F(2\pi) - F(0) = \mathbb{0}_2 \\
-        F(b) \ne F(a) \\
+        F(b) \ne F(a) 
+    \end{gather*}
+    \end{example}
+    \begin{longProof}
+        \begin{gather*}
         g(x) = \sum^n_{k=1} f_k(x)(f_k(b)-f_k(a)) \tag{4}\\
         g \in C([a,b]) \forall x \in (a,b) \quad \exists g^\prime(x) \\
         g^\prime(x) = \sum^n_{k=1} f^\prime_k(x)(f_k(b) - f_k(a)) \tag{5} \\
@@ -492,7 +502,7 @@ $-x^2 + 2xy - y^2$ -- не положительна \\
         = ||F^\prime(c)||_{\vR^n} \cdot ||F(b) -F(a)||_{\vR^n} \tag{8}
     \end{multline*}
     \[ (6),(7),(8) \implies ||F(b) - F(a)||^2 \leq ||F^\prime(c)|| \cdot ||F(b) - F(a)||(b-a) \implies (3) \] 
-\end{example}
+\end{longProof}
 
 \end{document}   
   
