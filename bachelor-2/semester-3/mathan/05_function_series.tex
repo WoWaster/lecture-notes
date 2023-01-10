@@ -392,19 +392,20 @@ $(9)\implies$ ряд $\sum^{\infty}_{n=1} b_n(X)v_n(X)$ равномерно с�
           \phi(0) = 0, \phi(1) = 1, \phi(2) = 0 \\
           x \in [2k, 2k+2] \quad k \in \mathbb{Z} \\
           \phi(x) \stackrel{def}{=} \phi(x-2k) \\
-          f(x) \sum^\infty_{n=1} \left( \frac{3}{4} \right)^n \phi(4^n(X)) \tag{1} \\
+          f(x) =  \sum^\infty_{n=1} \left( \frac{3}{4} \right)^n \phi(4^n(X)) \tag{1} \\
           0 \leq \phi(x) \leq 1 \\
      \end{gather*}
+     Проверим непрерывность $f(x)$.
           Применим признак Вейерштрасса сходимости функциональных рядов.
           \begin{gather*}
           \left | \left(\frac{3}{4} \right)^n \phi(4^nx) \right | \leq \left(\frac{3}{4} \right) ^n \forall n \forall x \in \vR \\
           \begin{cases}
-          \sum^{n}_{i=1} \left( \frac{3}{4} \right)^n < \infty \\
+          \sum^{\infty}_{i=1} \left( \frac{3}{4} \right)^n < \infty \\
           \left( \frac{3}{4} \right)^n \phi(4^nx) \in C(\vR)
           \end{cases}  \implies f \in C(\vR) \\
      \end{gather*}
-  Наличие производной эквивалентно диффиеренцируемости функции в точке 
-  (из 1 семестра) \\
+  Наличие производной эквивалентно дифференцируемости функции в точке 
+  (из 1 семестра). Докажем от противного, что $\forall x \nexists f^\prime(x)$.
      Пусть $\exists f^\prime(x) \text{ в } x \in \vR$
      \begin{gather*}
           \implies f(x + h) = f(X) + f^\prime(x)h + r(h) \tag{2} \\
@@ -412,8 +413,8 @@ $(9)\implies$ ряд $\sum^{\infty}_{n=1} b_n(X)v_n(X)$ равномерно с�
           (3) \implies \quad \exists \delta > 0  : \text{ при } 0 < |h| < \delta \\
           \frac{|r(h)|}{|h|} < 1 \implies |f(x+h) -f(x)| \leq |f^\prime(x)| \cdot |h| +
           |r(h)| < (|f^\prime(x)| + 1)|h| \tag{4} \\
-          A = |f^\prime(x)| + 1 \quad |f(x+h) - f(x)| \leq A|h| \tag{4\prime} \\
-          h_1 > 0 \quad h_2 > 0, 0 < h_1 < \delta, h_2 < \delta \end{gather*}
+          A = |f^\prime(x)| + 1 \quad |f(x+h) - f(x)| < A|h| \tag{4\prime} \\
+          h_1 > 0 \quad h_2 > 0, 0 < h_1 < \delta, 0 <  h_2 < \delta \end{gather*}
           \begin{multline*}
           (4\prime) \implies |f(x+h_2) - f(x-h_1) -f(x) + f(x)| \leq \\ 
           \leq  |f(x+h_2)-f(x)| + |f(x) - f(x-h_1)| \leq \\
@@ -465,28 +466,29 @@ $(9)\implies$ ряд $\sum^{\infty}_{n=1} b_n(X)v_n(X)$ равномерно с�
           \frac{1}{2} 3^m < A
      \end{gather*} 
 \end{example}
+
 \section{Равномерная сходимость семейства функций}
 \begin{gather*}
      E \subset \vR^m \quad G \subset \vR^n \\
      f: E \times G \rightarrow \vR \\
-     x \in E \quad y \in G \\
+     X \in E \quad Y \in G \\
      f(X,Y) \\
      Y_0 \in G \\
      f(X, Y_0) \rightarrow \vR \\
      \intertext{Частный случай} G = \mathbb{N} \\
      \fnn \\
-     Y_* \in \vR^n
+     Y_* \in \vR^n \quad
      Y_* - \text{ точка сгущения } G \\
      \phi : E \rightarrow \vR 
 \end{gather*}
-\begin{definition}
+\begin{definition}[Равномерная сходимость семейства функций]
      Пусть  $f(X,Y) \darrow{\underset{Y \to Y_*}{x \in E}} \phi(X)$
-      Если $\forall \varepsilon > 0 \quad \exists U(Y_*) \subset \vR^n  \forall Y \in (U \cap G) \setminus \{Y_*\} $
+      если $\forall \varepsilon > 0 \quad \exists U(Y_*) \subset \vR^n  \quad \forall Y \in (U \cap G) \setminus \{Y_*\} $
      \[\forall X \in E \text{ имеем } |f(X, Y) - \phi(X) | < \varepsilon \tag{1} \]
      
 \end{definition}
 \begin{theorem}[Критерий Коши сходимости функцоинального семейства]
-     Пусть $E,G$ такие, как было написано раньше. Для того, чтобы существовала некоторая функция $\phi$, к которой стремилось функциональное семейство,
+     Пусть $E,G$ такие, как было написано раньше. Для того чтобы существовала некоторая функция $\phi$, к которой стремилось функциональное семейство,
      необходимо и достаточно, чтобы
      \begin{gather*}
           \forall \varepsilon > 0 \quad \exists U \ni Y_* : \forall Y_1, Y_2 \in U \cap G \setminus \{Y_*\} \\
@@ -495,19 +497,19 @@ $(9)\implies$ ряд $\sum^{\infty}_{n=1} b_n(X)v_n(X)$ равномерно с�
      \end{gather*}
 \end{theorem}
 \begin{longProof}
-     Необходимость 
+     Необходимость.
      \begin{gather*}
           \phi: E \rightarrow \vR : f(X,Y) \darrow{\underset{Y \to Y_*}{X \in E}} \phi(X) \tag{3}\\
           (1) \implies  U \ni Y_*  : \\
-           \forall Y \in U \cap G \setminus \{ Y_* \} \text{ и } \forall x \in E F\|f(X,Y) - \phi(X)| < \frac{\varepsilon}{2} \tag{4} 
+           \forall Y \in U \cap G \setminus \{ Y_* \} \text{ и } \forall X \in E \quad |f(X,Y) - \phi(X)| < \frac{\varepsilon}{2} \tag{4} 
      \end{gather*}
      \begin{multline*}
           (4) \implies \forall Y_1, Y_2 \in U \cap G \setminus \{Y_*\} \quad |f(X,Y_2) - f(X,Y_1)| = \\
-          =|(f(X,Y_2) - \phi(x)) - (f(X,Y_1) - \phi(x))| \leq \\ 
-          \leq |f(X,Y_2) - \phi(x)| + |f(X,Y_1) - \phi(X)| 
+          =|(f(X,Y_2) - \phi(x)) - (f(X,Y_1) - \phi(X))| \leq \\ 
+          \leq |f(X,Y_2) - \phi(X)| + |f(X,Y_1) - \phi(X)| 
           < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon \implies (2)
      \end{multline*}
-     Достаточность \\
+     Достаточность. \\
      Предположим, что выполнено соотношение (2). Поскольку $Y_*$ -- точка сгущения, давайте выберем подпоследовательность, сходящуюся к ней
      \begin{gather*}
           \{Y_k\}^\infty_{k=1} \quad Y_k \in G \quad Y_K \neq Y_* \forall k \\
@@ -541,7 +543,8 @@ $(9)\implies$ ряд $\sum^{\infty}_{n=1} b_n(X)v_n(X)$ равномерно с�
 \end{longProof}
 \begin{theorem}[О пределе равномерно сходящегося семейства функций]
      \begin{gather*}
-          E \subset \vR^m \quad G \subset \vR^n \quad X_0 - \text{ точка сгущения } E \quad Y_0 - \text{ точка сгущения } G \\
+          E \subset \vR^m \quad G \subset \vR^n \quad X_0 - \text{ точка сгущения } E \\
+           Y_0 - \text{ точка сгущения } G \\
           f(X,Y) \darrow{\underset{Y \to Y_0}{X \in E}} \phi(X) \tag{16} \\
           \text{Далее предполагаем } \forall Y \in G \\
           \exists \underset{X \to X_0}{\lim}f(X,Y) = h(Y) \tag{17} \\
@@ -584,9 +587,9 @@ $(9)\implies$ ряд $\sum^{\infty}_{n=1} b_n(X)v_n(X)$ равномерно с�
      \begin{corollary}[Следствие из следствия???]
           \begin{gather*}
                f(X,Y) \quad X \in E \quad Y \in G \subset \vR^n \quad Y_0 - \text{ точка сгущения } G \\
-               E \subset \vR^m \quad \forall x \in E - \text{ точка сгущения } E \\
-               f(X,Y) \darrow{\underset{Y \to Y_0}{x \in E}} \phi(X)
-               \text{Предположим, что} \forall Y \in G \quad f(X,Y) \in C(E) \tag{30} \\
+               E \subset \vR^m \quad \forall X \in E - \text{ точка сгущения } E \\
+               f(X,Y) \darrow{\underset{Y \to Y_0}{X \in E}} \phi(X)
+               \text{Предположим, что } \forall Y \in G \quad f(X,Y) \in C(E) \tag{30} \\
                \implies \phi \in C(E) \tag{31}
           \end{gather*}
      \end{corollary}

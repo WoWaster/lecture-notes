@@ -10,23 +10,23 @@
                \text{предположим, что } f(x,Y) \in C([a,b]) \forall Y \in G \tag{2} \\
                \text{ по предыдущему следствию } \phi \in C([a,b]) \\
                \text{тогда} \int^b_a f(x,Y)dx \underset{Y \to Y_0}{\rightarrow} \int^b_a \phi(x) dx \tag{3} \\
-               Интегралы мы имеем право писать по только что доказанному следствию (фи непрерывна) 
           \end{gather*}
+          Интегралы мы имеем право писать по только что доказанному следствию ($\phi$ непрерывна)
      \end{theorem}
      \begin{longProof}
           \begin{gather*}
-               \forall \varepsilon > 0 (1) \implies \exists Y_0 \in U : \\
+               \forall \varepsilon > 0 \quad (1) \implies \exists Y_0 \in U : \\
                \forall x \in [a,b] \text{ и } \forall Y \in G \cap U \setminus Y_0 \text{ имеем } \\
                |f(x,Y) - \phi(x)| < \varepsilon  \tag{4} 
           \end{gather*}
           \begin{multline*}
                (4) \implies \left | \int^b_a f(x,Y)dx - \int^b_a \phi(x) dx \right | = \left | \int^b_a(f(x,Y) -\phi(x)) dx \right | \leq \\
-               \leq \int^b_a |f(x,Y) - \phi(x) |dx \leq \int^b_a \varepsilon dx = (b-a)\varepsilon \tag{5} \\
-               (5) \implies(3) \\
+               \leq \int^b_a |f(x,Y) - \phi(x) |dx \leq \int^b_a \varepsilon dx = (b-a)\varepsilon \tag{5} 
           \end{multline*}
+          $ (5) \implies(3) $
      \end{longProof}
-     \begin{definition}
-          $g(Y) = \int^b_a f(x,Y) dx$ -- интеграл, зависящий от параметра
+     \begin{definition}[Интеграл, зависящий от параметра]
+          \[g(Y) = \int^b_a f(x,Y) dx\]
      \end{definition}
      \begin{theorem}[Теорема о непрерывности интеграла, зависящего от параметра]
           \begin{gather*}
@@ -43,8 +43,8 @@
           \end{gather*}
           \begin{multline*}
                |g(y_2) - g(y_1)| = \left | \int^b_a f(x,y_2) dx - \int^b_a f(x,y_1)dx \right | = \\
-               = \left | \int^b_a (f(x,y_2) - f(x,y_1))dx \right | \leq \int^b_a |f(x,y_2) - f(x,y_1)|dx \stackrel{\leq}{(9)} \\
-               \stackrel{\leq}{(9)} \int^b_a \varepsilon dx = \varepsilon(b-a) \tag{10} \\
+               = \left | \int^b_a (f(x,y_2) - f(x,y_1))dx \right | \leq \int^b_a |f(x,y_2) - f(x,y_1)|dx \stackrel{(9)}{\leq} \\
+               \stackrel{(9)}{\leq}  \int^b_a \varepsilon dx = \varepsilon(b-a) \tag{10} \\
                   \end{multline*}
                   $(10) \implies (8) $
      \end{longProof}
@@ -89,7 +89,7 @@
           (17) \implies g^\prime(y) = A(y) \implies (12) \\
      \end{gather*}
      \end{longProof}
-     \begin{theorem}[об интегрировании интеграла, завсящего от параметра]
+     \begin{theorem}[об интегрировании интеграла, зависящего от параметра]
           \begin{gather*}
                f \in C([a,b] \times [p,q]) \\
                g(y) = \int^b_a f(x,y) dx \tag{18} \\
@@ -407,11 +407,11 @@
                \intertext{напишем формулу Ньютона-Лейбница}
                (10) \implies I(A) - I(y_0) = \int^A_{y_0} I^\prime(y) dy = \\
                = - \int^A_{y_0} \frac{dy}{1+y^2} =
-               -(\arctan A - \arctan y_0) \tag{11}\\
+               -(\arctg A - \arctg y_0) \tag{11}\\
                I(A) = \int^\infty_0 e^{-xA} \frac{\sin x}{x} dx \\
                |I(A) | \leq \int^\infty_0 e^{-xA} dx = \frac{1}{A} \underset{A \to + \infty}{\rightarrow} 0 \tag{12}\\
-               \left | \leq 1 \quad  \frac{\sin x}{x} \right | \quad (11),(12) \implies \text{при } A \to + \infty \quad  0 - I(y_0) = -(\frac{\pi}{2} - \arctan y_0) \\
-               I(y_0) = \frac{\pi}{2} - \arctan y_0 \tag{13} \\
+               \left |  \frac{\sin x}{x} \right | \leq 1 \quad (11),(12) \implies \text{при } A \to + \infty \quad  0 - I(y_0) = -(\frac{\pi}{2} - \arctg y_0) \\
+               I(y_0) = \frac{\pi}{2} - \arctg y_0 \tag{13} \\
                (13), (4) \implies \text{ при } y_0 \to 0 \implies \underset{y \to 0+}{\lim} I(y_0) = \frac{\pi}{2}
           \end{gather*}
      \end{example}
@@ -428,7 +428,7 @@
                \text{замена } y = v^2 \quad y^\prime = 2v \quad \sqrt{y} = v \\
                 =I \cdot \int^\infty_0 e^{-v^2} \cdot 2dv = I \cdot 2I = 2I^2 \tag{3} \\
                 \int^\infty_0 e^{-x^2y -y}dy = \int^\infty_0 e^{-(1+x^2)y} dy = \frac{1}{1+x^2} \tag{4} \\
-                 (4) \implies \int^\infty_0 \frac{dx}{1+x^2} = \underset{A \to \infty}{\lim} \int^A_0 \frac{dx}{1+x^2} = \underset{A \to \infty}{\lim} (\arctan A - \arctan 0) = \frac{\pi}{2} \tag{5} \\
+                 (4) \implies \int^\infty_0 \frac{dx}{1+x^2} = \underset{A \to \infty}{\lim} \int^A_0 \frac{dx}{1+x^2} = \underset{A \to \infty}{\lim} (\arctg A - \arctg 0) = \frac{\pi}{2} \tag{5} \\
                  (3),(5) \implies 2I^2 = \frac{\pi}{2} \implies I = \frac{\sqrt{\pi}}{2}
           \end{gather*}
      \end{example}

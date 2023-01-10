@@ -7,10 +7,10 @@
 \begin{gather*}
     \mathbb{C} \\
     Z = x + iy \\
-    x = \Re z
-    Y = \Im z
+    x = \Re z \quad
+    Y = \Im z \quad 
     \overline{z} = x - iy\\
-    |z| = \sqrt{x^2 + y^2}
+    |z| = \sqrt{x^2 + y^2} \quad 
     x + i0 = x \\
 \end{gather*}
 
@@ -58,7 +58,7 @@
 
 \begin{definition}[Бесконечный предел]
     \begin{gather*}
-        c_n \underset{n \to \infty}{\longrightarrow} \text{ если } \forall L > 0 \quad \exists N : \forall n > N \text{ выполнено } \\
+        c_n \underset{n \to \infty}{\longrightarrow}  \infty \text{ если } \forall L > 0 \quad \exists N : \forall n > N \text{ выполнено } \\
         |c_n| > L
     \end{gather*}
 \end{definition}
@@ -73,7 +73,7 @@
         f: E \rightarrow \vR, \mathbb{C}\\
         A \in \mathbb{C} \quad f(z) \underset{z \to \alpha}{\longrightarrow} A \text{ если } \forall \varepsilon > 0 \exists \delta > 0  \\
         \forall z \in E, z \ne \alpha, |z- \alpha| < \delta \\
-        |f(z) 0 - A| < \varepsilon \tag{3}
+        |f(z) - A| < \varepsilon \tag{3}
     \end{gather*}
 \end{definition}
 
@@ -85,15 +85,15 @@
     \item $\lim cf(z) = c \lim f(z) \quad c \in \mathbb{C} $
     \item $\lim (f(z) + g(z)) = \lim f(z) + \lim g(z)$
     \item $\lim f(z) g(z) = \lim f(z)  \cdot \lim g(z)$
-    \item $f(z) \ne 0 \forall z \in E \setminus \{ \alpha \} \quad \lim f(z) \pm 0 \implies \lim \frac{1}{f(z)} = \frac{1}{\lim f(z)}$
+    \item $f(z) \ne 0 \forall z \in E \setminus \{ \alpha \} \quad \lim f(z) \ne 0 \implies \lim \frac{1}{f(z)} = \frac{1}{\lim f(z)}$
     \item $f$, как в 4 $\implies \lim \frac{g(z)}{f(z) } = \frac{\lim g(z)}{\lim f(z)}$
 \end{enumerate}
 
 Все доказательства проходят так же, как и в вещественном случае, но докажем самое существенное -- 4.
 \begin{longProof}
     \begin{gather*}
-        \lim f(z) = A \pm 0 \\
-        \varepsilon_0 \frac{|A|}{2} \quad \exists \delta_0 > 0 : \forall z \in E, z \ne \alpha, |z-\alpha| < \delta_0 \\
+        \lim f(z) = A \ne 0 \\
+        \varepsilon_0 =  \frac{|A|}{2} \quad \exists \delta_0 > 0 : \forall z \in E, z \ne \alpha, |z-\alpha| < \delta_0 \\
         |f(z) - A| < \frac{|A|}{2}
         \intertext{По неравенству треугольника, записанному со знаком минус}
         |f(z)| \geq |A| - |f(z) - A| > |A| -  \frac{|A|}{2} = \frac{1}{2}|A| \tag{4} \\
@@ -152,7 +152,10 @@
 частной производной по $x$ и по $y$, которые по определению равны вот такой сумме
 \begin{gather*}
     f^\prime_x(z_0) = \underset{h \to 0}{\lim} \frac{f(z_0+h)-f(z_0)}{h} \tag{8}\\
-    f^\prime_y(z_0) = \underset{h \to 0}{\lim} \frac{f(z_0+ih)-f(z_0)}{h} \tag{9}\\
+    f^\prime_y(z_0) = \underset{h \to 0}{\lim} \frac{f(z_0+ih)-f(z_0)}{h} \tag{9}
+\end{gather*}
+\begin{longProof}
+    \begin{gather*}
     u^*_x \prime (x_0,y_0) = \underset{h \to 0}{\lim} \frac{u^*(x_0+h,y_0)-u^*(x_0,y_0)}{h} \tag{10} \\
     v^*_x \prime (x_0,y_0) = \underset{h \to 0}{\lim} \frac{v^*(x_0+h,y_0)-v^*(x_0,y_0)}{h} \tag{11} 
 \end{gather*}
@@ -164,6 +167,7 @@
      u(z_0 + ih) = u^*(x_0,y_0+h) \quad E \subset \mathbb{C} \\
      v(z_0 + ih) = v^*(x_0,y_0+h) \quad z_0 \in E \\
 \end{multline*}
+\end{longProof}
 
 \subsection{Свойства частных производных}
 l = x \text{ или } y (\text{ неважно })
@@ -213,7 +217,7 @@ l = x \text{ или } y (\text{ неважно })
         w = \overline{z} \\
         \left(\frac{1}{f}\right)^\prime_{\overline{z}} = \frac{1}{2}\left(\left(\frac{1}{f}\right)^\prime_x + i\left(\frac{1}{f} \right)^\prime_y\right) 
         = \frac{1}{2}\left(-\frac{f^\prime_x}{f^2}-i\frac{f^\prime_y}{f^2}\right) = \\
-       = -\frac{1}{f^2}\left(f^\prime_x + if^\prime_y\right) = -\frac{1}{f^2}f^\prime_{\overline{z}}
+       = -\frac{1}{2f^2}\left(f^\prime_x + if^\prime_y\right) = -\frac{1}{f^2}f^\prime_{\overline{z}}
     \end{multline*}
 \end{proof}
 
@@ -221,22 +225,22 @@ l = x \text{ или } y (\text{ неважно })
     \begin{gather*}
         z_0 \in E \subset \mathbb{C} \\
         f: E \rightarrow \mathbb{C} \\
-        z_0 = x_0 +  \\
-        f(z_0) - u(z_0) + iv(z) \\
-        u^\prime(x,y) \text{ и } v^\prime(x,y) \\
+        z_0 = x_0 + iy_0  \\
+        f(z_0) = u(z_0) + iv(z)  \text{ дифференцируема в } z_0 \text{ если }\\
+        u^*(x,y) \text{ и } v^*(x,y) \\
         \text{ дифференцируемы в } (x_0, y_0) 
     \end{gather*}
 \end{definition}
 
     $u(z)$ и $v(z)$ для сокращения записи пишем без звездочек, $(x_0, y_0)$ тоже
     \begin{multline*}
-        \sigma = s + it \quad f(z_0+v) - f(z_0) = f^*(x_0 + s, y_0 + t) - f^*(x_0,y_0) = \\
+        \sigma = s + it \quad f(z_0+\sigma) - f(z_0) = f^*(x_0 + s, y_0 + t) - f^*(x_0,y_0) = \\
         = (u^*(x_0 + s, y_0 + t) - u^*(x_0,y_0)) + i(v^*(x_0 + s, y_0 + t) - v^*(x_0,y_0)) = \\
         = (u^\prime_xs + u^\prime_yt + r_1(s,t))+i(v^\prime_x s + v^\prime_y t + r_2(s,t)) \textcolor{red}{ = }
     \end{multline*}
     \[ \frac{|r_1(s,t)|}{\sqrt{s^2+t^2}} \underset{(s,t) \to (0,0)}{\longrightarrow} 0 \] 
     \[ \frac{|r_2(s,t)|}{\sqrt{s^2+t^2}} \underset{(s,t) \to (0,0)}{\longrightarrow} 0 \]
-    \[ \textcolor{red}{ = } (u^\prime_x = i v^\prime_x)s + (u^\prime_y + iv^\prime_y)t +(r_1(s,t) + ir_2(s,t)) \textcolor{red}{ = } \]
+    \[ \textcolor{red}{ = } (u^\prime_x + i v^\prime_x)s + (u^\prime_y + iv^\prime_y)t +(r_1(s,t) + ir_2(s,t)) \textcolor{red}{ = } \]
     \[ r_1(s,t) + ir_2(s,t) = r^*(s,t) = r(\sigma) \]
     \[\frac{|r(\sigma)|}{|\sigma|} \underset{\sigma \to 0}{\longrightarrow} 0 \tag{14\prime} \]
     \[ \textcolor{red}{ = } f^\prime_x(z_0)s + f^\prime_y(z_0)t + r(\sigma) \tag{14} \]
@@ -247,8 +251,8 @@ l = x \text{ или } y (\text{ неважно })
         t = \frac{1}{2i}(\sigma - \overline{\sigma}) = - \frac{i}{2}(\sigma - \overline{\sigma}) = \frac{i}{2}(\overline{\sigma}-\sigma) 
     \end{gather*}
     \begin{multline*}
-        (14) \implies f(z_0 + \sigma) - f(z_0) = f^\prime_x(\frac{1}{2}(\sigma + \overline{\sigma})) + if^\prime_y(\frac{1}{2}(\sigma - \overline{\sigma})) + r(\sigma) = \\
-        = \frac{1}{2}(f^\prime_x - if^\prime_y) \sigma + \frac{1}{2}(f^\prime_x + if^\prime_y) \overline{\sigma} = r(\overline{\sigma}) = \\
+        (14) \implies f(z_0 + \sigma) - f(z_0) = f^\prime_x(\frac{1}{2}(\sigma + \overline{\sigma})) + if^\prime_y(\frac{1}{2}(\overline{\sigma} - \sigma)) + r(\sigma) = \\
+        = \frac{1}{2}(f^\prime_x - if^\prime_y) \sigma + \frac{1}{2}(f^\prime_x + if^\prime_y) \overline{\sigma} + r(\sigma) = \\
         = f^\prime_z(z_0)\sigma + f^\prime_{\overline{z}}(z_0) \overline{\sigma} + r(\sigma) \tag{15}
     \end{multline*}
 $u(z)$ и $v(z)$ для сокращения записи пишем без звездочек
@@ -273,11 +277,11 @@ $u(z)$ и $v(z)$ для сокращения записи пишем без зв
         3 \Leftrightarrow 1 \Rightarrow 2 \Rightarrow 4 \\
         4 \implies 1 ? \\
         \exists \underset{\sigma \to 0}{\lim} \frac{f(z_0 + \sigma) - f(z_0)}{\sigma} = A \in \mathbb{C} \tag{16} \\
-        f(z_0 + \sigma) - f(z_0) = f^\prime_z \sigma = f^\prime_{\overline{z}} \overline{\sigma} + r(\sigma) \tag{16\prime}\\
+        f(z_0 + \sigma) - f(z_0) = f^\prime_z \sigma + f^\prime_{\overline{z}} \overline{\sigma} + r(\sigma) \tag{16\prime}\\
         \frac{f(z_0 + \sigma) - f(z_0)}{\sigma} - A = \beta(\sigma) \\
-        r_0(\sigma = \sigma \beta(\sigma)) \quad (16) \implies \beta(\sigma) \underset{\sigma \to 0}{\longrightarrow} 0 \tag{17}\\
+        r_0(\sigma) = \sigma \beta(\sigma) \quad (16) \implies \beta(\sigma) \underset{\sigma \to 0}{\longrightarrow} 0 \tag{17}\\
         (17) \implies \frac{|r_0\sigma|}{|\sigma|} = \frac{|\sigma| \cdot |\beta{\sigma}|}{|\sigma|} = |\beta(\sigma)| \underset{\sigma \to 0}{\longrightarrow} 0 \tag{18}\\
-        4 \implies f(z_0 + \sigma) + f(z_0) = A\sigma + r_0(\sigma) \tag{19}\\
+        4 \implies f(z_0 + \sigma) - f(z_0) = A\sigma + r_0(\sigma) \tag{19}\\
         \text{ из } (16\prime) \text{ вычтем } (19)  \\
          \implies 0 = (f^\prime_z - A) \sigma  + f^\prime_z \overline{\sigma } + r(\sigma) - r_0(\sigma)\tag{20} \\
         (20) \implies A - f^\prime_z + \frac{r_0(\sigma)}{\sigma} - \frac{r(\sigma)}{\sigma} = f^\prime_{\overline{z}}(z_0) \frac{\overline{\sigma}}{\sigma} \tag{21} \\
@@ -291,7 +295,7 @@ $u(z)$ и $v(z)$ для сокращения записи пишем без зв
         f^\prime_{\overline{z}}(z_0) \cdot \frac{h}{h} \underset{h \to 0}{\longrightarrow} f^\prime_{\overline{z}}(z_0)\]
         \item $\sigma = ih \quad \overline{\sigma} = -ih$
         \[  f^\prime_{\overline{z}}(z_0) \frac{\overline{\sigma}}{\sigma} = f^\prime_{\overline{z}}(z_0) \cdot \frac{-ih}{ih} = -f^\prime_{\overline{z}}(z_0) \longrightarrow -f^\prime_{\overline{z}}(z_0) \] 
-        \[ \implies f^\prime_{\overline{z}}(z_0) = - \]
+        \[ \implies f^\prime_{\overline{z}}(z_0) = 0 \]
     \end{enumerate}
     $3 \Leftrightarrow 1 \Rightarrow 2 \Rightarrow 4 \Rightarrow 1$
 \end{longProof}
@@ -301,7 +305,7 @@ $u(z)$ и $v(z)$ для сокращения записи пишем без зв
         E \subset \mathbb{C} \text{ -- открытое связное множество, область} \\
         f: E \rightarrow \mathbb{C} \\
         f = u + iv \\
-        f \in C^1(E)
+        f \in C^1(E) \text{ если }
         u^*(x,y) \in C^1(E^*) \\
         v^*(x,y) \in C^1(E^*)
     \end{gather*}
@@ -373,7 +377,7 @@ $u(z)$ и $v(z)$ для сокращения записи пишем без зв
         e^z \stackrel{def}{=} e^x(\cos y + i \sin y) = \underbrace{e^x \cos y}_{u(x,y)} + i \underbrace{e^x \sin y}_{v(x,y)} \tag{2} \\
         z \in \mathbb{C} \\
         v^\prime_x = e^x \sin y \quad v^\prime_y = e^x \cos y \\
-        (2) \implies  u^\prime_x - e^x \cos y = v^\prime_y = e^xx \cos y \\
+        (2) \implies  u^\prime_x = e^x \cos y  \quad  v^\prime_y = e^x \cos y \\
         u^\prime_y = -e^x \sin y \\
         u^\prime_y = -v^\prime_x
     \end{gather*}
