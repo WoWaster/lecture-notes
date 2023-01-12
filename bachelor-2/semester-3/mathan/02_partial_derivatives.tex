@@ -253,6 +253,7 @@
     f(X_0 + tH) = f(X_0) + \sum^r_{k=1} \sum_{\alpha: |\alpha| = k} \frac{1}{\alpha!} \partial^\alpha f(X_0)(tH)^\alpha + \\
      + \sum_{\alpha: |\alpha| = r+1} \frac{1}{\alpha!} \partial^\alpha f(X_0 + ctH)(tH)^{\alpha} \tag{7}
 \end{multline*}
+\begin{longProof}
 \begin{gather*}
     (tH)^\alpha = t^{|\alpha|}H^\alpha \quad tH = \tilde{H} \quad g(S) = f(X_0 + S\tilde{H}) \quad 0 \leq S \leq 1\\
     g \in C^{r+1}([0,1]) \quad g \in C^{r+1}((-\varepsilon, 1 + \varepsilon)) \\
@@ -267,6 +268,7 @@
     \frac{1}{k!} C^\alpha_k = \frac{1}{k!} \cdot \frac{k!}{\alpha!} = \frac{1}{\alpha!} \tag{10} \\
     (8\prime), (9), (9\prime) \ldots (10) \implies (7)
 \end{gather*}
+\end{longProof}
 
 \section{Формула Тейлора для функции нескольких переменных с остатком в форме Пеано}
 
@@ -455,7 +457,7 @@ $-x^2 + 2xy - y^2$ -- не положительна \\
 \end{longProof}
 \section{Теорема Лагранжа для вектор-функций}
 \begin{gather*}
-    F: (a,b) \rightarrow \vR^n \quad n \geq 2 \\
+    F: [a,b]\rightarrow \vR^n \quad n \geq 2 \\
     F(X) = \begin{bmatrix}
         f_1(x) \\
         \vdots \\
