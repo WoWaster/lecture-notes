@@ -7,10 +7,10 @@
 Будем считать. что $V$ -- евклидово или унитарное пространство над полем $K$ ($\R$ или $\C$), $\dim V = n \leq \infty$.
 
 $w \in V, \ \rho_w: \underset{v \mapsto (v, w)}{V \rightarrow K}$, поскольку умножаем справа, отображение линейно: $(\alpha_1 v_1 + \alpha_2 v_2, w) = \alpha_1 (v_1, w) + \alpha_2 (v_2, w)$.
-Тем самым, $\rho \in V^*$.
+Тем самым, $\rho_w \in V^*$.
 
 \begin{proposition}
-    Пусть $V$ евклидово. Тогда $\rho_w: \underset{w \mapsto \rho w}{V \rightarrow V^*}$ -- изоморфизм линейных пространств.
+    Пусть $V$ евклидово. Тогда $\rho_w: \underset{w \mapsto \rho_w}{V \rightarrow V^*}$ -- изоморфизм линейных пространств.
 \end{proposition}
 
 \begin{proof}
@@ -27,7 +27,7 @@ $V_1, V_2$ -- линейное пространства над полем ком
 \end{enumerate}
    
 \begin{proposition}
-    Пусть $V$ унитарное. Тогда $\rho_w: \underset{w \mapsto \rho w}{V \rightarrow V^*}$ -- полулинейная биекция.
+    Пусть $V$ унитарное. Тогда $\rho: \underset{w \mapsto \rho_ w}{V \rightarrow V^*}$ -- полулинейная биекция.
 \end{proposition}
 
 \begin{proof}
@@ -35,7 +35,7 @@ $V_1, V_2$ -- линейное пространства над полем ком
 
     $\widetilde{V} = V$, сложение как в $V$, $\alpha \ast v = \overline{\alpha} v$.
     $(\widetilde{V}, \ +, \ \ast)$ -- линейное пространство над $\C$. Базисы $\widetilde{V}, \ V$ совпадают $\Rightarrow \dim \widetilde{V} = n$.
-    Рассмотрим $\widetilde{\rho}: \underset{w \mapsto \rho w}{\widetilde{V} \rightarrow V^*}$ -- линеное отображение, ядро по-прежнему равняется 0, тогда
+    Рассмотрим $\widetilde{\rho}: \underset{w \mapsto \rho_w}{\widetilde{V} \rightarrow V^*}$ -- линеное отображение, ядро по-прежнему равняется 0, тогда
     $\Im \widetilde{\rho} = V^*$.
 \end{proof}
 
@@ -70,8 +70,8 @@ $V_1, V_2$ -- линейное пространства над полем ком
 
 \begin{proof}
     \begin{enumerate}
-        \item $(v, \mca^* w) = \rho_{\mca^*, w} (v) = \rho_V (\mca^*w)(v) = \mca^T(\rho_w(w))(v) = (\rho_w(w) \circ \mca)(v) = \rho_w (\mca v) = (\mca v, w)$
-        \item Имеем: $\forall v \in V, \ w \in W: \ (\mca v, w) = (v, \mca^* w) \Rightarrow \\ \Rightarrow (v_1 (\mcb - \mca)(w)) = 0 \Rightarrow \forall w \in W: \ ((\mcb - \mca^*)w, (\mcb - \mca^*)w) = \\ = 0 \Rightarrow \forall w \in W: (\mcb - \mca^*)(w) = 0$, т.е. $\mcb w = \mca^* w$.
+        \item $(v, \mca^* w) = \rho_{\mca^* w} (v) = \rho_V (\mca^*w)(v) = \mca^T(\rho_W(w))(v) = (\rho_W(w) \circ \mca)(v) = \rho_w (\mca v) = (\mca v, w)$
+        \item Имеем: $\forall v \in V, \ w \in W: \ (\mca v, w) = (v, \mca^* w) \Rightarrow \\ \Rightarrow (v, (\mcb - \mca^*)(w)) = 0 \Rightarrow \forall w \in W: \ ((\mcb - \mca^*)w, (\mcb - \mca^*)w) = \\ = 0 \Rightarrow \forall w \in W: (\mcb - \mca^*)(w) = 0$, т.е. $\mcb w = \mca^* w$.
     \end{enumerate}
 \end{proof}
 
