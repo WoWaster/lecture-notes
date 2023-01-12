@@ -49,10 +49,10 @@ $[\mca]_E = A = (a_{ij}), \ [\mca^*]_E = B = (b_{ij})$.
 
 Как связаны эти матрицы между собой?
 Первое означает, что $\mca e_j = \sum_{i=1}^n a_{ij} e_i$. Скалярно умножим это равенство на $e_k$:
-$\mca e_j e_k = a_{kj}$, т.к. базис ортонормированный, с другой стороны $\mca e_j e_k = (e_j, \mca^* e_k)$.
-Для $e_k$ запишем: $\mca^* e_k = \sum_{i=1}^k b_{i, k} e_i$. Подставим это в предыдущее равенство:
-$(e_j, \mca^* e_k) = (e_j, \sum_{i=1}^k b_{i, k} e_i) = (e_j, b_{j, k} e_j) = \overline{b_{j, k}} \Rightarrow
-    b_{j, k} = \overline{a_{k, j}}$.
+$(\mca e_j, e_k) = a_{kj}$, т.к. базис ортонормированный, с другой стороны $(\mca e_j, e_k) = (e_j, \mca^* e_k)$.
+Для $e_k$ запишем: $\mca^* e_k = \sum_{i=1}^k b_{i k} e_i$. Подставим это в предыдущее равенство:
+$(e_j, \mca^* e_k) = (e_j, \sum_{i=1}^k b_{i k} e_i) = (e_j, b_{j k} e_j) = \overline{b_{j k}} \Rightarrow
+    b_{j k} = \overline{a_{k j}}$.
 
 Таким образом, $B = \overline{A^T} = A^*$.
 
@@ -66,7 +66,7 @@ $(e_j, \mca^* e_k) = (e_j, \sum_{i=1}^k b_{i, k} e_i) = (e_j, b_{j, k} e_j) = \o
     $\forall u \in U \ (u, \mca^* w) = (\underbrace{\mca u}_{\in U}, \underbrace{w}_{\in U^{\perp}}) = 0$. Voila!
 \end{proof}
 
-\begin{definition}
+\begin{definition} [Самосопряженный оператор]
     $\mca \in \End V$ называется самосопряженным, если $\mca = \mca^*$.
 \end{definition}
 
@@ -77,7 +77,7 @@ $(e_j, \mca^* e_k) = (e_j, \sum_{i=1}^k b_{i, k} e_i) = (e_j, b_{j, k} e_j) = \o
 
 Можно проверить, что все эрмитовы формы так задаются.
 
-\begin{definition}
+\begin{definition} [Ортогональный оператор]
     $\mca \in \End V$ в евклидовом (унитарном) пространстве называется ортогональным (соответственно, унитарным),
     если $\mca \mca^* = \mse_V$.
 \end{definition}

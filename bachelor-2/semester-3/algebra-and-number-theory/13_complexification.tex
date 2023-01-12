@@ -14,7 +14,7 @@ $V$ -- линейное пространство над полем $\R$. Пос�
 $V_{\C} = V\times V$. На этом множестве введем сложение и умножение на комплексные скаляры.
 \begin{gather*}
     (v_1,w_1) + (v_2, w_2) := (v_1 + v_2, w_1 + w_2)  \\
-    (\alpha + i\beta) (v, w) = (\alpha v - \beta w, \beta v + \alpha w)
+    (\alpha + i\beta) (v, w) := (\alpha v - \beta w, \beta v + \alpha w)
 \end{gather*}
 
 Нетрудно проверить, что $(V_{\C}, +, \cdot)$ -- линейное пространство над $\C$.
@@ -109,8 +109,8 @@ $V_{\C}$ -- комплексификация $V$.
     \end{gather*}
     
     \begin{remark}
-        $u \in V_{\C}, \ \gamma \in \C \Rightarrow \overline{\gamma u} = \overline{\gamma} \overline{u}. \ \overline{u} = \overline{v + iw} = v - iw$.
-        Проверка: пусть $\lambda = \alpha + i\beta, \ u = v + w$, тогда $\overline{(\alpha + i\beta)(v + iw)} =
+        $u \in V_{\C}, \ \gamma \in \C \Rightarrow \overline{\gamma u} = \overline{\gamma} \cdot \overline{u}. \ \overline{u} = \overline{v + iw} = v - iw$.
+        Проверка: пусть $\gamma = \alpha + i\beta, \ u = v + w$, тогда $\overline{(\alpha + i\beta)(v + iw)} =
          \overline{\alpha v - \beta w + i(\alpha w + \beta v)} = \alpha v - \beta w - i(\alpha w + \beta v) = (\alpha + i\beta)(v - iw) =
         \alpha v - \beta w -i(\beta v + \alpha w)$.
     \end{remark}
@@ -134,7 +134,9 @@ $V_{\C}$ -- комплексификация $V$.
 \end{proof}
 
     Далее $V$ -- евклидово пространство. Введем на $V_{\C}$ отображение $\underset{(u, u') \mapsto \mcb(u, u')}{V_{\C}\times V_{\C}\to\C}$, 
-    где $\mcb(v+iw, v'+iw') = (v, v') + (w, w') + i((w, v') - (v, w'))$.
+    где $\mcb(v+iw, v'+iw') = (v, v') + (w, w') + i((w, v') - (v, w'))$. 
+
+    lil friendly reminder: сопряженный к $i = -i$, и при выносе скаляра из правой части, нужно брать его с сопряжением.
 
     \begin{proposition}
         $\mcb$ -- скалярное произведение на $V_{\C}$

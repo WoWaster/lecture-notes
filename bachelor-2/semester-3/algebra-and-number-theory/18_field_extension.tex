@@ -35,7 +35,7 @@ $L / K$ называются бесконечным.
 \end{example}
 
 \begin{proposition}
-    Пусть $L / K, M / K$ -- конечные расширения. Тогда $M / K$ -- тоже
+    Пусть $L / K, M / L$ -- конечные расширения. Тогда $M / K$ -- тоже
     конечное расширение и $[M:K] = [M:L] \cdot [L:K]$.
     $M / L / K $ -- башня полей.
 \end{proposition}
@@ -87,20 +87,20 @@ $L / K$ называется алгебраическим, если все ег�
 \begin{proof}
     Пусть $[L:K] = d$.
     \begin{gather*}
-        a \in L, \ \underbrace{1, a, a^2, \ldots, a_d}_{d+1} \\
-        \Rightarrow \exists h_0, h_1, \ldots, h_d \in K : b_0 + b_1a + \ldots b_da^d = 0 \text{ и не все } b_i = 0\\
+        a \in L, \ \underbrace{1, a, a^2, \ldots, a^d}_{d+1} \\
+        \Rightarrow \exists b_0, b_1, \ldots, b_d \in K : b_0 + b_1a + \ldots b_da^d = 0 \text{ и не все } b_i = 0\\
         f:= b_dX^d + \ldots + b_1 X + b_0 \ne 0 \\
         f(a) = 0 \Rightarrow a \text{ -- алгебраическое }
     \end{gather*}
 \end{proof}
 
 \begin{proposition}
-    Пусть $L / K$, $a \in L$ -- алгебрическое. Тогда $ \{ f \in K[X] \ | \  f(a) = 0 \} = (p), \ 
+    Пусть $L / K$ расширение, $a \in L$ -- алгебрический. Тогда $ \{ f \in K[X] \ | \  f(a) = 0 \} = (p), \ 
     p$ -- неприводимый многочлен из $K[X]$.
 \end{proposition}
 
 \begin{proof}
-    $ I = \{ f \in K[X] | f(x) = 0 \} \text{ -- подгруппа в } K[X]$.
+    $ I = \{ f \in K[X] | f(а) = 0 \} \text{ -- подгруппа в } K[X]$.
 
     \[\left.
     \begin{gathered}
@@ -190,7 +190,7 @@ $L / K$ называется алгебраическим, если все ег�
     $K[X]/(f) = \{\overline{\alpha_0 + \alpha_1X + \ldots + \alpha_{d-1}X^{d-1}} \ | \ \alpha_0, \ldots, \alpha_{d-1} \in K\} = 
     \{\alpha_0\overline{1} + \alpha_1\overline{X} + \ldots + \alpha_{d-1}\overline{X^{d-1}} \ | \ \alpha_0, \ldots, \alpha_{d-1} \in K\}$.
     Очевидно, $\overline{1}, \overline{X}, \ldots, \overline{X^{d-1}}$ -- линейно независимые
-    ($\alpha_0 + \alpha_1X + \ldots + \alpha_{d-1}X^{d-1} \not\equiv 0 \mod f$). Таким образом, 
+    ($\alpha_0 + \alpha_1X + \ldots + \alpha_{d-1}X^{d-1} \not\equiv 0 \mod f$, если $\exists \ i: \ \alpha_i \neq 0)$. Таким образом, 
     $\overline{1}, \overline{X}, \ldots, \overline{X^{d-1}}$ -- базис $K[X]/(f)$ 
     $\Rightarrow 1, a, a^2, \ldots, a^{d-1}$ -- базис $K(a)$.
     \item \includegraphics[width=0.8\textwidth]{ugly_scheme.jpg}
@@ -288,7 +288,7 @@ $L / K$ называется алгебраическим, если все ег�
 \end{proposition}
 
 \begin{proof}
-    1 $\Rightarrow$ 2: Пусть $\theta_1, \ldots, \theta_n$ -- алгебраические над $K \Rightarrow
+    1 $\Rightarrow$ 2: Пусть $\theta_1, \ldots, \theta_n$ -- базис $L$ над $K \Rightarrow
     K(\theta_1, \ldots, \theta_n) = L$, все элементы $L$ алгебраичны над $K$.
 
     2 $\Rightarrow$ 1: Индукция по $n$. $n = 0 \Rightarrow L = K$.
