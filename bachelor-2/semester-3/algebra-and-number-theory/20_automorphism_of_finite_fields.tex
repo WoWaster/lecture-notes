@@ -58,13 +58,13 @@ $K, \ F$ -- поля, $\sigma: \ K \hookrightarrow F$ -- вложение.
     Пусть $\sigma: \ K \hookrightarrow F$ -- вложение. $L/K$ -- конечное расширение. Тогда у $\sigma$ есть $\leq [L:K]$ продолжений на $L$.
 \end{corollary}
 
-\begin{corollary}
+\begin{proof}
     $L = K(x_1, \ldots, x_n)$.
 
     Индукция по $m$. $m = 0: \ [L:K] = 1$, у $\sigma$ одно продолжение.
 
-    Переход. $L_0 = K(x_1, \ldots, x_{m-1})$. По ИП у $\sigma$ есть $\leq d_0$ продолжений на $L_0$, где $d_0 = [L_0:K]: \ \sigma_1 \ldots, \sigma_l, \ l \leq d_0$. У каждого $\sigma_i$ есть $\leq [L:L_0]$  продоолжений на $L$ $\Rightarrow$ у $\sigma$  есть $\leq l\cdot [L:L_0]$  продоолжений на $L$, т.к. $[\underbrace{L}_{L_0(x_m)}:L_0] = \deg \Irr_{L_0} x_m$. $l \cdot [L:L_0] \leq d_0 \cdot [L:L_0] = [L:K]$.
-\end{corollary}
+    Переход. $L_0 = K(x_1, \ldots, x_{m-1})$. По ИП у $\sigma$ есть $\leq d_0$ продолжений на $L_0$, где $d_0 = [L_0:K]: \ \sigma_1 \ldots, \sigma_l, \ l \leq d_0$. У каждого $\sigma_i$ есть $\leq [L:L_0]$  продолжений на $L$ $\Rightarrow$ у $\sigma$  есть $\leq l\cdot [L:L_0]$  продоолжений на $L$, т.к. $[\underbrace{L}_{L_0(x_m)}:L_0] = \deg \Irr_{L_0} x_m$. $l \cdot [L:L_0] \leq d_0 \cdot [L:L_0] = [L:K]$.
+\end{proof}
 
 \begin{corollary}
     Пусть $L/K$ -- конечное расширение. Тогда $|\Aut (L/K)| \leq [L:K]$.

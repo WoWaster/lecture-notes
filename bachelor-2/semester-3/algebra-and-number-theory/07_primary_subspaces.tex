@@ -7,12 +7,11 @@
 
 \begin{definition} [Примарное подпространство]
     Допустим, $p$ -- неприводимый многочлен, $\mca \in \End V, \ W < V$ называется $p$-примарным, если $W$ -- $\mca$-инвариантно
-    и $\forall v \in W: \ \mu_{\mca, v} = p^m, \ m \geq 0$, $p$ -- неприводимый.
-
-    \begin{center}$W_p = \{w \in V \ | \ \mu_{\mca, w} = p^m, \ m \geq 0\}$ \end{center}
+    и $\forall v \in W: \ \mu_{\mca, v} = p^m, \ m \geq 0$. $p$ -- неприводимый.
 \end{definition}
 
 \begin{proposition}
+    $p$ -- неприводимый, $W_p = \{w \in V \ | \ \mu_{\mca, w} = p^m, \ m \geq 0\}$.
     $W_p$ -- максимальное по включению $p$-примарное подпространство.
 \end{proposition}
 
@@ -27,7 +26,7 @@
 
                   $\mu_{\mca, w_1} = p^{m_1}, \ \mu_{\mca, w_2} = p^{m_2}$
 
-                  $ m = max(m_1, \ m_2)$.
+                  $ m = \max(m_1, \ m_2)$.
 
                   $p^m(\mca)(w_1+w_2) = p^m(\mca)(w_1)+ p^m(\mca)(w_2) = 0 $
 
@@ -42,7 +41,7 @@
 
                   $p^m(\mca)(\mca w) = \mca\underbrace{(p^m(\mca)(w))}_{0} = 0 $
 
-                  $ \mu_{\mca, \mca_w} | p^m \Rightarrow \mu_{\mca, \mca_w} = p^l, \ l \leq m \Rightarrow \mca w \in W_p$
+                  $ \mu_{\mca, \mca w} | p^m \Rightarrow \mu_{\mca, \mca w} = p^l, \ l \leq m \Rightarrow \mca w \in W_p$
               \end{center}
 
     \end{enumerate}
@@ -101,10 +100,10 @@
 
     База: $s = 1$. ${p_1}^{r_1}(\mca) = 0 \Rightarrow \mu_{\mca, v} | {p_1}^{r_1} \Rightarrow W_{p_1} = V$.
 
-    Переход: $f = gh, \ g = \mse {p_1}^{r_1} \ldots {p_{s-1}}^{r_{s-1}}$, $h = {p_s}^{r_s}$, $(g, h) = 1 \Rightarrow
+    Переход: $f = gh, \ g = \varepsilon {p_1}^{r_1} \ldots {p_{s-1}}^{r_{s-1}}$, $h = {p_s}^{r_s}$, $(g, h) = 1 \Rightarrow
         V = V' \oplus V'', \ g(\mca |_{V'}) = 0, \ h(\mca |_{V''}) = 0$ (по предложению 7.2).
 
-    По индукционному предположению, $V' =  \widetilde{W}_{p_1} \oplus \ldots \oplus \widetilde{W}_{p_s-1}$.
+    По индукционному предположению, $V' =  \widetilde{W}_{p_1} \oplus \ldots \oplus \widetilde{W}_{p_{s-1}}$.
 
     $\widetilde{W}_{p_j}$ -- максимальной $p_j$-примарное подпространство для $\mca |_{V'}$.
     $\forall v \in \widetilde{W}_{p_j}$: $\mu_{\mca |_{V'}, v} = \mu_{\mca, v} \Rightarrow \widetilde{W}_{p_j} \subset W_{p_j}$.
@@ -130,7 +129,7 @@
 \end{proof}
 
 \begin{corollary}
-    Пусть $\mca \in \End V$. Тогда $V = \bigoplus_{p|\chi_{\mca}} W$, $p$ -- неприводимый приведеннный.
+    Пусть $\mca \in \End V$. Тогда $V = \bigoplus_{p|\chi_{\mca}} W_p$, $p$ -- неприводимый приведеннный.
 \end{corollary}
 
 \begin{remark}

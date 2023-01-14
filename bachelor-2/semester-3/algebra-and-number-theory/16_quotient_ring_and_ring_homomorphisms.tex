@@ -21,7 +21,7 @@ $R = (1), \ 0 = (0)$.
 
 \begin{proof}
     $\Rightarrow$: $\underbrace{(1)}_{1 \in} \neq \underbrace{(0)}_{1 \in}$, т.к. $1 \neq 0$.
-    Пусть $I$ -- идеал в $R$, $I \neq 0 \Rightarrow \Rightarrow \exists c \in I \backslash \left\langle 0\right\rangle
+    Пусть $I$ -- идеал в $R$, $I \neq 0 \Rightarrow \exists c \in I \backslash \left\langle 0\right\rangle
     \Rightarrow 1 = c c^{-1} \Rightarrow 1 \in I \Rightarrow I = R \ (r = r \cdot 1) $.
 
     $\Leftarrow$: если $0 = 1$, $r = r \cdot 1 = r \cdot 0 = 0 \Leftarrow$ нет двух идеалов.
@@ -61,11 +61,13 @@ $R = (1), \ 0 = (0)$.
     $\Leftrightarrow a$ неприводимый.
 \end{theorem}
 
-\begin{proof}
+\begin{remark}
     $R/(a)$ поле $\Leftrightarrow \forall b \in R, \ a \not\in R^*$: $b \not\in (a) \Rightarrow
     \exists c \in R: \ \overline{b}\overline{c} = \overline{1} \ (\overline{b} = b + (a)) \Leftrightarrow
     \forall b \in R: \ a \not\mid b \Rightarrow \exists c \in R: \ bc = 1 + ax, \ x \in R$. 
-    
+\end{remark}
+
+\begin{proof}
     Пусть $a$ неприводим. Тогда 
     $a \not\mid b \Rightarrow (a, b) = 1 \Rightarrow ax + by = 1$ для некоторых $x, \ y \in R \Rightarrow by = 1 - ax$.
     Таким образом, $R/(a)$ -- поле. 

@@ -30,9 +30,13 @@
 \end{proof}
 
 \begin{corollary}
+    Пусть $|K| = q$. Тогда $K$ -- поле разложения $X^q - X$ над любым подполем.
+\end{corollary}
+
+\begin{proof}
     По предыдущему предложению: $\forall \ a \in K \ f(a) = 0, \ f = X^q - X. \ \deg \ f = q \Rightarrow f = \prod_{a \in K}(X - a). \ k$ -- подполе, 
     $k(a \ | \ f(a) = 0) = k(K) = K$.
-\end{corollary}
+\end{proof}
 
 \begin{lemma}
     Пусть $\text{char} \ K = p > 0; \ \alpha, \beta \in K$. Тогда $\forall m \in \N: \ (\alpha + \beta)^{p^m} = \alpha^{p^m} + \beta^{p^m}$.
@@ -51,8 +55,8 @@
 \end{theorem}
 
 \begin{proof}
-    Пусть $F$ -- поле разложения $X^q - X$ над $\F_p, \ q = p^n$. Предположим, что 
-    у него нет кратных корней: $(X^q - X)' = qX^{q-1} = -1 \Rightarrow$ в 
+    Пусть $F$ -- поле разложения $X^q - X$ над $\F_p, \ q = p^n$. Проверим, что 
+    у него нет кратных корней: $(X^q - X)' = qX^{q-1} -1 = -1 \Rightarrow$ в 
     $F: \ X^q - X = \prod_{i = 1}^{q}(X - a_i), \ a_1, \ldots, a_q$ -- различны.
     \begin{gather*}
         K = \{a_1, \ldots, a_q\}, \ \forall \ i: \ a_i^q = a_i \\
@@ -106,7 +110,7 @@
 
         $F = \{a \ | \ a^{p^m} - a = 0\}$ -- искомое подполе.
 
-        Пусть $F'$ -- другое подполе, такое что $|F'| = 0, \ F' \neq F \ \forall a \in F': \ a^{p^m} - a = 0 \Rightarrow \forall a \in F \cup F': \ a^{p^m} - a = 0, \ |F \cup F'| > p^m$. 
+        Пусть $F'$ -- другое подполе, такое что $|F'| \neq 0, \ F' \neq F \ \forall a \in F': \ a^{p^m} - a = 0 \Rightarrow \forall a \in F \cup F': \ a^{p^m} - a = 0, \ |F \cup F'| > p^m$. 
 
     \end{enumerate}
 \end{proof}
