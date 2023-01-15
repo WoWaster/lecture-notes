@@ -38,12 +38,14 @@
 
 \begin{proposition}
     $\mcb$ -- симметрическая билинейная форма. 
+\end{proposition}
 
+\begin{proof}
     \begin{enumerate}
         \item биленейность очевидна.
         \item $\mcb(w, v) = (\mca w, v) = (w, \mca^*v) = (w, \mca v) = (\mca v, w) = \mcb(v, w)$
     \end{enumerate}
-\end{proposition}
+\end{proof}
 
 \begin{remark}
     Для любой симметрической  билинийной формы $\mcb$ на $V$ существует единственный $\mca \in \End V, \ \mca = \mca^*$, т.ч. 
@@ -113,20 +115,23 @@ $\mca \in \GL(V) \Rightarrow \mca^* \in \GL(V) \ (\mca \mcb = \mse \Rightarrow \
 
 \begin{proof}
     $(\mca \mca^*)^* = (\mca^*)^* \mca^* = \mca \mca^*$. $\mca \mca^*$ положительно определенный: 
-    $v \neq 0, \ (\mca \mca^* v, v) = (\underbrace{\mca^* v}_{\neq 0}, \mca^* v) > 0 \Rightarrow \mca \mca^* = \mcc^2, \ \mcc \in \End V$ -- положетельно определенный. 
+    $v \neq 0, \ (\mca \mca^* v, v) = (\underbrace{\mca^* v}_{\neq 0}, \mca^* v) > 0 \Rightarrow \mca \mca^* = \mcc^2, \ \mcc \in \End V$ -- положительно определенный. 
 
     $\mco = \mcc^{-1}\mca, \ \mca = \mcc \mco$.
 
     $\mcc^2 = \mca \mca^* = \mcc \mco \mco^* \mcc^* = \mcc \mco \mco^* \mcc \Rightarrow \mse = \mco \mco^*$.
+    
+    $\mca = \mcc_1 \mco_1 = \mcc_2 \mco_2$ 
+
+    $\mcc_1,\mcc_2 \text{ -- полож. опред.}, \ \mco_1, \mco_2 \text{ -- ортог.}$ 
+
+    $\mca \mca^* = \mcc_1 \mco_1 \mco_1^* \mcc_1 = \mcc_1^2$.
+
+    $\mca \mca^* = \mcc_2 \underbrace{\mco_2 \mco_2^*}_{=\mse} \mcc_2 = \mcc_2^2$.
+
+    $\text{По предыдущему предложению: } \mcc_1 = \mcc_2, \ \mco_1 = \mco_2$.
 \end{proof}
 
-\begin{gather*}
-    \mca = \mcc_1 \mco_1 = \mcc_2 \mco_2 \
-    \mcc_1,\mcc_2 \text{ -- полож. опред.}, \ \mco_1, \mco_2 \text{ -- ортог.} \\
-    \text{а потом нас обманули...} \\
-    \mca \mca^* = \mcc_1 \mco_1 \mco_1^* \mcc_1 = \mcc_1^2 \\
-    \mca \mca^* = \mcc_2 \underbrace{\mco_2 \mco_2^*}_{=\mse} \mcc_2 = \mcc_2^2 \\
-    \text{из соображений единственности: } \mcc_1 = \mcc_2, \ \mco_1 = \mco_2
-\end{gather*}
+
 
 \end{document}

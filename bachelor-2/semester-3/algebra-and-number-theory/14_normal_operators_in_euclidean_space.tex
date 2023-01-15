@@ -23,7 +23,7 @@ $V_{\C} = V_{\lambda_1}\oplus\ldots\oplus V_{\lambda_s}\oplus \underbrace{V_{\mu
 $W = W_l = V_{\mu_l} \oplus V_{\overline{\mu_l}}$. Выберем в $V_{\mu_l}$ какой-нибудь ортонормированный базис: $v_1 + iw_1, \ldots, v_q + iw_q \Rightarrow
 v_1 - iw_1, \ldots, v_q - iw_q$ -- базис $V_{\overline{\mu_l}}$.
 
-$\mu_1 \neq \overline{\mu_2} \Rightarrow (v_j - iw_j) \perp (v_k + iw_k), \ j, k = 1, \ldots, q$.
+$\mu_l \neq \overline{\mu_l} \Rightarrow (v_j - iw_j) \perp (v_k + iw_k), \ j, k = 1, \ldots, q$.
 
 $W = V_{\mu_l} + V_{\overline{\mu_l}} = \Lin(v_1 + iw_1, \ldots, v_q + iw_q, v_1 - iw_1, \ldots, v_q - iw_q) = \Lin(v_1, \ldots, v_q, w_1, \ldots, w_q)$. 
 
@@ -43,7 +43,7 @@ v_1, \ldots, v_q, w_1, \ldots, w_q$ -- базис $W$.
     (v_j, v_k) = 0 \\
     (w_j, w_k) = 0 \\
     (v_k, w_j) = 0 \\
-    (w_j, w_k) = 0 
+    (v_j, w_k) = 0 
 \end{gathered} \right.
 \end{gather*} 
 
@@ -110,7 +110,7 @@ $ V_{\lambda_l} \perp  V_{\lambda_k} \ (k \neq l), \ W_l \perp  W_k \ (k \neq l)
      \end{gathered} \right.
     \Rightarrow  \\ \Rightarrow \left\{ \begin{gathered}
        \mca \widetilde{v_j}=\alpha \widetilde{v_j} - \beta \widetilde{w_j} \\
-        \mca \widetilde{w_j}=\alpha w_j + \beta v_j
+        \mca \widetilde{w_j}=\alpha \widetilde{w_j} + \beta \widetilde{v_j}
     \end{gathered} \right. \quad
     \begin{pmatrix}
         & & \vdots & \vdots &  \\

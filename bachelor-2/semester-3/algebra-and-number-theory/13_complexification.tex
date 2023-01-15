@@ -71,18 +71,26 @@ $V_{\C}$ -- комплексификация $V$.
 \end{gather*}
 
 \begin{proposition}
-    $\mca_{\C} \in \End V_{\C}$.
+    $\mca_{\C} \in \End V_{\C}$
+\end{proposition}
 
-    $\mca_{\C}((v_1+iw_1)+(v_2+ iw_2)) = \mca(v_1 + v_2) + i\mca(w_1 + w_2) =
-    \mca v_1 + \mca v_2 + i\mca w_1 + i\mca w_2 = \mca_{\C}(v_1 + iw_1) + \mca_{\C}(v_2 + iw_2)$
-
-    $\alpha \in \R, \ \mca_{\C}(\alpha(v + iw)) = \mca(\alpha v) + i\mca(\alpha w) = 
-    \alpha(\mca v + i\mca w) = \alpha \mca_{\C}(v+ iw)$
-
-    $\mca_{\C}(i(v+w)) = \mca_{\C}(-w + iv) = \mca(-w) + i\mca v = i(\mca v + i\mca w) = i \mca_{\C}(v + iw)$
+\begin{proof}
+    \begin{multline*}
+        \mca_{\C}((v_1+iw_1)+(v_2+ iw_2)) = \mca(v_1 + v_2) + i\mca(w_1 + w_2) = \\
+   = \mca v_1 + \mca v_2 + i\mca w_1 + i\mca w_2 = \mca_{\C}(v_1 + iw_1) + \mca_{\C}(v_2 + iw_2)
+    \end{multline*}
+\begin{multline*}
+    \alpha \in \R, \ \mca_{\C}(\alpha(v + iw)) = \mca(\alpha v) + i\mca(\alpha w) = \\
+   = \alpha(\mca v + i\mca w) = \alpha \mca_{\C}(v+ iw)
+\end{multline*}
+\begin{multline*}
+    \mca_{\C}(i(v+i w)) = \mca_{\C}(-w + iv) = \\
+    = \mca(-w) + i\mca v = i(\mca v + i\mca w) = i \mca_{\C}(v + iw)
+\end{multline*}
+    
 
     $\Rightarrow \mca_{\C}((\alpha + i\beta)(v+iw)) = (\alpha + i\beta)\mca_{\C}(v+iw)$
-\end{proposition}
+\end{proof}
 
 \begin{proposition}
     Пусть $E$ -- базис $V$. Тогда $[\mca_{\C}]_E = [\mca]_E$.
@@ -110,7 +118,7 @@ $V_{\C}$ -- комплексификация $V$.
     
     \begin{remark}
         $u \in V_{\C}, \ \gamma \in \C \Rightarrow \overline{\gamma u} = \overline{\gamma} \cdot \overline{u}. \ \overline{u} = \overline{v + iw} = v - iw$.
-        Проверка: пусть $\gamma = \alpha + i\beta, \ u = v + w$, тогда $\overline{(\alpha + i\beta)(v + iw)} =
+        Проверка: пусть $\gamma = \alpha + i\beta, \ u = v + iw$, тогда $\overline{(\alpha + i\beta)(v + iw)} =
          \overline{\alpha v - \beta w + i(\alpha w + \beta v)} = \alpha v - \beta w - i(\alpha w + \beta v) = (\alpha + i\beta)(v - iw) =
         \alpha v - \beta w -i(\beta v + \alpha w)$.
     \end{remark}

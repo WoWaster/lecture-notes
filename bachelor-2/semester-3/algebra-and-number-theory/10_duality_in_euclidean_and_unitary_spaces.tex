@@ -10,7 +10,7 @@ $w \in V, \ \rho_w: \underset{v \mapsto (v, w)}{V \rightarrow K}$, поскол�
 Тем самым, $\rho_w \in V^*$.
 
 \begin{proposition}
-    Пусть $V$ евклидово. Тогда $\rho_w: \underset{w \mapsto \rho_w}{V \rightarrow V^*}$ -- изоморфизм линейных пространств.
+    Пусть $V$ евклидово. Тогда $\rho: \underset{w \mapsto \rho_w}{V \rightarrow V^*}$ -- изоморфизм линейных пространств.
 \end{proposition}
 
 \begin{proof}
@@ -20,10 +20,10 @@ $w \in V, \ \rho_w: \underset{v \mapsto (v, w)}{V \rightarrow K}$, поскол�
     $\xRightarrow{\text{по пр. Дирихле}} \rho$ -- сюръективно.
 \end{proof}
 
-$V_1, V_2$ -- линейное пространства над полем комплексных чисел. $\mca: V_1 \rightarrow V_2$ --  называется полулинейным, если:
+$V_1, V_2$ -- линейные пространства над полем комплексных чисел. $\mca: V_1 \rightarrow V_2$ --  называется полулинейным, если:
 \begin{enumerate}
     \item $\mca(v+v') = \mca v + \mca v'$
-    \item $\mca(\alpha v) = \overline{\alpha} v$
+    \item $\mca(\alpha v) = \overline{\alpha} \mca v$
 \end{enumerate}
    
 \begin{proposition}
@@ -55,7 +55,7 @@ $V_1, V_2$ -- линейное пространства над полем ком
 Очевидно, $\mca^*$ -- гомоморфизм групп.
 \begin{gather*}
     \mca^*(\alpha w) = (\rho_V^{-1} \circ \mca^T \circ \rho_W)(\alpha w) = (\rho_V^{-1} \circ \mca^T)(\overline{\alpha} \rho_W(w)) = \\
-    = \rho_V^{-1} (\overline{\alpha} ( \mca^T \circ \rho_W)(w) = \\
+    = \rho_V^{-1} (\overline{\alpha} ( \mca^T \circ \rho_W))(w) = \\
     = \alpha (\rho_V^{-1} \circ \mca^T \circ \rho_W) (w) = \alpha \mca^* (w)
 \end{gather*}
 

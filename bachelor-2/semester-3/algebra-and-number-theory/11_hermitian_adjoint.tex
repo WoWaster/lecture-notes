@@ -33,7 +33,7 @@ $V$ -- евклидово (унитарное) пространство.
               \end{multline*}
         \item
 
-              $(\alpha \mca, w) = \alpha(\mca v, w) = \alpha(v, \mca^* w) = (v, \overline{\alpha} \mca^* w)$
+              $(\alpha \mca v, w) = \alpha(\mca v, w) = \alpha(v, \mca^* w) = (v, \overline{\alpha} \mca^* w)$
 
         \item  $((\mca \mcb)v, w)= (\mca(\mcb v), w) = (\mcb v, \mca^* w) = (v, \mcb^* \mca^* w) $
         \item Достаточно проверить: $\forall v, w \in V: \ (\mca^* v, w) = (v,\mca w)$. \\
@@ -50,8 +50,8 @@ $[\mca]_E = A = (a_{ij}), \ [\mca^*]_E = B = (b_{ij})$.
 Как связаны эти матрицы между собой?
 Первое означает, что $\mca e_j = \sum_{i=1}^n a_{ij} e_i$. Скалярно умножим это равенство на $e_k$:
 $(\mca e_j, e_k) = a_{kj}$, т.к. базис ортонормированный, с другой стороны $(\mca e_j, e_k) = (e_j, \mca^* e_k)$.
-Для $e_k$ запишем: $\mca^* e_k = \sum_{i=1}^k b_{i k} e_i$. Подставим это в предыдущее равенство:
-$(e_j, \mca^* e_k) = (e_j, \sum_{i=1}^k b_{i k} e_i) = (e_j, b_{j k} e_j) = \overline{b_{j k}} \Rightarrow
+Для $e_k$ запишем: $\mca^* e_k = \sum_{i=1}^n b_{i k} e_k$. Подставим это в предыдущее равенство:
+$(e_j, \mca^* e_k) = (e_j, \sum_{i=1}^n b_{i k} e_i) = (e_j, b_{j k} e_j) = \overline{b_{j k}} \Rightarrow
     b_{j k} = \overline{a_{k j}}$.
 
 Таким образом, $B = \overline{A^T} = A^*$.

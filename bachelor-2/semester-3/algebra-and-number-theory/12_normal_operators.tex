@@ -8,28 +8,34 @@
 \begin{definition} [Нормальный оператор]
     Пусть $V$ -- евклидово (унитарное) пространство. $\mca \in \End V$ называется нормальным, если
     $\mca \mca^* = \mca^* \mca$.
+\end{definition}
+
+\begin{example}
     \begin{enumerate}
         \item Самосопряженный: $\mca = \mca^*$
         \item Ортогональный/унитарный: $\mca \mca^* = \mca \mca^{-1} =\mse_V = \mca^{-1} \mca = \mca^* \mca$
         \item Кососимметрический: $\mca^* = -\mca$
     \end{enumerate}
-\end{definition}
+\end{example}
 
 \begin{proposition}
     Пусть $\mca$ -- нормальный, $\alpha \in K$. Тогда $\mcb = \mca - \alpha \mse_V$ -- тоже нормальный.
+\end{proposition}
+
+\begin{proof}
     \begin{gather*}
         \mcb^* = \mca^* - (\alpha \mse_V)^* = \mca^* - \overline{\alpha}\mse_V^* = \mca^* - \overline{\alpha}\mse_V \\
         \mcb \mcb^* = \mca \mca^* - \alpha\mca^* - \overline{\alpha}\mca + |\alpha|^2\mse_V \\
         \mcb^* \mcb = \mca^* \mca - \alpha \mca^* - \overline{\alpha}\mca + |\alpha|^2\mse_V 
     \end{gather*}
-\end{proposition}
+\end{proof}
 
 \begin{proposition}
     Пусть $\mca$ -- нормальный, $v \in V$ -- собственный вектор оператора $\mca$, принадлежащий собственному значению $\lambda$. Тогда $v$ -- собственный вектор оператора $\mca^*$, принадлежащий собственному значению $\overline{\lambda}$.
 \end{proposition}
 
 \begin{proof}
-    $\underbrace{(\mca - \lambda \mse_v)}_{\mcb} v = 0 \Rightarrow (\mcb v, \mcb v) = 0 \Rightarrow
+    $\underbrace{(\mca - \lambda \mse_V)}_{\mcb} v = 0 \Rightarrow (\mcb v, \mcb v) = 0 \Rightarrow
         (v, \mcb^* \mcb v) = 0 \Rightarrow (v, \mcb \mcb^* v) = 0 \Rightarrow (\mcb^* v, \mcb^* v) = 0 \Rightarrow \mcb^*v = 0 = \mca^* v - \overline{\lambda}v \Rightarrow \mca^*v = \overline{\lambda}v$.
 \end{proof}
 
