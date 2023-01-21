@@ -9,7 +9,7 @@
 
 $R$ -- коммутативное (ассоциативность подразумевается) кольцо с 1. 
 
-$I \subset R$ называется идеалом, если $I$ -- подгруппа $R$ относительно сложения и $RI \subset R$.
+$I \subset R$ называется идеалом, если $I$ -- подгруппа $R$ относительно сложения и $RI \subset I$.
 
 $(a) = \{ax \ |\ x \in R\}$
 
@@ -21,12 +21,12 @@ $R = (1), \ 0 = (0)$.
 
 \begin{proof}
     $\Rightarrow$: $\underbrace{(1)}_{1 \in} \neq \underbrace{(0)}_{1 \in}$, т.к. $1 \neq 0$.
-    Пусть $I$ -- идеал в $R$, $I \neq 0 \Rightarrow \exists c \in I \backslash \left\langle 0\right\rangle
+    Пусть $I$ -- идеал в $R$, $I \neq 0 \Rightarrow \exists c \in I \backslash \{ 0\} 
     \Rightarrow 1 = c c^{-1} \Rightarrow 1 \in I \Rightarrow I = R \ (r = r \cdot 1) $.
 
     $\Leftarrow$: если $0 = 1$, $r = r \cdot 1 = r \cdot 0 = 0 \Leftarrow$ нет двух идеалов.
     
-    Проверим обратимость: $c \in R \backslash \left\langle 0\right\rangle, \ (c) \neq 0 \Rightarrow
+    Проверим обратимость: $c \in R \backslash \{ 0\}, \ (c) \neq 0 \Rightarrow
     (c) = R \Rightarrow 1 \in (c) \Rightarrow c \in R^*$. 
 \end{proof}
 
