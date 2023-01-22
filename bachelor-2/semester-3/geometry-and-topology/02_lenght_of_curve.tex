@@ -25,28 +25,28 @@
 \begin{remark}
     $|\sum \vf_i| \le \sum |\vf_i|$, $||\vf| - |\vg|| \le |\vf - \vg|$, $|\int \vf dt| \le \int |\vf| dt$.
 \end{remark}
-\begin{proof}
+\begin{longProof}
     Хотим доказать:
-    \[\left| \int_a^b |\vf'(t)| dt - \sum |\vf(t_i) - \vf(t_{i-1})|\right| \to 0\]
+    \[\left| \int_a^b |\vf'(t)| dt - \sum_{i=1}^n |\vf(t_i) - \vf(t_{i-1})|\right| \to 0\]
     оценим это:
     \begin{multline*}
-        \left| \int_a^b |\vf'(t)| dt - \sum |\vf(t_i) - \vf(t_{i-1})|\right| = \\
-        \left| \int_a^b |\vf'(t)| dt - \sum |\vf'(\sigma_i)| \Delta_i t  + \sum |\vf' (\sigma_i)| \Delta_i t - \sum |\vf(t_i) - \vf(t_{i-1})| \right| \\
-        \le \left| \int_a^b |\vf'(t)| dt - \sum |\vf'(\sigma_i)| \Delta_i t \right|  +\\
-        \left| \sum |\vf' (\sigma_i)| \Delta_i t - \sum |\vf(t_i) - \vf(t_{i-1})| \right|
+        \left| \int_a^b |\vf'(t)| dt - \sum_{i=1}^n |\vf(t_i) - \vf(t_{i-1})|\right| = \\
+        \left| \int_a^b |\vf'(t)| dt - \sum_{i=1}^n |\vf'(\sigma_i)| \Delta_i t  + \sum_{i=1}^n |\vf' (\sigma_i)| \Delta_i t - \sum_{i=1}^n |\vf(t_i) - \vf(t_{i-1})| \right| \\
+        \le \left| \int_a^b |\vf'(t)| dt - \sum_{i=1}^n |\vf'(\sigma_i)| \Delta_i t \right|  +\\
+        \left| \sum_{i=1}^n |\vf' (\sigma_i)| \Delta_i t - \sum_{i=1}^n |\vf(t_i) - \vf(t_{i-1})| \right|
     \end{multline*}
-    $\left| \int_a^b |\vf'(t)| dt - \sum |\vf'(\sigma_i)| \Delta_i t \right| \to 0$ по определению интеграла.
+    $\left| \int_a^b |\vf'(t)| dt - \sum_{i=1}^n |\vf'(\sigma_i)| \Delta_i t \right| \to 0$ по определению интеграла.
 
     $\vf'$ непрерывная, значит равномерно непрерывна, тогда если
     $\forall \epsilon > 0\  \exists \delta > 0\  |x_1 - x_2| < \delta \implies |\vf(x_1) - \vf(x_2)| < \epsilon$.
     Выберем любое $\epsilon$ и зафиксируем $\delta$, удовлетворяющее мелкости разбиения и получим:
     \begin{multline*}
-        \left| \sum |\vf' (\sigma_i)| \Delta_i t - \sum |\vf(t_i) - \vf(t_{i-1})| \right| =\\
-        \left|\sum \int_{t_{i-1}}^{t_i} |\vf'(\sigma_i)|dt -  \sum \left|\int_{t_{i-1}}^{t_i} \vf'(t)dt\right|\right|
-        \le \sum \int_{t_{i-1}}^{t_i} \left|\vf'(\sigma_i) - \vf'(t) \right|dt \\
-        \le \sum \int_{t_{i-1}}^{t_i} \epsilon dt = \epsilon (b-a) \to 0
+        \left| \sum_{i=1}^n |\vf' (\sigma_i)| \Delta_i t - \sum_{i=1}^n |\vf(t_i) - \vf(t_{i-1})| \right| =\\
+        \left|\sum_{i=1}^n \int_{t_{i-1}}^{t_i} |\vf'(\sigma_i)|dt -  \sum_{i=1}^n \left|\int_{t_{i-1}}^{t_i} \vf'(t)dt\right|\right|
+        \le \sum_{i=1}^n \int_{t_{i-1}}^{t_i} \left|\vf'(\sigma_i) - \vf'(t) \right|dt \\
+        \le \sum_{i=1}^n \int_{t_{i-1}}^{t_i} \epsilon dt = \epsilon (b-a) \to 0
     \end{multline*}
-\end{proof}
+\end{longProof}
 
 Попытаемся понять как вычислять длину прямой в некоторых случаях:\marginpar{12.09.22}
 \begin{itemize}
