@@ -25,17 +25,16 @@
     \begin{center}
         \import{figures/}{proj_n-u.pdf_tex}
     \end{center}
-    \[|\proj_{\vn} u| = \frac{|\vf' \times \vu|}{|\vf'|}\]
+    \[|\proj_{\vn} \vu| = \frac{|\vf' \times \vu|}{|\vf'|}\]
 
     Вычислим $k$:
     \begin{multline*}
         k = |\vg''(s)| = |(\vf(\psi(s)))''| = \\
-        | \vf''(\psi(s)) \psi'^2(s) + \vf'(\psi(s)) \psi''(s)| = \\
-        \left|\proj_{\vn} (\vf''(\psi(s)) \psi'^2(s) + \vf'(\psi(s)) \psi''(s))\right|
+        = | \vf''(\psi(s)) \psi'^2(s) + \vf'(\psi(s)) \psi''(s)| = \\
+        = \left|\proj_{\vn} (\vf''(\psi(s)) \psi'^2(s) + \vf'(\psi(s)) \psi''(s))\right|
     \end{multline*}
-    Пусть
+    Пусть $\vu = \vf''(\psi(s)) \psi'^2(s) + \vf'(\psi(s)) \psi''(s)$, тогда
     \begin{gather*}
-        \vu = \vf''(\psi(s)) \psi'^2(s) + \vf'(\psi(s)) \psi''(s)\\
         \vf' \times \vu = \vf' \times \vf'' \psi'^2 + 0\\
         \psi'(s) = \frac{1}{\phi'(t)} = \frac{1}{|\vf'(t)|}
         \intertext{тогда}
