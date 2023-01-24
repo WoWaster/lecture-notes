@@ -13,6 +13,7 @@
     \item $\vn_M = (0,0,1)$
 \end{itemize}
 \begin{center}
+    \def\svgwidth{0.5\linewidth}
     \import{figures}{touching_paraboloid.pdf_tex}
 \end{center}
 Тогда можем параметризовать поверхность таким образом $z = f(x,y)$, по крайней мере в окрестности точки $M$.
@@ -218,54 +219,55 @@ $k_1, k_2$~--- корни соответствующего уравнения
     \end{multline*}
 \end{proof}
 
-\begin{lemma}
-    \[\begin{vmatrix}
-            A_1 + A_2 & B_1 + B_2 & C_1 + C_2 \\
-            D         & E         & F         \\
-            \alpha    & \beta     & \gamma
-        \end{vmatrix} =
-        \begin{vmatrix}
-            A_1    & B_1   & C_1    \\
-            D      & E     & F      \\
-            \alpha & \beta & \gamma
-        \end{vmatrix} +
-        \begin{vmatrix}
-            A_2    & B_2   & C_2    \\
-            D      & E     & F      \\
-            \alpha & \beta & \gamma
-        \end{vmatrix}\]
-\end{lemma}
-\begin{proof}
-    \begin{multline*}
-        \begin{vmatrix}
-            A_1 + A_2 & B_1 + B_2 & C_1 + C_2 \\
-            D         & E         & F         \\
-            \alpha    & \beta     & \gamma
-        \end{vmatrix} =\\
-        (A_1 + A_2) \begin{vmatrix}
-            E     & F      \\
-            \beta & \gamma
-        \end{vmatrix}
-        - (B_1 + B_2) \begin{vmatrix}
-            D      & F      \\
-            \alpha & \gamma
-        \end{vmatrix}
-        + (C_1 + C_2) \begin{vmatrix}
-            D      & E     \\
-            \alpha & \beta
-        \end{vmatrix}=\\
-        \begin{vmatrix}
-            A_1    & B_1   & C_1    \\
-            D      & E     & F      \\
-            \alpha & \beta & \gamma
-        \end{vmatrix} +
-        \begin{vmatrix}
-            A_2    & B_2   & C_2    \\
-            D      & E     & F      \\
-            \alpha & \beta & \gamma
-        \end{vmatrix}
-    \end{multline*}
-\end{proof}
+% Кажется эта лемма так нигде и не пригодилась
+% \begin{lemma}
+%     \[\begin{vmatrix}
+%             A_1 + A_2 & B_1 + B_2 & C_1 + C_2 \\
+%             D         & E         & F         \\
+%             \alpha    & \beta     & \gamma
+%         \end{vmatrix} =
+%         \begin{vmatrix}
+%             A_1    & B_1   & C_1    \\
+%             D      & E     & F      \\
+%             \alpha & \beta & \gamma
+%         \end{vmatrix} +
+%         \begin{vmatrix}
+%             A_2    & B_2   & C_2    \\
+%             D      & E     & F      \\
+%             \alpha & \beta & \gamma
+%         \end{vmatrix}\]
+% \end{lemma}
+% \begin{proof}
+%     \begin{multline*}
+%         \begin{vmatrix}
+%             A_1 + A_2 & B_1 + B_2 & C_1 + C_2 \\
+%             D         & E         & F         \\
+%             \alpha    & \beta     & \gamma
+%         \end{vmatrix} =\\
+%         (A_1 + A_2) \begin{vmatrix}
+%             E     & F      \\
+%             \beta & \gamma
+%         \end{vmatrix}
+%         - (B_1 + B_2) \begin{vmatrix}
+%             D      & F      \\
+%             \alpha & \gamma
+%         \end{vmatrix}
+%         + (C_1 + C_2) \begin{vmatrix}
+%             D      & E     \\
+%             \alpha & \beta
+%         \end{vmatrix}=\\
+%         \begin{vmatrix}
+%             A_1    & B_1   & C_1    \\
+%             D      & E     & F      \\
+%             \alpha & \beta & \gamma
+%         \end{vmatrix} +
+%         \begin{vmatrix}
+%             A_2    & B_2   & C_2    \\
+%             D      & E     & F      \\
+%             \alpha & \beta & \gamma
+%         \end{vmatrix}
+%     \end{multline*}
+% \end{proof}
 \begin{theorem}\label{touching_paraboloid:gauss}
     \[K = \frac{LN - M^2}{EG - F^2}\]
 \end{theorem}

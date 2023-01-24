@@ -73,7 +73,7 @@
 \end{center}
 Если $\theta$~--- диффеоморфизм, то $\vf = \vg \theta$ и $\vg = \vf \theta^{-1}$.
 
-\section{Кривая лежит на поверхности}
+\section{Кривая на поверхности}
 \begin{center}
     \import{figures/}{curve_on_surface.pdf_tex}
 \end{center}
@@ -104,9 +104,9 @@ $\frac{\partial \vf}{\partial u}$ и $\frac{\partial \vf}{\partial v}$ к кри
 
 \begin{definition}[Регулярная параметризация]
     Параметризация называется регулярной, если $\forall (u_0, v_0) \in \fancyD$
-    \[\frac{\partial\vf}{\partial u}|_{(u_0, v_0)}
+    \[\frac{\partial\vf}{\partial u}\Bigg|_{(u_0, v_0)}
         \not\parallel
-        \frac{\partial\vf}{\partial v}|_{(u_0, v_0)}.\]
+        \frac{\partial\vf}{\partial v}\Bigg|_{(u_0, v_0)}.\]
 \end{definition}
 Теперь будем последовательно фиксировать $v_0$ и строить кривые,
 потом повторим то же самое с $u_0$, получим семейство координатных кривых:
@@ -128,6 +128,7 @@ $\frac{\partial \vf}{\partial u}$ и $\frac{\partial \vf}{\partial v}$ к кри
     Есть кривая в пространстве, рассмотрим множество касательных прямых.
     Эти прямые будут заметать некоторую поверхность, в некоторой окрестности эта поверхность даже будет несамопересекающейся.
     \begin{center}
+        \def\svgwidth{0.6\linewidth}
         \import{figures/}{not_regular_surface.pdf_tex}
     \end{center}
     Найдем параметризацию это поверхности:
