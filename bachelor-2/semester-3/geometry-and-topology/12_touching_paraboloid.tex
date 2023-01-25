@@ -52,13 +52,14 @@
 \end{theorem}
 Теорема очевидна, рассмотрим векторную форму поверхности $z = \vf(x,y)$: $\vr(x,y,\vf(x,y))$.
 \begin{gather*}
-    E = \frac{\partial \vr}{\partial x} \frac{\partial \vr}{\partial x} = \left(1 + \left|\frac{\partial \vf}{\partial x} \right\|_{(0,0)}\right) = 1\\
+    E = \frac{\partial \vr}{\partial x} \frac{\partial \vr}{\partial x} = \left(1 + \left.\frac{\partial \vf}{\partial x} \right|_{(0,0)}\right) = 1\\
     F = 0 \\
     G= 1\\
     L = \frac{\partial^2 \vf}{\partial x^2} \vn = (0,0,2A) \cdot (0,0,1) = 2A\\
     M = (0,0,\vf''_{xy}|_{(0,0)})\vn = 0\\
     N =  2C
 \end{gather*}
+У $\vf_1$ коэффициенты те же самые, т.к. это многочлен Тейлора.
 Но это только в одной конкретной точке, даже не в окрестности.
 \begin{corollary}
     $k_{n}, k_1, k_2, K, H$ одинаковы у поверхности и соприкасающегося параболоида.
