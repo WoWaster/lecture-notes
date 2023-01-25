@@ -7,13 +7,12 @@
 \[\vf(u,v) = (x(u,v), y(u,v), z(u,v))\]
 и $u = u(t), v = v(t)$.
 Чему равна длина от $t_0$ до $t_1$?
-
 \begin{gather*}
     \frac{d\vf}{dt} = (x_u' u' + x_v' v', y_u' u' + y_v' v', z_u' u' + z_v' v') = \vf_u' u' + \vf_v' v'\\
     \left| \frac{d\vf}{dt} \right| = \sqrt{(\vf_u' u' + \vf_v' v') \cdot (\vf_u' u' + \vf_v' v')} = \sqrt{\vf_u'^2 u'^2 + 2 \vf_u'\vf_v' u'v' + \vf_v'^2 v'^2}
 \end{gather*}
-Заметим, что $\vf_u'^2$ не зависит от кривой и зависит только от поверхности.
-Обозначим $E \coloneqq \vf_u'^2$, $F \coloneqq \vf_u' \vf_v'$, $G = \vf_v'^2$.
+Заметим, что $\vf_u'$ и $\vf'_v$ не зависят от кривой и зависят только от поверхности.
+Обозначим $E \coloneqq \vf_u'^2$, $F \coloneqq \vf_u' \vf_v'$, $G \coloneqq \vf_v'^2$.
 В чем удобство? Эта штука определяется только поверхностью.
 
 Теперь длина принимает вид

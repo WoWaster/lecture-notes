@@ -16,7 +16,7 @@
     \def\svgwidth{0.5\linewidth}
     \import{figures}{touching_paraboloid.pdf_tex}
 \end{center}
-Тогда можем параметризовать поверхность таким образом $z = f(x,y)$, по крайней мере в окрестности точки $M$.
+Тогда можем параметризовать поверхность таким образом $z = \vf(x,y)$, по крайней мере в окрестности точки $M$.
 
 Рассмотрим некоторое приближение этой поверхности, для этого применим формулу Тейлора:
 \begin{align*}
@@ -52,7 +52,7 @@
 \end{theorem}
 Теорема очевидна, рассмотрим векторную форму поверхности $z = \vf(x,y)$: $\vr(x,y,\vf(x,y))$.
 \begin{gather*}
-    E = \frac{\partial \vr}{\partial x} \frac{\partial \vr}{\partial x} = \left(1 + \left|\frac{\partial \vf}{\partial x} \right|_{(0,0)}\right) = 1\\
+    E = \frac{\partial \vr}{\partial x} \frac{\partial \vr}{\partial x} = \left(1 + \left|\frac{\partial \vf}{\partial x} \right\|_{(0,0)}\right) = 1\\
     F = 0 \\
     G= 1\\
     L = \frac{\partial^2 \vf}{\partial x^2} \vn = (0,0,2A) \cdot (0,0,1) = 2A\\

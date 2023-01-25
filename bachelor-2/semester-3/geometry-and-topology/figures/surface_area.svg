@@ -7,7 +7,7 @@
    viewBox="0 0 75.812883 43.730061"
    version="1.1"
    id="svg3054"
-   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    sodipodi:docname="surface_area.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -26,7 +26,7 @@
      showgrid="false"
      inkscape:zoom="5.2952301"
      inkscape:cx="254.852"
-     inkscape:cy="79.694365"
+     inkscape:cy="79.59994"
      inkscape:window-width="1920"
      inkscape:window-height="1019"
      inkscape:window-x="1920"
@@ -140,7 +140,7 @@
          id="tspan4324"
          style="fill:#000000;stroke-width:0.265"
          x="93.328735"
-         y="55.98687">$\frac{\partial f}{\partial u}$</tspan></text>
+         y="55.98687">$\frac{\partial \vf}{\partial u}$</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.175px;fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none"
@@ -151,7 +151,7 @@
          id="tspan4324-6"
          style="fill:#000000;stroke-width:0.265"
          x="92.930817"
-         y="72.649353">$\frac{\partial f}{\partial v}$</tspan></text>
+         y="72.649353">$\frac{\partial \vf}{\partial v}$</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none"
        d="m 87.111067,77.516166 c 1.872919,0.740066 4.01824,0.557943 5.903845,-0.149176 1.885604,-0.707119 3.547767,-1.902246 5.101914,-3.182929 2.081234,-1.715025 4.031214,-3.628768 5.496244,-5.892956 1.46502,-2.264187 2.42801,-4.906141 2.41628,-7.602937 -0.008,-1.866481 -0.48795,-3.731817 -1.40147,-5.359483 -0.91352,-1.627666 -2.26074,-3.012623 -3.87411,-3.951169 -2.270866,-1.321036 -5.033409,-1.724847 -7.615473,-1.240164 -2.582064,0.484683 -4.974465,1.831968 -6.827059,3.694725 -1.852594,1.862758 -3.173565,4.225435 -3.924633,6.742947 -0.751068,2.517512 -0.942539,5.18632 -0.698692,7.802139 0.173198,1.857948 0.572715,3.720627 1.44234,5.371603 0.869624,1.650976 2.24538,3.08166 3.980814,3.7674 z"

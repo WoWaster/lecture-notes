@@ -1,4 +1,4 @@
-%% Creator: Inkscape 1.2.1 (9c6d41e410, 2022-07-14), www.inkscape.org
+%% Creator: Inkscape 1.2.2 (b0a8486541, 2022-12-01), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
 %% Accompanies image file 'surface_area.pdf' (pdf, eps, ps)
 %%
@@ -54,8 +54,8 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{surface_area.pdf}}%
-    \put(0.79901413,0.41514385){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\frac{\partial f}{\partial u}$\end{tabular}}}}%
-    \put(0.79376543,0.19535953){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\frac{\partial f}{\partial v}$\end{tabular}}}}%
+    \put(0.79901413,0.41514385){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\frac{\partial \vf}{\partial u}$\end{tabular}}}}%
+    \put(0.79376543,0.19535953){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\frac{\partial \vf}{\partial v}$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{surface_area.pdf}}%
   \end{picture}%
 \endgroup%
