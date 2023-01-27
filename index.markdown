@@ -13,7 +13,7 @@ title: Конспекты
 ## 3 семестр
 
 - [Алгебра и теория чисел](https://storage.yandexcloud.net/tp-2021-lecture-notes/algebra-and-number-theory-3.pdf) (Автор [@chilison](https://github.com/chilison))
-- [Геометрия и топология](https://storage.yandexcloud.net/tp-2021-lecture-notes/geometry-and-topology-3.pdf) (Автор [@WoWaster](https://github.com/WoWaster), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/8))
+- [Геометрия и топология](https://storage.yandexcloud.net/tp-2021-lecture-notes/geometry-and-topology-3.pdf) (Автор [@WoWaster](https://github.com/WoWaster))
 - Дифференциальные уравнения (Автор: Т.Е. Звягинцева и кафедра)[^why]
   1. Дифференциальные уравнения первого порядка в [репозитории СПбГУ](http://hdl.handle.net/11701/34721), в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-3-part1.pdf)
   2. Общая теория систем обыкновенных дифференциальных уравнений в [репозитории СПбГУ](http://hdl.handle.net/11701/37873), в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-3-part2.pdf)
