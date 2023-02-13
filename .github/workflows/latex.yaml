@@ -20,8 +20,8 @@ jobs:
               upload_name: "geometry-and-topology-3.pdf",
             },
             {
-              tex_file: "bachelor-2/semester-3/mathan/main.tex",
-              pdf_file: "bachelor-2/semester-3/mathan/main.pdf",
+              tex_file: "bachelor-2/semester-3/analysis/main.tex",
+              pdf_file: "bachelor-2/semester-3/analysis/main.pdf",
               upload_name: "analysis-3.pdf",
             },
           ]
