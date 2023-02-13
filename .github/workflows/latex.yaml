@@ -10,19 +10,14 @@ jobs:
         files:
           [
             {
-              tex_file: "bachelor-2/semester-3/algebra-and-number-theory/main.tex",
-              pdf_file: "bachelor-2/semester-3/algebra-and-number-theory/main.pdf",
-              upload_name: "algebra-and-number-theory-3.pdf",
+              tex_file: "bachelor-2/semester-4/analysis/main.tex",
+              pdf_file: "bachelor-2/semester-4/analysis/main.pdf",
+              upload_name: "analysis-4.pdf",
             },
             {
-              tex_file: "bachelor-2/semester-3/geometry-and-topology/main.tex",
-              pdf_file: "bachelor-2/semester-3/geometry-and-topology/main.pdf",
-              upload_name: "geometry-and-topology-3.pdf",
-            },
-            {
-              tex_file: "bachelor-2/semester-3/analysis/main.tex",
-              pdf_file: "bachelor-2/semester-3/analysis/main.pdf",
-              upload_name: "analysis-3.pdf",
+              tex_file: "bachelor-2/semester-4/mathematical-logic/main.tex",
+              pdf_file: "bachelor-2/semester-4/mathematical-logic/main.pdf",
+              upload_name: "analysis-4.pdf",
             },
           ]
     runs-on: ubuntu-latest
