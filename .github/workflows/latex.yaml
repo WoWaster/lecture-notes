@@ -17,7 +17,7 @@ jobs:
             {
               tex_file: "bachelor-2/semester-4/mathematical-logic/main.tex",
               pdf_file: "bachelor-2/semester-4/mathematical-logic/main.pdf",
-              upload_name: "analysis-4.pdf",
+              upload_name: "mathematical-logic-4.pdf",
             },
           ]
     runs-on: ubuntu-latest
