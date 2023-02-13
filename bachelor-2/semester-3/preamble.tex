@@ -1,0 +1,110 @@
+%%% PDF settings
+\pdfvariable minorversion 7 % Set PDF version to 1.7.
+
+%%% Fonts and language setup.
+\usepackage{polyglossia}
+% Setup fonts.
+\usepackage{fontspec}
+\setmainfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
+\setmonofont{CMU Typewriter Text}
+
+\usepackage{microtype} % Add fancy-schmancy font tricks.
+
+\usepackage{xcolor} % Add colors support.
+
+%% Math
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools} % Advanced math tools.
+\usepackage{thmtools}
+\usepackage{unicode-math} % Allow TTF and OTF fonts in math and allow direct typing unicode math characters.
+\unimathsetup{
+    warnings-off={
+            mathtools-colon,
+            mathtools-overbracket
+        }
+}
+\setmathfont{Latin Modern Math} % default
+\setmathfont[range={\setminus,\varnothing,\smashtimes}]{Asana Math}
+
+%%% Images
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{import}
+
+%%% Polyglossia setup after (nearly) everything as described in documentation.
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+
+
+%%% Custom commands
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\id}{\mathrm{id}}
+\AtBeginDocument{\renewcommand{\leq}{\leqslant}}
+\AtBeginDocument{\renewcommand{\geq}{\geqslant}}
+\AtBeginDocument{\renewcommand{\Re}{\operatorname{Re}}}
+\AtBeginDocument{\renewcommand{\Im}{\operatorname{Im}}}
+\AtBeginDocument{\renewcommand{\phi}{\varphi}}
+\AtBeginDocument{\renewcommand{\epsilon}{\varepsilon}}
+
+%%% theorem-like envs
+\theoremstyle{definition}
+
+\declaretheoremstyle[spaceabove=0.5\topsep,
+    spacebelow=0.5\topsep,
+    headfont=\bfseries\sffamily,
+    bodyfont=\normalfont,
+    headpunct=.,
+    postheadspace=5pt plus 1pt minus 1pt]{myStyle}
+\declaretheoremstyle[spacebelow=\topsep,
+    headfont=\bfseries\sffamily,
+    bodyfont=\normalfont,
+    headpunct=.,
+    postheadspace=5pt plus 1pt minus 1pt,]{myStyleWithFrame}
+\declaretheoremstyle[spacebelow=\topsep,
+    headfont=\bfseries\sffamily,
+    bodyfont=\normalfont,
+    headpunct=.,
+    postheadspace=5pt plus 1pt minus 1pt,
+    qed=\blacksquare]{myProofStyleWithFrame}
+
+\usepackage[breakable]{tcolorbox}
+\tcbset{sharp corners=all, colback=white}
+\tcolorboxenvironment{theorem}{}
+\tcolorboxenvironment{theorem*}{}
+\tcolorboxenvironment{axiom}{}
+\tcolorboxenvironment{assertion}{}
+\tcolorboxenvironment{lemma}{}
+\tcolorboxenvironment{proposition}{}
+\tcolorboxenvironment{corollary}{}
+\tcolorboxenvironment{definition}{}
+\tcolorboxenvironment{proofReplace}{toprule=0mm,bottomrule=0mm,rightrule=0mm, colback=white, breakable }
+
+\declaretheorem[name=Теорема, numberwithin=chapter, style=myStyleWithFrame]{theorem}
+\declaretheorem[name=Теорема, numbered=no, style=myStyleWithFrame]{theorem*}
+\declaretheorem[name=Аксиома, sibling=theorem, style=myStyleWithFrame]{axiom}
+\declaretheorem[name=Преположение, sibling=theorem, style=myStyleWithFrame]{assertion}
+\declaretheorem[name=Лемма, sibling=theorem, style=myStyleWithFrame]{lemma}
+\declaretheorem[name=Предложение, sibling=theorem, style=myStyleWithFrame]{proposition}
+\declaretheorem[name=Следствие, numberwithin=theorem, style=myStyleWithFrame]{corollary}
+
+\declaretheorem[name=Определение, numberwithin=chapter, style=myStyleWithFrame]{definition}
+\declaretheorem[name=Свойство, numberwithin=chapter, style=myStyle]{property}
+\declaretheorem[name=Свойства, numbered=no, style=myStyle]{propertylist}
+
+\declaretheorem[name=Пример, numberwithin=chapter, style=myStyle]{example}
+\declaretheorem[name=Замечание, numbered=no, style=myStyle]{remark}
+
+\declaretheorem[name=Доказательство, numbered=no, style=myProofStyleWithFrame]{proofReplace}
+\renewenvironment{proof}[1][\proofname]{\begin{proofReplace}}{\end{proofReplace}}
+\declaretheorem[name=Доказательство, numbered=no, style=myProofStyleWithFrame]{longProof}
+
+%%% Memoir settings
+\chapterstyle{ger}
+\setlength{\headheight}{2\baselineskip}
+
+%%% HyperRef
+\usepackage{hyperref}
