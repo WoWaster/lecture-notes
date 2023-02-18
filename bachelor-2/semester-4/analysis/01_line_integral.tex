@@ -1,0 +1,222 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Криволинейные интегралы второго рода}
+\section{Криволинейные интегралы второго рода от комплекснозначных функций} \marginpar{16.02.23}
+\begin{definition}
+    Имеется $\AnClOrCurve \subset \R^2$ -- ориентированная кривая.
+    И имеется функция \[f(x_1, x_2) = u(x_1, x_2) + i v(x_1, x_2),\] такая что $f: \AnClOrCurve \to \C$, $f \in C(\Gamma)$.
+
+    Тогда криволинейным интегралом второго рода от функции $f$ по ориентированной кривой $\AnClOrCurve$ по аргументу $x_j$ будем называть следующее выражение:
+    \[\AnClOrInt f(x_1, x_2) dx_j \coloneqq \AnClOrInt u(x_1, x_2) dx_j + i \AnClOrInt v(x_1, x_2) dx_j,\]
+    где $j = 1,2$.
+\end{definition}
+
+\subsection{Свойства криволинейного интеграла второго рода от комплекснозначных функций}
+Далее везде предполагается, что все функции непрерывны на кривой, а сама кривая кусочно-гладкая.
+
+\begin{property}
+    \[\AnClOrInt (f+g) dx_j = \AnClOrInt f dx_j + \AnClOrInt g dx_j\]
+\end{property}
+
+\begin{property}
+    Пусть $c \in \C$, тогда
+    \[\AnClOrInt c f dx_j = c \AnClOrInt f dx_j\]
+\end{property}
+\begin{proof}
+    Допустим, что $c = a + ib$, $f = u + iv$, тогда
+    \[cf = au - bv + i(av + bu)\]
+    Подставим это в левый интеграл:
+    \begin{multline*}
+        \AnClOrInt c f dx_j = \AnClOrInt (au - bv) dx_j + i \AnClOrInt (av + bu) dx_j =\\
+        = a \AnClOrInt u dx_j - b \AnClOrInt v dx_j + i\left(a \AnClOrInt v dx_j + b \AnClOrInt u dx_j\right) = \\
+        = c \AnClOrInt u dx_j + i c \AnClOrInt v dx_j = c \AnClOrInt f dx_j
+    \end{multline*}
+\end{proof}
+
+\begin{property}
+    \[\ClOrInt f dx_j  = - \AnClOrInt f dx_j\]
+\end{property}
+
+\begin{property}
+    Имеется $\AnClOrCurve([a,b])$, разбиение $P = \{t_k\}_{k=0}^m$, где $t_0 = a, t_m = b$, а так же его оснащение $T = \{\tau_k\}_{k=1}^m$, где $\tau_k \in [t_{k-1}, t_k]$.
+    Кроме того имеется комплекснозначная функция $f: \Gamma \to \C$, $f \in C(\Gamma)$.
+
+    Введем обозначения: $\AnClOrCurve(\tau_k) = M_k$, $\AnClOrCurve(t_k) =
+        \begin{bmatrix}
+            x_{1k} & x_{2k}
+        \end{bmatrix}^T$.
+    Суммой Римана для функции $f$, разбиения $P$, оснащения $T$ и для аргумента $x_j$  будем называть такое выражение:
+    \[S(f, P, T, j) = \sum_{k=1}^m f(M_k)(x_{j,k} - x_{j, k-1}),\]
+    где  $j = 1, 2$.
+
+    Тогда свойство состоит в следующем:
+    \begin{multline*}
+        \forall \epsilon > 0\ \exists \delta >0 \text{ т.ч. } \forall P \text{ т.ч. } t_k - t_{k-1} < \delta, k \le m \text{ и } \forall T \\
+        \left|\AnClOrInt[\AnClOrCurve([a,b])] f dx_j - S(f, P, T, j)\right| < \epsilon \tag{1}
+    \end{multline*}
+\end{property}
+\begin{proof}
+    Если $f = u + iv$, то выполнено
+    \begin{gather*}
+        S(f, P, T, j) = S(u, P, T, j) + S(v, P, T, j)\\
+        \intertext{Применив аналогичную теорему для вещественных функций, можем найти такое $\delta$, что выполняются}
+        \left| \AnClOrInt u dx_j - S (u, P, T, j)\right| < \epsilon/2 \tag{2}\\
+        \left| \AnClOrInt v dx_j - S (v, P, T, j)\right| < \epsilon/2 \tag{3}
+    \end{gather*}
+    (2), (3) $\implies$ (1)
+\end{proof}
+
+\section{Направление на кривой}
+\begin{center}
+    \import{figures}{orientation_on_curve.pdf_tex}
+\end{center}
+Сначала рассмотрим окружность, как самый простой пример.
+Можем обходить ее <<по часовой стрелке>> и <<против часовой стрелки>>.
+Положительным обходом с этого момента и далее будем называть обход против часовой стрелки.
+В отрицательном направлении против часовой стрелки, соответственно.
+
+Теперь рассмотрим некую замкнутую кривую на плоскости.
+На ней так же определены положительное и отрицательное направления.
+В некотором смысле они аналогичны окружности.
+Но как это понять?
+
+\begin{theorem}[Жордана]
+    Имеется некая кривая на плоскости $\AnClOrCurve: [a, b] \to \R^2$, такая что $\AnClOrCurve(a) = \AnClOrCurve(b)$, и если $t_1 \neq t_2$, то $\AnClOrCurve(t_1) \neq \AnClOrCurve(t_2)$.
+    Тогда эта кривая делит плоскость на 2 области.
+
+    Одна из этих областей содержит точки, которые произвольно далеки от начала координат, и называется внешностью кривой, вторая называется внутренностью.
+    При этом, если мы возьмем любую точку $M$ внутри области и любую точку $N$ вне области, и соединим их любой кривой $L$, то эта кривая обязательно пересечет кривую $\Gamma$, то есть $L \cap \Gamma \neq \varnothing$.
+\end{theorem}
+\begin{proof}
+    Примем без доказательства.
+\end{proof}
+
+Пусть $\Gamma(t) =
+    \begin{bmatrix}
+        x_1(t) & x_2(t)
+    \end{bmatrix}^T$~--- замкнутая кусочно-гладкая кривая.
+Функции $x_1$ и $x_2$ непрерывны на $[a,b]$ и дифференцируемы за исключением конечного числа точек.
+Так же выполнено $(x_1'(t))^2 + (x_2'(t))^2 \ge \delta_0 > 0$, если $t \neq c_1, ..., c_l$.
+
+Положим, что $\nu(t) =
+    \begin{bmatrix}
+        -x_2'(t) & x_1(t)
+    \end{bmatrix}^T$.
+Ориентация называется положительной, если для достаточно малого $\epsilon >0$ $\Gamma(t) + \epsilon \nu (t)$ лежит во внутренности $\Gamma$.
+
+Пояснение: для достаточно малого $\epsilon$
+\[\forall t \neq c_j\ \exists \epsilon_0(t): 0 < \epsilon \le \epsilon_0(t)\]
+и $\Gamma(t) + \epsilon \nu (t)$ лежит во внутренности $\Gamma$.
+
+\begin{example}
+    С окружностью понятно как действует теорема Жордана
+    \begin{center}
+        \import{figures}{circle_on_x1_x_2.pdf_tex}
+    \end{center}
+    \begin{gather*}
+        \begin{cases}
+            x_1 = R \cos t \\
+            x_2 = R \sin t
+        \end{cases} \quad  0 \le t \le 2 \pi\\
+        \begin{cases}
+            x_1' = -R \sin t \\
+            x_2' = R \cos t
+        \end{cases} \implies
+        \nu =
+        \begin{bmatrix}
+            -R \cos t \\ -R \sin t
+        \end{bmatrix}\\
+        \begin{bmatrix}
+            x_1 \\
+            x_2
+        \end{bmatrix} + \epsilon \nu =
+        \begin{bmatrix}
+            R (1 - \epsilon) \cos t \\
+            R (1 - \epsilon) \sin t
+        \end{bmatrix}
+    \end{gather*}
+    Если $0 < \epsilon < R$, то эта точка лежит внутри круга.
+\end{example}
+
+\section{Криволинейные интегралы второго рода от комплекснозначных функций на комплексной плоскости}
+Изменим обозначения координат: вместо $x_1, x_2$ будем рассматривать $x,y$.
+Тогда можем рассматривать однозначное соответствие с комплексной плоскостью.
+
+Есть кривая $\Gamma(t): [a,b] \to \R^2 \leftrightarrow \Gamma(t): [a,b] \to \C$
+\[\Gamma(t) = \begin{bmatrix}
+        x(t) & y(t)
+    \end{bmatrix}^T \leftrightarrow z(t) = x(t) + i y(t)\]
+Будем также определять ориентацию на кривых в комплексной плоскости, полагая, что она задается на обычной плоскости.
+\[\AnClOrCurve(t): [a,b] \to \R^2 \leftrightarrow \AnClOrCurve(t): [a,b] \to \C\]
+Если мы посмотрим на замкнутые кривые, то теорема Жордана  выполняется.
+Будем называть ориентация замкнутой кривой на комплексной плоскости положительной, если положительной является ориентация этой кривой на $\R^2$.
+
+Вспомним, что $\C \supset E \leftrightarrow E^* \subset \R^2$.
+Тогда  $f: \Gamma_C \to \C \leftrightarrow f^*: \Gamma \to \C$, а так же $f^*(M(t)) \coloneqq f(z(t)), t \in [a,b]$.
+Далее $\ ^*$ и $\ _C$ будем опускать.
+
+Пусть у нас имеется ориентированная кривая $f: \AnClOrCurve_C \to \C \leftrightarrow f^*: \AnClOrCurve \to \C$, тогда определению полагаем
+\begin{gather*}
+    \AnClOrInt[\AnClOrCurve_C] f(z) dx \coloneqq \AnClOrInt f^*(M) dx \tag{4}\\
+    \AnClOrInt[\AnClOrCurve_C] f(z) dy \coloneqq \AnClOrInt f^*(M) dy \tag{5}\\
+\end{gather*}
+Тогда можем определить
+\[\AnClOrInt[\AnClOrCurve_C] f(z) dz \coloneqq \AnClOrInt[\AnClOrCurve_C] f(z) dx + i \AnClOrInt[\AnClOrCurve_C] f(z) dy \tag{6}\]
+
+Если $\AnClOrCurve_C(t)$~--- гладкая и $\AnClOrCurve_C(t) = z(t) = x(t) + iy(t), t \in [a,b]$, то (4)--(6) влекут, что
+\[\AnClOrInt[\AnClOrCurve_C] f(z) dz = \AnClOrInt[\AnClOrCurve_C] f(z(t)) x'(t) dt + i \AnClOrInt[\AnClOrCurve_C] f(z(t))y'(t) dt \tag{7}\]
+
+\subsection{Свойства криволинейного интеграла второго рода $f(z)dz$}
+Далее все функции предполагаются непрерывными.
+\begin{property}
+    \[\AnClOrInt (f+g)dz = \AnClOrInt fdz + \AnClOrInt gdz\]
+\end{property}
+
+\begin{property} Пусть $c \in \C$, тогда
+    \[\AnClOrInt c f dz = c \AnClOrInt f dz\]
+\end{property}
+
+\begin{property}
+    \[\AnClOrInt[\ClOrCurve] f dz = - \AnClOrInt f dz\]
+\end{property}
+
+\begin{property}\label{1:RiemannSumC}
+    Введем суммы Римана.
+    Имеем $\AnClOrCurve([a,b]) \subset \C$, разбиение $P = \{t_k\}_{k=0}^m$ и оснащение $T = \{\tau_k\}_{k=1}^m$.
+    \[S(f, P, T, z) = \sum_{k=1}^m f(z(\tau_k)) (z(t_k) -z(t_{k-1})) \tag{8}\]
+    Пусть $\Gamma$ есть кусочно-гладкая кривая, $f \in C(\Gamma)$, тогда
+    \begin{multline*}
+        \forall \epsilon > 0\ \exists \delta >0 \text{ т.ч. } \forall P \text{ т.ч. } t_k - t_{k-1} < \delta \text{ и } \forall T \\
+        \left|\AnClOrInt f dx_j - S(f, P, T, z)\right| < \epsilon \tag{9}
+    \end{multline*}
+\end{property}
+
+\begin{property}
+    Пусть $\AnClOrCurve \subset \C$ -- кусочно-гладкая кривая с параметризацией $z(t), t \in [a,b]$.
+    $c \in \C$, тогда
+    \begin{gather}
+        \AnClOrInt c dz = c(z(b) - z(a)) \tag{10}\\
+        \intertext{в частности, если кривая $\Gamma$ замкнутая, то}
+        \AnClOrInt c dz = 0 \tag{10'}
+    \end{gather}
+\end{property}
+\begin{proof}
+    Для доказательства используем \ref{1:RiemannSumC}.
+    $\forall \epsilon > 0$ выберем подходящие $\delta, P, T$
+    \begin{gather*}
+        \begin{multlined}
+            S(c, P, T, z) = \sum_{k=1}^m c(z(t_k) - z(t_{k-1})) =\\
+            = c (z(t_m) - z(t_0)) = c (z(b) - z(a))
+        \end{multlined} \tag{11}\\
+        \left| \AnClOrInt c dz - S(c, P, T, z)\right| < \epsilon \tag{12}\\
+        (11), (12) \implies (10)
+    \end{gather*}
+\end{proof}
+
+\begin{property}
+    Пусть у нас есть кусочно-гладкая кривая $\AnClOrCurve \subset \C$, где $f: \AnClOrCurve \to \C$.
+    Допустим у нас есть точки $a < t_1 < ... < t_m < b$ и имеются кривые $\AnClOrCurve_1:[a, t_1] \to \C, ..., \AnClOrCurve_m: [t_{m-1}, t_m] \to \C, \AnClOrCurve_{m+1}: [t_m, b] \to \C$.
+    \[\AnClOrInt fdz = \sum_{k=1}^{m+1} \AnClOrInt[\AnClOrCurve_k] f dz\]
+\end{property}
+\end{document}

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1581"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="circle_on_x1_x_2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1583"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.8721465"
+     inkscape:cx="435.59624"
+     inkscape:cy="176.26825"
+     inkscape:window-width="1920"
+     inkscape:window-height="1019"
+     inkscape:window-x="1920"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1578">
+    <marker
+       style="overflow:visible"
+       id="Arrow1"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow1"
+       markerWidth="4.0606599"
+       markerHeight="6.7071061"
+       viewBox="0 0 4.0606602 6.7071068"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         id="path5057"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-linejoin:bevel;marker-start:url(#Arrow1)"
+       d="M 95.169555,19.228293 V 68.618038"
+       id="path2112" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-linejoin:bevel;marker-end:url(#Arrow1)"
+       d="m 67.19835,43.923164 h 56.09499"
+       id="path2114" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-linejoin:bevel"
+       id="path2218"
+       cx="95.169556"
+       cy="43.923161"
+       r="19.40822" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:none;stroke:#000000;stroke-width:0.264999;stroke-linejoin:bevel"
+       x="95.993896"
+       y="47.23056"
+       id="text2222"><tspan
+         sodipodi:role="line"
+         id="tspan2220"
+         style="stroke-width:0.265"
+         x="95.993896"
+         y="47.23056">$0$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:none;stroke:#000000;stroke-width:0.264999;stroke-linejoin:bevel"
+       x="122.06171"
+       y="47.354176"
+       id="text2226"><tspan
+         sodipodi:role="line"
+         id="tspan2224"
+         style="stroke-width:0.265"
+         x="122.06171"
+         y="47.354176">$x_1$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:none;stroke:#000000;stroke-width:0.264999;stroke-linejoin:bevel"
+       x="96.507721"
+       y="20.973131"
+       id="text2230"><tspan
+         sodipodi:role="line"
+         id="tspan2228"
+         style="stroke-width:0.265"
+         x="96.507721"
+         y="20.973131">$x_2$</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-linejoin:bevel;marker-end:url(#Arrow1)"
+       d="M 95.169555,43.923164 82.418808,58.55523"
+       id="path2232" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:none;stroke:#000000;stroke-width:0.264999;stroke-linejoin:bevel"
+       x="88.653389"
+       y="54.513622"
+       id="text2254"><tspan
+         sodipodi:role="line"
+         id="tspan2252"
+         style="stroke-width:0.265"
+         x="88.653389"
+         y="54.513622">$R$</tspan></text>
+  </g>
+</svg>

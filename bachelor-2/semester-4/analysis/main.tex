@@ -6,6 +6,11 @@
 \author{Курс Широкова Н.А.}
 \date{Весна 2023 г.}
 
+\NewDocumentCommand{\AnClOrCurve}{O{\Gamma}}{\overrightarrow{#1}}
+\NewDocumentCommand{\ClOrCurve}{O{\Gamma}}{\overleftarrow{#1}}
+\NewDocumentCommand{\AnClOrInt}{O{\AnClOrCurve}}{\int_{#1}}
+\NewDocumentCommand{\ClOrInt}{O{\ClOrCurve}}{\int_{#1}}
+
 \begin{document}
 \frontmatter
 
@@ -19,5 +24,5 @@
 
 
 \mainmatter
-
+\subfile{01_line_integral.tex}
 \end{document}
