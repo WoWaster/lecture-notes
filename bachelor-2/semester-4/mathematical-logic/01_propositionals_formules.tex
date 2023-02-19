@@ -1,0 +1,169 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Пропозициональные формулы}
+\begin{definition}
+    Высказывание -- это утверждение, про которое можно сказать, истинное оно или ложное
+\end{definition}
+\begin{definition}
+    Переменные для высказывания  -- пропозициональные переменные
+\end{definition}
+Всего есть 2 константы: $\text{Const} = \{\text{true}, \text{false}\}$.
+Для них есть много разных обозначений:\\
+$true; t; T; \top; 1; 0$ -- истина, \\
+$false; f; F; \bot; 0; 1$ -- ложь.\\
+Дальше напишем логические связки:
+\begin{enumerate}
+    \item Конъюнкция $\& | \land ; \cdot ; and $ -- логическое "и"
+    \item Дизъюнкция $\lor | +; or$ --  логическое "или"
+    \item Импликация $\to | \supset ; \Rightarrow$ -- "если ... , то"
+    \item Эквивалентность $\leftrightarrow | \equiv ; \Leftrightarrow ; \sim$
+    \item Неэквивалентность $\not\leftrightarrow$
+    \item Исключающее "или" $\stackrel{\cdot}{\lor}$
+    \item Сложение по модулю 2 $+_2$
+    \item Заметим, что 5, 6, 7 имеют одинаковые таблицы истинности. Они имеют 
+    альтернативное обозначение -- $\oplus$
+    \item Символ Шеффера $ |$.   $x|y = \lnot(x\&y)$
+    \item Стрелка Пирса $\downarrow$.   $x\downarrow y = \lnot(x\lor y)$
+    \item Отрицание $\lnot | \sim; \overline{x}$
+\end{enumerate}
+\begin{definition}[Пропозициональные формулы]
+    \begin{enumerate}
+        \item Пропозициональные переменные и $Const$ -- 
+        пропозициональные формулы
+        \item Если $A$ -- пропозициональная
+        формула, то и $\lnot A$ -- пропозициональная формула
+        \item Если $A, B$ -- пропозициональные формулы , $*$ -- любая бинарная
+         связка, то $(A * B)$ -- пропозициональная формула
+    \end{enumerate}
+\end{definition}
+Приоритеты идут в таком порядке
+\begin{enumerate}
+    \item $\lor$
+    \item $\&$
+    \item Всё остальное
+\end{enumerate}
+\begin{remark}
+    Важно заметить, что в данном курсе формула $x\& y \to y\lor z$ 
+    равносильна формуле $((x\& y \to y) \lor z)$
+\end{remark}
+\begin{definition}
+    2 формулы равносильны, если их значения совпадают на любом наборе значений, 
+    входящих в них пропозициональных переменных
+\end{definition}
+Основные равносильности:
+\begin{enumerate}
+    
+    \item $A\& B \Leftrightarrow B\& A$ коммутативность
+    \item $A\lor B \Leftrightarrow B\lor A$
+    \item $A\& A \Leftrightarrow A$ идемпотентность
+    \item $A\lor A \Leftrightarrow  A$
+    \item $A\&(B\lor C) \Leftrightarrow  A\& B \lor A\& C$ дистрибутивность
+    \item $A\lor B\& C  \Leftrightarrow (A\lor B)\& (A\lor C)$
+    \item $A\& (B\&C) \Leftrightarrow (A\& B)\&C$ ассоциативность 
+    \item $A\lor (B\lor C) \Leftrightarrow  (A\lor B)\lor C$
+    \item $\lnot\lnot x \Leftrightarrow x$
+    \item $\lnot(A\&B) \Leftrightarrow \lnot A \lor \lnot B$ правило Де-Моргана
+    \item $\lnot(A\lor B) \Leftrightarrow  \lnot A \& \lnot B$
+    \item $A\lor A \& B \Leftrightarrow  A$ правило поглощения 
+    \item $A\&(A\lor B) \Leftrightarrow  A$
+    \item $A\& B \lor \lnot A\& C \Leftrightarrow  A\& B \lor \lnot A \& C \lor B\& C $ правило склеивания
+    \item $(A\lor B) \& (\lnot A \lor C) \Leftrightarrow  (A\lor B) \& (\lnot A \lor C) \& (B\lor C)$
+    \item $A\to B \Leftrightarrow \lnot A \lor B$
+    \item 
+        \begin{align*}
+        A\leftrightarrow B \Leftrightarrow (A\to B) \& (B\to A)\\
+        \Leftrightarrow (\lnot A\lor B) \& (\lnot B \lor A)\\
+        \Leftrightarrow A\& B \lor \lnot A \& \lnot B
+        \end{align*}
+    \item 
+        \begin{align*}
+            A\oplus B \Leftrightarrow  \lnot(A\leftrightarrow B) \\
+            \Leftrightarrow \lnot A\& B \lor A \& \lnot B \\
+            \Leftrightarrow (A\lor B) \& (\lnot A \lor \lnot B)
+        \end{align*} 
+    \item $A|B \Leftrightarrow  \lnot(A\& B)$
+    \item $A\downarrow B \Leftrightarrow \lnot (A\lor B)$
+\end{enumerate}
+\begin{definition}[Тавтология]
+    Формула называется тавтологией, если она истина на любых наборах 
+    пропозициональных переменных
+\end{definition}
+\begin{definition}[Противоречие]
+    Формула называется противоречием, если она ложна на любых наборах 
+    пропозициональных переменных
+\end{definition}
+Основные тавтологии:
+\begin{enumerate}
+    \item $x \lor \lnot x$
+    \item $x\to x$ или $x\leftrightarrow x$
+\end{enumerate}
+Основные противоречия:
+\begin{enumerate}
+    \item $x\& \lnot x$
+    \item $x\oplus x$
+\end{enumerate}
+\chapter{Секвенциальное исчисление высказываний (СИВ)}
+\begin{definition}
+    Формулы СИВ -- секвенция. То есть выражения вида $\Gamma \vdash \Delta$, где
+    $\Gamma, \Delta$ -- наборы пропозициональных формул
+\end{definition}
+\begin{definition}
+    Формульный образ секвенции \[\Phi(\overbrace{A_1, \dots, A_n}^{\text{антецедент}} 
+    \vdash \overbrace{B_1, \dots , B_m}^{\text{сукцедент}}) =
+     A_1 \& A_2\&\dots \&A_n \to (B_1 \lor B_2 \lor \dots \lor B_m)\]
+\end{definition}
+\begin{definition}[Аксиомы СИВ]
+    Аксиомы СИВ -- это секвенции вида $\Gamma_1 A\Gamma_2 \vdash \Delta_1 A \Delta_2$
+\end{definition}
+\begin{lemma}
+    Формульный образ аксиомы является тавтологией
+\end{lemma}
+\begin{proof}
+    \begin{gather*}
+        \text{Если применить правило Де-Моргана и раскрыть импликацию, то}\\ 
+        \text{аргумент } \Phi \text{ в общем виде можно записать так:}\\
+        A_1\&\dots\&A_n \to B_1\lor\dots B_m \Leftrightarrow \\
+        \lnot A_1 \lor \dots \lor \lnot A_n \lor B_1 \dots \lor B_m\\
+        \text{из этого следует, что } \\
+        \Phi(A_1, \dots , A_k, A, A_{k+1}, \dots, A_n \vdash B_1, \dots, B_l, A, B_{l+1}, \dots, B_m)\\
+        \Leftrightarrow \lnot A_1 \lor \dots \lor \lnot A_k \lor \textcolor{red}{\lnot A} \lor 
+        \lnot A_{k+1}\lor\dots \lor\lnot A_n \\ 
+        \lor B_1\lor\dots \lor B_l \lor \textcolor{red}{A} 
+        \lor B_{l+1}\lor \dots \lor B_m
+    \end{gather*}
+    \textcolor{red}{красное} даёт нам тавтологию
+\end{proof}
+\section{Правила вывода в СИВ}
+\begin{gather*}
+    (\& \quad \vdash): 
+    \cfrac{\Gamma_1A\Gamma_2 B\Gamma_3 \vdash \Delta}
+    {\Gamma_1 A \& B \Gamma_2 \Gamma_3 \vdash \Delta}\quad
+    (\vdash \quad \&): \cfrac{(\Gamma\vdash \Delta_1A\Delta_2), 
+    (\Gamma \vdash \Delta_1 B\Delta_2)}{\Gamma \vdash \Delta_1 A \& B \Delta_2}
+    \\
+    \\
+    (\lor \quad \vdash):
+    \cfrac{\Gamma_1 B\Gamma_2}{\Gamma_1 A\lor B\Gamma_2 \vdash \Delta}\quad
+    (\vdash \quad \lor):
+    \cfrac{\Gamma \vdash \Delta_1A\Delta_2B\Delta_3}
+    {\Gamma \vdash \Delta_1 A\lor B\Delta_2\Delta_3}
+    \\
+    \\
+    (\to \quad \vdash):
+    \cfrac{(\Gamma_1\Gamma_2\vdash\Delta_1A\Delta_2), 
+    (\Gamma_1B\Gamma_2\vdash\Delta_1\Delta_2)}
+    {\Gamma_1 A\to B\Gamma_2 \vdash \Delta_1 \Delta_2}\quad
+    (\vdash \quad \to):
+    \cfrac{\Gamma_1A\Gamma_2 \vdash \Delta_1B\Delta_2}
+    {\Gamma_1\Gamma_2 \vdash \Delta_1A\to B \Delta_2}
+    \\
+    \\
+    (\lnot\quad \vdash):
+    \cfrac{\Gamma_1 \Gamma_2 \vdash \Delta_1A\Delta_2}
+    {\Gamma_1 \lnot A\Gamma_2 \vdash \Delta_1\Delta_2}\quad
+    (\vdash \quad \lnot):
+    \cfrac{\Gamma_1 A\Gamma_2 \vdash \Delta_1\Delta_2}
+    {\Gamma_1 \Gamma_2 \vdash \Delta_1\lnot A\Delta_2}\quad
+\end{gather*}
+\end{document}
