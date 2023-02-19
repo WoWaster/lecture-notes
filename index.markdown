@@ -14,6 +14,7 @@ title: Конспекты
 
 - Дифференциальные уравнения (Автор: Т.Е. Звягинцева и кафедра)
   1. Линейные системы дифференциальных уравнений в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part1.pdf)
+- [Математическая логика](https://storage.yandexcloud.net/tp-2021-lecture-notes/mathematical-logic-4.pdf) (Автор [@KubEF](https://github.com/KubEF), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/17))
 - [Математический анализ](https://storage.yandexcloud.net/tp-2021-lecture-notes/analysis-4.pdf) (Автор [@WoWaster](https://github.com/WoWaster), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/13))
 
 ## 3 семестр
