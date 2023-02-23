@@ -1,0 +1,379 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+% Здесь то, что я раньше понаписал, сейчас я это раскидал так, как мне кажется наиболее логично, оставляю на всякий случай, если что, потом удалю.
+% \begin{definition}[Секвенция]
+%     Формулы СИВ~--- секвенция. То есть выражения вида $\Gamma \vdash \Delta$, где $\Gamma, \Delta$~--- наборы пропозициональных формул.
+% \end{definition}
+% \begin{definition}[Формульный образ секвенции]
+%     \[\Phi(\overbrace{A_1, \dots, A_n}^{\text{антецедент}}
+%         \vdash \overbrace{B_1, \dots , B_m}^{\text{сукцедент}}) \eqcirc A_1 \and A_2\and\dots \and A_n \to (B_1 \lor B_2 \lor \dots \lor B_m),\] где $\eqcirc$~--- графическое равенство, т.е. то, что слева это <<точь в точь>> то, что справа.
+% \end{definition}
+% \begin{definition}[Аксиомы СИВ]
+%     Аксиомы СИВ~--- это секвенции вида $\Gamma_1 A\Gamma_2 \vdash \Delta_1 A \Delta_2$.
+% \end{definition}
+% \begin{lemma}
+%     Формульный образ аксиомы является тавтологией.
+% \end{lemma}
+% \begin{proof}
+%     Если применить правило де~Моргана и раскрыть импликацию, то аргумент $\Phi$ в общем виде можно записать так:
+%     \begin{gather*}
+%         A_1 \and \ldots \and A_n \to B_1 \lor \dots \lor B_m \Leftrightarrow \lnot A_1 \lor \dots \lor \lnot A_n \lor B_1 \lor \dots \lor B_m\\
+%         \intertext{из этого следует, что }
+%         \Phi(A_1, \dots , A_k, A, A_{k+1}, \dots, A_n \vdash B_1, \dots, B_l, A, B_{l+1}, \dots, B_m) \Leftrightarrow \\
+%         \Leftrightarrow \lnot A_1 \lor \dots \lor \lnot A_k \lor \textcolor{red}{\lnot A} \lor \lnot A_{k+1}\lor\dots \lor\lnot A_n \lor\\
+%         \lor B_1\lor\dots \lor B_l \lor \textcolor{red}{A} \lor B_{l+1}\lor \dots \lor B_m
+%     \end{gather*}
+%     \textcolor{red}{красное} даёт нам тавтологию.
+% \end{proof}
+% \section{Правила вывода в СИВ}
+% $(*\ \vdash)$~--- правило вывода в антецеденте для бинарной связки $*$
+
+% $(\vdash \ *)$~--- правило вывода в сукцеденте для бинарной связки $*$
+
+% \begin{align*}
+%      & \begin{prooftree}
+%            \hypo{\Gamma_1 A\Gamma_2 B\Gamma_3 &\vdash \Delta}
+%            \infer[left label=$(\and \ \vdash)$]1{\Gamma_1 A \and B \Gamma_2 \Gamma_3 &\vdash \Delta}
+%        \end{prooftree}       &
+%      & \begin{prooftree}
+%            \hypo{ \Gamma &\vdash \Delta_1 B\Delta_2}
+%            \infer[no rule]1{ \Gamma &\vdash \Delta_1A\Delta_2 }
+%            \infer[left label=$(\vdash \ \and)$]1{ \Gamma &\vdash \Delta_1 A \and B \Delta_2}
+%        \end{prooftree}
+%     \\
+%     \\
+%      & \begin{prooftree}
+%            \hypo{\Gamma_1 B\Gamma_2 &\vdash \Delta}
+%            \infer[left label=$(\lor \ \vdash)$]1{\Gamma_1 A\lor B\Gamma_2 &\vdash \Delta}
+%        \end{prooftree}                  &
+%      & \begin{prooftree}
+%            \hypo{\Gamma &\vdash \Delta_1A\Delta_2B\Delta_3}
+%            \infer[left label=$(\vdash \ \lor)$]1{\Gamma &\vdash \Delta_1 A\lor B\Delta_2\Delta_3}
+%        \end{prooftree}
+%     \\
+%     \\
+%      & \begin{prooftree}
+%            \hypo{\Gamma_1B\Gamma_2 &\vdash\Delta_1\Delta_2}
+%            \infer[no rule]1{\Gamma_1\Gamma_2 &\vdash \Delta_1 A \Delta_2}
+%            \infer[left label=$(\to \ \vdash)$]1{\Gamma_1 A\to B\Gamma_2 &\vdash \Delta_1 \Delta_2}
+%        \end{prooftree}         &
+%      & \begin{prooftree}
+%            \hypo{\Gamma_1A\Gamma_2 &\vdash \Delta_1B\Delta_2}
+%            \infer[left label=$(\vdash \ \to)$]1{\Gamma_1\Gamma_2 &\vdash \Delta_1A\to B \Delta_2}
+%        \end{prooftree}
+%     \\
+%     \\
+%      & \begin{prooftree}
+%            \hypo{\Gamma_1 \Gamma_2 &\vdash \Delta_1A\Delta_2}
+%            \infer[left label=$(\lnot\ \vdash)$]1{\Gamma_1 \lnot A\Gamma_2 &\vdash \Delta_1\Delta_2}
+%        \end{prooftree}        &
+%      & \begin{prooftree}
+%            \hypo{\Gamma_1 A\Gamma_2 &\vdash \Delta_1\Delta_2}
+%            \infer[left label=$(\vdash \ \lnot )$]1{\Gamma_1 \Gamma_2 &\vdash \Delta_1\lnot A\Delta_2}
+%        \end{prooftree}
+%     \\
+%     \\
+%      & \begin{prooftree}
+%            \hypo{\Gamma_1 \Gamma_2 &\vdash \Delta_1 A \Delta_2 B}
+%            \infer[no rule]1{\Gamma_1 A \Gamma_2 B &\vdash \Delta_1 \Delta_2}
+%            \infer[left label=$(\lra \ \vdash )$]1{\Gamma_1 A\lra B \Gamma_2 &\vdash \Delta_1 \Delta_2}
+%        \end{prooftree}     &
+%      & \begin{prooftree}
+%            \hypo{\Gamma_1 A\Gamma_2 &\vdash \Delta_1 B \Delta_2}
+%            \infer[no rule]1{\Gamma_1 B \Gamma_2 &\vdash \Delta_1 A \Delta_2}
+%            \infer[left label=$(\vdash \ \lra)$]1{\Gamma_1 \Gamma_2 &\vdash \Delta_1 A\lra B \Delta_2}
+%        \end{prooftree}
+%     \\
+%     \\
+%      & \begin{prooftree}
+%            \hypo{\Gamma_1 A \Gamma_2 &\vdash \Delta_1 B \Delta_2}
+%            \infer[no rule]1{\Gamma_1 B\Gamma_2  &\vdash \Delta_1 A\Delta_2}
+%            \infer[left label=$(\oplus \ \vdash )$]1{\Gamma_1 A\oplus B \Gamma_2 &\vdash \Delta_1 \Delta_2}
+%        \end{prooftree} &
+%      & \begin{prooftree}
+%            \hypo{\Gamma_1 \Gamma_2 &\vdash \Delta_1 AB \Delta_2}
+%            \infer[no rule]1{\Gamma_1 AB \Gamma_2 &\vdash \Delta_1  \Delta_2}
+%            \infer[left label=$(\vdash \ \oplus)$]1{\Gamma_1 \Gamma_2 &\vdash \Delta_1 A\oplus B \Delta_2}
+%        \end{prooftree}
+% \end{align*}
+\chapter{Секвенциальное исчисление высказываний (СИВ)}\marginpar{21.02.23}
+\section{Исчисления}
+\begin{definition}[Исчисление]
+    Для того, чтобы задать исчисление, достаточно задать:
+    \begin{enumerate}
+        \item Алфавит (конечный набор символов)
+        \item Формулы исчисления (подмножество выражений из символов алфавита)
+        \item Правила вывода (отношения между формулами $R(f_1, \dots ,f_n, f_{n+1})$ т.ч. если <<верен>> набор первых $n$ формул, то <<верна>> и последня)
+        \item Аксиомы (множество формул, которые <<верны>> в этом исчислении)
+    \end{enumerate}
+    Заметьте, что слово <<верно>> здесь взято в кавычки, потому что такого понятия изначально нет. Исчисление~--- это строго формальная вещь без семантики.
+\end{definition}
+\begin{definition}[Непосредственно выводимая формула]
+    Формула $f$ называется непосредственно выводимой из множества формул $f_1, \dots, f_n$, если имеется правило вывода, такое что $R(f_1, \dots, f_n, f)$.
+\end{definition}
+\begin{definition}[Выводимая формула]
+    Формула $f$ называется выводимой в исчислении $C$, если существует последовательность формул $f_1, \dots, f_n, f$, такая что $f_j \, \forall j$ является непосредственно выводимой из некоторых предыдущих или является аксиомой. Обозначение: $(\models_C f)$
+\end{definition}
+\begin{definition}[Полнота]
+    Исчисление называется полным, если всякая истинная формула выводима в этом исчислении
+\end{definition}
+\begin{definition}[Непротиворечивость]
+    Исчисление называется непротиворечивым, если не существует формулы $f$, такой что $\models f$ и $\models \lnot f$.
+\end{definition}
+
+
+\section{Секвенциальное исчисление высказываний}
+\begin{definition}[Секвенция]
+    Формулы СИВ~--- секвенция. То есть выражения вида $\Gamma \vdash \Delta$, где $\Gamma, \Delta$~--- наборы пропозициональных формул.
+\end{definition}
+\begin{definition}[Формульный образ секвенции]
+    \[\Phi(\overbrace{A_1, \dots, A_n}^{\text{антецедент}}
+        \vdash \overbrace{B_1, \dots , B_m}^{\text{сукцедент}}) \eqcirc A_1 \and A_2\and\dots \and A_n \to (B_1 \lor B_2 \lor \dots \lor B_m),\] где $\eqcirc$~--- графическое равенство, т.е. то, что слева это <<точь в точь>> то, что справа.
+\end{definition}
+\subsection{Правила вывода в СИВ}
+
+$(*\ \vdash)$~--- правило вывода в антецеденте для бинарной связки $*$
+
+$(\vdash \ *)$~--- правило вывода в сукцеденте для бинарной связки $*$
+
+Далее будут выписаны (почти) все правила вывода:
+
+\begin{align*}
+     & \begin{prooftree}
+           \hypo{\Gamma_1 A\Gamma_2 B\Gamma_3 &\vdash \Delta}
+           \infer[left label=$(\and \ \vdash)$]1{\Gamma_1 A \and B \Gamma_2 \Gamma_3 &\vdash \Delta}
+       \end{prooftree}       &
+     & \begin{prooftree}
+           \hypo{ \Gamma &\vdash \Delta_1 B\Delta_2}
+           \infer[no rule]1{ \Gamma &\vdash \Delta_1A\Delta_2 }
+           \infer[left label=$(\vdash \ \and)$]1{ \Gamma &\vdash \Delta_1 A \and B \Delta_2}
+       \end{prooftree}
+    \\
+    \\
+     & \begin{prooftree}
+           \hypo{\Gamma_1 B\Gamma_2 &\vdash \Delta}
+           \infer[left label=$(\lor \ \vdash)$]1{\Gamma_1 A\lor B\Gamma_2 &\vdash \Delta}
+       \end{prooftree}                  &
+     & \begin{prooftree}
+           \hypo{\Gamma &\vdash \Delta_1A\Delta_2B\Delta_3}
+           \infer[left label=$(\vdash \ \lor)$]1{\Gamma &\vdash \Delta_1 A\lor B\Delta_2\Delta_3}
+       \end{prooftree}
+    \\
+    \\
+     & \begin{prooftree}
+           \hypo{\Gamma_1B\Gamma_2 &\vdash\Delta_1\Delta_2}
+           \infer[no rule]1{\Gamma_1\Gamma_2 &\vdash \Delta_1 A \Delta_2}
+           \infer[left label=$(\to \ \vdash)$]1{\Gamma_1 A\to B\Gamma_2 &\vdash \Delta_1 \Delta_2}
+       \end{prooftree}         &
+     & \begin{prooftree}
+           \hypo{\Gamma_1A\Gamma_2 &\vdash \Delta_1B\Delta_2}
+           \infer[left label=$(\vdash \ \to)$]1{\Gamma_1\Gamma_2 &\vdash \Delta_1A\to B \Delta_2}
+       \end{prooftree}
+    \\
+    \\
+     & \begin{prooftree}
+           \hypo{\Gamma_1 \Gamma_2 &\vdash \Delta_1A\Delta_2}
+           \infer[left label=$(\lnot\ \vdash)$]1{\Gamma_1 \lnot A\Gamma_2 &\vdash \Delta_1\Delta_2}
+       \end{prooftree}        &
+     & \begin{prooftree}
+           \hypo{\Gamma_1 A\Gamma_2 &\vdash \Delta_1\Delta_2}
+           \infer[left label=$(\vdash \ \lnot )$]1{\Gamma_1 \Gamma_2 &\vdash \Delta_1\lnot A\Delta_2}
+       \end{prooftree}
+    \\
+    \\
+     & \begin{prooftree}
+           \hypo{\Gamma_1 \Gamma_2 &\vdash \Delta_1 A \Delta_2 B}
+           \infer[no rule]1{\Gamma_1 A \Gamma_2 B &\vdash \Delta_1 \Delta_2}
+           \infer[left label=$(\lra \ \vdash )$]1{\Gamma_1 A\lra B \Gamma_2 &\vdash \Delta_1 \Delta_2}
+       \end{prooftree}     &
+     & \begin{prooftree}
+           \hypo{\Gamma_1 A\Gamma_2 &\vdash \Delta_1 B \Delta_2}
+           \infer[no rule]1{\Gamma_1 B \Gamma_2 &\vdash \Delta_1 A \Delta_2}
+           \infer[left label=$(\vdash \ \lra)$]1{\Gamma_1 \Gamma_2 &\vdash \Delta_1 A\lra B \Delta_2}
+       \end{prooftree}
+    \\
+    \\
+     & \begin{prooftree}
+           \hypo{\Gamma_1 A \Gamma_2 &\vdash \Delta_1 B \Delta_2}
+           \infer[no rule]1{\Gamma_1 B\Gamma_2  &\vdash \Delta_1 A\Delta_2}
+           \infer[left label=$(\oplus \ \vdash )$]1{\Gamma_1 A\oplus B \Gamma_2 &\vdash \Delta_1 \Delta_2}
+       \end{prooftree} &
+     & \begin{prooftree}
+           \hypo{\Gamma_1 \Gamma_2 &\vdash \Delta_1 AB \Delta_2}
+           \infer[no rule]1{\Gamma_1 AB \Gamma_2 &\vdash \Delta_1  \Delta_2}
+           \infer[left label=$(\vdash \ \oplus)$]1{\Gamma_1 \Gamma_2 &\vdash \Delta_1 A\oplus B \Delta_2}
+       \end{prooftree}
+\end{align*}
+В дальнейшем будут использоваться обозначения $(*\ \vdash)$ и $(\vdash \ *)$, ссылаясь на эту таблицу.
+
+\begin{definition}[Секвенциальное исчисление высказываний]
+    \
+
+    \begin{enumerate}
+        \item Алфавит:\begin{itemize}
+                  \item символы для обозначения пропозициональных переменных (например, $(x, y, z, 0, \dots, 9)$)
+                  \item логические связки $\and, \lnot$
+                  \item знак секвенции $\vdash$
+              \end{itemize}
+        \item Формулы: секвенции из пропозициональных формул
+        \item Правила вывода:\begin{itemize}
+                  \item $(\vdash \ \and)$
+                  \item $(\and \ \vdash)$
+                  \item $(\vdash \ \lnot)$
+                  \item $(\lnot \ \vdash)$
+              \end{itemize}
+        \item Аксиомы: любые формулы вида $\Gamma_1 A \Gamma_2 \vdash \Delta_1 A \Delta_2$
+    \end{enumerate}
+\end{definition}
+\begin{lemma}
+    Формульный образ аксиомы является тавтологией.
+\end{lemma}
+\begin{proof}
+    Если применить правило де~Моргана и раскрыть импликацию, то аргумент $\Phi$ в общем виде можно записать так:
+    \begin{gather*}
+        A_1 \and \ldots \and A_n \to B_1 \lor \dots \lor B_m \Leftrightarrow \lnot A_1 \lor \dots \lor \lnot A_n \lor B_1 \lor \dots \lor B_m\\
+        \intertext{из этого следует, что }
+        \Phi(A_1, \dots , A_k, A, A_{k+1}, \dots, A_n \vdash B_1, \dots, B_l, A, B_{l+1}, \dots, B_m) \Leftrightarrow \\
+        \Leftrightarrow \lnot A_1 \lor \dots \lor \lnot A_k \lor \textcolor{red}{\lnot A} \lor \lnot A_{k+1}\lor\dots \lor\lnot A_n \lor\\
+        \lor B_1\lor\dots \lor B_l \lor \textcolor{red}{A} \lor B_{l+1}\lor \dots \lor B_m
+    \end{gather*}
+    \textcolor{red}{красное} даёт нам тавтологию.
+\end{proof}
+
+\begin{definition}[Допустимое правило]
+    Правило вывода называется допустимым, если по всякому выводу, содержащему применение этого правила можно построить вывод без применения этого правила.
+\end{definition}
+\begin{proposition}
+    В СИВ допустимыми являются:
+    \begin{gather*}
+        (\lor \ \vdash), (\vdash \ \lor), (\to \ \vdash), (\vdash \ \to), (\lra \ \vdash), (\vdash \ \lra), (\oplus \ \vdash), (\vdash\ \oplus), (\mid \ \vdash), (\vdash \ \mid),\\
+        (\downarrow \ \vdash), (\vdash \ \downarrow).
+    \end{gather*}
+\end{proposition}
+\begin{proof}
+    Здесь будет приведено только доказательство допустимости $(\lor \ \vdash)$, остальное доказывается аналогично.
+    \begin{gather*}
+        \begin{prooftree}
+            \hypo{\Gamma_1 B \Gamma_2 &\vdash \Delta \quad s_1 }
+            \infer[no rule]1{\Gamma_1 A \Gamma_2 &\vdash \Delta \quad s_2}
+            \infer[left label=$(\lor \ \vdash)$]1{\Gamma_1 \lnot (\lnot A \and \lnot B) \Gamma_2 &\vdash \Delta \quad s}
+        \end{prooftree}
+    \end{gather*}
+    $s$ может быть получено из $s'$ по $(\lnot \ \vdash)$, где
+    \begin{displaymath}
+        s' : \quad \Gamma_1 \Gamma_2 \vdash \Delta (\lnot A \and \lnot B)
+    \end{displaymath}
+    $s'$ может быть получено из $s''$ и $s'''$ по $(\vdash \ \and)$, где
+    \begin{gather*}
+        s'': \quad \Gamma_1\Gamma_2 \vdash \Delta \lnot A\\
+        s''' : \quad \Gamma_1\Gamma_2 \vdash \Delta \lnot B
+    \end{gather*}
+    $s''$ может быть получена из $s_2$ по $(\lnot \ \vdash)$
+
+    $s'''$ может быть получена из $s_1$ по $(\lnot \ \vdash)$.
+\end{proof}
+
+\begin{align*}
+    \intertext{Правила сокращения повторений: }
+     & \begin{prooftree}
+           \hypo{\Gamma_1 A\Gamma_2 A\Gamma_3 &\vdash \Delta}
+           \infer1{\Gamma_1 A\Gamma_2 \Gamma_3 &\vdash \Delta}
+       \end{prooftree}    &
+     & \begin{prooftree}
+           \hypo{ \Gamma &\vdash \Delta_1 A \Delta_2 A \Delta_3}
+           \infer1{\Gamma &\vdash \Delta_1 A \Delta_2 \Delta_3}
+       \end{prooftree}
+    \\
+    \intertext{Правила перестановки:}
+     & \begin{prooftree}
+           \hypo{\Gamma_1 A \Gamma_2 B \Gamma_3 &\vdash \Delta}
+           \infer1{\Gamma_1 B \Gamma_2 A \Gamma_3 &\vdash \Delta}
+       \end{prooftree} &
+     & \begin{prooftree}
+           \hypo{\Gamma &\vdash \Delta_1 A \Delta_2 B \Delta_3}
+           \infer1{\Gamma &\vdash \Delta_1 B \Delta_2 A \Delta_3}
+       \end{prooftree}
+    \\
+    \intertext{Правила добавления:}
+     & \begin{prooftree}
+           \hypo{\Gamma_1 \Gamma_2 &\vdash \Delta}
+           \infer1{\Gamma_1 A\Gamma_2 &\vdash \Delta}
+       \end{prooftree}             &
+     & \begin{prooftree}
+           \hypo{\Gamma &\vdash \Delta_1 \Delta_2}
+           \infer1{\Gamma &\vdash \Delta_1 A \Delta_2}
+       \end{prooftree}
+\end{align*}
+Каждое из этих правил является очевидным, если расписать формульные образы.
+\begin{proposition}
+    В СИВ допустимы обратные правила:
+    \begin{gather*}
+        \begin{prooftree}
+            \hypo{\Gamma_1 A \and B \Gamma_2 &\vdash \Delta}
+            \infer[left label=$(\and^- \ \vdash)$]1{\Gamma_1 A B \Gamma_2 &\vdash \Delta}
+        \end{prooftree}
+        \\
+        \begin{prooftree}
+            \hypo{\Gamma &\vdash \Delta_1 A\and B \Delta_2}
+            \infer[left label=$(\vdash \ \and^-_1)$]1{\Gamma &\vdash \Delta_1 A \Delta_2}
+        \end{prooftree}
+        \\
+        \begin{prooftree}
+            \hypo{\Gamma &\vdash \Delta_1 A\and B \Delta_2}
+            \infer[left label=$(\vdash \ \and^-_2)$]1{\Gamma &\vdash \Delta_1 B \Delta_2}
+        \end{prooftree}
+    \end{gather*}
+\end{proposition}
+\begin{definition}
+    Правило вывода называется производным правила исчисления, если всякая формула, выводимая с применением этого правила является выводимой т без его применения.
+\end{definition}
+\begin{example}
+    Правило сечения:
+    \begin{gather*}
+        \begin{prooftree}
+            \hypo{\Gamma_3 \Gamma_4 &\vdash \Delta_3 A \Delta_4}
+            \infer[no rule]1{\Gamma_1 A \Gamma_2 &\vdash \Delta_1 B \Delta_2}
+            \infer1{\Gamma_1 \Gamma_2 \Gamma_3 \Gamma_4 &\vdash \Delta_1 \Delta_2 B \Delta_3 \Delta_4}
+        \end{prooftree}
+        \quad \rightsquigarrow\quad
+        \begin{prooftree}
+            \hypo{&\vdash A}
+            \infer[no rule]1{A &\vdash B}
+            \infer1{&\vdash B}
+        \end{prooftree}
+    \end{gather*}
+\end{example}
+\begin{lemma}
+    Для всякого правила вывода в СИВ формульный образ заключения равносилен конъюнкции формул образов посылок.
+\end{lemma}
+\begin{proof}
+    На примере $(\and\ \vdash)$ и $(\vdash \ \and)$.
+
+    $(\and \ \vdash)$:
+    \begin{gather*}
+        \text{заключение: } \Phi(\Gamma_1 A\and B \vdash \Delta) \Leftrightarrow \lnot((\and\Gamma_1)\and A\and B\and (\and \Gamma_2))\lor (\lor\Delta)\\
+        \text{посылка: } \Phi(\Gamma_1 A B \Gamma_2 \vdash \Delta) \Leftrightarrow \lnot ((\and\Gamma_1)\and A\and B\and (\and \Gamma_2))\lor (\lor\Delta)
+    \end{gather*}
+    $(\vdash \ \and)$:
+    \begin{gather*}
+        \text{посылка 1: } \Phi(\Gamma \vdash \Delta_1 A \Delta_2)\Leftrightarrow \lnot((\and \Gamma)) \lor (\lor \Delta_1)\lor A\lor(\lor\Delta_2)\\
+        \text{посылка 2: } \Phi(\Gamma \vdash \Delta_1 B \Delta_2)\Leftrightarrow \textcolor{red}{\lnot((\and \Gamma)) \lor (\lor \Delta_1)}\lor B\lor\textcolor{teal}{(\lor\Delta_2)}
+    \end{gather*}
+    Обозначим \textcolor{red}{красное} за $F_1$, а \textcolor{teal}{зелёное} за $F_2$
+    \begin{gather*}
+        \text{посылка 1} \and \text{посылка 2: }(F_1 \lor A \lor F_2) \and (F_1\lor B\lor F_2)\\
+        \Leftrightarrow (F_1 \lor F_2) \lor(A \and B)\\
+        \text{заключение: }\Phi(\Gamma \vdash \Delta_1 A\and B \Delta_2) \\ \Leftrightarrow \lnot((\and \Gamma))\lor(\lor\Delta_1)\lor A\and B \lor(\lor \Delta_2)
+    \end{gather*}
+\end{proof}
+\begin{theorem}
+    СИВ полно (то есть формульный образ всякой секвенции, выводимой в СИВ является тавтологией).
+\end{theorem}
+\begin{proof}
+    Как-то методом возвратной математической индукции.
+\end{proof}
+\begin{theorem}
+    СИВ непротиворечиво.
+\end{theorem}
+\end{document}

@@ -1,0 +1,107 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Метод резолюции для исчисления высказываний}
+\begin{definition}[Литерал]
+    Литералом называется атомарная формула (кроме $0$ и $1$), или её отрицание(то есть либо $x$, либо $\lnot x$).
+\end{definition}
+В дальнейшем $l$ будет обозначать литерал.
+\begin{definition}[Исчисление высказываний]
+    \
+
+    \begin{enumerate}
+        \item Алфавит: конечное множество пропозициональных переменных
+        \item Формулы: предложения(клозы, clauses), то есть элементарные дизъюнкции(дизъюнкции литералов)
+        \item Правила вывода:
+              \begin{itemize}
+                  \item правило резолюции:
+                        \begin{gather*}
+                            \begin{prooftree}
+                                \hypo{D_1 \lor x \lor D_2}
+                                \hypo{D_3\lor \lnot x\lor D_4}
+                                \infer2{D_1\lor D_2 \lor D_3 \lor D_4}
+                            \end{prooftree}
+                        \end{gather*}
+                  \item правило сокращения повторений:
+                        \begin{gather*}
+                            \begin{prooftree}
+                                \hypo{D_1 \lor l\lor D_2\lor l\lor D_3}
+                                \infer1{D_1\lor l\lor D_2\lor D_3}
+                            \end{prooftree}
+                        \end{gather*}
+              \end{itemize}
+        \item Аксиомы: нет
+    \end{enumerate}
+\end{definition}
+\begin{definition}[Пустое предложение]
+    $\nill\ \mid \ \varnothing; \ 0; \Lambda$.
+\end{definition}
+\begin{definition}[Неудовлетворительное множество предложений]
+    Множество предложений называется неудовлетворительным, если из него выводимо пустое предложение.
+\end{definition}
+\begin{remark}
+    Единственный случай, когда множество неудовлетворительное:
+    \begin{gather*}
+        \begin{prooftree}
+            \hypo{x}
+            \hypo{\lnot x}
+            \infer2{\nill}
+        \end{prooftree}
+    \end{gather*}
+\end{remark}
+Встаёт вопрос, как доказывать какие-либо выражения в таком исчислении? Разберём общий случай. Хотим доказать \[A_1 \dots A_n \Rightarrow B_1 \dots B_m \quad (*)\]где $A_i$ $B_j$~--- это какие-то выражения, которые можно привести к виду элементарных дизъюнкций.
+
+Алгоритм действий следующий:
+\begin{enumerate}
+    \item Раскрываем $(*)$:
+          \begin{gather*}
+              A_1 \and\dots\and A_n \to B_1\lor \dots \lor B_m \\
+              \Leftrightarrow \lnot(A_1 \and\dots\and A_n)\lor B_1\lor \dots \lor B_m\\
+              \Leftrightarrow \lnot A_1 \lor \dots \lor \lnot A_n \lor B_1 \lor\dots\lor B_m
+          \end{gather*}
+    \item Если $(*)$ истинно, то $\lnot (*)$ должно быть ложным. Раскроем $\lnot(*)$:
+          \begin{gather*}
+              \lnot(\lnot A_1 \lor \dots \lor \lnot A_n \lor B_1 \lor\dots\lor B_m)\\
+              \Leftrightarrow A_1 \and \dots \and A_n \and \lnot B_1\and\dots \and \lnot B_m \quad (**)
+          \end{gather*}
+    \item Убрав конъюнкции, $(**)$ можно записать в виде:
+          \begin{gather*}
+              \begin{prooftree}
+                  \hypo{A_1}
+                  \hypo{\dots}
+                  \hypo{A_n}
+                  \hypo{\lnot B_1}
+                  \hypo{\dots}
+                  \hypo{\lnot B_m}
+                  \infer6{\text{вывод из правила резолюции}}
+              \end{prooftree}
+          \end{gather*}
+    \item Если мы смогли получить хотя бы один $\nill$ в выводе, то мы доказали, что $\lnot(*)$ ложно, а это значит, что $(*)$ истинно.
+\end{enumerate}
+В виду того, что лично я ничего не понял без \href{https://ru.wikipedia.org/wiki/Правило_резолюций#Метод_резолюции}{примера}, приведу его здесь:
+\begin{example}
+    Пусть в наших обозначениях будет:
+    \begin{gather*}
+        A_1 = x_1\and x_2 \\
+        A_2 = x_1 \to x_3 \Leftrightarrow A_2 = \lnot x_1 \lor x_3\\
+        B = x_3
+    \end{gather*}
+    Хотим доказать следующее: \[A_1 A_2 \Rightarrow B \quad (*)\]
+    \begin{enumerate}
+        \item \[(*) \Leftrightarrow \lnot A_1 \lor \lnot A_2 \lor B\]
+        \item \[\lnot (*) \Leftrightarrow A_1 \and A_2 \and \lnot B \quad (**)\]
+        \item Вспомним, что мы обозначали за $A_1, A_2, B$ и получим:
+              \begin{gather*}
+                  \begin{prooftree}
+                      \hypo{x_1 \and x_2}
+                      \hypo{\lnot x_1 \lor x_3}
+                      \hypo{x_3}
+                      \infer3{x_1\quad x_2\quad \lnot x_1 \lor x_3 \quad x_3}
+                      \infer1[правило резолюции к $x_1$ и $\lnot x_1 \lor x_3$]{x_2 \quad \lnot x_3 \quad x_3}
+                      \infer1[правило резолюции к $x_3$ и $\lnot x_3$]{x_2 \quad \nill}
+                  \end{prooftree}
+              \end{gather*}
+        \item Получили $\nill$, значит, доказали, что $(*)$ верна
+    \end{enumerate}
+\end{example}
+\end{document}
