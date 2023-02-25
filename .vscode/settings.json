@@ -19,7 +19,9 @@
   "latex-workshop.latex.recipes": [
     {
       "name": "latexmk (lualatex)",
-      "tools": ["lualatexmk"]
+      "tools": [
+        "lualatexmk"
+      ]
     }
   ],
   "files.exclude": {
@@ -36,7 +38,6 @@
     "**/**.synctex(busy)": true,
     "**/**.toc": true
   },
-  "editor.rulers": [80, 120],
   "cSpell.words": [
     "перепараметризации",
     "Перепараметризация",
@@ -45,5 +46,9 @@
     "бирегулярность",
     "бирегулярны",
     "Френе"
-  ]
+  ],
+  "editor.formatOnSave": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
 }
