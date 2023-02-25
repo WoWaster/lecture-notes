@@ -22,8 +22,8 @@ $false;\ f;\ F;\ \bot;\ 0;\ 1$~--- ложь.
     \item Конъюнкция $\and\ |\ \land;\ \cdot;\ and $~--- логическое <<и>>
     \item Дизъюнкция $\lor\ |\ +;\ or$~---  логическое <<или>>
     \item Импликация $\to\ |\ \supset;\ \Rightarrow$~--- <<если ... , то>>
-    \item Эквивалентность $\leftrightarrow\ |\ \equiv;\ \Leftrightarrow;\ \sim$
-    \item Операции неэквивалентность ($\not\leftrightarrow$), исключающее <<или>> ($\dot{\lor}$), сложение по модулю 2 ($+_2$) имеют одинаковые таблицы истинности. Мы будем обозначать эту операцию символом $\oplus$
+    \item Эквивалентность $\lra\ |\ \equiv;\ \lra;\ \sim$
+    \item Операции неэквивалентность ($\not\lra$), исключающее <<или>> ($\dot{\lor}$), сложение по модулю 2 ($+_2$) имеют одинаковые таблицы истинности. Мы будем обозначать эту операцию символом $\oplus$
     \item Символ Шеффера $ \mid$.   $x\mid y = \lnot(x\and y)$
     \item Стрелка Пирса $\downarrow$.   $x\downarrow y = \lnot(x\lor y)$
     \item Отрицание $\lnot\ |\ \sim;\ \overline{x}$
@@ -51,36 +51,36 @@ $false;\ f;\ F;\ \bot;\ 0;\ 1$~--- ложь.
 \end{definition}
 Основные равносильности:
 \begin{enumerate}
-    \item $A\and B \Leftrightarrow B\and A$ коммутативность конъюнкции
-    \item $A\lor B \Leftrightarrow B\lor A$ коммутативность дизъюнкции
-    \item $A\and A \Leftrightarrow A$ идемпотентность конъюнкции
-    \item $A\lor A \Leftrightarrow  A$ идемпотентность дизъюнкции
-    \item $A\and(B\lor C) \Leftrightarrow  A\and B \lor A\and C$ дистрибутивность конъюнкции относительно дизъюнкции
-    \item $A\lor B\and C  \Leftrightarrow (A\lor B)\and (A\lor C)$ дистрибутивность дизъюнкции относительно конъюнкции
-    \item $A\and (B\and C) \Leftrightarrow (A\and B)\and C$ ассоциативность конъюнкции
-    \item $A\lor (B\lor C) \Leftrightarrow  (A\lor B)\lor C$ ассоциативность дизъюнкции
-    \item $\lnot\lnot x \Leftrightarrow x$ правило двойного отрицания
-    \item $\lnot(A\and B) \Leftrightarrow \lnot A \lor \lnot B$ правило де~Моргана
-    \item $\lnot(A\lor B) \Leftrightarrow  \lnot A \and \lnot B$ правило де~Моргана
-    \item $A\lor A \and B \Leftrightarrow  A$ правило поглощения
-    \item $A\and(A\lor B) \Leftrightarrow  A$ правило поглощения
-    \item $A\and B \lor \lnot A\and C \Leftrightarrow  A\and B \lor \lnot A \and C \lor B\and C $ правило склеивания
-    \item $(A\lor B) \and (\lnot A \lor C) \Leftrightarrow  (A\lor B) \and (\lnot A \lor C) \and (B\lor C)$ правило склеивания
-    \item $A\to B \Leftrightarrow \lnot A \lor B$
+    \item $A\and B \lra B\and A$ коммутативность конъюнкции
+    \item $A\lor B \lra B\lor A$ коммутативность дизъюнкции
+    \item $A\and A \lra A$ идемпотентность конъюнкции
+    \item $A\lor A \lra  A$ идемпотентность дизъюнкции
+    \item $A\and(B\lor C) \lra  A\and B \lor A\and C$ дистрибутивность конъюнкции относительно дизъюнкции
+    \item $A\lor B\and C  \lra (A\lor B)\and (A\lor C)$ дистрибутивность дизъюнкции относительно конъюнкции
+    \item $A\and (B\and C) \lra (A\and B)\and C$ ассоциативность конъюнкции
+    \item $A\lor (B\lor C) \lra  (A\lor B)\lor C$ ассоциативность дизъюнкции
+    \item $\lnot\lnot x \lra x$ правило двойного отрицания
+    \item $\lnot(A\and B) \lra \lnot A \lor \lnot B$ правило де~Моргана
+    \item $\lnot(A\lor B) \lra  \lnot A \and \lnot B$ правило де~Моргана
+    \item $A\lor A \and B \lra  A$ правило поглощения
+    \item $A\and(A\lor B) \lra  A$ правило поглощения
+    \item $A\and B \lor \lnot A\and C \lra  A\and B \lor \lnot A \and C \lor B\and C $ правило склеивания
+    \item $(A\lor B) \and (\lnot A \lor C) \lra  (A\lor B) \and (\lnot A \lor C) \and (B\lor C)$ правило склеивания
+    \item $A\to B \lra \lnot A \lor B$
     \item
           \begin{align*}
-              A\leftrightarrow B & \Leftrightarrow (A\to B) \and (B\to A)                \\
-                                 & \Leftrightarrow (\lnot A\lor B) \and (\lnot B \lor A) \\
-                                 & \Leftrightarrow A\and B \lor \lnot A \and \lnot B
+              A\lra B & \lra (A\to B) \and (B\to A)                \\
+                      & \lra (\lnot A\lor B) \and (\lnot B \lor A) \\
+                      & \lra A\and B \lor \lnot A \and \lnot B
           \end{align*}
     \item
           \begin{align*}
-              A\oplus B & \Leftrightarrow \lnot(A \leftrightarrow B)            \\
-                        & \Leftrightarrow \lnot A\and B \lor A \and \lnot B     \\
-                        & \Leftrightarrow (A\lor B) \and (\lnot A \lor \lnot B)
+              A\oplus B & \lra \lnot(A \lra B)                       \\
+                        & \lra \lnot A\and B \lor A \and \lnot B     \\
+                        & \lra (A\lor B) \and (\lnot A \lor \lnot B)
           \end{align*}
-    \item $A \mid B \Leftrightarrow  \lnot(A \and B)$
-    \item $A \downarrow B \Leftrightarrow \lnot (A\lor B)$
+    \item $A \mid B \lra  \lnot(A \and B)$
+    \item $A \downarrow B \lra \lnot (A\lor B)$
 \end{enumerate}
 \begin{definition}[Тавтология]
     Формула называется тавтологией, если она истинна на любых наборах пропозициональных переменных.
@@ -91,7 +91,7 @@ $false;\ f;\ F;\ \bot;\ 0;\ 1$~--- ложь.
 Основные тавтологии:
 \begin{enumerate}
     \item $x \lor \lnot x$
-    \item $x\to x$ или $x\leftrightarrow x$
+    \item $x\to x$ или $x\lra x$
 \end{enumerate}
 Основные противоречия:
 \begin{enumerate}
