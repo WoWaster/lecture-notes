@@ -3,7 +3,7 @@
 \begin{document}
 \chapter[Метод резолюции]{Метод резолюции для исчисления высказываний}
 \begin{definition}[Литерал]
-    Литералом называется атомарная формула (кроме $0$ и $1$), или её отрицание(то есть либо $x$, либо $\lnot x$).
+    Литералом называется атомарная формула~(кроме $0$ и $1$), или её отрицание~(то есть либо $x$, либо $\lnot x$).
 \end{definition}
 В дальнейшем $l$ будет обозначать литерал.
 \begin{definition}[Исчисление высказываний]
@@ -58,13 +58,13 @@
     \item Раскрываем $(*)$:
           \begin{multline*}
               A_1 \and\dots\and A_n \to B_1\lor \dots \lor B_m  \lra\\
-              \Leftrightarrow \lnot(A_1 \and\dots\and A_n)\lor B_1\lor \dots \lor B_m \lra\\
-              \Leftrightarrow \lnot A_1 \lor \dots \lor \lnot A_n \lor B_1 \lor\dots\lor B_m
+              \lra \lnot(A_1 \and\dots\and A_n)\lor B_1\lor \dots \lor B_m \lra\\
+              \lra \lnot A_1 \lor \dots \lor \lnot A_n \lor B_1 \lor\dots\lor B_m
           \end{multline*}
     \item Если $(*)$ истинно, то $\lnot (*)$ должно быть ложным. Раскроем $\lnot(*)$:
           \begin{multline*}
               \lnot(\lnot A_1 \lor \dots \lor \lnot A_n \lor B_1 \lor\dots\lor B_m) \lra\\
-              \Leftrightarrow A_1 \and \dots \and A_n \and \lnot B_1\and\dots \and \lnot B_m \tag{**}
+              \lra A_1 \and \dots \and A_n \and \lnot B_1\and\dots \and \lnot B_m \tag{**}
           \end{multline*}
     \item Убрав конъюнкции, $(**)$ можно записать в виде:
           \begin{gather*}
@@ -85,13 +85,13 @@
     Пусть в наших обозначениях будет:
     \begin{gather*}
         A_1 = x_1\and x_2 \\
-        A_2 = x_1 \to x_3 \Leftrightarrow A_2 = \lnot x_1 \lor x_3\\
+        A_2 = x_1 \to x_3 \lra A_2 = \lnot x_1 \lor x_3\\
         B = x_3
     \end{gather*}
     Хотим доказать следующее: \[A_1 A_2 \Rightarrow B \tag{*}\]
     \begin{enumerate}
-        \item $(*) \Leftrightarrow \lnot A_1 \lor \lnot A_2 \lor B$
-        \item $\lnot (*) \Leftrightarrow A_1 \and A_2 \and \lnot B \quad (**)$
+        \item $(*) \lra \lnot A_1 \lor \lnot A_2 \lor B$
+        \item $\lnot (*) \lra A_1 \and A_2 \and \lnot B \quad (**)$
         \item Вспомним, что мы обозначали за $A_1, A_2, B$ и получим:
               \begin{gather*}
                   \begin{prooftree}

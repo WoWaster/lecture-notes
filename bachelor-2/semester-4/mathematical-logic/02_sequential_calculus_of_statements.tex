@@ -1,102 +1,6 @@
 % !TeX root = ./main.tex
 \documentclass[main]{subfiles}
 \begin{document}
-% Здесь то, что я раньше понаписал, сейчас я это раскидал так, как мне кажется наиболее логично, оставляю на всякий случай, если что, потом удалю.
-% \begin{definition}[Секвенция]
-%     Формулы СИВ~--- секвенция. То есть выражения вида $\Gamma \vdash \Delta$, где $\Gamma, \Delta$~--- наборы пропозициональных формул.
-% \end{definition}
-% \begin{definition}[Формульный образ секвенции]
-%     \[\Phi(\overbrace{A_1, \dots, A_n}^{\text{антецедент}}
-%         \vdash \overbrace{B_1, \dots , B_m}^{\text{сукцедент}}) \eqcirc A_1 \and A_2\and\dots \and A_n \to (B_1 \lor B_2 \lor \dots \lor B_m),\] где $\eqcirc$~--- графическое равенство, т.е. то, что слева это <<точь в точь>> то, что справа.
-% \end{definition}
-% \begin{definition}[Аксиомы СИВ]
-%     Аксиомы СИВ~--- это секвенции вида $\Gamma_1 A\Gamma_2 \vdash \Delta_1 A \Delta_2$.
-% \end{definition}
-% \begin{lemma}
-%     Формульный образ аксиомы является тавтологией.
-% \end{lemma}
-% \begin{proof}
-%     Если применить правило де~Моргана и раскрыть импликацию, то аргумент $\Phi$ в общем виде можно записать так:
-%     \begin{gather*}
-%         A_1 \and \ldots \and A_n \to B_1 \lor \dots \lor B_m \Leftrightarrow \lnot A_1 \lor \dots \lor \lnot A_n \lor B_1 \lor \dots \lor B_m\\
-%         \intertext{из этого следует, что }
-%         \Phi(A_1, \dots , A_k, A, A_{k+1}, \dots, A_n \vdash B_1, \dots, B_l, A, B_{l+1}, \dots, B_m) \Leftrightarrow \\
-%         \Leftrightarrow \lnot A_1 \lor \dots \lor \lnot A_k \lor \textcolor{red}{\lnot A} \lor \lnot A_{k+1}\lor\dots \lor\lnot A_n \lor\\
-%         \lor B_1\lor\dots \lor B_l \lor \textcolor{red}{A} \lor B_{l+1}\lor \dots \lor B_m
-%     \end{gather*}
-%     \textcolor{red}{красное} даёт нам тавтологию.
-% \end{proof}
-% \section{Правила вывода в СИВ}
-% $(*\ \vdash)$~--- правило вывода в антецеденте для бинарной связки $*$
-
-% $(\vdash \ *)$~--- правило вывода в сукцеденте для бинарной связки $*$
-
-% \begin{align*}
-%      & \begin{prooftree}
-%            \hypo{\Gamma_1 A\Gamma_2 B\Gamma_3 &\vdash \Delta}
-%            \infer[left label=$(\and \ \vdash)$]1{\Gamma_1 A \and B \Gamma_2 \Gamma_3 &\vdash \Delta}
-%        \end{prooftree}       &
-%      & \begin{prooftree}
-%            \hypo{ \Gamma &\vdash \Delta_1 B\Delta_2}
-%            \infer[no rule]1{ \Gamma &\vdash \Delta_1A\Delta_2 }
-%            \infer[left label=$(\vdash \ \and)$]1{ \Gamma &\vdash \Delta_1 A \and B \Delta_2}
-%        \end{prooftree}
-%     \\
-%     \\
-%      & \begin{prooftree}
-%            \hypo{\Gamma_1 B\Gamma_2 &\vdash \Delta}
-%            \infer[left label=$(\lor \ \vdash)$]1{\Gamma_1 A\lor B\Gamma_2 &\vdash \Delta}
-%        \end{prooftree}                  &
-%      & \begin{prooftree}
-%            \hypo{\Gamma &\vdash \Delta_1A\Delta_2B\Delta_3}
-%            \infer[left label=$(\vdash \ \lor)$]1{\Gamma &\vdash \Delta_1 A\lor B\Delta_2\Delta_3}
-%        \end{prooftree}
-%     \\
-%     \\
-%      & \begin{prooftree}
-%            \hypo{\Gamma_1B\Gamma_2 &\vdash\Delta_1\Delta_2}
-%            \infer[no rule]1{\Gamma_1\Gamma_2 &\vdash \Delta_1 A \Delta_2}
-%            \infer[left label=$(\to \ \vdash)$]1{\Gamma_1 A\to B\Gamma_2 &\vdash \Delta_1 \Delta_2}
-%        \end{prooftree}         &
-%      & \begin{prooftree}
-%            \hypo{\Gamma_1A\Gamma_2 &\vdash \Delta_1B\Delta_2}
-%            \infer[left label=$(\vdash \ \to)$]1{\Gamma_1\Gamma_2 &\vdash \Delta_1A\to B \Delta_2}
-%        \end{prooftree}
-%     \\
-%     \\
-%      & \begin{prooftree}
-%            \hypo{\Gamma_1 \Gamma_2 &\vdash \Delta_1A\Delta_2}
-%            \infer[left label=$(\lnot\ \vdash)$]1{\Gamma_1 \lnot A\Gamma_2 &\vdash \Delta_1\Delta_2}
-%        \end{prooftree}        &
-%      & \begin{prooftree}
-%            \hypo{\Gamma_1 A\Gamma_2 &\vdash \Delta_1\Delta_2}
-%            \infer[left label=$(\vdash \ \lnot )$]1{\Gamma_1 \Gamma_2 &\vdash \Delta_1\lnot A\Delta_2}
-%        \end{prooftree}
-%     \\
-%     \\
-%      & \begin{prooftree}
-%            \hypo{\Gamma_1 \Gamma_2 &\vdash \Delta_1 A \Delta_2 B}
-%            \infer[no rule]1{\Gamma_1 A \Gamma_2 B &\vdash \Delta_1 \Delta_2}
-%            \infer[left label=$(\lra \ \vdash )$]1{\Gamma_1 A\lra B \Gamma_2 &\vdash \Delta_1 \Delta_2}
-%        \end{prooftree}     &
-%      & \begin{prooftree}
-%            \hypo{\Gamma_1 A\Gamma_2 &\vdash \Delta_1 B \Delta_2}
-%            \infer[no rule]1{\Gamma_1 B \Gamma_2 &\vdash \Delta_1 A \Delta_2}
-%            \infer[left label=$(\vdash \ \lra)$]1{\Gamma_1 \Gamma_2 &\vdash \Delta_1 A\lra B \Delta_2}
-%        \end{prooftree}
-%     \\
-%     \\
-%      & \begin{prooftree}
-%            \hypo{\Gamma_1 A \Gamma_2 &\vdash \Delta_1 B \Delta_2}
-%            \infer[no rule]1{\Gamma_1 B\Gamma_2  &\vdash \Delta_1 A\Delta_2}
-%            \infer[left label=$(\oplus \ \vdash )$]1{\Gamma_1 A\oplus B \Gamma_2 &\vdash \Delta_1 \Delta_2}
-%        \end{prooftree} &
-%      & \begin{prooftree}
-%            \hypo{\Gamma_1 \Gamma_2 &\vdash \Delta_1 AB \Delta_2}
-%            \infer[no rule]1{\Gamma_1 AB \Gamma_2 &\vdash \Delta_1  \Delta_2}
-%            \infer[left label=$(\vdash \ \oplus)$]1{\Gamma_1 \Gamma_2 &\vdash \Delta_1 A\oplus B \Delta_2}
-%        \end{prooftree}
-% \end{align*}
 \chapter[СИВ]{Секвенциальное исчисление высказываний (СИВ)}\marginpar{21.02.23}
 \section{Исчисления}
 \begin{definition}[Исчисление]
@@ -105,7 +9,7 @@
         \item Алфавит (конечный набор символов)
         \item Формулы исчисления (подмножество выражений из символов алфавита)
         \item Правила вывода (отношения между формулами\\
-              $R(f_1, \dots ,f_n, f_{n+1})$ т.ч. если <<верен>> набор первых $n$ формул, то <<верна>> и последня)
+              $R(f_1, \dots ,f_n, f_{n+1})$ т.ч. если <<верен>> набор первых $n$ формул, то <<верна>> и последняя)
         \item Аксиомы (множество формул, которые <<верны>> в этом исчислении)
     \end{enumerate}
     Заметьте, что слово <<верно>> здесь взято в кавычки, потому что такого понятия изначально нет. Исчисление~--- это строго формальная вещь без семантики.
@@ -233,10 +137,10 @@ $(\vdash \ *)$~--- правило вывода в сукцеденте для б
 \begin{proof}
     Если применить правило де~Моргана и раскрыть импликацию, то аргумент $\Phi$ в общем виде можно записать так:
     \begin{gather*}
-        A_1 \and \ldots \and A_n \to B_1 \lor \dots \lor B_m \Leftrightarrow \lnot A_1 \lor \dots \lor \lnot A_n \lor B_1 \lor \dots \lor B_m\\
+        A_1 \and \ldots \and A_n \to B_1 \lor \dots \lor B_m \lra \lnot A_1 \lor \dots \lor \lnot A_n \lor B_1 \lor \dots \lor B_m\\
         \intertext{из этого следует, что }
-        \Phi(A_1, \dots , A_k, A, A_{k+1}, \dots, A_n \vdash B_1, \dots, B_l, A, B_{l+1}, \dots, B_m) \Leftrightarrow \\
-        \Leftrightarrow \lnot A_1 \lor \dots \lor \lnot A_k \lor \textcolor{red}{\lnot A} \lor \lnot A_{k+1}\lor\dots \lor\lnot A_n \lor\\
+        \Phi(A_1, \dots , A_k, A, A_{k+1}, \dots, A_n \vdash B_1, \dots, B_l, A, B_{l+1}, \dots, B_m) \lra \\
+        \lra \lnot A_1 \lor \dots \lor \lnot A_k \lor \textcolor{red}{\lnot A} \lor \lnot A_{k+1}\lor\dots \lor\lnot A_n \lor\\
         \lor B_1\lor\dots \lor B_l \lor \textcolor{red}{A} \lor B_{l+1}\lor \dots \lor B_m
     \end{gather*}
     \textcolor{red}{красное} даёт нам тавтологию.
@@ -354,18 +258,18 @@ $(\vdash \ *)$~--- правило вывода в сукцеденте для б
     $(\and \ \vdash)$:
 
     \begin{description}
-        \item[заключение: ] $\Phi(\Gamma_1 A\and B \vdash \Delta) \Leftrightarrow \lnot((\and\Gamma_1)\and A\and B\and (\and \Gamma_2))\lor (\lor\Delta)$
-        \item[посылка: ] $\Phi(\Gamma_1 A B \Gamma_2 \vdash \Delta) \Leftrightarrow \lnot ((\and\Gamma_1)\and A\and B\and (\and \Gamma_2))\lor (\lor\Delta)$
+        \item[заключение: ] $\Phi(\Gamma_1 A\and B \vdash \Delta) \lra \lnot((\and\Gamma_1)\and A\and B\and (\and \Gamma_2))\lor (\lor\Delta)$
+        \item[посылка: ] $\Phi(\Gamma_1 A B \Gamma_2 \vdash \Delta) \lra \lnot ((\and\Gamma_1)\and A\and B\and (\and \Gamma_2))\lor (\lor\Delta)$
     \end{description}
     $(\vdash \ \and)$:
     \begin{description}
-        \item[посылка1: ] $\Phi(\Gamma \vdash \Delta_1 A \Delta_2)\Leftrightarrow \lnot((\and \Gamma)) \lor (\lor \Delta_1)\lor A\lor(\lor\Delta_2)$
-        \item[посылка2: ] $\Phi(\Gamma \vdash \Delta_1 B \Delta_2)\Leftrightarrow \\ \lra \textcolor{red}{\lnot((\and \Gamma)) \lor (\lor \Delta_1)}\lor B\lor\textcolor{teal}{(\lor\Delta_2)}$
+        \item[посылка1: ] $\Phi(\Gamma \vdash \Delta_1 A \Delta_2)\lra \lnot((\and \Gamma)) \lor (\lor \Delta_1)\lor A\lor(\lor\Delta_2)$
+        \item[посылка2: ] $\Phi(\Gamma \vdash \Delta_1 B \Delta_2)\lra \\ \lra \textcolor{red}{\lnot((\and \Gamma)) \lor (\lor \Delta_1)}\lor B\lor\textcolor{teal}{(\lor\Delta_2)}$
     \end{description}
     Обозначим \textcolor{red}{красное} за $F_1$, а \textcolor{teal}{зелёное} за $F_2$
     \begin{description}
-        \item[посылка1 $\and$ посылка2: ] $(F_1 \lor A \lor F_2) \and (F_1\lor B\lor F_2) \Leftrightarrow (F_1 \lor F_2) \lor(A \and B)$
-        \item[заключение: ] $\Phi(\Gamma \vdash \Delta_1 A\and B \Delta_2) \lra \\ \Leftrightarrow \lnot((\and \Gamma))\lor(\lor\Delta_1)\lor A\and B \lor(\lor \Delta_2)$
+        \item[посылка1 $\and$ посылка2: ] $(F_1 \lor A \lor F_2) \and (F_1\lor B\lor F_2) \lra \\ \lra (F_1 \lor F_2) \lor(A \and B)$
+        \item[заключение: ] $\Phi(\Gamma \vdash \Delta_1 A\and B \Delta_2) \lra \\ \lra \lnot((\and \Gamma))\lor(\lor\Delta_1)\lor A\and B \lor(\lor \Delta_2)$
     \end{description}
 \end{proof}
 \begin{theorem}
