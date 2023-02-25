@@ -4,13 +4,13 @@
 \chapter{Криволинейные интегралы второго рода}
 \section{Криволинейные интегралы второго рода от комплекснозначных функций} \marginpar{16.02.23}
 Для ориентированных кривых Николай Алексеевич использует гнутую стрелочку, здесь будет использоваться обычная.
-Так же вместе $\stackrel{\text{def}}{=}$ будет использоваться $\coloneqq$.
+Так же вместе $\stackrel{\text{def}}{=}$ будет использоваться $\coloneq$.
 \begin{definition}
     Имеется $\AnClOrCurve \subset \R^2$ -- ориентированная кривая.
     И имеется функция \[f(x_1, x_2) = u(x_1, x_2) + i v(x_1, x_2),\] такая что $f: \AnClOrCurve \to \C$, $f \in C(\Gamma)$.
 
     Тогда криволинейным интегралом второго рода от функции $f$ по ориентированной кривой $\AnClOrCurve$ по аргументу $x_j$ будем называть следующее выражение, в котором $j=1,2$:
-    \[\AnClOrInt f(x_1, x_2) dx_j \coloneqq \AnClOrInt u(x_1, x_2) dx_j + i \AnClOrInt v(x_1, x_2) dx_j\]
+    \[\AnClOrInt f(x_1, x_2) dx_j \coloneq \AnClOrInt u(x_1, x_2) dx_j + i \AnClOrInt v(x_1, x_2) dx_j\]
 \end{definition}
 
 \subsection{Свойства криволинейного интеграла второго рода от комплекснозначных функций}
@@ -65,7 +65,7 @@
         \left| \AnClOrInt u dx_j - S (u, P, T, j)\right| < \epsilon/2 \tag{2}\\
         \left| \AnClOrInt v dx_j - S (v, P, T, j)\right| < \epsilon/2 \tag{3}
     \end{gather*}
-    (2), (3) $\implies$ (1)
+    $(2), (3) \implies (1)$
 \end{proof}
 
 \section{Направление на кривой}
@@ -154,18 +154,18 @@
 Будем называть ориентация замкнутой кривой на комплексной плоскости положительной, если положительной является ориентация этой кривой на $\R^2$.
 
 Вспомним, что $\C \supset E \leftrightarrow E^* \subset \R^2$.
-Тогда  $f: \Gamma_C \to \C \leftrightarrow f^*: \Gamma \to \C$, а так же $f^*(M(t)) \coloneqq f(z(t)), t \in [a,b]$.
+Тогда  $f: \Gamma_C \to \C \leftrightarrow f^*: \Gamma \to \C$, а так же $f^*(M(t)) \coloneq f(z(t)), t \in [a,b]$.
 Далее $\ ^*$ и $\ _C$ будем опускать.
 
 Пусть у нас имеется ориентированная кривая $f: \AnClOrCurve_C \to \C \leftrightarrow f^*: \AnClOrCurve \to \C$, тогда определению полагаем
 \begin{gather*}
-    \AnClOrInt[\AnClOrCurve_C] f(z) dx \coloneqq \AnClOrInt f^*(M) dx \tag{4}\\
-    \AnClOrInt[\AnClOrCurve_C] f(z) dy \coloneqq \AnClOrInt f^*(M) dy \tag{5}\\
+    \AnClOrInt[\AnClOrCurve_C] f(z) dx \coloneq \AnClOrInt f^*(M) dx \tag{4}\\
+    \AnClOrInt[\AnClOrCurve_C] f(z) dy \coloneq \AnClOrInt f^*(M) dy \tag{5}\\
 \end{gather*}
 Тогда можем определить
-\[\AnClOrInt[\AnClOrCurve_C] f(z) dz \coloneqq \AnClOrInt[\AnClOrCurve_C] f(z) dx + i \AnClOrInt[\AnClOrCurve_C] f(z) dy \tag{6}\]
+\[\AnClOrInt[\AnClOrCurve_C] f(z) dz \coloneq \AnClOrInt[\AnClOrCurve_C] f(z) dx + i \AnClOrInt[\AnClOrCurve_C] f(z) dy \tag{6}\]
 
-Если $\AnClOrCurve_C(t)$~--- гладкая и $\AnClOrCurve_C(t) = z(t) = x(t) + iy(t), t \in [a,b]$, то (4)--(6) влекут, что
+Если $\AnClOrCurve_C(t)$~--- гладкая и $\AnClOrCurve_C(t) = z(t) = x(t) + iy(t), t \in [a,b]$, то $(4)$--$(6)$ влекут, что
 \[\AnClOrInt[\AnClOrCurve_C([a,b])] f(z) dz = \int_a^b f(z(t))(x'(t) + i y'(t))dt \tag{7}\]
 
 \subsection{Свойства криволинейного интеграла второго рода $f(z)dz$}
@@ -220,4 +220,49 @@
     Допустим у нас есть точки $a < t_1 < ... < t_m < b$ и имеются кривые $\AnClOrCurve_1:[a, t_1] \to \C, ..., \AnClOrCurve_m: [t_{m-1}, t_m] \to \C, \AnClOrCurve_{m+1}: [t_m, b] \to \C$.
     \[\AnClOrInt fdz = \sum_{k=1}^{m+1} \AnClOrInt[\AnClOrCurve_k] f dz\]
 \end{property}
+
+\begin{property} \marginpar{23.02.23}
+    Пусть $\AnClOrCurve_C([a,b])$~--- ориентированная кусочно-гладкая кривая, $f \in C(\Gamma([a,b]))$.
+    Тогда
+    \[\left| \AnClOrInt[\AnClOrCurve_C ([a,b])] f dz \right| \le \int_{\Gamma([a,b])} \left| f^* \right| dl, \tag{1}\]
+    где в правой части стоит криволинейный интеграл первого рода.
+\end{property}
+\begin{proof}
+    Возьмем $\forall \epsilon >0$, найдем такое разбиение $P = \{t_j\}_{j=0}^n$, $a=t_0 < \dotsc < t_n = b$, чтобы для любого оснащения $T = \{\tau_j\}_{j=1}^n$ выполнялись соотношения
+    \[\left| \sum_{j=1}^{n} f(z_j') (z_j - z_{j-1}) - \AnClOrInt[\AnClOrCurve_C ([a,b])] f dz \right| < \epsilon, \tag{2}\]
+    где $z_j = \AnClOrCurve_C (t_j)$, $z_j' = \AnClOrCurve_C(\tau_j)$, и
+    \[\left| \sum_{j=1}^{n} \left| f^*(\Gamma(\tau_j)) \right| l(\gamma(t_{j-1}, t_j)) - \int_{\Gamma([a,b])} \left| f^* \right| dl \right| < \epsilon, \tag{3}\]
+    где $l(\gamma(t_{j-1}, t_j))$~--- длина дуги $\gamma(t_{j-1}, t_j) \subset \Gamma([a,b])$ между точками $\Gamma(t_{j-1})$ и $\Gamma(t_j)$.
+
+    Тогда $(2)$ и $(3) \implies$
+    \begin{multline*}
+        \left| \AnClOrInt[\AnClOrCurve_C ([a,b])] f dz \right| = \\
+        = \left| \AnClOrInt[\AnClOrCurve_C ([a,b])] f dz - \sum_{j=1}^{n} f(z_j') (z_j - z_{j-1}) + \sum_{j=1}^{n} f(z_j') (z_j - z_{j-1}) \right| \le \\
+        \le \left| \AnClOrInt[\AnClOrCurve_C ([a,b])] f dz - \sum_{j=1}^{n} f(z_j') (z_j - z_{j-1}) \right| + \left| \sum_{j=1}^{n} f(z_j') (z_j - z_{j-1}) \right| < \\
+        < \epsilon + \sum_{j=1}^{n} |f(z_j')| |z_j - z_{j-1}| \le \epsilon + \sum_{j=1}^{n} \left| f^*(\Gamma(\tau_j)) \right| l(\gamma(t_{j-1}, t_j)) = \\
+        = \epsilon + \left( \sum_{j=1}^{n} \left| f^*(\Gamma(\tau_j)) \right| l(\gamma(t_{j-1}, t_j)) - \int_{\mathrlap{\Gamma([a,b])}} \left| f^* \right| dl \right) + \int_{\mathrlap{\Gamma([a,b])}} \left| f^* \right| dl < \\
+        < 2\epsilon + \int_{\Gamma([a,b])} \left| f^* \right| dl \tag{4}
+    \end{multline*}
+    В силу произвольности $\epsilon >0$ $(4) \implies (1)$.
+\end{proof}
+
+\begin{property}
+    Пусть $\AnClOrCurve_C([a,b])$~--- ориентированная кусочно-гладкая кривая, $f \in C(\Gamma([a,b]))$, $\theta \in (0, 2\pi)$,
+    \begin{gather*}
+        \AnClOrCurve_\theta([a,b]) \coloneq e^{i \theta} \AnClOrCurve([a,b]),
+        \intertext{то есть}
+        \Gamma_\theta([a,b]) = \left\{ z \in \C: z = e^{i \theta} \xi, \xi \in \Gamma([a,b])\right\}
+    \end{gather*}
+    и ориентация на $\AnClOrCurve_\theta([a,b])$ задается с $\AnClOrCurve([a,b])$.
+    Для $z \in \AnClOrCurve([a,b])$ положим $f_\theta(z) \coloneq f(e^{-i\theta}z)$.
+    И справедливо равенство
+    \[\AnClOrInt[\AnClOrCurve ([a,b])] f(z) dz = e^{-i\theta} \AnClOrInt[\AnClOrCurve_\theta ([a,b])] f(\xi) d\xi. \tag{5}\]
+\end{property}
+\begin{proof}
+    Пусть $\{z_j\}_{j=0}^n$~--- точки на $\AnClOrCurve([a,b])$, полученные из разбиения $\{t_j\}_{j=0}^n$, $\{\tau_j\}_{j=1}^n$~--- оснащение, $z_j' = \Gamma(\tau_j)$.
+    Тогда точки $\{e^{i\theta} z_j\}_{j=0}^n$~--- точки на $\AnClOrCurve_\theta([a,b])$, полученные из того же разбиения и $\{e^{i\theta} z_j'\}_{j=1}^n$~--- точки на $\AnClOrCurve_\theta([a,b])$, полученные из оснащения.
+    Теперь имеем:
+    \[\sum_{j=1}^{n} f(z_j') (z_j - z_{j-1}) = e^{-i \theta}\sum_{j=1}^{n} f_\theta(e^{i \theta}z_j') (e^{i \theta}z_j - e^{i \theta}z_{j-1}) \tag{6}\]
+    Теперь $(5)$ следует из $(6)$ и свойства \ref{1:RiemannSumC}.
+\end{proof}
 \end{document}

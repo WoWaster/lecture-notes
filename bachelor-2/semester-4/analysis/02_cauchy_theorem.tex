@@ -1,0 +1,148 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Теорема Коши}
+\section{Теорема Коши для прямоугольника}
+\begin{theorem*}[Теорема 6.4 из прошлого семестра]
+    \begin{gather*}
+        f \in C([a,b] \times [p,q]) \\
+        g(y) = \int^b_a f(x,y) dx \quad h(x) = \int^q_p f(x,y) dy
+        \intertext{По теореме о непрерывности интеграла, зависящего от параметра $g \in C([p,q])$ и $h \in C([a,b])$. Тогда}
+        \int^b_a h(x) dx = \int^q_p g(y) dy
+    \end{gather*}
+\end{theorem*}
+\begin{theorem} \label{2:intOfInt}
+    Формула интегрирования интеграла, зависящего от параметра в теореме выше справедлива для комплекснозначных функций $f$.
+\end{theorem}
+\begin{proof}
+    Следует из применения формулы к вещественной и мнимой частям функции $f$.
+\end{proof}
+
+\begin{theorem}\label{2:cauchy_square}
+    Пусть $Q$~--- прямоугольник.
+    \[Q = \{z = x + iy: a \le x \le b, p \le y \le q\}\]
+    $G$~--- открытое множество, $Q \subset G$, $f \in A(G)$.
+    Тогда
+    \[\AnClOrInt[\AnClOrCurve[\partial Q]] f(z) dz = 0, \tag{7}\]
+    где $\AnClOrCurve[\partial Q]$~--- ориентированная граница $Q$.
+\end{theorem}
+\begin{longProof}
+    Не уменьшая общности, считаем, что $\AnClOrCurve[\partial Q]$ ориентирована положительно.
+    Пусть $A = a + ip$, $B = b + ip$, $C = b + iq$, $D = a + iq$.
+    \begin{center}
+        \import{figures}{cauchy_theorem_square.pdf_tex}
+    \end{center}
+    $\AnClOrCurve[AB]$~--- ориентированная кривая, являющаяся отрезком $[A, B]$ с началом $A$ и концом $B$, аналогично $\AnClOrCurve[BC]$, $\AnClOrCurve[CD]$, $\AnClOrCurve[DA]$, тогда
+    \[\AnClOrInt[\AnClOrCurve[\partial Q]] \dotsi = \AnClOrInt[\AnClOrCurve[AB]] \dotsi + \AnClOrInt[\AnClOrCurve[BC]] \dotsi + \AnClOrInt[\AnClOrCurve[CD]] \dotsi + \AnClOrInt[\AnClOrCurve[DA]] \dotsi,\]
+    пользуясь параметризацией отрезков:
+    \begin{gather*}
+        \AnClOrCurve[AB] = \{z = x + ip: x \in [a,b]\} \\
+        \AnClOrCurve[BC] = \{z = b + iy: y \in [p,q]\} \\
+        \AnClOrCurve[CD] = \{z = t + iq: t = a + b - x, x \in [a,b]\}\\
+        \AnClOrCurve[DA] = \{z = a + is: s = p + q - y, y \in [p,q]\}
+    \end{gather*}
+    Пусть $\ClOrCurve[AD]$~--- отрезок, противоположно ориентированный по отношению к $\AnClOrCurve[AD]$, $\ClOrCurve[CD]$~--- отрезок, противоположно ориентированный по отношению к $\AnClOrCurve[CD]$.
+    Тогда имеем
+    \[ \AnClOrInt[\AnClOrCurve[\partial Q]] f(z) dz = \left( \AnClOrInt[\mathrlap{\AnClOrCurve[AB]}] f(z) dz - \ClOrInt[\mathrlap{\ClOrCurve[CD]}] f(z) dz \right) + \left( \AnClOrInt[\mathrlap{\AnClOrCurve[BC]}] f(z) dz - \ClOrInt[\mathrlap{\ClOrCurve[AD]}] f(z) dz \right) \tag{8} \]
+    \begin{multline*}
+        \AnClOrInt[\mathrlap{\AnClOrCurve[AB]}] f(z) dz - \ClOrInt[\mathrlap{\ClOrCurve[CD]}] f(z) dz = \int_{a}^{b} f(x + ip) dx - \int_{a}^{b} f(x + iq) dx = \\
+        = - \int_{a}^{b} \left(f(x + iq) - f(x + ip)\right) dx = - \int_{a}^{b} \left(f^*(x, q) - f^*(x, p)\right) dx = \\
+        = - \int_{a}^{b} \left( \int_{p}^{q} {f^*}_y' (x, y) dy\right) dx \tag{9}
+    \end{multline*}
+    В предыдущем интеграле в $(9)$ мы воспользовались при фиксированном $x$ формулой Ньютона-Лейбница, что возможно, поскольку $f^* \in C^1(G)$, что влечет $f^* \in C^1(Q)$.
+    Далее,
+    \[\AnClOrInt[\mathrlap{\AnClOrCurve[BC]}] f(z) dz - \ClOrInt[\mathrlap{\ClOrCurve[AD]}] f(z) dz = i \int_{p}^{q} f(b + iy) dy - i \int_{p}^{q} f(a + iy) dy \tag{10}\]
+    $(10) \implies$
+    \begin{multline*}
+        \AnClOrInt[\mathrlap{\AnClOrCurve[BC]}] f(z) dz - \ClOrInt[\mathrlap{\ClOrCurve[AD]}] f(z) dz = i \int_{p}^{q} \left( f(b + iy) dy - f(a + iy) \right) dy = \\
+        = i \int_{p}^{q} (f^*(b, y) - f^*(a, y)) dy = i \int_{p}^{q} \left( \int_{a}^{b} {f^*}_x' (x, y) dx\right) dy \tag{11}
+    \end{multline*}
+    В $(11)$ мы опять воспользовались формулой Ньютона-Лейбница.
+    Применяя теорему \ref{2:intOfInt}, из соотношений $(8)$--$(11)$ находим, что
+    \begin{multline*}
+        \AnClOrInt[\AnClOrCurve[\partial Q]] f(z) dz = i \int_{p}^{q} \left( \int_{a}^{b} {f^*}_x' (x, y) dx\right) dy - \int_{a}^{b} \left( \int_{p}^{q} {f^*}_y' (x, y) dy\right) dx = \\
+        = - \int_{a}^{b} \left( \int_{p}^{q} {f^*}_y' (x, y) dy\right) dx + i \int_{a}^{b} \left( \int_{p}^{q} {f^*}_x' (x, y) dy\right) dx = \\
+        = \int_{a}^{b} \left( \int_{p}^{q} \left( i {f^*}_x' (x, y) - {f^*}_y'(x, y)\right) dy \right) dx = \\
+        = i \int_{a}^{b} \left( \int_{p}^{q} \left( {f^*}_x' (x, y) + i {f^*}_y'(x, y)\right) dy \right) dx = \\
+        = 2 i \int_{a}^{b} \left( \int_{p}^{q} \frac{1}{2} \left( {f^*}_x' (x, y) + i {f^*}_y'(x, y)\right) dy \right) dx = \\
+        = 2 i \int_{a}^{b} \left( f_{\overline{z}}' (x + iy) dy\right) dx = 0,
+    \end{multline*}
+    поскольку $f \in A(G)$.
+\end{longProof}
+
+\section{Теорема Коши для прямоугольного треугольника}
+\begin{theorem}
+    Пусть $A = a + ip$, $B = b + ip$, $C = b + iq$, $a < b$, $p < q$, $\triangle \subset \C$~--- треугольник с вершинами $A,B,C$, $G$~--- открытое множество, $\triangle \subset G$, $f \in A(G)$.
+    Тогда
+    \[\AnClOrInt[\AnClOrCurve[\partial \triangle]] f(z) dz = 0, \tag{12}\]
+    где $\AnClOrCurve[\partial \triangle]$~--- ориентировання граница $\triangle$.
+\end{theorem}
+\begin{longProof}
+    Пусть
+    \begin{align*}
+        D & = \frac{a + b}{2} + i \frac{p + q}{2} & A_1 & = \frac{a + b}{2} + ip & C_1 & = b + i \frac{p + q}{2}
+    \end{align*}
+    \begin{center}
+        \import{figures}{cauchy_theorem_triangle.pdf_tex}
+    \end{center}
+    Тогда
+    \begin{gather*}
+        \AnClOrInt[\AnClOrCurve[C_1 D]] \dotsi + \AnClOrInt[\AnClOrCurve[D C_1]] \dotsi = 0 \\
+        \AnClOrInt[\AnClOrCurve[A_1 D]] \dotsi + \AnClOrInt[\AnClOrCurve[D A_1]] \dotsi = 0
+    \end{gather*}
+    \begin{multline*}
+        \AnClOrInt[\AnClOrCurve[\partial \triangle]] \dotsi = \AnClOrInt[\AnClOrCurve[AB]] \dotsi + \AnClOrInt[\AnClOrCurve[BC]] \dotsi + \AnClOrInt[\AnClOrCurve[CA]] \dotsi = \\
+        = \AnClOrInt[\AnClOrCurve[AA_1]] \dotsi + \AnClOrInt[\AnClOrCurve[A_1 B]] \dotsi + \AnClOrInt[\AnClOrCurve[BC_1]] \dotsi + \AnClOrInt[\AnClOrCurve[C_1 C]] \dotsi + \AnClOrInt[\AnClOrCurve[CD]] \dotsi + \AnClOrInt[\AnClOrCurve[DA]] \dotsi = \\
+        = \left( \AnClOrInt[\AnClOrCurve[AA_1]] \dotsi + \AnClOrInt[\AnClOrCurve[A_1 D]] \dotsi + \AnClOrInt[\AnClOrCurve[DA]] \dotsi \right) + \\
+        + \left( \AnClOrInt[\AnClOrCurve[C_1 C]] \dotsi + \AnClOrInt[\AnClOrCurve[CD]] \dotsi + \AnClOrInt[\AnClOrCurve[DC_1]] \dotsi\right) + \left( \AnClOrInt[\AnClOrCurve[DA_1]] \dotsi + \AnClOrInt[\AnClOrCurve[A_1 B]] \dotsi + \AnClOrInt[\AnClOrCurve[BC_1]] \dotsi + \AnClOrInt[\AnClOrCurve[C_1 D]] \dotsi\right) = \\
+        = \AnClOrInt[\AnClOrCurve[\partial \triangle_1]] \dotsi + \AnClOrInt[\AnClOrCurve[\partial \triangle_2]] \dotsi + \AnClOrInt[\AnClOrCurve[\partial Q_1]] \dotsi, \tag{13}
+    \end{multline*}
+    где $\triangle_1$~--- треугольник с вершинами $A, A_1, D$, $\triangle_2$~--- треугольник с вершинами $C_1, C, D$, $Q_1$~--- прямоугольник с вершинами $A_1, B, C_1, D$.
+    По теореме \ref{2:cauchy_square} имеем равенство
+    \[\AnClOrInt[\AnClOrCurve[\partial Q_1]] f(z) dz = 0, \tag{14}\]
+    поэтому $(13)$ и $(14) \implies$
+    \[ \AnClOrInt[\AnClOrCurve[\partial \triangle]] f(z) dz = \AnClOrInt[\AnClOrCurve[\partial \triangle_1]] f(z) dz + \AnClOrInt[\AnClOrCurve[\partial \triangle_2]] f(z) dz\]
+    Приведенное рассуждение можно применить к $\triangle_1$ и к $\triangle_2$ и т.д., в результате, если поделить гипотенузу $AC$ на $2^n$ равных отрезков и построить подобные $ABC$ треугольники $\triangle_{n1}, \dotsc, \triangle_{n2^n}$, занумерованные снизу вверх, то получим равенство
+
+    \begin{minipage}{0.3\textwidth}
+        \begin{center}
+            \import{figures}{cauchy_theorem_triangle_ntwo.pdf_tex}
+        \end{center}
+    \end{minipage}
+    \begin{minipage}{0.6\textwidth}
+        \[\AnClOrInt[\AnClOrCurve[\partial \triangle]] f(z) dz = \sum_{k=1}^{2^n} \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] f(z) dz \tag{15}\]
+    \end{minipage}
+
+    По теореме Кантора функция $f$ равномерно непрерывна в $\triangle$, поэтому
+    \begin{multline*}
+        \forall \epsilon > 0\ \exists \delta > 0 \text{ т.ч. } \forall z_1, z_2 \in \triangle \text{ т.ч. } |z_2 - z_1| < \delta \\
+        \text{выполнено } |f(z_2) - f(z_1)| < \epsilon.
+    \end{multline*}
+    \begin{minipage}{0.45\textwidth}
+        \begin{center}
+            \def\svgwidth{0.5\textwidth}
+            \import{figures}{cauchy_theorem_triangle_abg.pdf_tex}
+        \end{center}
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        Выберем $N$ так, чтобы $2^{-N} |C - A| < \delta$, и возьмем $n > N$.
+        Пусть $\alpha, \beta, \gamma$~--- вершины треугольника $\triangle_{nk}$.
+    \end{minipage}
+
+    Тогда
+    \begin{multline*}
+        \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] f(z) dz = \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] f(\alpha) dz + \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] (f(z) - f(\alpha)) dz =\\
+        = f(\alpha) \AnClOrInt[\mathrlap{\AnClOrCurve[\partial \triangle_{nk}]}] 1 dz + \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] (f(z) - f(\alpha)) dz = 0 + \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] (f(z) - f(\alpha)) dz, \tag{16}
+    \end{multline*}
+    далее, с учетом $|z - \alpha| \le |\gamma - \alpha| = 2^{-n} |C - A| < \delta$, если $z \in \triangle_{nk}$,
+    \begin{multline*}
+        \left| \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] (f(z) - f(\alpha)) dz \right| \le \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] \left| f^*(M) - f^*(L) \right| dl(M) \le \\
+        \le \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] \epsilon dl(M) = \epsilon (|\beta - \alpha| + |\gamma - \beta| + |\gamma - \alpha|) < 3 \epsilon |\gamma - \alpha| = \\
+        = 3 \epsilon \cdot 2^{-n}|C - A|, \tag{17}
+    \end{multline*}
+    где $\alpha \in \C \leftrightarrow L \in \R^2$, $z \in \C \leftrightarrow M \in R^2$.
+    Теперь $(15)$--$(17)$ при выбранном $n$ влечет:
+    \[\left| \AnClOrInt[\AnClOrCurve[\partial \triangle]] f(z) dz \right| \le \sum_{k=1}^{2^n} \left| \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] f(z) dz \right| \le \sum_{k=1}^{2^n} 3 \epsilon \cdot 2^{-n}|C - A| = 3 \epsilon |C - A| \tag{18}\]
+    Поскольку $\epsilon > 0$ произвольно, то $(18) \implies (12)$.
+\end{longProof}
+\end{document}
