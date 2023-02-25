@@ -97,14 +97,15 @@
 %            \infer[left label=$(\vdash \ \oplus)$]1{\Gamma_1 \Gamma_2 &\vdash \Delta_1 A\oplus B \Delta_2}
 %        \end{prooftree}
 % \end{align*}
-\chapter{Секвенциальное исчисление высказываний (СИВ)}\marginpar{21.02.23}
+\chapter[СИВ]{Секвенциальное исчисление высказываний (СИВ)}\marginpar{21.02.23}
 \section{Исчисления}
 \begin{definition}[Исчисление]
     Для того, чтобы задать исчисление, достаточно задать:
     \begin{enumerate}
         \item Алфавит (конечный набор символов)
         \item Формулы исчисления (подмножество выражений из символов алфавита)
-        \item Правила вывода (отношения между формулами $R(f_1, \dots ,f_n, f_{n+1})$ т.ч. если <<верен>> набор первых $n$ формул, то <<верна>> и последня)
+        \item Правила вывода (отношения между формулами\\
+              $R(f_1, \dots ,f_n, f_{n+1})$ т.ч. если <<верен>> набор первых $n$ формул, то <<верна>> и последня)
         \item Аксиомы (множество формул, которые <<верны>> в этом исчислении)
     \end{enumerate}
     Заметьте, что слово <<верно>> здесь взято в кавычки, потому что такого понятия изначально нет. Исчисление~--- это строго формальная вещь без семантики.
@@ -113,10 +114,10 @@
     Формула $f$ называется непосредственно выводимой из множества формул $f_1, \dots, f_n$, если имеется правило вывода, такое что $R(f_1, \dots, f_n, f)$.
 \end{definition}
 \begin{definition}[Выводимая формула]
-    Формула $f$ называется выводимой в исчислении $C$, если существует последовательность формул $f_1, \dots, f_n, f$, такая что $f_j \, \forall j$ является непосредственно выводимой из некоторых предыдущих или является аксиомой. Обозначение: $(\models_C f)$
+    Формула $f$ называется выводимой в исчислении $C$, если существует последовательность формул $f_1, \dots, f_n, f$, такая что $f_j \, \forall j$ является непосредственно выводимой из некоторых предыдущих или является аксиомой. Обозначение: $(\models_C f)$.
 \end{definition}
 \begin{definition}[Полнота]
-    Исчисление называется полным, если всякая истинная формула выводима в этом исчислении
+    Исчисление называется полным, если всякая истинная формула выводима в этом исчислении.
 \end{definition}
 \begin{definition}[Непротиворечивость]
     Исчисление называется непротиворечивым, если не существует формулы $f$, такой что $\models f$ и $\models \lnot f$.
@@ -247,8 +248,8 @@ $(\vdash \ *)$~--- правило вывода в сукцеденте для б
 \begin{proposition}
     В СИВ допустимыми являются:
     \begin{gather*}
-        (\lor \ \vdash), (\vdash \ \lor), (\to \ \vdash), (\vdash \ \to), (\lra \ \vdash), (\vdash \ \lra), (\oplus \ \vdash), (\vdash\ \oplus), (\mid \ \vdash), (\vdash \ \mid),\\
-        (\downarrow \ \vdash), (\vdash \ \downarrow).
+        (\lor \ \vdash), (\vdash \ \lor), (\to \ \vdash), (\vdash \ \to), (\lra \ \vdash), (\vdash \ \lra), (\oplus \ \vdash), (\vdash\ \oplus),\\
+        (\mid \ \vdash), (\vdash \ \mid), (\downarrow \ \vdash), (\vdash \ \downarrow).
     \end{gather*}
 \end{proposition}
 \begin{proof}
@@ -261,9 +262,9 @@ $(\vdash \ *)$~--- правило вывода в сукцеденте для б
         \end{prooftree}
     \end{gather*}
     $s$ может быть получено из $s'$ по $(\lnot \ \vdash)$, где
-    \begin{displaymath}
-        s' : \quad \Gamma_1 \Gamma_2 \vdash \Delta (\lnot A \and \lnot B)
-    \end{displaymath}
+
+    \[s' : \quad \Gamma_1 \Gamma_2 \vdash \Delta (\lnot A \and \lnot B)\]
+
     $s'$ может быть получено из $s''$ и $s'''$ по $(\vdash \ \and)$, где
     \begin{gather*}
         s'': \quad \Gamma_1\Gamma_2 \vdash \Delta \lnot A\\
@@ -325,8 +326,8 @@ $(\vdash \ *)$~--- правило вывода в сукцеденте для б
         \end{prooftree}
     \end{gather*}
 \end{proposition}
-\begin{definition}
-    Правило вывода называется производным правила исчисления, если всякая формула, выводимая с применением этого правила является выводимой т без его применения.
+\begin{definition}[Производное правило]
+    Правило вывода называется производным правила исчисления, если всякая формула, выводимая с применением этого правила является выводимой и без его применения.
 \end{definition}
 \begin{example}
     Правило сечения:
@@ -351,24 +352,24 @@ $(\vdash \ *)$~--- правило вывода в сукцеденте для б
     На примере $(\and\ \vdash)$ и $(\vdash \ \and)$.
 
     $(\and \ \vdash)$:
-    \begin{gather*}
-        \text{заключение: } \Phi(\Gamma_1 A\and B \vdash \Delta) \Leftrightarrow \lnot((\and\Gamma_1)\and A\and B\and (\and \Gamma_2))\lor (\lor\Delta)\\
-        \text{посылка: } \Phi(\Gamma_1 A B \Gamma_2 \vdash \Delta) \Leftrightarrow \lnot ((\and\Gamma_1)\and A\and B\and (\and \Gamma_2))\lor (\lor\Delta)
-    \end{gather*}
+
+    \begin{description}
+        \item[заключение: ] $\Phi(\Gamma_1 A\and B \vdash \Delta) \Leftrightarrow \lnot((\and\Gamma_1)\and A\and B\and (\and \Gamma_2))\lor (\lor\Delta)$
+        \item[посылка: ] $\Phi(\Gamma_1 A B \Gamma_2 \vdash \Delta) \Leftrightarrow \lnot ((\and\Gamma_1)\and A\and B\and (\and \Gamma_2))\lor (\lor\Delta)$
+    \end{description}
     $(\vdash \ \and)$:
-    \begin{gather*}
-        \text{посылка 1: } \Phi(\Gamma \vdash \Delta_1 A \Delta_2)\Leftrightarrow \lnot((\and \Gamma)) \lor (\lor \Delta_1)\lor A\lor(\lor\Delta_2)\\
-        \text{посылка 2: } \Phi(\Gamma \vdash \Delta_1 B \Delta_2)\Leftrightarrow \textcolor{red}{\lnot((\and \Gamma)) \lor (\lor \Delta_1)}\lor B\lor\textcolor{teal}{(\lor\Delta_2)}
-    \end{gather*}
+    \begin{description}
+        \item[посылка1: ] $\Phi(\Gamma \vdash \Delta_1 A \Delta_2)\Leftrightarrow \lnot((\and \Gamma)) \lor (\lor \Delta_1)\lor A\lor(\lor\Delta_2)$
+        \item[посылка2: ] $\Phi(\Gamma \vdash \Delta_1 B \Delta_2)\Leftrightarrow \\ \lra \textcolor{red}{\lnot((\and \Gamma)) \lor (\lor \Delta_1)}\lor B\lor\textcolor{teal}{(\lor\Delta_2)}$
+    \end{description}
     Обозначим \textcolor{red}{красное} за $F_1$, а \textcolor{teal}{зелёное} за $F_2$
-    \begin{gather*}
-        \text{посылка 1} \and \text{посылка 2: }(F_1 \lor A \lor F_2) \and (F_1\lor B\lor F_2)\\
-        \Leftrightarrow (F_1 \lor F_2) \lor(A \and B)\\
-        \text{заключение: }\Phi(\Gamma \vdash \Delta_1 A\and B \Delta_2) \\ \Leftrightarrow \lnot((\and \Gamma))\lor(\lor\Delta_1)\lor A\and B \lor(\lor \Delta_2)
-    \end{gather*}
+    \begin{description}
+        \item[посылка1 $\and$ посылка2: ] $(F_1 \lor A \lor F_2) \and (F_1\lor B\lor F_2) \Leftrightarrow (F_1 \lor F_2) \lor(A \and B)$
+        \item[заключение: ] $\Phi(\Gamma \vdash \Delta_1 A\and B \Delta_2) \lra \\ \Leftrightarrow \lnot((\and \Gamma))\lor(\lor\Delta_1)\lor A\and B \lor(\lor \Delta_2)$
+    \end{description}
 \end{proof}
 \begin{theorem}
-    СИВ полно (то есть формульный образ всякой секвенции, выводимой в СИВ является тавтологией).
+    СИВ полно~(то есть формульный образ всякой секвенции, выводимой в СИВ является тавтологией).
 \end{theorem}
 \begin{proof}
     Как-то методом возвратной математической индукции.

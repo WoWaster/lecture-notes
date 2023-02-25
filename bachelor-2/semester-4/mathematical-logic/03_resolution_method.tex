@@ -1,7 +1,7 @@
 % !TeX root = ./main.tex
 \documentclass[main]{subfiles}
 \begin{document}
-\chapter{Метод резолюции для исчисления высказываний}
+\chapter[Метод резолюции]{Метод резолюции для исчисления высказываний}
 \begin{definition}[Литерал]
     Литералом называется атомарная формула (кроме $0$ и $1$), или её отрицание(то есть либо $x$, либо $\lnot x$).
 \end{definition}
@@ -11,10 +11,10 @@
 
     \begin{enumerate}
         \item Алфавит: конечное множество пропозициональных переменных
-        \item Формулы: предложения(клозы, clauses), то есть элементарные дизъюнкции(дизъюнкции литералов)
+        \item Формулы: предложения~(клозы, clauses), то есть элементарные дизъюнкции~(дизъюнкции литералов)
         \item Правила вывода:
               \begin{itemize}
-                  \item правило резолюции:
+                  \item правило резолюции~(обозначения самого вывода не совпадают, оставил за собой право написать так, как считаю нужным):
                         \begin{gather*}
                             \begin{prooftree}
                                 \hypo{D_1 \lor x \lor D_2}
@@ -49,21 +49,23 @@
         \end{prooftree}
     \end{gather*}
 \end{remark}
-Встаёт вопрос, как доказывать какие-либо выражения в таком исчислении? Разберём общий случай. Хотим доказать \[A_1 \dots A_n \Rightarrow B_1 \dots B_m \quad (*)\]где $A_i$ $B_j$~--- это какие-то выражения, которые можно привести к виду элементарных дизъюнкций.
+Встаёт вопрос, как доказывать какие-либо выражения в таком исчислении? Разберём общий случай. Хотим доказать
+\[A_1 \dots A_n \Rightarrow B_1 \dots B_m \tag{*}\]
+где $A_i$ $B_j$~--- это какие-то выражения, которые можно привести к виду элементарных дизъюнкций.
 
 Алгоритм действий следующий:
 \begin{enumerate}
     \item Раскрываем $(*)$:
-          \begin{gather*}
-              A_1 \and\dots\and A_n \to B_1\lor \dots \lor B_m \\
-              \Leftrightarrow \lnot(A_1 \and\dots\and A_n)\lor B_1\lor \dots \lor B_m\\
+          \begin{multline*}
+              A_1 \and\dots\and A_n \to B_1\lor \dots \lor B_m  \lra\\
+              \Leftrightarrow \lnot(A_1 \and\dots\and A_n)\lor B_1\lor \dots \lor B_m \lra\\
               \Leftrightarrow \lnot A_1 \lor \dots \lor \lnot A_n \lor B_1 \lor\dots\lor B_m
-          \end{gather*}
+          \end{multline*}
     \item Если $(*)$ истинно, то $\lnot (*)$ должно быть ложным. Раскроем $\lnot(*)$:
-          \begin{gather*}
-              \lnot(\lnot A_1 \lor \dots \lor \lnot A_n \lor B_1 \lor\dots\lor B_m)\\
-              \Leftrightarrow A_1 \and \dots \and A_n \and \lnot B_1\and\dots \and \lnot B_m \quad (**)
-          \end{gather*}
+          \begin{multline*}
+              \lnot(\lnot A_1 \lor \dots \lor \lnot A_n \lor B_1 \lor\dots\lor B_m) \lra\\
+              \Leftrightarrow A_1 \and \dots \and A_n \and \lnot B_1\and\dots \and \lnot B_m \tag{**}
+          \end{multline*}
     \item Убрав конъюнкции, $(**)$ можно записать в виде:
           \begin{gather*}
               \begin{prooftree}
@@ -86,10 +88,10 @@
         A_2 = x_1 \to x_3 \Leftrightarrow A_2 = \lnot x_1 \lor x_3\\
         B = x_3
     \end{gather*}
-    Хотим доказать следующее: \[A_1 A_2 \Rightarrow B \quad (*)\]
+    Хотим доказать следующее: \[A_1 A_2 \Rightarrow B \tag{*}\]
     \begin{enumerate}
-        \item \[(*) \Leftrightarrow \lnot A_1 \lor \lnot A_2 \lor B\]
-        \item \[\lnot (*) \Leftrightarrow A_1 \and A_2 \and \lnot B \quad (**)\]
+        \item $(*) \Leftrightarrow \lnot A_1 \lor \lnot A_2 \lor B$
+        \item $\lnot (*) \Leftrightarrow A_1 \and A_2 \and \lnot B \quad (**)$
         \item Вспомним, что мы обозначали за $A_1, A_2, B$ и получим:
               \begin{gather*}
                   \begin{prooftree}
