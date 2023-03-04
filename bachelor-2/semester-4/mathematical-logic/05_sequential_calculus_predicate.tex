@@ -1,0 +1,66 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter[СИП]{Секвенциальное исчисление предикатов}
+Обозначим символом $[P]_y^x$ результат замены всех секвенциальных переменных $x$  на переменную $y$; а символом $[P]_t^x$ результат замены всех секвенциальных переменных $x$  на терм $t$. В дальнейшем будем активно использовать эти обозначения.
+
+Кванторные правила:
+\begin{align*}
+    \intertext{Следующие две формулы работают только если терм $t$ свободен для подстановки в формулу $P$ вместо переменной $x$}
+    \\
+     & \begin{prooftree}
+           \hypo{\Gamma & \vdash \Delta_1 [P]_t^x \Delta_2}
+           \infer[left label=$(\vdash \ \exists)$]1{\Gamma &\vdash \Delta_1 \exists x P \Delta_2}
+       \end{prooftree}   &
+     & \begin{prooftree}
+           \hypo{\Gamma_1 [P]_t^x \Gamma_2 & \vdash \Delta}
+           \infer[left label=$(\forall \ \vdash)$]1{\Gamma_1 \forall xP \Gamma_2 &\vdash \Delta}
+       \end{prooftree}
+    \\
+    \intertext{Следующие две формулы работают только если переменная $y$ свободна для подстановки в формулу $P$ вместо переменной $x$ И НЕ ВХОДИТ СВОБОДНО В ЗАКЛЮЧЕНИЕ ПРАВИЛА!!!}
+    \\
+     & \begin{prooftree}
+           \hypo{\Gamma &\vdash \Delta_1 [P]_y^x\Delta_2}
+           \infer[left label=$(\vdash \ \forall)$]1{\Gamma & \vdash  \Delta_1 \forall x P \Delta_2}
+       \end{prooftree} &
+     & \begin{prooftree}
+           \hypo{\Gamma_1 [P]_y^x \Gamma_2 &\vdash \Delta}
+           \infer[left label=$(\exists \ \vdash)$]1{\Gamma_1 \exists x P \Gamma_2 & \vdash \Delta}
+       \end{prooftree}
+\end{align*}
+
+\begin{definition}[Секвенциальное исчисление предикатов]
+    \
+
+    \begin{enumerate}
+        \item Алфавит: \\
+              $\{\text{алфавит для записи пропозициональных формул}, \vdash\}$
+        \item Формулы: секвенции вида $\Gamma \vdash \Delta$,  где $\Gamma, \Delta$~--- списки пропозициональных формул
+        \item Правила вывода: все правила вывода для СИВ и ещё кванторные правила:
+              \begin{itemize}
+                  \item $(\vdash \ \exists)$
+                  \item $(\forall \ \vdash)$
+                  \item $(\vdash \ \forall)$
+                  \item $(\exists \ \vdash)$
+              \end{itemize}
+        \item Аксиомы: секвенции вида $\Gamma_1 A \Gamma_2 \vdash \Delta_1 A \Delta_2$
+    \end{enumerate}
+\end{definition}
+Правило сокращения повторений:
+\begin{gather*}
+    \begin{prooftree}
+        \hypo{\Gamma_1 P \Gamma_2 P \Gamma_3 & \vdash \Delta}
+        \infer1{\Gamma_1 P \Gamma_2 \Gamma_3 & \vdash \Delta}
+    \end{prooftree} \qquad
+    \begin{prooftree}
+        \hypo{\Gamma & \vdash \Delta_1 P \Delta_2 P \Delta_3}
+        \infer1{\Gamma &\vdash \Delta_1 P \Delta_2 \Delta_3}
+    \end{prooftree}
+\end{gather*}
+\begin{theorem}
+    СИП полно и непротиворечиво.
+\end{theorem}
+\begin{proof}
+    Не требуется.
+\end{proof}
+\end{document}

@@ -58,6 +58,7 @@ $(\vdash \ *)$~--- правило вывода в сукцеденте для б
     \\
      & \begin{prooftree}
            \hypo{\Gamma_1 B\Gamma_2 &\vdash \Delta}
+           \infer[no rule]1{\Gamma_1 A\Gamma_2 &\vdash \Delta}
            \infer[left label=$(\lor \ \vdash)$]1{\Gamma_1 A\lor B\Gamma_2 &\vdash \Delta}
        \end{prooftree}                  &
      & \begin{prooftree}
@@ -120,6 +121,7 @@ $(\vdash \ *)$~--- правило вывода в сукцеденте для б
                   \item символы для обозначения пропозициональных переменных (например, $(x, y, z, 0, \dots, 9)$)
                   \item логические связки $\and, \lnot$
                   \item знак секвенции $\vdash$
+                  \item Скобки $( \ ,\ )$
               \end{itemize}
         \item Формулы: секвенции из пропозициональных формул
         \item Правила вывода:\begin{itemize}

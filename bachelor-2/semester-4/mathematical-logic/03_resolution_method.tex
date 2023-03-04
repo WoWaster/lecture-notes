@@ -97,9 +97,9 @@
                   \begin{prooftree}
                       \hypo{x_1 \and x_2}
                       \hypo{\lnot x_1 \lor x_3}
-                      \hypo{x_3}
-                      \infer3{x_1\quad x_2\quad \lnot x_1 \lor x_3 \quad x_3}
-                      \infer1[правило резолюции к $x_1$ и $\lnot x_1 \lor x_3$]{x_2 \quad \lnot x_3 \quad x_3}
+                      \hypo{\lnot x_3}
+                      \infer3{x_1\quad x_2\quad \lnot x_1 \lor x_3 \quad \lnot x_3}
+                      \infer1[правило резолюции к $x_1$ и $\lnot x_1 \lor x_3$]{x_2 \quad  x_3 \quad \lnot x_3}
                       \infer1[правило резолюции к $x_3$ и $\lnot x_3$]{x_2 \quad \nill}
                   \end{prooftree}
               \end{gather*}
