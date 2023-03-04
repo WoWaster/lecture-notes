@@ -13,7 +13,7 @@
     \end{itemize}
 \end{definition}
 \begin{definition}[Атомарная формула]
-    Если $t_1, \dots, t_n$~--- термы, $p$~--- n-местный предикатный символ, то $p(t_1, \dots, t_n)$~--- атомарная формула
+    Если $t_1, \dots, t_n$~--- термы, $p$~--- n-местный предикатный символ, то $p(t_1, \dots, t_n)$~--- атомарная формула.
 \end{definition}
 \begin{definition}[Предикатная формула]
     \
@@ -42,7 +42,7 @@
 \begin{example}
     $\forall x (P(\textcolor{red}{x},y,z) \to \exists y (Q(\textcolor{red}{y}, z) \lor \forall z R(\textcolor{red}{x}, \textcolor{red}{z})))$. Красным помечены все связанные переменные.
 \end{example}
-\begin{definition}[Интерпетация]
+\begin{definition}[Интерпретация]
     Для её задания достаточно:
     \begin{enumerate}
         \item Область интерпретации $D$, то есть множество констант
@@ -84,31 +84,55 @@
     $S(x) \lor \forall x(P(x,y,z) \to \forall x\exists y(Q(x,z) \lor R(y,x,z)))$
 
     Напишем, табличку, какой терм (обозначенный за $t$) свободен для подстановки в написанную выше формулу вместо соответствующих переменных:
-    \begin{gather*}
-        \begin{tabular}{|c|c|c|c|c|}
-            \hline
-            t       & x & y & z & y \\
-            \hline
+    % \begin{gather*}
+    %     \begin{tabular}{|c|c|c|c|c|}
+    %         \hline
+    %         t       & x & y & z & u \\
+    %         \hline
+    %         f(x)    & + & - & - & + \\
+    %         \hline
+    %         f(y)    & + & + & - & + \\
+    %         \hline
+    %         f(z)    & + & + & + & + \\
+    %         \hline
+    %         f(u)    & + & + & + & + \\
+    %         \hline
+    %         g(x, y) & + & - & - & + \\
+    %         \hline
+    %         g(x, z) & + & - & - & + \\
+    %         \hline
+    %         g(x, u) & + & - & - & + \\
+    %         \hline
+    %         g(y, z) & + & + & - & + \\
+    %         \hline
+    %         \dots                   \\
+    %         \hline
+    %     \end{tabular}
+    % \end{gather*}
+    \[\begin{array}{*5{c}}
+            \toprule
+            t       & x & y & z & u \\
+            \midrule
             f(x)    & + & - & - & + \\
-            \hline
+            \midrule
             f(y)    & + & + & - & + \\
-            \hline
+            \midrule
             f(z)    & + & + & + & + \\
-            \hline
+            \midrule
             f(u)    & + & + & + & + \\
-            \hline
+            \midrule
             g(x, y) & + & - & - & + \\
-            \hline
+            \midrule
             g(x, z) & + & - & - & + \\
-            \hline
+            \midrule
             g(x, u) & + & - & - & + \\
-            \hline
+            \midrule
             g(y, z) & + & + & - & + \\
-            \hline
-            \dots                   \\
-            \hline
-        \end{tabular}
-    \end{gather*}
+            \midrule
+            \dots   &   &   &   &   \\
+            \bottomrule
+        \end{array}\]
+
     Логика здесь такая: смотрим на то, какие переменные есть в терме, смотрим, сломается ли что-то, если мы везде вместо переменной напишем терм (то есть не станет ли то, что было свободным вдруг связным). Если ничего не ломается, то можем подставить, а если ломается, то, соответственно, не можем.
 \end{example}
 \end{document}

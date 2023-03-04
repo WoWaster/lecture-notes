@@ -7,7 +7,6 @@
 Кванторные правила:
 \begin{align*}
     \intertext{Следующие две формулы работают только если терм $t$ свободен для подстановки в формулу $P$ вместо переменной $x$}
-    \\
      & \begin{prooftree}
            \hypo{\Gamma & \vdash \Delta_1 [P]_t^x \Delta_2}
            \infer[left label=$(\vdash \ \exists)$]1{\Gamma &\vdash \Delta_1 \exists x P \Delta_2}
@@ -18,7 +17,6 @@
        \end{prooftree}
     \\
     \intertext{Следующие две формулы работают только если переменная $y$ свободна для подстановки в формулу $P$ вместо переменной $x$ И НЕ ВХОДИТ СВОБОДНО В ЗАКЛЮЧЕНИЕ ПРАВИЛА!!!}
-    \\
      & \begin{prooftree}
            \hypo{\Gamma &\vdash \Delta_1 [P]_y^x\Delta_2}
            \infer[left label=$(\vdash \ \forall)$]1{\Gamma & \vdash  \Delta_1 \forall x P \Delta_2}
@@ -61,6 +59,6 @@
     СИП полно и непротиворечиво.
 \end{theorem}
 \begin{proof}
-    Не требуется.
+    В курсе не будет.
 \end{proof}
 \end{document}
