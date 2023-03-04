@@ -5,7 +5,7 @@
 \section{Криволинейные интегралы второго рода от комплекснозначных функций} \marginpar{16.02.23}
 Для ориентированных кривых Николай Алексеевич использует гнутую стрелочку, здесь будет использоваться обычная.
 Так же вместе $\stackrel{\text{def}}{=}$ будет использоваться $\coloneq$.
-\begin{definition}
+\begin{definition}[Криволинейный интеграл второго рода от комплекснозначной функции]
     Имеется $\AnClOrCurve \subset \R^2$ -- ориентированная кривая.
     И имеется функция \[f(x_1, x_2) = u(x_1, x_2) + i v(x_1, x_2),\] такая что $f: \AnClOrCurve \to \C$, $f \in C(\Gamma)$.
 
@@ -215,7 +215,7 @@
     \end{gather*}
 \end{proof}
 
-\begin{property}
+\begin{property}\label{1:PartsSum}.
     Пусть у нас есть кусочно-гладкая кривая $\AnClOrCurve \subset \C$, где $f: \AnClOrCurve \to \C$.
     Допустим у нас есть точки $a < t_1 < ... < t_m < b$ и имеются кривые $\AnClOrCurve_1:[a, t_1] \to \C, ..., \AnClOrCurve_m: [t_{m-1}, t_m] \to \C, \AnClOrCurve_{m+1}: [t_m, b] \to \C$.
     \[\AnClOrInt fdz = \sum_{k=1}^{m+1} \AnClOrInt[\AnClOrCurve_k] f dz\]

@@ -72,10 +72,10 @@
 
 \section{Теорема Коши для прямоугольного треугольника}
 \begin{theorem}
-    Пусть $A = a + ip$, $B = b + ip$, $C = b + iq$, $a < b$, $p < q$, $\triangle \subset \C$~--- треугольник с вершинами $A,B,C$, $G$~--- открытое множество, $\triangle \subset G$, $f \in A(G)$.
+    Пусть $A = a + ip$, $B = b + ip$, $C = b + iq$, $a < b$, $p < q$, $\Delta \subset \C$~--- треугольник с вершинами $A,B,C$, $G$~--- открытое множество, $\Delta \subset G$, $f \in A(G)$.
     Тогда
-    \[\AnClOrInt[\AnClOrCurve[\partial \triangle]] f(z) dz = 0, \tag{12}\]
-    где $\AnClOrCurve[\partial \triangle]$~--- ориентировання граница $\triangle$.
+    \[\AnClOrInt[\AnClOrCurve[\partial \Delta]] f(z) dz = 0, \tag{12}\]
+    где $\AnClOrCurve[\partial \Delta]$~--- ориентировання граница $\Delta$.
 \end{theorem}
 \begin{longProof}
     Пусть
@@ -91,18 +91,18 @@
         \AnClOrInt[\AnClOrCurve[A_1 D]] \dotsi + \AnClOrInt[\AnClOrCurve[D A_1]] \dotsi = 0
     \end{gather*}
     \begin{multline*}
-        \AnClOrInt[\AnClOrCurve[\partial \triangle]] \dotsi = \AnClOrInt[\AnClOrCurve[AB]] \dotsi + \AnClOrInt[\AnClOrCurve[BC]] \dotsi + \AnClOrInt[\AnClOrCurve[CA]] \dotsi = \\
+        \AnClOrInt[\AnClOrCurve[\partial \Delta]] \dotsi = \AnClOrInt[\AnClOrCurve[AB]] \dotsi + \AnClOrInt[\AnClOrCurve[BC]] \dotsi + \AnClOrInt[\AnClOrCurve[CA]] \dotsi = \\
         = \AnClOrInt[\AnClOrCurve[AA_1]] \dotsi + \AnClOrInt[\AnClOrCurve[A_1 B]] \dotsi + \AnClOrInt[\AnClOrCurve[BC_1]] \dotsi + \AnClOrInt[\AnClOrCurve[C_1 C]] \dotsi + \AnClOrInt[\AnClOrCurve[CD]] \dotsi + \AnClOrInt[\AnClOrCurve[DA]] \dotsi = \\
         = \left( \AnClOrInt[\AnClOrCurve[AA_1]] \dotsi + \AnClOrInt[\AnClOrCurve[A_1 D]] \dotsi + \AnClOrInt[\AnClOrCurve[DA]] \dotsi \right) + \\
         + \left( \AnClOrInt[\AnClOrCurve[C_1 C]] \dotsi + \AnClOrInt[\AnClOrCurve[CD]] \dotsi + \AnClOrInt[\AnClOrCurve[DC_1]] \dotsi\right) + \left( \AnClOrInt[\AnClOrCurve[DA_1]] \dotsi + \AnClOrInt[\AnClOrCurve[A_1 B]] \dotsi + \AnClOrInt[\AnClOrCurve[BC_1]] \dotsi + \AnClOrInt[\AnClOrCurve[C_1 D]] \dotsi\right) = \\
-        = \AnClOrInt[\AnClOrCurve[\partial \triangle_1]] \dotsi + \AnClOrInt[\AnClOrCurve[\partial \triangle_2]] \dotsi + \AnClOrInt[\AnClOrCurve[\partial Q_1]] \dotsi, \tag{13}
+        = \AnClOrInt[\AnClOrCurve[\partial \Delta_1]] \dotsi + \AnClOrInt[\AnClOrCurve[\partial \Delta_2]] \dotsi + \AnClOrInt[\AnClOrCurve[\partial Q_1]] \dotsi, \tag{13}
     \end{multline*}
-    где $\triangle_1$~--- треугольник с вершинами $A, A_1, D$, $\triangle_2$~--- треугольник с вершинами $C_1, C, D$, $Q_1$~--- прямоугольник с вершинами $A_1, B, C_1, D$.
+    где $\Delta_1$~--- треугольник с вершинами $A, A_1, D$, $\Delta_2$~--- треугольник с вершинами $C_1, C, D$, $Q_1$~--- прямоугольник с вершинами $A_1, B, C_1, D$.
     По теореме \ref{2:cauchy_square} имеем равенство
     \[\AnClOrInt[\AnClOrCurve[\partial Q_1]] f(z) dz = 0, \tag{14}\]
     поэтому $(13)$ и $(14) \implies$
-    \[ \AnClOrInt[\AnClOrCurve[\partial \triangle]] f(z) dz = \AnClOrInt[\AnClOrCurve[\partial \triangle_1]] f(z) dz + \AnClOrInt[\AnClOrCurve[\partial \triangle_2]] f(z) dz\]
-    Приведенное рассуждение можно применить к $\triangle_1$ и к $\triangle_2$ и т.д., в результате, если поделить гипотенузу $AC$ на $2^n$ равных отрезков и построить подобные $ABC$ треугольники $\triangle_{n1}, \dotsc, \triangle_{n2^n}$, занумерованные снизу вверх, то получим равенство
+    \[ \AnClOrInt[\AnClOrCurve[\partial \Delta]] f(z) dz = \AnClOrInt[\AnClOrCurve[\partial \Delta_1]] f(z) dz + \AnClOrInt[\AnClOrCurve[\partial \Delta_2]] f(z) dz\]
+    Приведенное рассуждение можно применить к $\Delta_1$ и к $\Delta_2$ и т.д., в результате, если поделить гипотенузу $AC$ на $2^n$ равных отрезков и построить подобные $ABC$ треугольники $\Delta_{n1}, \dotsc, \Delta_{n2^n}$, занумерованные снизу вверх, то получим равенство
 
     \begin{minipage}{0.3\textwidth}
         \begin{center}
@@ -110,12 +110,12 @@
         \end{center}
     \end{minipage}
     \begin{minipage}{0.6\textwidth}
-        \[\AnClOrInt[\AnClOrCurve[\partial \triangle]] f(z) dz = \sum_{k=1}^{2^n} \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] f(z) dz \tag{15}\]
+        \[\AnClOrInt[\AnClOrCurve[\partial \Delta]] f(z) dz = \sum_{k=1}^{2^n} \AnClOrInt[\AnClOrCurve[\partial \Delta_{nk}]] f(z) dz \tag{15}\]
     \end{minipage}
 
-    По теореме Кантора функция $f$ равномерно непрерывна в $\triangle$, поэтому
+    По теореме Кантора функция $f$ равномерно непрерывна в $\Delta$, поэтому
     \begin{multline*}
-        \forall \epsilon > 0\ \exists \delta > 0 \text{ т.ч. } \forall z_1, z_2 \in \triangle \text{ т.ч. } |z_2 - z_1| < \delta \\
+        \forall \epsilon > 0\ \exists \delta > 0 \text{ т.ч. } \forall z_1, z_2 \in \Delta \text{ т.ч. } |z_2 - z_1| < \delta \\
         \text{выполнено } |f(z_2) - f(z_1)| < \epsilon.
     \end{multline*}
     \begin{minipage}{0.45\textwidth}
@@ -126,23 +126,205 @@
     \end{minipage}
     \begin{minipage}{0.45\textwidth}
         Выберем $N$ так, чтобы $2^{-N} |C - A| < \delta$, и возьмем $n > N$.
-        Пусть $\alpha, \beta, \gamma$~--- вершины треугольника $\triangle_{nk}$.
+        Пусть $\alpha, \beta, \gamma$~--- вершины треугольника $\Delta_{nk}$.
     \end{minipage}
 
     Тогда
     \begin{multline*}
-        \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] f(z) dz = \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] f(\alpha) dz + \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] (f(z) - f(\alpha)) dz =\\
-        = f(\alpha) \AnClOrInt[\mathrlap{\AnClOrCurve[\partial \triangle_{nk}]}] 1 dz + \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] (f(z) - f(\alpha)) dz = 0 + \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] (f(z) - f(\alpha)) dz, \tag{16}
+        \AnClOrInt[\AnClOrCurve[\partial \Delta_{nk}]] f(z) dz = \AnClOrInt[\AnClOrCurve[\partial \Delta_{nk}]] f(\alpha) dz + \AnClOrInt[\AnClOrCurve[\partial \Delta_{nk}]] (f(z) - f(\alpha)) dz =\\
+        = f(\alpha) \AnClOrInt[\mathrlap{\AnClOrCurve[\partial \Delta_{nk}]}] 1 dz + \AnClOrInt[\AnClOrCurve[\partial \Delta_{nk}]] (f(z) - f(\alpha)) dz = 0 + \AnClOrInt[\AnClOrCurve[\partial \Delta_{nk}]] (f(z) - f(\alpha)) dz, \tag{16}
     \end{multline*}
-    далее, с учетом $|z - \alpha| \le |\gamma - \alpha| = 2^{-n} |C - A| < \delta$, если $z \in \triangle_{nk}$,
+    далее, с учетом $|z - \alpha| \le |\gamma - \alpha| = 2^{-n} |C - A| < \delta$, если $z \in \Delta_{nk}$,
     \begin{multline*}
-        \left| \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] (f(z) - f(\alpha)) dz \right| \le \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] \left| f^*(M) - f^*(L) \right| dl(M) \le \\
-        \le \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] \epsilon dl(M) = \epsilon (|\beta - \alpha| + |\gamma - \beta| + |\gamma - \alpha|) < 3 \epsilon |\gamma - \alpha| = \\
+        \left| \AnClOrInt[\AnClOrCurve[\partial \Delta_{nk}]] (f(z) - f(\alpha)) dz \right| \le \AnClOrInt[\AnClOrCurve[\partial \Delta_{nk}]] \left| f^*(M) - f^*(L) \right| dl(M) \le \\
+        \le \AnClOrInt[\AnClOrCurve[\partial \Delta_{nk}]] \epsilon dl(M) = \epsilon (|\beta - \alpha| + |\gamma - \beta| + |\gamma - \alpha|) < 3 \epsilon |\gamma - \alpha| = \\
         = 3 \epsilon \cdot 2^{-n}|C - A|, \tag{17}
     \end{multline*}
     где $\alpha \in \C \leftrightarrow L \in \R^2$, $z \in \C \leftrightarrow M \in R^2$.
     Теперь $(15)$--$(17)$ при выбранном $n$ влечет:
-    \[\left| \AnClOrInt[\AnClOrCurve[\partial \triangle]] f(z) dz \right| \le \sum_{k=1}^{2^n} \left| \AnClOrInt[\AnClOrCurve[\partial \triangle_{nk}]] f(z) dz \right| \le \sum_{k=1}^{2^n} 3 \epsilon \cdot 2^{-n}|C - A| = 3 \epsilon |C - A| \tag{18}\]
+    \[\left| \AnClOrInt[\AnClOrCurve[\partial \Delta]] f(z) dz \right| \le \sum_{k=1}^{2^n} \left| \AnClOrInt[\AnClOrCurve[\partial \Delta_{nk}]] f(z) dz \right| \le \sum_{k=1}^{2^n} 3 \epsilon \cdot 2^{-n}|C - A| = 3 \epsilon |C - A| \tag{18}\]
     Поскольку $\epsilon > 0$ произвольно, то $(18) \implies (12)$.
+\end{longProof}
+
+\section{Теорема Коши для произвольного треугольника}\marginpar{02.03.23}
+% треугольник дельта!
+\begin{theorem}
+    Имеется область $G$ и имеется произвольный треугольник $\Delta$, $\Delta \subset G$, $f \in A(G)$, тогда
+    \[\int_{\overrightarrow{\partial \Delta}} f(z) dz = 0\]
+\end{theorem}
+\begin{longProof}
+    Пусть $\angle A$~--- больший из углов треугольника.
+    И рассмотрим два случая:
+    \begin{enumerate}
+        \item Рассмотрим случай когда $BC$ параллельна оси $x$.
+              \begin{center}
+                  \def\svgwidth{0.45\linewidth}
+                  \import{figures}{cauchy_theorem_random_triangle1.pdf_tex}
+              \end{center}
+              Проведем высоту $AD$ в треугольнике, $AD \perp CB$.
+              Если угол $B$ или $C$ прямой, то это в точности предыдущая ситуация, у нас не так, поэтому считаем, что $D \in CB, D \neq C, D \neq B$.
+              Будем обходить в положительном направлении.
+              Тогда криволинейный интеграл второго рода
+              \[\AnClOrInt[\AnClOrCurve[CBA]] f(z) dz = \AnClOrInt[\AnClOrCurve[CDA]] f(z) dz + \AnClOrInt[\AnClOrCurve[DBA]] f(z) dz = 0+ 0 = 0,\]
+              т.к. каждый из них прямоугольный.
+
+        \item Теперь ни одна из сторон не параллельна оси $x$.
+              \begin{center}
+                  \def\svgwidth{0.45\linewidth}
+                  \import{figures}{cauchy_theorem_random_triangle2.pdf_tex}
+              \end{center}
+              Будем считать, что $A,B,C$ не только наименования вершин, но и комплексные числа.
+              Выберем такое $\theta$, что $e^{i\theta}(B-C) = |B - C|$.
+              И треугольник повернется так, что сторона $BC$ станет параллельна вещественной оси.
+              Обозначим
+              \begin{gather*}
+                  G_\theta = \{\zeta: \zeta = e^{i \theta}z, z \in G\} \\
+                  \Delta_\theta = \{\zeta: \zeta = e^{i \theta}z, z \in \Delta\}
+              \end{gather*}
+              Тогда $f_\theta = f(e^{- i \theta} \zeta)$, когда $\zeta \in G_\theta$ и $f_\theta \in A (G_\theta)$.
+              И выполнены  соотношения
+              \begin{gather*}
+                  \AnClOrInt[\AnClOrCurve[\partial \Delta_\theta]] f_\theta(\zeta) d\zeta = 0 \tag{1}\\
+                  \AnClOrInt[\AnClOrCurve[\partial \Delta]] f(z) dz = e^{-i \theta}\AnClOrInt[\AnClOrCurve[\partial \Delta_\theta]] f_\theta(\zeta) d\zeta \tag{2}\\
+                  (1), (2) \implies \int_{\overrightarrow{\partial \Delta}} f(z) dz = 0
+              \end{gather*}
+    \end{enumerate}
+\end{longProof}
+
+\section{Теорема Коши для области, ограниченной многоугольниками}
+\begin{definition}[Многоугольник]
+    Многоугольник~--- замкнутая кусочно-гладкая кривая, все гладкие границы, которой являются отрезками, а так же множество внутренних точек, ограниченных данной кривой.
+\end{definition}
+
+\begin{theorem}[О триангуляции]
+    Допустим, что есть область $G$, такая что $\partial G = \bigcup_{k=1}^m P_k$~--- многоугольники, тогда существует конечное множество треугольников $\Delta_j, 1 \le j \le N$, которые обладают свойствами:
+    \begin{itemize}
+        \item $\Delta_j \subset G$
+        \item $\bigcup_{j=1}^N \Delta_j = G$
+        \item если $j \neq k$, то
+              \begin{itemize}
+                  \item либо $\Delta_j \cap \Delta_k = \varnothing$
+                  \item либо $\Delta_j \cap \Delta_k$~--- одна точка
+                  \item либо $\Delta_j \cap \Delta_k$~--- сторона $\Delta_j$ и $\Delta_k$
+              \end{itemize}
+    \end{itemize}
+    Такое множество называется триангуляцией области $G$.
+\end{theorem}
+\begin{proof}
+    Доказывается индукцией по общему количеству вершин.
+    Должно было быть в топологии.
+\end{proof}
+\begin{example}
+    Пример триангуляции, где $P_1$~--- внешняя граница, а $P_2$~--- граница <<вырезанного>> куска.
+    \begin{center}
+        \def\svgwidth{0.4\linewidth}
+        \import{figures}{triangulation.pdf_tex}
+    \end{center}
+\end{example}
+\begin{definition}[Ориентация многоугольника]
+    Пусть имеется область, граница которой состоит из более, чем одного многоугольника, тогда есть самый внешний многоугольник, внутри которого лежат остальные.
+    Ориентированной границей всей области по определению будем называть задание какой-то ориентации на самом внешнем многоугольнике и задание противоположной на всех внутренних многоугольниках.
+
+    Положительной ориентацией будем называть ориентацию, когда на внешнем многоугольнике задана положительная ориентация, а на всех внутренних задана отрицательная ориентация. В таком случае, если мы рассмотрим задание ориентации через вектор $\nu$, то все нужные точки будут лежать внутри области.
+\end{definition}
+
+\begin{proposition}
+    Пусть имеется область $G$, граница которой $\AnClOrCurve[\partial G] = \overrightarrow{\bigcup_{k=1}^m P_k}$\footnote{В данном случае стрелочка над объединением, а так же запись вида $\overrightarrow{P_k}^\bullet$, означают задание ориентации в соответствии с определением выше.}.
+    Имеется триангуляция этой области с помощью треугольников $\Delta_j$, и задана любая функция $f \in C(G)$.
+    Тогда справедливо равенство
+    \begin{gather*}
+        \AnClOrInt[\AnClOrCurve[\partial G]] f(z) dz \coloneq \sum_{k=1}^{m} \AnClOrInt[\AnClOrCurve[P_k]^\bullet] f(z) dz \tag{3}
+        \intertext{и}
+        \AnClOrInt[\AnClOrCurve[\partial G]] f(z) dz = \sum_{j=1}^{N} \AnClOrInt[\AnClOrCurve[\partial \Delta_j]] f(z) dz \tag{4}
+    \end{gather*}
+\end{proposition}
+\begin{longProof}
+    Если $\partial\Delta_j = t_{j1} \cup t_{j2} \cup t_{j3}$, где $t_{jl}$~--- стороны треугольника $\Delta_j$.
+    Тогда
+    \[\sum_{j=1}^{N} \AnClOrInt[\AnClOrCurve[\partial \Delta_j]] f(z) dz = \sum_{j=1}^{N} \sum_{l=1}^{3} \AnClOrInt[\AnClOrCurve[t_{jl}]] f(z) dz\]
+    Рассмотрим 3 случая:
+    \begin{enumerate}
+        \item Если $t_{jl}$ не лежит на $P_k$, $k=1,\dotsc, m$, то она обходится в одном из треугольников в положительном направлении, а в другом в отрицательном.
+              Поэтому
+              \[\sum_{j=1}^{N} \sum_{l=1}^{3} \AnClOrInt[\AnClOrCurve[t_{jl}]] f(z) dz = 0, \tag{5}\]
+              где все $t_{jl}$ не лежат на $P_k$, таким образом в сумме (4) остаются только интегралы по границам, лежащим на $P_k$.
+        \item Назовем $P_1$ внешний многоугольник.
+              Если $t_{jl} \subset P_1$, тогда она имеет ту же положительную ориентацию, что и $P_1$.
+              Раз триангуляция дает всю область $G$, то есть весь многоугольник $P_1$ будет покрыт этими непересекающимися отрезками.
+        \item Назовем $P_2$ внутренний многоугольник.
+              Аналогично, если $t_{jl} \subset P_2$, тогда она имеет ту же отрицательную ориентацию, что и $P_2$.
+    \end{enumerate}
+
+    При $t_{tl} \subset \bigcup P_k$ по свойству \ref{1:PartsSum}
+    \begin{gather*}
+        \sum_{j=1}^{N} \sum_{l=1}^{3} \AnClOrInt[\AnClOrCurve[t_{jl}]] f(z) dz = \sum_{j=1}^{N} \AnClOrInt[\AnClOrCurve[P_j]] f(z) dz \tag{6}
+    \end{gather*}
+    $(5)$, $(6) \implies (4)$.
+\end{longProof}
+
+\begin{theorem}
+    Есть область $\Omega$, $f \in A (\Omega)$, $G \subset \Omega$, $\partial G = \bigcup_{k=1}^m P_k$, тогда
+    \[\AnClOrInt[\AnClOrCurve[\partial G]] f(z) dz = 0 \tag{7}\]
+\end{theorem}
+\begin{proof}
+    Заведем триангуляцию $G = \bigcup_{j=1}^N \Delta_j$ со всеми свойствами из теоремы.
+    Тогда соотношение $(4)$ влечет:
+    \begin{gather*}
+        \AnClOrInt[\AnClOrCurve[\partial G]] f(z) dz = \sum_{j=1}^{N} \AnClOrInt[\AnClOrCurve[\partial \Delta_j]] f(z) dz = \sum_{j=1}^{N} 0 = 0
+    \end{gather*}
+\end{proof}
+
+\section{Теорема Коши для областей, ограниченных кусочно-гладкими кривыми}
+\begin{lemma}
+    Есть кусочно-гладкая кривая $\gamma$, $a, b$~--- концы $\gamma$, т.ч. $a$~--- начало, $b$~--- конец, $f \in C(\gamma)$, тогда
+    \[\left| \AnClOrInt[\AnClOrCurve[\gamma]] f(z) dz -  c(b-a) \right| \le \max_{z \in \gamma} |f(z) - c| l(\gamma), \tag{8}\]
+    где $l(\gamma)$~--- длина $\gamma$.
+\end{lemma}
+\begin{proof}
+    \begin{gather*}
+        c(b-a) = \int_{\overrightarrow{\gamma}} c dz\\
+        \begin{multlined}
+            \left| \AnClOrInt[\AnClOrCurve[\gamma]] f(z) dz -  c(b-a) \right| = \left| \AnClOrInt[\AnClOrCurve[\gamma]] f(z) dz - \int_{\overrightarrow{\gamma}} c dz \right| = \left| \int_{\overrightarrow{\gamma}} (f(z) - c) dz \right| \le \\
+            \le \int_{\gamma}\left|f(z) -c \right| dl(\gamma) \le \int_{\gamma}\max_{z \in \gamma} |f(z) - c| dl(\gamma) = \max_{z \in \gamma} |f(z) - c| l(\gamma)
+        \end{multlined}
+    \end{gather*}
+\end{proof}
+\begin{definition}[Ориентация области, ограниченной кусочно-гладкими кривыми]
+    Имеется область $G$, т.ч. $\partial G = \bigcup_{k=1}^m \Gamma_k$~--- кусочно-гладкие кривые.
+    Допустим, что $\Gamma_1$ содержит $\Gamma_k, k \ge 2$.
+    Будем называть положительной ориентацией положительную ориентацию $\Gamma_1$ и отрицательную ориентацию остальных $\Gamma_k$.
+\end{definition}
+\begin{theorem}
+    Есть область $\Omega$, $G \subset \Omega$~--- замкнутая область, $\partial G \subset \Omega$ и граница состоит из конечного числа кусочно-гладких кривых, а ее внутренность $\mathring{G}$,$f \in A(\Omega)$. Тогда
+    \[\AnClOrInt[\AnClOrCurve[\partial G]] f(z) dz = 0 \tag{9}\]
+\end{theorem}
+\begin{longProof}
+    $G$~--- компакт, поэтому
+    \begin{gather*}
+        \exists \delta_0 > 0 \text{ т.ч. } \forall z \in G\quad \overline{B}_{\delta_0}(z) = \{\zeta : |\zeta - z| \le \delta_0\} \subset \Omega\\
+        G_{\delta_0} = \bigcup_{z \in G} B_{\delta_0} (z)\text{ --- компакт}
+    \end{gather*}
+    Тогда $G_{\delta_0} \subset \Omega$ и $f \in C (G_{\delta_0})$.
+    По теореме Кантора
+    \begin{gather*}
+        \begin{multlined}
+            \forall \epsilon >0\ \exists \delta > 0 \text{ т.ч. }\forall \zeta_1, \zeta_2 \in G_{\delta_0} \text{ т.ч. } |\zeta_1 - \zeta_2| < \delta \\
+            \implies |f(\zeta_1) - f(\zeta_2)| < \epsilon
+        \end{multlined} \tag{10}
+        \intertext{Хотим через $P_{k,L} = \{z_{k,\nu}\}_{\nu = 1}^{N_{k,\delta}}$ обозначить разбиение $\overrightarrow{\Gamma_k}$, где $z_{k,\nu} \in \Gamma_k$ и}
+        |z_{k+1, \nu} - z_{k, \nu}| < \delta \tag{11}\\
+        \left| \int_{\overrightarrow{\Gamma_k}} f(z) dz - \sum_{\nu = 1}^{N_{k,\delta}} f(z_{k,\nu}) (z_{k+1, \nu} - z_{k, \nu}) \right| < \epsilon \tag{12} % по свойству 4
+    \end{gather*}
+    Теперь рассмотрим многоугольники $Q_{k, \delta}$ c вершинами $z_{k, \nu}, 1 \le \nu \le N_{k, \delta}$.
+    Тогда, если мы ориентируем эти многоугольники, так чтобы общая граница была ориентирована положительно, то по предыдущей теореме
+    \[\sum_{k=1}^{m} \int_{\overrightarrow{Q_{k, \delta}}^\bullet} f(z) dz = 0 \tag{13}\]
+    Рассмотрим
+    \begin{multline*}
+        \left| \int_{\overrightarrow{Q_{k, \delta}}} f(z) dz  - \sum_{\nu = 1}^{N_{k, \delta}} f(z_{k, \delta}) (z_{k+1, \nu} - z_{k, \nu})\right| = \\
+        = \left| \sum_{\nu = 1}^{N_{k, \delta}} \int_{\mathrlap{\overrightarrow{[z_{k, \nu}, z_{k+1, \nu}]}}}\  f(z) dz - \sum_{\nu = 1}^{N_{k, \delta}} f(z_{k, \delta}) (z_{k+1, \nu} - z_{k, \nu}) \right| \le \\
+        \le \sum_{\nu = 1}^{N_{k, \delta}} \left| \int_{\mathrlap{\overrightarrow{[z_{k, \nu}, z_{k+1, \nu}]}}}\  f(z) dz -  f(z_{k, \delta}) (z_{k+1, \nu} - z_{k, \nu}) \right| \le \\
+        \le \sum_{\nu = 1}^{N_{k, \delta}} \max_{z \in [z_{k, \nu}, z_{k+1, \nu}]} |f(z) - f(z_{k, \nu})| \cdot |z_{k+1, \nu} - z_{k, \nu}| \tag{19}
+    \end{multline*}
+    Продолжение следует...
 \end{longProof}
 \end{document}
