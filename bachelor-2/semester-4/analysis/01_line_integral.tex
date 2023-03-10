@@ -215,13 +215,13 @@
     \end{gather*}
 \end{proof}
 
-\begin{property}\label{1:PartsSum}.
+\begin{property}\label{1:PartsSum}
     Пусть у нас есть кусочно-гладкая кривая $\AnClOrCurve \subset \C$, где $f: \AnClOrCurve \to \C$.
     Допустим у нас есть точки $a < t_1 < ... < t_m < b$ и имеются кривые $\AnClOrCurve_1:[a, t_1] \to \C, ..., \AnClOrCurve_m: [t_{m-1}, t_m] \to \C, \AnClOrCurve_{m+1}: [t_m, b] \to \C$.
     \[\AnClOrInt fdz = \sum_{k=1}^{m+1} \AnClOrInt[\AnClOrCurve_k] f dz\]
 \end{property}
 
-\begin{property} \marginpar{23.02.23}
+\begin{property} \label{1:LessThanLength}\marginpar{23.02.23}
     Пусть $\AnClOrCurve_C([a,b])$~--- ориентированная кусочно-гладкая кривая, $f \in C(\Gamma([a,b]))$.
     Тогда
     \[\left| \AnClOrInt[\AnClOrCurve_C ([a,b])] f dz \right| \le \int_{\Gamma([a,b])} \left| f^* \right| dl, \tag{1}\]

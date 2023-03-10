@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="cauchy_formula_D_rho.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="3.1963805"
+     inkscape:cx="149.54415"
+     inkscape:cy="147.04132"
+     inkscape:window-width="1920"
+     inkscape:window-height="1019"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="marker15100"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow1"
+       markerWidth="4.0606604"
+       markerHeight="6.7071066"
+       viewBox="0 0 4.0606602 6.7071068"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         id="path15098"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow1"
+       markerWidth="4.0606599"
+       markerHeight="6.7071061"
+       viewBox="0 0 4.0606602 6.7071068"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 0.60355339,3 -2.3964466,0 0.60355339,-3"
+         id="path5057"
+         sodipodi:nodetypes="ccc" />
+    </marker>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3560"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3522"
+       is_visible="true"
+       lpeversion="1" />
+    <marker
+       style="overflow:visible"
+       id="Arrow1L"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow1L"
+       markerWidth="8.75"
+       markerHeight="5"
+       viewBox="0 0 8.75 5"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="arrow1L"
+         transform="scale(-0.5)" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:0.25;marker-mid:url(#Arrow1);marker-end:url(#Arrow1)"
+       id="path234"
+       cx="34.709129"
+       cy="37.401573"
+       r="19.256834" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:none;stroke:#000000;stroke-width:0.25"
+       x="53.527786"
+       y="44.48653"
+       id="text342"><tspan
+         sodipodi:role="line"
+         id="tspan340"
+         style="stroke-width:0.25"
+         x="53.527786"
+         y="44.48653">$\gamma_r(a)$</tspan></text>
+    <circle
+       id="path1060"
+       style="fill:#000000;stroke:none;stroke-width:0.264583"
+       cx="34.709129"
+       cy="37.401573"
+       r="0.375" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.233078;marker-end:url(#Arrow1L)"
+       d="M 34.708109,37.389179 19.871525,47.348657"
+       id="path1177" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:none;stroke:#000000;stroke-width:0.25"
+       x="34.26228"
+       y="40.974079"
+       id="text1874"><tspan
+         sodipodi:role="line"
+         id="tspan1872"
+         style="stroke-width:0.25"
+         x="34.26228"
+         y="40.974079">$a$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:none;stroke:#000000;stroke-width:0.25"
+       x="26.645695"
+       y="45.402592"
+       id="text2666"><tspan
+         sodipodi:role="line"
+         id="tspan2664"
+         style="stroke-width:0.25"
+         x="26.645695"
+         y="45.402592">$r$</tspan></text>
+    <circle
+       style="fill:#808080;stroke:#000000;stroke-width:0.25;marker-end:url(#marker15100)"
+       id="path3406"
+       cx="41.38171"
+       cy="28.680393"
+       r="2.9265707" />
+    <circle
+       id="path3408"
+       style="fill:#000000;stroke:none;stroke-width:0.264583"
+       cx="41.381706"
+       cy="28.680393"
+       r="0.375" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:none;stroke:#000000;stroke-width:0.25"
+       x="30.494865"
+       y="27.68536"
+       id="text3464"><tspan
+         sodipodi:role="line"
+         id="tspan3462"
+         style="stroke-width:0.25"
+         x="30.494865"
+         y="27.68536">$z_0$</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.25;marker-end:url(#Arrow1L)"
+       d="m 34.679517,29.441301 c 0.272067,0.509179 0.674244,0.948153 1.15772,1.263645 0.483475,0.315492 1.047239,0.506842 1.622868,0.550828 1.039489,0.07943 2.106,-0.34273 2.809507,-1.112097"
+       id="path3520"
+       inkscape:path-effect="#path-effect3522"
+       inkscape:original-d="m 34.679517,29.441301 c 0.946636,0.605089 1.85399,1.209913 2.780588,1.814473 0.926597,0.604562 1.873268,-0.741132 2.809507,-1.112097" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:none;stroke:#000000;stroke-width:0.25"
+       x="47.820164"
+       y="21.832216"
+       id="text3536"><tspan
+         sodipodi:role="line"
+         id="tspan3534"
+         style="stroke-width:0.25"
+         x="47.820164"
+         y="21.832216">$\gamma_\rho(z_0)$</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.25;marker-end:url(#Arrow1L)"
+       d="m 52.912398,23.354034 c -1.16959,1.200552 -2.515083,2.229458 -3.980137,3.043633 -0.932925,0.518455 -1.914044,0.950148 -2.92657,1.287692"
+       id="path3558"
+       inkscape:path-effect="#path-effect3560"
+       inkscape:original-d="m 52.912398,23.354034 c -1.326449,1.014809 -2.653159,2.029354 -3.980137,3.043633 -1.326976,1.01428 -1.950781,0.858726 -2.92657,1.287692" />
+    <text
+       xml:space="preserve"
+       style="stroke-width:0.25;stroke:#000000;font-size:3.175px;"
+       x="30.101444"
+       y="52.151489"
+       id="text5106"><tspan
+         sodipodi:role="line"
+         id="tspan5104"
+         style="stroke-width:0.25"
+         x="30.101444"
+         y="52.151489">$D_\rho$</tspan></text>
+  </g>
+</svg>

@@ -295,7 +295,7 @@
     Будем называть положительной ориентацией положительную ориентацию $\Gamma_1$ и отрицательную ориентацию остальных $\Gamma_k$.
 \end{definition}
 \begin{theorem}
-    Есть область $\Omega$, $G \subset \Omega$~--- замкнутая область, $\partial G \subset \Omega$ и граница состоит из конечного числа кусочно-гладких кривых, а ее внутренность $\mathring{G}$,$f \in A(\Omega)$. Тогда
+    Есть область $\Omega$, $G \subset \Omega$~--- замкнутая область, $\partial G \subset \Omega$ и граница состоит из конечного числа кусочно-гладких кривых $\Gamma_k$, а ее внутренность $\mathring{G}$,$f \in A(\Omega)$. Тогда
     \[\AnClOrInt[\AnClOrCurve[\partial G]] f(z) dz = 0 \tag{9}\]
 \end{theorem}
 \begin{longProof}
@@ -306,25 +306,37 @@
     \end{gather*}
     Тогда $G_{\delta_0} \subset \Omega$ и $f \in C (G_{\delta_0})$.
     По теореме Кантора
+    \begin{multline*}
+        \forall \epsilon >0\ \exists \delta > 0 \text{ т.ч. }\forall \zeta_1, \zeta_2 \in G_{\delta_0} \text{ т.ч. } |\zeta_1 - \zeta_2| < \delta \\
+        \implies |f(\zeta_1) - f(\zeta_2)| < \epsilon \tag{10}
+    \end{multline*}
+    Хотим через $P_{k,L} = \{z_{k,\nu}\}_{\nu = 1}^{N_{k,\delta}}$ обозначить разбиение $\overrightarrow{\Gamma_k}$, где $z_{k,\nu} \in \Gamma_k$ и
     \begin{gather*}
-        \begin{multlined}
-            \forall \epsilon >0\ \exists \delta > 0 \text{ т.ч. }\forall \zeta_1, \zeta_2 \in G_{\delta_0} \text{ т.ч. } |\zeta_1 - \zeta_2| < \delta \\
-            \implies |f(\zeta_1) - f(\zeta_2)| < \epsilon
-        \end{multlined} \tag{10}
-        \intertext{Хотим через $P_{k,L} = \{z_{k,\nu}\}_{\nu = 1}^{N_{k,\delta}}$ обозначить разбиение $\overrightarrow{\Gamma_k}$, где $z_{k,\nu} \in \Gamma_k$ и}
-        |z_{k+1, \nu} - z_{k, \nu}| < \delta \tag{11}\\
-        \left| \int_{\overrightarrow{\Gamma_k}} f(z) dz - \sum_{\nu = 1}^{N_{k,\delta}} f(z_{k,\nu}) (z_{k+1, \nu} - z_{k, \nu}) \right| < \epsilon \tag{12} % по свойству 4
+        |z_{k, \nu+1} - z_{k, \nu}| < \delta \tag{11}\\
+        \left| \int_{\overrightarrow{\Gamma_k}} f(z) dz - \sum_{\nu = 1}^{N_{k,\delta}} f(z_{k,\nu}) (z_{k, \nu + 1} - z_{k, \nu}) \right| < \epsilon \tag{12} % по свойству 4
     \end{gather*}
     Теперь рассмотрим многоугольники $Q_{k, \delta}$ c вершинами $z_{k, \nu}, 1 \le \nu \le N_{k, \delta}$.
     Тогда, если мы ориентируем эти многоугольники, так чтобы общая граница была ориентирована положительно, то по предыдущей теореме
     \[\sum_{k=1}^{m} \int_{\overrightarrow{Q_{k, \delta}}^\bullet} f(z) dz = 0 \tag{13}\]
     Рассмотрим
     \begin{multline*}
-        \left| \int_{\overrightarrow{Q_{k, \delta}}} f(z) dz  - \sum_{\nu = 1}^{N_{k, \delta}} f(z_{k, \delta}) (z_{k+1, \nu} - z_{k, \nu})\right| = \\
-        = \left| \sum_{\nu = 1}^{N_{k, \delta}} \int_{\mathrlap{\overrightarrow{[z_{k, \nu}, z_{k+1, \nu}]}}}\  f(z) dz - \sum_{\nu = 1}^{N_{k, \delta}} f(z_{k, \delta}) (z_{k+1, \nu} - z_{k, \nu}) \right| \le \\
-        \le \sum_{\nu = 1}^{N_{k, \delta}} \left| \int_{\mathrlap{\overrightarrow{[z_{k, \nu}, z_{k+1, \nu}]}}}\  f(z) dz -  f(z_{k, \delta}) (z_{k+1, \nu} - z_{k, \nu}) \right| \le \\
-        \le \sum_{\nu = 1}^{N_{k, \delta}} \max_{z \in [z_{k, \nu}, z_{k+1, \nu}]} |f(z) - f(z_{k, \nu})| \cdot |z_{k+1, \nu} - z_{k, \nu}| \tag{19}
+        \left| \int_{\overrightarrow{Q_{k, \delta}}} f(z) dz  - \sum_{\nu = 1}^{N_{k, \delta}} f(z_{k, \nu}) (z_{k, \nu + 1} - z_{k, \nu})\right| = \\
+        = \left| \sum_{\nu = 1}^{N_{k, \delta}} \int_{\mathrlap{\overrightarrow{[z_{k, \nu}, z_{k, \nu + 1}]}}}\  f(z) dz - \sum_{\nu = 1}^{N_{k, \delta}} f(z_{k, \nu}) (z_{k, \nu + 1} - z_{k, \nu}) \right| \le \\
+        \le \sum_{\nu = 1}^{N_{k, \delta}} \left| \int_{\mathrlap{\overrightarrow{[z_{k, \nu}, z_{k, \nu + 1}]}}}\  f(z) dz -  f(z_{k, \nu}) (z_{k, \nu + 1} - z_{k, \nu}) \right| \le \\
+        \le \sum_{\nu = 1}^{N_{k, \delta}} \max_{z \in [z_{k, \nu}, z_{k, \nu + 1}]} |f(z) - f(z_{k, \nu})| \cdot |z_{k, \nu + 1} - z_{k, \nu}| \tag{14}
     \end{multline*}
-    Продолжение следует...
+    В силу (10), а так же факта того, что сумма $|z_{k, \nu + 1} - z_{k, \nu}|$ не превосходит длины кривой, получаем \marginpar{09.03.23}
+    \[(14) < \epsilon \sum_{\nu = 1}^{N_{k, \delta}} |z_{k, \nu + 1} - z_{k, \nu}| \le \epsilon l(\Gamma_k) \tag{15}\]
+    \begin{multline*}
+        \left| \int_{\overrightarrow{\partial G}} f(z) dz \right| \underset{(13)}{=}
+        \left| \int_{\overrightarrow{\partial G}} f(z) dz  - \sum_{k=1}^{m} \int_{\overrightarrow{Q_{k, \delta}}^\bullet} f(z) dz  \right| \le \\
+        \le \left| \int_{\overrightarrow{\partial G}} f(z) dz  - \sum_{k=1}^{m} \sum_{\nu = 1}^{N_{k, \delta}} f(z_{k,\nu}) (z_{k, \nu + 1} - z_{k, \nu})\right| +\\
+        + \left| \sum_{k=1}^{m} \sum_{\nu = 1}^{N_{k, \delta}} f(z_{k,\nu}) (z_{k, \nu + 1} - z_{k, \nu}) - \sum_{k=1}^{m} \int_{\overrightarrow{Q_{k, \delta}}^\bullet} f(z) dz \right| < \\
+        < m \epsilon + \epsilon \sum_{k=1}^{m} l(\Gamma_k) \tag{16}
+    \end{multline*}
+    Последнее неравенство следует из того, что в первом модуле интеграл по $\partial G$ есть сумма интегралов по $\Gamma_k$, тогда знак суммы можно вынести за модуль, и подмодульное выражение будет в точности неравенство (12).
+    Во втором модуле сумма выносится аналогично, а дальше выполняется соотношение (15).
+    В силу произвольности $\epsilon > 0$
+    \[(16) \implies \int_{\overrightarrow{\partial G}} f(z) dz = 0\]
 \end{longProof}
 \end{document}

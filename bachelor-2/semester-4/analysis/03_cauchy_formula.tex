@@ -1,0 +1,83 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Формула Коши}
+
+\begin{theorem}
+    Имеется область $\Omega \subset \C$, $a \in \Omega$, $\overline{B_r}(a) = \{z: |z-a| \le r\} \subset \Omega$~--- замкнутый круг.
+    Допустим, что $f \in A(\Omega)$.
+    Пусть $z_0 \in B_r(a)$, $\gamma_r(a) = \{z: |z-a| = r\}$~--- окружность.
+    Тогда справедлива формула Коши
+    \[f(z_0) = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_r(a)}} \frac{f(z)}{z - z_0} dz \tag{1}\]
+\end{theorem}
+
+\begin{lemma}
+    Пусть $\rho > 0$, $\gamma_\rho(z_0)$~--- окружность, тогда
+    \[\int_{\overrightarrow{\gamma_\rho(z_0)}} \frac{dz}{z - z_0} = 2 \pi i \tag{2} \]
+\end{lemma}
+
+\begin{proof}
+    Окружность параметризуется как
+    \[\overrightarrow{\gamma_\rho(z_0) } = \{z: z = z_0 +\rho(\cos \theta + i \sin \theta)\}, 0 \le \theta \le 2 \pi \tag{3}\]
+    $(3) \implies$ при $z \in \gamma_\rho(z_0)$:
+    \[z - z_0 = \rho(\cos \theta + i \sin \theta) \tag{4}\]
+    Окружность является гладкой кривой, поэтому (2), (4) и формула (7) от 16.02 влекут
+    \begin{multline*}
+        \int_{\overrightarrow{\gamma_r(z_0)}} \frac{dz}{z - z_0} = \int_{0}^{2\pi} \frac{\rho(-\sin\theta + i \cos \theta)}{\rho(\cos \theta + i \sin \theta)} d\theta =\\
+        = i \int_{0}^{2 \pi} \frac{cos \theta + i \sin \theta}{cos \theta + i \sin \theta} d\theta = 2 \pi i
+    \end{multline*}
+\end{proof}
+
+\begin{longProof}[теоремы]
+    Выберем $0< \rho < r - |z_0 - a|$.
+    Рассмотрим область $D_\rho = B_r(a) \setminus \overline{B_\rho}(z_0)$: $\partial D_\rho = \gamma_r(a) \cup \gamma_\rho(z_0)$
+    \begin{center}
+        \import{figures}{cauchy_formula_D_rho.pdf_tex}
+    \end{center}
+    и функцию
+    \[\phi (z) = \frac{f(z)}{z - z_0} \tag{5}\]
+    Функция $f(z) \in A(\Omega)$, поэтому  $\phi \in A(\Omega \setminus \{z_0\})$.
+    Понятно, что $\overline{D_\rho} \subset \Omega$, применим теорему Коши
+    \[\int_{\overrightarrow{\partial D_\rho}} \phi(z) dz = 0 \tag{6}\]
+    Будем считать, что на $\partial D_\rho$ задана положительная ориентация.
+    \begin{multline*}
+        (6) \implies \int_{\overrightarrow{\partial D_\rho}} \phi(z) dz = \int_{\overrightarrow{\gamma_r(a)}} \phi(z) dz + \int_{\overleftarrow{\gamma_\rho(z_0)}} \phi(z) dz = \\
+        = \int_{\overrightarrow{\gamma_r(a)}} \phi(z) dz  - \int_{\overrightarrow{\gamma_\rho(z_0)}} \phi(z) dz = 0 \tag{7}
+    \end{multline*}
+    Перенесем последний интеграл в другую сторону
+    \[(7) \Leftrightarrow  \int_{\overrightarrow{\gamma_r(a)}} \phi(z) dz  = \int_{\overrightarrow{\gamma_\rho(z_0)}} \phi(z) dz \tag{8}\]
+    теперь займемся интегралом в правой части
+    \begin{multline*}
+        (6) \implies \int_{\overrightarrow{\gamma_\rho(z_0)}} \phi(z) dz = \int_{\overrightarrow{\gamma_\rho(z_0)}}  \frac{f(z)}{z - z_0} dz = \\
+        = \int_{\overrightarrow{\gamma_\rho(z_0)}} \frac{f(z) - f(z_0)}{z - z_0} dz + \int_{\overrightarrow{\gamma_\rho(z_0)}} \frac{f(z_0)}{z - z_0} dz \underset{(2)}{=} \\
+        \underset{(2)}{=} \int_{\overrightarrow{\gamma_\rho(z_0)}} \frac{f(z) - f(z_0)}{z - z_0} dz + 2 \pi i f(z_0) \tag{9}
+    \end{multline*}
+    поскольку $f(z)$~--- аналитична, то можем применить формулу для $f(z) - f(z_0)$
+    \begin{gather*}
+        f(z) - f(z_0) = f'(z_0) (z- z_0) + S(z) \tag{10} \\
+        \frac{|S(z)|}{|z-z_0|} \xrightarrow[z \to z_0]{} 0 \tag{11} \\
+        (11) \implies \exists \delta >0 \text{ т.ч. } \forall z: |z-z_0| \le \delta \text{ имеем } \frac{|S(z)|}{|z-z_0|} < 1 \tag{12}
+    \end{gather*}
+    тогда (10), (11), (12) влекут, что при $\rho < \delta$, $|z - z_0| = \rho$ имеем
+    \begin{multline*}
+        |f(z) - f(z_0)| \le |f'(z_0)| \cdot |z - z_0| + |S(z)| < \\
+        < |f'(z_0)| \cdot  |z - z_0| + |z - z_0| = (|f'(z_0)| + 1)|z - z_0| \tag{13}
+    \end{multline*}
+    По свойству \ref{1:LessThanLength}, (13) влечет, при $0 < \rho < \delta$ имеем
+    \begin{multline*}
+        \left| \int_{\overrightarrow{\gamma_\rho(z_0)}} \frac{f(z) - f(z_0)}{z - z_0} dz \right| \le \int_{\gamma_\rho(z_0)} \left| \frac{f(z) - f(z_0)}{z - z_0} \right| dl(z) \underset{(13)}{\le} \\
+        \underset{(13)}{\le} \int_{\gamma_\rho(z_0)} \frac{(|f'(z_0)| + 1) |z - z_0|}{|z - z_0|} dl(z)  = (|f'(z_0)| + 1) dl(\gamma_\rho(z_0)) =\\
+        = \rho \cdot 2 \pi (|f'(z_0)| + 1) \tag{14}
+    \end{multline*}
+    в выкладке (9) введем обозначение
+    \[C (\rho) = \int_{\overrightarrow{\gamma_\rho(z_0)}} \frac{f(z) - f(z_0)}{z - z_0} dz\]
+    а в выкладке (14) $A = 2 \pi (|f'(z_0)| + 1)$, тогда
+    \begin{gather*}
+        (14) \implies \exists \delta > 0 \text{ т.ч. при } 0 < \rho < \delta \text{ имеем } |C(\rho)| < A \rho \tag{15}  \\
+        (6), (8), (9) \implies \int_{\gamma_r(a)} \frac{f(z)}{z - z_0} dz - 2 \pi i f(z_0) = C(\rho) \tag{16}
+    \end{gather*}
+    теперь возьмем $\forall \epsilon > 0$, $\rho < \epsilon / A$ и $\rho < \delta$, и при таких $\rho$
+    \[(16) \implies \left| \int_{\gamma_r(a)} \frac{f(z)}{z - z_0} dz - 2 \pi i f(z_0) \right| = |C(\rho)| \le A \frac{\epsilon}{A} = \epsilon \tag{17}\]
+    $(17) \implies (1)$
+\end{longProof}
+\end{document}
