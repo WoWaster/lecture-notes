@@ -14,6 +14,10 @@ title: Конспекты
 
 - Дифференциальные уравнения (Автор: Т.Е. Звягинцева и кафедра)
   1. Линейные системы дифференциальных уравнений в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part1.pdf)
+  2. Линейные системы дифференциальных уравнений (продолжение) в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part2.pdf)
+  3. Дифференциальные свойства решений как функций начальных данных и параметров в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part3.pdf)
+  4. Устойчивость решений по Ляпунову в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part4.pdf)
+  5. Автономные системы в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part5.pdf)
 - [Математическая логика](https://storage.yandexcloud.net/tp-2021-lecture-notes/mathematical-logic-4.pdf) (Автор [@KubEF](https://github.com/KubEF), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/17))
 - [Математический анализ](https://storage.yandexcloud.net/tp-2021-lecture-notes/analysis-4.pdf) (Автор [@WoWaster](https://github.com/WoWaster), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/13))
 
