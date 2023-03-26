@@ -1,0 +1,159 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter[Дальнейшие свойства аналитических функций][Свойства аналитических функций]{Дальнейшие свойства аналитических функций}
+\section{Теорема о бесконечной гладкости аналитической функции}
+\begin{theorem}\label{4:theorem_with_defs}
+    Пусть имеется $B = \{ z: |z - a| < R\}$, и функция $f \in A(B)$, тогда $\forall r \ge 1\ f\in C^r (B)$.
+\end{theorem}
+\begin{remark}
+    Напоминание: если $g \in A(\Omega)$, где $\Omega$~--- область, тогда
+    \[\begin{rcases}
+            g'_z(z) = g'(z) \\
+            g'_{\overline{z}}(z) = 0
+        \end{rcases} \implies g'_x = g', g'_y = ig'\]
+\end{remark}
+\begin{proof}
+    Возьмем любое $0< r < R$.
+    Пусть $\overrightarrow{\gamma_r} = \{z: |z - a| = r\}$~--- окружность, а
+    $B_r = \{z: |z-a|< r\}$~--- открытый круг, где $a = p + iq$ и $B_r^* = \{(x,y) : (x-p)^2 + (y-q)^2 < r^2\}$.
+    Для таких $z$ справедливо соотношение
+    \[f(z) = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{\zeta - z} d\zeta \tag{4}\]
+    Пусть $z = x + iy$, тогда рассмотрим выражение
+    \[\frac{f(\zeta)}{\zeta - x - iy}\]
+    Тогда может взять любой $z$ и любой $Q$, т.ч. $\overline{Q} \subset B_r^*$ и $(x,y) \in \overline{Q}$.
+    При фиксированном $\zeta \neq z$ выполнено:
+    \begin{gather*}
+        \left( \frac{1}{\zeta - z} \right)' = \frac{1}{(\zeta - z)^2} \\
+        \left( \frac{1}{\zeta - z} \right)^{(n)} \coloneq \left(\left(\frac{1}{\zeta - z}\right)^{(n-1)} \right)' = \frac{n!}{(\zeta - z)^{(n+1)}} \tag{5}\\
+        (5) \implies \left(\frac{1}{\zeta - x -iy}\right)^{(m+n)}_{\underbrace{x \dotsc x}_m \underbrace{y \dotsc y}_n} = i^n \frac{(m+n)!}{(\zeta -x -iy)^{m+n+1}} \tag{6}
+    \end{gather*}
+    Тогда (1), (2), (4), (6) $\implies$
+    \[f^{(m+n)}_{\underbrace{x \dotsc x}_m \underbrace{y \dotsc y}_n}(z) = i^n \frac{(m+n)!}{2 \pi i} \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{(\zeta - x -iy)^{m+n+1}} \tag{7}\]
+    (7) выполнена $\forall z \in B_r$ (8), т.к. $r$ произвольно, (8) влечет, что (7) выполнено $\forall z \in B$.
+    Строго говоря, доказательство нужно вести через индукцию по $(m+n)$.
+\end{proof}
+\begin{corollary}
+    Пусть $f \in A(\Omega)$, тогда $\forall r \ge 1\ f\in C^r(\Omega)$.
+\end{corollary}
+\begin{proof}
+    Возьмем любое $z_0 \in \Omega$, $\exists B = \{z: |z - z_0| < R\}$, $B\subset \Omega$ $\implies f \in A(B)$.
+\end{proof}
+
+\section{Теорема об аналитичности производной аналитической функции}
+\begin{theorem}
+    В обозначениях прошлой теоремы
+    \[f \in A(B) \implies f' \in A(B) \tag{9}\]
+\end{theorem}
+\begin{proof}
+    Рассмотрим $f'(z) = f'_x(z)$, то есть $m = 1, n = 0$, тогда
+    \[(7) \implies f'(z) = \frac{1}{2 \pi i}  \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{(\zeta - z)^{2}} d \zeta \tag{10}\]
+    \begin{multline*}
+        (10) \implies (f'(z))'_x + i (f'(z))'_y = \\
+        = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_r}} f(\zeta) \left(\left(\frac{1}{(\zeta - z)^{2}}\right)'_x + i \left(\frac{1}{(\zeta - z)^{2}}\right)'_y\right) d\zeta = \\
+        = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_r}} f(\zeta) \cdot 2 \cdot \left(\frac{1}{(\zeta - z)^{2}}\right)'_{\overline{z}} d\zeta = 0
+    \end{multline*}
+    Так как в силу аналитичность производная по $\overline{z}$ равна нулю.
+    Вообще говоря, эта формула верна для $B_r$, но поскольку мы можем брать $r$ сколько угодно близкое к $R$, то если мы возьмем $z$ из $B$, то мы можем взять такое $r$, чтобы $z$ лежала в $B_r$, и тогда формула верна в окрестности $z$ вследствие выбора $r$.
+\end{proof}
+\begin{corollary}
+    Пусть $f \in A(\Omega)$, тогда $f' \in A(\Omega)$.
+\end{corollary}
+\begin{proof}
+    Возьмем любое $z_0 \in \Omega$, тогда $\exists B = \{z: |z - z_0| < R\}, B \subset \Omega$, и по теореме $f'\in A(B)$.
+    Поскольку свойство локальное, получили, что $f$ аналитична в окрестности любой точки из $\Omega$.
+\end{proof}
+
+\section{Формула для \texorpdfstring{$n$}{n}-ной производной аналитической функции}
+
+\begin{definition}[Любая производная аналитической функции]
+    Есть открытое множество $\Omega$ и $f \in A(\Omega)$.
+    По предыдущему следствию $f' \in A(\Omega)$, это влечет, что
+    \begin{gather*}
+        \exists (f')'(z), z \in \Omega
+        \intertext{по определению полагаем}
+        f''(z) \coloneqq (f')'(z) \tag{11}
+        \intertext{вторая производная~--- производная некоторой аналитической функции, поэтому}
+        (11) \implies f'' \in A(\Omega) \tag{12}
+        \intertext{раз она аналитична в $\Omega$, значит у нее есть производная}
+        (12) \implies \forall z \in \Omega \exists (f'')' (z) \coloneqq f'''(z) \tag{13}
+        \intertext{и так далее, по индукции}
+        n \ge 3 \ f^{(n)} (z) \in A(\Omega) \tag{14}\\
+        (14) \implies \forall z \in \Omega \exists (f^{(n)})' = f^{(n+1)}(z) \tag{15}\\
+        (15) \implies f^{(n+1)} \in A(\Omega)
+    \end{gather*}
+\end{definition}
+Опять вернемся к обозначениям из \ref{4:theorem_with_defs}.
+Запишем формулу Коши для $z \in B_r$:
+\[f(z) = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{\zeta - z} d\zeta\]
+При $m=1, n=0$ формула (7) влечет
+\[f'(z) = f'_x(z) = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{(\zeta - z)^2} d\zeta \tag{10}\]
+Мы уже знаем, что $f'$ аналитична, поэтому это равенство можно использовать и дальше.
+Теперь (10) влечет
+\begin{multline*}
+    f''(z) = (f')'(z) = (f')'_x(z) = \\
+    = \left(\frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{(\zeta - x - iy)^2} d\zeta \right)'_x = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_r}} f(\zeta) \left(\frac{1}{(\zeta - x - iy)^2}\right)'_x d\zeta = \\
+    = \frac{2}{2 \pi i} \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{(\zeta - x - iy)^3} d\zeta = \frac{2}{2 \pi i} \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{(\zeta - z)^3} d\zeta \tag{16}
+\end{multline*}
+Далее по индукции при $n \ge 2$, $z \in B_r$ предполагаем, что
+\[f^{(n)}(z) = \frac{n!}{2 \pi i} \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{(\zeta - z)^{n+1}} d\zeta \tag{17} \]
+Тогда (17) влечет
+\begin{multline*}
+    f^{(n+1)}(z) = (f^{(n)})'(z) = (f^{(n)})'_x(z) = \\
+    = \frac{n!}{2 \pi i} \int_{\overrightarrow{\gamma_r}} f(\zeta) \left(\frac{1}{(\zeta - x - iy)^{n+1}}\right)'_x d\zeta = \\
+    = \frac{(n+1)!}{2 \pi i} \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{(\zeta - z)^{n+2}} d\zeta
+\end{multline*}
+
+\section{Теорема о разложении аналитической функции в степенной ряд}
+
+Возьмем $z = a$, тогда при $n \ge 1$
+\begin{gather*}
+    (17) \implies f^{(n)} (a) = \frac{n!}{2 \pi i} \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{(\zeta - a)^{(n+1)}} \tag{18}
+\end{gather*}
+\begin{theorem}
+    Все еще пользуемся обозначениями из \ref{4:theorem_with_defs}.
+    Пусть $f \in A(B)$, тогда $\forall z \in B$ справедливо равенство
+    \[f(z) = f(a) + \sum_{n=1}^{\infty} \frac{f^{(n)}  (a)}{n!}(z-a)^n \tag{19}\]
+\end{theorem}
+\begin{longProof}
+    Зафиксируем $z$ и выберем $r: |z - a| < r < R$.
+    Функция $f \in C(\gamma_r)$, $\gamma_r$~--- компакт, поэтому по первой теореме Вейерштрасса, которую мы отдельно применим к вещественной и мнимой частям, функция на компакте ограниченна.
+    Поэтому
+    \[\exists M_r: |f(z)| \le  M_r,\ z \in \gamma_r \tag{20}\]
+    Теперь применим формулу Коши к $z$ и $\gamma_r$:
+    \[f(z) = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{\zeta - z} d\zeta \tag{4}\]
+    Теперь запишем следующее выражение:
+    \begin{multline*}
+        \frac{1}{\zeta - z} = \frac{1}{(\zeta - a) - (z - a)} = \\
+        = \frac{1}{\zeta - a} \cdot \frac{1}{1 - \frac{z - a}{\zeta - a}} = \frac{1}{\zeta - a} \sum_{n = 0 }^{\infty} \left(\frac{z - a}{\zeta -a}\right)^n = \\
+        = \frac{1}{\zeta - a} + \frac{1}{\zeta - a} \sum_{n = 1 }^{\infty} \left(\frac{z - a}{\zeta -a}\right)^n \tag{21}
+    \end{multline*}
+    Введем обозначение $q = \frac{|z - a|}{r} < 1$.
+    При $\zeta \in \gamma_r$ справедливы соотношения:
+    \begin{gather*}
+        \left| \frac{z - a}{\zeta - a}\right| = q\\
+        \left| \frac{f(\zeta)}{\zeta - a} \cdot \left( \frac{z - a}{\zeta - a} \right)^n \right| \le \frac{M_r}{r} \cdot q^n \tag{22}
+    \end{gather*}
+    Тогда (4), (22) влекут
+    \begin{multline*}
+        f(z) = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{\zeta - a} d\zeta + \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_r}} f(\zeta) \left(\frac{1}{\zeta - a}  \sum_{n = 1 }^{\infty} \left(\frac{z - a}{\zeta -a}\right)^n\right)d\zeta = \\
+        = f(a) + \sum_{n=1}^{\infty} (z-a)^n \cdot \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{(\zeta - a)^{n+1}} d\zeta
+    \end{multline*}
+    Здесь мы интегрируем целый ряд.
+    Заметим, что
+    \[f(\zeta) \left(\frac{1}{\zeta - a}  \sum_{n = 1 }^{\infty} \left(\frac{z - a}{\zeta -a}\right)^n\right)\]
+    сходится равномерно по $\zeta$ по признаку Вейерштрасса (следует из (22)).
+    В итоге, полученный ряд состоит из слагаемых, как в правой части (18), что влечет (19).
+\end{longProof}
+\begin{remark}
+    В прошлом семестре были рассуждения о сходимости степенных рядов.
+    Здесь получили, что данный ряд, который называется рядом Тейлора для аналитической функции $f$, сходится для любого $z$ из $B$.
+    Тогда в любом замкнутом круге меньшем по радиусу, чем $B$, он сходится равномерно.
+
+    Принципиальный момент: если функция $f$ аналитична в круге, то она раскладывается в нем в степенной ряд.
+    В конце прошлого семестра был получен результат, что если степенной ряд сходится в круге, то он является аналитической функцией.
+
+    Таким образом получается, что если есть функция, заданная в круге, то условие того, что она аналитична в круге и того, что она равна сумме степенного ряда, это эквивалентные условия.
+    Это еще одно важное свойство аналитической функции.
+\end{remark}
+\end{document}

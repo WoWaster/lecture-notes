@@ -80,4 +80,43 @@
     \[(16) \implies \left| \int_{\gamma_r(a)} \frac{f(z)}{z - z_0} dz - 2 \pi i f(z_0) \right| = |C(\rho)| \le A \frac{\epsilon}{A} = \epsilon \tag{17}\]
     $(17) \implies (1)$
 \end{longProof}
+
+\section{Теорема о частных производных криволинейного интеграла второго рода, зависящего от параметра}
+\marginpar{16.03.23}
+\begin{theorem}
+    Имеется гладкая ориентированная кривая $\overrightarrow{\Gamma}: [a, b] \to \C$.
+    А так же, имеется функция $f(\zeta, x,y)$, где $\zeta \in \Gamma$, $(x,y) \in D \subset \R^2$.
+    Кроме того имеется прямоугольник $Q$:
+    \[\overline{Q} = \{\alpha \le x \le \beta,  \gamma\le y \le \delta\}\]
+    При этом $\overline{Q} \subset D$.
+    Предположим, что $f \in C(\Gamma \times D)$ и
+    \begin{align*}
+         & \forall \zeta \in \Gamma\ \forall (x,y) \in \overline{Q} &  & \exists f'_x (\zeta, x,y) \in C(\Gamma \times \overline{Q}) \\
+         &                                                          &  & \exists f'_y (\zeta, x,y) \in C(\Gamma \times \overline{Q})
+    \end{align*}
+
+    Рассмотрим $F (x,y) = \int_{\overrightarrow{\Gamma}} f(\zeta, x, y)d \zeta$, тогда
+    \begin{align*}
+         & \forall (x,y) \in \overline{Q} &  & \exists F'_x(x,y) = \int_{\overrightarrow{\Gamma}} f'_x (\zeta, x,y) d \zeta \tag{1} \\
+         &                                &  & \exists F'_y(x,y) = \int_{\overrightarrow{\Gamma}} f'_y (\zeta, x,y) d \zeta \tag{2}
+    \end{align*}
+\end{theorem}
+\begin{proof}
+    Поскольку $\Gamma$~--- гладкая, то можем записать криволинейный интеграл второго рода, как обычный интеграл.
+    Предположим, что $\overrightarrow{\Gamma} = \{u(t) + i v(t): t\in [a,b]\}$, тогда
+    \[F(x,y) = \int_{a}^{b} f(u(t) + i v(t),x,y)(u'(t) + i v'(t))dt \tag{3} \]
+    Введем комплексно-значную функцию $\Phi$:
+    \[\Phi (t, x, y) = f(u(t) + i v(t),x,y)(u'(t) + i v'(t))\]
+    Она непрерывна и имеет непрерывные частные производные, когда $(x,y) \in Q$.
+    Если мы зафиксируем $y$ и будем рассматривать $\Phi$ как функцию от $x$ на соответствующем промежутке, то ее вещественная и мнимая часть удовлетворяют условиям теоремы о существовании производных.
+    Частные производные у $\Phi$ существуют, если они существуют, соответственно у $f$.
+    Аналогично, если фиксировать $x$.
+    Тогда (3) и теорема из 3-его семестра влекут
+    \begin{multline*}
+        F'_x (x,y) = \\
+        = \int_{a}^{b} f'_x(u(t) + i v(t),x,y)(u'(t) + i v'(t)) dt = \\
+        = \int_{\overrightarrow{\Gamma}} f'_x(\zeta, x, y) d\zeta \implies (1)
+    \end{multline*}
+    Аналогично следует (2)
+\end{proof}
 \end{document}
