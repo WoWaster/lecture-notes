@@ -156,4 +156,144 @@
     Таким образом получается, что если есть функция, заданная в круге, то условие того, что она аналитична в круге и того, что она равна сумме степенного ряда, это эквивалентные условия.
     Это еще одно важное свойство аналитической функции.
 \end{remark}
+
+\subsection[Разложение элементарных функций в ряды в комплексной плоскости]{Разложение элементарных функций в ряды в комплексной плоскости\footnote{За основу конспекта за эту дату, взят конспект от 2021 года авторства Антона Чижова}}\marginpar{23.03.23}
+
+\begin{enumerate}
+    \item $f_1(z) = e^z \in A(\C)$, поэтому степенной ряд для $f_1$ сходится в $\C$.
+          Далее, при $x\in\R$
+          \[ (f_1(x))^{(n)} = {f_1}_{\underbrace{x \dotsc x}_n}^{(n)}(x) = e^x,\  (f_1(z))^{(n)}_{|_{z=0}}=1, \]
+          отсюда следует
+          \[ e^z = 1 + \sum_{n=1}^\infty \frac{z^n}{n!},\ z\in\C \]
+    \item $f_2(z) = \cos{z}$, аналогично $(\cos{z})^{(n)} = (\cos{z})^{(n)}_{\underbrace{x \dotsc x}_n}$, поэтому
+          \[ \cos{z} = 1 + \sum_{n=1}^\infty \frac{(-1)^n}{(2n)!} z^{2n},\ z \in \C \]
+    \item $f_3(z) = \sin{z}$, аналогично 1. и 2.
+          \[ \sin{z} = \sum_{n=1}^\infty \frac{(-1)^{n-1}}{(2n-1)!} z^{2n-1},\ z \in \C \]
+    \item $f_4(z) = \ln{(1 + z)},\ |z|<1$, полагаем
+          \[\ln{(1 + z)} = \ln{|1 + z|} + i \arg(1 + z),\]
+          $|\arg(1 + z)| < \pi$ при $|z| < 1$.
+          Опять пользуемся равенством $(\ln{(1 + z)})^{(n)}=(\ln{(1 + z)})^{(n)}_{\underbrace{x \dotsc x}_n}$, при $z=x$, $-1 < x < 1$ имеем
+          \[(\ln{(1 + x)})^{(n)}_{x \dotsc x}=(-1)^{n-1}\cdot(n-1)!(1+x)^{-n},\]
+          поэтому
+          \[\ln{(1 + z)} = \sum_{n=1}^\infty \frac{(-1)^n}{n} z^n,\]
+          $|z|<1$, $\ln{(1+x)}\in\R$ при $-1<x<1$.
+    \item $f_5(z) = (1 + z)^r$, $r \in \R \setminus \N$, $r \neq 0$.
+          Аналогично 4. получаем
+          \[(1 + z)^r = 1 + rz + \frac{r(r - 1)}{2!} z^2 + \dotsb + \frac{r(r - 1) \dotsm (r - n + 1)}{n!} z^n + \dotsb \]
+          при $|z| < 1$, $(1 + x)^r > 0$ при $(-1 < x < 1)$
+    \item Пусть $\alpha \in \C \setminus \R$, положим при $|z| < 1$
+          \[(1 + z)^\alpha \coloneq e^{\alpha \ln{(1 + z)}},\]
+          где $\ln(1 + z)$ определена в 4.
+          Тогда
+          \begin{multline*}
+              \left( (1 + z)^\alpha \right)' = e^{\alpha \ln{(1 + z)}}  \cdot (\alpha \ln{(1 + z)})' = \alpha e^{\alpha \ln{(1 + z)}} \frac{1}{1 + z}         \\
+              = \alpha e^{\alpha \ln{(1 + z)}} e^{-\ln{(1 + z)}} = \alpha e^{(\alpha - 1) \ln{(1 + z)}} = \alpha (1 + z)^{\alpha - 1}
+          \end{multline*}
+          и аналогично получаем
+          \[ \left( (1 + z)^\alpha \right)^{(n)} = \alpha (\alpha - 1) \dotsm (\alpha - n + 1) (1 + z)^{\alpha - n}, \]
+          поэтому при $|z|<1$ имеем
+          \[ (1 + z)^\alpha = 1 + \alpha z + \frac{\alpha(\alpha - 1)}{2!} z^2 + \dotsb + \frac{\alpha(\alpha - 1) \dotsm (\alpha - n + 1)}{n!} z^n+ \dotsb \]
+\end{enumerate}
+
+\section{Теоремы единственности для аналитических функций.}
+\begin{theorem}[с производными функциями]
+    Пусть $G\subset\C$~--- область, $f\in A(G)$, $a \in G$, $f(a) = 0$, $f^{(n)}(a) = 0$, $\forall n \in \N$.
+    Тогда $f(z)\equiv 0$ в $G$.
+\end{theorem}
+\begin{longProof}
+    Пусть
+    \[E = \{z \in G: f(z) = 0 \text{ и } f^{(n)}(z) = 0\ \forall n \in \N\}.\]
+    Тогда $a \in E \implies E \neq \varnothing$.
+
+    \begin{description}
+        \item[Множество $E$ относительно замкнуто в $G$:]
+            Пусть $z_m\in E$,
+            \[z_m \xrightarrow[m\to\infty]{} z_*,\]
+            $z_*\in G$.
+            Тогда в силу $f \in C^\infty(G)$, $f^{(n)} \in C^\infty(G)$ имеем
+            \begin{gather*}
+                f(z_m) \to f(z_*),\\
+                f^{(n)}(z_m) \to f^{(n)}(z_*)\ \forall n\in\N.
+            \end{gather*}
+            Но $z_m \in E \implies f(z_m)=0$, $f^{(n)}(z_m) = 0 \implies\ 0 \xrightarrow[m\to\infty]{} f(z_*)$, $0 \xrightarrow[m\to\infty]{} f^{(n)}(z_*) \implies f(z_*) = f^{(n)}(z_*) = 0$, т.е. $z_* \in E$.
+        \item[Множество $E$ относительно открыто в $G$:]
+            Пусть $z_0 \in E$, тогда $\exists r > 0: \{ z : |z - z_0| < r\} \subset G$, поэтому при $|z - z_0| < r$ имеем разложение в ряд:
+            \[ f(z) = f(z_0) + \sum_{n=1}^\infty \frac{f^{(n)}(z_0)}{n!} (z - z_0)^n \equiv 0, \]
+            поскольку $z_0 \in E$, поэтому $\{ z : |z - z_0| < r\} \subset E$.
+    \end{description}
+    Поскольку $G$ связно, $E \neq \varnothing$, $E$ относительно открыто и замкнуто в $G$, то $E = G$, т.е. $f(z) = 0\ \forall z \in G$.
+\end{longProof}
+
+\begin{theorem}[со значениями функции]
+    Пусть $G$~--- область, $E \subset G$, $z_*$~--- точка сгущения $E$, $z_* \in G$, $f\in A(G)$, $f(z_0) = 0\ \forall z_0 \in E$.
+    Тогда $f(z) \equiv 0$ в $G$.
+\end{theorem}
+
+\begin{longProof}
+    Поскольку $z_*$~--- точка сгущения $E$, то $\exists \{z_m\}_{m = 1}^\infty$, $z_m \in E$ и $z_m \xrightarrow[m\to\infty]{} z_*$, поэтому $f(z_m) \to f(z_*)$, $0\to f(z_*) \implies f(z_*) = 0$.
+
+    Если $f^{(n)}(z_*) = 0\ \forall n \in \N$, то по предыдущей теореме $f(z) \equiv 0$.
+    Предположим, что $\exists n_0 \in \N$ т.ч. $f^{(n_0)}(z_*) \neq 0$.
+    Пусть $n_0$~--- наименьшее такое число, т.ч. $f^{(k)}(z_0) = 0$ при $1 \le  k \le n_0 - 1$; если $n_0 = 1$, то $f'(z_0) \neq 0$.
+
+    Выберем $r > 0$ так, чтобы $\{z:|z - z_*| \le r\} \subset G$, пусть
+    \[M_f(r)=\max_{z:|z-z_*|=r} |f(z)|.\]
+    Тогда при $|z - z_*| \le r$ имеем равенство
+    \begin{multline*}
+        f(z) = f(z_*) + \sum_{n = 1}^\infty \frac{f^{(n)}(z_*)}{n!} (z-z_*)^n = \sum \limits_{n = n_0}^\infty \frac{f^{(n)} (z_*)}{n!} (z-z_*)^n = \\
+        = \frac{f^{(n_0)}(z_*)}{n_0!} (z-z_*)^n + \sum_{n = n_0 + 1}^\infty \frac{f^{(n)}(z_*)}{n!} (z - z_*)^n\tag{1}
+    \end{multline*}
+    Неравенство (22) в лекции от $16.03.23$ влечёт %???
+    \[ \left| \frac{f^{(n)}(z_*)}{n!} \right| \le \frac{M_f(r)}{r^n},\ n \in \N,\tag{2} \]
+    поэтому при $|z - z_*| =  \delta r$, $0 < \delta < 1$, из (2) получаем
+    \begin{multline*}
+        \left| \sum_{n = n_0 + 1}^\infty \frac{f^{(n)}(z_*)}{n!} (z-z_*)^n \right| \le \sum_{n = n_0 + 1}^\infty \left| \frac{f^{(n)}(z_*)}{n!} \right| \cdot |z-z_*|^n \le\\
+        \le \sum_{n = n_0 + 1}^\infty \frac{M_f(r)}{r^n} (\delta r)^n = M_f(r) \delta^{n_0+1} \cdot \frac{1}{1 - \delta}\tag{3}
+    \end{multline*}
+    Выберем $\delta_0$ из равенства
+    \[ \frac{|f^{(n_0)}(z_*)|}{n_0!} (\delta_0 r)^{n_0} = 2 M_f \delta_0^{n_0 + 1} \cdot \frac{1}{1 - \delta_0}, \tag{4} \]
+    тогда при $0 < |z - z_*| < \delta_0 r$, $|z - z_*| = \delta r$
+    \begin{multline*}
+        |f(z)| \ge \left| \frac{f^{(n_0)}(z_*)}{n_0!} (z - z_*)^{n_0} \right| - \left|\sum_{n = n_0 + 1}^\infty \frac{f^{(n)} (z_*)}{n!} (z-z_*)^n \right| \ge                                    \\
+        \ge \left| \frac{f^{(n_0)}(z_*)}{n_0!} \right| (\delta r)^{n_0} - M_f(r) \delta^{n_0 + 1} \cdot \frac{1}{1 - \delta} \ge \frac{1}{2}\frac{|f^{(n_0)}(z_*)|}{n_0!} (br)^{n_0} > 0 \tag{5}
+    \end{multline*}
+
+    Из (5) следует, что $E\cap\{z:|z-z_*|<\delta_0\}=\{z_*\}$, что противоречит тому, что $z_*$ -- точка сгущения $E$. Следовательно, $f^{(n)}(z_*)=0\ \forall n$ и $f(z)\equiv 0,\ z\in G$.
+\end{longProof}
+
+\begin{corollary}
+    Пусть $G$~--- область, $E\subset G$, как в теореме 2, $g, h \in A(G)$ и $g|_{E} = h|_E$.
+    Тогда $g(z) \equiv h(z)$, $z \in G$.
+\end{corollary}
+\begin{proof}
+    Пусть $f(z) = g(z) - h(z)$, тогда $f|_E = 0 \implies f(z) \equiv 0$, $z \in G \implies h(z) \equiv g(z)$.
+\end{proof}
+
+\begin{corollary}[о структуре аналитической функции в окрестности нуля]
+    Пусть $G$~--- область, $z_0 \in G$, $f \in A(G)$, $f \not \equiv 0$ в $G$, $f(z_0) = 0$.
+    Тогда $\exists n_0 \in \N$ и $\phi \in A(G)$ т.ч. $\phi(z_0)\neq 0$ и $f(z) = (z - z_0)^{n_0} \phi(z)$ и $\exists \delta > 0$ т.ч. при $z \neq z_0$, $|z - z_0| < \delta$ $f(z) \neq 0$.
+\end{corollary}
+\begin{longProof}
+    Пусть $n_0 \in \N$~--- минимальное число, для которого $f^{(n_0)}(z_0) \neq 0$, такой $n_0$ существует в силу $f \not\equiv 0$.
+
+    Выберем $r$ так, чтобы $\{ z:|z - z_0| \le r\} \subset G$.
+    Проводя рассуждения из доказательства теоремы 2 (со значениями функции), полагая
+    \[M_f(r) = \max_{|z-z_0|=r} |f(z)|,\]
+    аналогично получаем при $|z-z_0|\le r$
+    \[ f(z) = (z - z_0)^{n_0} \left( \frac{f^{(n_0)}(z_0)}{n_0!} + \sum_{n = n_0 + 1}^{\infty} \frac{f^{(n)}(z_0)}{n!} (z - z_0)^{n - n_0} \right) \tag{6} \]
+    Положим
+    \[\phi(z) =
+        \begin{cases}
+            \displaystyle
+            \frac{f(z)}{(z - z_0)^{n_0}},\ z \in G \setminus \{z_0\} \\
+            \displaystyle
+            \frac{f^{(n_0)}(z_0)}{n_0!} + \sum_{n = n_0 + 1}^\infty \frac{f^{(n)}(z_0)}{n!} (z - z_0)^{n - n_0},\ |z - z_0|\le r \tag{7}
+        \end{cases}
+    \]
+    Соотношение (6) показывает, что (7) определено корректно при $|z - z_0|<r$, $z \neq z_0$, поэтому (7) определяет функцию $\phi(z)$ при $z\in G$.
+    Первая строка в (7) показывает, что $\phi \in A(G \setminus \{z_0\})$, вторая строка показывает, что $\phi \in A(\{|z - z_0| < r\})$, поэтому (7) $\implies \phi \in A(G)$.
+    Далее,
+    \[\phi(z_0) = \frac{f^{(n_0)}(z_0)}{n_0!} \neq 0,\]
+    поэтому $\exists \delta > 0$ т.ч. $\phi(z) \neq 0$ при $|z - z_0| < \delta$, тогда при $z \neq z_0$, $|z - z_0| < r$, $f(z) = (z - z_0)^n \phi(z) \neq 0$.
+\end{longProof}
 \end{document}
