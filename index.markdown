@@ -20,6 +20,7 @@ title: Конспекты
   5. Автономные системы в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part5.pdf)
 - [Математическая логика](https://storage.yandexcloud.net/tp-2021-lecture-notes/mathematical-logic-4.pdf) (Автор [@KubEF](https://github.com/KubEF), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/17))
 - [Математический анализ](https://storage.yandexcloud.net/tp-2021-lecture-notes/analysis-4.pdf) (Автор [@WoWaster](https://github.com/WoWaster), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/13))
+- [Базы данных и СУБД](https://drive.google.com/drive/folders/1ZuzWUZsDZGHtOVtiKXRfMgWKEIP_fsNk)
 
 ## 3 семестр
 
