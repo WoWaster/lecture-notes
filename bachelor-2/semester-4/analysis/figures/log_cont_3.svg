@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg11986"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="log_cont_3.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview11988"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.5981902"
+     inkscape:cx="325.05517"
+     inkscape:cy="351.02204"
+     inkscape:window-width="1920"
+     inkscape:window-height="1003"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs11983">
+    <marker
+       style="overflow:visible"
+       id="Arrow1L"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow1L"
+       markerWidth="8.75"
+       markerHeight="5"
+       viewBox="0 0 8.75 5"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none;stroke-width:0.5"
+         d="M 3.75,0 6.25,2.5 -2.5,0 6.25,-2.5 Z"
+         id="arrow1L" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1L-3"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow1L"
+       markerWidth="8.75"
+       markerHeight="5"
+       viewBox="0 0 8.75 5"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="arrow1L-6"
+         transform="scale(-0.5)" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:0.204552;stroke-dasharray:none;marker-end:url(#Arrow1L-3)"
+       d="M 61.419265,88.733624 H 134.92948"
+       id="path13371" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:0.20684;stroke-dasharray:none;marker-end:url(#Arrow1L-3)"
+       d="M 98.996963,126.27609 V 51.111796"
+       id="path13371-7" />
+    <g
+       class="UnoptimicedTransforms"
+       id="g15534">
+      <ellipse
+         style="fill:none;stroke:#000000;stroke-width:0.25;stroke-dasharray:none"
+         id="path14687"
+         cx="115.18982"
+         cy="88.733627"
+         rx="16.19286"
+         ry="16.154671" />
+      <circle
+         id="path15439"
+         style="fill:#000000;stroke:none;stroke-width:0.264583"
+         cx="115.18982"
+         cy="88.733627"
+         r="0.375" />
+    </g>
+    <ellipse
+       style="fill:none;stroke:#808080;stroke-width:0.25;stroke-dasharray:1,0.25;stroke-dashoffset:0"
+       id="path14687-6"
+       cx="82.5541"
+       cy="88.733627"
+       rx="16.19286"
+       ry="16.154671" />
+    <circle
+       id="path15439-2"
+       style="fill:#000000;stroke:none;stroke-width:0.264583"
+       cx="82.5541"
+       cy="88.733627"
+       r="0.375" />
+    <ellipse
+       style="fill:none;stroke:#808080;stroke-width:0.25;stroke-dasharray:1,0.25;stroke-dashoffset:0"
+       id="path14687-1"
+       cx="98.871956"
+       cy="72.453957"
+       rx="16.19286"
+       ry="16.154671" />
+    <circle
+       id="path15439-27"
+       style="fill:#000000;stroke:none;stroke-width:0.264583"
+       cx="98.871956"
+       cy="72.453957"
+       r="0.375" />
+    <ellipse
+       style="fill:none;stroke:#808080;stroke-width:0.25;stroke-dasharray:1,0.25;stroke-dashoffset:0"
+       id="path14687-9"
+       cx="98.871956"
+       cy="105.0133"
+       rx="16.19286"
+       ry="16.154671" />
+    <circle
+       id="path15439-3"
+       style="fill:#000000;stroke:none;stroke-width:0.264583"
+       cx="98.871956"
+       cy="105.0133"
+       r="0.375" />
+    <circle
+       style="fill:none;stroke:#0000ff;stroke-width:0.25;stroke-dasharray:none;stroke-dashoffset:0;marker-mid:url(#Arrow1L)"
+       id="path16243"
+       cx="98.996964"
+       cy="88.733627"
+       r="16.317822" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:none;stroke:#0000ff;stroke-width:0.25;stroke-dasharray:none;stroke-dashoffset:0"
+       x="114.97088"
+       y="92.066078"
+       id="text16427"><tspan
+         sodipodi:role="line"
+         id="tspan16425"
+         style="stroke-width:0.25"
+         x="114.97088"
+         y="92.066078" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:#000000;stroke:#000000;stroke-width:0.25;stroke-dasharray:none;stroke-dashoffset:0"
+       x="115.72073"
+       y="91.643456"
+       id="text17231"><tspan
+         sodipodi:role="line"
+         id="tspan17229"
+         style="stroke:#000000;stroke-width:0.25"
+         x="115.72073"
+         y="91.643456">$1$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:#000000;stroke:#000000;stroke-width:0.25;stroke-dasharray:none;stroke-dashoffset:0"
+       x="99.6045"
+       y="71.058495"
+       id="text17231-6"><tspan
+         sodipodi:role="line"
+         id="tspan17229-0"
+         style="stroke:#000000;stroke-width:0.25"
+         x="99.6045"
+         y="71.058495">$i$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:#000000;stroke:#000000;stroke-width:0.25;stroke-dasharray:none;stroke-dashoffset:0"
+       x="83.355347"
+       y="91.643456"
+       id="text17268"><tspan
+         sodipodi:role="line"
+         id="tspan17266"
+         style="stroke-width:0.25"
+         x="83.355347"
+         y="91.643456">$-1$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:#000000;stroke:#000000;stroke-width:0.25;stroke-dasharray:none;stroke-dashoffset:0"
+       x="99.577362"
+       y="108.63444"
+       id="text17231-62"><tspan
+         sodipodi:role="line"
+         id="tspan17229-6"
+         style="stroke:#000000;stroke-width:0.25"
+         x="99.577362"
+         y="108.63444">$-i$</tspan></text>
+  </g>
+</svg>

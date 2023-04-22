@@ -1,0 +1,318 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Ряды Лорана}
+
+\begin{definition}
+    Пусть $0 \le r < R \le + \infty$, кольцом $D_{r, R}(a)$ будем называть множество:
+    \[D_{r, R}(a) = \{z: r < |z - a| < R\}\]
+    Частные случаи:
+    \begin{itemize}
+        \item если $r = 0$, $R = \infty$, то $D_{0, \infty}(a) = \C \setminus \{a\}$
+        \item если $r = 0$, $R < \infty$, то $D_{0, R}(a) = B_R(a) \setminus \{a\}$
+    \end{itemize}
+\end{definition}
+\begin{definition}
+    Пусть имеется кольцо $D_{r, R}(a)$ и функция $f \in A(D_{r, R}(a))$.
+    Тогда при $z \in D_{r, R}(a)$ выполнено
+    \[f(z) = \sum_{n=1}^{\infty} c_{-n} (z-a)^{-n} + \sum_{n=0}^{\infty} c_{n} (z-a)^n \]
+    при этом
+    \[s_{-}(z) = \sum_{n=1}^{\infty} c_{-n} (z-a)^{-n}\]
+    называется главной частью и сходится равномерно при $|z-a| \ge r_1 > r$, а
+    \[s_{+}(z) = \sum_{n=0}^{\infty} c_{n} (z-a)^n\]
+    называется правильной частью и сходится равномерно при $|z-a| \le R_1 < R$.
+\end{definition}
+
+\begin{theorem}
+    Если функция $f$ аналитична в кольце $D_{r, R}(a)$, то она раскладывается в ряд Лорана в нём.
+\end{theorem}
+\marginpar{06.04.23}
+
+\begin{longProof}
+    Пусть имеется точка $z \in D_{r, R}(a)$, обозначим $|z-a| = \rho$, и выберем $r < r_1 < \rho < R_1< R$.
+    Так же обозначим
+    \begin{gather*}
+        \gamma_{r_1} = \{z: |z-a| = r_1\} \\
+        \gamma_{R_1} = \{z: |z-a| = R_1\}.
+    \end{gather*}
+    Применим формулу Коши для $D_{r_1, R_1}$:
+    \[f(z) = \frac{1}{2 \pi i } \int_{\overrightarrow{\partial D_{r_1, R_1}}} \frac{f(\zeta)}{\zeta - z} d\zeta\]
+    Так как $\partial D_{r_1, R_1}$ состоит из $\gamma_{r_1}$ и $\gamma_{R_1}$, то справедливо следующее равенство:
+    \[f(z) = \frac{1}{2 \pi i } \int_{\overrightarrow{\partial D_{r_1, R_1}}} \frac{f(\zeta)}{\zeta - z} d\zeta = \frac{1}{2 \pi i } \int_{\overrightarrow{\gamma_{R_1}}} \frac{f(\zeta)}{\zeta - z} d\zeta - \frac{1}{2 \pi i } \int_{\overrightarrow{\gamma_{r_1}}} \frac{f(\zeta)}{\zeta - z} d\zeta \tag{1}\]
+    Поработаем с первым интегралом
+    \begin{multline*}
+        \frac{1}{\zeta - z} = \frac{1}{(\zeta - a) - (z - a)} = \frac{1}{\zeta - a}\cdot \frac{1}{1 - \frac{z - a}{\zeta - a}} = \\
+        = \frac{1}{\zeta - a} \sum_{n = 0 }^{\infty} \left(\frac{z - a}{\zeta -a}\right)^n =\sum_{n = 0 }^{\infty} \frac{(z - a)^n}{(\zeta -a)^{n+1}} \tag{2}
+    \end{multline*}
+    В таком случае $(2)$ влечет, что
+    \begin{multline*}
+        \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_{R_1}}} \frac{f(\zeta)}{\zeta - z} d\zeta = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_{R_1}}} f(\zeta) \sum_{n = 0 }^{\infty} \frac{(z - a)^n}{(\zeta -a)^{n+1}} d\zeta = \\
+        = \sum_{n = 0 }^{\infty} \frac{(z - a)^n}{2 \pi i}  \int_{\overrightarrow{\gamma_{R_1}}} \frac{f(\zeta)}{(\zeta -a)^{n+1}} d\zeta \tag{3}
+    \end{multline*}
+    Последнее равенство верно, т.к.
+    \[\left| \frac{z-a}{\zeta - a} \right| = \frac{\rho}{R_1} < 1,\]
+    поэтому ряд под интегралом сходится по признаку Вейерштрасса и ряд можно интегрировать почленно.
+    Выберем $r < t < R$, и
+    \[\frac{f(\zeta)}{(\zeta - a)^{n+1}} \in A(D_{r,R}(a))\]
+    тогда
+    \begin{gather*}
+        \int_{\overrightarrow{\partial D_{t, R_1} (a)}} \frac{f(\zeta)}{(\zeta -a)^{n+1}} d\zeta = 0  \tag{4}\\
+        (4) \implies \frac{1}{2 \pi i}  \int_{\overrightarrow{\gamma_{t}}} \frac{f(\zeta)}{(\zeta -a)^{n+1}} d\zeta =  \frac{1}{2 \pi i}  \int_{\overrightarrow{\gamma_{R_1}}} \frac{f(\zeta)}{(\zeta -a)^{n+1}} d\zeta \tag{5}
+    \end{gather*}
+    $(5)$ означает, что интеграл в формуле $(3)$ не зависит от $R_1$, т.к. было любое $R_1$, а потом фиксировали некоторое $t$.
+    Обозначим
+    \[c_n = \frac{1}{2 \pi i}  \int_{\overrightarrow{\gamma_{R_1}}} \frac{f(\zeta)}{(\zeta -a)^{n+1}} d\zeta,\]
+    и $c_n$ не зависит от выбора $R_1$.
+    Аналогично рассмотрим второй интеграл:
+    \begin{multline*}
+        \frac{1}{\zeta - z} = \frac{1}{(\zeta - a) - (z - a)} = -\frac{1}{z - a}\cdot \frac{1}{1 - \frac{\zeta - a}{z - a}} = \\
+        = -\frac{1}{z - a} \sum_{n = 0 }^{\infty} \left(\frac{\zeta - a}{z -a}\right)^n = - \sum_{n = 0 }^{\infty} \frac{(\zeta- a)^n}{(z -a)^{n+1}} \tag{6}
+    \end{multline*}
+    и выполнено
+    \[\left| \frac{\zeta - a}{z - a} \right| = \frac{r_1}{\rho} < 1\]
+    Тогда $(6)$ влечет
+    \[- \frac{1}{2 \pi i } \int_{\overrightarrow{\gamma_{r_1}}} \frac{f(\zeta)}{\zeta - z} d\zeta  = \sum_{n = 0 }^{\infty} \frac{1}{(z-a)^{n+1}} \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_{r_1}}} (\zeta - a)^n f(\zeta) d\zeta \tag{7} \]
+    Воспользуемся выбранным ранее $t$ и тем, что $(\zeta - a)^n f(\zeta) \in A(D_{r, R}(a))$, тогда
+    \[\int_{\overrightarrow{\partial D_{r_1, t} (a)}}  (\zeta - a)^n f(\zeta) d\zeta = 0 \tag{8}\]
+    и из этого следует, что
+    \[\frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_{r_1}}} (\zeta - a)^n f(\zeta) d\zeta =  \frac{1}{2 \pi i}  \int_{\overrightarrow{\gamma_{R_1}}} (\zeta - a)^n f(\zeta) d\zeta \tag{9}\]
+    и можем обозначить
+    \[c_{-n} = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_{r_1}}} (\zeta - a)^n f(\zeta) d\zeta\]
+    В итоге
+    \[(1), (2), (7) \implies f(z) = \sum_{n=0}^{\infty} c_{n} (z-a)^n + \sum_{n=1}^{\infty} c_{-n} (z-a)^{-n}\]
+
+    Осталось проверить равномерную сходимость рядов.
+    Если у нас есть $r < r_1 < r_0 < R_0 < R_1 < R$ и мы предположим, что
+    \[r_0 \le |z-a| \le R_0\]
+    тогда, при проведении рассуждений, изложенных выше, для формул $(2)$ и $(7)$, будут верны неравенства
+    \begin{gather*}
+        \left| \frac{z-a}{\zeta - a} \right| \le \frac{R_0}{R_1} = Q < 1\\
+        \left| \frac{\zeta - a}{z - a} \right| \le \frac{r_1}{r_0} = q < 1
+    \end{gather*}
+    это будет означать, что в интегралах в $(2)$ и $(7)$ будет равномерная сходимость, если мы сохраним интегрирование по $\gamma_{R_1}$ и $\gamma_{r_1}$ соответственно.
+    И из этого следует, что $(2)$ равномерно сходится при $|z - a| \le R_0$, а $(7)$ равномерно сходится при $|z - a| \ge r_0$.
+\end{longProof}
+
+\section{Особые точки аналитических функций}
+\begin{definition}
+    Пусть некая функция $f \in A(D_{0, R} (a))$.
+    Тогда говорят, что $a$ является особой точкой функции $f$.
+\end{definition}
+
+\subsection{Классификация особых точек}
+Пусть функция $f$ раскладывается в ряд Лорана:
+\[f(z) = \sum_{n=1}^{\infty} c_{-n} (z-a)^{-n} + \sum_{n=0}^{\infty} c_{n} (z-a)^n \tag{1}\]
+\begin{enumerate}
+    \item $a$~--- устранимая особая точка $f$, если $c_{-n} = 0$ $\forall n \ge 1$;
+    \item пусть $c_{-n_0} \neq 0, c_{-n} = 0$ $\forall n > n_0$, тогда $a$~--- полюс $f$ $n_0$-порядка, если $n_0 = 1$, то это простой полюс;
+    \item $\exists \{c_{-n_k}\}_{k = 1}^\infty$, т.ч. $c_{-n_k} \neq 0$, тогда говорят, что $a$~--- существенная особая точка $f$.
+\end{enumerate}
+
+\subsection{Характеристика устранимых особых точек}
+\begin{theorem}
+    Точка $a$ является устранимой особой точкой функции $f$, если
+    \[\exists 0 < R_0 < R \text{ и } \exists M > 0, \text{ т.ч. } |f(z)| \le M\ \forall z \in D_{0, R_0}(a) \tag{2} \]
+\end{theorem}
+\begin{longProof}
+    \textbf{Необходимость:} предположим, что $a$ устранимая особая точка, тогда $c_{-n} = 0$ $\forall n \ge 1$ и
+    \begin{gather*}
+        (1) \implies f(z) = \sum_{n=0}^{\infty} c_{n} (z-a)^n \tag{3}
+        \intertext{положим}
+        f(a) \coloneq c_0 \tag{4}
+    \end{gather*}
+    Если мы добавляем значение $f(a)$, то мы получаем степенной ряд, по теореме о разложении в ряд Лорана он сходится в $B_R(a)$.
+    Если возьмём любое $R_0$, то функция будет аналитична, а следовательно ограничена.
+    Если выполнено условие $c_{-n} = 0$ $\forall n \ge 1$, то $f \in A(B_R(a))$.
+
+    \textbf{Достаточность:} предположим, что выполнено условие $(2)$ и зафиксируем $z$: $|z - a| = \rho$, где $0 < \rho < R_0$.
+    Кроме того, возьмём $\rho < R_1 < R_0$ и $0 < \epsilon < \rho$.
+    Тогда можем рассматривать кольцо $D_{\epsilon, R_1}(a)$, в силу выбора $z \in D_{\epsilon, R_1}(a)$ и можем записать формулу Коши:
+    \begin{gather*}
+        f(z) = \frac{1}{2 \pi i} \int_{\overrightarrow{\partial D_{\epsilon, R_1}}} \frac{f(\zeta)}{\zeta - z} d\zeta \tag{5}\\
+        (5) \implies f(z) = \frac{1}{2 \pi i } \int_{\overrightarrow{\gamma_{R_1}}} \frac{f(\zeta)}{\zeta - z} d\zeta - \frac{1}{2 \pi i } \int_{\overrightarrow{\gamma_{\epsilon}}} \frac{f(\zeta)}{\zeta - z} d\zeta \tag{5'}
+    \end{gather*}
+    Теперь воспользуемся неравенством между криволинейным интегралом второго рода и криволинейным интегралом первого рода для второго интеграла:
+    \begin{multline*}
+        (2) \implies \left| - \frac{1}{2 \pi i } \int_{\overrightarrow{\gamma_{\epsilon}}} \frac{f(\zeta)}{\zeta - z} d\zeta \right| \le \frac{1}{2 \pi} \int_{\gamma_{\epsilon}} \frac{|f(\zeta)|}{|\zeta - z|} |d\zeta| \le \frac{1}{2 \pi} \int_{\gamma_{\epsilon}} \frac{M}{\rho - \epsilon} |d\zeta| = \\
+        = \frac{1}{2 \pi} \cdot \frac{M}{\rho - \epsilon} \cdot 2 \pi \epsilon = \frac{M\epsilon}{\rho - \epsilon} \xrightarrow[\epsilon \to +0]{} 0, \tag{6}
+    \end{multline*}
+    где $|\zeta - z| \ge |z| - |\zeta| = \rho - \epsilon$.
+    В формуле (5') слева нет $\epsilon$, а справа есть функция, которая зависит от $\epsilon$, этот интеграл стремится к 0, и если в формуле (5') устремить $\epsilon$ к 0, то
+    \[(5), (6) \implies f(z) = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_{R_1}}} \frac{f(\zeta)}{\zeta - z} d\zeta \tag{7}\]
+    (7) выполнена при $z \in D_{0, R_0} (a)$ (8).
+    Теперь дополним определение функции её значением в точке $a$, для этого положим
+    \[f(a) \coloneqq \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_{R_1}}} \frac{f(\zeta)}{\zeta - a} d\zeta \tag{9}\]
+    (8), (9) влекут, что при $z \in B_{R_0} (a)$
+    \[f(z) = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_{R_1}}} \frac{f(\zeta)}{\zeta - z} d\zeta \tag{10}\]
+    такой интеграл был рассмотрен, когда изучалась аналитичность, поэтому
+    \[(10) \implies f'_{\overline{z}} (z) = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_{R_1}}} f(\zeta) \left(\frac{1}{\zeta - z}\right)'_{\overline{z}} d\zeta = 0,\]
+    то есть $f \in A(B_{R_0}(a))$ (11), кроме того $f \in A(D_{0, R}(a))$, поэтому $f \in A(B_R(a))$ (12).
+    Теперь проверим, что все $c_{-n}=0$
+    \[(12) \implies (\zeta - a)^n f(\zeta) \in A(B_{R}(a))\ n \ge 0 \tag{13}\]
+    тогда при $n \ge 0$, $0 < t < R$ и по теореме Коши
+    \[(13) \implies c_{-n-1} = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_t}} f(\zeta)(\zeta - a)^n d\zeta = 0\]
+\end{longProof}
+
+\subsection{Характеристика полюса}
+\begin{theorem}
+    Пусть $f \in A(D_{0, R} (a))$, тогда чтобы точка $a$ была полюсом необходимо и достаточно
+    \[|f(z)| \xrightarrow[z \to a]{} + \infty \tag{14}\]
+\end{theorem}
+\begin{longProof}
+    \textbf{Необходимость:} предположим, что $a$~--- полюс порядка $n_0$, где $n_0 \ge 1$.
+    Тогда
+    \begin{multline*}
+        f(z) = \frac{c_{-n_0}}{(z-a)^{n_0}} + \sum_{k=1}^{n_0 - 1} c_{-k} (z-a)^{-k} + \sum_{n=0}^{\infty} c_{n} (z-a)^n = \\
+        = \frac{1}{(z-a)^{n_0}}\left( c_{-n_0} + \sum_{k=1}^{n_0 -1} c_{-k}(z-a)^{n_0 - k} + \sum_{n=0}^{\infty} c_n (z-a)^{n+n_0}\right) = \\
+        = \frac{1}{(z-a)^{n_0}}\left( c_{-n_0} + \sum_{m=1}^{\infty} b_m(z-a)^{m}\right) \tag{15}
+    \end{multline*}
+    Этот степенной ряд аналитичен в круге $B_R(a)$.
+    Пусть $\exists \delta > 0$, т.ч. при $|z-a| < \delta$ выполнено
+    \[\left| \sum_{m=1}^{\infty} b_m(z-a)^{m} \right| < \frac{1}{2} |c_{-n_0}| \tag{16}\]
+    При выбранном выше $\delta$, (15) и (16) влекут, что
+    \begin{multline*}
+        |f(z)| \ge \frac{1}{(z-a)^{n_0}} \left( |c_{-n_0}| - \left| \sum_{m=1}^{\infty} b_m(z-a)^{m} \right|\right) > \\
+        > \frac{1}{2} |c_{-n_0}| \frac{1}{|z-a|^{n_0}} \xrightarrow[z \to a]{} +\infty
+    \end{multline*}
+
+    \textbf{Достаточность:} пусть выполнено (14).
+    Это значит, что $\exists \delta_1 > 0$, т.ч. $|f(z)| > 1$ при $|z - a| < \delta_1$ и $z \neq a$ (14').
+    Понятно, что (14') влечет, что $f(z) \neq 0$, когда $0 < |z - a| < \delta_1$ (14''), тогда (14'') влечет, что
+    \[\frac{1}{f(z)} = \phi(z) \in A(D_{0, \delta_1}(a)) \tag{18},\]
+    кроме того (14') влечет
+    \[|\phi(z)| < 1\ z \in D_{0, \delta_1}(a) \tag{19}\]
+    и $\phi(z) \not\equiv 0$.
+    По первому пункту
+    \[(19) \implies \phi \in A(B_{\delta_1})(a) \tag{2}\]
+
+    \marginpar{13.04.23}
+    \[(14) \implies\ |\phi(z)| \xrightarrow[z \to a]{} 0 \tag{1'}\]
+    Условия на $\phi(z)$ и (2) влекут, что $\phi(a) = 0$ (3)\footnote{Прим. ред.: доказательство было разбито на две лекции, и поэтому нумерация получилась странная.}.
+    В таком случае к $\phi$ применима теорема о мультипликативном строении аналитической функции в окрестности нуля: условия на $\phi$, (2) и (3) влекут
+    \[\exists n_0 \in \N \text{ т.ч. } \phi(z) = (z-a)^{n_0} g(z), z \in B_{\delta_1}(a) \tag{4}\]
+    и $g \in A(B_{\delta_1}(a))$ (5), и $g(a) \neq 0$ (6).
+    Так же (1), (4), (6) влекут, что $g(z) \neq 0$, когда $z \in B_{\delta_1}(a)$ (7).
+    Поскольку $g$ аналитична, то (7) влечет, что
+    \[h(z) = \frac{1}{g(z)} \in A(B_{\delta_1}(a)) \tag{8}\]
+    Теперь, посмотрим на определения $\phi$ и $f$ и на соотношение (4), то
+    \[f(z) = \frac{1}{\phi(z)} = (z-a)^{-n_0}\frac{1}{g(z)} = (z-a)^{-n_0} h(z) \tag{9}\]
+    Воспользуемся тем, что $f(z)$ раскладывается в ряд Лорана:
+    \[f(z) = \sum_{n=1}^{\infty} c_{-n} (z-a)^{-n} + \sum_{n=0}^{\infty} c_{n} (z-a)^n,\]
+    при этом
+    \[c_{-n} = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_\rho}} (z - a)^{n-1}f(z) dz, \text{ где } 0 < \rho < R\]
+    Возьмём $0 < \rho < \delta_1$, тогда
+    \[c_{-n} = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_\rho}} (z - a)^{n - n_0 - 1} h(z) dz\]
+    если $n \ge n_0 + 1$, то (8) влечет $(z - a)^{n - n_0 - 1} h(z) \in A \left(B_{\delta_1(a)} \right)$.
+    И применив теорему Коши получим, что $c_{-n} = 0$ (11).
+    Рассмотрим $n = n_0$:
+    \[c_{-n_0} = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_\rho}} \frac{h(z)}{z-a}dz = h(a) \neq 0\]
+\end{longProof}
+
+\subsection{Критерий существенно особой точки}
+\begin{theorem}
+    Пусть функция $f \in A(D_{0, R}(a))$, тогда для того, чтобы $a$ была существенной особой точкой необходимо и достаточно, чтобы существовали последовательность $\{z_n\}_{n=1}^\infty$ и $\{\zeta_n\}_{n=1}^\infty$, т.ч. $z_n, \zeta_n \in D_{0,R}(a)$.
+    $|f(z_n)|$ ограничен, т.е. $\exists M$, т.ч. $|f(z_n)| < M$ $\forall n$ (12), кроме того
+    \begin{gather*}
+        \begin{rcases}
+            |f(\zeta_n)| \xrightarrow[n \to \infty]{} +\infty \\
+            \zeta_n \xrightarrow[n \to \infty]{} a
+        \end{rcases}\tag{13}
+    \end{gather*}
+\end{theorem}
+\begin{proof}
+    \textbf{Необходимость:}
+    Пусть $a$~--- существенная особая точка, т.е. не устранимая особая точки и не полюс.
+    Поскольку она не полюс, то условие
+    \[|f(z)| \xrightarrow[z \to a]{} \infty \text{ не выполнено} \tag{14}\]
+    (14) влечет, что $\exists M$ и $\exists \{z_n\}_{n=1}^\infty$, т.ч. выполнено (12)
+
+    Поскольку $a$ не устранимая особая точка, то условие $\exists M_0$ и $\exists \delta_1$, т.ч.
+    \[|f(z)| \le M_0,\ z \in D_{0, R} (a) \text{ не выполнено} \tag{15}\]
+    (15) влечет (13).
+
+    \textbf{Достаточность:}
+    Предположим, что выполнены (12) и (13).
+    (12) означает, что $a$ не является полюсом.
+    А (13) означает, что $a$ не является устранимой особой точкой.
+\end{proof}
+
+\section{Вычеты}
+\begin{definition}
+    Пусть $f \in A(D_{0, R}(a))$, тогда она раскладывается в ряд Лорана:
+    \[f(z) = \sum_{n=1}^{\infty} c_{-n} (z-a)^{-n} + \sum_{n=0}^{\infty} c_{n} (z-a)^n \tag{1}\]
+    Тогда вычетом $\res_f a \coloneq c_{-1}$ (1).
+    (1) влечет, что
+    \[\res_f a = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_\rho}} f(z) dz \tag{2}\]
+\end{definition}
+
+Имеется область $D \subset \C$ и $E \subset D$, $E \neq \varnothing$.
+$E$ не имеет точек сгущения в $D$.
+Пусть $f \in A(D \setminus E)$, т.е. каждая точка $E$ является изолированной точкой, тогда
+\[\forall a \in E\ \exists \delta_a > 0, \text{ т.ч. } B_{\delta_a} (a) \subset D \text{ и } B_{\delta_a}(a) \cap E = \{a\} \tag{3}\]
+Тогда $\res_f a \coloneq c_{-1}(a)$ (2'), где
+\[f(z) = \sum_{n=1}^{\infty} c_{-n}(a) (z-a)^{-n} + \sum_{n=0}^{\infty} c_{n}(a) (z-a)^n, \tag{2''}\]
+если $z \in D_{0, \delta_a}(a)$.
+
+\begin{theorem}[о вычетах]
+    Пусть выполнены условия выше и имеется $\overline{G} \subset D$, т.ч. $\partial G \cap E = \varnothing$, $\partial G$ состоит из конечного числа замкнутых кусочно-гладких кривых.
+    Пусть $a_1, \dotsc, a_m$~--- все точки $E$, лежащие в $G$ (их конечное число).
+    Тогда справедливо
+    \begin{gather*}
+        \frac{1}{2 \pi i} \int_{\overrightarrow{\partial G}} f(z) dz = \sum_{k=1}^{m} \res_f a_k \tag{4}
+    \end{gather*}
+\end{theorem}
+\begin{longProof}
+    Рассмотрим $\delta_{a_1},\dotsc,\delta_{a_m}$.
+    Положим $\rho_k = \delta_{a_k} /3$, тогда $\overline{B}_{\rho_k} (a_k) \cap \overline{B}_{\rho_l} (a_l) = \varnothing$, если $k \neq l$.
+    Теперь положим $\widetilde{\rho_k} = \rho_k$, если $B_{\rho_k}(a_k) \subset G$ (5').
+    Если $B_{\rho_k}(a_k) \not\subset G$, то $0 < \widetilde{\rho_k} < \rho_k$ и $B_{\widetilde{\rho_k}}(a_k) \subset G$ (5'').
+    Определим
+    \[\Omega = G \setminus \bigcup_{k=1}^m \overline{B}_{\widetilde{\rho_k}}(a_k)\]
+    Тогда $f \in A(\Omega)$ и это влечет, что
+    \[\frac{1}{2 \pi i} \int_{\overrightarrow{\partial \Omega}} f(z) dz = 0 \tag{6}\]
+    (6) эквивалентно
+    \[\frac{1}{2 \pi i} \int_{\overrightarrow{\partial G}} f(z) dz - \sum_{k=1}^{m} \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_k}} f(z) dz = 0, \tag{6'}\]
+    где $\gamma_k = \{z: |z-a_k| = \widetilde{\rho_k}\}$, а (6') эквивалентно
+    \[\frac{1}{2 \pi i} \int_{\overrightarrow{\partial G}} f(z) dz = \sum_{k=1}^{m} \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_k}} f(z) dz = \sum_{k=1}^{m} \res_f a_k\]
+\end{longProof}
+
+\subsection{Формулы для вычисления вычетов}
+\subsubsection{Полюс первого порядка}
+Пусть функция $f$ представима в виде
+\[f(z) = \frac{\phi(z)}{\psi(z)},\]
+где $\phi, \psi \in A(B_R(a))$.
+Допустим, что $\psi(z) \neq 0$, если $z \neq a$ и $\psi(a) = 0$, но $\psi'(a) \neq 0$.
+Тогда
+\[\res_f a = \frac{\phi(a)}{\psi'(a)} \tag{7}\]
+\begin{longProof}
+    Запишем мультипликативную структуру функции $\psi$ в круге $B_R(a)$:
+    \[\psi(z) = (z - a)^n g(z), \]
+    где $n \in \N$, $g \in A(B_R(a))$ и $g(a) \neq 0$.
+    Найдем производную $\psi$
+    \[\psi' (z) = n (z-a)^{n-1} g(z) + (z-a)^n g'(z)\]
+    В силу условия $\psi'(a) \neq 0$ получаем, что
+    \begin{gather*}
+        \psi(z) = (z - a) g(z)\\
+        \psi' (z) =  g(z) + (z-a) g'(z)
+    \end{gather*}
+    и $\psi'(a) = g(a)$.
+    Теперь обозначим $1/g(z) = h(z)$, $h(z) \in A(B_R(a))$ и $h(a) = 1/g(a) = 1/\psi'(a)$, поэтому
+    \[f(z) = \phi(z) \frac{1}{(z-a) g(z)} = \frac{\phi(z) h(z)}{z-a}\]
+    кроме того, обозначим $\phi h = v(z)$, тогда
+    \[v(z) = v(a) + \sum_{n=1}^{\infty} q_n (z-a)^n, \text{ когда } z \in B_R(a) \tag{8}\]
+    поэтому
+    \[\frac{\phi(z) h(z)}{z-a} = \frac{v(a)}{z-a} + \sum_{n=1}^{\infty} \frac{q_n (z-a)^n}{z-a} = \frac{v(a)}{z-a} + \sum_{n=1}^{\infty} q_n (z-a)^{n-1} \tag{9}\]
+    Потому что разложение в ряд Лорана выглядит именно так, (9) влечет, что $\res_f a = v(a)$, что влечет (7).
+\end{longProof}
+
+\subsubsection{Полюс порядка $n$}
+Пусть $\phi \in A(B_R(a))$, $n \ge 2$ и
+\[f(z) = \frac{\phi(z)}{(z-a)^n}\]
+Тогда
+\[\res_f a = \frac{1}{(n-1)!} \phi^{(n-1)}(a)\]
+Это следует из того, что $\phi$ аналитична, а значит раскладывается в ряд Тейлора
+\[\phi(z) = \phi(a) + \sum_{k=1}^{\infty} \frac{\phi^{(k)}(a)}{k!}(z-a)^k\]
+поделив на $(z-a)^n$ получим
+\[f(z) = \frac{\phi(a)}{(z-a)^n} + \sum_{k=1}^{\infty} \frac{\phi^{(k)}(a)}{k!}(z-a)^{k-n} \]
+и нужный нам коэффициент появляется при $k = n-1$.
+\end{document}

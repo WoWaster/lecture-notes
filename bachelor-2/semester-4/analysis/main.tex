@@ -10,6 +10,9 @@
 \NewDocumentCommand{\ClOrCurve}{O{\Gamma}}{\overleftarrow{#1}}
 \NewDocumentCommand{\AnClOrInt}{O{\AnClOrCurve}}{\int_{#1}}
 \NewDocumentCommand{\ClOrInt}{O{\ClOrCurve}}{\int_{#1}}
+\DeclareMathOperator{\res}{res}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\mr}[1]{\langle{#1}\rangle}
 
 \begin{document}
 \frontmatter
@@ -27,5 +30,7 @@
 \subfile{02_cauchy_theorem.tex}
 \subfile{03_cauchy_formula.tex}
 \subfile{04_properties_of_analytic_functions.tex}
+\subfile{05_laurent_series.tex}
+\subfile{06_measure_theory.tex}
 
 \end{document}

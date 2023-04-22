@@ -1,0 +1,168 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Теория меры}
+\section{Мера и интеграл Лебега. Построение меры Лебега}\marginpar{20.04.23}
+\begin{definition}
+    Непустое множество $R$, элементами которого являются множества, называется кольцом, если $A, B \in \calR \implies A \cup B \in \calR$, $A \setminus B \in \calR$.
+    В частности, $\varnothing = A \setminus A \in \calR$, $A \cap B = A \setminus (A \setminus B) \in \calR$.
+\end{definition}
+
+\begin{definition}
+    Кольцо $\calR$ называется $\sigma$-кольцом, если $A_n \in \calR$, $n \in \N \implies \bigcup_{n=1}^{\infty} A_n \in \calR$.
+    При этом, если $\calR$~--- $\sigma$-кольцо, то $\bigcap_{n=1}^{\infty} A_n = A_1 \setminus \bigcup_{n=1}^{\infty} (A_1\setminus A_n) \in \calR$.
+\end{definition}
+
+\begin{definition}
+    Если $\calR$~--- кольцо, $\phi: \calR \to \R \cup \{-\infty\} \cup \{+\infty\}$~--- функция (отображение), то $\phi$ называется аддитивной, если $A, B\in \calR,$ $A \cap B = \varnothing \implies \phi(A \cup B) = \phi(A) + \phi(B)$.
+\end{definition}
+
+\begin{definition}
+    Функция $\phi$ называется счётно-аддитивной, если из $A_n \in \calR,$ $n \in \N$, $\bigcup_{n=1}^{\infty} A_n \in \calR$, $A_j \cap A_k = \varnothing$, если $j \neq k$, $j, k \in \N \implies \phi(\bigcup_{n=1}^{\infty} A_n) = \sum_{n=1}^{\infty} \phi(A_n)$.
+\end{definition}
+
+\subsection{Свойства аддитивных функций}
+\begin{enumerate}
+    \item $\varnothing \cup \varnothing = \varnothing$, $\varnothing \cap \varnothing = \varnothing \implies \phi(\varnothing) = \phi(\varnothing \cup \varnothing) = \phi(\varnothing) + \phi(\varnothing) \implies \phi(\varnothing) = 0$;
+    \item Если $A_j \cap A_k = \varnothing$, $j \neq k$, $1\le j, k\le n \implies \phi(\bigcup_{j=1}^{n} A_j) = \sum_{j=1}^n \phi(A_j)$, доказывается по индукции;
+    \item $A, B \in \calR, A \setminus B = A \setminus (A \cap B) \implies$
+          \[A = (A \setminus (A \cap B)) \cup (A \cap B) \implies \phi(A) = \phi(A \setminus (A \cap B)) + \phi(A \cap B),\]
+          аналогично $\phi(B) = \phi(B \setminus (A \cap B)) + \phi(A \cap B)$
+          \begin{multline*}
+              \phi(A) + \phi(B) = \\
+              = (\phi(A \setminus (A \cap B)) + \phi(B \setminus (A \cap B)) + \phi(A \cap B)) + \phi(A \cap B) = \\
+              = \phi(A \cup B) + \phi(A \cap B),
+          \end{multline*}
+          т.к. $(A \setminus (A \cap B)) \cup (B \setminus (A \cap B)) \cup (A \cap B) = A \cup B$;
+    \item Если $\phi(A) \ge 0\ \forall A \in \calR$, $A \subset B$, то $\phi(A) \le \phi(B)$ т.к. $B = A \cup (B \setminus A)$, $\phi(B) = \phi(A) + \phi(B \setminus A) \ge \phi(A)$
+\end{enumerate}
+
+\begin{theorem}
+    Пусть $\phi$~--- счётно-аддитивная функция на кольце $\calR$, пусть $A_1 \subset A_2 \subset \dots \subset A_n \subset \dots$, $A = \bigcup_{n=1}^{\infty} A_n$, пусть $A_n\in\calR\ \forall n$ и $A\in\calR$.
+    Тогда
+    \[\phi(A_n)\xrightarrow[n\to\infty]{} \phi(A).\]
+\end{theorem}
+
+\begin{proof}
+    Пусть $B_1=A_1$, $B_n=A_n\setminus A_{n-1}$, $n\ge 2$.
+
+    Тогда $B_j\cap B_k=\varnothing$, $j\neq k$, $A_n = \bigcup_{j=1}^n B_j$, $A = \bigcup_{j=1}^\infty B_j$.
+
+    Тогда $\phi(A_n)=\sum_{j=1}^n \phi(B_j)$, $\phi(A)=\sum_{j=1}^{\infty}\phi(B_j)$, откуда и следует утверждение теоремы.
+\end{proof}
+
+\begin{definition}
+    Промежутком $\mr{a,b}$, где $a\in\R^m$, $ b\in\R^m$ будем называть множество
+    \[\mr{a,b} = \{x = (x_1,\dotsc,x_m): x_j \in \mr{a_j, b_j}, 1 \le j \le m\},\]
+    где знак $\mr{,}$ может независимо принимать значения $(,[,),]$.
+\end{definition}
+
+\begin{definition}
+    Элементарным множеством будем называть объединение конечного числа промежутков $\mr{a_j,b_j}$.
+\end{definition}
+
+\begin{definition}
+    Для промежутка $\mr{a,b}$ его мерой $m(\mr{a,b})$ назовём выражение
+    \[ m(\mr{a,b})=\prod_{j=1}^{m}(b_j-a_j)\tag{1} \]
+\end{definition}
+
+\begin{remark}
+    Всегда полагаем $a_j\le b_j$, возможность $a_j=b_j$ допускаем, если $\langle=(, \rangle = )$ в $j$ и $a_j=b_j$, то $\mr{a,b}=\varnothing$, поэтому (1) $\implies m(\varnothing)=0$.
+\end{remark}
+
+\begin{remark}
+    Если $A = \bigcup_{j=1}^n I_j$, $I_j$~--- промежутки, $I_j\bigcap I_k=\varnothing$, если $j\neq k$, то полагаем
+    \[ m\,A=\sum_{j=1}^n m\,I_j\tag{2} \]
+\end{remark}
+
+\begin{theorem}
+    Пусть $\mathcal{E}$~--- множество элементарных множеств в $\R^m$.
+    Тогда $\mathcal{E}$~--- кольцо, но не $\sigma$-кольцо; если $A\in\mathcal{E}$, то $\exists\,I_j-$ промежутки, $1\le j\le n$, $n$ зависит от $A$ т.ч. $I_j\bigcap I_k=\varnothing$ и $A=\bigcup_{j=1}^n I_j$; если $A\in\mathcal{E}$, $ A=\bigcup_{k=1}^l I'_k$, $I'_k$~--- промежуток, $I'_k\bigcap I'_q=\varnothing$, то
+    \[ \sum_{k=1}^l m\,I_k'=\sum_{j=1}^n m\,I_j \]
+\end{theorem}
+
+\begin{proof}
+    Примем без доказательства.
+    Случай $m=1$ доказать самостоятельно.
+\end{proof}
+
+\begin{definition}
+    Пусть $E\subset\R^n$~--- произвольное множество.
+    Через $(a,b)$ будем обозначать множество
+    \[\{ x=(x_1,\dotsc,x_m)\in\R^m: a_j<x_j<b_j, 1\le j\le m\},\]
+    открытым элементарным множеством будем называть объединение конечного числа промежутков $(a,b)$.
+\end{definition}
+
+\begin{remark}
+    Через $U(E)$ будем обозначать множество конечных или счётных множеств открытых элементарных множеств $\{A_n\}^\infty_{n=1}$ таких, что $E\subset\bigcup_{n=1}^{\infty} A_n$ (объединение может быть конечным).
+\end{remark}
+
+\begin{definition}
+    Внешней мерой множества $E$ $m^*E$ назовём величину
+    \[ m^*E \coloneq \inf_{\{A_n\}^\infty_{n=1}\in U(E)} \sum_{n=1}^{\infty} m\,A_n\tag{3} \]
+    $(3) \implies m^*E\ge 0\ \forall E$, если $E_1\subset E_2\implies m^*E_1\le m^*E_2$, т.к. $U(E_2)\subset U(E_1)$.
+\end{definition}
+
+\begin{theorem}[полуаддитивность внешней меры]
+    Пусть $E=\bigcup_{n=1}^{\infty} E_n$, тогда \[m^*E\le\sum_{n=1}^{\infty} m^*E_n\tag{4}\]
+\end{theorem}
+
+\begin{proof}
+    Предположим, что $m^*E_n<+\infty\ \forall n$, поскольку иначе (4) выполнено.
+    Выберем $\forall\epsilon>0$, для $n\in\N$ пусть $\{A_{n_k}\}^\infty_{k=1}\in U(E_n)$ и
+    \[ \sum_{k=1}^{\infty} m\,A_{n_k}< m^*E_n+\frac{\epsilon}{2^n}\tag{5} \]
+    Тогда $\bigcup_{n=1}^{\infty} \bigcup_{k=1}^\infty A_{n_k}\in U(E)$, тогда (5) $\implies$
+    \[ m^*E\le\sum_{n=1}^{\infty} \left( \sum_{k=1}^{\infty} m\,A_{n_k} \right) < \sum_{n=1}^{\infty} \left(m^*E_n+\frac{\epsilon}{2^n}\right) = \sum_{n=1}^{\infty} m^*E_n+\epsilon\tag{6} \]
+    Поскольку $\epsilon>0$ произвольно, то $(6)\implies (4)$.
+\end{proof}
+
+\begin{lemma}[Бореля]
+    Пусть $K\subset\R^m$~--- компакт, $A_n$, $n=1, 2, \dots$~--- открытые множества, и $K\subset\bigcup_{n=1}^{\infty} A_n$.
+    Тогда $\exists\,A_{n_1}, \dots,A_{n_k}$ т.ч. $K\subset \bigcup_{j=1}^k A_{n_j}$
+\end{lemma}
+
+\begin{proof}
+    Примем без доказательства.
+\end{proof}
+
+\section{Свойства внешней меры элементарных множеств}
+\begin{theorem}
+    Пусть $A$~--- элементарное множество.
+    Тогда $m^*A=m\,A$.
+\end{theorem}
+
+\begin{longProof}
+    Достаточно рассмотреть случай $A=\mr{a,b}$.
+    Возьмём $\forall \delta>0$, положим
+    \[\mr{a,b}_\delta\coloneq\{x=(x_1,\dotsc,x_m): x_j\in(a_j-\delta, b_j+\delta)\}.\]
+    Тогда $\mr{a,b}_\delta$~--- открытое элементарное множество, $\mr{a,b}\subset\mr{a,b}_\delta$, $ m(\mr{a,b}_\delta) \xrightarrow[\delta \to +0]{} m(\mr{a,b})$, поэтому можно взять такое $\epsilon>0$, что $m(\mr{a,b}_\delta)<m(\mr{a,b})+\epsilon$, т.е.
+    \[m^*(\mr{a,b})\le m(\mr{a,b}_\delta)<m(\mr{a,b})+\epsilon,\]
+    т.е.
+    \[m^*(\mr{a,b})\le m(\mr{a,b}),\tag{8'}\]
+    поскольку $\{ \mr{a,b}_\delta\}\in U(\mr{a,b})$.
+
+    Полагаем $m(\mr{a,b})>0$, иначе $m^*(\mr{a,b})=m(\mr{a,b})=0$.
+    Пусть
+    \[\delta< \min_{1\le j\le m} \left(\frac{1}{2}(b_j-a_j) \right),\]
+    положим
+    \[_\delta\mr{a,b}\coloneq\{x:x_j\in[a_j+\delta, b_j-\delta]\}.\]
+    Тогда $_\delta\mr{a,b}$~--- компакт, для $\forall\,\epsilon>0\ \exists\delta>0$ т.ч. $m({}_\delta\mr{a,b})>m(\mr{a,b})-\epsilon$.
+    %TODO: \forall \epsilon ???
+    Пусть $\{A_j\}_{j=1}^\infty\in U(\mr{a,b})$, тогда $\{A_j\}_{j=1}^\infty\in U({}_\delta\mr{a,b})$.
+    Поскольку $A_j$ открыто, то можно по лемме Бореля выбрать $A_{j_1},\dotsc,A_{j_l}$, т.ч. ${}_\delta\mr{a,b}\subset \bigcup_{k=1}^l A_{j_k}$, поэтому по аддитивности $m$ на $\mathcal{E}$
+    \begin{gather*}
+        m(_\delta\mr{a,b})\le m \left(\bigcup_{k=1}^l A_{j_k} \right) \tag{7}\\
+        m \left(\bigcup_{k=1}^l A_{j_k} \right)\le\sum_{k=1}^l m\,A_{j_k}\tag{8}
+    \end{gather*}
+
+    Считая, что $\{A_j\}^\infty_{j=1}\in U(\mr{a,b})$ такое, что
+    \[ \sum_{j=1}^{\infty} m\,A_j<m^*(\mr{a,b})+\epsilon\tag{9} \]
+    Теперь (7)--(9) $\implies$
+    \begin{multline*}
+        m(\mr{a,b})-\epsilon<\\
+        <m({}_\delta\mr{a,b})\le\sum_{k=1}^l m\,A_{j_k}\le\sum_{j=1}^{\infty}m\,A_j<\\
+        <m^*(\mr{a,b})+\epsilon\tag{10}
+    \end{multline*}
+    $(10)\implies m(\mr{a,b})\le m^*(\mr{a,b})$, что вместе с предыдущим неравенством (8') доказывает теорему.
+\end{longProof}
+\end{document}
