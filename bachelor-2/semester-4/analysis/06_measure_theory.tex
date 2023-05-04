@@ -165,4 +165,234 @@
     \end{multline*}
     $(10)\implies m(\mr{a,b})\le m^*(\mr{a,b})$, что вместе с предыдущим неравенством (8') доказывает теорему.
 \end{longProof}
+
+\section{Множества, измеримые по Лебегу}\marginpar{27.04.23}
+\begin{definition}
+    Симметрической разностью множеств $A$ и $B$ будем называть
+    \[A \symd B = (A \setminus B) \cup (B \setminus A)\]
+\end{definition}
+Свойства симметрической разности для любых множеств (соотношение (1)):
+\begin{enumerate}
+    \item $A \symd B \subset (A \symd C) \cup (C \symd B)$
+    \item $(A_1 \cup A_2) \symd (B_1 \cup B_2) \subset (A_1 \symd B_1) \cup (A_2 \symd B_2)$
+    \item $(A_1 \cap A_2) \symd (B_1 \cap B_2) \subset (A_1 \symd B_1) \cup (A_2 \symd B_2)$
+    \item $(A_1 \setminus A_2) \symd (B_1 \setminus B_2) \subset (A_1 \symd B_1) \cup (A_2 \symd B_2)$
+\end{enumerate}
+
+Теперь будем работать в $\R^m$, где $m \ge 1$.
+Пусть
+\[d(A, B) = m^*(A \symd B) \tag{2}\]
+Тогда (1) и (2) влекут (соотношение (3))
+\begin{enumerate}
+    \item $d(A, B) = d(B, A)$
+    \item $d(A, B) \le d(A, C) + d(C, B)$
+    \item $d(A_1 \cup A_2, B_1 \cup B_2) \le d(A_1, B_1) + d(A_2, B_2)$
+    \item $d(A_1 \cap A_2, B_1 \cap B_2) \le d(A_1, B_1) + d(A_2, B_2)$
+    \item $d(A_1 \setminus A_2, B_1 \setminus B_2) \le d(A_1, B_1) + d(A_2, B_2)$
+\end{enumerate}
+
+\begin{definition}
+    Множество $A \subset \R^m$ называется конечно измеримым, если $\exists \{A_n\}_{n=1}^\infty$, где $A_n \in \mathcal{E}$, т.ч.
+    \[d(A_n, A) \xrightarrow[n \to \infty]{} 0 \tag{4}\]
+\end{definition}
+\begin{definition}
+    Пусть имеются множества $A_n, A \subset \R^m$, будем говорить, что $A_n \to A$, если
+    \[d(A_n, A) \xrightarrow[n \to \infty]{} 0 \tag{5}\]
+\end{definition}
+\begin{remark}
+    В терминах (5), определение конечно измеримого множества можно записать как, $\exists \{A_n\}_{n=1}^\infty$, т.ч $A_n \to A$.
+\end{remark}
+\begin{definition}
+    Множество всех конечно измеримых множеств будем обозначать $\M_F$.
+\end{definition}
+\begin{remark}
+    $\varnothing \in \M_F$.
+\end{remark}
+\begin{definition}
+    Множество $B$ называется измеримым по Лебегу, если $B = \bigcup_{n=1}^\infty B_n$, где $B_n \in \M_F$.
+\end{definition}
+\begin{definition}
+    Множество всех множеств, измеримых по Лебегу, будем обозначать $\M$.
+\end{definition}
+
+\begin{lemma}
+    Имеем множества $A, B \subset \R^m$, тогда
+    \[|m^*A - m^*B| \le d(A, B) \tag{6}\]
+\end{lemma}
+\begin{proof}
+    Будем считать, что $m^* A \le m^*B$.
+    Будем полагать, что обе внешние меры конечны.
+    Тогда $m^*B = d(B, \varnothing)$, применив (2) получим
+    \[m^*B = d(B, \varnothing) \le d(B, A) + d(A, \varnothing) = d(A, B) + m^*A\]
+    Откуда и следует (6).
+\end{proof}
+Из (6) можно сделать вывод, что
+\[m^*B \le m^*A + d(A, B) \tag{7}\]
+
+\begin{theorem}
+    $\M_F$ является кольцом и внешняя мера является аддитивной функцией на этом кольце.
+\end{theorem}
+\begin{longProof}
+    Пусть $A, B \in \M_F$, тогда $\exists \{A_n\}_{n=1}^\infty, \{B_n\}_{n=1}^\infty$, т.ч. $A_n \to A$, $B_n \to B$ и $A_n, B_n \in \mathcal{E}$.
+
+    Из (3) следует, что
+    \[d(A_n \cup B_n, A \cup B) \le d(A_n, A) + d(B_n, B) \xrightarrow[n \to \infty]{} 0\]
+    отсюда получаем, что
+    \[A_n \cup B_n \to A \cup B. \tag{8}\]
+    При этом $A_n \cup B_n \in \mathcal{E}$ и (8) влечет, что $A \cup B \in \M_F$.
+
+    Аналогично для пересечения выпишем нужное нам соотношение
+    \[A_n \cap B_n \to A \cap B. \tag{8'}\]
+
+    $A_n \setminus B_n \in \mathcal{E}$, тогда (3) влечет, что
+    \[d(A_n \setminus B_n, A \setminus B) \le d(A_n, A) + d(B_n, B) \xrightarrow[n \to \infty]{} 0 \tag{9}\]
+    (9) означает, что $A_n \setminus B_n \to A \setminus B$, из этого следует, что $A \setminus B \in \M_F$.
+
+    Проверили, что $\M_F$~--- кольцо, и, кроме того, $\mathcal{E} \subset \M_F$.
+
+    Лемма выше влечет для любых множеств, что если $A_n \to A$, то
+    \[m^*A_n \xrightarrow[n \to \infty]{} m^*A. \tag{10'}\]
+
+    Пусть $A$ и $B$ как написаны в самом начале.
+    В прошлой лекции было доказано соотношение
+    \[mA_n + mB_n = m(A_n \cup B_n) + m(A_n \cap B_n)\]
+    и свойство, что мера элементарного множества равна его внешней мере, поэтому
+    \[m^*A_n + m^*B_n = m^*(A_n \cup B_n) + m^*(A_n \cap B_n) \tag{10}\]
+    Тогда (8), (8') и (10) влекут, что
+    \[\begin{gathered}
+            m^*A_n \to m^*A \\
+            m^*B_n \to M^*B \\
+            m^*(A_n \cup B_n) \to m^*(A \cup B) \\
+            m^*(A_n \cap B_n) \to m^*(A \cap B)
+        \end{gathered} \tag{11}\]
+    и (10), (11) влекут
+    \[m^*A + m^*B = m^*(A \cup B) + m^*(A \cap B) \tag{12}\]
+    (12) действует для любых конечно измеримых $A$ и $B$.
+    В частности, если $A \cap B = \varnothing$, тогда (12) влечет
+    \[m^*A + m^*B = m^*(A \cup B) \tag{13}\]
+    Аддитивность доказана.
+\end{longProof}
+\begin{remark}
+    Пусть $A$~--- конечно измеримое множество.
+    Тогда $\exists N$, т.ч. $\forall n > N$ и $\exists A_n$, т.ч. $d(A_n, A) < 1$.
+
+    В частности, $d(A_{N+1}, A) < 1$ и из этого следует, что
+    \[m^*A \le m^*A_{N+1} + d(A_{N+1}, A) < m^*A_{N+1} +1 < \infty.\]
+\end{remark}
+
+\begin{theorem}
+    Пусть $A \in \M$ и $m^*A < \infty$, тогда $A \in \M_F$.
+\end{theorem}
+\begin{longProof}
+    Поскольку $A$ измеримое множество, поэтому
+    \[A = \bigcup_{n=1}^\infty A'_n,\]
+    где $A_n'$ являются конечно измеримыми.
+
+    Введем новые множества, т.ч. $A_1 = A'_1$, $A_2 = A'_2 \setminus A_1$, \dots, $A_n = A'_n \setminus \left(\bigcup_{k=1}^{n-1} A_k\right)$.
+    Из этих определений следует, что
+    \[\bigcup_{k=1}^n A'_k = \bigcup_{k=1}^n A_k\]
+    и
+    \[A = \bigcup_{n=1}^\infty A_n, \tag{15}\]
+    кроме того,
+    \[A_k \cap A_l = \varnothing, \text{ если } k \neq l. \tag{16}\]
+    При таком построении получаем, что $A_n \in \M_F$.
+
+    Введем обозначения $B_n$ и $C_n$:
+    \begin{gather*}
+        B_n = \bigcup_{k=1}^n A_k \\
+        C_n = \bigcup_{k=n+1}^\infty A_k
+    \end{gather*}
+    В таком случае
+    \[A = B_n \cup C_n\]
+    Поскольку $B_n \subset A$, то
+    \[m^* B_n \le m^* A. \tag{17}\]
+    Уже доказано, что для конечно измеримых функций внешняя мера является аддитивной функцией, поэтому
+    \[m^*B_n = \sum_{k=1}^{n} m^*A_k \tag{18}\]
+    (17) и (18) влекут, что
+    \[\sum_{k=1}^{n} m^* A_k \le m^* A \tag{19}\]
+    (19) выполнено для любого $n$, кроме того все слагаемые неотрицательные, поэтому (19) влечет
+    \[\sum_{k=1}^{\infty} m^*A_k \le m^* A \tag{20}\]
+    И теперь (15) влечет, что
+    \[m^* A \le \sum_{k=1}^{\infty} m^* A \tag{21}\]
+    (20), (21) влекут, что
+    \[m^* A = \sum_{k=1}^{\infty} m^* A \tag{22}\]
+
+    Если будем рассматривать $C_n \in \M$~(23') то
+    \[m^* C_m \le m^* A < \infty\tag{23}\]
+    (22), (23'), (23) влекут, что
+    \[m^* C_n = \sum_{k=n+1}^{\infty} m^* A_k \tag{24}\]
+
+    Вернемся к (22), ряд из неотрицательных слагаемых сходится.
+    Выберем $\forall \epsilon >0$, тогда (22) влечет, что $\exists N$, т.ч.
+    \[\sum_{n=N+1}^{\infty} m^*A_n < \epsilon \tag{25}\]
+    (24), (25) влекут
+    \[m^* C_{N+1} < \epsilon \tag{26}\]
+    (15), (16) влекут, что
+    \[A \symd B_n = C_n \tag{27}\]
+    тогда (26), (27) влекут
+    \[d(B_N, A) = m^* C_N < \epsilon \tag{28}\]
+    Вспомним, что
+    \[B_N = \bigcup_{k=1}^N A_k\]
+    $A_k$~--- конечно измеримое множество, поэтому $\forall k = 1,\dotsc, N$ $\exists \widetilde{A}_k \in \mathcal{E}$, т.ч.
+    \[d(\widetilde{A}_k, A_k) < \frac{\epsilon}{N} \tag{29}\]
+    Положим
+    \[\widetilde{B}_N = \bigcup_{k=1}^N \widetilde{A}_k \tag{30}\]
+    и $\widetilde{B}_N$~(31).
+    (3), (29) влекут, что
+    \[d(\widetilde{B}_N, B_N) \le \sum_{k=1}^{N} d(\widetilde{A}_k, A_k) < N \cdot \frac{\epsilon}{N} = \epsilon \tag{32}\]
+    (3), (26), (32) влекут, что
+    \[d(\widetilde{B}_N, A) \le d(\widetilde{B}_N, B_N) + d(B_N, A) < \epsilon + \epsilon = 2\epsilon \tag{33}\]
+    (31), (33) в силу произвольности $\epsilon$ доказывает, что $A \in \M_F$.
+\end{longProof}
+
+\begin{theorem}
+    $\M$ является $\sigma$-кольцом, а $m^*$ на этом множестве является счётно-аддитивной функцией.
+\end{theorem}
+\begin{longProof}
+    Пусть имеется $A \in \M$, а так же $A_n \in \M$, такие что $A_n \cap A_k = \varnothing$, если $n \neq k$~(1').
+    Предположим, что
+    \[A = \bigcup_{n=1}^\infty A_n. \tag{1}\]
+    Будем рассматривать ряд, в котором все слагаемые неотрицательные
+    \[\sum_{n=1}^{\infty} m^* A_n\]
+    Если $\exists n_0$, т.ч. $m^* A_{n_0} = +\infty$, и т.к. $A_{n_0} \subset A$, то $m^* A = +\infty$.
+    Теперь будем считать, что
+    \[m^* A_n < +\infty\ \forall n. \tag{2}\]
+    В таком случае, (2) влечет, что
+    \[A_n \in \M_F \tag{3}\]
+    Пусть $m^* A = +\infty$~(4'), тогда из неравенства
+    \[m^* A \le \sum_{n=1}^{\infty} m^* A_n\]
+    следует, что
+    \[\sum_{n=1}^{\infty} m^* A_n = +\infty \tag{4}\]
+    Если $m^* A < +\infty$, то мы находимся в условиях предыдущей теоремы, и поэтому $A \in \M_F$ и
+    \[m^* A = \sum_{n=1}^{\infty} m^* A_n\]
+    Доказали счётно-аддитивность внешней меры доказана.
+
+    Докажем, что это $\sigma$-кольцо.
+    Имеются множества $A$ и $B$, т.ч. $A = \bigcup_{n=1}^\infty A_n$ и $B = \bigcup_{n=1}^\infty B_n$, где $A_n \in \M_F$ и $B_n \in \M_F$.
+    Поэтому
+    \[A \cup B = \bigcup_{n=1}^\infty (A_n \cup B_n)\]
+    Так же имеются множества $C_n = \bigcup_{k=1}^\infty D_{n_k}$, где $D_{n_k} \in \M_F$, т.е. $C_n \in \M$.
+    Тогда
+    \[\bigcup_{n=1}^\infty C_n = \bigcup_{n=1}^\infty \bigcup_{k=1}^\infty D_{n_k},\]
+    т.к. нумерация по $n$ и $k$ тоже счетная, то $\bigcup_{n=1}^\infty C_n \in \M$.
+    Будем считать, что $A_n$ попарно дизъюнктны и $B_n$ тоже попарно дизъюнктны, тогда
+    \begin{gather*}
+        A \cap B = \bigcup_{n=1}^\infty (A_n \cap B) \tag{5} \\
+        A_n \cap B = \bigcup_{k=1}^\infty (A_n \cap B_k) \tag{6} \\
+        A_n \cap B_k \in \M_F \tag{7}
+    \end{gather*}
+    В таком случае (6), (7) влекут, что $A_n \cap B \in \M$~(8).
+    Далее
+    \[m^* (A_n \cap B) \le m^* A_n < +\infty \tag{9}\]
+    (8) и (9) влекут, что $A_n \cap B \in \M$~(10).
+    А (5) и (10) влекут, что $A \cap B \in \M$.
+    Теперь посмотрим на разность:
+    \[A \setminus B = \bigcup_{n=1}^\infty (A_n \setminus B) = \bigcup_{n=1}^\infty (A_n \setminus (A_n \cap B)),\]
+    т.к. $A_n \in \M_F$ и $A_n \cap B \in \M_F$, значит и $(A_n \setminus (A_n \cap B)) \in \M_F$, и $A \setminus B \in \M$.
+\end{longProof}
+
+\begin{definition}[мера Лебега]
+    Если $A \in \M$, то
+    \[m A \coloneq m^* A.\]
+\end{definition}
 \end{document}
