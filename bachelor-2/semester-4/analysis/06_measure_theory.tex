@@ -395,4 +395,296 @@
     Если $A \in \M$, то
     \[m A \coloneq m^* A.\]
 \end{definition}
+
+\subsection{Примеры множеств, измеримых по Лебегу}
+\marginpar{04.05.23}
+\begin{enumerate}
+    \item Если $A \in \mathcal{E}$, то $A \in \M_F$
+    \item $\R^n \in \M$
+
+          Рассмотрим множества
+          \[U_k = \underbrace{[-k, k] \times \dotsb \times [-k, k]}_{n} \in \M,\]
+          тогда $\R^n = \bigcup_{k \ge 1} U_k$
+    \item Если множество $B$~--- открыто и $B \neq \R^n$, тогда $B \in \M$
+
+          Рассмотрим множество всех точек с рациональными координатами:
+          \[\underbrace{\Q \times \Q \times \dotsb \times \Q}_n \cap B = E,\]
+          Для любой точки $a \in E$, где $a = (a_1, \dotsc, a_n)$, и для $\delta >0$, обозначим множество
+          \[Q_\delta(a) = \{x = (x_1, \dotsc, x_n):  a_k - \delta < x_k < a_k + \delta, 1 \le k \le n\}\]
+          Обозначим $Q_\delta^*$ такие кубы, что $Q^*_\delta \subset B$, но $\overline{Q^*_\delta} \not \subset B$, тогда $B = \bigcup_{a \in E} Q_\delta^* \in \M$, т.к. $Q_\delta^*(a) \in \M$
+    \item Пусть $F$~--- замкнутое множество, тогда $F \in \M$
+
+          Пусть $B = \R^n \setminus F$, тогда $B$~--- открытое множество и $B \in \M$, но $F = \R^n \setminus B$.
+\end{enumerate}
+
+\section{Измеримые функции}
+Далее считаем, что $n \ge 1$.
+\begin{definition}
+    Пусть имеется $E \subset \R^n$ и $E \in \M$.
+    И задана функция $f: E \to \overline{\R}$, где $\overline{\R} = \R \cup \{+\infty\} \cup \{-\infty\}$.
+    Пусть $a \in \R$, тогда множествами Лебега называются следующие 4 множества:
+    \begin{gather*}
+        E_{> a}(f) = \{x \in E: f(x) > a\} \\
+        E_{\ge a}(f) = \{x \in E: f(x) \ge a\} \\
+        E_{< a}(f) = \{x \in E: f(x) < a\} \\
+        E_{\le a}(f) = \{x \in E: f(x) \le a\}
+    \end{gather*}
+    Функция $f$ называется измеримой, если $\forall a \in \R$ все четыре множества являются измеримыми.
+\end{definition}
+
+\begin{theorem}
+    Для того, чтобы функция была измеримой, необходимо и достаточно при любом $a \in \R$ было бы измеримо любое из четырех множеств.
+\end{theorem}
+\begin{proof}
+    Необходимость следует из определения.
+
+    Достаточность.
+    Пусть одно из них измеримо.
+    Доказательство следует из тождеств теории множеств:
+    \[\begin{aligned}
+            E_{\ge a}(f) & = \bigcap_{m=1}^\infty E_{> a - \frac{1}{m}} \\
+            E_{< a}(f)   & = E \setminus E_{\ge a}                      \\
+            E_{\le a}(f) & = \bigcap_{m=1}^\infty E_{< a + \frac{1}{m}} \\
+            E_{> a}(f)   & = E \setminus E_{\le a}
+        \end{aligned} \tag{1}\]
+    Примем их без доказательства.
+
+    Если $E_{>a}$ измеримо, то и $E_{\ge a}$ измеримо, тогда $E_{< a}$ измеримо, и, соответственно, $E_{\le a}$ тоже измеримо.
+    Остальные проверяются аналогично.
+\end{proof}
+
+\subsection{Первые свойства измеримых функций}
+Считаем, что множество $E \subset \R^n$ всегда задано.
+
+\begin{property}
+    Пусть имеется $F \subset E$, через $K_F(x)$ обозначим характеристическую функцию множества $F$ на множестве $E$:
+    \[K_F(x) = \begin{cases}
+            1, & x \in F             \\
+            0, & x \in E \setminus F
+        \end{cases}\]
+    Такая функция измерима.
+\end{property}
+
+\begin{property}
+    Пусть $f$ измерима, $c > 0$, тогда $cf$ измерима.
+\end{property}
+\begin{proof}
+    Следует из $E_{> ca} (cf) = E_{>a} (f)$.
+\end{proof}
+
+\begin{property}
+    Пусть $f$ измерима, тогда $-f$ измерима.
+\end{property}
+\begin{proof}
+    Следует из $E_{>a}(f) = E_{< -a} (f)$.
+\end{proof}
+
+\begin{property}
+    Пусть $f$ измерима, $c \neq 0$, тогда $cf$ измерима.
+\end{property}
+\begin{proof}
+    Следует из свойств выше.
+\end{proof}
+
+\begin{property}
+    Пусть $f$ измерима, тогда $0 \cdot f$ измерима.
+\end{property}
+
+\begin{remark}
+    Считаем выполненными следующие равенства:
+    \begin{gather*}
+        0 \cdot(+\infty) = 0\\
+        0 \cdot(-\infty) = 0
+    \end{gather*}
+\end{remark}
+
+\begin{property}
+    Пусть имеется функциональная последовательность $\{f_m(x)\}_{m=1}^\infty$, где $f_m$~--- измерима, и $f_m: E \to \overline{\R}$.
+    Пусть
+    \begin{gather*}
+        g_{+}(x) = \sup_{m} f_m(x) \\
+        g_{-}(x) = \inf_{m} f_m(x),
+    \end{gather*}
+    тогда $g_+$ и $g_-$ измеримы.
+\end{property}
+\begin{proof}
+    Следует из тождеств:
+    \[\begin{aligned}
+            E_{>a} (g_+) & = \bigcup_{m=1}^\infty E_{>a}(f_m) \\
+            E_{>a} (g_-) & = \bigcup_{m=1}^\infty E_{<a}(f_m)
+        \end{aligned}\tag{2}\]
+\end{proof}
+
+\begin{property}
+    Имеются $f_m$ как выше, тогда
+    \begin{gather*}
+        h_+(x) = \varlimsup_{m \to \infty} f_m(x) \\
+        h_-(x) = \varliminf_{m \to \infty} f_m(x),
+    \end{gather*}
+    и $h_+$, $h_-$ измеримы
+\end{property}
+\begin{proof}
+    Докажем только для $h_+$: определим $g_{m+}(x)$
+    \[g_{m+} (x) = \sup_{k\ge m} f_k(x),\]
+    тогда $g_{m+}$~--- измеримо по предыдущему свойству.
+
+    Кроме того,
+    \[h_+(x) = \inf_{m \ge 1} g_{m+}(x), \tag{3}\]
+    откуда следует, что $h_+(x)$ измеримо.
+\end{proof}
+
+\begin{property}
+    Имеются $f_m$ как выше.
+    Предположим, что
+    \[\forall x\in E\  \exists \lim_{m \to \infty} f_m(x) = F(x),\]
+    тогда $F$~--- измеримо.
+\end{property}
+\begin{proof}
+    По свойствам пределов допустим, что
+    \[\lim_{m \to \infty} f_m(x) = \varlimsup_{m \to \infty} f_m(x),\]
+    и тогда предел измерим по предыдущему свойству.
+\end{proof}
+
+\begin{property}
+    Пусть $f$~--- измерима, тогда $|f|$ тоже измерим.
+\end{property}
+\begin{proof}
+    Возьмем $a < 0$, то
+    \[E_{>a}(|f|) = E,\]
+    иначе, если $a \ge 0$, тогда
+    \[E_{>a}(|f|) = E_{>a} (f) \cup E_{< -a} (f)\]
+\end{proof}
+
+\begin{property}
+    Пусть $f, g$~--- измеримы, определим функции
+    \begin{gather*}
+        U(x) = \max (f(x), g(x)) \\
+        V(x) = \min (f(x), g(x)),
+    \end{gather*}
+    тогда $U, V$ измеримы.
+\end{property}
+\begin{proof}
+    Рассмотрим последовательность, где $f_1 = f$, а $f_2 = f_3 = ... = g$, её $\sup$ будет максимумом, а $\inf$ минимумом.
+\end{proof}
+
+\begin{theorem}
+    Пусть $F(u,v): \R^2 \to \R$ и $F\in C(\R^2)$, кроме того имеются $f, g: E \to \R$ и $f, g$~--- измеримые.
+    Рассмотрим $P(x) = F(f(x), g(x))$, тогда $P$~-- измерима.
+\end{theorem}
+\begin{proof}
+    Примем как факт.
+\end{proof}
+
+\begin{example}
+    Пусть $F(u, v) = u + v$, если $f, g$ измеримы, то и $f+g$ измерима.
+\end{example}
+\begin{example}
+    Пусть $F(u, v) = uv$, если $f, g$ измеримы, то и $fg$ измерима.
+\end{example}
+
+\section{Построение интеграла Лебега}
+\begin{definition}
+    Пусть имеется $E \subset \R^n$ и функция $f_0:E \to \R$.
+    Функция $f_0$ называется простой, если она принимает конечное число значений.
+    Пусть $c_1, \dotsc, c_m$~--- различные значения $f_0$, тогда рассмотрим множества
+    \[E_k = \{ x \in E: f(x) = c_k\},\]
+    т.к. все $c_k$ различны, то $E_k \cap E_l = \varnothing$,  при $k \neq l$.
+    Вспомним характеристическую функцию $K_{E_l}(x)$, то
+    \[f_0(x) = \sum_{l=1}^{m} c_l K_{E_l}(x)\]
+\end{definition}
+Рассмотрим множества $F_1, \dotsc, F_q \subset E$, где $d_1, \dotsc, d_1$ не обязательно различные, то
+\[\sum_{l=1}^{q} d_l K_{F_l}(x)\]
+тоже простая функция.
+
+\begin{theorem}[об апроксимации простыми функциями]
+    Пусть имеется произвольное непустое множество $E \subset \R^n$ и функция $f: E \to \overline{\R}$, тогда существует последовательность простых функций $\{f_m(x)\}_{n=1}^\infty$, т.ч.
+    \[\forall x \in E\ f_m(x) \xrightarrow[m \to \infty]{} f(x) \tag{4}\]
+    Если $f(x) \ge 0$, то можно выбрать $f_m$ так, чтобы
+    \[f_m(x) \le f_{m+1}(x)\ \forall m\ \forall x \in E \tag{5}\]
+    Если $E$ измеримо, $f$ измеримо, то можно выбрать $f_m$ измеримо $\forall m$~(6).
+\end{theorem}
+\begin{proof}
+    Определим множества при $-2^{2m} \le i \le 2^{2m}$:
+    \begin{align*}
+        E_{i,m} & = \{x \in E: (i-1) 2^{-m} \le f(x) < i \cdot 2^m\} \\
+        E_m     & = \{x \in E: f(x) < -2^m \lor f(x) \ge 2^m\}
+    \end{align*}
+    Теперь определим $f_m$:
+    \[f_m (x) = \begin{cases}
+            (i-1) \cdot 2^{-m} & x \in E_{i,m}            \\
+            -2^m               & x \in E_m \land f(x) < 0 \\
+            2^m                & x \in E_m \land f(x) > 0
+        \end{cases}\]
+    Получили, что все $f_m$ измеримы, кроме того, в терминах множеств Лебега
+    \[E_{i,m} = E_{\ge (i-1) 2^{-m}} (f) \cap E_{< i 2^{-m}}(f),\]
+    т.е. в случае измеримой функции все эти множества измеримы.
+
+    Предел есть, т.к. если $x \in E_{i,m}$, то $0 \le f(x) - f_m(x) \le 2^{-m}$, монотонность тоже проверяется.
+\end{proof}
+
+Далее считаем, что все множества и функции измеримы.
+\begin{remark}
+    Измеримые множества могут иметь и бесконечную меру.
+\end{remark}
+\begin{definition}
+    Пусть имеется множество $E$ и простая функция
+    \[f_0 = \sum_{k=1}^{\nu} c_k K_{E_k}(x), \tag{7}\]
+    все $c_k$ различны, поэтому $E_k \cap E_l = \varnothing$, если $k \neq l$~(8).
+    Положим
+    \[I_E(f_0) \coloneq \sum_{k=1}^{\nu} c_k mE_k \tag{9}\]
+    Если $m E_{k_0} = + \infty$, то $c_{k_0} = 0$ и $0 \cdot \infty = 0$.
+\end{definition}
+
+\begin{proposition}
+    Если $f_0(x) = \sum_{k=1}^\mu d_k K_{F_k}(x)$, то
+    \[I(f_0) = \sum_{k=1}^{\mu} d_k m(F_k) \tag{10}\]
+\end{proposition}
+\begin{proof}
+    Проверяется по определению.
+\end{proof}
+
+\begin{proposition}
+    Если $m E < +\infty$ и $a \le f(x) \le b$, когда $x \in E$, тогда $a m E \le I(f_0) \le b m E$.
+\end{proposition}
+\begin{proof}
+    Посмотрим на (9), для всех $c_k$ выполнено $a \le c_k \le b$, все меры неотрицательные, поэтому замена всех $c_k$ на $b$ увеличит сумму, аналогично для $a$.
+\end{proof}
+
+\begin{proposition}
+    $I(c f_0) = c I(f_0)$, где $c \in \R$.
+\end{proposition}
+\begin{proof}
+    Если домножим (9) на $c$, то получим соответствующее равенство.
+\end{proof}
+
+\begin{proposition}
+    Пусть имеются две простые функции $f_0$ и $g_0$, тогда $I(f_0 + g_0) = I(f_0) + I(g_0)$.
+\end{proposition}
+\begin{proof}
+    Запишем простые функции как суммы:
+    \begin{gather*}
+        f_0 = \sum_{k=1}^{\nu} c_k K_{E_k}(x) \\
+        g_0 = \sum_{l=1}^{\mu} d_l K_{F_l}(x)
+    \end{gather*}
+    Рассмотрим $G_{kl} = E_k \cap F_l$, тогда
+    \begin{gather*}
+        f_0(x) = \sum_{k=1}^{\nu} \sum_{l=1}^{\mu} c_k K_{G_{kl}}(x) \\
+        g_0(x) = \sum_{k=1}^{\nu} \sum_{l=1}^{\mu} d_l K_{G_{kl}}(x)
+    \end{gather*}
+    Тогда верна сумма
+    \[f_0(x) + g_0(x) = \sum_{k=1}^{\nu} \sum_{l=1}^{\mu} (c_k + d_l) K_{G_{kl}}(x)\]
+\end{proof}
+
+\begin{proposition}
+    Если $f_0 (x) \le g_0(x)\ \forall x \in E$, то $I(f_0) \le I(g_0)$.
+\end{proposition}
+\begin{proof}
+    Воспользуемся равенствами из доказательства выше.
+    Если $x \in G_{kl}$, тогда $c_k = f_0(x) \le g_0(x) = d_l$.
+    \begin{gather*}
+        I(f_0) = \sum_{k=1}^{\nu} \sum_{l=1}^{\mu} c_k mG_{kl}(x) \\
+        I(g_0) = \sum_{k=1}^{\nu} \sum_{l=1}^{\mu} d_l mG_{kl}(x)
+    \end{gather*}
+    Для каждой пары $k, l$, получаем, что $c_k \le d_l$, что и доказывает теорему.
+\end{proof}
 \end{document}
