@@ -1,0 +1,355 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Интеграл Лебега}
+\section{Построение интеграла Лебега}
+\begin{definition}
+    Пусть имеется $E \subset \R^n$ и функция $f_0:E \to \R$.
+    Функция $f_0$ называется простой, если она принимает конечное число значений.
+    Пусть $c_1, \dotsc, c_m$~--- различные значения $f_0$, тогда рассмотрим множества
+    \[E_k = \{ x \in E: f(x) = c_k\},\]
+    т.к. все $c_k$ различны, то $E_k \cap E_l = \varnothing$,  при $k \neq l$.
+    Вспомним характеристическую функцию $K_{E_l}(x)$, то
+    \[f_0(x) = \sum_{l=1}^{m} c_l K_{E_l}(x)\]
+\end{definition}
+Рассмотрим множества $F_1, \dotsc, F_q \subset E$, где $d_1, \dotsc, d_1$ не обязательно различные, то
+\[\sum_{l=1}^{q} d_l K_{F_l}(x)\]
+тоже простая функция.
+
+\begin{theorem}[об аппроксимации простыми функциями]
+    Пусть имеется произвольное непустое множество $E \subset \R^n$ и функция $f: E \to \overline{\R}$, тогда существует последовательность простых функций $\{f_m(x)\}_{n=1}^\infty$, т.ч.
+    \[\forall x \in E\ f_m(x) \xrightarrow[m \to \infty]{} f(x) \tag{4}\]
+    Если $f(x) \ge 0$, то можно выбрать $f_m$ так, чтобы
+    \[f_m(x) \le f_{m+1}(x)\ \forall m\ \forall x \in E \tag{5}\]
+    Если $E$ измеримо, $f$ измеримо, то можно выбрать $f_m$ измеримо $\forall m$~(6).
+\end{theorem}
+\begin{proof}
+    Определим множества при $-2^{2m} \le i \le 2^{2m}$:
+    \begin{align*}
+        E_{i,m} & = \{x \in E: (i-1) 2^{-m} \le f(x) < i \cdot 2^m\} \\
+        E_m     & = \{x \in E: f(x) < -2^m \lor f(x) \ge 2^m\}
+    \end{align*}
+    Теперь определим $f_m$:
+    \[f_m (x) = \begin{cases}
+            (i-1) \cdot 2^{-m} & x \in E_{i,m}            \\
+            -2^m               & x \in E_m \land f(x) < 0 \\
+            2^m                & x \in E_m \land f(x) > 0
+        \end{cases}\]
+    Получили, что все $f_m$ измеримы, кроме того, в терминах множеств Лебега
+    \[E_{i,m} = E_{\ge (i-1) 2^{-m}} (f) \cap E_{< i 2^{-m}}(f),\]
+    т.е. в случае измеримой функции все эти множества измеримы.
+
+    Предел есть, т.к. если $x \in E_{i,m}$, то $0 \le f(x) - f_m(x) \le 2^{-m}$, монотонность тоже проверяется.
+\end{proof}
+
+Далее считаем, что все множества и функции измеримы.
+\begin{remark}
+    Измеримые множества могут иметь и бесконечную меру.
+\end{remark}
+\begin{definition}
+    Пусть имеется множество $E$ и простая функция
+    \[f_0 = \sum_{k=1}^{\nu} c_k K_{E_k}(x), \tag{7}\]
+    все $c_k$ различны, поэтому $E_k \cap E_l = \varnothing$, если $k \neq l$~(8).
+    Положим
+    \[I_E(f_0) \coloneq \sum_{k=1}^{\nu} c_k mE_k \tag{9}\]
+    Если $m E_{k_0} = + \infty$, то $c_{k_0} = 0$ и $0 \cdot \infty = 0$.
+\end{definition}
+
+\begin{proposition}
+    Если $f_0(x) = \sum_{k=1}^\mu d_k K_{F_k}(x)$, то
+    \[I(f_0) = \sum_{k=1}^{\mu} d_k m(F_k) \tag{10}\]
+\end{proposition}
+\begin{proof}
+    Проверяется по определению.
+\end{proof}
+
+\begin{proposition}
+    Если $m E < +\infty$ и $a \le f(x) \le b$, когда $x \in E$, тогда $a m E \le I(f_0) \le b m E$.
+\end{proposition}
+\begin{proof}
+    Посмотрим на (9), для всех $c_k$ выполнено $a \le c_k \le b$, все меры неотрицательные, поэтому замена всех $c_k$ на $b$ увеличит сумму, аналогично для $a$.
+\end{proof}
+
+\begin{proposition}
+    $I(c f_0) = c I(f_0)$, где $c \in \R$.
+\end{proposition}
+\begin{proof}
+    Если домножим (9) на $c$, то получим соответствующее равенство.
+\end{proof}
+
+\begin{proposition}
+    Пусть имеются две простые функции $f_0$ и $g_0$, тогда $I(f_0 + g_0) = I(f_0) + I(g_0)$.
+\end{proposition}
+\begin{proof}
+    Запишем простые функции как суммы:
+    \begin{gather*}
+        f_0 = \sum_{k=1}^{\nu} c_k K_{E_k}(x) \\
+        g_0 = \sum_{l=1}^{\mu} d_l K_{F_l}(x)
+    \end{gather*}
+    Рассмотрим $G_{kl} = E_k \cap F_l$, тогда
+    \begin{gather*}
+        f_0(x) = \sum_{k=1}^{\nu} \sum_{l=1}^{\mu} c_k K_{G_{kl}}(x) \\
+        g_0(x) = \sum_{k=1}^{\nu} \sum_{l=1}^{\mu} d_l K_{G_{kl}}(x)
+    \end{gather*}
+    Тогда верна сумма
+    \[f_0(x) + g_0(x) = \sum_{k=1}^{\nu} \sum_{l=1}^{\mu} (c_k + d_l) K_{G_{kl}}(x)\]
+\end{proof}
+
+\begin{proposition}
+    Если $f_0 (x) \le g_0(x)\ \forall x \in E$, то $I(f_0) \le I(g_0)$.
+\end{proposition}
+\begin{proof}
+    Воспользуемся равенствами из доказательства выше.
+    Если $x \in G_{kl}$, тогда $c_k = f_0(x) \le g_0(x) = d_l$.
+    \begin{gather*}
+        I(f_0) = \sum_{k=1}^{\nu} \sum_{l=1}^{\mu} c_k mG_{kl}(x) \\
+        I(g_0) = \sum_{k=1}^{\nu} \sum_{l=1}^{\mu} d_l mG_{kl}(x)
+    \end{gather*}
+    Для каждой пары $k, l$, получаем, что $c_k \le d_l$, что и доказывает теорему.
+\end{proof}
+
+\marginpar{11.05.23}
+\begin{definition}[интеграл Лебега]
+    Имеем измеримое множество $E \subset \R^n$, где $n \ge 1$.
+    Так же имеем $f: E \to \overline{\R}$, $f(x) \ge 0$.
+    Обозначим
+    \begin{align*}
+        B_E(f) = \{ & s: s\text{ --- простая}, s: E \to \R,          \\
+                    & 0 \le s(x) \le f(x)\ \forall x \in E\} \tag{1}
+    \end{align*}
+    $B_E(f)$ не пусто.
+    Рассмотрим $s_0(x) \equiv 0$ для любого $x \in E$, тогда $s_0(x) \in B_E(f)$.
+    Тогда интегралом Лебега от функции $f$ по множеству $E$ называется
+    \[\int_E f dm \coloneq \sup_{s \in B_E(f)} I_E(s) \tag{2}\]
+    Супремум может быть равен $+\infty$.
+\end{definition}
+\subsection{Первые свойства интеграла Лебега}
+\begin{property}
+    Если $c > 0$, то
+    \[\int_E cf dm = c \int_E f dm. \tag{3}\]
+\end{property}
+
+\begin{property}
+    Если $0 \le f(x) \le g(x)$ $\forall x \in E$, тогда
+    \[\int_E fdm \le \int_E gdm \tag{4}\]
+\end{property}
+\begin{proof}
+    Это следует из того, что $B_E(f) \subset B_E(g)$.
+\end{proof}
+
+\begin{property}
+    Если $mE = 0$, то для любой функции $f$
+    \[\int_E fdm = 0 \tag{5}\]
+\end{property}
+\begin{proof}
+    Для любой простой $s$
+    \[\int_E sdm = 0,\]
+    откуда и следует (5).
+    Если $F \subset E$ и $mE = 0$, тогда $0 \le mF \le mE = 0$, значит $mF = 0$.
+\end{proof}
+
+\section{Определенный интеграл Лебега для неотрицательных функций}
+\begin{definition}
+    Говорят, что неотрицательная функция $f$ суммируема на $E$, если
+    \[\int_E f dm < +\infty \tag{6}\]
+    Множество всех суммируемых положительных функций на множестве $E$ будем обозначать $\calL_+(E)$.
+\end{definition}
+
+Пусть имеется функция $f(x)$ произвольного знака.
+Определим функции:
+\begin{align*}
+    f_+(x) & = \begin{cases}
+                   f(x), & f(x) \ge 0 \\
+                   0,    & f(x) < 0
+               \end{cases}   \\
+    f_-(x) & = \begin{cases}
+                   |f(x)|, & f(x) < 0   \\
+                   0,      & f(x) \ge 0
+               \end{cases} \tag{7}
+\end{align*}
+Для них справедливо тождество $f = f_+ - f_-$ (следует из (7)).
+К тому же, $f_+$, $f_-$ измеримы.
+\begin{definition}
+    Будем говорить, что функция $f$ суммируема на $E$, если $f_+$ и $f_- \in \calL_+(E)$.
+    Множество таких функций обозначим $\calL(E)$.
+    Если $f$ суммируема на $E$, то
+    \[\int_E f dm \coloneq \int_E f_+ dm - \int_E f_- dm \tag{8}\]
+\end{definition}
+\subsection{Первые свойства}
+\begin{property}
+    Если $c > 0$, то
+    \[\int_E cf dm = c \int_E f dm \tag{9}\]
+\end{property}
+
+\begin{property}
+    \[\int_E (-f) dm = - \int_E f dm \tag{9'}\]
+\end{property}
+\begin{proof}
+    Если умножить $f$ на $-1$, то $f_+$ и $f_-$ поменяются местами.
+\end{proof}
+
+\begin{property}
+    $\forall c \in \R$ выполнено
+    \[\int_E cf dm = c \int_E f dm \tag{9''}\]
+\end{property}
+
+\begin{property}
+    Если $mE = 0$, а функция $f$ измеримая произвольного знака, то
+    \[\int_E f dm = 0\]
+\end{property}
+
+\subsection{Важнейшее свойство}
+
+\begin{theorem}
+    Имеем измеримое множество $E$ и $f \in \calL(E)$.
+    Рассмотрим любое измеримое $E_k \subset E$, $f$ на $E_k$ тоже будет измеримой, так же
+    \[E = \bigcup_{k=1}^{\infty} E_k\]
+    Допустим, что $E_k \cap E_l = \varnothing$, если $k \neq l$ и $1 \le k, l \le +\infty$.
+    Рассмотрим функцию
+    \[\phi(E_k) = \int_{E_k} fdm, \]
+    тогда $\phi$ суммируема на каждом $E_k$ и справедливо соотношение
+    \[\phi(E) = \sum_{k=1}^{\infty}\phi(E_k) \tag{10}\]
+    Это свойство называется счетной аддитивностью функции $\phi$, таким образом интеграл Лебега является счетно аддитивной функцией на множестве всех измеримых по Лебегу множеств.
+\end{theorem}
+\begin{remark}
+    Если $s_0(x) \ge 0$ и $s_0$~--- простая, то
+    \[\int_E s_0 dm = I_E(s_0)\]
+\end{remark}
+\begin{longProof}
+    Рассмотрим несколько случаев:
+    \begin{enumerate}
+        \item Пусть $f(x) = K_F(x)$, где $F \subset E$ и $mF < +\infty$.
+              Такая $f(x)$~--- простая, тогда
+              \begin{gather*}
+                  \int_E K_F dm = I_E(K_F) = 1 \cdot m(F \cap E) = m(E \cap F) \tag{11} \\
+                  \int_{E_l} K_F dm = I_{E_l}(K_F) = m(E_l \cap F) \tag{12}
+              \end{gather*}
+              Вспомним важнейшее свойства меры Лебега и $\sigma$-кольца измеримых множеств~--- мера Лебега является счетно аддитивной функцией на множестве всех измеримых множеств.
+              Если $k \neq l$, то
+              \begin{gather*}
+                  (E_k \cap F) \cap (E_l \cap F) = (E_k \cap E_l) \cap F = \varnothing \tag{13}\\
+                  \bigcup_{l=1}^\infty (E_l \cap F) = \left(\bigcup_{l=1}^\infty E_l\right) \cap F = E \cap F \tag{14}
+              \end{gather*}
+              В силу счетно аддитивности (13) и (14) влекут, что
+              \[m(E \cap F) = \sum_{l=1}^{\infty} m(E_l \cap F) \tag{15}\]
+              При этом (11), (12) и (15) влекут, что
+              \[\int_E K_F dm = \sum_{l=1}^{\infty} \int_{E_l} K_F dm \tag{16}\]
+        \item Пусть
+              \[f(x) = \sum_{\nu=1}^{m} c_\nu K_{F_\nu}, \tag{17}\]
+              и $c_\nu > 0$.
+              Это простая функция, тогда
+              \begin{multline*}
+                  \int_E f dm = I_E(f) = \sum_{\nu=1}^m c_\nu I_E(K_{F_\nu}) = \sum_{\nu=1}^{m} c_\nu \int_E K_{F_\nu} dm =\\
+                  = \sum_{\nu=1}^{m} c_\nu \sum_{l=1}^{\infty} I_{E_l}(K_{F_\nu}) = \sum_{l=1}^{\infty} \sum_{\nu=1}^{m} c_\nu I_{E_l}(K_{F_\nu}) = \\
+                  = \sum_{l=1}^{\infty} I_{E_l} \left(\sum_{\nu=1}^{m} c_\nu K_{F_\nu}\right) = \sum_{l=1}^{\infty} \int_{E_l} \left(\sum_{\nu=1}^{m} c_\nu K_{F_\nu}\right)dm =\\
+                  = \sum_{l=1}^{\infty} \int_{E_l} f dm \tag{18}
+              \end{multline*}
+        \item Пусть $f(x) \ge 0$ и $f \in \calL_+(E)$.
+              Рассмотрим любую функцию $s \in B_E(f)$, тогда по шагу 2
+              \[\int_E sdm = \sum_{l=1}^{\infty} \int_{E_l} sdm = \sum_{l=1}^{\infty} I_{E_l}(s) \le \sum_{l=1}^{\infty} \int_{E_l} fdm, \tag{19}\]
+              т.к. $s \in B_{E_l}(f)$ $\forall l$
+
+              Теперь зафиксируем натуральное $N$, и выберем функцию $s_l$, где $1 \le l \le N$ и $s_l \in B_{E_l}(f)$ и
+              \[I_{E_l} (s_l) > \int_{E_l} f dm - \frac{\epsilon}{N} \tag{20}\]
+              Рассмотрим функцию $s^*$:
+              \[s^*(x) = \begin{cases}
+                      s_l(x), & x \in E_l, 1 \le l \le N              \\
+                      0,      & x \in E \setminus \bigcup_{l=1}^N E_l
+                  \end{cases}\]
+              Понятно, что $s^* \in B_E(f)$.
+              В таком случае,
+              \begin{multline*}
+                  \int_E s^* dm = \sum_{l=1}^{\infty} \int_{E_l} s^* dm = \sum_{l=1}^{N} \int_{E_l} s^* dm + \sum_{l = N+1}^{\infty} \int_{E_l} s^* dm =\\
+                  = \sum_{l=1}^{N} \int_{E_l} s^* dm = \sum_{l=1}^{N} \int_{E_l} s_l dm >\\
+                  > \sum_{l=1}^{N} \left(\int_{E_l} f dm - \frac{\epsilon}{N}\right) = \sum_{l=1}^{N} \int_{E_l} f dm - \epsilon \tag{21}
+              \end{multline*}
+              Тогда (21) влечет
+              \[\sum_{l=1}^{N} \int_{E_l} fdm < \int_E s^* dm + \epsilon \le \int_{E} fdm + \epsilon \tag{22}\]
+              Поскольку $\epsilon$ произволен, то (22) влечет, что
+              \[\sum_{l=1}^{N} \int_{E_l} fdm \le \int_{E} fdm \tag{23}\]
+              В свою очередь, (23) влечет
+              \[\sum_{l=1}^{\infty} \int_{E_l} fdm \le \int_{E} fdm \tag{24}\]
+              (19) и (24) влекут
+              \[\sum_{l=1}^{\infty} \int_{E_l} fdm = \int_{E} fdm \tag{25}\]
+    \end{enumerate}
+
+    Для функций любого знака это тоже проверяется с помощью (8)
+\end{longProof}
+
+\begin{corollary}
+    Функция $f \in \calL(E)$ тогда и только тогда, когда $|f| \in \calL_+(E)$.
+\end{corollary}
+\begin{proof}
+    Заведем множества
+    \begin{gather*}
+        E_+ = \{x: f(x) \ge 0\} \\
+        E_- = \{x: f(x) < 0\},
+    \end{gather*}
+    тогда $E_+ \cap E_- = \varnothing$, $E = E_+ \cup E_-$.
+    В таком случае
+    \[\int_E f dm = \int_{E_+} fdm + \int_{E_-} fdm = \int_{E_+} f_+ dm - \int_{E_-} f_- dm\]
+    и
+    \[\int_E |f| dm = \int_{E_+} |f| dm + \int_{E_-} |f| dm = \int_{E_+} f_+ dm + \int_{E_-} f_- dm,\]
+    Кроме того, получили, что
+    \[\left| \int_E fdm \right| \le \int_E |f| dm\]
+\end{proof}
+
+\begin{definition}
+    Пусть имеется множество $E$, не обязательно измеримое, а также функции $f$ и $g: E \to \overline{\R}$.
+    Говорят, что функции $f$ и $g$ эквивалентны и пишут $f \sim g$, если
+    \[T = \{x \in E: f(x) \neq g(x)\}\]
+    и $mT = 0$.
+\end{definition}
+
+\begin{corollary}
+    Пусть имеется суммируемые функции $f, g \in \calL(E)$ и $f \sim g$, тогда
+    \[\int_E fdm = \int_E gdm\]
+\end{corollary}
+\begin{proof}
+    Пусть
+    \[T = \{x \in E: f(x) \neq g(x)\}\]
+    и $S = E \setminus T$, тогда
+    \begin{multline*}
+        \int_E fdm = \int_S fdm + \int_T fdm = \\
+        = \int_S gdm + 0 = \int_S gdm + \int_T gdm = \int_E gdm
+    \end{multline*}
+\end{proof}
+
+Далее будет много результатов без доказательств.
+\begin{theorem}[Беппо Леви]
+    Пусть имеется последовательность функций $\{v_n(x)\}_{n=1}^\infty$, где $v_n(x) \ge 0$, когда $x \in E$, и $v_n(x) \le v_{n+1}(x)\ \forall n\ \forall x$.
+    Пусть
+    \[V(x) = \lim_{n \to \infty} v_n(x),\]
+    считаем, что данный предел всегда существует и может быть равен $+\infty$.
+    По свойствам измеримых функций $V(x)$ измерима.
+    Тогда теорема Беппо Леви состоит в том, что
+    \[\lim_{n \to \infty} \int_E v_n dm = \int_E V dm\]
+\end{theorem}
+\begin{proof}
+    Примем без доказательства.
+\end{proof}
+
+\begin{corollary}
+    Пусть $f, g \ge 0$ и $f,g \in \calL_+(E)$, тогда
+    \[\int_E (f+g) dm = \int_E fdm + \int_E gdm\]
+\end{corollary}
+\begin{proof}
+    Воспользуемся теоремой об аппроксимации, построим простые функции $0 \le u_n(x) \le f(x)$, где $u_n(x) \le u_{n+1}(x)$ и $u_n(x) \xrightarrow[n \to \infty]{} f(x)$.
+    И простые функции $0 \le v_n(x) \le g(x)$, где $v_n(x) \le v_{n+1}(x)$ и $v_n(x) \xrightarrow[n \to \infty]{} g(x)$.
+    Тогда
+    \begin{multline*}
+        \int_E (u_n + v_n) dm = I_E(u_n + v_n) = I_E(u_n) + I_E(v_N) =\\
+        = \int_E u_n dm + \int_E v_n dm \tag{26}
+    \end{multline*}
+    по теореме Беппо Леви
+    \begin{gather*}
+        \int_E (u_n + v_n) dm \to \int_E (f + g) dm \\
+        \int_E u_n dm \to \int_E f dm \\
+        \int_E v_n dm \to \int_E g dm
+    \end{gather*}
+    и (26) влечет соответствующее свойство.
+\end{proof}
+\begin{remark}
+    Свойство сформулировано только для положительных функций, однако выполнено для любых.
+\end{remark}
+\end{document}
