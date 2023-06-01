@@ -1,0 +1,164 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Ряды Фурье}
+\section{Определение рядов Фурье}
+\begin{definition}
+    Пусть $f \in \calL((-\pi, \pi))$, коэффициентами Фурье функции $f$ называются числа
+    \[\begin{gathered}
+            a_0 = \frac{1}{2 \pi} \int_{-\pi}^{\pi} fdm \\
+            a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos nx dm \\
+            b_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin nx dm
+        \end{gathered} \tag{1}\]
+\end{definition}
+Запись $\int_{-\pi}^{\pi} f(x) \cos nx dm$ или $\int_{-\pi}^{\pi} f(x) \sin nx dm$ означает интеграл Лебега от функций $f(x) \cos nx$, $f(x) \sin nx$ по множеству $(-\pi, \pi)$ по мере Лебега в $\R^1$.
+\begin{definition}
+    Рядом Фурье для функции $f$ называется функциональный ряд
+    \[a_0 + \sum_{n=1}^{\infty} (a_n \cos nx + b_n \sin nx)\]
+\end{definition}
+
+Нам понадобятся еще два утверждения из теории интеграла Лебега, которые мы примем без доказательств.
+\begin{proposition}
+    Пусть $f \in \calL((a, b))$, тогда
+    \[\int_{(a, b-h)} |f(x+h) - f(x)| dm \xrightarrow[h \to +0]{} 0 \tag{2}\]
+\end{proposition}
+
+\begin{proposition}
+    Пусть $f \in \calL((a, b))$, тогда
+    \[\int_{(b-h, b)} |f(x)| dm \xrightarrow[h \to +0]{} 0 \tag{3}\]
+\end{proposition}
+
+Для интеграла Лебега справедливо также следующее свойство инвариантности относительно сдвига: пусть $E \subset \R$, $E \in \M_1$, $f \in \calL(E)$,
+\[E_t = \{x \in \R: x = y+t, y \in E\},\]
+$t \neq 0$, $f_t(x) = f(x-t)$, $x \in E_t$.
+Тогда
+\[\int_{E_t} f_t dm = \int_E f dm \tag{4}\]
+
+\begin{theorem}[Римана-Лебега]
+    Справедливы соотношения
+    \[\begin{gathered}
+            \int_{-\pi}^{\pi} f(x) \cos dx dm \xrightarrow[|d| \to \infty]{} 0\\
+            \int_{-\pi}^{\pi} f(x) \sin dx dm \xrightarrow[|d| \to \infty]{} 0
+        \end{gathered}\tag{5}\]
+\end{theorem}
+\begin{longProof}
+    Докажем первое соотношение в (5) при $d \to \infty$, остальные доказываются аналогично.
+    Пусть $t = \pi/d$, $E = (-\pi, \pi)$, $E_t = (-\pi + t, \pi +t)$, тогда (4) влечет
+    \begin{multline*}
+        \int_E f(x) \cos dx dm = \int_{E_t}(f(x) \cos dx)_t dm = \\
+        = \int_{E_t} f(x-t) \cos d(x-t) dm = - \int_{E_t} f(x-t) \cos dx dm, \tag{6}
+    \end{multline*}
+    поскольку $\cos d(x - t) = \cos (dx - \pi) = - \cos dx$.
+
+    Прибавим слева и справа в (6) $\int_E f(x) \cos dx dm$, получим
+    \begin{multline*}
+        2 \int_{-\pi}^{\pi} f(x) \cos dx dm = \int_{-\pi}^{\pi} f(x) \cos dx dm - \int_{-\pi + t}^{\pi + t} f(x - t) \cos dx dm = \\
+        = \int_{-\pi}^{-\pi + t} f(x)\cos dx dm + \int_{-\pi+t}^{\pi} (f(x) - f(x - t)) \cos dx dm - \\
+        - \int_{\pi}^{\pi + t} f(x - t) \cos dx dm \coloneq I_1(d) + I_2(d) - I_3(d) \tag{7}
+    \end{multline*}
+    Теперь получаем соотношения
+    \begin{gather*}
+        \left| I_1(d) \right| \le \int_{-\pi}^{-\pi + t} |f(x)\cos dx| dm \le \int_{-\pi}^{-\pi + t} |f(x)| dm \xrightarrow[d \to \infty]{} 0 \tag{8} \\
+        \begin{multlined}
+            \left| I_2(d) \right| \le \int_{-\pi+t}^{\pi} |f(x) - f(x - t)||\cos dx| dm \le \\
+            \le \int_{-\pi+t}^{\pi} |f(x) - f(x - t)| dm \xrightarrow[d \to \infty]{} 0
+        \end{multlined} \tag{9} \\
+        \begin{multlined}
+            \left| I_3(d) \right| \le \int_{\pi}^{\pi + t} |f(x - t) \cos dx| dm \le \int_{\pi}^{\pi + t} |f(x - t)| dm = \\
+            = \int_{\pi-t}^{\pi} |f(x - t)| dm \xrightarrow[d \to \infty]{} 0
+        \end{multlined} \tag{10}
+    \end{gather*}
+    Соотношения (7)-(10) влекут (5).
+\end{longProof}
+
+\section{Частичные суммы ряда Фурье}
+
+В дальнейшем распространим функцию $f \in \calL((-\pi, \pi))$ на все вещественные аргументы с периодом $2 \pi$, т.е. полагаем, что $f: \R \to \R$, $f(x + 2\pi) = f(x)$ $\forall x \in \R$.
+Учтем, что тогда в силу (4) будет выполняться равенство
+\[\int_{(-\pi + 2 k \pi, \pi + 2 k \pi)} f dm = \int_{(-\pi, \pi)} f dm \tag{11}\]
+
+Пусть $a \in (-\pi, \pi)$.
+Тогда опять по (4)
+\begin{multline*}
+    \int_{a, a + 2\pi} f dm = \int_{(a, \pi)} f dm + \int_{(\pi, a + 2\pi)} f dm = \\
+    = \int_{(a, \pi)} f dm + \int_{(-\pi, a)} f dm = \int_{(-\pi, \pi)} f dm \tag{12}
+\end{multline*}
+С учетом (11) и (12), получаем, что равенство (12) справедливо для $\forall a \in \R$.
+
+Пусть
+\[a_0 + \sum_{n=1}^{\infty}(a_n \cos nx + b_n \sin nx) \tag{13}\]
+ряд Фурье функции $f$.
+Частичной суммой ряда (13) называется выражение
+\[S_n(x) = a_0 + \sum_{k=1}^{n} (a_k \cos kx + b_k \sin kx) \tag{14}\]
+
+Применяя формулы (1), найдем, что
+\begin{multline*}
+    S_n(x) = \frac{1}{2 \pi} \int_{-\pi}^{\pi} f(t) dm + \sum_{k=1}^{n} \left(\cos kx \frac{1}{\pi} \int_{-\pi}^{\pi} f(t) \cos kt dm + \right. \\
+    \left. + \sin kx \frac{1}{\pi} \int_{-\pi}^{\pi} f(t) \sin kt dm\right) = \frac{1}{\pi} \int_{-\pi}^{\pi} f(t) \left( \frac{1}{2} + \sum_{k=1}^{n} \cos kx \cos kt + \right. \\
+    \left. + \sin kx \sin kt\right) dm = \frac{1}{\pi} \int_{-\pi}^{\pi} f(t) \left( \frac{1}{2} + \sum_{k=1}^{n} \cos k(t-x) \right) dm \tag{15}
+\end{multline*}
+Положим
+\[D_n(y) \coloneq \frac{1}{2} + \sum_{k=1}^{n} \cos ky \tag{16}\]
+Тогда $D_n(2 m \pi) = n + 1/2$.
+Если $y \neq 2 m \pi$, то
+\begin{multline*}
+    \sin \frac{y}{2} D_n(y) = \frac{1}{2} \sin \frac{y}{2} + \sum_{k=1}^{n} \sin \frac{y}{2} \cos ky = \\
+    = \frac{1}{2} \sin \frac{y}{2} + \sum_{k=1}^{n} \frac{1}{2}\left( \sin \left(k + \frac{1}{2}\right)y - \sin \left(k - \frac{1}{2}\right)y\right) = \\
+    = \frac{1}{2} \sin \left(n + \frac{1}{2}\right)y,
+\end{multline*}
+поэтому
+\[D_n(y) = \frac{\sin \left(n + \frac{1}{2}\right)y}{2 \sin \frac{y}{2}}, \tag{17}\]
+(15) и (17) влекут, что
+\[S_n(x) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(t) \frac{\sin \left(n + \frac{1}{2}\right)(t-x)}{\sin \frac{t-x}{2}} dm \tag{18}\]
+Применяя формулу (12), преобразуя (18):
+\begin{multline*}
+    S_n(x) = \frac{1}{2\pi} \int_{-\pi - x}^{\pi - x} f(v + x) \frac{\sin \left(n + \frac{1}{2}\right)v}{\sin \frac{v}{2}} dm = \\
+    = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(v + x) \frac{\sin \left(n + \frac{1}{2}\right)v}{\sin \frac{v}{2}} dm \tag{19}
+\end{multline*}
+
+\section{Признак \texorpdfstring{Д\'ини}{Дини} сходимости ряда Фурье}
+\begin{theorem}
+    Предположим, что справедливо соотношение
+    \[\frac{f(v + x) - f(x)}{v} \in \calL((-\pi, \pi))\]
+    Тогда
+    \[S_n(x) \xrightarrow[n \to \infty]{} f(x) \tag{20}\]
+\end{theorem}
+\begin{longProof}
+    Применяя (16), находим, что
+    \[\int_{-\pi, \pi} D_n(v) dm = \int_{-\pi}^{\pi} D_n(v) dv = \pi, \tag{21}\]
+    тогда (19) и (21) влекут
+    \begin{multline*}
+        S_n(x) - f(x) = \frac{1}{2 \pi} \int_{-\pi}^{\pi} (f(x + v) - f(x))  \frac{\sin \left(n + \frac{1}{2}\right)v}{\sin \frac{v}{2}} dv = \\
+        = \frac{1}{2 \pi} \int_{-\pi}^{\pi} \frac{f(x + v) - f(x)}{v} \cdot \frac{v}{\sin \frac{v}{2}} \cdot \sin\left(n + \frac{1}{2}\right) v dm \tag{22}
+    \end{multline*}
+    При $|v| < \pi$ имеем
+    \[\left|\sin \frac{v}{2}\right| \ge \frac{2}{\pi} \cdot \frac{|v|}{2} = \frac{|v|}{\pi},\]
+    поэтому $|v / \sin(v / 2)| \le \pi$,
+    \[\left|\frac{f(x + v) - f(x)}{v} \cdot \frac{v}{\sin \frac{v}{2}}\right| \le \pi \left|\frac{f(x + v) - f(x)}{v}\right|,\]
+    т.е.
+    \[g(v) \coloneq \frac{f(x + v) - f(x)}{v} \cdot \frac{v}{\sin \frac{v}{2}} \in \calL((-\pi, \pi))\]
+    Тогда по теореме Римана-Лебега
+    \[S_n(x) - f(x) = \frac{1}{2 \pi} \int_{(-\pi, \pi)} g(v) \sin\left(n + \frac{1}{2}\right) v dm \xrightarrow[n \to \infty]{} 0\]
+\end{longProof}
+
+\section{Равенство Парсеваля}
+\begin{theorem}
+    Пусть $f^2 \in \calL(-\pi, \pi)$, $a_n$, $n \ge 0$, $b_n$, $n \ge 1$~--- коэффициенты Фурье $f$.
+    Тогда
+    \[\frac{1}{2 \pi} \int_{(-\pi, \pi)} f^2 dm = a^2_0 + \frac{1}{2} \sum_{n=1}^{\infty} (a^2_n + b^2_n)\]
+\end{theorem}
+Примем без доказательства.
+
+\section{Единственность ряда Фурье}
+\begin{theorem}
+    Пусть $f, g \in \calL((-\pi, \pi))$, $a_n(f)$, $b_n(f)$, $a_n(g)$, $b_n(g)$~--- коэффициенты Фурье $f, g$.
+
+    Пусть $a_n(f) = a_n(g)$, $n \ge 0$, $b_n(f) = b_n(g)$, $n \ge 1$, тогда $f \sim g$.
+\end{theorem}
+Примем без доказательства.
+
+Если $f \sim g$, то $a_n(f) = a_n(g)$, $b_n(f) = b_n(g)$, теорема дает обратное утверждение.
+В частности, если $a_n(f_0) = 0$, $n \ge 0$, $b_n(f_0) = 0$, $n \ge 1$, то $f_0 \sim 0$, $0$~--- функция, тождественно равная нулю.
+
+Конец курса.
+\end{document}

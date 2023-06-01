@@ -1,0 +1,143 @@
+% !TeX root = ./main.tex
+\documentclass[main]{subfiles}
+\begin{document}
+\chapter{Поверхностные интегралы}
+\section{Поверхностные интегралы по мере Лебега}
+\begin{definition}
+    Пусть $m > n \ge 1$ и $G \subset \R^n$~--- область.
+    Параметризованной поверхностью будем называть отображение $f: G \to \R^m$ со свойствами:
+    \begin{itemize}
+        \item $f$~--- биекция
+        \item $f \in C^1(G)$
+        \item $\rank Df(x) = n$ $\forall x \in G$
+    \end{itemize}
+    $f$ будем называть параметризацией.
+
+    Если
+    \begin{itemize}
+        \item $f$~--- биекция
+        \item $f \in C^1(\overline{G})$
+        \item $\rank Df(x) = n$ $\forall x \in \overline{G}$,
+    \end{itemize}
+    то будем говорить, что имеется параметризованная поверхность с краем.
+\end{definition}
+Часто поверхностью будем называть множество $S = f(G)$.
+
+\begin{definition}
+    Если есть другая область $U \subset \R^n$ и некоторое отображение $f_1: U \to \R^m$ и при этом $f_1$~--- параметризация, тогда будем говорить, что $f$ и $f_1$ эквиваленты, если существует биекция $\phi: G \to U$ и $\phi \in C^1(G)$ и справедливо соотношение
+    \[f_1(\phi(x)) = f(x)\]
+\end{definition}
+Часто будем иметь только множество $S \subset \R^m$, считая, что мы всегда можем предъявить параметризацию.
+
+Пусть у нас есть $E \subset S$, тогда будем говорить, что $E$ измеримо и писать $E$~--- $S$-измеримо, если $f^{-1}(E) \in \M_n$.
+\begin{proposition}
+    Измеримость множества не зависит от параметризации.
+\end{proposition}
+
+\begin{definition}[Мера измеримого множества]
+    Пусть есть параметризованная поверхность $S$ и измеримое множество $E \subset S$, тогда
+    \[m_S E \coloneq \int_{f^{-1}(E)} \sqrt{\det(D^Tf(x) Df(x))} dm_n\]
+\end{definition}
+
+\begin{theorem}
+    Величина $m_S E$ при эквивалентных параметризациях совпадает, т.е. справедливо равенство:
+    \begin{align*}
+        m_S E & \coloneq \int_{f^{-1}(E)} \sqrt{\det(D^Tf(x) Df(x))} dm_n = \\
+              & = \int_{f_1^{-1}(E)} \sqrt{\det(D^Tf_1(y) Df_1(y))} dm_n
+    \end{align*}
+\end{theorem}
+
+\begin{definition}[Поверхностный интеграл Лебега 1 рода]
+    Пусть имеется функция $F: S \to \R$, тогда криволинейным интегралом первого рода по мере $dm_S$ называется следующее выражение
+    \[\int_S F dm_S = \int_{f^{-1}(E)} F(f^{-1}(x)) \sqrt{\det(D^Tf(x) Df(x))} dm_n\]
+\end{definition}
+\begin{theorem}
+    Поверхностный интеграл Лебега 1 рода не зависит от параметризации.
+\end{theorem}
+
+\begin{definition}
+    Кусочно-гладкой поверхность $S$ будем называть
+    \[S = \bigcup_{\nu = 1}^k S_\nu,\]
+    где $S_\nu$~--- параметризованные поверхности.
+
+    Тогда $E \subset S$ будем называть измеримым, если $E \cap S_\nu$ будет измеримым при $1 \le \nu \le k$, а так же
+    \[\int_E F dm_S = \sum_{\nu = 1}^{k} \int_{E \cap S_\nu} F dm_{S_\nu}\]
+\end{definition}
+
+\section{Поверхностные интегралы второго рода для поверхностей в \texorpdfstring{$\R^3$}{R\textasciicircum 3}}
+\begin{definition}
+    Пусть имеется область $G \subset \R^2$, где $(u, v) \in G$ и отображение $f: G \to \R^3$.
+
+    Знаем, что $\forall M \in G$ $\exists n(M)$~--- нормаль к $G$.
+
+    Предположим, что $f(u, v)$~--- параметризованная поверхность, поэтому $\rank(Df) = 2$ $\forall (u, v) \in G$, тогда
+    \[f'_u(M) \times f'_v(M) \neq \mathbb{0}\ \forall M \in G\]
+    Далее полагаем, что $n(M) \parallel f'_u(M) \times f'_v(M)$ и будем говорить, что мы имеем параметризованную ориентированную поверхность в $\R^3$.
+\end{definition}
+В случае с поверхностью с краем, $f: \overline{G} \to \R^3$ и $\Gamma = \partial G$~--- кусочно гладкая кривая.
+На любой замкнутой кривой можно ввести ориентацию.
+Теперь у нас есть $L = f(\Gamma) = \partial S$~--- образ границы, $\forall N \in L$ (за исключением точек соединения гладких кривых) существует касательная $t(N)$ к $L$, и существует нормаль $\nu(N)$ к $L$.
+Считаем, что $\nu$ направлена вне $S$.
+
+Теперь обозначим координатные функции:
+\[f(u, v) = \begin{bmatrix}
+        x(u, v) \\
+        y(u, v) \\
+        z(u, v)
+    \end{bmatrix}\]
+тогда криволинейный интеграл второго рода есть
+\begin{gather*}
+    \iint_{\overrightarrow{S}} F(x, y, z) dx \wedge dy \coloneq \int_G F(f(u, v)) \begin{vmatrix}
+        x'_u & x'_v \\
+        y'_u & y'_v
+    \end{vmatrix} dm_2(u, v) \\
+    \iint_{\overrightarrow{S}} F(x, y, z) dy \wedge dz \coloneq \int_G F(f(u, v)) \begin{vmatrix}
+        y'_u & y'_v \\
+        z'_u & z'_v
+    \end{vmatrix} dm_2(u, v) \\
+    \iint_{\overrightarrow{S}} F(x, y, z) dz \wedge dx \coloneq \int_G F(f(u, v)) \begin{vmatrix}
+        z'_u & z'_v \\
+        x'_u & x'_v
+    \end{vmatrix} dm_2(u, v)
+\end{gather*}
+
+\subsection{Формула Грина}
+Пусть имеется область $G \subset \R^2$ и $\Gamma = \partial G$~--- несамопересекающаяся замкнутая кусочно гладкая кривая.
+Имеются функции $P, Q \in C^1(\overline{G})$ и пусть $\overline{\Gamma}$ означает положительную ориентацию $\Gamma$, тогда
+\begin{gather*}
+    \int_{\Gamma} P(x, y)dx = - \int_G P'_y (x,y) dm_2 \\
+    \int_{\Gamma} Q(x, y)dx =  \int_G Q'_x (x,y) dm_2
+\end{gather*}
+
+\subsection{Формула Стокса}
+Пусть имеется ориентированная поверхность $\overrightarrow{S}$ и её граница с согласованной ориентацией $\overrightarrow{L}$, а так же $P, Q, R \in C^1 (\overline{S})$, т.е. существует открытое $\Omega$, т.ч. $\overline{S} \subset \Omega$ и $P, Q, R \in C^1(\Omega)$, тогда справедливы следующие формулы
+\begin{gather*}
+    \int_{\overrightarrow{L}} P(M) dx = - \iint_{\overrightarrow{S}} P'_y dx \wedge dy + \iint_{\overrightarrow{S}} P'_z dz \wedge dx \\
+    \int_{\overrightarrow{L}} Q(M) dy = - \iint_{\overrightarrow{S}} Q'_z dy \wedge dz + \iint_{\overrightarrow{S}} Q'_x dx \wedge dy \\
+    \int_{\overrightarrow{L}} R(M) dx = - \iint_{\overrightarrow{S}} R'_x dz \wedge dx + \iint_{\overrightarrow{S}} R'_y dy \wedge dz
+\end{gather*}
+
+\subsection{Формула Гаусса-Остроградского}
+Пусть $S = \partial V$ и она ориентирована так, что нормаль направлена вне, тогда
+\[\iint_{\overrightarrow{S}} P dx\wedge dy + Q dy \wedge dz + R dz \wedge dx = \int_V (P'_z + Q'_x + R'_y) dm_3\]
+
+\subsection{Согласование ориентации поверхности с краем в \texorpdfstring{$\R^3$}{R\textasciicircum 3} и ее граничной кривой}
+\marginpar{25.05.23}
+Пусть $S \subset \R^3$~--- поверхность с краем $L$, т.е. существует параметризация $f: \overline{D} \to S$, $D \subset \R^2$, $\Gamma = \partial D$, $L = f(\Gamma)$.
+Считаем, что ориентация $\overrightarrow{S}$ задана параметризацией $f$, т.е. для каждой точки $M_0 = f(u_0, v_0) \in S$ нормаль $n(M_0)$ удовлетворяет условию $n(M_0) \upuparrows f'_u(u_0, v_0) \times f'_v(u_0, v_0)$, т.е. она они сонаправлены.
+Пусть $N \in L$, на замкнутой кривой $L$ выбрано направление обхода, $t(N)$~--- касательный вектор к $L$ в соответствии с этим направлением, $\nu(N)$~--- нормаль к кривой $L$ такая, что $\nu(N) \perp t(N)$, $\nu(N) \perp n(N)$ и вектор $\nu(N)$ направлен внутрь $S$.
+
+Тогда говорят, что ориентация $\overrightarrow{S}$ и $\overrightarrow{L}$ согласованы, если векторы $t(N)$, $\nu(N)$, $n(N)$ образуют правую тройку векторов в $\R^3$, т.е. их можно перевести поворотом (= специальным ортогональным преобразованием) в векторы $OX$, $OY$, $OZ$.
+
+\subsection{Определение двойных интегралов, когда поверхность ограничивает тело}
+Оригинальное название: определение $\iint_{\overrightarrow{S}} f(M) dx \wedge dy$, $\iint_{\overrightarrow{S}} f(M) dy \wedge dz$, $\iint_{\overrightarrow{S}} f(M) dz \wedge dx$ в случае, когда $S$ ограничивает тело $V \subset \R^3$.
+
+Ориентируем $\overrightarrow{S}$ таким образом, чтобы нормаль $n(M)$, $M \in S$ была направлена вне $V$.
+Любую поверхность $\overrightarrow{S}$ можно представить в виде
+\[\overrightarrow{S} = \bigcup_{k=1}^m \overrightarrow{S}_k,\]
+где $\overrightarrow{S}_k$~--- ориентированные параметризованные поверхности с краем, ориентация которых получена из ориентации $\overrightarrow{S}$ и такие, что $S_k \cap S_l$ либо кривая, либо точка, либо $S_k \cap S_l = \varnothing$.
+Тогда по определению
+\[\iint_{\overrightarrow{S}} f(M) dx \wedge dy = \sum_{k=1}^{m} \iint_{\overrightarrow{S}_k} f(M) dx \wedge dy,\]
+остальные интегралы аналогично.
+
+\end{document}

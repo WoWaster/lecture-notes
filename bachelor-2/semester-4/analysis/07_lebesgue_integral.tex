@@ -352,4 +352,106 @@
 \begin{remark}
     Свойство сформулировано только для положительных функций, однако выполнено для любых.
 \end{remark}
+
+\marginpar{18.05.23}
+\begin{theorem}
+    Пусть имеются функции $v_n: E \to \R$, при этом $v_n(x) \ge 0$ $\forall x \in E$, $\forall n$.
+    И пусть
+    \[S(x) = \sum_{n=1}^{\infty} v_n(x),\]
+    если ряд расходится, то сумма полагается равной $+\infty$, тогда
+    \[\int_E S dm  = \sum_{n=1}^{\infty} \int_E v_n dm\]
+\end{theorem}
+\begin{proof}
+    Положим, что
+    \[S_n(x) = \sum_{k=1}^{n} v_k(x),\]
+    понятно, что $0 \le S_n(x) \le S_{n+1}(x)$.
+    По теореме об аддитивности интеграла Лебега имеем
+    \[\int_E S_n dm = \sum_{k=1}^{n} \int_E v_k dm,\]
+    тогда по теореме Беппо Леви
+    \[\int_E S_n dm \xrightarrow[n \to \infty]{} \int_E S dm, \]
+    т.к.
+    \[\sum_{k=1}^{n} \int_E v_k dm \xrightarrow[n \to \infty]{} \sum_{k=1}^{\infty} \int_E v_k dm\]
+\end{proof}
+
+\begin{theorem}[Лебега о мажорируемой сходимости]
+    Пусть имеется множество $E \subset \R^n$, а так же функция $g(x) \ge 0$ и $g \in \calL(E)$.
+    Допустим, что имеется последовательность функций $\{f_n(x)\}_{n=1}^\infty$, которые удовлетворяют условию $|f_n(x)| \le g(x)$ $\forall n$ $\forall x \in E$.
+    Предположим, что
+    \[\forall x\ f_n(x) \xrightarrow[n \to \infty]{} f(x),\]
+    тогда $f \in \calL(E)$ и
+    \[\int_E f_n dm \xrightarrow[n \to \infty]{} \int_E f dm\]
+\end{theorem}
+
+\begin{theorem}[Связь интеграла Римана и интеграла Лебега]
+    Пусть функция $f \in \mathcal{R}((a,b))$\footnote{интегрируема по Риману}, тогда $f$ измерима на $(a, b)$, $f \in \calL((a,b))$ и
+    \[\int_{a}^{b} f(x) dx = \int_{(a, b)} f dm\]
+\end{theorem}
+Все интегрируемые по Риману функции интегрируемы по Лебегу.
+Обратное неверно.
+\begin{example}
+    Функция Дирихле:
+    \[\chi(x) = \begin{cases}
+            1, & x \in (0, 1), x \text{ рациональное}   \\
+            0, & x \in (0, 1), x \text{ иррациональное}
+        \end{cases}\]
+    Интеграл Римана от нее не существует.
+    С другой стороны, функция принимает всего два значения; множество рациональных чисел счетно, где каждая точка имеет меру 0, поэтому мера рациональных чисел тоже 0, и тогда получаем, что
+    \[\int_{(0, 1)} \chi dm = \int_{(0, 1) \cap \Q} \chi dm + \int_{(0, 1) \setminus \Q} \chi dm = 0 + \int_{(0, 1) \setminus \Q} 0 dm = 0,\]
+    поэтому интеграл Лебега является расширением интеграла Римана.
+\end{example}
+
+\section{Теорема Фубини}
+
+Имеется множество $E \subset \R^{n+k}$, где $n \ge 1$, $k \ge 1$.
+
+Введем обозначение п.в.$(m)$, которое означает, что какое-то свойство выполнено почти всюду относительно меры Лебега в пространстве $\R^m$.
+А также $\M_m$, которое означает множество всех множеств, измеримых по Лебегу в $\R^m$.
+
+Пусть имеется точка $M \in \R^{n+k}$, будем записывать $M(x, y)$, где $x \in \R^n$ и $y \in \R^k$.
+
+Пусть $y \in \R^k$, обозначим
+\[E(\cdot, y) = \{x \in \R^n: (x, y) \in E\},\]
+пусть $x \in \R^n$, обозначим
+\[E(x, \cdot) = \{y \in \R^k: (x, y) \in E\},\]
+любое из этих множеств может быть пустым.
+
+Пусть имеется функция $f: E \to \R$ и $y \in \R^k$, тогда
+\[\phi_y(x) \begin{cases}
+        \text{неопределенна}, & E(\cdot, y) = \varnothing                                   \\
+        f(x, y),              & E(\cdot, y) \neq \varnothing \text{ при } x \in E(\cdot, y)
+    \end{cases},\]
+аналогично, если $x \in \R^n$, тогда
+\[\psi_x(y) \begin{cases}
+        \text{неопределенна}, & E(x, \cdot) = \varnothing                                   \\
+        f(x, y),              & E(x, \cdot) \neq \varnothing \text{ при } y \in E(x, \cdot)
+    \end{cases}\]
+
+\begin{proposition}
+    Пусть $E \in \M_{n+k}$, тогда при п.в.$(k)$ $y$ $E(\cdot, y) \in \M_n$, а так же при п.в.$(n)$ $x$ $E(x, \cdot) \in \M_k$.
+\end{proposition}
+
+\begin{proposition}
+    Пусть функция $f$ $(n+k)$ измерима на $E$, тогда при п.в.$(k)$ $y$ $\phi_y$ $(n)$ измерима на $E(\cdot, y)$, а так же при п.в.$(n)$ $x$ $\psi_x$ $(k)$ измерима на $E(x, \cdot)$.
+\end{proposition}
+
+\begin{proposition}
+    Пусть функция $f \in \calL_{n+k}(E)$, тогда при п.в.$(k)$ $y$ $\phi_y \in \calL_n(E(\cdot, y))$, а так же при п.в.$(n)$ $x$ $\psi_x \in \calL_k(E(x, \cdot))$.
+\end{proposition}
+
+Обозначим $\Omega \subset \R^k$ как множество таких $y$, что $E(\cdot, y) \neq 0$ и $\phi_y \in \calL(E(\cdot, y))$, аналогично обозначим множество $G$ как множество таких $x$, что $E(x, \cdot) \neq 0$ и $\psi_x \in \calL(E(x, \cdot))$.
+
+Определим функцию
+\[\Psi (y) = \int_{E(\cdot, y)} \phi_y dm_n\]
+при $y \in \Omega$.
+Аналогично определим
+\[\Phi(x) = \int_{E(x, \cdot)} \psi_x dm_k\]
+при $x \in G$.
+
+Тогда $\Omega \in \M_k$ и $G \in \M_n$ и справедлива следующая формула:
+\[
+    \int_E f dm_{n+k} = \int_\Omega \Psi dm_k = \int_G \Phi dm_n
+\]
+Это и есть основное утверждение теоремы Фубини.
+
+Из этой теоремы следует теорема о несобственном интеграле, зависящем от параметра, за прошлый семестр.
 \end{document}
