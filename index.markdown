@@ -12,12 +12,14 @@ title: Конспекты
 
 ## 4 семестр
 
-- Дифференциальные уравнения (Автор: Т.Е. Звягинцева и кафедра)
+- Дифференциальные уравнения (Автор: Т.Е. Звягинцева и кафедра). 
+  Пояснение про файлы 1. и 2.: файл 2. новее, чем 1., т.к. в нем исправлены некоторые важные опечатки и он более полный; лучше брать информацию из него на сколько это возможно. 
+  После них файлы шли в порядке 5., 4., 3.
   1. Линейные системы дифференциальных уравнений в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part1.pdf)
-  2. Линейные системы дифференциальных уравнений (продолжение) в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part2.pdf)
-  3. Дифференциальные свойства решений как функций начальных данных и параметров в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part3.pdf)
-  4. Устойчивость решений по Ляпунову в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part4.pdf)
-  5. Автономные системы в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part5.pdf)
+  2. Линейные системы дифференциальных уравнений (продолжение) в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part2.pdf) 
+  4. Дифференциальные свойства решений как функций начальных данных и параметров в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part3.pdf)
+  5. Устойчивость решений по Ляпунову в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part4.pdf)
+  6. Автономные системы в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part5.pdf)
 - [Математическая логика](https://storage.yandexcloud.net/tp-2021-lecture-notes/mathematical-logic-4.pdf) (Автор [@KubEF](https://github.com/KubEF), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/17))
 - [Математический анализ](https://storage.yandexcloud.net/tp-2021-lecture-notes/analysis-4.pdf) (Автор [@WoWaster](https://github.com/WoWaster), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/13))
 - [Базы данных и СУБД](https://drive.google.com/drive/folders/1ZuzWUZsDZGHtOVtiKXRfMgWKEIP_fsNk)
