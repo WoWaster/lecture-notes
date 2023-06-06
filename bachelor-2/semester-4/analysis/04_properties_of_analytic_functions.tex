@@ -76,10 +76,10 @@
         \intertext{вторая производная~--- производная некоторой аналитической функции, поэтому}
         (11) \implies f'' \in A(\Omega) \tag{12}
         \intertext{раз она аналитична в $\Omega$, значит у нее есть производная}
-        (12) \implies \forall z \in \Omega \exists (f'')' (z) \coloneqq f'''(z) \tag{13}
+        (12) \implies \forall z \in \Omega\ \exists (f'')' (z) \coloneqq f'''(z) \tag{13}
         \intertext{и так далее, по индукции}
         n \ge 3 \ f^{(n)} (z) \in A(\Omega) \tag{14}\\
-        (14) \implies \forall z \in \Omega \exists (f^{(n)})' = f^{(n+1)}(z) \tag{15}\\
+        (14) \implies \forall z \in \Omega\ \exists (f^{(n)})' = f^{(n+1)}(z) \tag{15}\\
         (15) \implies f^{(n+1)} \in A(\Omega)
     \end{gather*}
 \end{definition}
@@ -108,7 +108,7 @@
 
 Возьмем $z = a$, тогда при $n \ge 1$
 \begin{gather*}
-    (17) \implies f^{(n)} (a) = \frac{n!}{2 \pi i} \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{(\zeta - a)^{(n+1)}} \tag{18}
+    (17) \implies f^{(n)} (a) = \frac{n!}{2 \pi i} \int_{\overrightarrow{\gamma_r}} \frac{f(\zeta)}{(\zeta - a)^{(n+1)}} d\zeta \tag{18}
 \end{gather*}
 \begin{theorem}
     Все еще пользуемся обозначениями из \ref{4:theorem_with_defs}.

@@ -44,7 +44,7 @@
         \frac{1}{\zeta - z} = \frac{1}{(\zeta - a) - (z - a)} = \frac{1}{\zeta - a}\cdot \frac{1}{1 - \frac{z - a}{\zeta - a}} = \\
         = \frac{1}{\zeta - a} \sum_{n = 0 }^{\infty} \left(\frac{z - a}{\zeta -a}\right)^n =\sum_{n = 0 }^{\infty} \frac{(z - a)^n}{(\zeta -a)^{n+1}} \tag{2}
     \end{multline*}
-    В таком случае $(2)$ влечет, что
+    В таком случае (2) влечет, что
     \begin{multline*}
         \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_{R_1}}} \frac{f(\zeta)}{\zeta - z} d\zeta = \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_{R_1}}} f(\zeta) \sum_{n = 0 }^{\infty} \frac{(z - a)^n}{(\zeta -a)^{n+1}} d\zeta = \\
         = \sum_{n = 0 }^{\infty} \frac{(z - a)^n}{2 \pi i}  \int_{\overrightarrow{\gamma_{R_1}}} \frac{f(\zeta)}{(\zeta -a)^{n+1}} d\zeta \tag{3}
@@ -59,7 +59,7 @@
         \int_{\overrightarrow{\partial D_{t, R_1} (a)}} \frac{f(\zeta)}{(\zeta -a)^{n+1}} d\zeta = 0  \tag{4}\\
         (4) \implies \frac{1}{2 \pi i}  \int_{\overrightarrow{\gamma_{t}}} \frac{f(\zeta)}{(\zeta -a)^{n+1}} d\zeta =  \frac{1}{2 \pi i}  \int_{\overrightarrow{\gamma_{R_1}}} \frac{f(\zeta)}{(\zeta -a)^{n+1}} d\zeta \tag{5}
     \end{gather*}
-    $(5)$ означает, что интеграл в формуле $(3)$ не зависит от $R_1$, т.к. было любое $R_1$, а потом фиксировали некоторое $t$.
+    (5) означает, что интеграл в формуле (3) не зависит от $R_1$, т.к. было любое $R_1$, а потом фиксировали некоторое $t$.
     Обозначим
     \[c_n = \frac{1}{2 \pi i}  \int_{\overrightarrow{\gamma_{R_1}}} \frac{f(\zeta)}{(\zeta -a)^{n+1}} d\zeta,\]
     и $c_n$ не зависит от выбора $R_1$.
@@ -70,7 +70,7 @@
     \end{multline*}
     и выполнено
     \[\left| \frac{\zeta - a}{z - a} \right| = \frac{r_1}{\rho} < 1\]
-    Тогда $(6)$ влечет
+    Тогда (6) влечет
     \[- \frac{1}{2 \pi i } \int_{\overrightarrow{\gamma_{r_1}}} \frac{f(\zeta)}{\zeta - z} d\zeta  = \sum_{n = 0 }^{\infty} \frac{1}{(z-a)^{n+1}} \frac{1}{2 \pi i} \int_{\overrightarrow{\gamma_{r_1}}} (\zeta - a)^n f(\zeta) d\zeta \tag{7} \]
     Воспользуемся выбранным ранее $t$ и тем, что $(\zeta - a)^n f(\zeta) \in A(D_{r, R}(a))$, тогда
     \[\int_{\overrightarrow{\partial D_{r_1, t} (a)}}  (\zeta - a)^n f(\zeta) d\zeta = 0 \tag{8}\]
@@ -84,13 +84,13 @@
     Осталось проверить равномерную сходимость рядов.
     Если у нас есть $r < r_1 < r_0 < R_0 < R_1 < R$ и мы предположим, что
     \[r_0 \le |z-a| \le R_0\]
-    тогда, при проведении рассуждений, изложенных выше, для формул $(2)$ и $(7)$, будут верны неравенства
+    тогда, при проведении рассуждений, изложенных выше, для формул (2) и (7), будут верны неравенства
     \begin{gather*}
         \left| \frac{z-a}{\zeta - a} \right| \le \frac{R_0}{R_1} = Q < 1\\
         \left| \frac{\zeta - a}{z - a} \right| \le \frac{r_1}{r_0} = q < 1
     \end{gather*}
-    это будет означать, что в интегралах в $(2)$ и $(7)$ будет равномерная сходимость, если мы сохраним интегрирование по $\gamma_{R_1}$ и $\gamma_{r_1}$ соответственно.
-    И из этого следует, что $(2)$ равномерно сходится при $|z - a| \le R_0$, а $(7)$ равномерно сходится при $|z - a| \ge r_0$.
+    это будет означать, что в интегралах в (2) и (7) будет равномерная сходимость, если мы сохраним интегрирование по $\gamma_{R_1}$ и $\gamma_{r_1}$ соответственно.
+    И из этого следует, что (2) равномерно сходится при $|z - a| \le R_0$, а (7) равномерно сходится при $|z - a| \ge r_0$.
 \end{longProof}
 
 \section{Особые точки аналитических функций}
@@ -124,7 +124,7 @@
     Если возьмём любое $R_0$, то функция будет аналитична, а следовательно ограничена.
     Если выполнено условие $c_{-n} = 0$ $\forall n \ge 1$, то $f \in A(B_R(a))$.
 
-    \textbf{Достаточность:} предположим, что выполнено условие $(2)$ и зафиксируем $z$: $|z - a| = \rho$, где $0 < \rho < R_0$.
+    \textbf{Достаточность:} предположим, что выполнено условие (2) и зафиксируем $z$: $|z - a| = \rho$, где $0 < \rho < R_0$.
     Кроме того, возьмём $\rho < R_1 < R_0$ и $0 < \epsilon < \rho$.
     Тогда можем рассматривать кольцо $D_{\epsilon, R_1}(a)$, в силу выбора $z \in D_{\epsilon, R_1}(a)$ и можем записать формулу Коши:
     \begin{gather*}
@@ -183,7 +183,7 @@
     \[|\phi(z)| < 1\ z \in D_{0, \delta_1}(a) \tag{19}\]
     и $\phi(z) \not\equiv 0$.
     По первому пункту
-    \[(19) \implies \phi \in A(B_{\delta_1})(a) \tag{2}\]
+    \[(19) \implies \phi \in A(B_{\delta_1}(a)) \tag{2}\]
 
     \marginpar{13.04.23}
     \[(14) \implies\ |\phi(z)| \xrightarrow[z \to a]{} 0 \tag{1'}\]

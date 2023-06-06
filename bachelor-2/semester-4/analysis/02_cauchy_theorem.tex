@@ -49,7 +49,7 @@
         = - \int_{a}^{b} \left(f(x + iq) - f(x + ip)\right) dx = - \int_{a}^{b} \left(f^*(x, q) - f^*(x, p)\right) dx = \\
         = - \int_{a}^{b} \left( \int_{p}^{q} {f^*}_y' (x, y) dy\right) dx \tag{9}
     \end{multline*}
-    В предыдущем интеграле в $(9)$ мы воспользовались при фиксированном $x$ формулой Ньютона-Лейбница, что возможно, поскольку $f^* \in C^1(G)$, что влечет $f^* \in C^1(Q)$.
+    В предыдущем интеграле в (9) мы воспользовались при фиксированном $x$ формулой Ньютона-Лейбница, что возможно, поскольку $f^* \in C^1(G)$, что влечет $f^* \in C^1(Q)$.
     Далее,
     \[\AnClOrInt[\mathrlap{\AnClOrCurve[BC]}] f(z) dz - \ClOrInt[\mathrlap{\ClOrCurve[AD]}] f(z) dz = i \int_{p}^{q} f(b + iy) dy - i \int_{p}^{q} f(a + iy) dy \tag{10}\]
     $(10) \implies$
@@ -57,15 +57,16 @@
         \AnClOrInt[\mathrlap{\AnClOrCurve[BC]}] f(z) dz - \ClOrInt[\mathrlap{\ClOrCurve[AD]}] f(z) dz = i \int_{p}^{q} \left( f(b + iy) dy - f(a + iy) \right) dy = \\
         = i \int_{p}^{q} (f^*(b, y) - f^*(a, y)) dy = i \int_{p}^{q} \left( \int_{a}^{b} {f^*}_x' (x, y) dx\right) dy \tag{11}
     \end{multline*}
-    В $(11)$ мы опять воспользовались формулой Ньютона-Лейбница.
-    Применяя теорему \ref{2:intOfInt}, из соотношений $(8)$--$(11)$ находим, что
+    В (11) мы опять воспользовались формулой Ньютона-Лейбница.
+    Применяя теорему \ref{2:intOfInt}, из соотношений (8)--(11) находим, что
     \begin{multline*}
-        \AnClOrInt[\AnClOrCurve[\partial Q]] f(z) dz = i \int_{p}^{q} \left( \int_{a}^{b} {f^*}_x' (x, y) dx\right) dy - \int_{a}^{b} \left( \int_{p}^{q} {f^*}_y' (x, y) dy\right) dx = \\
+        \AnClOrInt[\AnClOrCurve[\partial Q]] f(z) dz = \\
+        = i \int_{p}^{q} \left( \int_{a}^{b} {f^*}_x' (x, y) dx\right) dy - \int_{a}^{b} \left( \int_{p}^{q} {f^*}_y' (x, y) dy\right) dx = \\
         = - \int_{a}^{b} \left( \int_{p}^{q} {f^*}_y' (x, y) dy\right) dx + i \int_{a}^{b} \left( \int_{p}^{q} {f^*}_x' (x, y) dy\right) dx = \\
         = \int_{a}^{b} \left( \int_{p}^{q} \left( i {f^*}_x' (x, y) - {f^*}_y'(x, y)\right) dy \right) dx = \\
         = i \int_{a}^{b} \left( \int_{p}^{q} \left( {f^*}_x' (x, y) + i {f^*}_y'(x, y)\right) dy \right) dx = \\
         = 2 i \int_{a}^{b} \left( \int_{p}^{q} \frac{1}{2} \left( {f^*}_x' (x, y) + i {f^*}_y'(x, y)\right) dy \right) dx = \\
-        = 2 i \int_{a}^{b} \left( f_{\overline{z}}' (x + iy) dy\right) dx = 0,
+        = 2 i \int_{a}^{b} \left( \int_{p}^{q} f_{\overline{z}}' (x + iy) dy\right) dx = 0,
     \end{multline*}
     поскольку $f \in A(G)$.
 \end{longProof}
@@ -93,14 +94,14 @@
     \begin{multline*}
         \AnClOrInt[\AnClOrCurve[\partial \Delta]] \dotsi = \AnClOrInt[\AnClOrCurve[AB]] \dotsi + \AnClOrInt[\AnClOrCurve[BC]] \dotsi + \AnClOrInt[\AnClOrCurve[CA]] \dotsi = \\
         = \AnClOrInt[\AnClOrCurve[AA_1]] \dotsi + \AnClOrInt[\AnClOrCurve[A_1 B]] \dotsi + \AnClOrInt[\AnClOrCurve[BC_1]] \dotsi + \AnClOrInt[\AnClOrCurve[C_1 C]] \dotsi + \AnClOrInt[\AnClOrCurve[CD]] \dotsi + \AnClOrInt[\AnClOrCurve[DA]] \dotsi = \\
-        = \left( \AnClOrInt[\AnClOrCurve[AA_1]] \dotsi + \AnClOrInt[\AnClOrCurve[A_1 D]] \dotsi + \AnClOrInt[\AnClOrCurve[DA]] \dotsi \right) + \\
-        + \left( \AnClOrInt[\AnClOrCurve[C_1 C]] \dotsi + \AnClOrInt[\AnClOrCurve[CD]] \dotsi + \AnClOrInt[\AnClOrCurve[DC_1]] \dotsi\right) + \left( \AnClOrInt[\AnClOrCurve[DA_1]] \dotsi + \AnClOrInt[\AnClOrCurve[A_1 B]] \dotsi + \AnClOrInt[\AnClOrCurve[BC_1]] \dotsi + \AnClOrInt[\AnClOrCurve[C_1 D]] \dotsi\right) = \\
+        = \left( \AnClOrInt[\AnClOrCurve[AA_1]] \dotsi + \AnClOrInt[\AnClOrCurve[A_1 D]] \dotsi + \AnClOrInt[\AnClOrCurve[DA]] \dotsi \right) + \left( \AnClOrInt[\AnClOrCurve[C_1 C]] \dotsi + \AnClOrInt[\AnClOrCurve[CD]] \dotsi + \AnClOrInt[\AnClOrCurve[DC_1]] \dotsi\right) + \\
+        + \left( \AnClOrInt[\AnClOrCurve[DA_1]] \dotsi + \AnClOrInt[\AnClOrCurve[A_1 B]] \dotsi + \AnClOrInt[\AnClOrCurve[BC_1]] \dotsi + \AnClOrInt[\AnClOrCurve[C_1 D]] \dotsi\right) = \\
         = \AnClOrInt[\AnClOrCurve[\partial \Delta_1]] \dotsi + \AnClOrInt[\AnClOrCurve[\partial \Delta_2]] \dotsi + \AnClOrInt[\AnClOrCurve[\partial Q_1]] \dotsi, \tag{13}
     \end{multline*}
     где $\Delta_1$~--- треугольник с вершинами $A, A_1, D$, $\Delta_2$~--- треугольник с вершинами $C_1, C, D$, $Q_1$~--- прямоугольник с вершинами $A_1, B, C_1, D$.
     По теореме \ref{2:cauchy_square} имеем равенство
     \[\AnClOrInt[\AnClOrCurve[\partial Q_1]] f(z) dz = 0, \tag{14}\]
-    поэтому $(13)$ и $(14) \implies$
+    поэтому (13) и (14) $\implies$
     \[ \AnClOrInt[\AnClOrCurve[\partial \Delta]] f(z) dz = \AnClOrInt[\AnClOrCurve[\partial \Delta_1]] f(z) dz + \AnClOrInt[\AnClOrCurve[\partial \Delta_2]] f(z) dz\]
     Приведенное рассуждение можно применить к $\Delta_1$ и к $\Delta_2$ и т.д., в результате, если поделить гипотенузу $AC$ на $2^n$ равных отрезков и построить подобные $ABC$ треугольники $\Delta_{n1}, \dotsc, \Delta_{n2^n}$, занумерованные снизу вверх, то получим равенство
 
@@ -136,12 +137,12 @@
     \end{multline*}
     далее, с учетом $|z - \alpha| \le |\gamma - \alpha| = 2^{-n} |C - A| < \delta$, если $z \in \Delta_{nk}$,
     \begin{multline*}
-        \left| \AnClOrInt[\AnClOrCurve[\partial \Delta_{nk}]] (f(z) - f(\alpha)) dz \right| \le \AnClOrInt[\AnClOrCurve[\partial \Delta_{nk}]] \left| f^*(M) - f^*(L) \right| dl(M) \le \\
-        \le \AnClOrInt[\AnClOrCurve[\partial \Delta_{nk}]] \epsilon dl(M) = \epsilon (|\beta - \alpha| + |\gamma - \beta| + |\gamma - \alpha|) < 3 \epsilon |\gamma - \alpha| = \\
+        \left| \AnClOrInt[\AnClOrCurve[\partial \Delta_{nk}]] (f(z) - f(\alpha)) dz \right| \le \AnClOrInt[\partial \Delta_{nk}] \left| f^*(M) - f^*(L) \right| dl(M) \le \\
+        \le \AnClOrInt[\partial \Delta_{nk}] \epsilon dl(M) = \epsilon (|\beta - \alpha| + |\gamma - \beta| + |\gamma - \alpha|) < 3 \epsilon |\gamma - \alpha| = \\
         = 3 \epsilon \cdot 2^{-n}|C - A|, \tag{17}
     \end{multline*}
     где $\alpha \in \C \leftrightarrow L \in \R^2$, $z \in \C \leftrightarrow M \in R^2$.
-    Теперь $(15)$--$(17)$ при выбранном $n$ влечет:
+    Теперь (15)--(17) при выбранном $n$ влечет:
     \[\left| \AnClOrInt[\AnClOrCurve[\partial \Delta]] f(z) dz \right| \le \sum_{k=1}^{2^n} \left| \AnClOrInt[\AnClOrCurve[\partial \Delta_{nk}]] f(z) dz \right| \le \sum_{k=1}^{2^n} 3 \epsilon \cdot 2^{-n}|C - A| = 3 \epsilon |C - A| \tag{18}\]
     Поскольку $\epsilon > 0$ произвольно, то $(18) \implies (12)$.
 \end{longProof}
@@ -259,7 +260,7 @@
     \begin{gather*}
         \sum_{j=1}^{N} \sum_{l=1}^{3} \AnClOrInt[\AnClOrCurve[t_{jl}]] f(z) dz = \sum_{j=1}^{N} \AnClOrInt[\AnClOrCurve[P_j]] f(z) dz \tag{6}
     \end{gather*}
-    $(5)$, $(6) \implies (4)$.
+    (5), (6) $\implies$ (4).
 \end{longProof}
 
 \begin{theorem}
@@ -268,7 +269,7 @@
 \end{theorem}
 \begin{proof}
     Заведем триангуляцию $G = \bigcup_{j=1}^N \Delta_j$ со всеми свойствами из теоремы.
-    Тогда соотношение $(4)$ влечет:
+    Тогда соотношение (4) влечет:
     \begin{gather*}
         \AnClOrInt[\AnClOrCurve[\partial G]] f(z) dz = \sum_{j=1}^{N} \AnClOrInt[\AnClOrCurve[\partial \Delta_j]] f(z) dz = \sum_{j=1}^{N} 0 = 0
     \end{gather*}
@@ -277,7 +278,7 @@
 \section{Теорема Коши для областей, ограниченных кусочно-гладкими кривыми}
 \begin{lemma}
     Есть кусочно-гладкая кривая $\gamma$, $a, b$~--- концы $\gamma$, т.ч. $a$~--- начало, $b$~--- конец, $f \in C(\gamma)$, тогда
-    \[\left| \AnClOrInt[\AnClOrCurve[\gamma]] f(z) dz -  c(b-a) \right| \le \max_{z \in \gamma} |f(z) - c| l(\gamma), \tag{8}\]
+    \[\left| \AnClOrInt[\AnClOrCurve[\gamma]] f(z) dz -  c(b-a) \right| \le \max_{z \in \gamma} |f(z) - c| \cdot l(\gamma), \tag{8}\]
     где $l(\gamma)$~--- длина $\gamma$.
 \end{lemma}
 \begin{proof}
@@ -285,7 +286,7 @@
         c(b-a) = \int_{\overrightarrow{\gamma}} c dz\\
         \begin{multlined}
             \left| \AnClOrInt[\AnClOrCurve[\gamma]] f(z) dz -  c(b-a) \right| = \left| \AnClOrInt[\AnClOrCurve[\gamma]] f(z) dz - \int_{\overrightarrow{\gamma}} c dz \right| = \left| \int_{\overrightarrow{\gamma}} (f(z) - c) dz \right| \le \\
-            \le \int_{\gamma}\left|f(z) -c \right| dl(\gamma) \le \int_{\gamma}\max_{z \in \gamma} |f(z) - c| dl(\gamma) = \max_{z \in \gamma} |f(z) - c| l(\gamma)
+            \le \int_{\gamma}\left|f(z) -c \right| dl(\gamma) \le \int_{\gamma}\max_{z \in \gamma} |f(z) - c| dl(\gamma) = \max_{z \in \gamma} |f(z) - c| \cdot l(\gamma)
         \end{multlined}
     \end{gather*}
 \end{proof}
