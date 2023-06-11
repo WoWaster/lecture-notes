@@ -253,9 +253,9 @@
         \Gamma_\theta([a,b]) = \left\{ z \in \C: z = e^{i \theta} \xi, \xi \in \Gamma([a,b])\right\}
     \end{gather*}
     и ориентация на $\AnClOrCurve_\theta([a,b])$ задается с $\AnClOrCurve([a,b])$.
-    Для $z \in \AnClOrCurve([a,b])$ положим $f_\theta(z) \coloneq f(e^{-i\theta}z)$.
+    Для $z \in \AnClOrCurve_\theta([a,b])$ положим $f_\theta(z) \coloneq f(e^{-i\theta}z)$.
     И справедливо равенство
-    \[\AnClOrInt[\AnClOrCurve ([a,b])] f(z) dz = e^{-i\theta} \AnClOrInt[\AnClOrCurve_\theta ([a,b])] f(\xi) d\xi. \tag{5}\]
+    \[\AnClOrInt[\AnClOrCurve ([a,b])] f(z) dz = e^{-i\theta} \AnClOrInt[\AnClOrCurve_\theta ([a,b])] f_\theta(\xi) d\xi. \tag{5}\]
 \end{property}
 \begin{proof}
     Пусть $\{z_j\}_{j=0}^n$~--- точки на $\AnClOrCurve([a,b])$, полученные из разбиения $\{t_j\}_{j=0}^n$, $\{\tau_j\}_{j=1}^n$~--- оснащение, $z_j' = \Gamma(\tau_j)$.

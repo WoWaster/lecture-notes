@@ -41,7 +41,7 @@
         \AnClOrCurve[CD] = \{z = t + iq: t = a + b - x, x \in [a,b]\}\\
         \AnClOrCurve[DA] = \{z = a + is: s = p + q - y, y \in [p,q]\}
     \end{gather*}
-    Пусть $\ClOrCurve[AD]$~--- отрезок, противоположно ориентированный по отношению к $\AnClOrCurve[AD]$, $\ClOrCurve[CD]$~--- отрезок, противоположно ориентированный по отношению к $\AnClOrCurve[CD]$.
+    Пусть $\ClOrCurve[DA]$~--- отрезок, противоположно ориентированный по отношению к $\AnClOrCurve[DA]$, $\ClOrCurve[CD]$~--- отрезок, противоположно ориентированный по отношению к $\AnClOrCurve[CD]$.
     Тогда имеем
     \[ \AnClOrInt[\AnClOrCurve[\partial Q]] f(z) dz = \left( \AnClOrInt[\mathrlap{\AnClOrCurve[AB]}] f(z) dz - \ClOrInt[\mathrlap{\ClOrCurve[CD]}] f(z) dz \right) + \left( \AnClOrInt[\mathrlap{\AnClOrCurve[BC]}] f(z) dz - \ClOrInt[\mathrlap{\ClOrCurve[DA]}] f(z) dz \right) \tag{8} \]
     \begin{multline*}
@@ -51,10 +51,10 @@
     \end{multline*}
     В предыдущем интеграле в (9) мы воспользовались при фиксированном $x$ формулой Ньютона-Лейбница, что возможно, поскольку $f^* \in C^1(G)$, что влечет $f^* \in C^1(Q)$.
     Далее,
-    \[\AnClOrInt[\mathrlap{\AnClOrCurve[BC]}] f(z) dz - \ClOrInt[\mathrlap{\ClOrCurve[AD]}] f(z) dz = i \int_{p}^{q} f(b + iy) dy - i \int_{p}^{q} f(a + iy) dy \tag{10}\]
+    \[\AnClOrInt[\mathrlap{\AnClOrCurve[BC]}] f(z) dz - \ClOrInt[\mathrlap{\ClOrCurve[DA]}] f(z) dz = i \int_{p}^{q} f(b + iy) dy - i \int_{p}^{q} f(a + iy) dy \tag{10}\]
     $(10) \implies$
     \begin{multline*}
-        \AnClOrInt[\mathrlap{\AnClOrCurve[BC]}] f(z) dz - \ClOrInt[\mathrlap{\ClOrCurve[AD]}] f(z) dz = i \int_{p}^{q} \left( f(b + iy) dy - f(a + iy) \right) dy = \\
+        \AnClOrInt[\mathrlap{\AnClOrCurve[BC]}] f(z) dz - \ClOrInt[\mathrlap{\ClOrCurve[DA]}] f(z) dz = i \int_{p}^{q} \left( f(b + iy) dy - f(a + iy) \right) dy = \\
         = i \int_{p}^{q} (f^*(b, y) - f^*(a, y)) dy = i \int_{p}^{q} \left( \int_{a}^{b} {f^*}_x' (x, y) dx\right) dy \tag{11}
     \end{multline*}
     В (11) мы опять воспользовались формулой Ньютона-Лейбница.
