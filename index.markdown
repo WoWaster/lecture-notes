@@ -20,15 +20,16 @@ title: Конспекты
   4. Дифференциальные свойства решений как функций начальных данных и параметров в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part3.pdf)
   5. Устойчивость решений по Ляпунову в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part4.pdf)
   6. Автономные системы в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-4-part5.pdf)
-- [Математическая логика](https://storage.yandexcloud.net/tp-2021-lecture-notes/mathematical-logic-4.pdf) (Автор [@KubEF](https://github.com/KubEF), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/17))
-- [Математический анализ](https://storage.yandexcloud.net/tp-2021-lecture-notes/analysis-4.pdf) (Автор [@WoWaster](https://github.com/WoWaster), ошибки/предложения [link](https://github.com/WoWaster/lecture-notes/issues/13))
+- [Математическая логика](https://storage.yandexcloud.net/tp-2021-lecture-notes/mathematical-logic-4.pdf) (Автор [@KubEF](https://github.com/KubEF))
+  - Данный конспект брошен в силу того, что Татьяна Матвеевна в какой-то момент начала вести лекции по своим файлам. 
+- [Математический анализ](https://storage.yandexcloud.net/tp-2021-lecture-notes/analysis-4.pdf) (Автор [@WoWaster](https://github.com/WoWaster))
 - [Базы данных и СУБД](https://drive.google.com/drive/folders/1ZuzWUZsDZGHtOVtiKXRfMgWKEIP_fsNk)
 
 ## 3 семестр
 
 - [Алгебра и теория чисел](https://storage.yandexcloud.net/tp-2021-lecture-notes/algebra-and-number-theory-3.pdf) (Автор [@chilison](https://github.com/chilison))
 - [Геометрия и топология](https://storage.yandexcloud.net/tp-2021-lecture-notes/geometry-and-topology-3.pdf) (Автор [@WoWaster](https://github.com/WoWaster))
-- Дифференциальные уравнения (Автор: Т.Е. Звягинцева и кафедра)[^why]
+- Дифференциальные уравнения (Автор: Т.Е. Звягинцева и кафедра)
   1. Дифференциальные уравнения первого порядка в [репозитории СПбГУ](http://hdl.handle.net/11701/34721), в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-3-part1.pdf)
   2. Общая теория систем обыкновенных дифференциальных уравнений в [репозитории СПбГУ](http://hdl.handle.net/11701/37873), в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-3-part2.pdf)
   3. Линейные дифференциальные уравнения в [бакете](https://storage.yandexcloud.net/tp-2021-lecture-notes/differential-equations-3-part3.pdf)
@@ -44,5 +45,3 @@ title: Конспекты
 
 - [Алгебра и теория чисел](https://storage.yandexcloud.net/tp-2021-lecture-notes/algebra-and-number-theory-1.pdf)
 - [Геометрия и топология](https://storage.yandexcloud.net/tp-2021-lecture-notes/geometry-and-topology-1.pdf)
-
-[^why]: Изначально эти конспекты были личным трудом Т.Е. Звягинцевой, и лишь потом стали проверяться другими преподавателями. К сожалению, публикация в репозитории СПбГУ означает ответственность за содержание и корректность материала, соответственно на данный момент там есть только вычитанные и проверенные первые 2 части. Остальные части могут содержать ошибки, поэтому пересылаются Татьяной Евгеньевной лично студентам. В случае обнаружения ошибки лучше сообщать ей лично. (возможно ближе к экзамену будет issue)
